@@ -1,1 +1,101 @@
-[]
+[
+ {
+  "file": "voters",
+  "section": "11.2",
+  "first12": "pastoralist agricultural segments (Musyi FM, Sang'u FM).",
+  "words": 0,
+  "kind": "replaced",
+  "home": "news:4.2",
+  "note": "C7 follow-through (consolidation Step 1, D1.8): Sang'u FM is in no ownership source and left the operating lists in #47; County FM is the priority station with a separate Mwingi frequency (Section 4.2 ownership map).",
+  "text": "pastoralist agricultural segments (Musyi FM, Sang'u FM).",
+  "replacement": "pastoralist agricultural segments (Musyi FM, County FM)."
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "F.5",
+  "first12": "```visual kind: checklist items: - label: \"Level 1\" text: \"Minor negative comment",
+  "words": 4,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (consolidation Step 1, D1.4): this three-level checklist and the four-tier decision tree in F.1 classified the same incidents with different clocks. The tree is kept; its approvers and the >10,000-view and manipulated-media thresholds from this checklist now sit in data/escalation.ts, drawn by the response-matrix figure in F.1 and by fig-5-7.",
+  "text": "```visual\nkind: checklist\nitems:\n  - label: \"Level 1\"\n    text: \"Minor negative comment or isolated misinformation\"\n    head: { label: \"Response time\", text: \"≤ 4 hours\" }\n    fields:\n      - { label: \"Approval\", text: \"Digital Director\" }\n  - label: \"Level 2\"\n    text: \"Coordinated attack; viral misinformation (>10,000 views)\"\n    head: { label: \"Response time\", text: \"≤ 2 hours\" }\n    fields:\n      - { label: \"Approval\", text: \"Campaign Communications Director\" }\n  - label: \"Level 3\"\n    text: \"Major crisis — false allegation, **manipulated or AI-generated media**, legal threat\"\n    head: { label: \"Response time\", text: \"≤ 30 minutes\" }\n    fields:\n      - { label: \"Approval\", text: \"**Candidate + senior leadership**\" }\n```",
+  "replacement": "The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data."
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "F.6",
+  "first12": "Deepfake protocol; 30-minute Level 3 clock",
+  "words": 1,
+  "kind": "replaced",
+  "home": "response:20.4",
+  "note": "Escalation, one model (D1.4): the three-level ladder is retired; the 30-minute clock is the manipulated-media protocol's own (Risks & response).",
+  "text": "Deepfake protocol; 30-minute Level 3 clock",
+  "replacement": "Deepfake protocol; 30-minute manipulated-media clock"
+ },
+ {
+  "file": "response",
+  "section": "20.4",
+  "first12": "title: \"Rapid rebuttal — Level 3, 30-minute clock\"",
+  "words": 0,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (D1.4): manipulated media is a critical-tier incident in the four-tier decision tree.",
+  "text": "title: \"Rapid rebuttal — Level 3, 30-minute clock\"",
+  "replacement": "title: \"Rapid rebuttal — critical tier, 30-minute clock\""
+ },
+ {
+  "file": "engagement",
+  "section": "13.2",
+  "first12": "| Crisis, Level 3 |",
+  "words": 0,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (D1.4).",
+  "text": "| Crisis, Level 3 |",
+  "replacement": "| Crisis, critical tier |"
+ },
+ {
+  "file": "engagement",
+  "section": "13.5",
+  "first12": "Three levels, so that decisions do not stall under pressure in the",
+  "words": -21,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (D1.4): the operational ladder (who resolves an issue inside the campaign) is named apart from the attack severity tiers, and links to them.",
+  "text": "Three levels, so that decisions do not stall under pressure in the field:",
+  "replacement": "Three decision levels, so that operational decisions do not stall under pressure in the field. Attacks on the campaign are judged separately, by the four severity tiers in the runbooks' decision tree (Annex F.1):"
+ },
+ {
+  "file": "team",
+  "section": "17.2",
+  "first12": "crisis Level 2 drafting",
+  "words": -4,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (D1.4): Firefly drafts at the high and critical severity tiers (data/escalation.ts).",
+  "text": "crisis Level 2 drafting",
+  "replacement": "crisis drafting at the high and critical tiers"
+ },
+ {
+  "file": "team",
+  "section": "17.2",
+  "first12": "escalates Level 3 to the candidate",
+  "words": -1,
+  "kind": "replaced",
+  "home": "annex-runbooks:F.1",
+  "note": "Escalation, one model (D1.4).",
+  "text": "escalates Level 3 to the candidate",
+  "replacement": "escalates a critical-tier attack to the candidate"
+ },
+ {
+  "file": "success",
+  "section": "18.3",
+  "first12": "Section 18.4 sets out why vanity metrics are left out. These five",
+  "words": -20,
+  "kind": "replaced",
+  "home": "success:18.2",
+  "note": "Indicators (consolidation Step 1, D1.5): 'these five' named which five. The site carries nine scorecard indicators (four nomination, five general election) and these five recognition indicators; the counts are checked against data/kpis.ts.",
+  "text": "Section 18.4 sets out why vanity metrics are left out. These five indicators replace them. Every",
+  "replacement": "Section 18.4 sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every"
+ }
+]

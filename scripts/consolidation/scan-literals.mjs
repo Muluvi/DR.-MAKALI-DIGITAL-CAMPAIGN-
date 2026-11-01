@@ -15,8 +15,9 @@
  *   - the registry's own source files: lib/data/figures.ts and data/ward-register.json
  *   - generated output (public/, lib/register/generated/, data/*.generated.json, data/analysis/,
  *     and the source table scripts/build-source-table.ts writes into content/annex-evidence.md)
- *   - years (1900–2100) and numbers below 1,000: a year, a CSS weight, a percentage or a small
- *     count matches too many unrelated things to be evidence of a copy
+ *   - years (1900–2100), numbers below 1,000 and bare powers of ten (1,000, 10,000, 1,000,000): a
+ *     year, a CSS weight, a percentage, a small count, a millisecond timing or a unit scale
+ *     ("/ 1000", "× 1_000_000") matches too many unrelated things to be evidence of a copy
  *
  * Matches are graded:
  *   exact    the literal equals a registry value
@@ -46,6 +47,7 @@ const SKIP_PATH = [/\.test\.ts$/, /^lib\/register\/generated\//, /\.generated\./
 const exact = new Map();
 const rounded = new Map();
 const push = (m, k, id) => m.set(k, [...(m.get(k) ?? []), id]);
+const isPowerOfTen = (n) => n >= 1000 && Number.isInteger(Math.log10(n));
 for (const [id, f] of Object.entries(FIGURES)) {
   if (f.value === null || !Number.isFinite(f.value)) continue;
   const val = f.value;
@@ -53,6 +55,7 @@ for (const [id, f] of Object.entries(FIGURES)) {
   const shown = Number(val.toFixed(decimals));
   if (Math.abs(shown) < 1000) continue;
   if (Number.isInteger(shown) && shown >= 1900 && shown <= 2100) continue;
+  if (isPowerOfTen(Math.abs(shown))) continue;
   push(exact, String(shown), id);
   if (Math.abs(val) >= 10_000) {
     const r = Math.round(val / 1000) * 1000;
@@ -124,6 +127,7 @@ for (const file of files) {
       const value = toNumber(m[1], m[2]);
       if (!Number.isFinite(value) || value < 1000) continue;
       if (Number.isInteger(value) && value >= 1900 && value <= 2100) continue;
+      if (isPowerOfTen(value)) continue;
       const key = String(value);
       const grade = exact.has(key) ? "exact" : rounded.has(key) ? "rounded" : null;
       if (!grade) continue;

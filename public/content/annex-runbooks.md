@@ -50,9 +50,7 @@ id: holding-positions
 
 ## F.5 Rapid-response protocol and pre-approved message library
 
-```visual
-{"kind":"checklist","items":[{"label":"Level 1","text":"Minor negative comment or isolated misinformation","head":{"label":"Response time","text":"≤ 4 hours"},"fields":[{"label":"Approval","text":"Digital Director"}]},{"label":"Level 2","text":"Coordinated attack; viral misinformation (>10,000 views)","head":{"label":"Response time","text":"≤ 2 hours"},"fields":[{"label":"Approval","text":"Campaign Communications Director"}]},{"label":"Level 3","text":"Major crisis — false allegation, **manipulated or AI-generated media**, legal threat","head":{"label":"Response time","text":"≤ 30 minutes"},"fields":[{"label":"Approval","text":"**Candidate + senior leadership**"}]}]}
-```
+The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
 
 To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
 
@@ -78,7 +76,7 @@ briefed to attack. The response team is **not** told which scenario is coming
 or when. The drill runs in real time against the Annex F.5 clock.
 
 ```visual
-{"kind":"checklist","title":"Standing scenario library","items":[{"label":"1. Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp","fields":[{"label":"Tests","text":"Deepfake protocol; 30-minute Level 3 clock"}]},{"label":"2. Coordinated hashtag attack on his NG-CDF record","fields":[{"label":"Tests","text":"Fact-base readiness; rebuttal library"}]},{"label":"3. Claim that the campaign sent unsolicited SMS","fields":[{"label":"Tests","text":"Consent audit trail retrieval (Section 19.3)"}]},{"label":"4. Hostile radio segment on a station associated with a rival","fields":[{"label":"Tests","text":"Radio response pathway (Section 15.2.2)"}]},{"label":"5. Ward champion's account compromised; false messages sent to a ward group","fields":[{"label":"Tests","text":"Incident response (Annex F.10)"}]},{"label":"6. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu","fields":[{"label":"Tests","text":"Charter defence; provenance evidence"}]}]}
+{"kind":"checklist","title":"Standing scenario library","items":[{"label":"1. Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp","fields":[{"label":"Tests","text":"Deepfake protocol; 30-minute manipulated-media clock"}]},{"label":"2. Coordinated hashtag attack on his NG-CDF record","fields":[{"label":"Tests","text":"Fact-base readiness; rebuttal library"}]},{"label":"3. Claim that the campaign sent unsolicited SMS","fields":[{"label":"Tests","text":"Consent audit trail retrieval (Section 19.3)"}]},{"label":"4. Hostile radio segment on a station associated with a rival","fields":[{"label":"Tests","text":"Radio response pathway (Section 15.2.2)"}]},{"label":"5. Ward champion's account compromised; false messages sent to a ward group","fields":[{"label":"Tests","text":"Incident response (Annex F.10)"}]},{"label":"6. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu","fields":[{"label":"Tests","text":"Charter defence; provenance evidence"}]}]}
 ```
 
 *Source conflict: an earlier version numbered the last scenario 7; there was no sixth, and the library holds six.*

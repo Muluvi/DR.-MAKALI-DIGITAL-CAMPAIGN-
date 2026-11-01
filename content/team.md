@@ -64,9 +64,9 @@ kind: cards
 preset: role
 items:
   - title: "**Strategy Director** (Firefly principal)"
-    text: "Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis Level 2 drafting"
+    text: "Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis drafting at the high and critical tiers"
     fields:
-      - { label: "Decision rights", text: "Approves new policy claims and Kikamba output before your team publishes; escalates Level 3 to the candidate. **Does not publish, and holds no account credentials**" }
+      - { label: "Decision rights", text: "Approves new policy claims and Kikamba output before your team publishes; escalates a critical-tier attack to the candidate. **Does not publish, and holds no account credentials**" }
   - title: "**Analyst**"
     text: "Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope"
     fields:

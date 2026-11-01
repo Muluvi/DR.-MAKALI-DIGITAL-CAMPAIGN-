@@ -143,7 +143,7 @@ items:
 
 ```visual
 kind: timeline
-title: "Rapid rebuttal — Level 3, 30-minute clock"
+title: "Rapid rebuttal — critical tier, 30-minute clock"
 items:
   - when: "0–5"
     label: "Ward champion or monitoring flags; crisis lead confirms receipt"

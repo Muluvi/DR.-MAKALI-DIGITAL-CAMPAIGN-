@@ -161,6 +161,10 @@ modelled("ballots.2026", Math.round(v("register.2026") * TURNOUT), "votes", "Jul
 modelled("benchmark.share-of-ballots.2026", pct(v("benchmark"), v("register.2026") * TURNOUT), "percent", "200,000 / ballots at the 2022 turnout rate on the July 2026 register.");
 modelled("benchmark.share-of-ballots", pct(v("benchmark"), v("ballots.2022")), "percent", "200,000 / the 328,760 certified 2022 ballots.");
 modelled("benchmark.share-of-register", pct(v("benchmark"), v("register.2022")), "percent", "200,000 / 2022 register.");
+// The analysis model's "like-for-like bar": the 2022 winning tally's share of the 2022 register,
+// applied to the July 2026 register. The model used to retype it as ~225,300 from a rate rounded to
+// 37.2%; it now reads this value from data/registry.export.json (consolidation pass, D1.6).
+modelled("benchmark.like-for-like.2026", Math.round((v("result.2022.gov.malombe") / v("register.2022")) * v("register.2026")), "votes", "198,004 / 532,758 (the 2022 winner's share of the 2022 register) × 605,703 (the July 2026 register).", { tier: "T3" });
 modelled("gap.wambua-to-benchmark-2022", v("result.2022.gov.malombe") - v("result.2022.senate.wambua"), "votes", "198,004 less 191,317.");
 
 // ---- the four routes (Section 3.3): registered voters, ballots at the constant, and the margin

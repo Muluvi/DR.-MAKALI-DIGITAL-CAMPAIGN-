@@ -141,7 +141,7 @@ export const WHATSAPP = {
     {
       from: "campaign",
       kind: "text",
-      text: "Kitui Rural / Mbitini: Dr. Makali Mulu guarantees Ksh 100M Ward Fund to pipe clean solar water to Mbitini Market & expand youth loans. Reply 1 to join. Reply STOP to opt out.",
+      text: "Kitui Rural / Mbitini: Dr. Mulu will fund wards by need, on one published formula. Solar water to Mbitini Market first. Reply 1 to join, STOP to opt out.",
       time: "07:12",
       source: "Direct 2G Bulk SMS copy sample, verbatim",
     },
@@ -295,7 +295,7 @@ export const USSD = {
     { key: "4", label: "Privacy Policy & Data Opt-Out" },
   ] satisfies UssdMenuItem[],
   submenu: [
-    { key: "1", label: "Ksh 100M Ward Equalization Fund" },
+    { key: "1", label: "Ward Fund: Published Needs-Weighted Formula" },
     { key: "2", label: "Ksh 85/kg Ndengu Floor Price & Cold Hubs" },
     { key: "3", label: "Free Boda Boda Licenses & TVET Bursaries" },
   ] satisfies UssdMenuItem[],

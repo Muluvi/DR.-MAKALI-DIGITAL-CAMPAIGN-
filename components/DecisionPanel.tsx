@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { NOMINATION_WINDOW, inSentence } from "../lib/phases";
 import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2, Eye, FileText } from "lucide-react";
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
@@ -86,7 +87,7 @@ export function DecisionPanel() {
           </p>
 
           <p className="text-sm text-ink font-semibold leading-relaxed mt-4">
-            <InlineMarks text="The Wiper nomination is reported for late October to November 2026, by a party-run countywide selection (Tier 3, Section 5.2). Every dependency below sits on that clock." />
+            <InlineMarks text={`The Wiper nomination is reported for ${inSentence(NOMINATION_WINDOW.whenText)}, by a party-run countywide selection (Tier 3, Section 5.2). Every dependency below sits on that clock.`} />
           </p>
         </div>
 

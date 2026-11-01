@@ -3,20 +3,22 @@
  */
 import type { FigureSpec } from "../types.ts";
 import { fmt, secHref } from "./_util.ts";
+import { ELECTION_DAY, NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 
 /* ------------------------------------------------------------------ the calendar, shared with 5.4 */
 
 export const TODAY = "2026-09";
-export const ELECTION = "2027-08-10";
-export const NOMINATION = { date: "2026-10-20", end: "2026-11-30", whenText: "Late October to November 2026" };
+/** The election and the nomination decision window, read from lib/phases.ts (the one calendar). */
+export const ELECTION = ELECTION_DAY;
+export const NOMINATION = { date: NOMINATION_WINDOW.date, end: NOMINATION_WINDOW.end, whenText: NOMINATION_WINDOW.whenText };
 
 export const FIG_1_1: FigureSpec = {
   id: "fig-1-1-timeline",
   section: "1.2",
   title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
   question: "How long is there?",
-  takeaway: "The Wiper ticket is settled in a window reported for late October to November 2026; everything the engagement does before then is aimed at it.",
-  sources: [{ name: "Nomination window: a single-source campaign report", tier: "T3" }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
+  takeaway: `The Wiper ticket is settled in a window reported for ${inSentence(NOMINATION_WINDOW.whenText)}; everything the engagement does before then is aimed at it.`,
+  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
     countdown: { date: ELECTION, label: "general election" },
@@ -36,7 +38,7 @@ export const FIG_1_1: FigureSpec = {
   ],
   rows: [
     { cells: { event: "This proposal", when: "September 2026", tier: "—" } },
-    { cells: { event: "Wiper nomination window (reported)", when: NOMINATION.whenText, tier: "T3" } },
+    { cells: { event: "Wiper nomination window (reported)", when: NOMINATION.whenText, tier: NOMINATION_WINDOW.tier } },
     { cells: { event: "General election", when: "10 August 2027", tier: "T1" } },
   ],
 };
