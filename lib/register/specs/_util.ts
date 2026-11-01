@@ -45,18 +45,19 @@ export const byValue = (bars: Bar[]): Bar[] => [...bars].sort((a, b) => (b.value
 /** The live deep link to a numbered section: "6.2" -> "/record#record-sec-6-2". */
 export function secHref(num: string): string {
   // One route per chapter (the November 2026 restructure). Chapter 15 runs across four routes, one
-  // per workstream group: 15.1 platforms, 15.2 media, 15.3 ground, 15.4 data.
+  // per workstream group: 15.1 platforms, 15.2 media, 15.3 ground, 15.4 data. The consolidation pass
+  // merged chapters 16, 17 and 22 and annexes B and H into the routes that now hold them.
   const chapter: Record<string, string> = {
     "1": "kitui", "2": "votes", "3": "needs", "4": "news", "5": "race", "6": "record", "7": "diagnosis",
     "8": "goal", "9": "position", "10": "message", "11": "voters", "12": "channels", "13": "engagement",
-    "14": "timeline", "16": "coalitions", "17": "team", "18": "success", "19": "lawful", "20": "response",
-    "21": "receives", "22": "commitments", "23": "ask",
+    "14": "timeline", "16": "timeline", "17": "engagement", "18": "success", "19": "lawful", "20": "response",
+    "21": "receives", "22": "receives", "23": "ask",
   };
   const annex: Record<string, string> = {
-    A: "annex-evidence", B: "annex-county", C: "annex-playbooks", D: "annex-volunteers", E: "annex-technology",
-    F: "annex-runbooks", G: "annex-terms", H: "annex-glossary",
+    A: "annex-evidence", B: "votes", C: "annex-playbooks", D: "annex-volunteers", E: "annex-technology",
+    F: "annex-runbooks", G: "annex-terms", H: "annex-terms",
   };
-  const workstreams: Record<string, string> = { "1": "workstreams-platforms", "2": "workstreams-media", "3": "workstreams-ground", "4": "workstreams-data" };
+  const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
   const parts = num.split(".");
   const tab = parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);

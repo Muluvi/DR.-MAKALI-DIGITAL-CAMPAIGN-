@@ -108,13 +108,21 @@ for (const s of secBefore) {
   const counted = a ? conservedWords(a.lines, [s.lines.join("\n"), ...movedIn].join("\n")) : { total: 0, added: 0 };
   const wa = counted.total;
   totalAdded += counted.added;
-  const wc = cutWords[s.key] ?? 0;
+  // A section moved whole to another file (a logged move with `whole: true`, the consolidation
+  // pass's chapter merges) is credited with its words as they stood at THIS base: the whole of it is
+  // elsewhere now. Crediting the ledger's count instead would count words later passes added to it
+  // as if they had been cut, when they moved with it.
+  const movedWhole = !a && cuts.some((c) => c.kind === "moved" && c.whole && `${c.file}:${c.section}` === s.key);
+  const wc = movedWhole ? wb : cutWords[s.key] ?? 0;
   totalBefore += wb;
   totalAfter += wa;
   totalCut += wc;
   const loss = wb - (wa + wc);
   rows.push({ key: s.key, wb, wa, wc, loss });
-  if (!a) errors.push(`4: section ${s.key} is gone`);
+  // A section may leave its file only by a logged move of its words to another section (the
+  // consolidation pass merges sections across files): then it is not "gone", it is elsewhere, and
+  // the move's words balance it. An unlogged disappearance still fails.
+  if (!a && loss > 2) errors.push(`4: section ${s.key} is gone`);
   else if (wb > 0 && loss / wb > 0.02 && loss > 2) errors.push(`4: ${s.key} loses ${loss} of ${wb} words (${((loss / wb) * 100).toFixed(1)}%) without a logged cut`);
 }
 const drift = (totalAfter + totalCut - totalBefore) / totalBefore;

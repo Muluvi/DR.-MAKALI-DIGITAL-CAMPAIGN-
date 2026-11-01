@@ -245,18 +245,11 @@
     "takeaway": "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned."
   },
   {
-    "id": "fig-5-1-workstreams",
-    "section": "1.4.2",
-    "title": "Of the fourteen workstreams, Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
-    "question": "Who owns what?",
-    "takeaway": "Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement."
-  },
-  {
     "id": "fig-5-2-workstream-panels",
     "section": "4.5",
-    "title": "Four groups of work, each with one product, one owner and one rhythm",
-    "question": "What does each group produce?",
-    "takeaway": "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch."
+    "title": "Fourteen workstreams in four groups: Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
+    "question": "What does each group produce, and who owns each workstream?",
+    "takeaway": "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch. Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement."
   },
   {
     "id": "fig-5-3-four-weeks",

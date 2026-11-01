@@ -10,6 +10,11 @@
  *   lib/anchors/pre-rebuild.json  every id that existed before this rebuild, and every redirect
  *                                 edge the repo ever declared (frozen by scripts/rebuild/snapshot-anchors.mjs)
  *   lib/anchors/rebuild-moves.json ids this rebuild renumbered (written by scripts/rebuild/phase1.py)
+ *   lib/anchors/consolidation-2026-11.json
+ *                                 every id live before the consolidation pass (2f29920) whose heading
+ *                                 moved, mapped to the heading that now holds its text (written by
+ *                                 scripts/consolidation/anchor-moves.mjs from the pass's ledger). Read
+ *                                 first, and each of its entries must land exactly where it says.
  *   lib/anchors/restructure-2026-11.json
  *                                 every id live before the November 2026 restructure, mapped to the
  *                                 heading that now holds its text (written by
@@ -77,6 +82,12 @@ const restructure = (
 const november = (
   JSON.parse(fs.readFileSync(path.join(ROOT, "lib", "anchors", "restructure-2026-11.json"), "utf8")) as { moves: Record<string, string> }
 ).moves;
+const consolidationFile = path.join(ROOT, "lib", "anchors", "consolidation-2026-11.json");
+const consolidation = fs.existsSync(consolidationFile)
+  ? (JSON.parse(fs.readFileSync(consolidationFile, "utf8")) as { moves: Record<string, string> }).moves
+  : {};
+/** Where an id lives today: itself if live, else where the consolidation pass moved it. */
+const today = (id: string): string => (live.has(id) ? id : consolidation[id] ?? id);
 
 function climb(id: string): string | null {
   const [route, slug] = id.split("-sec-");
@@ -97,7 +108,7 @@ function resolve(start: string): string | null {
   while (!seen.has(id)) {
     if (live.has(id)) return id;
     seen.add(id);
-    const next = november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
+    const next = consolidation[id] ?? november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
     if (next) { id = next; continue; }
     const parent = climb(id);
     if (parent) return parent;
@@ -114,7 +125,7 @@ function resolve(start: string): string | null {
 
 const redirects: Record<string, string> = {};
 const orphans: string[] = [];
-const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november)]);
+const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november), ...Object.keys(consolidation)]);
 for (const id of [...everyOld].sort()) {
   if (live.has(id)) continue;
   const target = resolve(id);
@@ -136,14 +147,20 @@ const body =
 // The October moves now land through the November ones: an October target that the November
 // restructure moved is expected where November sends it.
 const misdirected: string[] = [];
-for (const [id, target] of Object.entries(november)) {
-  if (!live.has(target)) misdirected.push(`${id} -> ${target} (target is not a live heading)`);
+for (const [id, target] of Object.entries(consolidation)) {
+  if (!live.has(target)) misdirected.push(`${id} -> ${target} (consolidation target is not a live heading)`);
   else if (!live.has(id) && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
 }
+// November's targets land where the consolidation pass moved them, if it moved them.
+for (const [id, nov] of Object.entries(november)) {
+  const target = today(nov);
+  if (!live.has(target)) misdirected.push(`${id} -> ${nov} (target is not a live heading)`);
+  else if (!live.has(id) && !consolidation[id] && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
+}
 for (const [id, oct] of Object.entries(restructure)) {
-  const target = live.has(oct) ? oct : november[oct];
+  const target = live.has(oct) ? oct : today(november[oct] ?? oct);
   if (!target || !live.has(target)) misdirected.push(`${id} -> ${oct} (neither it nor its November move is a live heading)`);
-  else if (!live.has(id) && !november[id] && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
+  else if (!live.has(id) && !november[id] && !consolidation[id] && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
 }
 if (misdirected.length) {
   console.error(`build-anchors: ${misdirected.length} restructured id(s) do not land where restructure-2026-11.json and -10.json say:`);

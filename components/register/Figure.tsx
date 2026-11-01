@@ -29,7 +29,7 @@ export const HERO_FIGURES = new Set([
   "fig-3-1-funnel",
   "fig-3-11-evidence",
   "fig-4-1-message-house",
-  "fig-5-1-workstreams",
+  "fig-5-2-workstream-panels",
   "fig-5-4-phases",
   "fig-6-3-decision",
 ]);

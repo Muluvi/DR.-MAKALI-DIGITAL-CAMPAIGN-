@@ -72,12 +72,23 @@ const nextConfig: NextConfig = {
       evidence: 'news',
       strategy: 'message',
       delivery: 'timeline',
-      staffing: 'team',
+      staffing: 'engagement',
       measurement: 'lawful',
       risks: 'response',
       'annex-messages': 'message',
       'annex-cadence': 'engagement',
       'annex-spec': 'annex-technology',
+      // The consolidation pass (November 2026) merged five more chapters into the routes that now
+      // hold their text; a fragment on the old URL is sent on to the moved heading by ClientPage.
+      commitments: 'receives',
+      team: 'engagement',
+      coalitions: 'timeline',
+      'annex-county': 'votes',
+      'annex-glossary': 'annex-terms',
+      'workstreams-platforms': 'workstreams',
+      'workstreams-media': 'workstreams',
+      'workstreams-ground': 'workstreams',
+      'workstreams-data': 'workstreams',
     };
     return [
       ...Object.entries(moved).map(([from, to]) => ({

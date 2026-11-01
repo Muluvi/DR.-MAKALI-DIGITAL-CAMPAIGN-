@@ -57,7 +57,10 @@ export const FIG_3_2: FigureSpec = {
   chart: {
     type: "composite",
     parts: [
-      { heading: "Registered voters per ward", chart: { type: "tilemap", layers: ["register"], initial: "register" } },
+      // The one layered ward map (consolidation pass, Step 4D): register size, the twelve largest
+      // wards, the three zones, where he has held office, party flow and in-reach share, switched by
+      // layer. The figures that each drew one of these maps now link to the layer here.
+      { heading: "The ward map: choose a layer", chart: { type: "tilemap", layers: ["register", "largest", "zones", "footprint", "party-flow", "reach-targets"], initial: "register", showWardList: true } },
       {
         heading: "The forty wards ranked, as shares of the register",
         chart: {
@@ -175,7 +178,7 @@ export const FIG_3_4: FigureSpec = {
   chart: {
     type: "composite",
     parts: [
-      { heading: "Where he has held office", chart: { type: "tilemap", layers: ["footprint"], initial: "footprint" } },
+      { heading: "Where he has held office", chart: { type: "maplink", layer: "footprint", label: "See where he has held office, ward by ward, on the ward map" } },
       {
         heading: "The pool",
         chart: {
@@ -230,7 +233,7 @@ export const FIG_3_6: FigureSpec = {
   chart: {
     type: "composite",
     parts: [
-      { heading: "Party flow by constituency", chart: { type: "tilemap", layers: ["party-flow"], initial: "party-flow" } },
+      { heading: "Party flow by constituency", chart: { type: "maplink", layer: "party-flow", label: "See party flow, ward by ward, on the ward map" } },
       {
         heading: "What it covers",
         chart: {
@@ -268,7 +271,7 @@ export const FIG_3_7: FigureSpec = {
   chart: {
     type: "composite",
     parts: [
-      { heading: "The zones, ward by ward", chart: { type: "tilemap", layers: ["zones"], initial: "zones" } },
+      { heading: "The zones, ward by ward", chart: { type: "maplink", layer: "zones", label: "See the three zones, ward by ward, on the ward map" } },
       {
         heading: "Share of residents against share of the register",
         chart: { type: "dumbbell", aLabel: "Share of residents (2019 Census)", bLabel: "Share of the register (2022)", unit: "%", max: 50, items: ZONES.map((z) => ({ label: z.label, a: one(z.pop), b: one(z.reg) })) },

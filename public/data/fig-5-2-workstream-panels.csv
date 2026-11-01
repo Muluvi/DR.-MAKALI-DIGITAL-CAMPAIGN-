@@ -1,5 +1,15 @@
-Group,Produces,Owner,How often,Basis
-Platforms and content (WS 1–4),"Daily multilingual posts, flagship video, the Kikamba voice note, the tracker","Your team produces; Firefly briefs, tests and builds the tracker",Daily; video 2–3 a week; voice note weekly,Sourced
-Publishing and earned media (WS 5–6),"Targeting plans, placements, briefing notes, debate preparation",Your team places; Firefly plans and reads,Weekly plan; placements as booked,Sourced
-Ground and offline reach (WS 7–10),"SMS touches, the USSD menu, field reports into the CRM",Firefly dispatches SMS and USSD; the ground team reports,"SMS fortnightly, rising to a GOTV surge; field reports daily",Sourced
-Data and technology (WS 11–14),"The data layer, the scored voter file, the weekly read and the monthly report",Firefly,Weekly read; monthly report; audit refreshed monthly,Sourced
+WS,Workstream,Group,Owner,The group produces,How often,Basis
+1,Service-delivery tracker; owned platform operation,Platforms and content (WS 1–4),"Firefly builds the tracker; your team runs the platforms, directed","Daily multilingual posts, flagship video, the Kikamba voice note, the tracker",Daily; video 2–3 a week; voice note weekly,Sourced
+2,Content production and asset governance,Platforms and content (WS 1–4),"Your team, directed","Daily multilingual posts, flagship video, the Kikamba voice note, the tracker",Daily; video 2–3 a week; voice note weekly,Sourced
+3,Creative testing and AI assistance,Platforms and content (WS 1–4),Firefly,"Daily multilingual posts, flagship video, the Kikamba voice note, the tracker",Daily; video 2–3 a week; voice note weekly,Sourced
+4,Accessibility and inclusion,Platforms and content (WS 1–4),"Firefly standard, team-executed","Daily multilingual posts, flagship video, the Kikamba voice note, the tracker",Daily; video 2–3 a week; voice note weekly,Sourced
+5,Platform tactics and paid media,Publishing and earned media (WS 5–6),"Your team, directed","Targeting plans, placements, briefing notes, debate preparation",Weekly plan; placements as booked,Sourced
+6,"Earned media, journalists and debates",Publishing and earned media (WS 5–6),"Your team, directed","Targeting plans, placements, briefing notes, debate preparation",Weekly plan; placements as booked,Sourced
+7,Ground-digital integration,Ground and offline reach (WS 7–10),Campaign-owned,"SMS touches, the USSD menu, field reports into the CRM","SMS fortnightly, rising to a GOTV surge; field reports daily",Sourced
+8,The field-to-digital loop,Ground and offline reach (WS 7–10),Campaign-owned,"SMS touches, the USSD menu, field reports into the CRM","SMS fortnightly, rising to a GOTV surge; field reports daily",Sourced
+9,"Offline reach: SMS, USSD and voice",Ground and offline reach (WS 7–10),Firefly operates directly,"SMS touches, the USSD menu, field reports into the CRM","SMS fortnightly, rising to a GOTV surge; field reports daily",Sourced
+10,Digital organising and volunteers,Ground and offline reach (WS 7–10),Outside scope,"SMS touches, the USSD menu, field reports into the CRM","SMS fortnightly, rising to a GOTV surge; field reports daily",Sourced
+11,The data layer,Data and technology (WS 11–14),Firefly,"The data layer, the scored voter file, the weekly read and the monthly report",Weekly read; monthly report; audit refreshed monthly,Sourced
+12,Predictive voter modelling,Data and technology (WS 11–14),"Firefly, gated on the compliance review","The data layer, the scored voter file, the weekly read and the monthly report",Weekly read; monthly report; audit refreshed monthly,Sourced
+13,The technology stack,Data and technology (WS 11–14),Outside scope: he already holds it,"The data layer, the scored voter file, the weekly read and the monthly report",Weekly read; monthly report; audit refreshed monthly,Sourced
+14,Analytics and attribution,Data and technology (WS 11–14),Firefly,"The data layer, the scored voter file, the weekly read and the monthly report",Weekly read; monthly report; audit refreshed monthly,Sourced

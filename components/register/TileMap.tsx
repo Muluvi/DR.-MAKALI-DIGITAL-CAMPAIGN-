@@ -4,6 +4,7 @@ import { CONSTITUENCY_BLOCKS, GRID } from "../../lib/geo/wards";
 import { TierPill } from "./Figure";
 import { group } from "../../lib/data/format";
 import { WeaveDefs } from "../premium/weave";
+import { LayerFromHash } from "./MapLayerLink";
 
 /**
  * The signature figure: 40 wards as equal tiles (brief §E.7). A server component.
@@ -40,6 +41,7 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
 
   return (
     <div className={`tm ${multi ? "" : ""}`}>
+      {multi && <LayerFromHash id={id} />}
       {multi && (
         <fieldset className="tm-layers">
           <legend>Layer</legend>

@@ -2641,6 +2641,12 @@
       "fence": "success.md, Stage 2: the general election",
       "into": "fig-5-6-kpis",
       "note": "The five general-election indicators (GE-01 to GE-05), likewise collapsed into fig-5-6-kpis. Consolidation pass, Step 3, D3.3."
+    },
+    {
+      "id": "fig-5-1-workstreams",
+      "fence": "engagement.md, Who owns what",
+      "into": "fig-5-2-workstream-panels",
+      "note": "The fourteen workstreams and their owners were drawn twice: in How it works (fig-5-1) and as four groups at the head of the workstreams (fig-5-2). fig-5-2 now draws both, the four groups and the fourteen workstreams with their owners, and its table carries every workstream with its group, owner, product and rhythm. Consolidation pass, Step 4H, D4.8."
     }
   ]
 }

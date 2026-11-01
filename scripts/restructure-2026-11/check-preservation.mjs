@@ -38,10 +38,23 @@ const settlement = fs.existsSync(settledFile) ? JSON.parse(fs.readFileSync(settl
 const markersSettled = settlement.settled.length > 0;
 const retired = new Set((settlement.retiredTokens ?? []).map((r) => `${r.file}|${r.token}`));
 
+// The consolidation pass (docs/consolidation-2026-11/ledger.json) moves passages between files. A
+// unit is also looked for in every file its file's passages were moved to, by a logged move, so a
+// merged section keeps its preservation check where it now lives, and nowhere else.
+const consolidationLedger = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+const movedTo = new Map();
+for (const c of fs.existsSync(consolidationLedger) ? JSON.parse(fs.readFileSync(consolidationLedger, "utf8")) : []) {
+  if (c.kind !== "moved" || !c.to) continue;
+  const from = `content/${c.file}.md`;
+  const to = `content/${c.to.split(":")[0]}.md`;
+  if (from !== to) movedTo.set(from, new Set([...(movedTo.get(from) ?? []), to]));
+}
+const withMoves = (files) => [...new Set(files.flatMap((f) => [f, ...(movedTo.get(f) ?? [])]))];
+
 const errors = [];
 let checked = 0;
 for (const u of units) {
-  const text = u.files.map(read).join("\n");
+  const text = withMoves(u.files).map(read).join("\n");
   const excused = (t) => u.files.some((f) => retired.has(`${f}|{{${t}}}`));
   const missing = [
     ...u.tokens.filter((t) => !excused(t) && !new RegExp(`\\{\\{${esc(t)}(\\|[a-z0-9]+)?\\}\\}`).test(text)).map((t) => `{{${t}}}`),

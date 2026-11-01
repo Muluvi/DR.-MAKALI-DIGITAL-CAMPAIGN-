@@ -68,7 +68,7 @@ for (const id of registerIds()) ids.add(id);
 {
   const src = fs.readFileSync(REGISTRY, "utf8");
   const block = src.slice(src.indexOf("const COLLAPSED"), src.indexOf("};", src.indexOf("const COLLAPSED")));
-  const inCode = new Map([...block.matchAll(/"([a-z0-9-]+)":\s*"([a-z0-9-]+)"/g)].map((m) => [m[1], m[2]]));
+  const inCode = new Map([...block.matchAll(/"([a-z0-9-]+)":\s*\{\s*into:\s*"([a-z0-9-]+)"/g)].map((m) => [m[1], m[2]]));
   const logged = new Map((JSON.parse(fs.readFileSync(path.join(ROOT, "scripts", "figure-retirements.json"), "utf8")).collapsed ?? []).map((c) => [c.id, c.into]));
   const problems = [];
   for (const [id, into] of inCode) {

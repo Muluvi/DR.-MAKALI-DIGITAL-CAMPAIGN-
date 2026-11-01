@@ -34,6 +34,7 @@ import { crossRefFor, segmentContent } from "../lib/collapse-groups";
  * its own blocks need.
  */
 const PartVisual = dynamic(() => import("./partviz/PartVisual").then((m) => m.PartVisual));
+const DataExplorer = dynamic(() => import("./tools/DataExplorer").then((m) => m.DataExplorer), { ssr: false });
 const ResourceEnvelopeBlock = dynamic(() => import("./markdown/ResourceEnvelopeBlock").then((m) => m.ResourceEnvelopeBlock));
 const ChannelReachBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ChannelReachBlock));
 const IssueEvidenceBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.IssueEvidenceBlock));
@@ -94,6 +95,7 @@ import { TextVersion } from "./markdown/TextVersion";
 import { ReadMore } from "./markdown/ReadMore";
 import { VisualFence } from "./visual/VisualFence";
 import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark, counselNote } from "./markdown/InlineMarks";
+import { WorkstreamMark, WorkstreamTabBar } from "./markdown/WorkstreamTabs";
 import { GroupChip } from "./markdown/GroupChip";
 import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
 
@@ -240,7 +242,7 @@ const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
 // Every insert sits behind a PanelFold control except the objectives index: it is a short list of
 // links rather than a panel, and it renders nothing while no other part's heading matches it, so a
 // control there would open nothing.
-const OPEN_INSERTS = new Set(["success-sec-18-1"]);
+const OPEN_INSERTS = new Set(["success-sec-18-1", "annex-evidence-sec-a-2"]);
 // The control is named by the panel's own heading. These two have none that names them (the
 // carousel's first heading is its first card), so they carry their component's own description.
 // The carousel is phone only and never printed, so its control is too.
@@ -351,17 +353,17 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
   // every phase target with its table and CSV (brief §12).
   "timeline-sec-14-4": <PhaseRail />,
-  "workstreams-platforms-sec-15-1-1": <PublicServiceDeliveryTracker />,
-  "workstreams-media-sec-15-2-1": <MediaPlaybackMockup />,
-  "workstreams-media-sec-15-2-2": (
+  "workstreams-sec-15-1-1": <PublicServiceDeliveryTracker />,
+  "workstreams-sec-15-2-1": <MediaPlaybackMockup />,
+  "workstreams-sec-15-2-2": (
     <>
       <MediaRadioLandscapeCard />
       <RadioAircoverDial />
     </>
   ),
-  "workstreams-ground-sec-15-3-1": <TerminalShowcase />,
-  "workstreams-ground-sec-15-3-2": <FlywheelSchematic />,
-  "workstreams-ground-sec-15-3-3": (
+  "workstreams-sec-15-3-1": <TerminalShowcase />,
+  "workstreams-sec-15-3-2": <FlywheelSchematic />,
+  "workstreams-sec-15-3-3": (
     <>
       <FeaturePhoneSpecimen />
       <ReachSplit />
@@ -371,13 +373,18 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   ),
   // The technology workstreams carried no anchored visualisation before this: the stretch
   // describing the stack, which is the part this reader is most likely to test against the artifact.
-  "workstreams-data-sec-15-4-4": <BenchmarkLadder />,
+  "workstreams-sec-15-4-4": <BenchmarkLadder />,
 
   // ---- Part V: proof and protection ---------------------------------------------------------
   // The scorecards are the objectives. What they do not carry is the indicator sets that stayed
   // with the work they measure — indexed beneath them rather than moved here.
   "success-sec-18-1": <ObjectivesIndex />,
   "lawful-sec-19-3": <DataSecurityEthicsCharter />,
+
+  // ---- Reference shelf -----------------------------------------------------------------------
+  // The data explorer sits above the generated source table, which stays as the print and
+  // JavaScript-off copy of the same figures (consolidation pass, Step 4N).
+  "annex-evidence-sec-a-2": <DataExplorer />,
 
   // ---- Part VI: the decision ----------------------------------------------------------------
   "receives-sec-21-1-1": <ServiceLevelSelector />,
@@ -682,6 +689,8 @@ function buildComponents(tabId: TabId): Components {
               "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
               "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
               "window-chip": () => <WindowChip />,
+              // Where each workstream group begins; the tab bar reads these (consolidation pass, Step 4H).
+              "ws-mark": (props: { tab?: string }) => <WorkstreamMark tab={props.tab} />,
             } as unknown as Components),
             h3: ({ children }) => {
               const text = getHeadingText(children);
@@ -771,6 +780,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
  [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
 
 ">
+        {/* The workstreams' four tabs, at the head of the chapter (consolidation pass, Step 4H). */}
+        {tabId === "workstreams" && <WorkstreamTabBar />}
+
         {segments.map((segment, i) => {
           if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
           if (segment.kind === "more")
@@ -798,7 +810,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
             in the footer chrome below a rule, next to the print widget — which framed a vendor's
             closing request as one more piece of page tooling. Since the November 2026 restructure
             the decision is Part VI, and the panel sits with the campaign's commitments. */}
-        {tabId === "commitments" && (
+        {tabId === "receives" && (
           <PanelFold label="What Firefly needs from the campaign">
             <DecisionPanel />
           </PanelFold>

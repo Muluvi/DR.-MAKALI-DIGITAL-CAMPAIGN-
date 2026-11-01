@@ -58,6 +58,8 @@ export type Chart =
   | { type: "slope"; left: string; right: string; lines: { label: string; a: number; b: number; tone?: "accent" | "neutral" }[]; unit: string }
   | { type: "funnel"; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[]; toggle?: { label: string; stages: { label: string; value: number | null; state: CellState; note?: string; display?: string }[] }; ref?: Ref }
   | { type: "tilemap"; layers: TileLayerId[]; initial: TileLayerId; showWardList?: boolean }
+  /** A link to the one layered ward map, opening on a layer (consolidation pass, Step 4D). */
+  | { type: "maplink"; layer: TileLayerId; label: string }
   | { type: "timeline"; events: { date: string; end?: string; label: string; state: CellState; note?: string; whenText?: string; reported?: boolean }[]; from: string; to: string; today?: string; countdown?: { date: string; label: string } }
   | { type: "steps"; steps: { title: string; body: string; when?: string; lane?: string; current?: boolean }[]; lanes?: string[]; horizontal?: boolean }
   | { type: "cards"; cards: { kicker?: string; title: string; body: string; meta?: string; tone?: "accent" | "outside"; links?: { label: string; href: string }[] }[]; columns?: 2 | 3 | 4 }
@@ -93,7 +95,7 @@ export interface BubblePoint {
   flag?: string;
 }
 
-export type TileLayerId = "register" | "footprint" | "party-flow" | "zones" | "effort" | "reach-targets";
+export type TileLayerId = "register" | "largest" | "footprint" | "party-flow" | "zones" | "effort" | "reach-targets";
 
 export interface FigureSpec {
   /** Stable: the DOM id, the CSV filename and the table-of-figures entry. */

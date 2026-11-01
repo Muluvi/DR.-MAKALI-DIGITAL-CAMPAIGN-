@@ -783,18 +783,19 @@ function StoryPointer({ spec }: { spec: { id: string; title: string; section: st
  * pass, Step 3). The fence stays where it was, so every check keyed on it holds, and renders a
  * pointer to the surviving figure. Each is also recorded in scripts/figure-retirements.json.
  */
-const COLLAPSED: Record<string, string> = {
-  "nomination-scorecard": "fig-5-6-kpis",
-  "ge-scorecard": "fig-5-6-kpis",
+const COLLAPSED: Record<string, { into: string; route: string; hint: string }> = {
+  "nomination-scorecard": { into: "fig-5-6-kpis", route: "success", hint: "Drawn once, above, with every indicator, its baseline, target, method and owner" },
+  "ge-scorecard": { into: "fig-5-6-kpis", route: "success", hint: "Drawn once, above, with every indicator, its baseline, target, method and owner" },
+  "fig-5-1-workstreams": { into: "fig-5-2-workstream-panels", route: "workstreams", hint: "Drawn once, in The workstreams, with every workstream, its group and its owner" },
 };
 
-function CollapsedPointer({ spec }: { spec: { id: string; title: string } }) {
+function CollapsedPointer({ spec, route, hint }: { spec: { id: string; title: string }; route: string; hint: string }) {
   return (
     <p className="pf-storyptr not-prose">
-      <a href={`#${spec.id}`}>
+      <a href={`/${route}#${spec.id}`}>
         <span className="pf-storyptr__k">Figure</span>
         <span className="pf-storyptr__t">{spec.title}</span>
-        <span className="pf-storyptr__h">Drawn once, above, with every indicator, its baseline, target, method and owner</span>
+        <span className="pf-storyptr__h">{hint}</span>
       </a>
     </p>
   );
@@ -809,8 +810,9 @@ function CollapsedPointer({ spec }: { spec: { id: string; title: string } }) {
 export function Figure({ id }: { id: string }) {
   // The brief's figure register (lib/register/specs) is looked up first: one spec draws the chart,
   // the table view and the CSV.
-  const survivor = COLLAPSED[id] ? REGISTER[COLLAPSED[id]] : undefined;
-  if (survivor) return <CollapsedPointer spec={survivor} />;
+  const collapsed = COLLAPSED[id];
+  const survivor = collapsed ? REGISTER[collapsed.into] : undefined;
+  if (collapsed && survivor) return <CollapsedPointer spec={survivor} route={collapsed.route} hint={collapsed.hint} />;
   const spec = REGISTER[id];
   if (spec && STORY_FIGURES.has(id)) return <StoryPointer spec={spec} />;
   if (spec) return <RegisterFigure spec={spec} />;
