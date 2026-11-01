@@ -1,18 +1,80 @@
 {
-  "$comment": "Literals scan-literals.mjs may let stand. Each equals a registry value by coincidence or is marked illustrative mock data; none states a Kitui fact the registry holds. Listed in docs/consolidation-2026-11/DECISIONS.md (D2.4). Keep this list short: a fact always belongs in the registry.",
-  "allow": [
-    { "file": "app/layout.tsx", "literal": "1200", "why": "The Open Graph image width in pixels." },
-    { "file": "components/markdown/PublicServiceDeliveryTracker.tsx", "literal": "5000", "why": "A 5-second timeout (milliseconds) for the confirmation message." },
-    { "file": "components/phone/screens/YouTubeScreen.tsx", "literal": "12000", "why": "A 12-second progress animation (milliseconds) in the phone mock." },
-    { "file": "components/register/charts.tsx", "literal": "2_000_000", "why": "An axis-label rule: scales of two million and above print in millions." },
-    { "file": "content/workstreams-platforms.md", "literal": "5,000", "why": "An ad rule's sample size (impressions before the kill rule applies), already allowed by lib/data/allow.ts." },
-    { "file": "lib/data/allow.ts", "literal": "5,000", "why": "The allow-list pattern for the ad rule above." },
-    { "file": "data/terminal-showcase.ts", "literal": "5,100", "why": "Illustrative mock data in the terminal showcase, shown under IllustrativeTag: a sample market-day crowd estimate, not a measurement." },
-    { "file": "lib/register/tilemap.ts", "literal": "11_000", "why": "A legend bin edge for the ward register map." },
-    { "file": "lib/register/tilemap.ts", "literal": "13_000", "why": "A legend bin edge for the ward register map." },
-    { "file": "lib/register/tilemap.ts", "literal": "11,000", "why": "The legend label for the same bin edge." },
-    { "file": "lib/register/tilemap.ts", "literal": "13,000", "why": "The legend label for the same bin edge." },
-    { "file": "lib/scroll-to-section.ts", "literal": "12000", "why": "A 12-second scroll hold (milliseconds)." },
-    { "file": "lib/section-heights.ts", "literal": "40000", "why": "A maximum section height in pixels for scroll estimation." }
-  ]
+ "$comment": "Literals scan-literals.mjs may let stand. Each equals a registry value by coincidence or is marked illustrative mock data; none states a Kitui fact the registry holds. Listed in docs/consolidation-2026-11/DECISIONS.md (D2.4). Keep this list short: a fact always belongs in the registry.",
+ "allow": [
+  {
+   "file": "app/layout.tsx",
+   "literal": "1200",
+   "why": "The Open Graph image width in pixels."
+  },
+  {
+   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
+   "literal": "5000",
+   "why": "A 5-second timeout (milliseconds) for the confirmation message."
+  },
+  {
+   "file": "components/phone/screens/YouTubeScreen.tsx",
+   "literal": "12000",
+   "why": "A 12-second progress animation (milliseconds) in the phone mock."
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "literal": "2_000_000",
+   "why": "An axis-label rule: scales of two million and above print in millions."
+  },
+  {
+   "file": "content/workstreams-platforms.md",
+   "literal": "5,000",
+   "why": "An ad rule's sample size (impressions before the kill rule applies), already allowed by lib/data/allow.ts."
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "literal": "5,000",
+   "why": "The allow-list pattern for the ad rule above."
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "literal": "5,100",
+   "why": "Illustrative mock data in the terminal showcase, shown under IllustrativeTag: a sample market-day crowd estimate, not a measurement."
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "literal": "11_000",
+   "why": "A legend bin edge for the ward register map."
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "literal": "13_000",
+   "why": "A legend bin edge for the ward register map."
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "literal": "11,000",
+   "why": "The legend label for the same bin edge."
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "literal": "13,000",
+   "why": "The legend label for the same bin edge."
+  },
+  {
+   "file": "lib/scroll-to-section.ts",
+   "literal": "12000",
+   "why": "A 12-second scroll hold (milliseconds)."
+  },
+  {
+   "file": "lib/section-heights.ts",
+   "literal": "40000",
+   "why": "A maximum section height in pixels for scroll estimation."
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "literal": "50,000",
+   "why": "A proposed policy amount (KSh 50,000 table-banking seed capital) in the message-by-segment matrix; a proposal for the campaign to decide, not a Kitui figure."
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "literal": "5,000,000",
+   "why": "A statutory penalty (KSh 5,000,000) as the liability matrix states it; law, not a Kitui figure."
+  }
+ ]
 }

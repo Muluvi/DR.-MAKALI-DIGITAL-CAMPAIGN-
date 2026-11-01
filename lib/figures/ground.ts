@@ -17,6 +17,7 @@
  * question, not this figure's.
  */
 import type { FigureSeries } from "./types";
+import { regFmt } from "./from-registry";
 
 /* ------------------------------------------------------------------ §4.5.7 the loop */
 
@@ -50,7 +51,7 @@ export const FIELD_LOOP_TIERS = [
   {
     label: "Physical distribution channels",
     items: [
-      "1,200 bodaboda stage champions",
+      `${regFmt("target.stage-champions")} bodaboda stage champions`,
       "Matatu / sacco commuter routes",
       "M-Pesa kiosk economic desks",
       "Weekly open-air market caravans",
@@ -138,7 +139,7 @@ export const FOUR_HOUR_CYCLE = [
     title: "Synchronised multi-channel deployment",
     steps: [
       "Meta and TikTok ads geofenced strictly to Mwingi North.",
-      "Bulk SMS pushed to 14,000 consented voters in Tseikuru / Kyuso.",
+      "Bulk SMS, pre-lodged, pushed to the consented voters in Tseikuru / Kyuso.",
       "Audio note pushed via WhatsApp to 40 ward captains for peer forwarding at local tea kiosks and bodaboda stages.",
       "Talking point faxed or messaged to Musyi FM morning show panellists.",
     ],
@@ -152,8 +153,8 @@ export const CYCLE_SERIES: FigureSeries = {
   points: [],
   note:
     "The clock is the claim, so it runs down the margin rather than sitting in a caption. The " +
-    "SMS step names 14,000 consented voters in Tseikuru and Kyuso; it is transcribed as stated, " +
-    "and whether that list exists yet is §18.1's KPI ladder to answer, not this figure's.",
+    "SMS step goes to the consented voters in Tseikuru and Kyuso, from a message lodged 48 hours " +
+    "ahead; how large that list is, is the target ladder's to answer, not this figure's.",
 };
 
 /* ------------------------------------------------------------------ §4.5.7 the operating rhythm */

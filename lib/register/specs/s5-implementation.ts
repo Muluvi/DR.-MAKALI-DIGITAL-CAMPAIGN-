@@ -256,8 +256,11 @@ export const FIG_5_6: FigureSpec = {
       { heading: "Reach share by ward, against the pool's share of the register", chart: { type: "tilemap", layers: ["reach-targets"], initial: "reach-targets" } },
     ],
   },
-  columns: [{ key: "code", label: "Code" }, { key: "title", label: "Indicator" }, { key: "baseline", label: "Baseline" }, { key: "target", label: "Target" }, { key: "cadence", label: "Cadence" }],
-  rows: KPIS.map((k) => ({ cells: { code: k.code, title: k.title, baseline: k.baseline.kind === "unmeasured" ? "Set in Week 1" : baselineText(k), target: k.target, cadence: k.cadence }, state: "target" as const })),
+  // The full scorecard: the two stage scorecards that repeated this list in Measuring success were
+  // collapsed into this figure (consolidation pass, Step 3), so their definition, method and owner
+  // columns live here.
+  columns: [{ key: "code", label: "Code" }, { key: "stage", label: "Stage" }, { key: "title", label: "Indicator" }, { key: "definition", label: "Definition" }, { key: "baseline", label: "Baseline" }, { key: "target", label: "Target" }, { key: "method", label: "Method" }, { key: "owner", label: "Owner" }, { key: "cadence", label: "Cadence" }],
+  rows: KPIS.map((k) => ({ cells: { code: k.code, stage: NOMINATION_KPIS.includes(k) ? "Nomination" : "General election", title: k.title, definition: k.definition, baseline: k.baseline.kind === "unmeasured" ? "Set in Week 1" : baselineText(k), target: k.target, method: k.method, owner: k.owner, cadence: k.cadence }, state: "target" as const })),
 };
 
 /* ------------------------------------------------------------------ fig-5-7-approval */

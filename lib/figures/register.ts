@@ -13,6 +13,7 @@
  * review flag — this file never silently corrects the document, because hard rule 2 makes
  * reconciling Firefly's job and not this pass's.
  */
+import { val } from "../data/read";
 import {
   CONSTITUENCIES,
   COUNTY_TOTAL_WARDS,
@@ -22,21 +23,15 @@ import {
 import {
   ballotsAt,
   blocTotal,
-  bottomWards,
   countyTotal,
-  rankWards,
   topWards,
-  wardCount,
 } from "./register-math";
 
 export * from "./register-math";
 
 /* ------------------------------------------------------------------ bound to the real register */
 
-export const WARD_RANKING = rankWards(CONSTITUENCIES);
 export const COUNTY_REGISTER = countyTotal(CONSTITUENCIES);
-export const WARD_COUNT = wardCount(CONSTITUENCIES);
-export const CONSTITUENCY_COUNT = CONSTITUENCIES.length;
 export { PRISON_VOTERS, COUNTY_TOTAL_WITH_PRISONS, COUNTY_TOTAL_WARDS };
 
 /**
@@ -46,18 +41,12 @@ export { PRISON_VOTERS, COUNTY_TOTAL_WITH_PRISONS, COUNTY_TOTAL_WARDS };
 export const TURNOUT_BASELINE = 0.617;
 
 /** 2022's certified winning total — the number every path is measured against. */
-export const WINNING_TOTAL_2022 = 198_004;
+export const WINNING_TOTAL_2022 = val("result.2022.gov.malombe");
 
 /** The rounded threshold the document plans to, stated as "approximately 200,000". */
-export const THRESHOLD_ROUNDED = 200_000;
-
-/** Total ballots the county casts at the 61.7% turnout rate: 328,712. */
-export const COUNTY_BALLOTS = ballotsAt(COUNTY_REGISTER, TURNOUT_BASELINE);
+export const THRESHOLD_ROUNDED = val("benchmark");
 
 export const TOP_12 = topWards(CONSTITUENCIES, 12);
-export const TOP_20 = topWards(CONSTITUENCIES, 20);
-export const BOTTOM_10 = bottomWards(CONSTITUENCIES, 10);
-
 export const MWINGI_BLOC_NAMES = ["Mwingi North", "Mwingi West", "Mwingi Central"];
 export const MWINGI_BLOC = blocTotal(CONSTITUENCIES, MWINGI_BLOC_NAMES);
 export const KITUI_SOUTH = blocTotal(CONSTITUENCIES, ["Kitui South"]);
@@ -73,10 +62,6 @@ export const KITUI_SOUTH = blocTotal(CONSTITUENCIES, ["Kitui South"]);
  */
 export const DEFICIT_POOL = MWINGI_BLOC + KITUI_SOUTH;
 export const DEFICIT_POOL_SHARE = (DEFICIT_POOL / COUNTY_REGISTER) * 100;
-export const DEFICIT_WARD_COUNT = CONSTITUENCIES.filter((c) =>
-  [...MWINGI_BLOC_NAMES, "Kitui South"].includes(c.name)
-).reduce((n, c) => n + c.wards.length, 0);
-
 /* ------------------------------------------------------------------ the four paths */
 
 export interface CoalitionPath {

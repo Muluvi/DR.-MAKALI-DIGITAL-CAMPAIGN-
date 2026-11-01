@@ -1,10 +1,10 @@
-Code,Indicator,Baseline,Target,Cadence,Basis
-NW-01,Reach share in the deficit pool,Set in Week 1,"≥ 51.7%, the pool's share of the register",Weekly,Target
-NW-02,Followers located in Mwingi,Set in Week 1,A stated monthly gain on the Week 1 baseline,Monthly,Target
-NW-03,Consented contacts in the pool,Set in Week 1,"≥ 51.7%, the pool's share of the register",Weekly,Target
-NW-04,Branch Exec Endorsement Rate,Confirm w/ party (Week 1),8 / 8 Sub-County Branches,Weekly Executive Dashboard,Target
-GE-01,Pledged Voter Data Base Size,0 pledged voters,"220,000 Pledged Voters (110% Win)",Weekly Progress Audit,Target
-GE-02,Ward Captain Deployment Index (campaign-owned),0 active Captains,"400 Captains (10 / Ward, 100% Coverage)",Bi-Weekly Field Audit,Target
-GE-03,Polling Station Agent Coverage,0 Station Agents,"1,578 Stations (100% of stations)",Weekly (Final 60 Days),Target
-GE-04,Turnout Conversion Efficiency,Set in Week 1,≥ 82.0% Voter Turnout Conversion,Post-Day Real-Time Tracking (06:00–17:00),Target
-GE-05,Real-Time Form 37A Capture,0% Transmit Rate,100% Transmit within 2 Hours,Polling Day Hourly Real-Time (17:00–21:00),Target
+Code,Stage,Indicator,Definition,Baseline,Target,Method,Owner,Cadence,Basis
+NW-01,Nomination,Reach share in the deficit pool,"Share of his total reach landing in Mwingi North, West, Central and Kitui South, the four constituencies where he has never held office.",Set in Week 1,"≥ 51.7%, the pool's share of the register","Meta Insights reach by city, mapped to sub-county",Firefly analyst,Weekly,Target
+NW-02,Nomination,Followers located in Mwingi,"Share of his followers whose location is in Mwingi North, Central or West, the proxy for being known where he is not yet known.",Set in Week 1,A stated monthly gain on the Week 1 baseline,"Meta follower city breakdown, mapped to sub-county",Firefly analyst,Monthly,Target
+NW-03,Nomination,Consented contacts in the pool,Share of the consented SMS/USSD list registered in the 21 wards of the deficit pool.,Set in Week 1,"≥ 51.7%, the pool's share of the register",Firefly's own dispatch and consent logs,Firefly offline-layer operator,Weekly,Target
+NW-04,Nomination,Branch Exec Endorsement Rate,"Verified, signed support pledges from Sub-County Wiper Executive Branch Committees.",Confirm w/ party (Week 1),8 / 8 Sub-County Branches,Formal written branch caucus endorsement resolutions,Political Affairs Director,Weekly Executive Dashboard,Target
+GE-01,General election,Pledged Voter Data Base Size,"Individual registered voters with phone, ward, & polling station logged in campaign CRM.",0 pledged voters,"220,000 Pledged Voters (110% Win)",Verified opt-in 2G SMS & Baraza registration ledger,Field Ops & Data Director,Weekly Progress Audit,Target
+GE-02,General election,Ward Captain Deployment Index (campaign-owned),"Active, vetted Ward Captains operating across all 40 Wards (10 per ward).",0 active Captains,"400 Captains (10 / Ward, 100% Coverage)",Biometric / ID verification and monthly activity log confirmation,Campaign ground team — outside this engagement,Bi-Weekly Field Audit,Target
+GE-03,General election,Polling Station Agent Coverage,"Accredited, trained party polling station agents deployed across 100% of Kitui polling stations.",0 Station Agents,"1,578 Stations (100% of stations)",IEBC official accreditation badges & signed deployment forms,Legal & Polling Station Lead,Weekly (Final 60 Days),Target
+GE-04,General election,Turnout Conversion Efficiency,Ratio of pledged voters who cast verified ballots in target strongholds on polling day.,Set in Week 1,≥ 82.0% Voter Turnout Conversion,IEBC Form 37A audit vs. CRM voter ledger by polling stream,Polling Day Ops Director,Post-Day Real-Time Tracking (06:00–17:00),Target
+GE-05,General election,Real-Time Form 37A Capture,% of Form 37A result sheets photographed and transmitted to War Room within 2 hours of count.,0% Transmit Rate,100% Transmit within 2 Hours,Encrypted field agent WhatsApp / USSD photo upload verification DB,Chief Technology Officer (CTO),Polling Day Hourly Real-Time (17:00–21:00),Target

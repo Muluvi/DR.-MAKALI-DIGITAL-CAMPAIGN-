@@ -162,6 +162,3 @@ export const LANGUAGE_DEPLOYMENT: DeploymentRow[] = [
   },
 ];
 
-/** Every row must allocate 100%, or it is not an allocation. Asserted in figures.test.ts. */
-export const deploymentTotal = (row: DeploymentRow) =>
-  row.primary.share + row.secondary.reduce((n, s) => n + s.share, 0);

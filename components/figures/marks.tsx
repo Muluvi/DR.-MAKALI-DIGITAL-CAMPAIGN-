@@ -785,69 +785,6 @@ export function Allocation({
 }
 
 /**
- * A message house: one claim over the pillars that hold it up.
- *
- * The one mark here whose shape is load-bearing rather than illustrative. A message house is a
- * hierarchy — everything below supports the line above — and drawing it as a list would lose the
- * only thing the diagram was for. So the claim spans the full width and the pillars sit beneath it
- * in equal columns, which is also how it degrades: at 320px the columns stack, still beneath the
- * claim, still in order.
- *
- * NO CONNECTOR LINES. The ASCII original drew box-drawing elbows from the claim down to each
- * pillar; SVG connectors would reproduce them and break at every reflow. Position carries the
- * relationship, and the heading says it in words for anyone who cannot see the position.
- */
-export function MessageHouse({
-  claim,
-  evidence,
-  pillars,
-}: {
-  claim: { language: string; text: string }[];
-  evidence: string;
-  pillars: { short: string; full: string; carries: string; proofPoint: string; proofSource: string }[];
-}) {
-  return (
-    <div>
-      <div className="rounded-xl border border-accent/30 bg-accent/[0.05] px-3 py-3">
-        <p className="m-0 t-micro font-bold uppercase tracking-wide text-accent">The central claim</p>
-        <dl className="m-0 mt-2 space-y-2">
-          {claim.map((line) => (
-            <div key={line.language}>
-              {/* Equal weight on all three. §4.4.8 puts 76% of primary reach in Kikamba, so the
-                  English line is not the claim — it is one of three. */}
-              <dt className="t-micro font-bold text-muted">{line.language}</dt>
-              <dd className="m-0 font-serif text-sm font-bold leading-snug text-ink">
-                &ldquo;{line.text}&rdquo;
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <p className="m-0 mt-2.5 border-t border-accent/20 pt-2 t-micro leading-snug text-muted">
-          <span className="font-semibold text-ink">Primary evidence.</span> {evidence}
-        </p>
-      </div>
-
-      <ol className="not-prose m-0 mt-2 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-3">
-        {pillars.map((p, i) => (
-          <li key={p.short} className="rounded-lg border border-line bg-paper/60 px-3 py-2.5">
-            <p className="m-0 t-micro font-bold uppercase tracking-wide text-muted">
-              <span className="tabular-nums">Pillar {i + 1}</span>
-            </p>
-            <p className="m-0 mt-0.5 font-serif text-sm font-bold leading-tight text-ink">{p.short}</p>
-            <p className="m-0 mt-1 t-micro leading-snug text-ink/80">{p.full}</p>
-            <p className="m-0 mt-1.5 border-t border-line/60 pt-1.5 t-micro leading-snug text-muted">
-              <span className="font-semibold text-ink">Proof point.</span> {p.proofPoint}
-              <span className="block"> — {p.proofSource}</span>
-              <span className="mt-1 block">{p.carries}</span>
-            </p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
-/**
  * Two columns that must be read as pairs: a claim and what answers it.
  *
  * §4.4.2's rumour table and §4.4.9's translation table are the same shape — something wrong on the

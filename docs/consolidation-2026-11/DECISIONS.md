@@ -325,3 +325,77 @@ The analysis tests give **102 passed, 11 failed, 45 skipped** on 2f29920 and on 
 The 11 failures need the pipeline's data pack (`analysis/data/`), which is gitignored and not in
 the repository. They are not caused by this pass. Running them rewrites three committed reports
 with "no data" stubs, and those changes were reverted, not committed.
+
+## Step 3: the legacy figure system
+
+### D3.1 No hardcoded registry fact remains in it
+
+Every registry value in `lib/figures/*` and `components/figures/registry.tsx` is now a registry read.
+
+- Bursary counts, the winning tally and the benchmark go through `regFmt` and `val`.
+- "1,200 bodaboda stage champions" reads `target.stage-champions`.
+- An example SMS "to 14,000 consented voters" had no source and only coincided with `boda.riders`.
+  It now names the consented list and the 48-hour lodging.
+- Two coincidences stay, with reasons in `literals-allow.json`: a proposed KSh 50,000 seed grant and
+  the statutory KSh 5,000,000 penalty.
+
+**`scan-literals.mjs --check` passes: 0 exact and 0 rounded copies.**
+
+### D3.2 Unreachable figures and modules deleted
+
+Sixteen entries in `components/figures/registry.tsx` had no fence in any content file, and nothing
+else rendered them:
+
+- reach-split, platform-sizing, offline-channels, effort-rebalance
+- audience-segments, kpi-architecture, ussd-menu, message-house
+- radio-gatekeepers, targeting-summary, register-map, threshold-build-up
+- register-growth, ward-ranking, paths-to-threshold, deficit-pool
+
+They were deleted with everything only they used:
+
+- `lib/figures/reach.ts`, `lib/figures/targeting.ts` and `lib/figures/threshold.ts` (no importer
+  left)
+- 21 unused exports across the remaining modules
+- the `MessageHouse` mark
+
+Sixteen retirement records in `scripts/figure-retirements.json` named these figures as the holders
+of facts from earlier retired blocks. Each now has a `consolidation.nowHeldBy` entry naming the
+register figure that holds those facts today, or saying the facts were retired as unsourced (D1.1).
+
+Five figure tests pinned `reach.ts`: platform bands, offline-channel shares, the effort rebalance
+and the 72,000 digital ceiling. They go with it. The registry-based "three reach segments sum to the
+2026 register" test holds the connectivity split.
+
+### D3.3 Collapsed into the register figure that already drew the same facts
+
+`nomination-scorecard` and `ge-scorecard` drew the nine indicators that `fig-5-6-kpis` draws three
+headings above them in Measuring success.
+
+- fig-5-6's table gains the stage, definition, method and owner columns the scorecards added, so no
+  fact is lost.
+- Both fences stay in place, so check 3 holds, and render a pointer to fig-5-6 (`COLLAPSED` in the
+  registry).
+- The mapping is recorded under `collapsed` in `scripts/figure-retirements.json`.
+- `KpiScorecards`, `KpiArchitecture` and the hand-typed `STAGE_1_TARGETS` / `STAGE_2_TARGETS` they
+  drew are deleted. The D-14 figure test guarded agreement between those summaries and the
+  scorecards, and it is retired with them, because no second copy is left to disagree.
+
+### D3.4 What stays in the legacy system, and why
+
+**42 legacy figures remain**, drawn by `components/figures/registry.tsx` from `lib/figures/*`
+(about 3,500 lines, down from 4,900). They are qualitative:
+
+- process steps
+- RACI and responsibility tables
+- holding lines
+- the technology stack
+- compliance matrices
+- the field loop
+
+They carry no registry figure. None duplicates a register figure: the org chart was checked against
+fig-5-9 and holds the specialists each lead directs, which fig-5-9 does not.
+
+Moving each to a `FigureSpec` (option a) would re-express qualitative tables in a new chart
+vocabulary, which is a rewrite of their presentation, not a consolidation of facts. It was not done
+in this pass and is reported as outstanding. The two systems now share one data rule: neither types
+a registry value.

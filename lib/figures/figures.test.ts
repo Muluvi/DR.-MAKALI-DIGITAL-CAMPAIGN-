@@ -24,7 +24,6 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { FIGURES as REGISTRY } from "../data/figures.ts";
 
 import {
   ballotsAt,
@@ -336,44 +335,10 @@ test("13.6% of the 2019 census population is 143,340 internet users", () => {
 
 /* ------------------------------------------------------------------ the KPI scorecards (§11 [CHECK REF]) */
 
-test("§1.9's stage summaries agree with the scorecards they summarise (D-14)", () => {
-  /**
-   * The assertion that would have caught the bug this test was written for.
-   *
-   * data/kpis.ts held the stage-1 headline targets twice: once inside NOMINATION_KPIS, where they
-   * were right, and once in STAGE_1_TARGETS, a hand-typed summary feeding KpiArchitecture, where
-   * "≥ 70.0%" had become ">65%" and "Branch Executive" had become "Delegate". The site rendered
-   * a target five points below the one §5.1.1 and §1.9 both state.
-   *
-   * Read as TEXT rather than imported, for this file's usual reason: data/kpis.ts imports a
-   * component type, which plain Node cannot resolve. Asserting the two lists against each other in
-   * the same file is what makes the duplication safe rather than just tidy.
-   */
-  const kpis = fs.readFileSync(path.join(ROOT, "data", "kpis.ts"), "utf8");
-  const stage1 = kpis.slice(kpis.indexOf("export const STAGE_1_TARGETS"), kpis.indexOf("export const STAGE_2_TARGETS"));
-  const stage2 = kpis.slice(kpis.indexOf("export const STAGE_2_TARGETS"));
-
-  // Each headline figure, exactly as §5.1.1 and §5.1.1 print it.
-  assert.match(stage1, /Reach Share in the Deficit Pool \(≥ 51\.7%\)/, "NW-01");
-  assert.match(stage1, /Consented Contacts in the Pool \(≥ 51\.7%\)/, "NW-03");
-  assert.match(stage1, /Branch Executive Endorsement Pledges \(8\/8\)/, "NW-04 — branch executive, not delegate");
-
-  // Since the consolidation pass the stage-2 summary and the scorecard rows it summarises read the
-  // same registry figures, so they cannot drift: assert each side names the figure, and the
-  // registry holds the value the scorecard states.
-  const ge = kpis.slice(kpis.indexOf("export const GENERAL_ELECTION_KPIS"), kpis.indexOf("export const STAGE_1_TARGETS"));
-  for (const [code, id, value] of [["GE-01", "target.pledged-voters", 220_000], ["GE-02", "target.captains", 400], ["GE-03", "register.polling-stations", 1_578]] as const) {
-    assert.ok(stage2.includes(`fmt("${id}")`), `${code}: the stage-2 summary reads ${id}`);
-    assert.ok(ge.includes(`val("${id}")`), `${code}: the scorecard row reads ${id}`);
-    assert.equal(REGISTRY[id].value, value, `${code}: ${id} is ${value}`);
-  }
-  assert.match(stage2, /Turnout Conversion Rate \(≥82%\)/, "GE-04");
-  assert.match(stage2, /Polling Agent Station Coverage \(100% of /, "GE-03 wording");
-
-  // And the nomination scorecard still carries the pool-share target.
-  assert.match(kpis, /targetValue: 51\.7,/);
-});
-
+// The D-14 test (the stage summaries agree with the scorecards) is retired with the summaries: the
+// hand-typed STAGE_1_TARGETS / STAGE_2_TARGETS and the figures that drew them were collapsed into
+// fig-5-6-kpis, which reads the scorecards directly (consolidation pass, Step 3), so there is no
+// second copy left to disagree.
 test("no nomination baseline is drawn as a measured zero", () => {
   /**
    * §5.1.1 says "Not yet measured (Week 1)" for NW-01 to NW-03 and "Confirm w/ party" for NW-04.
@@ -436,135 +401,11 @@ test("every row of §3.6.1's deployment matrix allocates exactly 100%", () => {
 
 /* ------------------------------------------------------------------ channel reach (§2.7.2) */
 
-test("every platform band's share of the register is what §2.9.1 printed, except the one C-18 flags", () => {
-  /**
-   * The DIGITAL PLATFORM IN-COUNTY SIZING MATRIX, as that matrix printed it.
-   *
-   * Same reason as the constituency ranking above: the figure that replaced the matrix COMPUTES
-   * these shares from the user bands and the register instead of reprinting them, so no literal
-   * survives in the repository and the retention guard rightly reported them gone. Pinning the
-   * printed form restores them and proves the arithmetic.
-   *
-   * IT ALSO PROVES ONE CELL WRONG, which is why this test is shaped the way it is. 35,000 is
-   * 6.5695% of the register, and the matrix prints that as 6.5% on the TikTok row and 6.6% on the
-   * YouTube row directly beneath it. Under hard rule 2 neither has been changed: EXPECTED_MISMATCH
-   * records the disagreement as an assertion, so the printed 6.5% stays in the repository, the
-   * computed 6.6% stays in the figure, and closing the gap in either direction fails this test
-   * until C-18 is reconciled deliberately.
-   */
-  const ROWS = [
-    "WhatsApp                   | 65,000 | 80,000 | 12.2% | 15.0%",
-    "Meta (Facebook/Instagram)  | 50,000 | 65,000 |  9.4% | 12.2%",
-    "TikTok                     | 35,000 | 45,000 |  6.5% |  8.4%",
-    "YouTube                    | 25,000 | 35,000 |  4.7% |  6.6%",
-    "X (Twitter)                |  8,000 | 12,000 |  1.5% |  2.3%",
-  ];
-
-  /** headcount → [what §2.9.1 printed, what the register says]. C-18. */
-  const EXPECTED_MISMATCH: Record<string, [printed: number, computed: number]> = {
-    "TikTok:low": [6.5, 6.6],
-  };
-
-  const num = (cell: string) => Number(cell.replace(/[^0-9.]/g, ""));
-  const total = countyTotal(CONS);
-  const found: string[] = [];
-
-  for (const row of ROWS) {
-    const [name, low, high, lowShare, highShare] = row.split("|").map((c) => c.trim());
-
-    for (const [end, figure, printed] of [
-      ["low", low, lowShare],
-      ["high", high, highShare],
-    ] as const) {
-      const computed = Number(((num(figure) / total) * 100).toFixed(1));
-      const mismatch = EXPECTED_MISMATCH[`${name}:${end}`];
-
-      if (mismatch) {
-        // Assert the disagreement itself, both halves of it, so neither side can drift.
-        assert.equal(num(printed), mismatch[0], `§2.9.1 no longer prints ${mismatch[0]}% — has C-18 been resolved?`);
-        assert.equal(computed, mismatch[1], `${figure} ÷ ${total} is no longer ${mismatch[1]}% — C-18`);
-        assert.notEqual(computed, num(printed), `${name} ${end} end agrees now — retire C-18`);
-        found.push(`${name}:${end}`);
-        continue;
-      }
-
-      assert.equal(computed, num(printed), row);
-    }
-  }
-
-  // The matrix's other nine cells round correctly, which is what makes the tenth an error rather
-  // than a convention. If a second one ever disagrees it must be logged, not added to the map.
-  assert.deepEqual(found, Object.keys(EXPECTED_MISMATCH));
-});
-
-test("the same 35,000 is printed as two different shares in adjacent rows (C-18)", () => {
-  /**
-   * The conflict stated as one line, independent of the table above: TikTok's low end and YouTube's
-   * high end are the same headcount against the same denominator, and §2.9.1 gives two answers.
-   *
-   * It checks `reach.ts` as TEXT rather than importing it, for the reason in this file's header:
-   * that module binds to the register through `./register.ts`, which plain Node cannot load. The
-   * guarantee wanted here is narrow anyway — that the flag is still attached to the TikTok band —
-   * and a source-level check gives it without a bundler.
-   */
-  const total = countyTotal(CONS);
-  assert.equal(Number(((35_000 / total) * 100).toFixed(1)), 6.6, "35,000 of the register rounds to 6.6%");
-
-  const reach = fs.readFileSync(path.join(ROOT, "lib", "figures", "reach.ts"), "utf8");
-  const tikTokRow = reach.match(/^\s*\["TikTok",.*$/m)?.[0] ?? "";
-
-  assert.match(tikTokRow, /35_000, 45_000/, "the TikTok band still starts at the 35,000 §2.9.1 states");
-  assert.match(tikTokRow, /"C-18"\]/, "the TikTok band still carries the Under review flag");
-  assert.equal(
-    reach.match(/^\s*\["[^"]+",.*"C-18"\],$/gm)?.length,
-    1,
-    "no other band claims C-18 — the other nine cells round correctly",
-  );
-});
-
-test("every offline channel's share of the register is what §2.9.4 printed", () => {
-  const ROWS = [
-    "Kikamba vernacular radio | 420,000 | 78.8%",
-    "Church and synod networks| 350,000 | 65.7%",
-    "Direct 2G SMS            | 320,000 | 60.1%",
-    "Open-air market barazas  | 280,000 | 52.6%",
-    "USSD interactive service | 250,000 | 46.9%",
-    "Mobile-money agents      | 180,000 | 33.8%",
-  ];
-
-  const num = (cell: string) => Number(cell.replace(/[^0-9.]/g, ""));
-  const total = countyTotal(CONS);
-  let sum = 0;
-
-  for (const row of ROWS) {
-    const [, reach, share] = row.split("|").map((c) => c.trim());
-    assert.equal(Number(((num(reach) / total) * 100).toFixed(1)), num(share), row);
-    sum += num(reach);
-  }
-
-  // C-17, as arithmetic. These six channels overlap — one voter listens to radio, attends a
-  // market and holds a phone — so the figure carries a standing warning never to add them. This
-  // is what adding them would claim.
-  assert.equal(sum, 1_800_000);
-  assert.ok(sum > total * 3, "summed, the offline channels claim more than three times the register");
-});
-
-test("the §3.6.3 [CHECK REF] rebalance is a reallocation: both columns sum to 100%", () => {
-  const FROM = [45, 20, 10, 15, 10];
-  const TO = [18, 37, 20, 18, 7];
-  assert.equal(FROM.reduce((a, b) => a + b, 0), 100);
-  assert.equal(TO.reduce((a, b) => a + b, 0), 100);
-  // The move the slope chart exists to show: digital gives up 27 points, radio takes 17.
-  assert.equal(FROM[0] - TO[0], 27);
-  assert.equal(TO[1] - FROM[1], 17);
-});
-
-test("the digital ceiling is 36.2% of the threshold, and the shortfall 125,549", () => {
-  // §2.7.2 states both. The figure computes the shortfall rather than transcribing it.
-  assert.equal(198_004 - 72_000, 125_549 + 455, "the document's 125,549 is against a different base");
-  assert.equal(Number(((72_000 / 198_004) * 100).toFixed(1)), 36.4);
-  assert.equal(Number(((72_000 / 200_000) * 100).toFixed(1)), 36.0);
-});
+// Retired with their figures in the consolidation pass (Step 3): the platform-band, offline-channel,
+// effort-rebalance and digital-ceiling tests pinned lib/figures/reach.ts, which no fence drew. The
+// connectivity split now reads the registry, and "the three reach segments sum to the reported 2026
+// register" above holds it; scripts/consolidation/live-check.mjs keeps the unsourced channel reaches
+// from returning.
 
 /* ------------------------------------------------------------------ zones (§2.6) */
 

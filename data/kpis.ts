@@ -179,35 +179,6 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
   },
 ];
 
-/** The four Stage 1 headline targets, as §1.5's architecture diagram states them. */
-/**
- * The four Stage 1 headline targets, as §1.5's architecture block states them.
- *
- * THIS LIST HAD DRIFTED FROM THE SCORECARD TEN LINES ABOVE IT. It read "North Sub-County Name ID
- * (>65%)" where both §5.6.1's NW-02 row and §1.5's own block say ≥70.0%, and "Delegate
- * Endorsement Pledges" where the document says "Branch Executive". KpiArchitecture renders this
- * list, so the site was showing a target five points below the one the proposal states. It was a
- * retyping of data this file already held correctly — which is how it drifted — and
- * figures.test.ts now asserts each line against the KPI it summarises, so it cannot drift again.
- *
- * The WORDING is §1.5's, not NW-01's, because the block is a summary and uses its own shorter
- * labels. Only the two wrong figures were corrected. No content was changed: see DECISIONS.md D-14.
- */
-export const STAGE_1_TARGETS = [
-  "Reach Share in the Deficit Pool (≥ 51.7%)",
-  "Followers Located in Mwingi (monthly gain on Week 1)",
-  "Consented Contacts in the Pool (≥ 51.7%)",
-  "Branch Executive Endorsement Pledges (8/8)",
-];
-
-/** The four Stage 2 headline targets, likewise. */
-export const STAGE_2_TARGETS = [
-  `Verified Pledged Voter Database (Target: ${fmt("target.pledged-voters")} Opt-In Voters)`,
-  `Ward Captain Mobilization Index, campaign-owned (${fmt("target.captains")} Captains / 40 Wards)`,
-  `Polling Agent Station Coverage (100% of ${fmt("register.polling-stations")} Stations)`,
-  "Turnout Conversion Rate (≥82%)",
-];
-
 /**
  * The recognition indicators (Measuring success, "Recognition where he is least known"): R-01 to
  * R-05. They sit beside the two scorecards, not inside them: the nomination scorecard holds four

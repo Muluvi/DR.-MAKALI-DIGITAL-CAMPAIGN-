@@ -19,7 +19,9 @@
     "`facts` is not decoration. It is the checklist the figure is held to, and Phase 8's report",
     "itemises the words retired against it. If a fact listed here is not visible in the figure or in",
     "its 'View the data' table, the retirement is not authorised and the block goes back.",
-    "`blocks` is how many fenced blocks the entry retires — omit it for one. The three §3.6 section banners are one entry covering three blocks, so the fence-delimiter allowance has to count blocks and not entries."
+    "`blocks` is how many fenced blocks the entry retires — omit it for one. The three §3.6 section banners are one entry covering three blocks, so the fence-delimiter allowance has to count blocks and not entries.",
+    "",
+    "COLLAPSED (consolidation pass, November 2026): a legacy figure that drew the same facts as a register figure is collapsed into it. Its fence stays, so every fence check holds, and renders a pointer to the survivor; the list is `collapsed` below and COLLAPSED in components/figures/registry.tsx."
   ],
   "retirements": [
     {
@@ -53,7 +55,14 @@
         "│ Reported 2026 register        │ 605,703 (Tier 3, unverified)              │",
         "│ Same 37.2% ratio on that base │ ≈225,000 votes  [CALC — not a forecast]   │",
         "└───────────────────────────────┴───────────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-2-1-register",
+          "fig-3-1-funnel"
+        ],
+        "note": "The register and the benchmark arithmetic are drawn from the registry by fig-2-1-register and fig-3-1-funnel; the like-for-like 2026 figure is the registry's benchmark.like-for-like.2026. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "arithmetic-3-4-register-grid",
@@ -106,7 +115,13 @@
         " │ • Endau/Malalani Ward:           7,897  │   │ • Kanziko Ward:                  8,403  │",
         " └─────────────────────────────────────────┘   └─────────────────────────────────────────┘",
         "════════════════════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-3-2-register-map"
+        ],
+        "note": "Every ward and constituency total is drawn from data/ward-register.json by fig-3-2-register-map. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "arithmetic-3-4-3-four-paths",
@@ -139,7 +154,13 @@
         " ───────────────────────────            ───────────────────────────",
         " TOTAL (12 Wards):   201,267 (37.78%)   TOTAL (13 Wards):   191,811 (36.00%)",
         "                                        [CANNOT REACH 200K REGISTER THRESHOLD]"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-3-3-paths"
+        ],
+        "note": "The four coalition paths are drawn from the registry (path.*) by fig-3-3-paths. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "arithmetic-3-4-4-power-ranking",
@@ -211,7 +232,13 @@
         "  [████████] 13.6% (Digital Reach)",
         "  [████████████████████████████████████████████████████████████████████] 86.4% (Offline)",
         "════════════════════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-2-6-connectivity"
+        ],
+        "note": "The connectivity split reads the registry (reach.smartphone, reach.sms-only, reach.nophone); the 2019 ~72,000 split it carried is superseded (D1.1). The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "reach-3-6-1-platform-matrix",
@@ -250,7 +277,11 @@
         "│ 5. X (Twitter)    │ ~8,000–12,000        │ 1.5% – 2.3%          │ Journalists, county elites, professionals,│",
         "│                   │ active users         │                      │ and national political commentators.      │",
         "└───────────────────┴──────────────────────┴──────────────────────┴───────────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [],
+        "note": "Retired with its figure: platform audience bands were vendor estimates no fence drew; the measured online audience is reach.smartphone (fig-2-6-connectivity). The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "reach-3-6-2-offline-audit",
@@ -293,7 +324,11 @@
         "│ 6. Church & Synods   │ ~350,000 voters      │ **65.7%**            │ Sunday faith fellowship greetings,     │",
         "│    (Faith Networks)  │ (Weekly attendance)  │ of the register      │ pastoral blessings & clergy alignment. │",
         "└──────────────────────┴──────────────────────┴──────────────────────┴────────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [],
+        "note": "Retired as unsourced (D1.1): radio, church, markets, USSD and M-Pesa have no measured reach and are shown as \"not measured\"; the SMS reach is reach.sms-only. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "reach-3-6-3-rebalance",
@@ -333,7 +368,13 @@
         "│ Church & Community Outreaches│ 10.0%             │ **7.0%**          │ Focused on protocol-compliant clergy │",
         "│ (Clergy Synods & Guilds)     │                   │ (Targeted)        │ partnerships and Sunday tours.       │",
         "└──────────────────────────────┴───────────────────┴───────────────────┴──────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-4-6-channel-shift"
+        ],
+        "note": "The effort shift is drawn from the registry (channel.*) by fig-4-6-channel-shift. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "reach-3-6-section-banners",
@@ -360,7 +401,13 @@
         "│               EFFORT WEIGHTING VS. ELECTORAL REACH REALITY AUDIT            │",
         "└─────────────────────────────────────────────────────────────────────────────┘"
       ],
-      "blocks": 3
+      "blocks": 3,
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-2-6-connectivity"
+        ],
+        "note": "No data; the connectivity figure carries the section. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "arithmetic-3-4-5-cross-match",
@@ -435,7 +482,14 @@
         " • Operational Mandate:      65% of digital ads & 70% of offline SMS directed to ",
         "                             Mwingi and Kitui South to close the 15.3-point gap.",
         "════════════════════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-3-1-funnel",
+          "fig-3-3-paths"
+        ],
+        "note": "The summary's register, benchmark and paths are registry reads in fig-3-1-funnel and fig-3-3-paths. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "situation-3-3-2-branch-tree",
@@ -506,7 +560,13 @@
         " │ 4. Grassroots Baraza Audio Distribution (Pre-loaded Megaphones & WhatsApp Voice)│",
         " └─────────────────────────────────────────────────────────────────────────────────┘",
         "════════════════════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-2-7-media"
+        ],
+        "note": "Station ownership and posture are data/media-ownership.ts, drawn by fig-2-7-media; Sang'u FM left the lists under C7. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "messaging-7-3-1-matrix",
@@ -660,7 +720,13 @@
         " │ (Auditor-General)    │     │ Investment Model     │     │ Ward Guarantee)      │",
         " └──────────────────────┘     └──────────────────────┘     └──────────────────────┘",
         "════════════════════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-4-1-message-house"
+        ],
+        "note": "The message architecture is data/message-architecture.ts, drawn by fig-4-1-message-house (three pillars, D1.2). The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "messaging-7-1-1-claim",
@@ -688,7 +754,13 @@
         "│                   the National Assembly Departmental Committee on Finance & │",
         "│                   National Planning and Public Debt & Privatization.        │",
         "└─────────────────────────────────────────────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-4-1-message-house"
+        ],
+        "note": "The claim is the roof of fig-4-1-message-house. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "messaging-7-1-4-counter-fire",
@@ -1362,7 +1434,13 @@
         "├── 2. Ward Development Tracker (Enter Ward Name)",
         "├── 3. Volunteer as a Ward Captain",
         "└── 4. Privacy Policy & Data Opt-Out"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-5-2-3-ussd-menu"
+        ],
+        "note": "The USSD menu is defined once in data/ussd-specimen.ts (D2.5); the KSh 100M item was withdrawn under C6. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "scope-platforms-8-3-4-cycle",
@@ -1624,7 +1702,13 @@
         " │ • Turnout Conversion Rate (≥82%)                                  │",
         " └───────────────────────────────────────────────────────────────────┘",
         "═════════════════════════════════════════════════════════════════════"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-5-6-kpis"
+        ],
+        "note": "The indicators are data/kpis.ts with registry targets, drawn by fig-5-6-kpis. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "measurement-11-2-0-split",
@@ -2080,7 +2164,13 @@
         "┌─────────────────────────────────────────────────────────────────────────────┐",
         "│                    ELECTORAL SEGMENTATION MASTER MATRIX                     │",
         "└─────────────────────────────────────────────────────────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-4-3-segments"
+        ],
+        "note": "No data; the segment figure carries the section. The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "audiences-5-2-segments",
@@ -2122,7 +2212,13 @@
         "│ 6. Out-of-County         │ 150k+ influencers    │ Primary Res │ Nairobi/Coast Ads │ Remittance Relief &     │",
         "│    Kamba Diaspora        │ (Requires Survey)    │ Needed      │ & Town Halls      │ Audited Fiscal Prudence │",
         "└──────────────────────────┴──────────────────────┴─────────────┴───────────────────┴─────────────────────────┘"
-      ]
+      ],
+      "consolidation": {
+        "nowHeldBy": [
+          "fig-4-3-segments"
+        ],
+        "note": "Segment sizes are data/segments.ts reading the registry, drawn by fig-4-3-segments; unsourced ranges are retired (D1.7). The legacy figures this entry names were unreachable (no fence drew them) and were deleted in the consolidation pass, Step 3 (docs/consolidation-2026-11/DECISIONS.md D3.2)."
+      }
     },
     {
       "id": "engine-6a-1-4-loop",
@@ -2531,6 +2627,20 @@
         "│                     Executive Audit Reports FY 2021/22 and FY 2022/23.                                      │",
         "└─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘"
       ]
+    }
+  ],
+  "collapsed": [
+    {
+      "id": "nomination-scorecard",
+      "fence": "success.md, Stage 1: the nomination window",
+      "into": "fig-5-6-kpis",
+      "note": "The four nomination indicators (NW-01 to NW-04) were drawn twice in Measuring success: here and in fig-5-6-kpis, three headings above. fig-5-6's table now carries the definition, method and owner columns this scorecard added, so nothing is lost. The fence stays and renders a pointer (components/figures/registry.tsx COLLAPSED). Consolidation pass, Step 3, D3.3."
+    },
+    {
+      "id": "ge-scorecard",
+      "fence": "success.md, Stage 2: the general election",
+      "into": "fig-5-6-kpis",
+      "note": "The five general-election indicators (GE-01 to GE-05), likewise collapsed into fig-5-6-kpis. Consolidation pass, Step 3, D3.3."
     }
   ]
 }
