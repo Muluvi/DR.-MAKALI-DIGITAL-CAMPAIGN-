@@ -1,11 +1,13 @@
 // Reusable Source objects — one definition per institution/outlet, imported everywhere that
-// institution is cited so a URL or date correction happens in exactly one place.
+// institution is cited so a URL or date correction happens in exactly one place. Nine of them are
+// also the registry's sources (lib/data/figures.ts reads their names), so a document is named the
+// same way in a figure's source line and in the evidence table (consolidation pass, Step 2).
 import type { Source } from "./types";
 
 // ---- Tier 1 · Official ------------------------------------------------------------------
 
 export const IEBC_WARD_REGISTER: Source = {
-  name: "IEBC — Registered Voters per County Assembly Ward",
+  name: "IEBC, Registered Voters per County Assembly Ward (2022)",
   url: "https://www.iebc.or.ke/docs/rov_per_caw.pdf",
   publicationDate: "2022",
   tier: 1,
@@ -34,7 +36,7 @@ export const CONTROLLER_OF_BUDGET: Source = {
 };
 
 export const FISCAL_STRATEGY_PAPER_FY2026_27: Source = {
-  name: "Kitui County Fiscal Strategy Paper, FY2026/27 (approved by the County Assembly)",
+  name: "Kitui County Fiscal Strategy Paper FY2026/27, as approved by the County Assembly",
   publicationDate: "2026",
   tier: 1,
 };
@@ -89,7 +91,7 @@ export const PARLIAMENT_MEMBER_RECORD: Source = {
 };
 
 export const KDHS_2022: Source = {
-  name: "KNBS — Kenya Demographic and Health Survey 2022, Kitui county factsheet",
+  name: "KNBS, Kenya Demographic and Health Survey 2022, Kitui factsheet, per Firefly's audit",
   url: "https://www.knbs.or.ke/wp-content/uploads/2023/08/Kenya-Demographic-and-Health-Survey-2022-Factsheet-Kitui.pdf",
   publicationDate: "2022",
   tier: 1,
@@ -139,7 +141,7 @@ export const KNBS_POVERTY_REPORT: Source = {
 };
 
 export const IEBC_REGISTER_2026_REPORTED: Source = {
-  name: "Reported 2026 registered-voter totals for Kitui (aggregator coverage)",
+  name: "Venas News, registered voters by county, July 2026; unconfirmed until IEBC's own July figure is in hand",
   publicationDate: "2026-07",
   tier: 3,
   // 605,703 county total and +61,839 new registrations. Tier 3 and explicitly unverified: used
@@ -160,7 +162,7 @@ export const STANDARD_NATION: Source = {
 };
 
 export const MEDIA_2022_DECLARATION: Source = {
-  name: "Kenyan media reporting of the 2022 IEBC declaration",
+  name: "Media reporting of the IEBC 2022 declaration (The Star; Nation; Standard)",
   publicationDate: "2022-08",
   tier: 2,
   // The research hand-off supplied these vote totals without naming a specific outlet or

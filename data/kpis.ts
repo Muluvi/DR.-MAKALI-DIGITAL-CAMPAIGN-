@@ -17,6 +17,7 @@
 // awaiting-decision state rather than the unmeasured one. The repository is the source of truth,
 // so that is what is encoded here, and the difference is flagged rather than smoothed over.
 import type { ClaimStatus } from "../components/markdown/ClaimBadge";
+import { fmt, val } from "../lib/data/read.ts";
 
 export type Baseline =
   | { kind: "unmeasured"; note: string }
@@ -118,8 +119,8 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     definition:
       "Individual registered voters with phone, ward, & polling station logged in campaign CRM.",
     baseline: { kind: "measured", value: 0, display: "0 pledged voters", note: "Section 3.3.1, Commitment 3" },
-    target: "220,000 Pledged Voters (110% Win)",
-    targetValue: 220000,
+    target: `${fmt("target.pledged-voters")} Pledged Voters (110% Win)`,
+    targetValue: val("target.pledged-voters"),
     unit: "count",
     method: "Verified opt-in 2G SMS & Baraza registration ledger",
     owner: "Field Ops & Data Director",
@@ -130,8 +131,8 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     title: "Ward Captain Deployment Index (campaign-owned)",
     definition: "Active, vetted Ward Captains operating across all 40 Wards (10 per ward).",
     baseline: { kind: "measured", value: 0, display: "0 active Captains", note: "Section 3.3.1, Commitment 5" },
-    target: "400 Captains (10 / Ward, 100% Coverage)",
-    targetValue: 400,
+    target: `${fmt("target.captains")} Captains (10 / Ward, 100% Coverage)`,
+    targetValue: val("target.captains"),
     unit: "count",
     method: "Biometric / ID verification and monthly activity log confirmation",
     owner: "Campaign ground team — outside this engagement",
@@ -143,8 +144,8 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     definition:
       "Accredited, trained party polling station agents deployed across 100% of Kitui polling stations.",
     baseline: { kind: "measured", value: 0, display: "0 Station Agents", note: "None deployed" },
-    target: "1,578 Stations (100% of stations)",
-    targetValue: 1578,
+    target: `${fmt("register.polling-stations")} Stations (100% of stations)`,
+    targetValue: val("register.polling-stations"),
     unit: "count",
     method: "IEBC official accreditation badges & signed deployment forms",
     owner: "Legal & Polling Station Lead",
@@ -201,9 +202,9 @@ export const STAGE_1_TARGETS = [
 
 /** The four Stage 2 headline targets, likewise. */
 export const STAGE_2_TARGETS = [
-  "Verified Pledged Voter Database (Target: 220,000 Opt-In Voters)",
-  "Ward Captain Mobilization Index, campaign-owned (400 Captains / 40 Wards)",
-  "Polling Agent Station Coverage (100% of 1,578 Stations)",
+  `Verified Pledged Voter Database (Target: ${fmt("target.pledged-voters")} Opt-In Voters)`,
+  `Ward Captain Mobilization Index, campaign-owned (${fmt("target.captains")} Captains / 40 Wards)`,
+  `Polling Agent Station Coverage (100% of ${fmt("register.polling-stations")} Stations)`,
   "Turnout Conversion Rate (≥82%)",
 ];
 

@@ -62,8 +62,11 @@ def test_site_facing_analysis_data_is_not_excluded_from_deployment():
         for line in (config.REPO_ROOT / ".vercelignore").read_text(encoding="utf-8").splitlines()
         if line.strip() and not line.strip().startswith("#")
     ]
+    # data/analysis is committed; public/content/analysis is generated from it at build
+    # (scripts/copy-analysis.mjs), so only the first must exist in a checkout. Both must
+    # survive the deploy, so neither may be excluded.
+    assert (config.REPO_ROOT / "data/analysis").is_dir(), "data/analysis is missing"
     for needed in ("data/analysis", "public/content/analysis"):
-        assert (config.REPO_ROOT / needed).is_dir(), f"{needed} is missing"
         for pattern in patterns:
             bare = pattern.strip("/")
             # An unanchored pattern matches at any depth; an anchored one only at the root.

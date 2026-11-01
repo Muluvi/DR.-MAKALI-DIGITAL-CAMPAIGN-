@@ -1,4 +1,4 @@
-import { tierWord } from "../../lib/tier-word";
+import { tierWord } from "../../data/types";
 import type { Figure, FigureState, Tier } from "../../lib/data/schema";
 
 /**

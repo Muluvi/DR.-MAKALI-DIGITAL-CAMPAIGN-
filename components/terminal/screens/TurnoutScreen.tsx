@@ -3,6 +3,7 @@
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
 import { Gauge, CheckCircle, BarChart2, ShieldCheck, MapPin } from "lucide-react";
+import { fmt } from "../../../lib/data/read";
 
 export function TurnoutScreen({ data }: { data: WardPulseData }) {
   const turnout = data.turnoutPacing;
@@ -20,7 +21,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
           </span>
         </div>
         <div className="font-mono text-slate-400" style={{ fontSize: "0.625em" }}>
-          Threshold: 198,004
+          Benchmark: {fmt("benchmark")}
         </div>
       </div>
 

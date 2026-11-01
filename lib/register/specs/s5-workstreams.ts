@@ -5,6 +5,8 @@
  */
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
+import { USSD_MENU } from "../../../data/ussd-specimen.ts";
+import { CountWord } from "../../count-word.ts";
 
 const PROPOSAL = { name: "This proposal, Chapter 15", tier: null, state: "target" as const };
 
@@ -50,19 +52,13 @@ export const FIG_FIELD_LOOP: FigureSpec = {
   rows: LOOP.map((l, i) => ({ cells: { n: i + 1, lane: l.lane, what: l.title, detail: l.body } })),
 };
 
-const MENU = [
-  { n: 1, label: "Sisemo sya Mulu", shown: "Mulu's plan for my ward", issue: "His plan, ward by ward." },
-  { n: 2, label: "Andikithya kuvota", shown: "Voter registration info", issue: "Where and how to register." },
-  { n: 3, label: "Ripoti wia", shown: "Report a local issue", issue: "Opens a report in the service-delivery tracker: the option that matters most." },
-  { n: 4, label: "Kuthukuma", shown: "Volunteer", issue: "Joins the volunteer list." },
-  { n: 5, label: "Kwithukiisya", shown: "Get updates (opt-in)", issue: "Consent to the SMS list." },
-  { n: 6, label: "Kiswahili / English", shown: "Language", issue: "Switches the menu language." },
-];
+/** The USSD menu: data/ussd-specimen.ts, the one definition. */
+const MENU = USSD_MENU.map((o) => ({ n: Number(o.key), label: o.kikamba ?? o.english, shown: o.kikamba ? o.english : "Language", issue: o.does }));
 
 export const FIG_USSD_MENU: FigureSpec = {
   id: "fig-5-2-3-ussd-menu",
   section: "4.5.9",
-  title: "Six options on any phone, and the third puts the tracker in reach of a feature phone in Mutha",
+  title: `${CountWord(USSD_MENU.length)} options on any phone, and the third puts the tracker in reach of a feature phone in Mutha`,
   question: "What does the USSD menu offer?",
   takeaway: "Dial the shortcode, read the plan, register, report an issue, volunteer or opt in, with no internet and close to no cost.",
   sources: [PROPOSAL],

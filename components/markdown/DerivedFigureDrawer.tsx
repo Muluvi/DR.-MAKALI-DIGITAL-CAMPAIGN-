@@ -2,18 +2,19 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Calculator } from "lucide-react";
+import { fmt } from "../../lib/data/read";
 
 // Arithmetic behind the derived figures the proposal leans on hardest, built only from
 // numbers already stated elsewhere in the document (cited by section) — never a new estimate.
 const WORKINGS: Record<string, { title: string; inputs: string[]; result: string }> = {
   "win-threshold": {
-    title: "How the ~200,000-vote threshold is derived",
+    title: `How the ~${fmt("benchmark")}-vote benchmark is derived`,
     inputs: [
-      "2022 winning total, Kitui Governor (Malombe, Wiper) — Section 3.3.3 [CHECK REF]: 198,004 votes",
-      "Registered voters, Kitui County, 2022 — Section 3.3.3 [CHECK REF]: 532,758",
+      `2022 winning total, Kitui Governor (Malombe, Wiper) — Section 2.2: ${fmt("result.2022.gov.malombe")} votes`,
+      `Registered voters, Kitui County, 2022 — Section 2.1: ${fmt("register.2022")}`,
       "Certified 2022 turnout, IEBC Form 37C — Section 2.1: 61.7%",
     ],
-    result: "198,004 actual winning votes, rounded up to an approximate working target of 200,000 for KPI-setting.",
+    result: `${fmt("result.2022.gov.malombe")} actual winning votes, rounded up to an approximate working target of ${fmt("benchmark")} for KPI-setting.`,
   },
 };
 

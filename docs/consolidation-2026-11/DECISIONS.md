@@ -67,10 +67,15 @@ own sources skipped. A literal is graded `exact` (equals a registry value as pri
 Baseline at 2f29920, written to `literals-before.json`:
 
 - 293 files scanned, 295 distinct registry values in range
-- **181 exact** and **13 rounded** copies, in **45 files**, of 78 distinct values
+- **180 exact** and **13 rounded** copies, in **44 files**
 
-(The powers-of-ten rule was added during Step 1, after a first run showed `1000` and `1_000_000`
-matching every unit conversion; the baseline was re-measured on 2f29920 with the final rule.)
+Two refinements were made during Steps 1 and 2, and the baseline was re-measured on 2f29920 with
+the final rules, so before and after are counted the same way:
+
+- The powers-of-ten rule, after a first run showed `1000` and `1_000_000` matching every unit
+  conversion.
+- Comment ranges now come from the TypeScript parser, because a hand-written stripper was confused
+  by apostrophes in JSX text and missed comments after a comma.
 
 The small counted values the scan cannot see ("six risks", "four pillars", "five indicators") are
 covered by the Step 6 contradiction check instead, which reads each count from its data source.
@@ -219,3 +224,104 @@ and the playbooks' segment summary.
   counterpart and the gateway names the Campaign Manager. Settling which role signs a broadcast is
   the campaign's decision, not a fact this pass can source, so it is **flagged for the owner**, not
   changed.
+
+## Step 2: one source of truth for every number
+
+### D2.1 Every registry value in site code is a registry read
+
+The read helper is `lib/data/read.ts`: `val(id)`, `fmt(id, mod)` and `figure(id)`. Code outside
+the legacy figure system now carries **no exact registry-valued literal**, except the allowed
+coincidences in D2.4.
+
+Files converted:
+
+- `components/`: the decision panel, KPI architecture, derived-figure drawer, electoral timeline,
+  zone matrix, path-to-200,000 block and calculator, persuasion and pillars matrices, terminal
+  turnout screen, tools hub, and the legacy figure registry's notes and headlines.
+- `data/`: electoral arithmetic, electoral history, disputed figures, drought, fiscal audit, KPIs,
+  scope-level matrix, USSD specimen and terminal showcase. The showcase's ward registers now read
+  `ward.*`.
+- `lib/`: the highlight patterns.
+
+`lib/figures/*` is left to Step 3, which retires the module, so its literals are counted there.
+After Step 2: **31 exact and 3 rounded**, all in `lib/figures/`.
+
+### D2.2 Claims that were wrong, not just retyped
+
+- **"IEBC Benchmark: Minimum winning threshold is 198,004 – 200,000 valid votes in a 3-way
+  contest"** (path calculator). There is no fixed threshold, and the IEBC sets no benchmark. It now
+  reads: the 2022 winning tally (Form 37C) rounded to the 200,000 benchmark, and the most votes
+  wins. "Threshold" becomes "benchmark" wherever it named 200,000 (terminal showcase, KPI
+  architecture, derived-figure drawer, paths figure).
+- **"Over 14,000 families … have already signed the sand dam resolution"** (persuasion matrix
+  script). It had no source. It only coincided with `boda.riders` (14,000), which counts something
+  else. The number is removed and the script line keeps its ask.
+- **"1,200 households walking 8km"** in a sample tracker report. It is illustrative, but it stated
+  an unsourced fact about Kyuso. The numbers and the ward name are removed; the sample keeps its
+  shape.
+
+### D2.3 Dead code deleted
+
+Nothing imported these, so they were removed instead of rewired:
+
+- `components/markdown/KpiPhaseBlock.tsx` and `components/charts/KpiPhaseBarChart.tsx` (16 literal
+  phase targets, two with no registry home)
+- `components/tools/KiemsTabletInspector.tsx`
+- `data/county-profile.ts`
+
+### D2.4 Literals allowed to stand
+
+`scripts/consolidation/literals-allow.json` lists 13 literals that equal a registry value by
+coincidence or are illustrative. Each entry gives a reason.
+
+- **Coincidences:**
+  - pixel sizes: the Open Graph image width and a maximum section height
+  - millisecond timings: a confirmation timeout, a phone-mock animation and a scroll hold
+  - a chart axis rule that prints millions from two million up
+  - the ward map's legend bin edges
+  - the ad kill rule's 5,000-impression sample, already allowed in `lib/data/allow.ts`
+- **Illustrative mock data, shown under `IllustrativeTag`:** the terminal showcase's market-day
+  crowd estimate. The rest of the terminal and phone showcases (follower counts, polling-station
+  progress, leaflet counts) uses values that match no registry figure. They are illustrative, and
+  the scan does not flag them.
+
+### D2.5 Reference lists, one module each
+
+| List | One home | Retired |
+|---|---|---|
+| Tiers | `data/types.ts` `TIER_META`, with `tierWord()` and `tierCode()` | `lib/tier-word.ts`; the local maps in `lib/reader-text.ts` and `StationTable.tsx` |
+| Phases | `lib/phases.ts` (Step 1) | — |
+| Sources | `data/sources.ts`: the nine documents the registry shares with the rest of the site are defined there, and `lib/data/figures.ts` reads their names | Two spellings of the same IEBC register, census, CFSP, OAG, CoB, KDHS, Court of Appeal judgment, 2022 media declaration and July 2026 aggregator report. The registry's wording is kept. The evidence table still lists 65 documents |
+| Wards | `data/ward-register.json`, read by the registry (`ward.*`, `con.*`) | Ward totals retyped in the terminal showcase and the legacy figures (the latter in Step 3) |
+| USSD menu | `data/ussd-specimen.ts`: the six-option bilingual menu, what each option does, and option 1's plan items | The four-option tree in `lib/figures/production.ts` and `lib/phone-showcase.ts`, and the copies in `components/ReachSplit.tsx` and the register figure. All read the one menu |
+| KPIs | Registry `target.*`, with `data/kpis.ts` holding metadata and reading targets by id (`val`/`fmt`) | Literal targets in the stage summaries |
+| Risks | `data/risks.ts`, read by fig-5-8 | The list inside the figure spec |
+
+On the USSD menu: the four-option tree and the six-option menu disagreed. The six-option menu is
+kept because it is the one quoted in the proposal's Ground & offline section, with Kikamba first.
+The tree's "Privacy policy & data opt-out" option is covered by the charter's requirement that the
+opt-out be reachable from the menu, with its position set when the shortcode is provisioned. That
+is the note the menu figure already carries.
+
+### D2.6 The served analysis copy is generated
+
+`public/content/analysis/` (12 files, byte-identical to `data/analysis/`) is no longer committed.
+
+- `scripts/copy-analysis.mjs` writes it from `data/analysis/` in `prebuild`, `predev`, `content`
+  and before `verify-analysis-exports.mjs`, which still compares the two byte for byte.
+- `.gitignore` lists it.
+- The pipeline (`analysis/src/publish.py`) now publishes to `data/analysis/` only.
+- `analysis/tests/test_repo_safety.py` checks that `data/analysis` exists and that neither folder
+  is excluded from deployment.
+- `.vercelignore` needs no change: its anchored `/analysis/` already leaves both folders in.
+
+### D2.7 Tests ported
+
+`lib/figures/figures.test.ts` pinned the stage-2 summary's literal "220,000", "400 Captains" and
+"1,578". It now asserts that the summary and the scorecard row read the same registry ids, and that
+the registry holds those values. That is the guarantee the test was written for (D-14).
+
+The analysis tests give **102 passed, 11 failed, 45 skipped** on 2f29920 and on this branch alike.
+The 11 failures need the pipeline's data pack (`analysis/data/`), which is gitignored and not in
+the repository. They are not caused by this pass. Running them rewrites three committed reports
+with "no data" stubs, and those changes were reverted, not committed.

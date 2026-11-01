@@ -6,6 +6,7 @@ import { UserCheck, Clock, Camera, Scale, MapPin, Briefcase, CheckCircle2, Eye, 
 
 import { ClaimBadge } from "./markdown/ClaimBadge";
 import { InlineMarks } from "./markdown/InlineMarks";
+import { fmt } from "../lib/data/read";
 
 /**
  * M5 — the ask.
@@ -76,7 +77,7 @@ export function DecisionPanel() {
             <p className="t-label text-muted leading-relaxed mt-2">
               Tier 1 concentrates spend where Dr. Mulu is already strong and leaves the recognition
               deficit untouched. Tier 3 is defensible but presses against a statutory ceiling that must
-              also cover transport, venues and personnel across 30,430 square kilometres.
+              also cover transport, venues and personnel across {fmt("census.area")} square kilometres.
             </p>
           </div>
 

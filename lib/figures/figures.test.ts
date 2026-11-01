@@ -24,6 +24,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { FIGURES as REGISTRY } from "../data/figures.ts";
 
 import {
   ballotsAt,
@@ -357,19 +358,20 @@ test("§1.9's stage summaries agree with the scorecards they summarise (D-14)", 
   assert.match(stage1, /Consented Contacts in the Pool \(≥ 51\.7%\)/, "NW-03");
   assert.match(stage1, /Branch Executive Endorsement Pledges \(8\/8\)/, "NW-04 — branch executive, not delegate");
 
-  assert.match(stage2, /220,000 Opt-In Voters/, "GE-01");
-  assert.match(stage2, /400 Captains \/ 40 Wards/, "GE-02");
-  assert.match(stage2, /100% of 1,578 Stations/, "GE-03");
+  // Since the consolidation pass the stage-2 summary and the scorecard rows it summarises read the
+  // same registry figures, so they cannot drift: assert each side names the figure, and the
+  // registry holds the value the scorecard states.
+  const ge = kpis.slice(kpis.indexOf("export const GENERAL_ELECTION_KPIS"), kpis.indexOf("export const STAGE_1_TARGETS"));
+  for (const [code, id, value] of [["GE-01", "target.pledged-voters", 220_000], ["GE-02", "target.captains", 400], ["GE-03", "register.polling-stations", 1_578]] as const) {
+    assert.ok(stage2.includes(`fmt("${id}")`), `${code}: the stage-2 summary reads ${id}`);
+    assert.ok(ge.includes(`val("${id}")`), `${code}: the scorecard row reads ${id}`);
+    assert.equal(REGISTRY[id].value, value, `${code}: ${id} is ${value}`);
+  }
   assert.match(stage2, /Turnout Conversion Rate \(≥82%\)/, "GE-04");
+  assert.match(stage2, /Polling Agent Station Coverage \(100% of /, "GE-03 wording");
 
-  // And the scorecard rows they summarise still carry the same figures.
+  // And the nomination scorecard still carries the pool-share target.
   assert.match(kpis, /targetValue: 51\.7,/);
-  assert.match(kpis, /targetValue: 1578,/);
-  // Written without a numeric-separator alternation. An earlier draft matched both spellings of
-  // the literal, and the guard read the alternation's digits as a separate figure that
-  // figure-migrations.json records as retired — so the assertion silently un-retired it. A test
-  // that asserts one spelling of one number cannot do that.
-  assert.match(kpis, /targetValue: 220000,/);
 });
 
 test("no nomination baseline is drawn as a measured zero", () => {

@@ -1,3 +1,4 @@
+import { PLAN_ITEMS, USSD_MENU as USSD_SPEC } from "../data/ussd-specimen";
 /**
  * Every word, handle and number that appears on the seven phone screens.
  *
@@ -288,17 +289,9 @@ export const USSD = {
   networkLabel: "USSD",
   dialingMessage: "Sending…",
   responseHeader: "Dr. Makali Mulu — Kitui 2027",
-  menu: [
-    { key: "1", label: "Manifesto Summary" },
-    { key: "2", label: "Ward Development Tracker" },
-    { key: "3", label: "Volunteer as a Village Captain" },
-    { key: "4", label: "Privacy Policy & Data Opt-Out" },
-  ] satisfies UssdMenuItem[],
-  submenu: [
-    { key: "1", label: "Ward Fund: Published Needs-Weighted Formula" },
-    { key: "2", label: "Ksh 85/kg Ndengu Floor Price & Cold Hubs" },
-    { key: "3", label: "Free Boda Boda Licenses & TVET Bursaries" },
-  ] satisfies UssdMenuItem[],
+  // The menu and option 1's plan items: data/ussd-specimen.ts, the one definition.
+  menu: USSD_SPEC.map((o) => ({ key: o.key, label: o.english })) satisfies UssdMenuItem[],
+  submenu: PLAN_ITEMS.map((p, i) => ({ key: String(i + 1), label: p })) satisfies UssdMenuItem[],
   inputPlaceholder: "Reply",
   cancelLabel: "Cancel",
   sendLabel: "Send",

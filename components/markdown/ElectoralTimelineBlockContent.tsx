@@ -5,11 +5,12 @@ import { ProvenanceLine } from "./ProvenanceLine";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import ElectoralTimelineChart, { type TimelinePoint } from "../charts/ElectoralTimelineChart";
+import { val } from "../../lib/data/read";
 
 const DATA: TimelinePoint[] = [
   { year: "2013", winner: null, votes: null, color: "transparent" },
-  { year: "2017", winner: "Ngilu", votes: 169990, color: "#e31d2b" },
-  { year: "2022", winner: "Malombe", votes: 198004, color: "#0056a8" },
+  { year: "2017", winner: "Ngilu", votes: val("result.2017.gov.ngilu"), color: "#e31d2b" },
+  { year: "2022", winner: "Malombe", votes: val("result.2022.gov.malombe"), color: "#0056a8" },
 ];
 
 const PROVENANCE: Provenance[] = [

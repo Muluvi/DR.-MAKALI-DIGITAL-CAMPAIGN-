@@ -3,12 +3,13 @@
 // id "kitui-fy2025-26-q1-absorption" — and is not duplicated here as a single number.
 import type { SourcedFigure } from "./types";
 import { AUDITOR_GENERAL_FY2023_24, CONTROLLER_OF_BUDGET, FISCAL_STRATEGY_PAPER_FY2026_27 } from "./sources";
+import { val } from "../lib/data/read.ts";
 
 // §2.5's resource envelope, restated here as a typed figure so the Phase 6d chart can
 // plot it without a hardcoded number in the component file.
 export const RESOURCE_ENVELOPE_FY2026_27: SourcedFigure = {
   label: "Total resource envelope, FY2026/27",
-  value: 13_790_000_000,
+  value: val("budget.total"),
   unit: "KSh",
   provenance: { source: FISCAL_STRATEGY_PAPER_FY2026_27, granularity: "county" },
 };
@@ -16,25 +17,25 @@ export const RESOURCE_ENVELOPE_FY2026_27: SourcedFigure = {
 export const AUDIT_QUERIES_FY2023_24: SourcedFigure[] = [
   {
     label: "Unconfirmed cash balances",
-    value: 670_000_000,
+    value: val("audit.cash"),
     unit: "KSh",
     provenance: { source: AUDITOR_GENERAL_FY2023_24, granularity: "county" },
   },
   {
     label: "Uncollected county rates and rents",
-    value: 1_090_000_000,
+    value: val("audit.uncollected"),
     unit: "KSh",
     provenance: { source: AUDITOR_GENERAL_FY2023_24, granularity: "county" },
   },
   {
     label: "IFMIS variance",
-    value: 621_500_000,
+    value: val("audit.ifmis"),
     unit: "KSh",
     provenance: { source: AUDITOR_GENERAL_FY2023_24, granularity: "county" },
   },
   {
     label: "Unexplained inter-account transfer variance",
-    value: 356_200_000,
+    value: val("audit.transfers"),
     unit: "KSh",
     provenance: { source: AUDITOR_GENERAL_FY2023_24, granularity: "county" },
   },
@@ -42,7 +43,7 @@ export const AUDIT_QUERIES_FY2023_24: SourcedFigure[] = [
 
 export const PENDING_BILLS_FY2020_21: SourcedFigure = {
   label: "County pending bills, FY2020/21",
-  value: 1_300_000_000,
+  value: val("budget.pending-bills.2021"),
   unit: "KSh (approx.)",
   provenance: {
     source: CONTROLLER_OF_BUDGET,

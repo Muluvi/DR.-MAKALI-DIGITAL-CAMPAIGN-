@@ -6,8 +6,9 @@ import { ALL_WARDS, MWINGI_BLOC_TOTAL, CONSTITUENCIES } from "../../data/ward-re
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { Provenance } from "../../data/types";
 import PathTo200kChart, { type PathPoint } from "../charts/PathTo200kChart";
+import { fmt, val } from "../../lib/data/read";
 
-const WIN_THRESHOLD = 200_000; // §3.3.3 [CHECK REF]: 198,004 actual 2022 winning total, rounded for KPI-setting.
+const WIN_THRESHOLD = val("benchmark"); // the 2022 winning total, rounded for KPI-setting (registry: benchmark)
 const PROVENANCE: Provenance = { source: IEBC_WARD_REGISTER, granularity: "ward" };
 
 const CONSTITUENCY_COLORS: Record<string, string> = {
@@ -40,11 +41,11 @@ export function PathTo200kBlockContent() {
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 print-avoid-break">
       <div className="flex items-center gap-2 mb-1">
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
-        <h4 className="font-serif text-sm font-bold text-ink">Path to 200,000 — Wards Ranked by Register</h4>
+        <h4 className="font-serif text-sm font-bold text-ink">Path to {fmt("benchmark")} — Wards Ranked by Register</h4>
       </div>
       <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
         All 40 wards, ranked descending by register size (bars, coloured by constituency) with the cumulative running
-        total (line) against the ~200,000-vote win threshold. <strong className="text-ink">The three Mwingi
+        total (line) against the ~{fmt("benchmark")}-vote benchmark. <strong className="text-ink">The three Mwingi
         constituencies alone total {MWINGI_BLOC_TOTAL.toLocaleString()}</strong> — the threshold is reachable from
         that bloc on its own, a real targeting finding.
       </p>

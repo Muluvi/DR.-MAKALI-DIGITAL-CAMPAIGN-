@@ -11,6 +11,7 @@ import { useReducedMotionSafe } from "../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../hooks/useMotionPreset";
 import { TierBadge } from "./markdown/TierBadge";
 import { ClaimBadge } from "./markdown/ClaimBadge";
+import { USSD_HEADER, USSD_MENU as USSD_SPEC, menuLine } from "../data/ussd-specimen";
 
 /**
  * M3 — the county's central division, and the tool that addresses the larger side of it.
@@ -34,16 +35,8 @@ const OFFLINE = Number(formatFigure(FIGURES["ict.offline"]));
 /** Adults own phones at about three in four (KDHS 2022), so most of the offline side still has a handset. */
 const ADULT_PHONE = formatFigure(FIGURES["ict.phone.adult"]);
 
-/** §3.8.1, verbatim. Kikamba first, English gloss second, exactly as written. */
-const USSD_MENU = [
-  "KITUI NA MULU",
-  "1. Sisemo sya Mulu / Mulu's plan for my ward",
-  "2. Andikithya kuvota / Voter registration info",
-  "3. Ripoti wia / Report a local issue",
-  "4. Kuthukuma / Volunteer",
-  "5. Kwithukiisya / Get updates (opt-in)",
-  "6. Kiswahili / English",
-];
+/** The USSD menu as the handset prints it, from data/ussd-specimen.ts (the one definition). */
+const USSD_MENU = [USSD_HEADER, ...USSD_SPEC.map(menuLine)];
 
 const CHANNELS = {
   connected: [

@@ -25,18 +25,14 @@ from datetime import date
 
 from src import config, siteexport as sx
 
-# Two destinations, written from the same source in one step.
+# One destination: data/analysis/, what the site's components import at build time (the repo's
+# idiom: data/ward-register.ts is a typed view onto data/ward-register.json).
 #
-#   public/content/analysis/  is served, so the provenance data is addressable and can be
-#                             checked by anyone reading the proposal.
-#   data/analysis/            is what the site's components import at build time, following
-#                             the repo's existing idiom (data/ward-register.ts is a typed
-#                             view onto data/ward-register.json).
-#
-# They are byte-identical copies and a test asserts it. Two hand-maintained copies would
-# drift; two copies written by one function cannot.
-DESTINATION = config.REPO_ROOT / "public" / "content" / "analysis"
+# The served copy a reader can fetch, public/content/analysis/, is generated from it at build by
+# scripts/copy-analysis.mjs and is not committed (consolidation pass, November 2026), so there is
+# one editable copy.
 DATA_DESTINATION = config.REPO_ROOT / "data" / "analysis"
+DESTINATION = DATA_DESTINATION
 
 REQUIRED_FIELDS = {"value", "unit", "source_id", "tier", "as_of", "method", "status"}
 
@@ -107,11 +103,9 @@ def main(argv: list[str] | None = None) -> int:
         print(f"\nDry run: {len(safe)} would publish, {len(blocked)} blocked.")
         return 1 if blocked else 0
 
-    DESTINATION.mkdir(parents=True, exist_ok=True)
     DATA_DESTINATION.mkdir(parents=True, exist_ok=True)
     published = []
     for path, _ in safe:
-        shutil.copy2(path, DESTINATION / path.name)
         shutil.copy2(path, DATA_DESTINATION / path.name)
         published.append(path.name)
         print(f"  published  {path.name}")
@@ -134,7 +128,6 @@ def main(argv: list[str] | None = None) -> int:
         ],
     }
     manifest_json = json.dumps(manifest, indent=2) + "\n"
-    (DESTINATION / "manifest.json").write_text(manifest_json, encoding="utf-8")
     (DATA_DESTINATION / "manifest.json").write_text(manifest_json, encoding="utf-8")
     print(f"\n{len(published)} published to {DESTINATION.relative_to(config.REPO_ROOT)}, "
           f"{len(blocked)} blocked.")

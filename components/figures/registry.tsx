@@ -154,7 +154,8 @@ import {
   PLATFORM_SIZING,
   REACH_SPLIT,
 } from "../../lib/figures/reach";
-import { regFmt } from "../../lib/figures/from-registry";
+import { regFmt, regNum } from "../../lib/figures/from-registry";
+import { CountWord } from "../../lib/count-word";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { FigurePoint, FigureSeries } from "../../lib/figures/types";
 
@@ -191,7 +192,7 @@ const WARD_RANKING_SERIES: FigureSeries = {
     value: w.voters,
     ...officialRegister,
   })),
-  note: "Registration is concentrated, not evenly spread: a flat distribution would put 13,319 voters in each ward.",
+  note: `Registration is concentrated, not evenly spread: a flat distribution would put ${regFmt("register.2022.ward-mean")} voters in each ward.`,
 };
 
 /* ------------------------------------------------------------------ §3.4.3 the four paths */
@@ -206,13 +207,13 @@ const PATHS_SERIES: FigureSeries = {
     ...officialRegister,
     note:
       `${p.wards} wards · ${p.share.toFixed(2)}% of the register · about ${p.ballots.toLocaleString("en-KE")} ballots at 61.7%` +
-      ` · ${p.marginOverRounded >= 0 ? "+" : "−"}${Math.abs(p.marginOverRounded).toLocaleString("en-KE")} against 200,000` +
-      ` · ${p.marginOver2022 >= 0 ? "+" : "−"}${Math.abs(p.marginOver2022).toLocaleString("en-KE")} against 198,004`,
+      ` · ${p.marginOverRounded >= 0 ? "+" : "−"}${Math.abs(p.marginOverRounded).toLocaleString("en-KE")} against ${regFmt("benchmark")}` +
+      ` · ${p.marginOver2022 >= 0 ? "+" : "−"}${Math.abs(p.marginOver2022).toLocaleString("en-KE")} against ${regFmt("result.2022.gov.malombe")}`,
     conflicts: p.id === "B" ? ["C-4"] : undefined,
   })),
   note:
-    "Both margins are shown on every path because §3.4.3 [CHECK REF] mixes them: Path B's prose quotes the margin over 198,004 " +
-    "while naming the 200,000 threshold. Neither number has been changed.",
+    `Both margins are shown on every path because the paths' prose mixes them: Path B quotes the margin over ${regFmt("result.2022.gov.malombe")} ` +
+    `while naming the ${regFmt("benchmark")} benchmark. Neither number has been changed.`,
 };
 
 /* ------------------------------------------------------------------ §3.4 the deficit pool */
@@ -222,8 +223,8 @@ const DEFICIT_SERIES: FigureSeries = {
   headline: `${DEFICIT_POOL.toLocaleString("en-KE")} registered voters — ${DEFICIT_POOL_SHARE.toFixed(2)}% of the county — sit in the constituencies where he is least known`,
   measure: "Registered voters in the Mwingi bloc and Kitui South, against the rest of the county",
   points: [
-    { label: "Mwingi North, West and Central", value: 200_198, ...officialRegister, note: "15 wards" },
-    { label: "Kitui South", value: 75_372, ...officialRegister, note: "6 wards" },
+    { label: "Mwingi North, West and Central", value: regNum("bloc.mwingi"), ...officialRegister, note: "15 wards" },
+    { label: "Kitui South", value: regNum("con.kitui-south"), ...officialRegister, note: "6 wards" },
     {
       label: "The rest of the county",
       value: COUNTY_REGISTER - DEFICIT_POOL,
@@ -248,7 +249,7 @@ const REGISTER_SERIES: FigureSeries = {
     value: w.voters,
     ...officialRegister,
   })),
-  note: "A flat distribution would put 13,319 voters in every ward. The largest holds 19,921 and the smallest 7,429.",
+  note: `A flat distribution would put ${regFmt("register.2022.ward-mean")} voters in every ward. The largest holds ${regFmt("ward.kyuso")} and the smallest ${regFmt("ward.tharaka")}.`,
 };
 
 /* ------------------------------------------------------------------ §3.4.4 constituency power */
@@ -318,7 +319,7 @@ const DEPLOYMENT_SERIES: FigureSeries = {
 
 const BYPASS_SERIES: FigureSeries = {
   id: "bypass-architecture",
-  headline: "Four ways to reach 532,758 voters without a commercial gatekeeper's permission",
+  headline: `Four ways to reach ${regFmt("register.2022")} voters without a commercial gatekeeper's permission`,
   measure: "§15.2.2's gatekeeper bypass and direct reach architecture — the operational protocol for each pillar",
   points: [],
   note:
@@ -650,7 +651,7 @@ export const FIGURES: Record<string, FigureEntry> = {
         stage={2}
         kpis={GENERAL_ELECTION_KPIS}
         title="Stage 2 — general election scorecard"
-        note="Five indicators, every one anchored to the ~200,000-vote winning threshold."
+        note={`${CountWord(GENERAL_ELECTION_KPIS.length)} indicators, every one anchored to the ~${regFmt("benchmark")}-vote benchmark.`}
       />
     ),
   },
@@ -1106,7 +1107,7 @@ export const FIGURES: Record<string, FigureEntry> = {
       <FigureFrame series={PATHS_SERIES}>
         <BuildUp
           series={PATHS_SERIES}
-          threshold={{ value: THRESHOLD_ROUNDED, label: "The ~200,000 threshold" }}
+          threshold={{ value: THRESHOLD_ROUNDED, label: `The ~${regFmt("benchmark")} benchmark` }}
         />
       </FigureFrame>
     ),
