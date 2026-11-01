@@ -18,6 +18,8 @@
  * needs ĩ and ũ. Two independent reasons the bulk SMS rail cannot carry Kikamba, stated here and
  * contradicted in §3.6.1.
  */
+import { CONTENT_TYPES } from "../../data/message-architecture";
+import { CountWord, countWord } from "../count-word";
 import type { FigureSeries } from "./types";
 
 /* ------------------------------------------------------------------ §4.5.2 the pipeline */
@@ -25,7 +27,7 @@ import type { FigureSeries } from "./types";
 export const PRODUCTION_TIERS = [
   {
     label: "Strategic core",
-    items: ["4 core content pillars, evidence-led"],
+    items: [`The ${countWord(CONTENT_TYPES.length)} content types, ${CONTENT_TYPES[0].code} to ${CONTENT_TYPES[CONTENT_TYPES.length - 1].code}, evidence-led`],
   },
   {
     label: "Offline broadcast engine",
@@ -49,7 +51,7 @@ export const PRODUCTION_TIERS = [
 
 export const PRODUCTION_SERIES: FigureSeries = {
   id: "production-pipeline",
-  headline: "Four content pillars feed two engines, and everything leaves through one gateway",
+  headline: `${CountWord(CONTENT_TYPES.length)} content types feed two engines, and everything leaves through one gateway`,
   measure: "§15.1.2's 360° content production pipeline",
   points: [],
   note:
@@ -106,7 +108,7 @@ export const USSD_MENU = {
     {
       label: "1. Dr. Makali Mulu manifesto summary",
       children: [
-        "1. Ksh 100M ward equalization fund",
+        "1. Ward funds by a published, needs-weighted formula",
         "2. Ksh 85/kg ndengu floor price & cold hubs",
         "3. Free boda boda licenses & TVET bursaries",
       ],
@@ -247,7 +249,7 @@ export const ASSET_LIBRARY = {
     {
       label: "03_AUDIO_BROADCAST_VAULT/",
       children: [
-        "Radio_45s_Spots_Master_WAV/ (Musyi, Mbaitu, Sang'u)",
+        "Radio_45s_Spots_Master_WAV/ (Musyi, County FM, Wikwatyo)",
         "Sound_Truck_Jingles_&_Benga_Anthems/",
         "Megaphone_Audio_Clips_for_Boda_Marshals/",
       ],

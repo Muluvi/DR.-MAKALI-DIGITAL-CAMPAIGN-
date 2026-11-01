@@ -20,6 +20,7 @@
  * than dropped, because an omission a reader cannot see is the kind this audit will not produce.
  */
 import { RADIO_STATIONS } from "../../data/media-ownership";
+import { regFmt } from "./from-registry";
 
 export type RosterRow = {
   label: string;
@@ -101,7 +102,7 @@ export const BYPASS_PILLARS = [
       "church elders and farming chamas; strictly neutral and immune to commercial political vetoes.",
   },
   {
-    label: "Direct 2G bulk SMS and USSD, to 320,000 voters",
+    label: `Direct 2G bulk SMS and USSD, to up to ${regFmt("reach.sms-only")} phone owners not online`,
     summary: "Zero-rated interactive USSD gateway (*[shortcode]#)",
     detail:
       "Deployment of the 2G SMS Engine (1.5M messages) and the zero-rated USSD gateway (*[shortcode]#) via " +

@@ -3,6 +3,9 @@
  * calendar, the channel shift, the six fixes and the decision rules.
  */
 import { RADIO_STATIONS } from "../../../data/media-ownership.ts";
+import { CONTENT_TYPES, PILLARS } from "../../../data/message-architecture.ts";
+import { SEGMENTS as SEGMENT_DATA } from "../../../data/segments.ts";
+import { CountWord, countWord } from "../../count-word.ts";
 import type { FigureSpec } from "../types.ts";
 import { fmt, num, src } from "./_util.ts";
 
@@ -13,19 +16,14 @@ const T_FIREFLY = { name: "Firefly's weighting, this proposal", tier: null, stat
 export const FIG_4_1: FigureSpec = {
   id: "fig-4-1-message-house",
   section: "3.2.1",
-  title: "One position, four pillars that argue it, and a record that holds it up",
+  title: `One position, ${countWord(PILLARS.length)} pillars that argue it, and a record that holds it up`,
   question: "What is the position, and what holds it up?",
   takeaway: "Every message rests on something already on the public record; none rests on a promise alone.",
   sources: [src("record.bursary.recipients"), { name: "Parliament of Kenya record; NG-CDF Board evaluation FY2014/15; Ministry of Finance designation", tier: "T1" }],
   chart: {
     type: "house",
     roof: "Dr. Makali Mulu is the Economist Governor Kitui needs: an expert who shows his working and enforces accountability.",
-    pillars: [
-      { title: "Fiscal accountability and devolution", body: `How the county's KSh ${fmt("budget.total", "bn")}bn should be allocated and audited, ward by ward.` },
-      { title: "Data-driven civic engagement", body: "His record made visible: projects, maps, before and after." },
-      { title: "Policy, translated", body: "Water, farming and devolution made local, in Kikamba and Kiswahili." },
-      { title: "Verification and follow-through", body: "Publish what was promised, then publish whether it happened." },
-    ],
+    pillars: PILLARS.map((p) => ({ title: p.title, body: `${p.argued.replace("the county's budget", `the county's KSh ${fmt("budget.total", "bn")}bn`)} Carries: ${p.carries.join("; ")}.` })),
     foundation: [
       "PhD in Economics, Kenyatta University",
       "Budget and Appropriations Committee",
@@ -38,10 +36,7 @@ export const FIG_4_1: FigureSpec = {
   columns: [{ key: "level", label: "Level" }, { key: "text", label: "Content" }],
   rows: [
     { cells: { level: "Roof: the position", text: "The Economist Governor Kitui needs" } },
-    { cells: { level: "Pillar", text: "Fiscal accountability and devolution" } },
-    { cells: { level: "Pillar", text: "Data-driven civic engagement" } },
-    { cells: { level: "Pillar", text: "Policy, translated into what it changes" } },
-    { cells: { level: "Pillar", text: "Verification and follow-through" } },
+    ...PILLARS.map((p) => ({ cells: { level: "Pillar", text: `${p.title} (carries: ${p.carries.join("; ")})` } })),
     { cells: { level: "Foundation", text: "PhD in Economics (T1)" } },
     { cells: { level: "Foundation", text: "Budget and Appropriations Committee (T1)" } },
     { cells: { level: "Foundation", text: `Bursaries: ${fmt("record.bursary.recipients")} students, KSh ${fmt("record.bursary.ksh", "m")}m (T1)` } },
@@ -86,14 +81,20 @@ export const FIG_4_2: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-4-3-segments */
 
-const SEGMENTS = [
-  { name: "Rural agrarian and smallholder baseline", size: "segment.rural.voters", pillar: "P2", lang: "Kikamba on voice; Kiswahili on SMS", channel: "WhatsApp voice note, SMS" },
-  { name: "Agro-pastoralist and arid-zone livestock keepers", size: null, context: () => `${fmt("livestock.households")} livestock-farming households (2019 Census, T1); households, not voters`, closes: "voters by livelihood; not published", pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
-  { name: "Youth, 18–35", size: "segment.youth.voters", pillar: "P3", lang: "Kiswahili and Sheng, Kikamba hooks", channel: "TikTok, Facebook" },
-  { name: "Urban and peri-urban informal sector", size: "segment.urban.voters", pillar: "P3", lang: "Kiswahili", channel: "Facebook, WhatsApp" },
-  { name: "Formal-sector professionals and educators", size: null, context: () => `Health workers: ${fmt("health.density.core")} core staff per 10,000 people (Countdown 2030, T2); headcounts not published`, closes: "TSC establishment for Kitui; County Public Service Board staff return", pillar: "P1", lang: "English, Kiswahili", channel: "Facebook, X, YouTube" },
-  { name: "Out-of-county Kamba diaspora", size: null, context: () => `Net recent migration ${fmt("migration.net")} (2019, T1): context, not a voter count`, closes: "IEBC register by polling station, set against the migration tables", pillar: "P3", lang: "English, Kikamba", channel: "Facebook, YouTube, WhatsApp" },
-];
+const typeName = (code: string) => {
+  const t = CONTENT_TYPES.find((c) => c.code === code);
+  return t ? `${t.code} · ${t.short}` : code;
+};
+/** Segment sizes and what is known about the unsized ones: data/segments.ts. Language, channel and content type stay here. */
+const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channel: string }> = {
+  agrarian: { pillar: "P2", lang: "Kikamba on voice; Kiswahili on SMS", channel: "WhatsApp voice note, SMS" },
+  pastoralist: { pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
+  youth: { pillar: "P3", lang: "Kiswahili and Sheng, Kikamba hooks", channel: "TikTok, Facebook" },
+  msme: { pillar: "P3", lang: "Kiswahili", channel: "Facebook, WhatsApp" },
+  professionals: { pillar: "P1", lang: "English, Kiswahili", channel: "Facebook, X, YouTube" },
+  diaspora: { pillar: "P3", lang: "English, Kikamba", channel: "Facebook, YouTube, WhatsApp" },
+};
+const SEGMENTS = SEGMENT_DATA.map((g) => ({ ...g, ...SEGMENT_PLAN[g.id], context: g.notSized?.context, closes: g.notSized?.closesWith }));
 
 export const FIG_4_3: FigureSpec = {
   id: "fig-4-3-segments",
@@ -104,12 +105,12 @@ export const FIG_4_3: FigureSpec = {
   sources: [src("census.rural.share"), { name: "Segment sizes: census shares applied to the 2022 register, derived", tier: "T1", state: "modelled" }],
   chart: {
     type: "matrix",
-    header: ["Segment", "Size (registered voters)", "Pillar", "Language", "Lead channel"],
-    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: not published`, g.pillar, g.lang, g.channel] })),
+    header: ["Segment", "Size (registered voters)", "Content type", "Language", "Lead channel"],
+    rows: SEGMENTS.map((g) => ({ head: g.name, cells: [g.size ? `≈${fmt(g.size)} (modelled)` : `${g.context ? `${g.context()}. ` : ""}Voters: not published`, typeName(g.pillar), g.lang, g.channel] })),
   },
   notes: ["Priority among segments is set by the Week 1 audit and re-set at each monthly review, not chosen in advance."],
-  columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Pillar" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],
-  rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : "Not published", pillar: g.pillar, lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : undefined })),
+  columns: [{ key: "segment", label: "Segment" }, { key: "size", label: "Size, registered voters", numeric: true }, { key: "pillar", label: "Content type" }, { key: "lang", label: "Language" }, { key: "channel", label: "Lead channel" }],
+  rows: SEGMENTS.map((g) => ({ cells: { segment: g.name, size: g.size ? num(g.size) : "Not published", pillar: typeName(g.pillar), lang: g.lang, channel: g.channel }, state: g.size ? ("modelled" as const) : undefined })),
 };
 
 /* ------------------------------------------------------------------ fig-4-4-message-region */
@@ -162,7 +163,8 @@ export const FIG_4_4: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-4-5-calendar */
 
-const PILLARS = ["Where the money went", "One household", "The economist explains", "He came, and said"];
+/** The calendar's slots are the four content types (data/message-architecture.ts), not the pillars. */
+const TYPES = CONTENT_TYPES.map((t) => t.short);
 const WEEK: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: string }[] = [
   { day: "Mon", pillar: 2, after: "Same photos; Kikamba caption on one family's poultry income; one figure.", now: "Church, Kitui Central; English caption." },
   { day: "Tue", pillar: 3, after: "45-second vertical clip: what the delegation asked for. Kiswahili.", now: "Delegation meeting; group photo." },
@@ -176,14 +178,14 @@ const WEEK: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: str
 export const FIG_4_5: FigureSpec = {
   id: "fig-4-5-calendar",
   section: "3.7",
-  title: "The same seven days become six briefed posts across four pillars, and Thursday's commitment returns as a Sunday check",
+  title: `The same seven days become six briefed posts across ${countWord(CONTENT_TYPES.length)} content types, and Thursday's commitment returns as a Sunday check`,
   question: "What gets published, and when?",
   takeaway: "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not.",
   sources: [{ name: "His public page, as observed; checked against his actual week in Week 1", tier: "T3" }, { name: "The briefed week: this proposal", tier: null, state: "target" }],
-  chart: { type: "calendar", days: WEEK, pillars: PILLARS },
+  chart: { type: "calendar", days: WEEK, pillars: TYPES },
   notes: ["Two rules on top: at least two of the seven originate in a pool ward, and at least four are Kikamba-first."],
-  columns: [{ key: "day", label: "Day" }, { key: "pillar", label: "Pillar" }, { key: "after", label: "After" }, { key: "now", label: "Now" }],
-  rows: WEEK.map((d) => ({ cells: { day: d.day, pillar: d.pillar ? `P${d.pillar} · ${PILLARS[d.pillar - 1]}` : "Unchanged", after: d.after, now: d.now } })),
+  columns: [{ key: "day", label: "Day" }, { key: "pillar", label: "Content type" }, { key: "after", label: "After" }, { key: "now", label: "Now" }],
+  rows: WEEK.map((d) => ({ cells: { day: d.day, pillar: d.pillar ? `${CONTENT_TYPES[d.pillar - 1].code} · ${TYPES[d.pillar - 1]}` : "Unchanged", after: d.after, now: d.now } })),
 };
 
 /* ------------------------------------------------------------------ fig-4-6-channel-shift */
@@ -236,7 +238,7 @@ const FIXES = [
 export const FIG_4_7: FigureSpec = {
   id: "fig-4-7-profile-fixes",
   section: "4.2.3",
-  title: "Six profile corrections, each minutes of work, and the missing PhD comes first",
+  title: `${CountWord(FIXES.length)} profile corrections, each minutes of work, and the missing PhD comes first`,
   question: "What gets fixed first?",
   takeaway: "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks.",
   sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }],

@@ -1,6 +1,7 @@
 /**
  * Section 1, Next Steps: what the campaign provides, what is still open, and the decision.
  */
+import { NOMINATION_WINDOW } from "../../phases.ts";
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
 
@@ -34,7 +35,7 @@ export const FIG_6_3: FigureSpec = {
   title: "The ask is one week and one export, because the nomination window sets the clock",
   question: "What is being asked?",
   takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,
-  sources: [{ name: "Nomination window: single-source report", tier: "T3" }, { name: "This proposal", tier: null, state: "target" }],
+  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This proposal", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [

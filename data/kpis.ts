@@ -206,3 +206,18 @@ export const STAGE_2_TARGETS = [
   "Polling Agent Station Coverage (100% of 1,578 Stations)",
   "Turnout Conversion Rate (≥82%)",
 ];
+
+/**
+ * The recognition indicators (Measuring success, "Recognition where he is least known"): R-01 to
+ * R-05. They sit beside the two scorecards, not inside them: the nomination scorecard holds four
+ * (NOMINATION_KPIS), the general-election scorecard five (GENERAL_ELECTION_KPIS), and these five
+ * measure recognition where Dr. Mulu is least known. Any sentence that counts them reads this list
+ * (consolidation pass, Step 1: docs/consolidation-2026-11/DECISIONS.md D1.5).
+ */
+export const RECOGNITION_INDICATORS = [
+  { code: "R-01", title: "Followers located in Mwingi North, Central and West" },
+  { code: "R-02", title: "Share of total reach landing in the pool" },
+  { code: "R-03", title: "Shares per 1,000 reached, deficit wards only" },
+  { code: "R-04", title: "Consented contacts in the 21 wards of the pool, and their share of the list" },
+  { code: "R-05", title: "Kikamba-first share of weekly output, and its engagement on reach" },
+] as const;

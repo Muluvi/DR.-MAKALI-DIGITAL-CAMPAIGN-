@@ -69,25 +69,7 @@ items:
 
 ## F.5 Rapid-response protocol and pre-approved message library
 
-```visual
-kind: checklist
-items:
-  - label: "Level 1"
-    text: "Minor negative comment or isolated misinformation"
-    head: { label: "Response time", text: "≤ 4 hours" }
-    fields:
-      - { label: "Approval", text: "Digital Director" }
-  - label: "Level 2"
-    text: "Coordinated attack; viral misinformation (>10,000 views)"
-    head: { label: "Response time", text: "≤ 2 hours" }
-    fields:
-      - { label: "Approval", text: "Campaign Communications Director" }
-  - label: "Level 3"
-    text: "Major crisis — false allegation, **manipulated or AI-generated media**, legal threat"
-    head: { label: "Response time", text: "≤ 30 minutes" }
-    fields:
-      - { label: "Approval", text: "**Candidate + senior leadership**" }
-```
+The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
 
 To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
 
@@ -124,7 +106,7 @@ title: "Standing scenario library"
 items:
   - label: "1. Fabricated audio of Dr. Mulu making an inflammatory statement, seeded on WhatsApp"
     fields:
-      - { label: "Tests", text: "Deepfake protocol; 30-minute Level 3 clock" }
+      - { label: "Tests", text: "Deepfake protocol; 30-minute manipulated-media clock" }
   - label: "2. Coordinated hashtag attack on his NG-CDF record"
     fields:
       - { label: "Tests", text: "Fact-base readiness; rebuttal library" }

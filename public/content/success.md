@@ -51,7 +51,7 @@ The indicators are read on a fixed rhythm, and each reading has a consequence:
 <!-- keep -->
 **Followers are not the target. Being known in Mwingi is.**
 
-Section 18.4 sets out why vanity metrics are left out. These five indicators replace them. Every
+Section 18.4 sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every
 one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
 Firefly's dispatch logs.
 

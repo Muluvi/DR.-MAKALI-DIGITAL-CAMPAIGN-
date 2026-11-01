@@ -1,16 +1,16 @@
 {
  "summary": {
   "filesScanned": 293,
-  "registryValues": 299,
-  "exact": 220,
-  "rounded": 20,
+  "registryValues": 295,
+  "exact": 181,
+  "rounded": 13,
   "allowed": 0,
-  "filesWithHits": 62,
-  "distinctValues": 81
+  "filesWithHits": 45,
+  "distinctValues": 78
  },
  "byFile": {
   "components/markdown/KpiPhaseBlock.tsx": {
-   "exact": 16,
+   "exact": 15,
    "rounded": 1,
    "allowed": 0
   },
@@ -37,11 +37,6 @@
   "lib/figures/reach.ts": {
    "exact": 7,
    "rounded": 3,
-   "allowed": 0
-  },
-  "components/register/charts.tsx": {
-   "exact": 7,
-   "rounded": 1,
    "allowed": 0
   },
   "data/electoral-history.ts": {
@@ -74,11 +69,6 @@
    "rounded": 0,
    "allowed": 0
   },
-  "data/county-profile.ts": {
-   "exact": 6,
-   "rounded": 0,
-   "allowed": 0
-  },
   "data/fiscal-audit.ts": {
    "exact": 6,
    "rounded": 0,
@@ -94,7 +84,7 @@
    "rounded": 0,
    "allowed": 0
   },
-  "components/premium/FunnelV2.tsx": {
+  "data/county-profile.ts": {
    "exact": 5,
    "rounded": 0,
    "allowed": 0
@@ -104,42 +94,17 @@
    "rounded": 0,
    "allowed": 0
   },
-  "lib/register/tilemap.ts": {
-   "exact": 1,
-   "rounded": 4,
-   "allowed": 0
-  },
-  "components/ChartComponent.tsx": {
-   "exact": 4,
-   "rounded": 0,
-   "allowed": 0
-  },
   "components/markdown/PersuasionFramingMatrix.tsx": {
    "exact": 4,
    "rounded": 0,
    "allowed": 0
   },
-  "components/partviz/primitives.tsx": {
-   "exact": 3,
-   "rounded": 1,
-   "allowed": 0
-  },
-  "lib/data/allow.ts": {
-   "exact": 3,
-   "rounded": 1,
+  "lib/register/tilemap.ts": {
+   "exact": 0,
+   "rounded": 4,
    "allowed": 0
   },
   "components/markdown/PathTo200kBlockContent.tsx": {
-   "exact": 3,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/markdown/PublicServiceDeliveryTracker.tsx": {
-   "exact": 3,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/tools/ToolsHub.tsx": {
    "exact": 3,
    "rounded": 0,
    "allowed": 0
@@ -149,18 +114,8 @@
    "rounded": 0,
    "allowed": 0
   },
-  "lib/figures/governance.ts": {
-   "exact": 2,
-   "rounded": 1,
-   "allowed": 0
-  },
   "lib/figures/ground.ts": {
    "exact": 3,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/charts/PathTo200kChart.tsx": {
-   "exact": 2,
    "rounded": 0,
    "allowed": 0
   },
@@ -169,12 +124,22 @@
    "rounded": 0,
    "allowed": 0
   },
-  "content/success.md": {
+  "components/markdown/PublicServiceDeliveryTracker.tsx": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "components/tools/ToolsHub.tsx": {
    "exact": 2,
    "rounded": 0,
    "allowed": 0
   },
   "data/drought-food-security.ts": {
+   "exact": 2,
+   "rounded": 0,
+   "allowed": 0
+  },
+  "lib/figures/governance.ts": {
    "exact": 2,
    "rounded": 0,
    "allowed": 0
@@ -199,11 +164,6 @@
    "rounded": 0,
    "allowed": 0
   },
-  "lib/register/specs/s3-analysis.ts": {
-   "exact": 2,
-   "rounded": 0,
-   "allowed": 0
-  },
   "app/layout.tsx": {
    "exact": 1,
    "rounded": 0,
@@ -214,32 +174,7 @@
    "rounded": 0,
    "allowed": 0
   },
-  "components/charts/ConstituencyBarChart.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/charts/ElectoralTimelineChart.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/charts/FiscalAuditChart.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
   "components/charts/KpiArchitecture.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/charts/VoteFunnel.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "components/markdown/FiscalAuditPanel.tsx": {
    "exact": 1,
    "rounded": 0,
    "allowed": 0
@@ -259,27 +194,12 @@
    "rounded": 1,
    "allowed": 0
   },
-  "components/premium/CountUp.tsx": {
-   "exact": 0,
-   "rounded": 1,
-   "allowed": 0
-  },
-  "components/premium/Countdown.tsx": {
+  "components/register/charts.tsx": {
    "exact": 1,
    "rounded": 0,
    "allowed": 0
   },
   "components/terminal/screens/TurnoutScreen.tsx": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "content/annex-runbooks.md": {
-   "exact": 0,
-   "rounded": 1,
-   "allowed": 0
-  },
-  "content/goal.md": {
    "exact": 1,
    "rounded": 0,
    "allowed": 0
@@ -294,19 +214,14 @@
    "rounded": 0,
    "allowed": 0
   },
+  "lib/data/allow.ts": {
+   "exact": 1,
+   "rounded": 0,
+   "allowed": 0
+  },
   "lib/figures/messaging.ts": {
    "exact": 1,
    "rounded": 0,
-   "allowed": 0
-  },
-  "lib/premium/county.ts": {
-   "exact": 1,
-   "rounded": 0,
-   "allowed": 0
-  },
-  "lib/register/specs/s4-strategy.ts": {
-   "exact": 0,
-   "rounded": 1,
    "allowed": 0
   },
   "lib/scroll-to-section.ts": {
@@ -333,50 +248,6 @@
    "allowed": false
   },
   {
-   "file": "components/ChartComponent.tsx",
-   "line": 84,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/ChartComponent.tsx",
-   "line": 84,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/ChartComponent.tsx",
-   "line": 85,
-   "literal": "1_000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/ChartComponent.tsx",
-   "line": 85,
-   "literal": "1_000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
    "file": "components/DecisionPanel.tsx",
    "line": 78,
    "literal": "30,430",
@@ -384,39 +255,6 @@
    "grade": "exact",
    "ids": [
     "census.area"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/ConstituencyBarChart.tsx",
-   "line": 44,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/ElectoralTimelineChart.tsx",
-   "line": 92,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/FiscalAuditChart.tsx",
-   "line": 41,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
    ],
    "allowed": false
   },
@@ -429,39 +267,6 @@
    "ids": [
     "benchmark",
     "target.supporters"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/PathTo200kChart.tsx",
-   "line": 20,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/PathTo200kChart.tsx",
-   "line": 26,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/charts/VoteFunnel.tsx",
-   "line": 46,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },
@@ -783,17 +588,6 @@
    "allowed": false
   },
   {
-   "file": "components/markdown/FiscalAuditPanel.tsx",
-   "line": 11,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
    "file": "components/markdown/GeographicZoneMatrix.tsx",
    "line": 65,
    "literal": "223,970",
@@ -983,17 +777,6 @@
    "grade": "exact",
    "ids": [
     "water.surface"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/markdown/KpiPhaseBlock.tsx",
-   "line": 51,
-   "literal": "1000000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
    ],
    "allowed": false
   },
@@ -1253,17 +1036,6 @@
    "allowed": false
   },
   {
-   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
-   "line": 83,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
    "file": "components/markdown/StrategicPillarsMatrix.tsx",
    "line": 37,
    "literal": "12,573",
@@ -1271,51 +1043,6 @@
    "grade": "exact",
    "ids": [
     "record.bursary.recipients"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/partviz/primitives.tsx",
-   "line": 15,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/partviz/primitives.tsx",
-   "line": 15,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/partviz/primitives.tsx",
-   "line": 16,
-   "literal": "10_000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/partviz/primitives.tsx",
-   "line": 16,
-   "literal": "1_000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },
@@ -1338,84 +1065,6 @@
    "allowed": false
   },
   {
-   "file": "components/premium/CountUp.tsx",
-   "line": 36,
-   "literal": "10000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/Countdown.tsx",
-   "line": 6,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/FunnelV2.tsx",
-   "line": 61,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/FunnelV2.tsx",
-   "line": 92,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/FunnelV2.tsx",
-   "line": 93,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/FunnelV2.tsx",
-   "line": 102,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/premium/FunnelV2.tsx",
-   "line": 103,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
    "file": "components/register/charts.tsx",
    "line": 131,
    "literal": "2_000_000",
@@ -1423,84 +1072,6 @@
    "grade": "exact",
    "ids": [
     "livestock.goats"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 131,
-   "literal": "1_000_000",
-   "value": 1000000,
-   "grade": "exact",
-   "ids": [
-    "target.reach.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 132,
-   "literal": "10_000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 132,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 179,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 188,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 189,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/register/charts.tsx",
-   "line": 454,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },
@@ -1600,17 +1171,6 @@
   },
   {
    "file": "components/tools/ToolsHub.tsx",
-   "line": 61,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "components/tools/ToolsHub.tsx",
    "line": 63,
    "literal": "200,000",
    "value": 200000,
@@ -1618,51 +1178,6 @@
    "ids": [
     "benchmark",
     "target.supporters"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "content/annex-runbooks.md",
-   "line": 81,
-   "literal": "10,000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "content/goal.md",
-   "line": 66,
-   "literal": "1,000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "content/success.md",
-   "line": 83,
-   "literal": "1,000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "content/success.md",
-   "line": 150,
-   "literal": "1,000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },
@@ -1731,17 +1246,6 @@
    "grade": "exact",
    "ids": [
     "ict.internet.2019.people"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "data/county-profile.ts",
-   "line": 71,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },
@@ -2325,40 +1829,6 @@
   },
   {
    "file": "lib/data/allow.ts",
-   "line": 12,
-   "literal": "1,000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/data/allow.ts",
-   "line": 12,
-   "literal": "1,000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/data/allow.ts",
-   "line": 18,
-   "literal": "10,000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/data/allow.ts",
    "line": 18,
    "literal": "5,000",
    "value": 5000,
@@ -2500,18 +1970,6 @@
    "grade": "exact",
    "ids": [
     "record.bursary.recipients"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/figures/governance.ts",
-   "line": 97,
-   "literal": "10,000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
    ],
    "allowed": false
   },
@@ -2910,62 +2368,6 @@
    "grade": "exact",
    "ids": [
     "register.2022"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/premium/county.ts",
-   "line": 46,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/register/specs/s3-analysis.ts",
-   "line": 87,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/register/specs/s3-analysis.ts",
-   "line": 87,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/register/specs/s4-strategy.ts",
-   "line": 94,
-   "literal": "10,000",
-   "value": 10000,
-   "grade": "rounded",
-   "ids": [
-    "ward.waita",
-    "ward.voo-kyamatu"
-   ],
-   "allowed": false
-  },
-  {
-   "file": "lib/register/tilemap.ts",
-   "line": 35,
-   "literal": "1000",
-   "value": 1000,
-   "grade": "exact",
-   "ids": [
-    "target.volunteers.phase-1"
    ],
    "allowed": false
   },

@@ -919,7 +919,7 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
 }
 
 /**
- * One week, a column per day, coloured by the four production pillars only and labelled P1–P4.
+ * One week, a column per day, coloured by the four content types (data/message-architecture.ts) and labelled P1–P4.
  * Two radios and CSS switch the week between the briefed week and the week as it runs now: each
  * cell morphs in place, and with scripts off (or on paper) both states are printed.
  */

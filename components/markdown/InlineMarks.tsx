@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useContext, useId, useState, type ReactNode } from "react";
+import { NOMINATION_WINDOW } from "../../lib/phases";
 
 import { TIER_META, type Tier } from "../../data/types";
 import { hasHighlight } from "../../lib/highlight-patterns";
@@ -179,10 +180,10 @@ export function WindowChip() {
   const titles = useSectionTitleMap();
   const inert = useContext(InertMarks);
   const id = map["5.2"] ?? "race-sec-5-2";
-  const title = titles["5.2"] ?? "How Wiper chooses its candidate";
+  const title = titles["5.2"] ?? NOMINATION_WINDOW.label;
   return (
     <span className="wchip">
-      <span className="wchip__k">Wiper decision:</span> late Oct–Nov 2026 · reported · <span className="wchip__t">Unconfirmed</span> ·{" "}
+      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span> ·{" "}
       {inert ? <span>{title}</span> : <CrossSectionLink id={id}>{title}</CrossSectionLink>}
     </span>
   );

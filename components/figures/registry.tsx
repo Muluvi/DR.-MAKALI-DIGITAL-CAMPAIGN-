@@ -148,13 +148,13 @@ import {
   REGISTERS_SERIES,
 } from "../../lib/figures/messaging";
 import {
-  DIGITAL_REACH,
-  DIGITAL_SHORTFALL,
   EFFORT_REBALANCE,
   OFFLINE_CHANNELS,
+  OFFLINE_UNMEASURED,
   PLATFORM_SIZING,
   REACH_SPLIT,
 } from "../../lib/figures/reach";
+import { regFmt } from "../../lib/figures/from-registry";
 import { IEBC_WARD_REGISTER } from "../../data/sources";
 import type { FigurePoint, FigureSeries } from "../../lib/figures/types";
 
@@ -339,10 +339,10 @@ export const FIGURES: Record<string, FigureEntry> = {
         <ShareBar series={REACH_SPLIT} />
         <p className="mt-3 rounded-lg border border-gold/40 bg-gold/[0.06] px-3 py-2 t-micro leading-snug text-ink">
           <strong className="font-bold text-gold">The digital ceiling.</strong> Capturing every
-          connected voter in the county assembles about {DIGITAL_REACH.toLocaleString("en-KE")}{" "}
-          reachable people — and reach is not votes — leaving the campaign{" "}
-          <strong className="font-bold">{DIGITAL_SHORTFALL.toLocaleString("en-KE")} short</strong> of
-          the 198,004 benchmark.
+          voter reachable online assembles about {regFmt("reach.smartphone")} reachable people — and
+          reach is not votes — leaving the campaign{" "}
+          <strong className="font-bold">{regFmt("reach.smartphone.short")} short</strong> of the{" "}
+          {regFmt("benchmark")} benchmark.
         </p>
       </FigureFrame>
     ),
@@ -358,10 +358,16 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "offline-channels": {
-    note: "Six offline channels, three of them unsourced.",
+    note: "Six offline channels: one measured, five not measured.",
     render: () => (
       <FigureFrame series={OFFLINE_CHANNELS}>
         <BarList series={OFFLINE_CHANNELS} />
+        <SpecTable
+          caption="Offline channels with no measured reach in Kitui"
+          columns={["Channel", "Reach", "Basis it is argued on", "Role"]}
+          rows={OFFLINE_UNMEASURED.map((c) => [c.label, "Not measured", c.source ? `${c.basis} (${c.source.name})` : c.basis, c.role])}
+          emphasise={1}
+        />
       </FigureFrame>
     ),
   },
@@ -477,7 +483,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "escalation-ladder": {
-    note: "Three escalation levels and who decides at each.",
+    note: "The decision levels for operational issues, and who decides at each.",
     render: () => (
       <FigureFrame series={ESCALATION_SERIES}>
         <Stepper stages={ESCALATION_LADDER} />
@@ -486,12 +492,12 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "response-matrix": {
-    note: "Four threat severities, their protocol and SLA.",
+    note: "The severity tiers, their protocol, turnaround and approver.",
     render: () => (
       <FigureFrame series={MATRIX_SERIES}>
         <SpecTable
-          caption="§E.1 rapid response decision matrix"
-          columns={["Threat severity", "Definition & impact threshold", "Strategic response protocol", "Turnaround target (SLA)"]}
+          caption="The response decision tree"
+          columns={["Severity tier", "Definition & impact threshold", "Strategic response protocol", "Turnaround target (SLA)", "Approved by"]}
           rows={RESPONSE_MATRIX}
           emphasise={3}
         />
@@ -694,7 +700,7 @@ export const FIGURES: Record<string, FigureEntry> = {
   },
 
   "production-pipeline": {
-    note: "Four pillars, two engines, one approval gateway.",
+    note: "The content types, two engines, one approval gateway.",
     render: () => (
       <FigureFrame series={PRODUCTION_SERIES}>
         <TierGrid
@@ -1124,7 +1130,7 @@ function StoryPointer({ spec }: { spec: { id: string; title: string; section: st
   return (
     <p className="pf-storyptr not-prose">
       <a href={`#${spec.id}`}>
-        <span className="pf-storyptr__k">Figure, §{spec.section}</span>
+        <span className="pf-storyptr__k">Figure</span>
         <span className="pf-storyptr__t">{spec.title}</span>
         <span className="pf-storyptr__h">In the four-step story at the start of this part, with its sources, table and CSV</span>
       </a>

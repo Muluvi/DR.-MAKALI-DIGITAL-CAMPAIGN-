@@ -1,103 +1,51 @@
 /**
- * §2C — how many voters each channel can reach, and which of those numbers are sourced.
+ * How many voters each channel can reach, and which of those numbers are measured.
  *
- * THE CARE THIS FILE NEEDS is not arithmetic, it is provenance. §2.7's figures all descend from
- * one Tier 1 register, so the only way to get them wrong is to add them up wrong. These do not:
- * they range from a census rate (Tier 1) through a platform vendor's audience estimate (Tier 2)
- * to six offline channel reaches the document states with **no source at all** and says so.
- * Drawing all of them the same way would be the single most misleading thing this pass could do.
+ * THE CARE THIS FILE NEEDS is provenance. The connectivity split is read from the registry
+ * (lib/data/figures.ts: reach.smartphone, reach.sms-only, reach.nophone, reach.offline), the CA/KNBS
+ * 2023/24 rates applied to the July 2026 register, so a refresh of either moves this figure too.
  *
- * So every point carries its tier and its kind, and the marks read them: an untiered estimate is
- * hatched and labelled "Source needed", a range is drawn as a band rather than a point, and the
- * offline chart carries a standing warning that its channels OVERLAP and must never be summed.
- * Stacked, these six would claim to reach 1.8 million voters in a county of 532,758.
- *
- * NOTHING HERE IS CORRECTED. The figures are transcribed exactly as §2.7.2 states them, including
- * the ones this audit flags in C-13 and C-17. Hard rule 2: reconciling is Firefly's job.
+ * The offline channels are not all measured. Only the SMS layer has a reach a source supports: the
+ * phone owners who are not online, reach.sms-only. Radio, church, markets, USSD and mobile-money
+ * agents were once given reach numbers no source published (420,000 to 180,000; summed they claimed
+ * 1.8 million voters in a county of about 600,000). They are now shown as "not measured", with the
+ * basis each was argued on kept as context, and they carry no number (consolidation pass, Step 1,
+ * docs/consolidation-2026-11/DECISIONS.md D1.1).
  */
-import { CA_POLITICAL_MESSAGING_GUIDELINES, KNBS_CENSUS_2019 } from "../../data/sources";
+import { CA_POLITICAL_MESSAGING_GUIDELINES } from "../../data/sources";
 import type { Source } from "../../data/types";
-import { COUNTY_REGISTER, WINNING_TOTAL_2022 } from "./register";
+import { regFmt, regPoint } from "./from-registry";
+import { COUNTY_REGISTER } from "./register";
 import type { FigurePoint, FigureSeries } from "./types";
 
-/**
- * The document's own placeholder for a figure it has not sourced.
- *
- * Six of the offline channel reaches — and every platform-sizing band — are stated without a
- * citation. Rather than attach a plausible-looking source, this names the absence, and the marks
- * draw anything carrying it as hatched with "Source needed" on the bar. C-17.
- */
-export const UNSOURCED: Source = {
-  name: "Stated in §6.3 without a citation — source needed",
-  publicationDate: "2026",
-  tier: 3,
-};
-
-/** What §3.1.2.1 [CHECK REF] cites for the radio listenership figure — the one offline channel that has one. */
-export const GEOPOLL_KARF: Source = {
-  name: "GeoPoll / KARF industry listenership data",
-  publicationDate: "2026",
-  tier: 2,
-};
-
-/** Meta's own audience tool, which is what §3.1.1.1 [CHECK REF] cites for the platform bands. */
+/** Meta's own audience tool, which is what the platform bands cite. */
 export const META_AUDIENCE_INSIGHTS: Source = {
   name: "Meta Audience Insights (platform-reported estimate)",
   publicationDate: "2026",
   tier: 2,
 };
 
-/* ------------------------------------------------------------------ §2.7.2 the split */
+/* ------------------------------------------------------------------ the connectivity split */
 
 /**
- * The digital ceiling, and why it is the argument rather than a statistic.
- *
- * ~72,000 reachable voters against a 198,004 benchmark. §2.7.2 draws the conclusion itself — "digital
- * channels alone cannot mathematically win this election" — and the shortfall it quotes, 125,549,
- * is computed here rather than transcribed so the figure and the sentence can be compared.
+ * The digital ceiling, and why it is the argument rather than a statistic: every voter reachable
+ * online, against the 200,000 benchmark. Both numbers, and the shortfall, are registry reads.
  */
-export const DIGITAL_REACH = 72_000;
-export const OFFLINE_REACH = 460_000;
-export const DIGITAL_SHORTFALL = WINNING_TOTAL_2022 - DIGITAL_REACH;
-
-const censusRate = {
-  unit: "voters",
-  source: KNBS_CENSUS_2019,
-  tier: 1 as const,
-  asOf: "2019",
-  kind: "calculated" as const,
-  granularity: "county" as const,
-  // Every figure derived from the 2019 rate inherits C-13: §2.9.1 states that the 2023/24 Kenya
-  // Housing Survey supersedes it, and the rest of the document does not.
-  conflicts: ["C-13"],
-};
-
 export const REACH_SPLIT: FigureSeries = {
   id: "reach-split",
-  headline: `Every internet-connected voter in Kitui is about ${DIGITAL_REACH.toLocaleString("en-KE")} people — ${DIGITAL_SHORTFALL.toLocaleString("en-KE")} short of what won in 2022`,
-  measure: `The ${COUNTY_REGISTER.toLocaleString("en-KE")} register split by connectivity, at the 2019 census rate`,
+  headline: `Every voter reachable online in Kitui is about ${regFmt("reach.smartphone")} people, ${regFmt("reach.smartphone.short")} short of the ${regFmt("benchmark")} benchmark`,
+  measure: `The July 2026 register split by connectivity, at the CA/KNBS 2023/24 rates: ${regFmt("reach.offline")} offline`,
   points: [
-    {
-      label: "Offline — radio, SMS, markets, in person",
-      value: OFFLINE_REACH,
-      ...censusRate,
-      note: "86.4% of the register. Strategic role: decisive ballot delivery.",
-    },
-    {
-      label: "Digital or connected",
-      value: DIGITAL_REACH,
-      ...censusRate,
-      note: "13.6% of the register. Strategic role: influencer and youth engine.",
-    },
+    regPoint("reach.smartphone", "Online: reachable on social and messaging platforms", { note: `${regFmt("ict.internet")}% internet use applied to the July 2026 register. Strategic role: influencer and youth engine.` }),
+    regPoint("reach.sms-only", "Phone, not online: reachable by SMS and USSD", { note: `${regFmt("ict.phone")}% phone ownership less ${regFmt("ict.internet")}% internet use. Strategic role: the direct offline layer.` }),
+    regPoint("reach.nophone", "No phone: radio, markets and in person", { note: "The remainder of the July 2026 register. Strategic role: decisive ballot delivery, through people and radio." }),
   ],
-  conflicts: ["C-13"],
   note:
-    "§4.1 states that the 2023/24 Kenya Housing Survey supersedes the 2019 rate, putting internet " +
-    "use at 26.2% and phone ownership at 44.1% — which would roughly double the connected layer. " +
-    "Both rates are stated in the document and neither has been changed.",
+    `Offline means the SMS-only and no-phone groups together: ${regFmt("reach.offline")} voters. ` +
+    `The 2019 census rate (${regFmt("ict.internet.2019")}% internet use) is superseded by the CA/KNBS 2023/24 rates used here.`,
 };
 
-/* ------------------------------------------------------------------ §3.1.1.1 [CHECK REF] platform sizing */
+/* ------------------------------------------------------------------ platform sizing */
 
 /**
  * One place that turns a headcount into the register share the document prints.
@@ -154,55 +102,43 @@ export const PLATFORM_SIZING: FigureSeries = {
     "four of them — so these must never be added together.",
 };
 
-/* ------------------------------------------------------------------ §2.9.4 offline channels */
+/* ------------------------------------------------------------------ offline channels */
 
 /**
- * Six offline channels, three of which the document sources and three of which it does not.
- *
- * The distinction is the whole point of drawing this. Radio, SMS and USSD are the channels the
- * strategy turns on; church, markets and mobile-money agents are stated with no citation, and two
- * of them (church 350k, markets 280k) are larger than the SMS layer the campaign plans to build.
- * A chart that drew all six identically would let an unsourced 350,000 outrank a sourced 320,000.
+ * The one offline channel with a reach a source supports: the SMS layer, sized by the phone owners
+ * who are not online. The campaign's own list is a target on top of it (target.sms), never larger.
  */
 export const OFFLINE_CHANNELS: FigureSeries = {
   id: "offline-channels",
-  headline: "Kikamba radio reaches more Kitui voters than every digital platform combined",
-  measure: `Maximum reachable voters per offline channel, against the ${COUNTY_REGISTER.toLocaleString("en-KE")} register`,
-  points: (
-    [
-      ["Kikamba vernacular radio", 420_000, "78–80% daily/weekly listenership", "Mass persuasion, cultural credibility, policy dissemination and rally build-ups.", "geopoll"],
-      ["Church and synod networks", 350_000, "Weekly attendance", "Sunday fellowship greetings, pastoral blessings and clergy alignment.", "none"],
-      ["Direct 2G SMS (opt-in database)", 320_000, "60%+ of the active register on basic GSM handsets", "Hyper-localised ward updates, endorsement letters and GOTV alerts.", "ca"],
-      ["Open-air market barazas", 280_000, "Physical foot-fall", "Weekly physical interaction, flyer distribution and localised speeches.", "none"],
-      ["USSD interactive service", 250_000, "Feature-phone users", "Zero-rated policy quiz, ward-captain registration and polling-station lookup.", "ca"],
-      ["Mobile-money agents (M-Pesa)", 180_000, "Monthly interactions across 1,800+ M-Pesa kiosks", "Word-of-mouth peer network, branded point-of-sale collateral.", "none"],
-    ] as const
-  ).map<FigurePoint>(([label, value, basis, role, provenance]) => ({
-    label,
-    value,
-    unit: "voters",
-    source:
-      provenance === "geopoll" ? GEOPOLL_KARF
-      : provenance === "ca" ? CA_POLITICAL_MESSAGING_GUIDELINES
-      : UNSOURCED,
-    tier: provenance === "none" ? 3 : 2,
-    asOf: "2026",
-    // `modelled` rather than `official`, so the marks hatch them: none of these six is a
-    // measurement of anything. The three unsourced ones additionally say so in their note.
-    kind: "modelled",
-    granularity: "county",
-    conflicts: provenance === "none" ? ["C-17"] : undefined,
-    note:
-      `${shareOfRegister(value)} of the register · ${basis}. ${role}` +
-      (provenance === "none" ? " SOURCE NEEDED — stated in §4.4 without a citation." : ""),
-  })),
-  conflicts: ["C-17"],
+  headline: `Only one offline channel has a measured reach: ${regFmt("reach.sms-only")} voters own a phone but are not online`,
+  measure: "Reachable voters per offline channel, where a source supports a number; the rest are not measured",
+  points: [
+    regPoint("reach.sms-only", "Direct SMS and USSD (phone owners not online)", {
+      note: `The ceiling for the SMS layer. The consented list the campaign builds is a target of ${regFmt("target.sms")} by the election.`,
+    }),
+  ],
   note:
     "THESE CHANNELS OVERLAP AND MUST NOT BE ADDED. One voter listens to radio, attends a market and " +
-    "holds a phone. Summed, the six would claim 1,800,000 reachable voters in a county with a " +
-    "register of 532,758. Three of them — church, markets and mobile-money agents — are stated in " +
-    "§4.4 with no source, and the document says so.",
+    "holds a phone. The channels below have no published reach for Kitui; each is shown with the " +
+    "basis it was argued on, and with no number.",
 };
+
+/** Offline channels with no sourced reach: kept as context, drawn with no number. */
+export interface UnmeasuredChannel {
+  label: string;
+  basis: string;
+  role: string;
+  /** A source that speaks to the channel's use, though not to its reach in Kitui. */
+  source?: Source;
+}
+
+export const OFFLINE_UNMEASURED: UnmeasuredChannel[] = [
+  { label: "Kikamba vernacular radio", basis: "78–80% daily or weekly listenership, as industry listenership data reports it", role: "Mass persuasion, cultural credibility, policy dissemination and rally build-ups.", source: { name: "GeoPoll / KARF industry listenership data", publicationDate: "2026", tier: 2 } },
+  { label: "Church and synod networks", basis: "Weekly attendance", role: "Sunday fellowship greetings, pastoral blessings and clergy alignment." },
+  { label: "Open-air market barazas", basis: "Physical foot-fall", role: "Weekly physical interaction, flyer distribution and localised speeches." },
+  { label: "USSD interactive service", basis: "Feature-phone users; sessions are counted once the code is live", role: "Zero-rated policy quiz, ward-captain registration and polling-station lookup.", source: CA_POLITICAL_MESSAGING_GUIDELINES },
+  { label: "Mobile-money agents (M-Pesa)", basis: "Monthly interactions across 1,800+ M-Pesa kiosks", role: "Word-of-mouth peer network, branded point-of-sale collateral." },
+];
 
 /* ------------------------------------------------------------------ §3.6.3 [CHECK REF] the rebalance */
 
@@ -218,13 +154,13 @@ export const EFFORT_REBALANCE = [
     label: "Vernacular radio (Musyi, County, Wikwatyo)",
     from: 20,
     to: 37,
-    note: "Under-allocated → dominant share. Scaled up to dominate the primary medium reaching 78%+ of voters daily.",
+    note: "Under-allocated → dominant share. Scaled up to dominate the primary medium, with 78–80% daily or weekly listenership reported.",
   },
   {
     label: "Direct 2G SMS and USSD tree (ward captain field net)",
     from: 10,
     to: 20,
-    note: "Under-allocated → high priority. Doubled to build a resilient, direct pipeline to 320k feature-phone voters.",
+    note: "Under-allocated → high priority. Doubled to build a resilient, direct pipeline to the phone owners who are not online.",
   },
   {
     label: "Market caravans and barazas (PA trucks, collateral)",
@@ -236,7 +172,7 @@ export const EFFORT_REBALANCE = [
     label: "Digital and social media (Meta, TikTok, X, YouTube)",
     from: 45,
     to: 18,
-    note: "Over-allocated → right-sized. Capped to reflect 13.6% in-county penetration plus diaspora mobilisation.",
+    note: "Over-allocated → right-sized. Capped to reflect the digital ceiling plus diaspora mobilisation.",
   },
   {
     label: "Church and community outreaches (clergy synods, guilds)",

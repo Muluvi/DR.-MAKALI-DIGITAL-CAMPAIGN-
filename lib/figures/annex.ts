@@ -21,7 +21,16 @@
  * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
  * does not exist yet and the line should not go on air before it does.
  */
+import { SEVERITY_TIERS } from "../../data/escalation";
+import { CountWord, countWord } from "../count-word";
+import { RADIO_STATIONS } from "../../data/media-ownership";
+import { regFmt } from "./from-registry";
+import { SEGMENTS, segment, shareText, sizeText } from "../../data/segments";
 import type { FigureSeries } from "./types";
+
+/** The stations the ownership map marks for placement, and the ones it marks for monitoring. */
+const shortName = (n: string) => n.replace(/ FM$/, "");
+const PLACEMENT_STATIONS = RADIO_STATIONS.filter((s) => /^Priority/.test(s.posture)).map((s) => shortName(s.name)).join(", ");
 
 /* ------------------------------------------------------------------ §3.4 the audience overview */
 
@@ -50,43 +59,43 @@ export const AUDIENCE_SERIES: FigureSeries = {
 export const AUDIENCE_SEGMENTS: string[][] = [
   [
     "1. Rural smallholders (agrarian core)",
-    "~507,000 (derived) — 95.2% of county",
+    `${sizeText(segment("agrarian"))} — ${shareText(segment("agrarian"))}`,
     "Tier 1 KNBS/IEBC",
     "Kamba radio & offline SMS",
     "Guaranteed minimum returns & sand dams",
   ],
   [
     "2. Agro-pastoralists (arid borderlands)",
-    "~80,000–105,000 (no official count)",
-    "Primary research needed",
+    `Not sized: ${segment("pastoralist").notSized?.context()}`,
+    "No published count",
     "Vernacular radio & market days",
     "Livestock off-take & border security support",
   ],
   [
     "3. Youth cohort (ages 18–35)",
-    "~234,000 voters — ~44% of register",
+    `${sizeText(segment("youth"))} — ${shareText(segment("youth"))}`,
     "Tier 1 KNBS/IEBC",
     "TikTok, Meta, WhatsApp & sports",
     "Youth enterprise fund, TVET grants, no harassment",
   ],
   [
     "4. Urban MSMEs & informal traders",
-    "~26,000 (derived) — 4.8% of county",
+    `${sizeText(segment("msme"))} — ${shareText(segment("msme"))}`,
     "Tier 1 KNBS 2019",
     "Geofenced digital & trader barazas",
     "Single business permit, 24-hour lit market stalls",
   ],
   [
     "5. Formal professionals & civil servants",
-    "~25,000–35,000 (no official count)",
-    "Primary research needed",
+    `Not sized: ${segment("professionals").notSized?.context()}`,
+    "No published count",
     "X, TV, LinkedIn, union synods",
     "Meritocracy, reliable medicine & pension flow",
   ],
   [
     "6. Out-of-county Kamba diaspora",
-    "150k+ influencers (no official count)",
-    "Primary research needed",
+    `Not sized: ${segment("diaspora").notSized?.context()}`,
+    "No published count",
     "Nairobi/coast ads & town halls",
     "Remittance relief & audited fiscal prudence",
   ],
@@ -94,14 +103,13 @@ export const AUDIENCE_SEGMENTS: string[][] = [
 
 export const SEGMENTS_SERIES: FigureSeries = {
   id: "audience-segments",
-  headline: "Six segments, and three of them have no official size",
+  headline: `${CountWord(SEGMENTS.length)} segments, and ${countWord(SEGMENTS.filter((x) => !x.size).length)} of them have no official size`,
   measure: "§15's audience segment comparative summary — size, data tier, primary channel and persuasion hook",
   points: [],
   note:
-    "The data tier column is the one to read first. Three segments are Tier 1 and sized from the " +
-    "census and the register; the other three say “primary research needed” and carry a range " +
-    "rather than a number. The ranges are printed as ranges and the gaps as gaps — §18.5's " +
-    "research programme is what closes them.",
+    "The data tier column is the one to read first. Three segments are sized from the census and " +
+    "the register (data/segments.ts, read from the registry); the other three have no published " +
+    "count and carry what is known instead, never an estimate.",
 };
 
 /* ------------------------------------------------------------------ §3.2.3 the visit loop */
@@ -239,32 +247,32 @@ export const PROTOCOL_SERIES: FigureSeries = {
 
 export const MESSAGE_BY_SEGMENT: string[][] = [
   [
-    "1. Smallholder crop farmers — 32.8% of electorate, ~175,000 voters",
+    "1. Smallholder crop farmers — not sized: voters by livelihood are not published",
     '"Never sell Ndengu at Ksh 40 again." · County guaranteed aggregation minimum floor price (Ksh 85/kg) plus local storage · Kikamba: "Uithio wa Ndengu na Mbemba"',
     "KNBS agrarian data: Kitui farmers lose ~68% of value to middlemen during peak harvest · pilot Kitui Central Farmers SACCO",
   ],
   [
-    "2. Agro-pastoralists & herders (Mwingi/South) — 14.5%, ~77,000 voters",
+    `2. Agro-pastoralists & herders (Mwingi/South) — not sized: ${segment("pastoralist").notSized?.context()}`,
     '"Water pans, livestock feed reserves, and border security lighting." · Decentralised veterinary cold-chain · Kikamba: "Kithima kya Kyalo na Syana"',
     "National Drought Management Authority reports: livestock mortality drops 45% with localised water points",
   ],
   [
-    "3. Youth hustlers & boda operators (18–35) — 43.9%, ~234,000 voters",
+    `3. Youth hustlers & boda operators (18–35) — ${shareText(segment("youth"))}, ${sizeText(segment("youth"))}`,
     '"The Youth Innovation & Enterprise Fund: zero-interest equipment loans." · Free driving licences & digital hubs · Kikamba: "Wathi wa Mwanya kwa Mwanake"',
     "Kitui Central NG-CDF data: over 4,200 youth sponsored with NITA/TVET technical bursaries",
   ],
   [
-    "4. Rural women, caregivers & chamas — 52.1% of electorate, ~278,000 voters",
+    `4. Rural women, caregivers & chamas — women are ${regFmt("census.female.share")}% of residents (2019 Census); voters by sex are not published`,
     '"Clean water within 1 km and stocked maternity dispensaries in every sub-location." · Ksh 50,000 table-banking seed capital · Kikamba: "Mumo kwa Aka na Syana"',
     "Kitui Central project log: 84 functional solar boreholes built with clean water tariffs · Ksh 120M disbursed to women CBOs",
   ],
   [
-    "5. Urban MSMEs, traders & market stall keepers — 18.2%, ~97,000 voters",
+    `5. Urban MSMEs, traders & market stall keepers — ${shareText(segment("msme"))}, ${sizeText(segment("msme"))}`,
     '"Single Business Permit reform and 0% harassment of mama mbogas." · Modern solar market shades & drainage · Kikamba: "Biashara Nzeo na Kazi"',
     "Parliamentary Hansard: Dr. Mulu's defence of MSME tax relief in the Finance Bill 2024 · Kitui Market Vendor Council log",
   ],
   [
-    "6. Teachers, civil servants & elite professionals — 8.5%, ~45,000 voters",
+    "6. Teachers, civil servants & elite professionals — not sized: headcounts are not published",
     '"Timely county salaries, meritocratic promotions, and NHIF/SHIF hospital cover." · Strict adherence to SRC salary codes',
     "Auditor-General & CRA data: Dr. Mulu's published fiscal blueprints on county debt relief",
   ],
@@ -285,27 +293,27 @@ export const SEGMENT_MESSAGE_SERIES: FigureSeries = {
 
 export const MESSAGE_BY_CHANNEL: string[][] = [
   [
-    "1. Kikamba vernacular radio (Musyi, Mbaitu, Sang'u) — reach ~420,000 voters",
+    `1. Kikamba vernacular radio (${PLACEMENT_STATIONS}) — reach not measured`,
     "45-second testimonials and live studio debates · conversational, authentic, culturally grounded Kikamba with elder idioms",
     "Auditor-General clean audit certificates · concrete CDF school and water case studies, with GPS location names",
   ],
   [
-    "2. Direct 2G bulk SMS & USSD — reach ~320,000 voters",
-    '160-character hyper-local alerts · "Tseikuru: Dr. Mulu guarantees Ksh 100M Equalization Fund for local water pans"',
-    "Specific ward development budget pledge (the Ksh 100M/ward fund) · free USSD code to read the manifesto",
+    `2. Direct 2G bulk SMS & USSD — up to ${regFmt("reach.sms-only")} phone owners not online`,
+    '160-character hyper-local alerts · "Tseikuru: Dr. Mulu will publish the needs-weighted formula for ward water funds before any allocation"',
+    "The published, needs-weighted ward allocation formula · free USSD code to read the manifesto",
   ],
   [
-    "3. Market caravans & barazas — reach ~280,000 voters",
+    "3. Market caravans & barazas — reach not measured",
     "High-energy PA speeches and jingles · rhythmic Kikamba music, local merchant endorsements, candidate Q&A",
     "Physical display of project photobooks and contractor logs · live testimony from beneficiaries",
   ],
   [
-    "4. WhatsApp & social video (Meta, TikTok, X) — reach ~72,000 voters",
+    `4. WhatsApp & social video (Meta, TikTok, X) — about ${regFmt("reach.smartphone")} voters online`,
     "30-second TikTok clips and infographic cards · visual, fast-paced, urban Sheng/English highlighting national economic policy",
     "Side-by-side graphical comparison of CDF budgets against county wastage · National Assembly Hansard clips",
   ],
   [
-    "5. Church synods & pastoral — reach ~350,000 voters",
+    "5. Church synods & pastoral — reach not measured",
     "Reverent 3-minute fellowship speech · biblical stewardship themes (Luke 16:10 — 'Faithful in small, faithful in much')",
     "Values of servant leadership, integrity, non-violent politics and youth moral mentorship",
   ],
@@ -317,9 +325,9 @@ export const CHANNEL_MESSAGE_SERIES: FigureSeries = {
   measure: "§C.2's message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
   points: [],
   note:
-    "The reach figures are §4.4's and §4.1's, restated here per channel: radio ~420,000, SMS " +
-    "~320,000, caravans ~280,000, church ~350,000, social ~72,000. They must not be added — the " +
-    "channels overlap, as §4.4's own warning says.",
+    "Reach is shown only where a source supports it: the SMS layer (phone owners not online) and " +
+    "the online audience, both read from the registry. Radio, caravans and church have no measured " +
+    "reach in Kitui. The channels overlap and must not be added.",
 };
 
 /* ------------------------------------------------------------------ §D.2 the escalation ladder */
@@ -353,8 +361,8 @@ export const ESCALATION_LADDER = [
 
 export const ESCALATION_SERIES: FigureSeries = {
   id: "escalation-ladder",
-  headline: "Three levels, three authorities, and the candidate is only in the third",
-  measure: "§D.2's three-tier escalation protocol — issues, resolution authority and the rule at each level",
+  headline: `${CountWord(ESCALATION_LADDER.length)} decision levels, ${countWord(ESCALATION_LADDER.length)} authorities, and the candidate is only in the last`,
+  measure: "The operational escalation path — issues, resolution authority and the rule at each decision level. Attacks on the campaign are judged separately, by the severity tiers in Risks & response",
   points: [],
   note:
     "The levels are numbered because escalation is ordered: a level 1 issue that is not resolved " +
@@ -364,37 +372,13 @@ export const ESCALATION_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §E.1 the decision matrix */
 
-export const RESPONSE_MATRIX: string[][] = [
-  [
-    "Level 1: negligible",
-    "Isolated comment or post with under 50 views · fringe blog or anonymous account",
-    "IGNORE / PASSIVE MONITOR — log into the intelligence feed; do NOT amplify or refute",
-    "No public response · continued observation for velocity changes",
-  ],
-  [
-    "Level 2: moderate",
-    "Rumour active in 3+ ward WhatsApp groups, or one market centre baraza",
-    "CONTAIN AT WARD LEVEL — deploy a 45-second WhatsApp Kikamba voice note and a fact-check card",
-    "Under 30 minutes: deploy the audio voice note to the affected ward groups",
-  ],
-  [
-    "Level 3: high",
-    "Morning vernacular radio on-air mention; prominent rival press conference",
-    "HIGH-VELOCITY REBUTTAL — authorise a live studio call-in or release a signed media card",
-    "Under 15 minutes: call-in · under 45 minutes: fact-check infographic on social media",
-  ],
-  [
-    "Level 4: critical",
-    "Coordinated county-wide smear; national TV story; legal or regulatory threat",
-    "EXECUTIVE CRISIS COUNTER — candidate live broadcast, or a constituency lead joint press conference",
-    "Under 15 minutes: war room · under 1 hour: official press · under 2 hours: 2G ward SMS",
-  ],
-];
+/** The four severity tiers, read from data/escalation.ts (the one escalation model). */
+export const RESPONSE_MATRIX: string[][] = SEVERITY_TIERS.map((t) => [t.name, t.threshold, t.protocol, t.turnaround, t.approvedBy]);
 
 export const MATRIX_SERIES: FigureSeries = {
   id: "response-matrix",
-  headline: "Four severities, and the first instruction is to do nothing",
-  measure: "§E.1's rapid response decision matrix — severity, threshold, protocol and turnaround SLA",
+  headline: `${CountWord(SEVERITY_TIERS.length)} severity tiers, and the first instruction is to do nothing`,
+  measure: "The response decision tree: severity tier, threshold, protocol, turnaround and who approves",
   points: [],
   note:
     "Level 1's protocol is IGNORE / PASSIVE MONITOR, with an explicit instruction not to amplify " +
@@ -407,7 +391,7 @@ export const MATRIX_SERIES: FigureSeries = {
 
 export const RESPONSE_SLA: string[][] = [
   [
-    "1. Live vernacular radio (Musyi, Mbaitu, Sang'u)",
+    "1. Live vernacular radio (Musyi, Mbaitu, Syokimau, County FM, Athiani)",
     "Under 15 minutes: studio call-in by the authorised campaign spokesperson or lead",
   ],
   [
@@ -416,8 +400,8 @@ export const RESPONSE_SLA: string[][] = [
   ],
   ["3. Digital platforms (X, Meta)", "Under 45 minutes: verified evidence card with a primary document citation"],
   [
-    "4. Direct 2G bulk SMS push (targeted wards only)",
-    "Under 2 hours: corrective 160-character SMS to registered voters in the affected sub-county",
+    "4. Direct 2G bulk SMS (targeted wards only)",
+    "Not a rapid-response channel: political bulk SMS is lodged with the operator 48 hours before sending, so a correction follows on the next scheduled send",
   ],
   [
     "5. Printed baraza fact sheets",
@@ -432,8 +416,8 @@ export const SLA_SERIES: FigureSeries = {
   points: [],
   note:
     "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal " +
-    "travels: radio first, then WhatsApp, then digital, then SMS, then print. §15.3.3's 48-hour " +
-    "lodging rule is why the SMS rung sits at two hours rather than minutes.",
+    "travels: radio first, then WhatsApp, then digital, then print. Bulk SMS is not on the clock: " +
+    "the 48-hour lodging rule in Ground & offline rules it out of rapid response.",
 };
 
 /* ------------------------------------------------------------------ §E.3 holding positions */

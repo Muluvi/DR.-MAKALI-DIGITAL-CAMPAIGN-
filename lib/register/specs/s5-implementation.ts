@@ -5,6 +5,11 @@
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../../data/kpis.ts";
 import type { FigureSpec } from "../types.ts";
 import { ELECTION, NOMINATION, TODAY } from "./s1-objectives.ts";
+import { NOMINATION_WINDOW, PHASES, PLANNING_SIGNATURE, inSentence, phaseSpan, phaseTitle, phaseWhen } from "../../phases.ts";
+import { CountWord, countWord } from "../../count-word.ts";
+import { SEVERITY_TIERS } from "../../../data/escalation.ts";
+
+const ELECTION_TEXT = "10 August 2027";
 import { bar, fmt } from "./_util.ts";
 
 const PROPOSAL = { name: "This proposal, Sections 13.2–17", tier: null, state: "target" as const };
@@ -108,39 +113,33 @@ export const FIG_5_3: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-4-phases */
 
-const PHASE_EVENTS = [
-  { date: TODAY, end: NOMINATION.end, label: "Phase −1: the nomination", note: "From signature through the reported window." },
-  { date: "2026-10-01", end: "2026-12-31", label: "Phase 1: awareness and community building", whenText: "October–December 2026" },
-  { date: "2027-01-01", end: "2027-03-31", label: "Phase 2: engagement and persuasion", whenText: "January–March 2027" },
-  { date: "2027-04-01", end: ELECTION, label: "Phase 3: mobilisation and GOTV", whenText: "April–August 2027" },
-];
+/** The five phases, read from lib/phases.ts; the decision window is drawn beside them, not as one. */
+const PHASE_EVENTS = PHASES.map((p) => ({ date: phaseSpan(p).start, end: phaseSpan(p).end, label: phaseTitle(p), whenText: phaseWhen(p) }));
 
 export const FIG_5_4: FigureSpec = {
   id: "fig-5-4-phases",
   section: "4.3",
-  title: "Four phases run to the election, and the nomination phase overlaps the first",
+  title: `${CountWord(PHASES.length)} phases run to the election; the ${PHASES[0].label} runs ahead of the Wiper decision, not with it`,
   question: "How does the plan run to August 2027?",
-  takeaway: "Phase −1 is aimed at a window reported for late October to November; the three general-election phases follow it to 10 August 2027.",
-  sources: [PROPOSAL, { name: "Nomination window: single-source report", tier: "T3" }],
+  takeaway: `The ${PHASES[0].label} is Firefly's work period, ${phaseWhen(PHASES[0]).toLowerCase()}; Wiper's decision is a separate window, reported for ${inSentence(NOMINATION_WINDOW.whenText)}. ${CountWord(PHASES.filter((p) => p.dates).length)} general-election phases keep their calendar dates to ${ELECTION_TEXT}.`,
+  sources: [PROPOSAL, { name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }],
   chart: {
     type: "timeline",
     from: "2026-09-01",
     to: "2027-08-31",
     today: TODAY,
     events: [
-      ...PHASE_EVENTS.map((e) => ({ ...e, state: "target" as const, whenText: e.whenText ?? (e.date === TODAY ? "September to November 2026" : undefined) })),
+      ...PHASE_EVENTS.map((e) => ({ ...e, state: "target" as const })),
       { ...NOMINATION, label: "Wiper nomination window", state: "sourced" as const, reported: true },
       { date: ELECTION, label: "General election", state: "sourced" as const },
     ],
   },
-  notes: ["Same date axis as Figure fig-1-1-timeline."],
+  notes: [`Same date axis as Figure fig-1-1-timeline. The two phases counted from signature are placed from a ${PLANNING_SIGNATURE.slice(0, 7)} signature, the month this proposal assumes.`],
   columns: [{ key: "phase", label: "Phase" }, { key: "when", label: "When" }],
   rows: [
-    { cells: { phase: "Phase −1: the nomination", when: "September to November 2026" }, state: "target" },
-    { cells: { phase: "Phase 1: awareness", when: "October–December 2026" }, state: "target" },
-    { cells: { phase: "Phase 2: persuasion", when: "January–March 2027" }, state: "target" },
-    { cells: { phase: "Phase 3: mobilisation and GOTV", when: "April–August 2027" }, state: "target" },
-    { cells: { phase: "General election", when: "10 August 2027" } },
+    ...PHASES.map((p) => ({ cells: { phase: phaseTitle(p), when: phaseWhen(p) }, state: "target" as const })),
+    { cells: { phase: `${NOMINATION_WINDOW.label} (reported)`, when: NOMINATION_WINDOW.whenText } },
+    { cells: { phase: "General election", when: ELECTION_TEXT } },
   ],
 };
 
@@ -175,7 +174,7 @@ const PHASE_TARGETS: [string, string, string, string][] = [
 export const FIG_5_4_LADDER: FigureSpec = {
   id: "fig-5-4-ladder",
   section: "4.3.1",
-  title: "Three indicators climb through every phase, and every other target belongs to one phase",
+  title: `${CountWord(CLIMB.length)} indicators climb through every phase, and every other target belongs to one phase`,
   question: "What does each phase have to deliver?",
   takeaway: `Consented SMS contacts rise from ${fmt("target.sms.phase-1b")} in Phase 1 to ${fmt("target.sms")} by Phase 3; rows marked ° are operational diagnostics, not performance indicators.`,
   sources: [PROPOSAL],
@@ -245,7 +244,7 @@ const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measure
 export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
   section: "5.1",
-  title: "Nine indicators judge the work, four for the nomination and five for the election, each observable on his own channels or lists",
+  title: `${CountWord(NOMINATION_KPIS.length + GENERAL_ELECTION_KPIS.length)} indicators judge the work, ${countWord(NOMINATION_KPIS.length)} for the nomination and ${countWord(GENERAL_ELECTION_KPIS.length)} for the election, each observable on his own channels or lists`,
   question: "How is progress measured?",
   takeaway: "Every indicator is observable on his channels, the SMS list or the field record, and each stays empty until its baseline is taken.",
   sources: [PROPOSAL, { name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }],
@@ -265,9 +264,9 @@ export const FIG_5_6: FigureSpec = {
 export const FIG_5_7: FigureSpec = {
   id: "fig-5-7-approval",
   section: "4.1.3",
-  title: "Your team drafts and publishes, one named counterpart approves, and an attack climbs three levels in hours",
+  title: `Your team drafts and publishes, one named counterpart approves, and an attack is judged against ${countWord(SEVERITY_TIERS.length)} severity tiers`,
   question: "How are decisions made?",
-  takeaway: "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a Level 3 attack reaches the candidate within thirty minutes.",
+  takeaway: `Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a ${SEVERITY_TIERS[SEVERITY_TIERS.length - 1].name.toLowerCase()} attack reaches the candidate, with the war room convened within fifteen minutes.`,
   sources: [PROPOSAL],
   chart: {
     type: "composite",
@@ -286,15 +285,14 @@ export const FIG_5_7: FigureSpec = {
         },
       },
       {
-        heading: "The escalation ladder",
+        heading: "The severity tiers",
         chart: {
           type: "decision",
           question: "When an attack lands",
-          rules: [
-            { if: "Level 1", then: "your team drafts; your team lead approves, Firefly notified; within 4 hours" },
-            { if: "Level 2", then: "Firefly drafts; the Communications Director approves; within 2 hours" },
-            { if: "Level 3", then: "Firefly drafts; the candidate and senior leadership approve; within 30 minutes" },
-          ],
+          rules: SEVERITY_TIERS.map((t) => ({
+            if: t.name,
+            then: t.draftedBy === "—" ? `${t.protocol.split(" — ")[0].toLowerCase()}; ${t.approvedBy.toLowerCase()}` : `${t.draftedBy} drafts; approval: ${t.approvedBy}; ${t.turnaround.split(" · ")[0].toLowerCase()}`,
+          })),
         },
       },
     ],
@@ -304,9 +302,7 @@ export const FIG_5_7: FigureSpec = {
     { cells: { type: "Routine post in an approved brief", draft: "Your team", approve: "Your team lead", publish: "Your team", time: "Same day" } },
     { cells: { type: "New policy claim or figure", draft: "Your team", approve: "Firefly + campaign counterpart", publish: "Your team", time: "24 hours" } },
     { cells: { type: "Kikamba voice note", draft: "Your team + Kikamba reviewer", approve: "Firefly", publish: "Your team", time: "48 hours" } },
-    { cells: { type: "Attack, Level 1", draft: "Your team", approve: "Your team lead", publish: "Your team", time: "≤4 hours" } },
-    { cells: { type: "Attack, Level 2", draft: "Firefly", approve: "Communications Director", publish: "Your team", time: "≤2 hours" } },
-    { cells: { type: "Attack, Level 3", draft: "Firefly", approve: "Candidate + senior leadership", publish: "Your team", time: "≤30 minutes" } },
+    ...SEVERITY_TIERS.map((t) => ({ cells: { type: `Attack, ${t.name.toLowerCase()} tier`, draft: t.draftedBy, approve: t.approvedBy, publish: t.draftedBy === "—" ? "—" : "Your team", time: t.turnaround } })),
     { cells: { type: "SMS / USSD / WhatsApp broadcast", draft: "Firefly", approve: "Campaign counterpart", publish: "Firefly", time: "24 hours" } },
     { cells: { type: "Any voter-file-based targeting", draft: "—", approve: "Compliance gate", publish: "—", time: "Before launch, no exceptions" } },
     { cells: { type: "Paid targeting plan and reallocation within the agreed weighting", draft: "Firefly proposes", approve: "Campaign counterpart", publish: "Your team executes", time: "24 hours" } },
@@ -329,7 +325,7 @@ const IMPACT = ["", "Moderate", "High", "Severe"];
 export const FIG_5_8: FigureSpec = {
   id: "fig-5-8-risk",
   section: "6.1",
-  title: "Two of the six risks would change the plan rather than damage it, and both are settled by measurement early",
+  title: `Two of the ${countWord(RISKS.length)} risks would change the plan rather than damage it, and both are settled by measurement early`,
   question: "What could go wrong?",
   takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat.",
   sources: [PROPOSAL, { name: "Constitution of Kenya, Article 180(7): a governor serves at most two terms", tier: "T1" }],
@@ -374,7 +370,7 @@ export const FIG_5_9: FigureSpec = {
           type: "cards",
           columns: 3,
           cards: [
-            { title: "Strategy Director", body: "Analysis, strategy, the weekly brief; Level 2 drafting. Publishes nothing; holds no credentials.", tone: "accent" as const },
+            { title: "Strategy Director", body: "Analysis, strategy, the weekly brief; crisis drafting at the high and critical tiers. Publishes nothing; holds no credentials.", tone: "accent" as const },
             { title: "Analyst", body: "Presence audit, measurement, attribution, the weekly read; data-governance owner for the audit.", tone: "accent" as const },
             { title: "Offline-layer Operator", body: "SMS, USSD and WhatsApp dispatch; consent ledger; compliance logging.", tone: "accent" as const },
           ],

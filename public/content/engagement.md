@@ -75,7 +75,7 @@ R responsible · A accountable · C consulted · I informed.
 | SMS / USSD / WhatsApp dispatch | **R/A** | I | I | C | C |
 | Measurement and reporting | **R/A** | C | I | I | — |
 | Data-protection sign-off | C | I | I | **A** | **R** |
-| Crisis, Level 3 | **R** | C | **A** | C | I |
+| Crisis, critical tier | **R** | C | **A** | C | I |
 
 ## 13.3 What is outside this scope
 
@@ -131,7 +131,7 @@ The meeting rhythm and the escalation path are schedule material: what a reader 
 
 #### The escalation path
 
-Three levels, so that decisions do not stall under pressure in the field:
+Three decision levels, so that operational decisions do not stall under pressure in the field. Attacks on the campaign are judged separately, by the four severity tiers in the runbooks' decision tree (Annex F.1):
 
 ```figure
 id: escalation-ladder

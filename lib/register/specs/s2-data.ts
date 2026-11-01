@@ -1,6 +1,7 @@
 /**
  * Section 2, The Data: the figure register's nine records of what the official sources show.
  */
+import { NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 import register from "../../../data/ward-register.json" with { type: "json" };
 import { RADIO_STATIONS } from "../../../data/media-ownership.ts";
 import type { FigureSpec } from "../types.ts";
@@ -105,7 +106,7 @@ export const FIG_2_3: FigureSpec = {
           columns: 2,
           cards: [
             { kicker: "Method · T3", title: "A party-run countywide selection, not a competitive primary", body: "Single-sourced campaign report; not confirmed by party officials.", tone: "outside" },
-            { kicker: "Window · T3", title: "Late October to November 2026", body: "Reported for the Wiper Patriotic Front's selection; no party calendar published.", tone: "outside" },
+            { kicker: `Window · ${NOMINATION_WINDOW.tier}`, title: NOMINATION_WINDOW.whenText, body: "Reported for the Wiper Patriotic Front's selection; no party calendar published.", tone: "outside" },
             { kicker: "Constitution · T1", title: "Article 180(7): the incumbent cannot stand", body: "Governor Malombe has served two terms, 2013–2017 and 2022–2027, the limit Article 180(7) sets. 2027 is an open seat." },
             { kicker: "Party · T1", title: "Wiper Democratic Movement is now Wiper Patriotic Front", body: "Certificate of change of name issued by the Registrar, August 2025." },
           ],
@@ -127,7 +128,7 @@ export const FIG_2_3: FigureSpec = {
   columns: [{ key: "item", label: "Item" }, { key: "status", label: "Status" }, { key: "holder", label: "Holder" }],
   rows: [
     { cells: { item: "Nomination method: party-run countywide selection", status: "Reported, not confirmed (T3)", holder: "—" } },
-    { cells: { item: "Nomination window: late October to November 2026", status: "Reported, not confirmed (T3)", holder: "—" } },
+    { cells: { item: `Nomination window: ${inSentence(NOMINATION_WINDOW.whenText)}`, status: `Reported, not confirmed (${NOMINATION_WINDOW.tier})`, holder: "—" } },
     { cells: { item: "Wiper NEC signed resolution", status: "Not in hand", holder: "Wiper NEC" } },
     { cells: { item: "Party nomination rules and timetable, 2027", status: "Not in hand", holder: "Wiper, via the campaign" } },
   ],

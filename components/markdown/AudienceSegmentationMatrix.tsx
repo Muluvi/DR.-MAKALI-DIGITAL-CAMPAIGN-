@@ -7,21 +7,31 @@ import { Users, Radio, MessageSquare, AlertTriangle, Layers } from "lucide-react
 import { ClaimBadge } from "./ClaimBadge";
 import { TierBadge } from "./TierBadge";
 import { DURATION } from "../../lib/motion";
+import { figure } from "../../lib/data/figures";
+import { CountWord } from "../../lib/count-word";
+import { segment, shareText, sizeText, type Segment } from "../../data/segments";
 
 /**
  * §5.1–2.4.2 — the six structural segments.
  *
- * Sizing figures are quoted from §5.1's "Empirical Sizing" line and §5.2's summary matrix.
- * Three of the six are marked in the source as a Named Data Gap with no official count; those
- * render as unsized, with the source's estimated range shown as an estimate rather than promoted
- * to a fact. An earlier version of this component assigned all six invented percentages and
- * voter counts that appear nowhere in the proposal
- * and did not sum correctly against the register.
+ * Sizes are read from data/segments.ts, which reads the registry (segment.*), so this matrix and
+ * fig-4-3 cannot size a segment two ways. Three segments have no published registered-voter count;
+ * they render as "Not sized", with what is known instead and the document that would size them.
+ * The unsourced ranges earlier versions printed for them are retired (consolidation pass, D1.7).
  */
 
 type Sizing =
   | { kind: "sized"; voters: string; share: string; tier: 1 | 2 | 3 }
   | { kind: "gap"; estimate: string; note: string };
+
+const TIER_NUMBER = { T1: 1, T2: 2, T3: 3 } as const;
+
+/** The matrix's sizing line, from the one segment record. */
+function sizingOf(id: Segment["id"]): Sizing {
+  const s = segment(id);
+  if (!s.size) return { kind: "gap", estimate: sizeText(s), note: `${s.notSized?.context() ?? ""}. Would be sized by: ${s.notSized?.closesWith ?? "a published count"}.` };
+  return { kind: "sized", voters: sizeText(s), share: shareText(s) ?? "", tier: TIER_NUMBER[figure(s.size).tier ?? "T1"] };
+}
 
 interface AudienceSegment {
   id: string;
@@ -43,7 +53,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 1,
     name: "Rural agrarian & smallholder baseline",
     shortName: "Rural agrarian",
-    sizing: { kind: "sized", voters: "~507,000 registered voters (derived)", share: "95.2% of county population", tier: 1 },
+    sizing: sizingOf("agrarian"),
     connectivity: "73.8% offline countywide (CA/KNBS 2023/24). 2G feature-phone dominance, high evening vernacular radio listenership.",
     geographicBase: "Rural belts across Kitui Central, Kitui West, Kitui Rural, Mwingi Central, Mwingi West and Kitui East — 36 non-urban wards.",
     coreAnxiety:
@@ -57,11 +67,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 2,
     name: "Agro-pastoralist & arid-zone livestock keepers",
     shortName: "Agro-pastoralist",
-    sizing: {
-      kind: "gap",
-      estimate: "~80,000–105,000 registered voters",
-      note: "~15%–20% of the rural population. No official source publishes this segment's registered-voter count; the range is the source's estimate, not a measurement.",
-    },
+    sizing: sizingOf("pastoralist"),
     connectivity: "Highly dispersed. Intermittent 2G coverage, heavy battery and solar radio listenership.",
     geographicBase: "Mwingi North, Mwingi Central, Kitui South and Kitui East borderlands.",
     coreAnxiety:
@@ -75,7 +81,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 3,
     name: "Youth cohort, ages 18–35",
     shortName: "Youth 18–35",
-    sizing: { kind: "sized", voters: "~234,000 registered voters", share: "~44% of the active register", tier: 1 },
+    sizing: sizingOf("youth"),
     connectivity: "~70%+ smartphone adoption within the cohort. WhatsApp, TikTok, Facebook Mobile, YouTube.",
     geographicBase: "Peri-urban corridors — Kitui Township, the Kwa Vonza university belt, Mwingi Central town, Mutonguni, Kabati — and rural trading centres.",
     coreAnxiety:
@@ -89,7 +95,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 4,
     name: "Urban & peri-urban informal commerce",
     shortName: "Urban commerce",
-    sizing: { kind: "sized", voters: "~26,000 registered voters (derived)", share: "4.8% of county population", tier: 1 },
+    sizing: sizingOf("msme"),
     connectivity: "~45%–55% smartphone connectivity. Constant WhatsApp business use, daily county revenue contact.",
     geographicBase: "Kitui Township, Mwingi Central town, Kwa Vonza/Yatta, Mutomo, Matinyani and Nguutani.",
     coreAnxiety:
@@ -103,11 +109,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 5,
     name: "Formal professionals, civil servants & educators",
     shortName: "Professionals",
-    sizing: {
-      kind: "gap",
-      estimate: "~25,000–35,000 registered voters",
-      note: "Teachers under KNUT/KUPPET, healthcare workers, civil servants, bank staff and clergy. Sizing requires administrative primary research.",
-    },
+    sizing: sizingOf("professionals"),
     connectivity: ">90% smartphone and laptop connectivity. Active on X, Facebook, LinkedIn and professional WhatsApp groups.",
     geographicBase: "Concentrated in Kitui town, Mwingi town and county administrative centres.",
     coreAnxiety:
@@ -121,11 +123,7 @@ const AUDIENCE_SEGMENTS: AudienceSegment[] = [
     index: 6,
     name: "Out-of-county Kamba diaspora",
     shortName: "Diaspora",
-    sizing: {
-      kind: "gap",
-      estimate: "150,000+ individuals",
-      note: "Total diaspora volume. The subset registered to vote in Kitui County is not published by any official source.",
-    },
+    sizing: sizingOf("diaspora"),
     connectivity: ">95% internet and smartphone connected. Active on X, Facebook, WhatsApp, YouTube and national podcasts.",
     geographicBase: "Nairobi, the Coast and nationwide, plus the 26 countries IEBC is opening to diaspora registration.",
     coreAnxiety:
@@ -210,8 +208,8 @@ export function AudienceSegmentationMatrix() {
               <p className="t-small text-muted mt-2 flex items-start gap-1.5">
                 <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
-                  <strong>Named data gap.</strong> {active.sizing.note} Commissioning this is a Phase −1
-                  research priority; it is not sized here because it is not sized in the source.
+                  <strong>Named data gap.</strong> {active.sizing.note} It is not sized here because no
+                  published source sizes it.
                 </span>
               </p>
             )}
@@ -267,7 +265,7 @@ export function AudienceSegmentationMatrix() {
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line">
         <p className="t-small text-muted leading-relaxed">
-          {gapCount} of the 6 segments are unsized in the source and are shown as such. Each stays unsized until an
+          {CountWord(gapCount)} segments are unsized in the source and are shown as such. Each stays unsized until an
           official source publishes it — this document does not estimate past its own evidence.
         </p>
       </div>

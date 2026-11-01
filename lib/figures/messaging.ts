@@ -62,7 +62,7 @@ export const MESSAGE_PILLARS: MessagePillar[] = [
     short: "Devolution & water",
     full: "Devolution Equity, Universal Water Access & Healthcare",
     carries: "Campaign pillars 2.2.1 and 2.2.2",
-    proofPoint: "Equal ward fund allocation — the Ksh 100M per ward guarantee",
+    proofPoint: "Ward funds allocated by one needs-weighted formula, published before any allocation",
     proofSource: "§7.1 [CHECK REF] message architecture",
   },
 ];
@@ -96,7 +96,7 @@ export const COUNTER_FIRE = [
       "Dr. Mulu is only interested in Kitui Central and will neglect Northern/Southern wards.",
     answers: [
       "FACT: As MP, Dr. Mulu defended equal revenue allocation for all 47 counties and sponsored national water subsidies for ASAL regions (Hansard).",
-      "COMMITMENT: Legally binding Ward Equalization Fund guarantee (Ksh 100M/yr).",
+      "COMMITMENT: Ward development funds allocated by one needs-weighted formula, published before any allocation and audited after.",
     ],
   },
   {
