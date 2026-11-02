@@ -50,7 +50,7 @@ class SimulationResult:
 def simulate(
     wards: pd.DataFrame,
     register_col: str = "registered_voters_2022",
-    register_label: str = "IEBC 2022 register (532,758)",
+    register_label: str = "IEBC 2022 register",
     n_draws: int | None = None,
     turnout_range: tuple[float, float] | None = None,
     support_range: tuple[float, float] | None = None,

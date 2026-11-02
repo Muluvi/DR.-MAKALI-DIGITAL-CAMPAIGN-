@@ -45,7 +45,8 @@ EQUAL_AREA = "EPSG:6933"
 SLIVER = 0.01
 
 # The Kitui totals the site already cites, which the package must reproduce before it is used.
-PUBLISHED = {"population": 1_136_187, "phone_pct": 42.9, "internet_pct": 13.6}
+# Read from the site registry export, never retyped (consolidation pass, Step 5).
+PUBLISHED = {"population": config.site("census.population"), "phone_pct": config.site("ict.phone.2019"), "internet_pct": config.site("ict.internet.2019")}
 
 
 def available() -> bool:

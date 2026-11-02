@@ -92,6 +92,45 @@ class Assumption:
         return ", ".join(bits) if bits else "Confirmed."
 
 
+REGISTRY_EXPORT = REPO_ROOT / "data" / "registry.export.json"
+
+
+def registry() -> dict[str, dict[str, Any]]:
+    """The site registry, as the site build exports it: id -> record (value, unit, tier, ...)."""
+    import json
+
+    with open(REGISTRY_EXPORT, encoding="utf-8") as fh:
+        return {f["id"]: f for f in json.load(fh)["figures"]}
+
+
+def site(rid: str) -> Any:
+    """A site figure's value, read from the registry export: the model never retypes one."""
+    record = registry().get(rid)
+    if record is None or record["value"] is None:
+        raise AssumptionError(f"site figure {rid!r} is not in the registry export")
+    return record["value"]
+
+
+def site_fmt(rid: str) -> str:
+    """A site figure as prose prints it: 605703 -> "605,703"."""
+    v = site(rid)
+    return f"{v:,.0f}" if float(v).is_integer() else f"{v:,}"
+
+
+def _site_value(node: dict[str, Any], dotted: str) -> tuple[Any, int | None, str | None]:
+    """Resolve a `site_figure:` entry against the registry export: value, tier and as-of date."""
+    rid = node["site_figure"]
+    record = registry().get(rid)
+    if record is None or record["value"] is None:
+        raise AssumptionError(f"{dotted!r} names site figure {rid!r}, which the registry export does not hold")
+    scale = node.get("scale")
+    value = record["value"] * scale if scale else record["value"]
+    if isinstance(value, float):
+        value = round(value, 10)
+    tier = int(record["tier"][1]) if record.get("tier") else None
+    return value, tier, record.get("asOf")
+
+
 def assumption(dotted: str) -> Assumption:
     """Fetch one assumption by dotted path, e.g. 'turnout.ward_low'.
 
@@ -103,16 +142,21 @@ def assumption(dotted: str) -> Assumption:
         if not isinstance(node, dict) or part not in node:
             raise AssumptionError(f"{dotted!r} is not in config/assumptions.yaml")
         node = node[part]
-    if not isinstance(node, dict) or "value" not in node:
-        raise AssumptionError(f"{dotted!r} is not an assumption entry (needs a 'value')")
+    if not isinstance(node, dict) or ("value" not in node and "site_figure" not in node):
+        raise AssumptionError(f"{dotted!r} is not an assumption entry (needs a 'value' or a 'site_figure')")
+    # A site figure is read from the registry export, never retyped (consolidation pass, Step 5).
+    if "site_figure" in node:
+        val, site_tier, site_as_of = _site_value(node, dotted)
+    else:
+        val, site_tier, site_as_of = node["value"], None, None
     return Assumption(
         key=dotted,
-        value=node["value"],
+        value=val,
         status=node.get("status", "PLACEHOLDER"),
         rationale=" ".join(str(node.get("rationale", "")).split()),
         source_id=node.get("source_id"),
-        tier=node.get("tier"),
-        as_of=node.get("as_of"),
+        tier=node.get("tier", site_tier),
+        as_of=node.get("as_of", site_as_of),
         unit=node.get("unit"),
         verify=bool(node.get("verify", False)),
     )
