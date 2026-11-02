@@ -10,6 +10,10 @@
 #
 # Compiled against the data pack of 16 September 2026.
 
+# SITE FIGURES ARE READ, NOT RETYPED (consolidation pass, November 2026). An entry with
+# `site_figure: <id>` takes its value, tier and date from data/registry.export.json, which the site
+# build writes from lib/data/figures.ts; `scale` converts a printed percentage to a fraction. Only
+# model-only assumptions carry a `value:` here. Edit a site figure in the registry, not in this file.
 meta:
   as_of: "2026-09-16"
   pack_compiled: "2026-09-16"
@@ -24,7 +28,7 @@ seed: 20270809   # Kenya's 2027 general election date, used as an arbitrary fixe
 # ---------------------------------------------------------------------------------------
 register:
   y2022:
-    value: 532758
+    site_figure: register.2022  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S2
     tier: 1
@@ -35,7 +39,7 @@ register:
       is independently reproduced by the site's own data/ward-register.json. This is the
       only register figure in the pack with a T1 source.
   y2022_with_prisons:
-    value: 532833
+    site_figure: register.2022.with-prisons  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S1
     tier: 1
@@ -43,7 +47,7 @@ register:
     status: CONFIRMED
     rationale: 532,758 ward register + 75 prison voters. Prison voters sit in no ward.
   y2026_july:
-    value: 605703
+    site_figure: register.2026  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S4
     tier: 3
@@ -59,7 +63,7 @@ register:
       3's 37.2% benchmark is still computed against it, as a reported figure, not an official
       one. The T1 source is IEBC's county register as at July 2026.
   y2026_new_registrations:
-    value: 61839
+    site_figure: register.2026.ecvr-drive  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S3
     tier: 1
@@ -77,7 +81,7 @@ register:
       before the drive, and the 605,703 total is dated July, three months after it closed.
       The two figures are complementary, not in conflict.
   y2026_growth_outside_the_drive:
-    value: 11106
+    site_figure: register.2026.continuous  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S4
     tier: 3
@@ -115,7 +119,7 @@ register:
 # ---------------------------------------------------------------------------------------
 benchmarks:
   winning_tally_2022:
-    value: 198004
+    site_figure: result.2022.gov.malombe  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: votes
     source_id: S11
     tier: 2
@@ -136,6 +140,16 @@ benchmarks:
       and the site give the same figure: on the 2022 register it reproduces 198,004; on 605,703
       [VERIFY] it gives 225,115.
       This is a ratio carried forward, not a forecast of what a 2027 win requires.
+  like_for_like_2026:
+    site_figure: benchmark.like-for-like.2026  # read from data/registry.export.json (consolidation pass, Step 5)
+    unit: votes
+    status: PLACEHOLDER
+    verify: true
+    rationale: >-
+      The 2022 winning tally's share of the 2022 register, applied to the July 2026 register:
+      the like-for-like bar. Computed once, in the site registry (lib/data/figures.ts), and read
+      here; the model used to retype it as about 225,300 from a rate rounded to 37.2%. Tier 3,
+      because the July 2026 register is.
   no_fixed_threshold:
     value: true
     status: CONFIRMED
@@ -389,7 +403,8 @@ labelling:
 # ---------------------------------------------------------------------------------------
 reach:
   county_internet_use:
-    value: 0.262
+    site_figure: ict.internet  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share of persons aged 3+
     source_id: CA-ICT-KHS-2024
     tier: 1
@@ -402,7 +417,8 @@ reach:
       for comparison because the change between them is itself a finding.
       Source: https://www.ca.go.ke/sites/default/files/2025-08/ICT%20Analytical%20Report%20Based%20on%202023-2024%20Kenya%20Housing%20Survey_0.pdf
   county_phone_ownership:
-    value: 0.441
+    site_figure: ict.phone  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share of persons aged 3+
     source_id: CA-ICT-KHS-2024
     tier: 1
@@ -416,7 +432,8 @@ reach:
       getting online, not from new phone owners. That is why the SMS-only segment shrinks
       rather than holds.
   county_internet_use_2019:
-    value: 0.136
+    site_figure: ict.internet.2019  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share of residents aged 3+
     source_id: S35
     tier: 2
@@ -427,7 +444,8 @@ reach:
       because the proposal's prose is built on it and the gap between the two is a finding
       the campaign needs to see.
   county_phone_ownership_2019:
-    value: 0.429
+    site_figure: ict.phone.2019  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share of residents aged 3+
     source_id: S35
     tier: 2
@@ -447,7 +465,8 @@ reach:
       rates are in hand, and retained only as context: Kitui at 44.1% sits 4.5 points below
       the rural mean.
   national_internet_use:
-    value: 0.35
+    site_figure: ict.kenya.internet  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share
     source_id: S36
     tier: 2
@@ -457,7 +476,8 @@ reach:
       KNBS Housing Survey 2023/24, national. Context only. Kitui's 26.2% sits above the 25.0%
       rural mean and well below the 35.0% national rate.
   smartphone_share_of_connections:
-    value: 0.597
+    site_figure: ict.smartphone-share  # read from data/registry.export.json (consolidation pass, Step 5)
+    scale: 0.01  # the registry prints a percentage; the model uses a fraction
     unit: share of active SIMs
     source_id: S34
     tier: 2
@@ -469,7 +489,7 @@ reach:
       applied to a rural county with below-average connectivity, so it almost certainly
       overstates Kitui. Flagged as such on every output.
   denominator_register:
-    value: 605703
+    site_figure: register.2026  # read from data/registry.export.json (consolidation pass, Step 5)
     unit: voters
     source_id: S4
     tier: 3

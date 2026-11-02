@@ -47,7 +47,7 @@ def chart_distribution(res: sim.SimulationResult) -> str:
         fig, "03_vote_distribution.svg",
         "Scenario model, not a forecast. Solid red is the 2022 winning tally of 198,004, which "
         "the proposal measures against. Dashed red is 37.2% of the reported July 2026 "
-        "register (Tier 3, verify), about 225,300 — the same share of a 13.7% larger electorate, and the "
+        f"register (Tier 3, verify), about {config.value('benchmarks.like_for_like_2026'):,} — the same share of a 13.7% larger electorate, and the "
         "like-for-like bar. The gap between the two lines is what a growing register costs. "
         "Governor races are won by plurality, so neither is a threshold: exceeding one is not "
         "a win probability.",
@@ -101,7 +101,7 @@ def run() -> dict:
     # actually vote. The 2022 run is kept for comparison, because every target in the proposal
     # is still expressed against it.
     comp = sim.simulate(wards, register_col="registered_voters_2026_scaled",
-                        register_label="Reported July 2026 register (605,703, T3, verify)",
+                        register_label=f"Reported July 2026 register ({config.site_fmt('register.2026')}, T3, verify)",
                         support_range=_support_range())
     comp_2022 = sim.simulate(wards, support_range=_support_range())
     c_dist = chart_distribution(comp)
@@ -137,8 +137,8 @@ def run() -> dict:
     )
 
     rows = []
-    for register_label, res in (("Reported July 2026 (605,703, T3, verify) — current", comp),
-                                ("IEBC 2022 (532,758) — for comparison", comp_2022)):
+    for register_label, res in ((f"Reported July 2026 ({config.site_fmt('register.2026')}, T3, verify) — current", comp),
+                                (f"IEBC 2022 ({config.site_fmt('register.2022')}) — for comparison", comp_2022)):
         s_ = res.summary()
         marks = sim.benchmarks(res.register_total)
         rows.append({
@@ -146,7 +146,7 @@ def run() -> dict:
             "Scenario": SCENARIO["label"],
             "Median": f"{s_['median']:,.0f}",
             "90% interval": f"{s_['p5']:,.0f} – {s_['p95']:,.0f}",
-            "Above 198,004": f"{res.share_exceeding(198004):.1%}",
+            f"Above {config.site_fmt('result.2022.gov.malombe')}": f"{res.share_exceeding(config.site('result.2022.gov.malombe')):.1%}",
             "Above 37.2% of register": f"{res.share_exceeding(list(marks.values())[1]):.1%}",
         })
     rep.table(pd.DataFrame(rows))
@@ -157,11 +157,11 @@ def run() -> dict:
     rep.h3("What this says")
     rep.bullets([
         f"**Under a competitive scenario the benchmark is reachable but not comfortable.** "
-        f"Median {np.median(comp.totals):,.0f}, with {comp.share_exceeding(198004):.1%} of draws "
-        "above 198,004. The competitive range is anchored on the 2022 winner's own ~60% of "
+        f"Median {np.median(comp.totals):,.0f}, with {comp.share_exceeding(config.site('result.2022.gov.malombe')):.1%} of draws "
+        f"above {config.site_fmt('result.2022.gov.malombe')}. The competitive range is anchored on the 2022 winner's own ~60% of "
         "ballots cast.",
-        "**The register grew, so the bar rose.** On the July 2026 register of 605,703, as "
-        f"reported (Tier 3, verify), the 37.2% benchmark is about {marks_now[1]:,.0f} votes, against the 198,004 the "
+        f"**The register grew, so the bar rose.** On the July 2026 register of {config.site_fmt('register.2026')}, as "
+        f"reported (Tier 3, verify), the 37.2% benchmark is about {marks_now[1]:,.0f} votes, against the {config.site_fmt('result.2022.gov.malombe')} the "
         "proposal measures against. The same performance now clears a higher bar.",
         "**Which benchmark you choose changes the answer more than the model does.** The "
         f"simulated total clears the 2022 tally in {above_2022:.0%} of draws, but clears 37.2% of "
@@ -221,6 +221,6 @@ def run() -> dict:
     return {
         "state": "ok",
         "summary": (f"competitive median {np.median(comp.totals):,.0f}, "
-                    f"{comp.share_exceeding(198004):.0%} above benchmark → {path_out}"),
+                    f"{comp.share_exceeding(config.site('result.2022.gov.malombe')):.0%} above benchmark → {path_out}"),
         "gaps": ["ward-level 2022 results", "rival ranges"],
     }

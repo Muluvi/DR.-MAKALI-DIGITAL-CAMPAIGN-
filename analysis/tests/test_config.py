@@ -27,8 +27,10 @@ def test_every_assumption_entry_has_value_rationale_and_valid_status():
             key = ".".join(trail)
             if node["status"] not in ("PLACEHOLDER", "CONFIRMED"):
                 problems.append(f"{key}: status is {node['status']!r}")
-            if "value" not in node and "values" not in node:
+            if "value" not in node and "values" not in node and "site_figure" not in node:
                 problems.append(f"{key}: no value")
+            if "value" in node and "site_figure" in node:
+                problems.append(f"{key}: both a value and a site_figure; a site figure is read, never retyped")
             if not str(node.get("rationale", "")).strip():
                 problems.append(f"{key}: no rationale")
             return
@@ -92,3 +94,24 @@ def test_bulk_sms_excludes_kikamba():
     """CA/NCIC [S54]: bulk political SMS is English or Kiswahili only."""
     langs = config.value("compliance.bulk_sms_languages")
     assert "Kikamba" not in langs and "Kamba" not in langs
+
+
+def test_every_site_figure_resolves_from_the_registry_export():
+    """Consolidation pass, Step 5: a site figure is read from data/registry.export.json, never retyped."""
+    reg = config.registry()
+    found = []
+
+    def walk(node, trail):
+        if isinstance(node, dict):
+            if "site_figure" in node:
+                found.append(".".join(trail))
+                assert node["site_figure"] in reg, f"{'.'.join(trail)}: {node['site_figure']} is not in the registry export"
+                return
+            for k, v in node.items():
+                walk(v, trail + [k])
+
+    walk(config.assumptions(), [])
+    assert found, "no site figures found: assumptions.yaml should read the register and benchmarks from the export"
+    assert config.value("register.y2022") == reg["register.2022"]["value"]
+    assert config.value("reach.county_internet_use") == pytest.approx(reg["ict.internet"]["value"] / 100)
+    assert config.assumption("register.y2026_july").tier == 3

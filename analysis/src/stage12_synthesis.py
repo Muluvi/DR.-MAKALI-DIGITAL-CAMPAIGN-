@@ -44,32 +44,32 @@ def build_charts() -> list[Chart]:
     charts.append(Chart(
         id="register-comparison",
         title="The register the arithmetic rests on",
-        description="Kitui's electorate has grown by 72,945 voters since 2022, on the July "
+        description=f"Kitui's electorate has grown by {config.site_fmt('register.2026.growth')} voters since 2022, on the July "
                     "2026 total as reported (Tier 3, verify).",
         chart_type="comparison",
         values=[
-            Value("IEBC 2022 register", 532758, "voters", "S2", 1, "2022", OFFICIAL, CONFIRMED),
-            Value("Reported register, July 2026", 605703, "voters", "S4", 3, "2026-07", OFFICIAL,
+            Value("IEBC 2022 register", config.site("register.2022"), "voters", "S2", 1, "2022", OFFICIAL, CONFIRMED),
+            Value("Reported register, July 2026", config.site("register.2026"), "voters", "S4", 3, "2026-07", OFFICIAL,
                   VERIFY, note="Reported by Venas News; IEBC's own July figure is not in hand."),
-            Value("Growth since 2022", 72945, "voters", "S4", 3, "2026-07", CALCULATED, VERIFY,
-                  note="605,703 minus 532,758 — a 13.7% larger electorate."),
-            Value("Added in the 30-day ECVR drive", 61839, "voters", "S3", 1, "2026-04-28",
+            Value("Growth since 2022", config.site("register.2026.growth"), "voters", "S4", 3, "2026-07", CALCULATED, VERIFY,
+                  note=f"{config.site_fmt('register.2026')} minus {config.site_fmt('register.2022')} — a 13.7% larger electorate."),
+            Value("Added in the 30-day ECVR drive", config.site("register.2026.ecvr-drive"), "voters", "S3", 1, "2026-04-28",
                   OFFICIAL, CONFIRMED,
                   note="The drive that ended 28 April 2026."),
-            Value("Added by continuous registration outside the drive", 11106, "voters", "S4", 3,
+            Value("Added by continuous registration outside the drive", config.site("register.2026.continuous"), "voters", "S4", 3,
                   "2026-07", CALCULATED, VERIFY,
                   note="Continuous registration opened 29 September 2025 and ran on after the "
                        "drive closed; the July total post-dates it by three months."),
         ],
         notes=[
             "The 2022 register is no longer the current electorate. Any figure describing "
-            "today's electorate should use 605,703, marked Tier 3 and verify until IEBC's own "
+            f"today's electorate should use {config.site_fmt('register.2026')}, marked Tier 3 and verify until IEBC's own "
             "July 2026 figure is in hand.",
             "The drive figure and the July total measure different windows and were never "
             "meant to sum. An earlier version of this analysis reported them as contradictory; "
             "that reading was wrong and is corrected here.",
-            "A larger register raises the bar: 37.2% of 605,703 is about 225,000 votes, against "
-            "198,004 in 2022.",
+            f"A larger register raises the bar: the same share of {config.site_fmt('register.2026')} is about "
+            f"{config.site_fmt('benchmark.like-for-like.2026')} votes, against {config.site_fmt('result.2022.gov.malombe')} in 2022.",
         ],
     ))
 
@@ -223,7 +223,7 @@ def build_charts() -> list[Chart]:
             Value(f"{label} — 95th percentile", round(s["p95"]), "votes", "S1", 1, "2026-09",
                   MODELLED, PLACEHOLDER),
         ]
-        vals.append(Value("2022 winning tally", 198004, "votes", "S11", 2, "2022-08",
+        vals.append(Value("2022 winning tally", config.site("result.2022.gov.malombe"), "votes", "S11", 2, "2022-08",
                           OFFICIAL, CONFIRMED,
                           note="What the proposal measures against — set on a register 13.7% smaller."))
         like_for_like = round(int(config.value("register.y2026_july"))

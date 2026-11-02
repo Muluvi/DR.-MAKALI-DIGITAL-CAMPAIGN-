@@ -67,6 +67,8 @@ jobs:
             Automated public-source snapshot for human review.
 
             Nothing in this pull request is confirmed. Review every source, reconcile figures against primary records, and keep candidate items marked `verify` until a maintainer edits and merges the published data pack.
+
+            **Where a confirmed figure goes.** Every number on the site lives once, in `lib/data/figures.ts` (the registry), with its source, tier and date; the ward register is `data/ward-register.json`. Edit the figure there, on this branch, and push: `npm run content` (run by the build) carries it into every page, chart, CSV, the data explorer and `data/registry.export.json`, which the analysis model reads. Never retype a figure anywhere else; CI fails if you do (`scan-literals --check`). The step-by-step guide is `docs/consolidation-2026-11/HOW-TO-UPDATE.md`.
           labels: data,verify
           add-paths: data/candidates/public-material.md
 
@@ -82,3 +84,8 @@ jobs:
 
 # v0 note: this workflow intentionally does not set any candidate to ok/confirmed.
 # A maintainer must validate and merge the data-pack change.
+#
+# Consolidation pass (November 2026): the canonical data files are lib/data/figures.ts (the registry)
+# and data/ward-register.json. This workflow still never writes a figure into them by itself, because
+# a scraped value is unverified and the registry is what the site prints as fact; the review PR names
+# the file to edit, and a maintainer's edit there flows everywhere on the next build.

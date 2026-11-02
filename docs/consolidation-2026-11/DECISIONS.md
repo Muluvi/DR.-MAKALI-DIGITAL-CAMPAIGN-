@@ -462,3 +462,60 @@ security) and the filtered indicator views of **G**:
   So the remaining merges move prose, not facts.
 
 **Volunteers into Workstream 10 (J):** not done, for the same reason.
+
+## Step 5: the analysis model reads the site
+
+### D5.1 The registry export
+
+`scripts/export-registry.ts` writes `data/registry.export.json`: every figure's id, value, unit,
+tier, state, source, as-of date and note, 630 records.
+
+- It runs in `content`, `predev` and `prebuild`.
+- `verify` runs it with `--check`, so the export can never be stale on `main`.
+
+### D5.2 The model reads site figures instead of retyping them
+
+- **`analysis/config/assumptions.yaml`:** 14 entries restated a site figure. They now say
+  `site_figure: <id>`, with `scale: 0.01` where the registry prints a percentage and the model uses
+  a fraction:
+  - the 2022 register, with and without prisons
+  - the July 2026 register
+  - the ECVR drive
+  - continuous registration
+  - the 2022 winning tally
+  - five connectivity rates
+  - the reach denominator
+- **`analysis/src/config.py`** resolves `site_figure` from the export, including its tier and date.
+- **The like-for-like bar** is new, as `benchmarks.like_for_like_2026` (D1.6).
+- **Model-only assumptions** (weights, seeds, draws, dispersion) keep their `value:`.
+- **Python stages:** the values that feed the model's arithmetic and its published exports now come
+  from `config.site()`:
+  - Stage 12: the register comparison and the 2022 tally
+  - Stage 3: benchmark shares and labels
+  - Stage 15: the census totals it must reproduce
+- **The model's reasoning about 605,693** stays as a note (D1.6).
+- **Tests:** a new test checks that every `site_figure` resolves from the export and equals it.
+  Results: 103 passed, and the same 11 failures as at 2f29920, all of which need the gitignored
+  data pack.
+
+### D5.3 What was not done, and why
+
+- **Reports.** `analysis/reports/*.md` were not regenerated. Regenerating them needs the pipeline's
+  data pack (`analysis/data/`), which is gitignored and not in the repository. Running the pipeline
+  without it overwrites the committed reports with "[DATA NEEDED]" stubs, so the committed reports
+  stand until the pack is available. The next `python -m src.run_all` with the pack reads the
+  export.
+- **Remaining prose.** Some figures remain in the model's narrative strings: the ingestion parser's
+  handling of the pack's own conflict rows, a regex the site-check stage uses to find the 2022
+  register in site prose, and some explanatory sentences. They describe the data pack or the
+  site's history rather than feed a result, so they were left, and are listed here so they can be
+  converted when the pipeline is next run with its data.
+- **The public refresh workflow** still never writes a figure into the registry by itself. A
+  scraped value is unverified, and the registry is what the site prints as fact. Its review pull
+  request now names the one file to edit (`lib/data/figures.ts`) and links `HOW-TO-UPDATE.md`.
+  Once a maintainer edits there, the change flows to every page, CSV, the explorer and the model.
+
+### D5.4 `HOW-TO-UPDATE.md`
+
+A one-page guide for Firefly's team: which file holds each kind of number, and what the build and
+CI do after a commit.
