@@ -47,6 +47,7 @@ const NUMBERING = [
   [/\bT[123]\b/, "tier code"],
   [/(?<!IPC )\bPhase (?:−1|-1|0|1|2|3)\b(?!\s*[,—–:(-]?\s*\(?(?:Stressed|Crisis|Emergency|Famine|Minimal))/, "numbered phase"],
   [/\bAnnex [A-H]\b/, "Annex letter"],
+  [/\b(?:Sections?|Chapter) \d/, "section or chapter number"],
 ];
 
 const src = fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), "..", "..", "lib", "content-files.ts"), "utf8");

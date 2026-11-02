@@ -17,7 +17,7 @@ import { pageText } from "../lib/reader-text";
  * It only ever changes a text node's value, never the tree, so React's own updates still land.
  */
 const SKIP = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "NOSCRIPT"]);
-const PROBE = /§|Section|Annex|Parts? [IV]|\bT[123]\b|Phase|Stage/;
+const PROBE = /§|Section|Chapter|Annex|Parts? [IV]|\bT[123]\b|Phase|Stage/;
 
 export function PlainTextPass({ rootId = "pf-root" }: { rootId?: string }) {
   useEffect(() => {

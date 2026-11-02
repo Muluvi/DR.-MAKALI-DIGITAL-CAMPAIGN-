@@ -18,7 +18,7 @@ const PROPOSAL = { name: "This proposal, Sections 13.2–17", tier: null, state:
 /* ------------------------------------------------------------------ fig-5-1-workstreams */
 
 type Owner = "firefly" | "team" | "outside";
-const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: string }[] = [
+export const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: string }[] = [
   { n: 1, name: "Service-delivery tracker; owned platform operation", owner: "firefly", ownerText: "Firefly builds the tracker; your team runs the platforms, directed", sec: "5.2.1.1" },
   { n: 2, name: "Content production and asset governance", owner: "team", ownerText: "Your team, directed", sec: "5.2.1.2" },
   { n: 3, name: "Creative testing and AI assistance", owner: "firefly", ownerText: "Firefly", sec: "5.2.1.3" },

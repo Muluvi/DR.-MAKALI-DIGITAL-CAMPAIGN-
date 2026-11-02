@@ -519,3 +519,68 @@ tier, state, source, as-of date and note, 630 records.
 
 A one-page guide for Firefly's team: which file holds each kind of number, and what the build and
 CI do after a commit.
+
+## Step 6: guards
+
+### D6.1 No registry value can be retyped
+
+`scan-literals.mjs --check` runs in `npm run verify`, so CI fails on any exact registry-valued
+literal in site code that is not in `literals-allow.json` with a reason. A planted copy of
+`target.pledged-voters` in `data/kpis.ts` was caught before the guard was committed.
+
+**`literals-after.json`: 0 exact and 0 rounded copies (16 allowed), against 180 exact and 13 rounded
+in 44 files at 2f29920.**
+
+### D6.2 Counted phrases and windows must match their data
+
+`scripts/consolidation/check-contradictions.mjs` runs in `verify`. It reads each count from its data
+and fails if a counted phrase in content, a figure spec or a legacy figure states a number the data
+does not allow:
+
+- phases: all five, the three dated, or the two counted from signature
+- pillars and content types
+- segments: all six, or the three sized and three unsized
+- risks
+- severity tiers
+- indicators: four, five, nine, the five recognition indicators, or the three that climb
+- workstreams: fourteen, or a group's size
+- USSD options
+
+It also fails if a nomination window is stated in any form other than `NOMINATION_WINDOW`.
+Historical sentences ("the four campaign pillars of earlier drafts") are exempt by their own words.
+It currently checks 43 phrases in 51 files. A planted "Four phases… four pillars… mid-October to
+December" was caught.
+
+### D6.3 One more reader-facing fix found by the final pass
+
+The final live pass looked for visible section numbers, which the per-step checks had not covered.
+It found only what the baseline also shows: "Chapter 3" twice, in a message-architecture table.
+
+- The plain-text pass (`lib/reader-text.ts`, `PlainTextPass`) now turns "Chapter N" into the
+  chapter's name.
+- `live-check.mjs` now fails on any visible "Section N" or "Chapter N".
+- On the way, this pass showed that restarting `next start` after a rebuild matters: a server
+  left running over a rebuilt `.next` serves stale chunks that break the page's scripts. Every
+  check in this log was run on a fresh server.
+
+## Where the pass ends
+
+| | At 2f29920 | Now |
+|---|---|---|
+| Stops in the scroll | 36 | 31 |
+| Registry-valued literals in site code | 180 exact, 13 rounded, 44 files | 0, 0 (16 allowed, each with a reason) |
+| Legacy figures | 60 | 42, all free of registry facts |
+| Ward-map views of the contest | separate maps in 6 figures | one layered map, 6 layers |
+| Datasets with more than one copy | reach, segments, phases, escalation, pillars, USSD menu, tiers, sources, analysis exports | one each |
+| Guards added to `verify` | — | literal scan, contradiction check, registry export, anchor moves |
+
+### Outstanding, and why
+
+1. **Passage-level merges A, B, C, E, K, L and G's filtered views** (D4, "Not done"). The data
+   under them is single-sourced; what remains is moving prose with a pointer per passage.
+2. **Volunteers into Workstream 10** (J).
+3. **42 qualitative legacy figures** to move to `FigureSpec`s (D3.4).
+4. **Analysis reports** to regenerate once the data pack is available (D5.3). Some site figures in
+   the model's narrative strings remain to convert then.
+5. **The broadcast approver** (fig-5-7 versus the content gateway) is the campaign's decision
+   (D1, "Examined, not changed").
