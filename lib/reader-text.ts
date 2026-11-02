@@ -1,5 +1,6 @@
 import { tierWord } from "../data/types.ts";
 import { plainLabels } from "./plain-labels.ts";
+import { SECTIONS } from "./heading-slug.ts";
 
 /**
  * What a figure's words look like to the reader. The figure specs keep their working form (tier
@@ -64,6 +65,9 @@ const POSS_PAIR = new RegExp(String.raw`${REF_TOKEN}['’]s(?:,\s*|\s+and\s+)${R
 const POSS = new RegExp(String.raw`${REF_TOKEN}['’]s\s+(?=[a-z])`, "g");
 const ANY_REF = new RegExp(REF_TOKEN, "g");
 const ANNEX_REF = /\bAnnex(?:es)? [A-H](?:\.\d+)*\b/g;
+/** "Chapter 3" -> the chapter's name ("What voters need"): the site navigates by name. */
+const CHAPTER_REF = /\bChapter (\d+)\b/g;
+const CHAPTER_NAME = new Map<string, string>(SECTIONS.filter((x) => x.number && !x.number.includes(".")).map((x) => [x.number, x.label]));
 
 /**
  * readerText for text the page draws outside the markdown renderer (panels, chips, chart labels,
@@ -78,6 +82,7 @@ export function pageText(input: string): string {
   s = s.replace(PARTS_ROMAN, (_, a: string, b: string) => `${PART_NAMES[a]} and ${PART_NAMES[b]}`);
   s = s.replace(PART_ROMAN, (_, r: string) => PART_NAMES[r]);
   s = s.replace(ANNEX_REF, "the reference shelf");
+  s = s.replace(CHAPTER_REF, (m: string, n: string) => (CHAPTER_NAME.has(n) ? `“${CHAPTER_NAME.get(n)}”` : m));
   if (!/§|Section/.test(s)) return s;
   if (ONLY_REFS.test(s)) return "";
   s = s.replace(FIGURE_REF, "$1");
