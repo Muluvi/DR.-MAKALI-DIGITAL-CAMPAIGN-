@@ -1,8 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 
-const noSubscribe = () => () => {};
 const DAY = 24 * 60 * 60 * 1000;
 
 /**
@@ -13,16 +12,15 @@ const DAY = 24 * 60 * 60 * 1000;
  * here and the timeline beneath carries the date itself; with scripts off nothing is lost.
  */
 export function Countdown({ to, label }: { to: string; label: string }) {
-  const days = useSyncExternalStore(
-    noSubscribe,
-    () => {
-      const [y, m, d] = to.split("-").map(Number);
-      const now = new Date();
-      const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-      return Math.round((Date.UTC(y, m - 1, d || 1) - today) / DAY);
-    },
-    () => null
-  );
+  const [days, setDays] = useState<number | null>(null);
+
+  useEffect(() => {
+    const [y, m, d] = to.split("-").map(Number);
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    setDays(Math.round((Date.UTC(y, m - 1, d || 1) - today) / DAY));
+  }, [to]);
+
   if (days === null || days < 0) return null;
   return (
     <p className="kx-countdown">

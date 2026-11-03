@@ -50,10 +50,12 @@ export function StreamedSection({
   const [near, setNear] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  // Without IntersectionObserver the honest answer is "fetch it", never "wait forever". Derived
-  // rather than pushed into state from an effect, and window-guarded so the server's answer and
-  // the first client render agree.
-  const unobservable = typeof window !== "undefined" && typeof IntersectionObserver === "undefined";
+  const [unobservable, setUnobservable] = useState(false);
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      setUnobservable(true);
+    }
+  }, []);
   const wanted = force || near || unobservable;
 
   // Nothing streams until the page has loaded and the main thread is idle (visual-first pass,

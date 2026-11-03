@@ -20,9 +20,11 @@ export function useIsMobile() {
   return React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
 
-const emptySubscribe = () => () => {}
-
 export function useMounted() {
-  return React.useSyncExternalStore(emptySubscribe, () => true, () => false)
+  const [mounted, setMounted] = React.useState(false)
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+  return mounted
 }
 

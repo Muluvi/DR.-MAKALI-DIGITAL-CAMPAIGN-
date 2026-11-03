@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Transition, Variants } from "motion/react";
 
 import {
@@ -10,34 +10,13 @@ import {
 } from "../lib/motion";
 import { useReducedMotionSafe } from "./use-reduced-motion-safe";
 
-/**
- * One place that knows about `prefers-reduced-motion`, so no component has to remember.
- *
- * Every consumer takes its variants, transitions, springs and stagger gaps from here and gets the
- * degraded path automatically. A component that reaches past this and writes its own
- * `{ duration: 0.5 }` is the bug this hook exists to make unnecessary.
- *
- * What "degraded" means is deliberate, and it is not "faster":
- *
- *   - Entrances collapse to their finished state. Nothing travels; everything is present.
- *   - Interaction feedback SURVIVES, shortened. A press state that stops responding reads as a
- *     broken button, which helps nobody.
- *   - Ambient loops do not run at all. A loop has no finished state to settle at.
- *   - Stagger goes to zero, so a forty-item list arrives at once instead of over two seconds.
- */
-/**
- * Whether we are past the first client render.
- *
- * `useSyncExternalStore` with a never-firing subscription: the server snapshot is false, the
- * client snapshot is true, and there is no effect and no cascading second render to lint around.
- */
-const subscribeNever = () => () => {};
-const clientSnapshot = () => true;
-const serverSnapshot = () => false;
-
 export function useMotionPreset() {
   const reduce = useReducedMotionSafe();
-  const mounted = useSyncExternalStore(subscribeNever, clientSnapshot, serverSnapshot);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return useMemo(
     () => ({
