@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { Toaster } from "./Toaster";
@@ -337,11 +336,11 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         {/* The flow streams its later sections, so the complete server-rendered document lives at
             /full. That is what print leads to, and it is what a reader without JavaScript gets. */}
         {streamed && (
-          <noscript>
-            <p style={{ padding: "1rem", textAlign: "center" }}>
-              <Link href="/full">Open the complete proposal on one page</Link>
-            </p>
-          </noscript>
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: '<p style="padding: 1rem; text-align: center;"><a href="/full">Open the complete proposal on one page</a></p>',
+            }}
+          />
         )}
 
         <RegisterMotion />

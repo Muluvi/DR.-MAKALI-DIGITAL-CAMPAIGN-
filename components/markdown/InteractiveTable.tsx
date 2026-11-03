@@ -262,7 +262,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     const pct = sample.includes("%") ? "%" : "";
     return {
       label,
-      value: `${unit}${value.toLocaleString(undefined, { maximumFractionDigits: pct ? 1 : 0 })}${pct}`,
+      value: `${unit}${value.toLocaleString("en-KE", { maximumFractionDigits: pct ? 1 : 0 })}${pct}`,
       rows: values.length,
     };
   }, [spec, numericColumnIndex, filteredRows, isExcluded]);

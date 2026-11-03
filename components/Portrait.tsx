@@ -86,6 +86,7 @@ export function Portrait({
       sizes={sizes}
       priority={priority}
       loading={priority ? undefined : "lazy"}
+      referrerPolicy="no-referrer"
       className={`h-auto w-full object-contain select-none pointer-events-none ${className}`}
       style={fade ? { maskImage: BOTTOM_FADE, WebkitMaskImage: BOTTOM_FADE } : undefined}
       draggable={false}
