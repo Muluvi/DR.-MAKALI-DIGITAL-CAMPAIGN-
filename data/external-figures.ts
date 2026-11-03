@@ -53,15 +53,15 @@ export interface PlatformAudience {
 export const PLATFORM_AUDIENCES: PlatformAudience[] = [
   {
     name: "Facebook",
-    value: 23.09,
-    display: "23.09m (37.5% of population), May 2026",
+    value: 23.1,
+    display: "23.1m, May 2026",
     note: "Largest cohort 25–34; 55.2% male.",
     source: NAPOLEONCAT_MAY_2026,
   },
   {
     name: "Messenger",
-    value: 20.18,
-    display: "20.18m",
+    value: 19.9,
+    display: "19.9m, May 2026",
     note: "Under-used for direct constituent contact.",
     source: NAPOLEONCAT_MAY_2026,
   },
@@ -74,8 +74,8 @@ export const PLATFORM_AUDIENCES: PlatformAudience[] = [
   },
   {
     name: "LinkedIn",
-    value: 7.44,
-    display: "6.30m–7.44m (range as stated)",
+    value: 7.59,
+    display: "6.3m–7.59m (range as stated)",
     note: "Professional associations, diaspora. Bar plotted at the upper bound.",
     source: DATAREPORTAL_2026,
   },
