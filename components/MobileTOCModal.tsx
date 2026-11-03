@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS } from "../lib/premium/acts";
@@ -11,8 +11,6 @@ import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  cover: BookLock,
-  brief: FileText,
   kitui: Database,
   votes: Gauge,
   needs: ClipboardList,

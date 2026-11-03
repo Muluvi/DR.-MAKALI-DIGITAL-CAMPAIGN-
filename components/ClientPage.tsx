@@ -15,7 +15,7 @@ import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
-import { isLiveSectionId, partOf, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
+import { isLiveSectionId, resolveLegacySectionId, SECTIONS, type TabId } from "../lib/heading-slug";
 import { FLOW_ORDER, FLOW_SECTIONS, FLOW_ACTS, actOf, opensAct } from "../lib/flow";
 import { sectionHeight } from "../lib/section-heights";
 import type { SectionItem } from "../lib/section-index";
@@ -375,8 +375,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                 >
                   <div id={`chap-${item.id}`}>
                     <ChapterMarker
-                      partLabel={partOf(item.id) === 0 ? null : actOf(item.id).label}
-                      actId={partOf(item.id) === 0 ? null : actOf(item.id).id}
+                      partLabel={actOf(item.id).label}
+                      actId={actOf(item.id).id}
                       label={item.label}
                       blurb={item.blurb}
                       asTitle={!expanded}
@@ -445,7 +445,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
         <Dock
           label={activeItem.label}
-          number={partOf(activeItem.id) === 0 ? "" : actOf(activeItem.id).label}
+          number={actOf(activeItem.id).label}
           tab={activeItem.id}
           onOpenIndex={() => setIsTOCModalOpen(true)}
           onToggleTheme={toggleTheme}

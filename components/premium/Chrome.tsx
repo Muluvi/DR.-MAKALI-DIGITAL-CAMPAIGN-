@@ -6,7 +6,7 @@ import measured from "../../data/section-heights.json";
 
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
 import { FLOW_ACTS, FLOW_ORDER, actOf } from "../../lib/flow";
-import { partOf, type TabId } from "../../lib/heading-slug";
+import { type TabId } from "../../lib/heading-slug";
 import { PartDots } from "../flow/PartDots";
 
 /**
@@ -53,7 +53,7 @@ export function Dock({
         {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
             they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
         <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
-          <span className="pf-dock__numeral" aria-hidden="true">{partOf(tab) === 0 || actOf(tab).id === "reference" ? "·" : <PartDots actId={actOf(tab).id} />}</span>
+          <span className="pf-dock__numeral" aria-hidden="true">{actOf(tab).id === "reference" ? "·" : <PartDots actId={actOf(tab).id} />}</span>
           <span className="pf-dock__label">
             {number && <b className="pf-dock__num">{number} ·</b>} {label}
           </span>
