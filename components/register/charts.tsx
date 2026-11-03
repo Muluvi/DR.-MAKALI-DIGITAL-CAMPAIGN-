@@ -304,7 +304,7 @@ function Stack({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
         <div className="kx-stack__inplace" aria-hidden="true">
           {chart.segments.map((s) => (
             <span key={s.label} style={{ width: pct(x(Math.abs(s.value ?? 0))) }}>
-              {x(Math.abs(s.value ?? 0)) >= 0.18 ? <strong className="pf-num">{valueText(s, chart.unit)}</strong> : null}
+              {x(Math.abs(s.value ?? 0)) >= 0.18 ? <strong className="pf-num">{valueText(s, chart.unit)}</strong> : null} {/* verify-figures-ignore — visual label threshold, not a campaign figure */}
             </span>
           ))}
         </div>
