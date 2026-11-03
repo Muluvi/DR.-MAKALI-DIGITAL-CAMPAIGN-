@@ -23,7 +23,8 @@ export function useIsMobile() {
 export function useMounted() {
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => {
-    setMounted(true)
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
   }, [])
   return mounted
 }

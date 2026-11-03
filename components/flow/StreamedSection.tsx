@@ -53,7 +53,8 @@ export function StreamedSection({
   const [unobservable, setUnobservable] = useState(false);
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") {
-      setUnobservable(true);
+      const id = requestAnimationFrame(() => setUnobservable(true));
+      return () => cancelAnimationFrame(id);
     }
   }, []);
   const wanted = force || near || unobservable;

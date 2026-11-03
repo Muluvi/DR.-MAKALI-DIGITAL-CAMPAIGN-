@@ -18,7 +18,9 @@ export function Countdown({ to, label }: { to: string; label: string }) {
     const [y, m, d] = to.split("-").map(Number);
     const now = new Date();
     const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-    setDays(Math.round((Date.UTC(y, m - 1, d || 1) - today) / DAY));
+    const val = Math.round((Date.UTC(y, m - 1, d || 1) - today) / DAY);
+    const id = requestAnimationFrame(() => setDays(val));
+    return () => cancelAnimationFrame(id);
   }, [to]);
 
   if (days === null || days < 0) return null;
