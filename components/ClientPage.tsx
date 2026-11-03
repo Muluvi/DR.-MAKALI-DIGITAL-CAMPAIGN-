@@ -8,8 +8,7 @@ import { LazyMount } from "./LazyMount";
 import { Printer, Search } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
-import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
-import { Figure } from "./figures/FigureBoundary";
+import { useReadingProgress } from "../hooks/useReadingProgress";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { HeadingOutline } from "./HeadingOutline";
 import { PanelFold } from "./markdown/PanelFold";
@@ -29,11 +28,9 @@ import { ChapterMarker } from "./flow/ChapterMarker";
 import { useDaypart, useScrollShell } from "../hooks/use-scroll-shell";
 
 import { ACT_PORTRAITS } from "../lib/premium/acts";
-import { CoverHero } from "./premium/CoverHero";
 import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
 import { Story } from "./premium/Story";
-import { VisualOverview } from "./VisualOverview";
 import { jumpTo } from "../lib/premium/transition";
 
 
@@ -73,16 +70,6 @@ interface ClientPageProps {
   /** True on "/": sections past the opening pair arrive as the reader reaches them. */
   streamed?: boolean;
 }
-
-const WiperUmbrellaLogo = () => (
-  <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none">
-    <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
-    <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
-    <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-    <path d="M57 11 H63 L60 20 Z" fill="#e31d2b" />
-    <path d="M60 58 V92 C60 99 51 99 51 92" stroke="#00209f" strokeWidth="6" strokeLinecap="round" fill="none" />
-  </svg>
-);
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
@@ -348,42 +335,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <MicroFX />
         <div className="pf-grain print:hidden" aria-hidden="true" />
 
-        {/* ----------------------------------------------------------- hero */}
-        {/* The cover (brief G-2, §10 Cover): the county behind, the portrait large in
-            front, the title in the display face, and the county drawn ward by ward (SVG; the WebGL
-            scene was removed in the visual-first pass). The four figures follow as big numbers. The
-            static county is in the HTML for print, reduced motion and scripts off. */}
-        {expanded && (
-          <CoverHero
-            byline={
-              <p className="pf-byline">
-                <WiperUmbrellaLogo />
-                <span>
-                  <strong>Hon. Dr. Benson Makali Mulu</strong>
-                  <span>Kitui 2027 — strategy and direction</span>
-                </span>
-              </p>
-            }
-          />
-        )}
-
-        {/* ------------------------------------------------ evidence preface */}
-        {expanded && (
-          <section aria-label="The figures behind the decision" className="cv-auto-strip pf-shell pf-preface">
-            {/* One reading time, measured from what the page shows on load (app/[[...slug]]/page.tsx),
-                so it cannot drift from what the page does. */}
-            <div className="pf-reading">
-              <p className="pf-reading__time">~{readingMinutes(Object.values(visibleWordCounts).reduce((a, b) => a + b, 0))} min read</p>
-              <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
-            </div>
-            <VisualOverview sections={FLOW_SECTIONS.map((section) => ({ id: section.id as TabId, label: section.label, number: section.number }))} wordCounts={wordCounts} visibleWordCounts={visibleWordCounts} />
-            {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
-                the pool and the spine of the argument. The hero above tells the same map's story. */}
-            <Figure id="fig-cover-map" />
-            <Figure id="fig-cover-spine" />
-          </section>
-        )}
-
         {/* ------------------------------------------------------ the document */}
         <main className="pf-shell pf-main">
           {/* There is no toolbar.
@@ -446,13 +397,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                         <Story />
                       )}
                     </PanelFold>
-                  )}
-                  {/* On the /cover route there is no hero, so the cover figures open the section. */}
-                  {!expanded && item.id === "cover" && (
-                    <>
-                      <Figure id="fig-cover-map" />
-                      <Figure id="fig-cover-spine" />
-                    </>
                   )}
                   {item.content ?? (
                     <StreamedSection tabId={item.id} words={item.wordCount} force={forced.has(item.id)} />
