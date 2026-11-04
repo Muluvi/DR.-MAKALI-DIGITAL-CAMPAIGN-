@@ -63,16 +63,7 @@ items:
     value: "{{channel.digital.rebalanced}}%"
 ```
 
-**The reach behind the weighting.**
-
-| | Figure |
-|---|---|
-| Reachable by smartphone or data, in county | ~{{reach.smartphone}} voters (modelled: {{ict.internet}}% of the July 2026 register) |
-| Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%** (modelled), reach not votes |
-| Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
-| Phone owners: the SMS and USSD layer | ~{{reach.phone.resident}} voters on the resident rate ({{ict.phone}}%); ~{{reach.phone.adult}} on the adult rate (KDHS 2022: {{ict.phone.adult}}%). Both modelled, never averaged (Section 4.3) |
-| No phone: radio or in person only | ~{{reach.nophone}} voters on the resident rate; ~{{reach.nophone.adult}} on the adult rate (both modelled) |
-| Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement, Tier 2). |
+**The reach behind the weighting** is set out channel by channel, with its bases, in How voters get news.
 
 **The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at {{ict.internet.2019}}% of residents (the 2019 census rate). On the 2023/24 rate of {{ict.internet}}% digital still reaches at most {{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark (Section 4.3), so the case for an offline-led mix is unchanged. The split is re-read at each monthly review against the reach data (confirmed by Firefly, September 2026).
 

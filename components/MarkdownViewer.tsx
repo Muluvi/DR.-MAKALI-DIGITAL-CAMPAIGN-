@@ -268,8 +268,8 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Part I: Kitui today ----------------------------------------------------------------
   "kitui-sec-1-1": <DisputedFigure entry={kituiCentralPopulationDispute} />,
   "kitui-sec-1-2": <GeographicZoneMatrix />,
-  "kitui-sec-1-3": <OfflineWaterline />,
-  "kitui-sec-1-5": <ResourceEnvelopeBlock />,
+  "needs-sec-1-3": <OfflineWaterline />,
+  "needs-sec-1-5": <ResourceEnvelopeBlock />,
   // Chapter 2 builds the number in order: the register, the results, where the votes are, the
   // constituencies that decide it, then the threshold and the routes to it.
   "votes-sec-2-1": <RegisterComparisonBlock />,

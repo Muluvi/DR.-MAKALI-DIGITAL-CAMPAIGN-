@@ -103,7 +103,7 @@ await noJs.close();
 // 4. merged routes
 const ctx2 = await browser.newContext();
 const p3 = await ctx2.newPage();
-for (const [from, to] of [["commitments", "receives"], ["team", "engagement"], ["coalitions", "timeline"], ["annex-county", "votes"], ["annex-glossary", "annex-terms"]]) {
+for (const [from, to] of [["commitments", "receives"], ["team", "engagement"], ["coalitions", "timeline"], ["annex-county", "votes"], ["annex-glossary", "annex-terms"], ["annex-volunteers", "workstreams"]]) {
   const res = await p3.goto(`${BASE}/${from}`, { waitUntil: "domcontentloaded" });
   ok(new URL(res.url()).pathname === `/${to}`, `route: /${from} redirects to /${to}`);
 }

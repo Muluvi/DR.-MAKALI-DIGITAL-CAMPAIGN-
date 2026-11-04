@@ -42,7 +42,7 @@ const ENGAGEMENT = new Set([
   "engagement.md", "timeline.md", "workstreams.md",
   "success.md",
   "lawful.md", "response.md", "receives.md", "ask.md", "annex-playbooks.md",
-  "annex-volunteers.md", "annex-technology.md",
+  "annex-technology.md",
 ]);
 const MONEY = /\b(budget|budgets|spend|spending|spent|cost|costs|costed|costing|fee|fees|price|prices|pricing|fundrais\w*|donor|donors|donation|donations)\b/gi;
 /** County money and county policy instruments, not the engagement's money. */

@@ -78,6 +78,17 @@ Digital use is concentrated in towns (Kitui Town, Mwingi Town, the Kwa Vonza uni
 id: fig-3-8-ceiling
 ```
 
+**The reach behind the weighting.**
+
+| | Figure |
+|---|---|
+| Reachable by smartphone or data, in county | ~158,696 voters (modelled: 26.2% of the July 2026 register) |
+| Share of the 200,000 benchmark digital could reach | **79.3%** (modelled), reach not votes |
+| Reachable by SMS only | ~108,419 voters (modelled: 44.1% phone ownership less 26.2% internet use) |
+| Phone owners: the SMS and USSD layer | ~267,115 voters on the resident rate (44.1%); ~459,000 on the adult rate (KDHS 2022: 75.7%). Both modelled, never averaged (Section 4.3) |
+| No phone: radio or in person only | ~338,588 voters on the resident rate; ~147,000 on the adult rate (both modelled) |
+| Vernacular radio reach | Lower Eastern shares: Musyi FM 17.3%, Athiani FM 10.9%, Mbaitu FM 5.7%, County FM 4.4% (CA/KARF, an earlier measurement, Tier 2). |
+
 **The SMS and USSD layer reaches more voters than the resident rate implies.** On the resident basis (44.1% of all residents) about 267,115 voters own a phone (modelled). On the adult basis (75.7% of adults, KDHS 2022, weighted by the register's 52% women) about **459,000** do and about 147,000 do not (both modelled on the July 2026 register as reported, so Tier 3). That is roughly 1.7 times as many voters within reach of SMS and USSD. The digital ceiling does not move: internet use among adults aged 15–49 is 34.7% for men and 23.3% for women.
 
 ```visual

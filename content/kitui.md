@@ -71,40 +71,7 @@ items:
 body: "**A note on the names in this table.** These are *administrative sub-counties*, which do not\nmap one-to-one onto the eight constituencies of the ward register in Annex B.\nMigwani and Mwingi East appear here, while Migwani **Ward** sits in Mwingi West constituency,\nin the northern bloc: two different units with the same name. Read against the\nward register, the constituency figures in Annex B govern targeting, and these tables are\ndemographic context only."
 ```
 
-## 1.3 Living standards: poverty, water, electricity, phones and internet
-
-More than half of Kitui lives in poverty, fewer than two households in five have safe drinking water, and fewer than one in five has electricity.
-
-```visual
-kind: stats
-items:
-  - value: "{{poverty.2021}}%"
-    label: "in poverty, 2021"
-    tier: 1
-    body: "About **{{poverty.2021.people}}** people (Tier 1, KNBS Kenya Poverty Report, 2021). This is the official rate."
-  - value: "{{water.safe.2019}}%"
-    label: "of households with safe drinking water, 2019"
-    tier: 2
-    body: "Piped water reaches **{{water.piped.2019}}%** of households (Tier 2, KNBS 2019 via Stats Kenya)."
-  - value: "{{electricity.2019}}%"
-    label: "of households with electricity, 2019"
-    tier: 2
-    body: "Up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya)."
-  - value: "{{ict.offline}}%"
-    label: "of residents offline"
-    tier: 1
-    body: "**{{ict.internet}}%** use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24)."
-```
-
-**Poverty.** The KNBS Kenya Poverty Report puts **{{poverty.2021}}%** of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021 (Tier 1). NDMA's 2025 long-rains assessment cites {{poverty.ndma.2019}}% "below the poverty line (KNBS 2019)" and a county poverty rate of {{poverty.ndma.county}}%, on bases it does not reconcile with this one (Tier 2), so neither is used in its place. Stats Kenya reports {{poverty.2022.statskenya}}% for 2022 (Tier 3); it is not used until checked against the KNBS 2022 poverty report.
-
-**Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; Section 3.1 sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source (Tier 1).
-
-**Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV).
-
-**Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. Chapter 4 sets out what each channel can reach.
-
-**What it means for the campaign.** Most voters are poor, offline and without piped water, so the campaign is fought on services and reaches most voters off the internet.
+Living standards, from poverty and water to electricity, phones and the internet, are set out with the rest of what voters need, in What voters need.
 
 ## 1.4 How the county is run: 8 constituencies, 40 wards, sub-counties and villages
 
@@ -127,28 +94,5 @@ items:
     text: "Accountable management of revenue allocations and the county's own-source collections."
 ```
 
-## 1.5 The county's money: the budget envelope, the development plan, the audit record
+The county's money, from the budget envelope to the audit record, is set out in one place in What voters need, beside how it was spent.
 
-```lead
-The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
-```
-
-**The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document. An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
-
-*   **Equitable share:** KSh {{budget.equitable|bn}} billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
-*   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%, Tier 3), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly (Tier 3). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
-*   **Conditional grants:** KSh {{budget.grants|bn}} billion ({{budget.grants.share}}%) (Tier 1).
-
-```figure
-id: fig-2-5-budget
-```
-
-The three parts sum to KSh 13.80 billion (calculated) against a published total of {{budget.total|bn}}. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
-
-**The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (Tier 2, The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
-
-**The development plan.** The county's priorities for the term are set in the Kitui County Integrated Development Plan 2023–2027, held in the KIPPRA repository. No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.
-
-**The audit record.** The Auditor-General's FY2023/24 report on the county executive raises four findings: unconfirmed cash balances, uncollected rates and rents, an IFMIS variance and unexplained inter-account transfers (Tier 1). The Controller of Budget records pending bills and a development absorption rate of **{{budget.absorption.q1}}%** in the first quarter of FY2025/26 (Tier 1). Section 3.7 sets out the figures and the incumbent's own scorecard.
-
-**What it means for the campaign.** A KSh {{budget.total|bn}} billion envelope is the scale of the job: the campaign translates it into ward-level policy targets, so that an economist's case is made in shillings per ward.

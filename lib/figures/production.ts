@@ -46,7 +46,7 @@ export const PRODUCTION_TIERS = [
   },
   {
     label: "Rigid 4-step approval & DPA gateway",
-    items: ["Drafter → Comms Lead → DPO → Campaign Manager sign-off"],
+    items: ["Drafter → Comms Lead → DPO → campaign counterpart sign-off"],
   },
 ];
 
@@ -185,7 +185,7 @@ export const APPROVAL_STEPS = [
   {
     title: "Executive authorisation & dispatch sign-off",
     steps: [
-      "The Campaign Manager or Chief of Operations gives the final electronic signature.",
+      "The campaign counterpart, the single named campaign-side approver in How it works, gives the final electronic signature.",
       "The release authorisation code is logged in the campaign audit register.",
     ],
   },

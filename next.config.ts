@@ -85,6 +85,7 @@ const nextConfig: NextConfig = {
       coalitions: 'timeline',
       'annex-county': 'votes',
       'annex-glossary': 'annex-terms',
+      'annex-volunteers': 'workstreams',
       'workstreams-platforms': 'workstreams',
       'workstreams-media': 'workstreams',
       'workstreams-ground': 'workstreams',

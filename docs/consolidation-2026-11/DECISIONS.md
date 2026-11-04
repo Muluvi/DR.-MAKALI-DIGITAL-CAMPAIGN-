@@ -402,7 +402,7 @@ a registry value.
 
 ## Step 4: section merges
 
-**Stops: 36 → 31.** Six parts plus the reference shelf, unchanged.
+**Stops: 36 → 28.** Six parts plus the reference shelf, unchanged. *(Corrected: this line first said 31; the merges below remove eight stops.)*
 
 ### Merge machinery (built once, used for every merge)
 
@@ -567,7 +567,7 @@ It found only what the baseline also shows: "Chapter 3" twice, in a message-arch
 
 | | At 2f29920 | Now |
 |---|---|---|
-| Stops in the scroll | 36 | 31 |
+| Stops in the scroll | 36 | 27 (after the follow-up merges below) |
 | Registry-valued literals in site code | 180 exact, 13 rounded, 44 files | 0, 0 (16 allowed, each with a reason) |
 | Legacy figures | 60 | 42, all free of registry facts |
 | Ward-map views of the contest | separate maps in 6 figures | one layered map, 6 layers |
@@ -584,3 +584,38 @@ It found only what the baseline also shows: "Chapter 3" twice, in a message-arch
    the model's narrative strings remain to convert then.
 5. **The broadcast approver** (fig-5-7 versus the content gateway) is the campaign's decision
    (D1, "Examined, not changed").
+
+
+## Follow-up: the outstanding items, approved by the owner (4 November 2026)
+
+The owner approved fixing everything the pass had reported as outstanding. Each fix uses the same
+machinery as Step 4, plus three small tools:
+
+- `scripts/consolidation/move-section.mjs` moves one numbered section, with every sub-section, word
+  for word. It is logged as a `whole` move, with a one-line pointer left in words.
+- `scripts/consolidation/dedupe.mjs` handles the place where two copies of a fact meet after a
+  merge. One copy is kept, and the other becomes a pointer logged as `duplicate`, so check 5 confirms
+  every token and name is at the kept copy.
+- `check-preservation.mjs` now follows a duplicate's home as well as a move.
+
+**Stops: 28 → 27.**
+
+| | Merge | What moved, and where |
+|---|---|---|
+| F1 | **A** Living conditions | "Living standards" (1.3) moved whole from Kitui at a glance into What voters need, at its head. Kitui at a glance keeps the people, the land and how the county is run, with a pointer. |
+| F2 | **B** County money | "The county's money" (1.5) moved whole into What voters need, directly before "How county money is spent" (3.7), so the reader goes from what comes in, to where it went, to what the audit found. Its audit summary repeated 3.7's audit record line for line. 3.7 is kept, and the summary is a pointer. `data/fiscal-audit.ts`, fig-2-5 and the scorecard already read the one registry dataset. |
+| F3 | **C** Reach | The reach table behind the channel weighting moved from Channels & language into How voters get news, beside the digital ceiling. Channels & language keeps the effort decision and a pointer. Ground & offline's restatement of the phone-owner figures is a pointer to the same place. fig-4-6 reads the same registry figures. |
+| F4 | **E** Results | The race chapter keeps the rivals, the nomination method, the delegate contingency and the legal ground. Five restatements of vote counts became pointers to How Kitui voted, which already holds every one. The rival cards keep their single headline figure. That figure reads the same registry entry, so it cannot drift, and it is what a card is for. |
+| F5 | **K** Escalation and response | The four-tier decision tree (F.1), the response times by channel (F.2) and the rapid-response protocol and message library (F.5) moved whole from the runbooks into Risks & response, after the war room. The runbooks keep the reference material: holding lines, monitoring tools, drills, the threat model and incident response. Their opening sentence, and the note in Risks & response, say so. |
+| F6 | **L** Security and data protection | Lawful & ethical is the single home, in this order: our standard and the law (19.1, 19.2), the charter (19.3), the compliance sign-off gate (moved from inside 19.2 to follow the charter), account security (F.8, from the runbooks), phishing awareness (F.9, from the runbooks), the technical risk and security protocols (from the technology annex), then IEBC clearance and open items. The data workstream already pointed to the gate in 19.2, and the sources keep one-line pointers. |
+| F7 | **J** Volunteers | The volunteer programme reference moved whole into The workstreams, at the end of Workstream 10, in the Ground & offline tab. It is labelled "Reference for the campaign's own team", because How it works puts volunteer organising outside Firefly's scope. `/annex-volunteers` redirects. |
+| F8 | **G** Indicators | Every indicator chip (NW-, GE- and R- codes) on the site now links to the one list: the scorecard in fig-5-6, or the recognition indicators. The target ladder and the scorecards read the registry's `target.*`. The workstream tables (share of voice, sentiment, conversion) and the volunteer KPIs are operational diagnostics, not the nine indicators, so they keep their own rows. Where one restates an indicator (R-02 in Workstream 14) it names the code and reads its registry target. |
+| F9 | The broadcast approver | The content gateway's final sign-off named the Campaign Manager; fig-5-7 named the campaign counterpart. Both now name **the campaign counterpart**, the single named campaign-side approver How it works sets, so one person signs a broadcast. Rule: the engagement's own approval model governs. |
+
+**Bookkeeping notes:**
+
+- Four of the race chapter's restatements sat inside a visual's card text, which check-content
+  weighs against the section's base words. Their ledger counts split the section's measured change
+  (38 words) by the length of what each removed, and the entries say so.
+- Against a767371, drift is 0.84% (the baseline was 0.88%); against 2f29920 it is 0.04%.
+- 38 moved headings now redirect.

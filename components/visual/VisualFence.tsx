@@ -96,13 +96,29 @@ function FaceConflicts({ it }: { it: Item }) {
   );
 }
 
+/**
+ * Where an indicator code is defined: the nomination and general-election scorecard (fig-5-6, in
+ * Measuring success) for NW-/GE- codes, and the recognition indicators for R- codes. Every view
+ * that names an indicator links to the one list (consolidation pass, merge G).
+ */
+function indicatorHref(code: string): string | null {
+  if (/^(?:NW|GE)-\d{2}$/.test(code)) return "/success#fig-5-6-kpis";
+  if (/^R-\d{2}$/.test(code)) return "/success#success-sec-18-3";
+  return null;
+}
+
 function Chips({ chips }: { chips?: string[] }) {
   if (!chips?.length) return null;
   return (
     <ul className="vz-chips" aria-label="Tags">
-      {chips.map((c) => (
-        <li key={c} className="vz-chip">{c}</li>
-      ))}
+      {chips.map((c) => {
+        const href = indicatorHref(c);
+        return (
+          <li key={c} className="vz-chip">
+            {href ? <a href={href} title={`Indicator ${c}, in Measuring success`}>{c}</a> : c}
+          </li>
+        );
+      })}
     </ul>
   );
 }
