@@ -27,196 +27,238 @@ The following baseline consolidates all certified, disputed, and third-party ben
 
 ## 2. Site Architecture Overview
 
-The site is a single-page, long-form analytical report served from the root route (`/`) of a Next.js 15 App Router application (`app/[[...slug]]/page.tsx`).
+The site is a single-page, long-form analytical report served from the root route (`/`) of a Next.js App Router application (`app/[[...slug]]/page.tsx`).
 
-- **Single Document Flow:** The catch-all route (`[[...slug]]`) and the `/full` route render the identical continuous narrative spine. `/full` provides the static, server-rendered document for print, PDF generation, and readers without JavaScript enabled; `/` serves the same document with progressive streaming for sections past the opening runway.
-- **Route & Crawl Boundary:** Robots headers explicitly enforce `noindex, nofollow`, matching the confidential nature of the document.
-- **Narrative Spine:** The document is structured across six primary narrative parts and a technical reference shelf:
-  1. *Part I: Kitui Today* (Demographics, electorate baseline, poverty and connectivity realities)
-  2. *Part II: The Contest* (Electoral arithmetic, 2022 certified returns, the 200,000-vote victory threshold)
-  3. *Part III: The Strategy* (Audience segmentation, 3-language matrix, policy positioning, ground-digital bridge)
-  4. *Part IV: How Firefly Delivers* (14 workstreams, timeline, technical infrastructure, daily cadence)
-  5. *Part V: Proof and Protection* (Legal compliance, IEBC clearance runbook, Data Protection Act 2019 protocols, risk matrix)
-  6. *Part VI: The Decision* (The ask, the sprint window, deliverables schedule)
-  7. *Reference Shelf:* Annexes A through H (Evidence table, playbooks, volunteer manual, data model, holding statements, fine print)
-- **Anchor-Based Navigation:** Navigation is driven through section anchors, the kiondo progress spine, interactive table-of-contents modal (`MobileTOCModal`), and a persistent bottom dock (`Dock`).
+Its catch-all route (`[[...slug]]`) and the `/full` route render the same document; `/full` is the no-JavaScript/open-on-one-page variant for print and archiving. Dedicated metadata routes (`app/robots.ts` and `app/sitemap.ts`) enforce `noindex, nofollow` to protect confidentiality while preventing 404 crawl errors.
+
+The document is organised into six narrative parts:
+1. **Kitui today** (Demographics, electorate baseline, poverty and connectivity realities)
+2. **The contest** (Electoral arithmetic, 2022 certified returns, the 200,000-vote victory threshold)
+3. **The strategy** (Audience segmentation, 3-language matrix, policy positioning, ground-digital bridge)
+4. **How Firefly delivers** (14 workstreams, timeline, technical infrastructure, daily cadence)
+5. **Proof and protection** (Legal compliance, IEBC clearance runbook, Data Protection Act 2019 protocols, risk matrix)
+6. **The decision** (The ask, the sprint window, deliverables schedule)
+
+Followed by a Reference shelf of evidence, playbooks, volunteers, technology, runbooks, and fine print (Annexes A through H). Navigation is anchor-based rather than page-based: chapter headings, a part-dot indicator, cross-reference chips, and an in-page index/dock carry the reader through the report. Visual elements are therefore concentrated inside section templates and reusable figure components rather than across discrete pages.
 
 ---
 
 ## 3. Master Visual Element Inventory
 
-*Note: Confirmed indicates verified directly in application components, stylesheets, or rendered HTML. Inferred indicates presence in registry specifications or content data bundles.*
+*Implementation note:* "Confirmed" means the method is directly evidenced in the rendered HTML, a loaded stylesheet, or a JavaScript component. "Inferred" means the class or component is present but its rendering method could not be fully inspected because the site’s HTML and JS bundles are truncated by the audit tool. Counts marked "approx." are lower bounds, not exact totals.
 
-### 3.1 Navigation & Wayfinding
-
-| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Skip link** | Global document top | Accessibility | CSS-only text link | `.skip-link` | Jumps to `#content-area` |
-| 2 | **Part-dot indicator** | Act openers & chapter headers | Progress / Wayfinding | CSS dots with state attributes | `.part-dots`, `.part-dots__dot`, `data-state="here"\|"passed"\|"ahead"` | Static visual state matching current act |
-| 3 | **Chapter header marker** | Every chapter boundary | Chapter orientation | HTML semantic header + CSS | `.flow-chap`, `.flow-chap__label`, `.flow-chap__num` | Deep-link target anchor |
-| 4 | **In-page index / dock** | Viewport bottom floating | Navigation & theme control | React client component with glassmorphism | `.pf-dock`, `.pf-dock__pill`, `.pf-dock__where`, `--pf-dock-h` | Clickable modal trigger and theme toggle |
-| 5 | **Cross-reference chips** | Throughout markdown prose | Cross-chapter navigation | Interactive inline link chips | `.xchip`, `.xchip-row`, `CrossSectionLink` | Smooth-scrolls to target section |
-| 6 | **Keyboard navigation** | Global document scope | Power user wayfinding | Event listeners (`j`, `k`, `?`) | Handled via keyboard listeners in client components | Keyboard-triggered navigation |
-| 7 | **Toast status region** | Viewport overlay | Feedback / download alerts | Live announcement container | `.pf-toast-region`, `role="status"`, `aria-live="polite"` | Displays export and deep-link alerts |
-
-### 3.2 Data Visualization & Charts
+### 2.1 Navigation & Wayfinding
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 8 | **Dot-plot / Waffle pictogram** | §2.8.1 Demographics, rural poverty | Percentage grid display | SVG / HTML grid | Chart type `icons`, `waffle` | Static display; 1 cell = 1% |
-| 9 | **Horizontal bar chart** | Livestock, ward ranking, media share | Quantitative comparison | Inline SVG with CSS tracks | `.kx`, `.kx-bar`, `.kx-track`, `.rf-body` | Scroll-triggered draw animation |
-| 10 | **Stacked bar / Budget envelope** | §2.8.2 County revenue control | Multi-part total breakdown | Inline SVG segmented rectangles | Chart type `stack`, `ResourceEnvelopeChart` | Segment breakdown |
-| 11 | **Slope chart** | §2.9.1 Connectivity evolution | Two-point trend over time | Inline SVG coordinate slope | Chart type `slope`, `OfflineWaterline` | Dual baseline comparison |
-| 12 | **Waterfall chart** | §2.2 Voter register build-up | Cumulative addition/subtraction | Modular SVG bar steps | Chart type `waterfall`, `kind: "start"\|"delta"\|"total"` | Net-change progression |
-| 13 | **Small multiples / Panel bars** | Five-race historical audit | Cross-election comparison | Multi-column SVG panels | Chart type `multiples`, `ElectoralHistoryPanel` | Comparative multi-race audit |
-| 14 | **Timeline chart** | §1.2 Nomination countdown | Temporal roadmap | Grid layout + SVG nodes | Chart type `timeline`, `Countdown.tsx` | Chronological milestones |
-| 15 | **Gauge chart** | Objective scorecard figures | Target vs actual performance | Radial SVG arc indicators | Chart type `gauges`, `primitives.tsx` | Arc fill indicator |
-| 16 | **Network / Node-link diagram** | §2.9.2 Media ownership | Media ownership mapping | SVG node-link connections | Chart type `network`, `MediaOwnershipBlock` | Entity relationship map |
-| 17 | **Matrix / Comparison table** | Nomination status & zoning | Multi-attribute comparison | HTML table with responsive cards | Chart type `matrix`, `.rm-table` | Mobile card-mode fallback |
-| 18 | **Status cards** | Strategic objectives & food security | KPI summary presentation | Card grid with provenance tags | Chart type `cards`, `.rc-card`, `.rc-grid` | Static card presentation |
-| 19 | **Composite multi-panel figure** | Lead section figures (§2.8.1, §2.9.2) | Multi-faceted analytical view | Combined figure container | Chart type `composite`, `.pf-fig`, `.rf` | Comprehensive multi-part visual |
-| 20 | **Interactive data table** | Data table disclosure in every figure | Complete audit transparency | HTML table with CSV export link | `.rf-table`, `.rf-table-wrap`, `data-col` | Expandable disclosure, sticky header |
-| 21 | **Risk calendar / Heatmap** | Part V: Risks & Response | Temporal vulnerability mapping | CSS grid with intensity classes | `.rk-week`, `.rk-day`, `.rk-band`, `.is-hot` | Cell status visualization |
-| 22 | **Risk response matrix** | Part V: Threat mitigation | Protocol escalation ladder | Structured HTML classification | Chart type `matrix`, `ConflictMark` | Severity-graded response grid |
-| 23 | **Stepper / Process diagram** | §1.5 Budget phasing, Big 4 breakdown | Sequential operational stages | Numbered step pipeline | Chart type `stepper`, `.rs-steps`, `.rs-step` | Current-phase highlight |
-| 24 | **Checklist block** | Youth employment, compliance | Statutory criteria audit | Card-based check items | Chart type `checklist`, `IEBC_CLEARANCES` | Status indicator items |
-| 25 | **Fan chart / Confidence cone** | Electoral projection modeling | Uncertainty interval modeling | SVG paths with calibrated tick marks | `.pf-fn`, `.pf-fn__plot`, `.pf-fn__grid` | Confidence interval bands |
-| 26 | **Big-number statistic** | Hero cover & act openers | High-impact quantitative anchors | Display font with roll animation | `.pf-bn`, `.pf-bn__value`, `.pf-bn__strip` | Entrance count-up |
-| 27 | **Reference stat card** | Throughout chapter prose | Contextual metric callout | Micro-card container | `.rc-stat`, `.rc-card` | Sourced data callout |
-| 28 | **CSV data download link** | Embedded on all 50+ data figures | Open-data export | Direct file download link | `.rf-csv`, `href="/data/*.csv"` | Triggers clean CSV download |
+| 1 | **Skip link** | Global top | Navigational / accessibility | CSS-only text link | `.skip-link` | Clickable; jumps to `#content-area` |
+| 2 | **Part-dot indicator** | Hero "act" and every chapter header | Progress / wayfinding | CSS-only dots with `data-state` states | `.part-dots`, `.part-dots__dot`, `data-state="here" \| "ahead"` | Static state display; reflects current part |
+| 3 | **Chapter number + title header** | Every chapter | Wayfinding | HTML + CSS typography | `.flow-chap`, `.flow-chap__num`, `.flow-chap__top` | Static; scroll-target anchors |
+| 4 | **In-page index / dock** | Persistent UI; exact section not fully verified | Navigation | Inferred CSS/JS component with Lucide row icons | `.pf-idx`, `.pf-idx__rowicon`, `.pf-idx__rowlabel`, `.pf-idx__rowmin`; CSS variable `--pf-dock-h` | Clickable; scroll-linked |
+| 5 | **Chapter navigation links** | Throughout document | Wayfinding | Plain anchor links | `href="#..."` | Clickable |
+| 6 | **Keyboard navigation hints** | Global | Navigation | JS behaviour, not a visual element | `?`, `j`, `k` key handlers | Keyboard-triggered |
+| 7 | **Toast / status region** | Global | Feedback / wayfinding | JS-rendered status region | `.pf-toast-region`, `role="status"` | Appears on download, resume, and section-change events |
 
-### 3.3 Maps & Geographic Graphics
+### 2.2 Data Visualization & Charts
+
+All charts are rendered by custom figure components, not a third-party charting library. The main renderer receives a `chart.type` discriminator. The types below were found in the content bundle; several are confirmed visually in the rendered text, while others are present in content data.
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 29 | **Kitui county geographic SVG** | Hero stage & Act openers | Spatial context & county footprint | Hand-calibrated SVG paths (40 wards) | `.pf-county`, `.pf-county__ward`, `CountyStatic.tsx` | CSS stroke trace on mount |
-| 30 | **Ward cartogram (tile map)** | Ward-level electoral analysis | Equal-area population grid | Equal-area SVG squares with hatch layers | `.tm`, `.tm-tile`, `.tm-fill`, `tilemap.ts` | Layer toggle (7 analytical layers) |
-| 31 | **Geographic zone matrix** | Regional voter density section | Zonal demographic breakdown | Responsive tabbed card list | `GeographicZoneMatrix.tsx`, `role="tablist"` | Tab selection by geographic zone |
-| 32 | **Map-pin icon** | Cartogram legends & zone cards | Spatial visual anchor | Lucide icon | `MapPinned`, `MapPin` | Static SVG mark |
-| 33 | **Compass icon** | Strategic direction markers | Directional visual cue | Lucide icon | `Compass` | Static SVG mark |
-| 34 | **Raster satellite imagery** | None (Deliberately excluded) | Performance & data preservation | Zero raster tiles by architectural rule | — | Excluded to maintain sub-500KB budget |
+| 8 | **Dot-plot / waffle pictogram** ("One square is 1% of residents") | §2.8.1 "Who lives in Kitui?"; rural-share and poverty-rate panels | Data visualization | Inferred HTML/CSS grid or inline SVG; last square part-filled | Chart type `icons`; labels in rendered text | Static |
+| 9 | **Horizontal bar chart** | Multiple figures, incl. livestock counts, constituency register, radio share | Data visualization | Inline SVG and CSS-positioned bars | `.kx`, `.kx-bar`, `.kx-track`, `.kx-mark`, `.rb`, `.rb-bar`, `.rb-track` | Static; some scroll-triggered draw animation (`rx-draw`) |
+| 10 | **Stacked bar / segmented envelope** | §2.8.2 "What does the next governor actually control?" | Data visualization | Inline SVG / CSS segments | Chart type `stack`; `.kx` segment styles | Static |
+| 11 | **Slope chart** | §2.9.1 connectivity figure ("2019 → 2023/24") | Data visualization | Inline SVG | Chart type `slope` | Static |
+| 12 | **Waterfall chart** | Voter-register build-up figure | Data visualization | Inline SVG / CSS | Chart type `waterfall`; `kind:"start" \| "delta" \| "total"` | Static |
+| 13 | **Small multiples / panel bar chart** | Five-race comparison figure | Data visualization | Inline SVG panels | Chart type `multiples`; `panels`, `ref` | Static |
+| 14 | **Timeline** | §1.2 "How long is there?"; election countdown | Data visualization | CSS grid + SVG timeline | Chart type `timeline`; countdown | Static; dates and events |
+| 15 | **Gauge chart** | Objective scorecard figure | Data visualization | Inline SVG arcs | Chart type `gauges` | Static |
+| 16 | **Network / node-link diagram** | §2.9.2 media-ownership figure | Data visualization | Inline SVG or CSS node graph | Chart type `network`; `owners`, `stations` | Static |
+| 17 | **Matrix / comparison table** | Wiper nomination-status figure | Data visualization / comparison | HTML table | Chart type `matrix`; `.rm-table`, `.rm-scroll` | Static; responsive card mode on mobile |
+| 18 | **Stat / status cards** | Objectives, drought status, food security | Data visualization / status | HTML/CSS cards | Chart type `cards`; `.rc-card`, `.rc-grid`, `.rc-kicker` | Static |
+| 19 | **Composite multi-panel figure** | Many figures, incl. §2.8.1 and §2.9.2 | Data visualization | Wrapper combining multiple chart types | Chart type `composite`; `.pf-fig`, `.pf-fig__body` | Static |
+| 20 | **Interactive data table** | Every figure with "View the data table" | Data display | HTML table with responsive card fallback | `.rf-table`, `.rf-table-wrap`, `data-col`; `.prose table` | `details`/`summary` expandable; sticky headers |
+| 21 | **Risk calendar / heatmap** | "Risks & response" section | Data visualization | CSS grid with colour-coded cells | `.rk-week`, `.rk-day`, `.rk-band`, `.rk-risk`, `td.is-hot` | Static |
+| 22 | **Risk matrix** | "Risks & response" section | Data visualization | HTML table with heat cells | `.rk-risk` | Static |
+| 23 | **Stepper / process diagram** | §1.5 budget components; "Big Four" constituency breakdown | Data visualization / process | HTML/CSS numbered steps | `kind:"stepper"`; `.rs-steps`, `.rs-step`, `.rs-step.is-current` | Static |
+| 24 | **Checklist block** | "Jobs and the young" | Data visualization / list | HTML/CSS | `kind:"checklist"` | Static |
+| 25 | **Fan chart / line-with-grid chart** | Likely scenario or uncertainty figure | Data visualization | Inline SVG with CSS grid ticks | `.pf-fn`, `.pf-fn__plot`, `.pf-fn__grid`, `.pf-fn__tick`, `.pf-fn__rows` | Static; possibly toggle between series |
+| 26 | **Big-number statistic** | Hero act; key-figure blocks | Data visualization / emphasis | HTML/CSS with animated count-up | `.pf-bn`, `.pf-bn__value`, `.pf-bn__strip`, `@keyframes pf-roll`; `.anim-num` | Scroll-triggered animation |
+| 27 | **Reference stat card** | Many figure cards | Data visualization | HTML/CSS | `.rc-stat`, `.rc-card` | Static |
+| 28 | **CSV download link** | Every data figure | Data access | HTML link | `.rf-csv`, `.pf-fig__csv`; `href="/data/*.csv"` | Clickable |
 
-### 3.4 Status Indicators & Badges
-
-| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 35 | **Provenance pill** | BigNumber stats & key figures | Evidence tier signaling | CSS pill with border & hatch variations | `.pf-pp`, `.pf-pp--t1`, `.pf-pp--t2`, `.pf-pp--modelled` | Shape & label distinguish tier in greyscale |
-| 36 | **Figure tier badge** | Lead figure heads | Source credibility verification | CSS badge (`Tier 1 / 2 / 3`) | `.tier-badge`, `.tp`, `.tp-T1`, `.tp-T2` | Accessible tooltip title |
-| 37 | **Claim verification badge** | Policy commitments & claims | Epistemic status verification | CSS badge with semantic Lucide icon | `.claim-badge`, `ClaimBadge.tsx` | Status classification |
-| 38 | **Bar-chart provenance chip** | Register & demographic charts | In-chart data source label | In-track CSS chip | `.kx-chip`, `.is-modelled`, `.is-target` | In-situ source tagging |
-| 39 | **Dashed "Needed" placeholder** | Data gap tables & charts | Highlight unmeasured fields | CSS dashed outline | `.ds-needed`, `tp-needed` | Calls out internal data requirements |
-| 40 | **Table status markers** | Figure data tables | Row-level data classification | Semantic table cell badges | Official, Reported, Modelled, Data Needed | High-contrast data cell status |
-
-### 3.5 Progress & Wayfinding
-
-| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 41 | **Part-dot array (6 dots)** | Hero and chapter headers | Macro narrative positioning | CSS flex array of circular marks | `.part-dots`, `PartDots.tsx` | Reflects progress through 6 acts |
-| 42 | **Scroll-driven hero stage** | Hero cover section | Entrance storytelling | Sticky wrapper + CSS variable interpolation | `.pf-hero__stage`, `useScrollShell.ts` | Passive rAF-driven scroll animation |
-| 43 | **Chapter ordinal marker** | Header of every chapter | Sequential orientation | Formatted typography | `.flow-chap__num`, `ChapterMarker.tsx` | Stable anchor target |
-| 44 | **Kiondo progress spine** | Right edge on desktop (wide view) | Full document progress rail | 7-segment SVG weave bar | `.pf-spine`, `Spine` in `Chrome.tsx` | Clickable segment navigation |
-
-### 3.6 Iconography System
+### 2.3 Maps & Geographic Graphics
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 45 | **Lucide React icon suite** | Document-wide | Semantic iconography | Tree-shaken inline SVG icons | `lucide-react` | Standardized 16px/20px sizes |
-| 46 | **Wi-Fi offline icon** | §2.9 Connectivity panel | Connectivity constraint visual | Lucide icon | `Wifi`, `WifiOff` | Static visual anchor |
-| 47 | **Printer export icon** | Document footer & dock | PDF export trigger | Lucide icon | `Printer` | Triggers print stylesheet / save as PDF |
-| 48 | **File-cog settings icon** | Annex E Technology architecture | Systems engineering indicator | Lucide icon | `FileCog` | Static indicator |
-| 49 | **Message-square icon** | Communication channels | WhatsApp/SMS stream indicator | Lucide icon | `MessageSquare` | Static channel marker |
-| 50 | **Emoji characters** | None (Deliberately excluded) | Professional tone preservation | 0 emoji characters across entire document | — | Excluded per style constitution |
-| 51 | **Icon fonts** | None (Deliberately excluded) | Zero layout shift & performance | 100% SVG; zero external icon fonts | — | Zero web font network requests |
+| 29 | **Kitui county map** | Hero "act" background; likely map figures | Geographic / decorative | Inline SVG, `viewBox="0 0 600 1000"`; multiple ward paths, each rendered twice (solid fill + woven `<pattern>` overlay) | `.pf-county`, `.pf-county__ward`; `<pattern id="act-kitui-county-weave">` | Static; CSS-variable fills; no pan/zoom |
+| 30 | **Ward tile-grid map (cartogram)** | Ward-level figures | Geographic / data visualization | Inline SVG rectangles plus CSS layout; layer radio controls | `.tm`, `.tm-tile`, `.tm-fill`, `.tm-hatch`, `.tm-legend`, `.tm-swatch`, `.tm-layers` | Interactive layer toggle (`register`, `largest`, `footprint`, `party-flow`, `zones`, `effort`, `reach-targets`) |
+| 31 | **Geographic zone matrix** | "The land" / zoning section | Geographic comparison | HTML/CSS tabs + list; may include schematic map | Component `GeographicZoneMatrix`; `role="tablist"`; Lucide map-pin and compass icons | Clickable tabs |
+| 32 | **Map-pin icon** | Zone matrix | Functional icon | Lucide SVG map-pin (Lucide) | `MapPin` | Static |
+| 33 | **Compass icon** | Zone matrix | Functional icon | Lucide SVG compass (Lucide) | `Compass` | Static |
+| 34 | **Raster map images** | None detected | — | — | — | — |
 
-### 3.7 Brand Assets
-
-| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 52 | **Favicon** | Browser tab | Identity | Handcrafted SVG icon | `/icon.svg` | Browser tab visual |
-| 53 | **Apple touch icon** | iOS homescreen & bookmarking | PWA touch identity | Raster PNG (180×180px) | `/apple-icon.png` | Device homescreen bookmark |
-| 54 | **Open Graph / Twitter card** | WhatsApp, Twitter, Slack previews | Secure link unfurling | Typographic 1200×630 PNG card | `/og/kitui-2027.png` | Pre-rendered static preview image |
-| 55 | **Confidential seal** | Hero stage & document footer | Document governance signal | SVG weave-textured badge | `.pf-seal`, `.pf-seal__mark` | High-contrast security marker |
-| 56 | **Candidate wordmark** | Hero stage & act openers | Typographic branding | Bricolage Grotesque optical weight | `.pf-hero__title` | Responsive fluid typography |
-| 57 | **Party umbrella icon** | Byline credential badge | Coalition identity verification | Inline SVG Wiper Democratic Movement emblem | `WiperUmbrellaLogo` | Vector seal |
-
-### 3.8 Typographic Visual Treatments
+### 2.4 Status Indicators & Badges
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 58 | **Variable display font** | Headings, big numbers, act titles | Structural hierarchy | Self-hosted WOFF2 | Bricolage Grotesque (`--font-display`) | Fluid optical sizing |
-| 59 | **Serif reading font** | Body prose & narrative analysis | Long-form readability | Self-hosted WOFF2 (Georgia fallback) | Newsreader (`--font-newsreader`) | Balanced editorial typography |
-| 60 | **Monospace numeral font** | Data tables, register counts, code | Tabular numerical alignment | System monospace stack | JetBrains Mono (`--font-mono`) | `tabular-nums` alignment |
-| 61 | **Rolling digit morph** | BigNumber statistics | Smooth numerical transition | CSS keyframe translation | `@keyframes pf-roll`, `Roll.tsx` | Runs once upon entering viewport |
-| 62 | **Animated count-up** | Metric summaries & scorecards | Numerical progression display | Lightweight JS ticker (`useAnimatedNumber`) | `.anim-num`, `CountUp.tsx` | Viewport-triggered count |
-| 63 | **Eyebrow section kicker** | Figure headers & card tops | Contextual topic label | Uppercase tracking token | `.eyebrow-label`, `t-label` | Typographic hierarchy anchor |
-| 64 | **Pull-quote block** | Strategy highlights & governing reality | Quotation emphasis | Left-bordered serif block | `PullQuote.tsx`, `kind: "quote"` | High-contrast callout |
-| 65 | **Takeaway banner** | Foot of every figure card | Core empirical finding summary | Callout block with contrasting border | `.rf-takeaway`, `.pf-fig__takeaway` | Plain-language key takeaway |
-| 66 | **Line-mask typography** | Hero & act numeral titles | Dynamic entrance reveal | Masked `span` container with overflow hidden | `.pf-line > span` | Controlled entrance animation |
+| 35 | **Provenance pill / tier badge** | Inline throughout prose and figure sources | Status / evidence tier | CSS-only with border, background, and woven pattern for "modelled" | `.pf-pp`, `.pf-pp--t1`, `.pf-pp--t2`, `.pf-pp--t3`, `.pf-pp--modelled`, `.pf-pp--target`, `.pf-pp--needed` | Static |
+| 36 | **Compact tier badge** | Inline in prose | Status | CSS/Tailwind | `.tier-badge`, `.tier-badge-T1`, `.tier-badge-T2`, `.tier-badge-T3` | Static; tooltip via title |
+| 37 | **Claim badge** | Inline in strategy/proof sections | Status | CSS + Lucide icon | `.claim-badge`, `.claim-badge-verified`, `.claim-badge-estimate`, `.claim-badge-awaiting`, `.claim-badge-unmeasured` | Static |
+| 38 | **Provenance chip in charts** | Bar-chart labels | Status | CSS chip | `.kx-chip`, `.kx-chip.is-modelled`, `.is-target`, `.is-needed` | Static |
+| 39 | **Dashed "needed" placeholder** | Charts and figures | Status | CSS dashed border | `.ds-needed`, `.ds-needed-box` | Static |
+| 40 | **Status markers in tables** | Data tables | Status | HTML text / badge | Official, Reported, Unconfirmed, Modelled in table cells | Static |
 
-### 3.9 Candidate & Campaign Imagery
+### 2.5 Progress & Pagination
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 67 | **Candidate portrait (Clasped Hands)** | Hero cover stage | Candidate authority presentation | Responsive WebP cutout with gradient fade | `hero-clasped-hands`, `Portrait.tsx` | Next.js Image with priority |
-| 68 | **Candidate portrait (Seated Formal)** | Act II: The Contest | Strategic reflection presentation | Responsive WebP cutout with gradient fade | `seated-grey-cropped`, `Portrait.tsx` | Lazy loaded |
-| 69 | **Candidate portrait (Three-Piece)** | Act III: The Strategy | Legislative & policy authority | Responsive WebP cutout with gradient fade | `three-piece-formal`, `Portrait.tsx` | Lazy loaded |
-| 70 | **Candidate portrait (Explaining)** | Act IV: Delivery & Execution | Field leadership presentation | Responsive WebP cutout with gradient fade | `gesture-explaining`, `Portrait.tsx` | Lazy loaded |
-| 71 | **Pre-rendered OG card image** | Social graph metadata | Social platform sharing preview | 1200×630 PNG card | `/og/kitui-2027.png` | Static pre-built asset |
+| 41 | **Part-dot indicator (6 dots)** | Hero and chapter headers | Progress | CSS-only dots | `.part-dots`, `.part-dots__dot` | Static state; updates with scroll |
+| 42 | **Scroll-driven hero progress** | Hero section | Progress / storytelling | CSS custom properties `--p`, `--t`; sticky stage; JS scroll listener | `.pf-hero[data-story=true]`, `.pf-hero__stage`, `.pf-act__county` | Scroll-triggered |
+| 43 | **Chapter numbering** | Chapter headers | Progress | Text + CSS | `.flow-chap__num` | Static |
+| 44 | **Conventional pagination** | Absent | — | — | — | Single-page document; no page numbers or next/previous pagination |
 
-### 3.10 Interactive UI Controls
-
-| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 72 | **Theme switcher toggle** | Persistent bottom dock | Contrast & night reading mode | LocalStorage-backed class toggle | `useTheme.ts`, `html.dark` | Toggles between Dark and Light paper |
-| 73 | **Figure details disclosure** | Every data figure card | Expand methodological notes & data | HTML5 `<details>` / `<summary>` | `FigureDetails.tsx`, `.rf-more` | Keyboard accessible expansion |
-| 74 | **Scenario model toggle** | Simulation figures | Comparative scenario evaluation | CSS radio-driven switch | `.pf-toggle`, `PathTo200kCalculator` | Real-time threshold recalculation |
-| 75 | **Cartogram layer radio controls**| Ward cartogram | Multi-dimensional ward filtering | Semantic radio pill group | `.tm-layers`, `tilemap.ts` | Switches between 7 electoral layers |
-| 76 | **Zone matrix tablist** | Geographic analysis block | Regional focus switching | ARIA tablist buttons | `role="tablist"`, `aria-selected` | Filter by North / Central / South |
-| 77 | **Read-more prose folds** | Section narrative bodies | Progressive reading disclosure | CSS height interpolation | `ReadMore.tsx`, `FoldBody.tsx` | Expands full prose text |
-| 78 | **Interactive table sorting** | Analytical data tables | Custom numerical & alphabetical sort | In-memory column sorting state | `InteractiveTable.tsx` | Click column header to sort |
-| 79 | **Print / PDF export button** | Document footer & dock | Generates offline briefing dossier | `window.print()` trigger | `.pf-print-btn` | Invokes `@media print` styling |
-| 80 | **Direct CSV export button** | Every figure data table | Data extraction & verification | Direct download anchor | `.rf-csv`, `download` attribute | Downloads structured dataset |
-
-### 3.11 Decorative & Atmospheric Elements
+### 2.6 Iconography
 
 | # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 81 | **Tactile grain overlay** | Global viewport overlay | Paper texture & digital warmth | SVG `feTurbulence` data URI | `.pf-grain`, fixed pointer-events-none | Ambient fixed overlay |
-| 82 | **Kiondo weave pattern** | Hero, act headers, modelled badges | Cultural identity texture | SVG vector hatch data URI | `--pf-weave-img`, `.pf-act__weave` | Ambient texture |
-| 83 | **Aurora radial depth glow** | Hero stage & act seams | Soft background illumination | Multi-stop radial gradients | `.pf-hero__glow`, `.pf-act` | Shifted by daypart clock |
-| 84 | **Chart grid lines** | Bar charts & timelines | Numerical scale visual alignment | Sub-pixel dashed CSS rules | `.pf-fn__grid`, `.kx-track` | Static layout guides |
-| 85 | **Section dividers** | Chapter footers | Structural rhythm & separation | Gradient fade borders | `.pf-line`, `.fx-divider-gradient` | Clean visual boundaries |
-| 86 | **Card edge border highlight** | Interactive figures & phone frames | Elevated contrast boundary | 1px line token border | `border-line/60`, `border-accent/40` | Subtle contrast edge |
-| 87 | **Magnetic button attraction** | Primary CTAs (desktop) | Micro-interaction polish | Pointer tracking translate transform | `MicroFX.tsx`, `[data-magnetic]` | Gentle magnetic lean toward cursor |
-| 88 | **Touch ripple feedback** | Mobile tappable controls | Haptic visual feedback | Ephemeral expanding ring layer | `MicroFX.tsx`, `.pf-ripple` | Spawns on mobile tap |
+| 45 | **Lucide React icon set** | Global; navigation, index, badges, zone matrix, offline figure, print control | Functional | Lucide React (`createLucideIcon`, module 56479) | Confirmed icons include `wifi`, `map-pin`, `compass`, `printer`, `file-cog`, `message-square`; claim badges import additional status icons | Static unless inside a button |
+| 46 | **Wi-Fi icon** | Connectivity figure "73.8% are offline" | Functional | Lucide SVG wifi | `Wifi`, `WifiOff` | Static |
+| 47 | **Printer icon** | Print / export control | Functional | Lucide SVG printer | `Printer` | Clickable if wired to print |
+| 48 | **File-cog icon** | Possibly reference / settings control | Functional | Lucide SVG file-cog | `FileCog` | Static or clickable |
+| 49 | **Message-square icon** | Possibly contact / feedback | Functional | Lucide SVG message-square | `MessageSquare` | Static or clickable |
+| 50 | **Emoji characters** | None detected | — | — | — | — |
+| 51 | **Icon font** | None detected | — | — | — | — |
+
+### 2.7 Brand Assets
+
+| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 52 | **Favicon** | Browser tab | Branding | SVG | `/icon.svg`; `rel="icon"` | Static |
+| 53 | **Apple touch icon** | iOS home screen | Branding | Raster PNG, 180×180 | `/apple-icon.png` | Static |
+| 54 | **Open Graph / Twitter card image** | Social sharing | Branding | Raster PNG, 1200×630 | `/og/kitui-2027.png` | Static |
+| 55 | **Brand seal / pill** | Hero | Branding | CSS background with woven SVG data-URI mark | `.pf-seal`, `.pf-seal__mark` | Static |
+| 56 | **Text wordmark / title** | Hero | Branding | HTML/CSS typography | `.pf-hero__title`; Bricolage Grotesque | Static |
+| 57 | **Standalone logo file** | None identified beyond favicon/seal | — | — | — | — |
+
+### 2.8 Typographic Visual Treatments
+
+| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 58 | **Variable display font** | Global | Brand / hierarchy | Web font (WOFF2) | Bricolage Grotesque (`--font-display`) | Static |
+| 59 | **Serif reading font** | Body / figure titles | Hierarchy | Web font (WOFF2) | Newsreader (`--font-newsreader`) | Static |
+| 60 | **Monospace font** | Data labels / code-like text | Data emphasis | System monospace stack | `--font-mono` | Static |
+| 61 | **Big-number stat with roll animation** | Hero and key figures | Emphasis | CSS animation (`@keyframes pf-roll`) | `.pf-bn__value`, `.pf-bn__strip`, `.pf-bn__ghost` | Scroll-triggered |
+| 62 | **Animated count-up** | Offline-waterline and figures | Emphasis | JS animation + CSS | `.anim-num`, `.anim-num__value` | Scroll-triggered |
+| 63 | **Eyebrow label** | Figure headers | Hierarchy | CSS typography | `.eyebrow-label`, `.pf-fig__sec`, `.rc-kicker` | Static |
+| 64 | **Pull-quote / "governing line" block** | Strategy sections | Emphasis | HTML/CSS block | `kind:"quote"`; associated figure styles | Static |
+| 65 | **Callout / takeaway box** | Figures | Emphasis | CSS border / background | `.pf-fig__takeaway`, `.rf-takeaway` | Static |
+| 66 | **Line-mask display typography** | Hero and act titles | Visual treatment | CSS overflow/mask | `.pf-line`, `.pf-line > span` | Static; scroll-driven transforms |
+
+### 2.9 Imagery
+
+| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 67 | **Portrait of Dr. Mulu** | Hero / "act" section | Branding / candidate recognition | Raster WebP, responsive srcset, mask-image gradient fade | `/portraits/02-seated-grey-cropped-1600.webp`; `.pf-act__portrait` | Static |
+| 68 | **Other candidate/campaign photography** | Not detected beyond portrait | — | — | — | — |
+| 69 | **Illustrations** | None detected | — | — | — | — |
+| 70 | **Background photography** | None detected | — | — | — | — |
+| 71 | **OG social image** | Social sharing | Branding | Raster PNG | `/og/kitui-2027.png` | Static |
+
+### 2.10 Interactive UI Controls
+
+| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 72 | **Theme toggle** | Global | User preference | JS + CSS class toggle | `localStorage.theme`; `html.dark` | Clickable; toggles light/dark/sepia |
+| 73 | **Details / summary disclosure** | Tables and figure notes | Progressive disclosure | Native HTML `<details>` / `<summary>` | `.pf-fig__details`, `.rf-details` | Clickable; expands table |
+| 74 | **Scenario toggle** | Figures with A/B states | Comparison | CSS-only toggle with radio inputs | `.pf-toggle`, `.pf-toggle__thumb` | Clickable; switches content |
+| 75 | **Tile-map layer controls** | Ward cartogram | Data filtering | Radio inputs styled as pills | `.tm-layers`, `.tm-layers input:checked` | Clickable |
+| 76 | **Zone matrix tabs** | "The land" | Data filtering | Buttons with `role="tab"` | `role="tablist"`, `aria-selected` | Clickable |
+| 77 | **Expandable "more" controls** | Various sections | Progressive disclosure | JS/CSS | `.pf-more__btn`, `.vz-more__btn`, `.rf-more` | Clickable |
+| 78 | **Tabs** | Various sections | Navigation / filtering | JS/CSS | `.vz-tabs__list`, `.pf-tabs` | Clickable |
+| 79 | **Print control** | Global / figure | Export | Lucide printer icon + JS | `window.print` | Clickable |
+| 80 | **CSV download** | Every data figure | Data access | Anchor link | `.rf-csv`, `.pf-fig__csv` | Clickable |
+| 81 | **Carousel** | Not detected | — | — | — | — |
+| 82 | **Canvas / WebGL visualisation** | Not detected | — | — | — | — |
+
+### 2.11 Decorative Elements
+
+| # | Element | Location | Function | Implementation | Technical Identifier | Interactivity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 83 | **Grain / noise overlay** | Fixed over entire page | Decorative texture | SVG data URI with `feTurbulence`; fixed positioned; opacity ~0.05 | `.pf-grain` | Static |
+| 84 | **Woven pattern overlay** | Hero, act backgrounds, map wards, badges | Decorative / brand texture | SVG data URI pattern | `--pf-weave-img`; `.pf-act__weave` | Static |
+| 85 | **Radial glow gradients** | Hero and act backgrounds | Decorative depth | CSS radial gradients | `.pf-hero__glow`, `.pf-act` | Static |
+| 86 | **Chart grid lines** | Fan chart / line chart | Decorative / data guide | CSS borders | `.pf-fn__grid`, `.pf-fn__tick` | Static |
+| 87 | **Dividers** | Chapter and figure boundaries | Structure | CSS borders | `.pf-line`, `.rf-foot` | Static |
+| 88 | **Scrollbar treatment** | Not specifically detected | — | Browser default | — | — |
 
 ---
 
 ## 4. Implementation Technology Summary
 
-- **Framework & Rendering:** Next.js 15 App Router with hybrid Static Site Generation (SSG) and incremental streamed markdown sections.
-- **Styling Architecture:** Tailwind CSS v4 coupled with a centralized token architecture (`app/globals.css`, `app/premium.css`, `app/register.css`, `app/chart-kit.css`).
-- **Typography:** Self-hosted `next/font` subsets of Bricolage Grotesque (variable display font) and Newsreader (serif body), backed by JetBrains Mono for data marks. Zero layout shifts.
-- **Vector Graphics & Geometry:** 100% inline SVG for geographical county boundaries and ward cartograms. Zero external tile servers, zero Mapbox/Google Maps API dependencies, zero WebGL runtime bloat.
-- **Icons:** Pure SVG via `lucide-react`. Zero icon fonts, zero emoji, zero unvetted third-party assets.
-- **Animation Runtime:** Hardware-accelerated CSS transforms and lightweight `motion` hooks strictly bounded by `useReducedMotionSafe()` to respect accessibility preferences.
+| Method | Count / Evidence | Notes |
+| :--- | :--- | :--- |
+| **Inline SVG** | High | Kitui county map (40+ ward paths, each rendered twice with a woven overlay), favicon, chart SVGs, tile-grid map, Lucide icons rendered as inline SVG. |
+| **CSS-only** | High | Part dots, provenance pills, tier badges, claim badges, cards, tables, stepper, risk matrix, toggle, grain background (data URI), weave background (data URI), responsive table card mode. |
+| **Lucide React** | Confirmed | `createLucideIcon` module 56479; confirmed icons: `wifi`, `map-pin`, `compass`, `printer`, `file-cog`, `message-square`; additional status icons imported by claim badges. No Font Awesome, Heroicons, Tabler, or Material Symbols detected. |
+| **Raster imagery** | Low | Candidate portrait (WebP, multiple responsive sizes), OG image (PNG, 1200×630), Apple touch icon (PNG, 180×180). |
+| **Emoji** | None detected | No emoji characters found in the rendered text or source. |
+| **Canvas / WebGL** | None detected | No `<canvas>` or WebGL contexts found. |
+| **Charting library** | None | Charts are custom figure components driven by a `chart.type` discriminator. `topojson`/`d3-geo`-style geometry utilities appear in the bundle for map geometry, but no Recharts, Chart.js, D3 charting, or Highcharts library was identified. |
+| **Animation** | Present | Motion/Framer-Motion-style animation utilities and CSS keyframes (`pf-roll`, `rx-draw`) for count-ups and scroll-triggered draw effects. |
+| **CSS framework** | Confirmed | Tailwind CSS v4 in the loaded stylesheet, plus substantial custom CSS. |
+| **Fonts** | Confirmed | Bricolage Grotesque (variable display), Newsreader (serif reading), system monospace. |
 
 ---
 
-## 5. Architectural Gap Analysis & Strategic Recommendations
+## 5. Gap Analysis
 
-| Domain | Observed State | Recommended Engineering Enhancement | Architectural Justification |
-| :--- | :--- | :--- | :--- |
-| **Geographic Interactivity** | Static SVG county map + interactive tile cartogram | Retain inline SVG vector topology; add lightweight hover tooltip for ward-level metrics | Preserves zero-network-request advantage while offering drill-down on candidate home turf vs northern pool. |
-| **Data Tables** | Native responsive tables with client-side sort & CSV export | Maintain current headless `InteractiveTable` architecture; keep deterministic `"en-KE"` locale formatting | Guarantees zero hydration errors and deterministic number rendering across varying browser regional locales. |
-| **Evidence & Provenance** | Centralized 3-tier provenance classification across all figures | Maintain strict adherence to `docs/DISPUTES-RESOLVED.md` standards | Eliminates conflicting metrics and protects candidate credibility. |
-| **Accessibility Compliance** | WCAG 2.1 AA certified contrast, `suppressHydrationWarning` on root, full keyboard wayfinding | Enforce automated regression testing via `npm run verify` across all markdown fences and tokens | Prevents token regressions and guarantees clean execution under mobile screen readers. |
-| **Print Dossier Integrity** | Dedicated `@media print` rules expanding all disclosures and tables | Retain static route `/full` for executive print generation | Ensures physical briefing binders match digital displays word-for-word. |
+### Absent or under-represented visual categories
+1. **Interactive geographic maps:** The county map is a static inline SVG. There is no pan, zoom, hover tooltip, ward click-through, or layer control on the geographic map itself (the tile-grid map has layer toggles, but the geographic map does not).
+2. **Standard charting library:** No Recharts, Chart.js, D3 charting, or Highcharts. Custom charts are tailored and visually coherent, but they lack the accessibility, tooltip, and export features a charting library provides.
+3. **Photographic breadth:** Only one candidate portrait is confirmed. There are no campaign-event photos, community photos, or county-context photography.
+4. **Illustration system:** No custom illustrations or political/civic spot illustrations beyond Lucide functional icons.
+5. **Social-media visual assets:** No embedded social posts, share cards beyond OG image, or platform-specific graphics.
+6. **Video / audio:** No video or audio embeds, which is notable for a digital campaign proposal.
+7. **Chart variety:** No donut, pie, scatter, box plot, area chart, or true heatmap (the risk calendar is a status grid, not a continuous heatmap). The content taxonomy lists donut and waffle, but the rendered/confirmed charts are predominantly bar, slope, waterfall, timeline, gauge, network, and dot-plot.
+8. **Table interactivity:** Tables are expandable and responsive but have no search, sort, column filtering, or row selection.
+9. **Icon consistency:** Multiple badge systems coexist (`pf-pp`, `tp`, `tier-badge`, `claim-badge`), plus multiple chip styles. This is a consistency and maintenance gap, not a missing category.
+10. **Icon sizing tokens:** Icons use ad hoc `size={9}`, `size={11}`, `size={12}` values rather than a documented icon-size scale.
+11. **Emoji:** None. If the campaign intends informal social content, this is an intentional absence rather than a gap.
+
+### Inconsistent, redundant, or under-optimised elements
+* **Badge redundancy:** `pf-pp`, `tp`, `tier-badge`, and `claim-badge` all signal evidence/status but use different markup, classes, and visual rules. A single StatusBadge component with variants would reduce CSS and visual drift.
+* **Hard-coded chart colours:** The budget chart historically used hard-coded hex values (`#0056a8`, `#338dfd`, `#e31d2b`, `#0b1a30`); recently refactored to CSS custom properties (`var(--accent-solid)`, `var(--color-accent)`, `var(--rival-solid)`, `var(--color-ink)`).
+* **Map path duplication:** Each ward path is rendered twice (solid fill plus woven overlay). This doubles path count and DOM weight. A single path with a patterned fill or a `<use>` reference would be leaner.
+* **Chart implementation method is mixed:** Some charts are SVG, some are CSS-positioned bars, and some are HTML grids. This makes responsive behaviour and accessibility auditing harder.
+* **Accessibility risk in custom charts:** Dot-plot and bar charts rely on visual position; data tables are present for many figures.
+* **No icon sprite:** Lucide icons are individually bundled. A local SVG sprite for the small, frequently reused icon set would reduce bundle requests and enable consistent `aria-hidden` handling.
 
 ---
 
-## 6. Audit Verification & Integrity Log
+## 6. Recommended Additions
 
-- **Verification Status:** All 29 figures tests, 12 declutter checks, 430 units preservation check, and token inventory validation passed.
-- **Build & Lint Status:** Clean compilation (`compile_applet`) across all 46 static pages; 0 ESLint errors.
-- **Server Health:** Dev server verified active and responding with HTTP 200 on port 3000.
+| Gap | Recommended Tool / Asset | One-Sentence Justification |
+| :--- | :--- | :--- |
+| **Interactive maps** | MapLibre GL JS or react-simple-maps | Adds pan, zoom, tooltips, and ward click-through without replacing the existing SVG geometry. |
+| **Accessible charting** | Visx or Recharts | Provides accessible primitives and tooltips while preserving the custom visual language. |
+| **Table interactivity** | TanStack Table | Adds sorting, filtering, and column visibility to the existing data tables with a headless API. |
+| **Icon consistency** | Lucide React + local SVG sprite for 15–20 key icons | Keeps the confirmed Lucide system but reduces bundle duplication and standardises sizing. |
+| **Badge consistency** | Single `StatusBadge` component (`variant="tier" \| "claim" \| "provenance"`) | Replaces four parallel badge systems with one token-driven component. |
+| **Photography** | Optimised AVIF/WebP campaign and county-context imagery | Fills the imagery gap while preserving performance. |
+| **Social visuals** | Automated OG image generation (e.g. `@vercel/og`) | Produces chapter-specific share cards instead of one static OG image. |
+| **Print/export** | SVG-to-PDF or print-specific chart styles | Makes the analytical figures portable for offline political briefings. |
+| **Chart colour tokens** | Extend CSS custom-property system with `--chart-*` tokens | Replaces hard-coded hex values and keeps dark-mode behaviour consistent. |
+| **Map performance** | Replace double-path ward rendering with `<use>` or single patterned fill | Reduces SVG path count and DOM size without changing the visual result. |
+
+---
+
+## 7. Assumptions and Limitations
+
+1. **Traversal depth:** The site is a single long document. The root and `/full` routes serve the same report; `/full` provides the static variant.
+2. **Page count:** No separate sub-routes were found. `robots.txt` and `sitemap.xml` return metadata routes. The catch-all route and `/full` route serve the same report.
+3. **Chart implementation method:** Chart types are confirmed from the content bundle (`chart.type` values), with internal custom renderers.
+4. **SVG path count:** The county map contains 40+ ward paths, each rendered twice.
+5. **Icon count:** Lucide is confirmed, and distinct icons are directly identified (`wifi`, `map-pin`, `compass`, `printer`, `file-cog`, `message-square`, plus claim badges).
+6. **Dynamic states:** Hover, active, expanded, and modal states are captured from CSS and component specifications.
+7. **Zero fabrication:** Where the implementation could not be confirmed in rendered DOM, the inventory explicitly notes "inferred" or "method unconfirmed".
