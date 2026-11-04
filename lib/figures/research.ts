@@ -19,7 +19,7 @@
  * operates. Nothing is commissioned.
  */
 import type { FigureSeries } from "./types";
-import { regFmt } from "./from-registry";
+import { regFmt } from "./from-registry.ts";
 
 /* ------------------------------------------------------------------ §5.1.2 the two programmes */
 

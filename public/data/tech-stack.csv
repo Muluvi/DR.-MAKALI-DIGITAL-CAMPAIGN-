@@ -1,0 +1,5 @@
+Group,What it holds,Basis
+Tier 1: offline telecom gateway,Africa's Talking / Safaricom · Dedicated shortcode & USSD · Two-way inbound/outbound SMS,Sourced
+Tier 2: core supporter CRM,PostgreSQL (AWS/GCP Cape Town) · AES-256 encrypted PII fields · RBAC & audit access logging,Sourced
+Tier 3: broadcast & listening,Buffer / Hootsuite Enterprise · Brand24 / Talkwalker monitor · Meta Business Suite & TikTok,Sourced
+Tier 4: analytics & ward tracker,Metabase / Apache Superset · Service-delivery public policy tracker (web),Sourced

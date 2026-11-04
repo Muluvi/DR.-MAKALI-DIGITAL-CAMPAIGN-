@@ -18,7 +18,7 @@
  * slogan would be doing the exact thing §3.6.2 exists to prevent.
  */
 import type { FigureSeries } from "./types";
-import { regFmt } from "./from-registry";
+import { regFmt } from "./from-registry.ts";
 
 /* ------------------------------------------------------------------ §3.5.1 counter-fire */
 

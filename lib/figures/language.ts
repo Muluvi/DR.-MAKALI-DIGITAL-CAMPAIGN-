@@ -101,7 +101,7 @@ export const LANGUAGE_SPLIT: FigureSeries = {
   })),
   note:
     "The three shares are stated in §12.4 without a citation and sum to 100%, so they describe who " +
-    "speaks what (a language map, Tier 3), not a target. The content target is the 50 / 30 / 20 mix " +
+    "speaks what (a language map, unconfirmed), not a target. The content target is the 50 / 30 / 20 mix " +
     "in §12.4; bulk SMS carries Kiswahili and English only (§15.3.3).",
 };
 
@@ -126,13 +126,13 @@ export const LANGUAGE_DEPLOYMENT: DeploymentRow[] = [
     medium: "Direct 2G bulk SMS",
     primary: { language: "Kiswahili", share: 80 },
     secondary: [{ language: "English", share: 20 }],
-    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail, as §15.3.3 requires.",
+    note: "Kiswahili rural, English for urban centres and youth boda. Kikamba is allocated none of this rail, as the Communications Authority's bulk SMS rule requires.",
   },
   {
     medium: "USSD menu system",
     primary: { language: "Kikamba", share: 50 },
     secondary: [{ language: "Kiswahili", share: 50 }],
-    note: "Toggle via option 0 on the USSD menu. USSD is not restricted — §15.3.3 names USSD menu text as a place Kikamba belongs.",
+    note: "Toggle via option 0 on the USSD menu. USSD is not restricted: the channel rules name USSD menu text as a place Kikamba belongs.",
   },
   {
     medium: "Baraza print collateral",

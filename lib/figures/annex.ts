@@ -21,11 +21,11 @@
  * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
  * does not exist yet and the line should not go on air before it does.
  */
-import { SEVERITY_TIERS } from "../../data/escalation";
-import { CountWord, countWord } from "../count-word";
-import { RADIO_STATIONS } from "../../data/media-ownership";
-import { regFmt } from "./from-registry";
-import { segment, shareText, sizeText } from "../../data/segments";
+import { SEVERITY_TIERS } from "../../data/escalation.ts";
+import { CountWord, countWord } from "../count-word.ts";
+import { RADIO_STATIONS } from "../../data/media-ownership.ts";
+import { regFmt } from "./from-registry.ts";
+import { segment, shareText, sizeText } from "../../data/segments.ts";
 import type { FigureSeries } from "./types";
 
 /** The stations the ownership map marks for placement, and the ones it marks for monitoring. */
