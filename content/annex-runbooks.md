@@ -2,21 +2,7 @@
 These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of.
 ```
 
-These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the rapid-response decision tree and its response times, the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the security baseline and incident response, and the competitor-monitoring outputs.
-
-## F.1 The four-tier response decision tree
-
-To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
-
-```figure
-id: response-matrix
-```
-
-## F.2 Response times, by channel
-
-```figure
-id: response-sla
-```
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks & response, and account security and phishing are in Lawful & ethical.
 
 ## F.3 Holding positions, pre-drafted
 
@@ -67,21 +53,7 @@ items:
     text: "Kamba-language station tracking, coverage and airtime share (Section 15.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online"
 ```
 
-## F.5 Rapid-response protocol and pre-approved message library
-
-The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
-
-To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
-
-```visual
-kind: checklist
-items:
-  - label: "Standard rebuttals for false claims about Dr. Mulu's record"
-  - label: "Kikamba, Kiswahili and English versions of key messages"
-  - label: "Template statements for policy positions issued in response to attack"
-  - label: "Fact-check cards linking to verified sources"
-  - label: "**Deepfake first-response templates** (Section 20.4)"
-```
+The rapid-response protocol, its four severity tiers, its response times by channel and the pre-approved message library are in Risks & response, with the war room they serve. This annex keeps the reference material: holding lines, monitoring tools, drills, the threat model and incident response.
 
 ## F.6 Red-team drills
 
@@ -157,59 +129,7 @@ items:
   - label: "Fabricated audio or video of the candidate"
 ```
 
-## F.8 Account security baseline
-
-```lead
-**Hardware keys for the candidate and admins are non-negotiable and take very little.**
-```
-
-```visual
-kind: checklist
-items:
-  - label: "**Hardware security keys (FIDO2)** for two-factor authentication"
-    text: "**Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap"
-    fields:
-      - { label: "Applies to", text: "Candidate, Digital Director, all admin-level accounts" }
-  - label: "App-based 2FA minimum"
-    text: "Where hardware keys are impractical"
-    fields:
-      - { label: "Applies to", text: "All staff and Tier 3–4 volunteers" }
-  - label: "Password manager"
-    text: "Unique generated credentials; no reuse"
-    fields:
-      - { label: "Applies to", text: "All staff" }
-  - label: "Role-based access"
-    text: "Least privilege; no shared logins ever"
-    fields:
-      - { label: "Applies to", text: "All platforms" }
-  - label: "Business Manager structure"
-    text: "Assets owned by the campaign entity, not individuals"
-    fields:
-      - { label: "Applies to", text: "All ad and page assets" }
-  - label: "Quarterly access review"
-    text: "Remove departed staff and volunteers within 24 hours of departure"
-    fields:
-      - { label: "Applies to", text: "Data-governance owner" }
-  - label: "Recovery contacts"
-    text: "Documented, verified, held by two named people"
-    fields:
-      - { label: "Applies to", text: "Candidate accounts" }
-```
-
-**Hardware keys for the candidate and admins are non-negotiable and take very
-little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
-holder** so a lost key never locks an account, registered before any SMS or app code is removed.
-
-## F.9 Phishing awareness
-
-```visual
-kind: checklist
-items:
-  - label: "Onboarding training for every staff member and Tier 3–4 volunteer before account access is granted"
-  - label: "**Simulated phishing exercises quarterly**, with results used for coaching, never for punishment — punitive programmes suppress reporting, which is the opposite of the goal"
-  - label: "A no-blame reporting channel with a target of **under 15 minutes** from suspicion to report"
-  - label: "Specific coverage of the patterns most likely here: fake platform security alerts, fake IEBC or party communications, and fake media interview requests"
-```
+Account security and phishing awareness are in Lawful & ethical, with the law and the charter they serve.
 
 ## F.10 The incident response plan
 

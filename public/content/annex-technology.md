@@ -73,15 +73,7 @@ id: fig-5-2-4-stack
 id: procurement-matrix
 ```
 
-#### Technical risk and security protocols
-
-To keep campaign systems running and protect them from infiltration or cyber disruption:
-
-1.  **Two-factor authentication, with hardware keys for administrators:** every war room operator and every ward coordinator who opens a dashboard uses two-factor authentication, by an authenticator app (such as Google Authenticator) at minimum; database administrators use a hardware security key (such as a YubiKey).
-2.  **Automated off-site backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
-3.  **Data redaction by role:** ground staff and ward captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the data protection officer and the campaign manager.
-
-*Source conflict: an earlier version listed Google Authenticator as a hardware key; it is an app, and the rule above separates the two.*
+The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.
 
 ## E.2 Voter model: data sources and variable dictionary
 

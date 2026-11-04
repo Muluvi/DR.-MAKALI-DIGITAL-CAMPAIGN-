@@ -27,12 +27,13 @@ friction surfaces as evidence instead of as attrition.
 
 ## 20.2 The war room and rapid-response protocol
 
-> **The runbooks are in Annex F.** The four-tier response decision tree (F.1), the response
-> times by channel (F.2), the pre-drafted holding positions (F.3), the monitoring tooling
-> (F.4), the pre-approved message library (F.5), the red-team drill format
-> (F.6), the threat model and security baseline (F.7–F.10) and the competitive
-> intelligence outputs (F.11) are set out there in full. They are operational detail: what a
-> principal approves is that they exist and are proportionate, which this section states.
+> **The protocol follows below; the runbooks hold the reference material.** The four-tier response
+> decision tree, the response times by channel and the pre-approved message library follow this
+> section. The runbooks on the reference shelf hold the pre-drafted holding positions (F.3), the
+> monitoring tooling (F.4), the red-team drill format (F.6), the threat model and incident response
+> (F.7 and F.10) and the competitive intelligence outputs (F.11); account security and phishing are
+> in Lawful & ethical. They are operational detail: what a principal approves is that they exist
+> and are proportionate, which this section states.
 >
 > *Source conflict: an earlier version lettered these runbooks E.1–E.12; they sit in Annex F, and the letters above are the current ones.*
 
@@ -81,6 +82,36 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 | Night | 22:00–06:00 | Monitoring only; escalation to on-call strategist at crisis threshold |
 
 The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; and **SMS delivery and opt-out rates**.
+
+## F.1 The four-tier response decision tree
+
+To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
+
+```figure
+id: response-matrix
+```
+
+## F.2 Response times, by channel
+
+```figure
+id: response-sla
+```
+
+## F.5 Rapid-response protocol and pre-approved message library
+
+The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
+
+To execute rapid containment without awaiting ad-hoc legal drafting, a pre-approved message library is maintained:
+
+```visual
+kind: checklist
+items:
+  - label: "Standard rebuttals for false claims about Dr. Mulu's record"
+  - label: "Kikamba, Kiswahili and English versions of key messages"
+  - label: "Template statements for policy positions issued in response to attack"
+  - label: "Fact-check cards linking to verified sources"
+  - label: "**Deepfake first-response templates** (Section 20.4)"
+```
 
 ## 20.3 Staying inside defamation law
 

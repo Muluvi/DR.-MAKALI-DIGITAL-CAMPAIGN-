@@ -32,7 +32,6 @@ export const CONTENT_FILES: Record<TabId, string> = {
   ask: "ask.md",
   "annex-evidence": "annex-evidence.md",
   "annex-playbooks": "annex-playbooks.md",
-  "annex-volunteers": "annex-volunteers.md",
   "annex-technology": "annex-technology.md",
   "annex-runbooks": "annex-runbooks.md",
   "annex-terms": "annex-terms.md",

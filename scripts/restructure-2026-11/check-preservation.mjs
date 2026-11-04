@@ -42,14 +42,24 @@ const retired = new Set((settlement.retiredTokens ?? []).map((r) => `${r.file}|$
 // unit is also looked for in every file its file's passages were moved to, by a logged move, so a
 // merged section keeps its preservation check where it now lives, and nowhere else.
 const consolidationLedger = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+// A logged duplicate (two copies of a fact met, one became a pointer) names the home where the
+// facts stay, and is followed the same way, after the moves, so a passage moved and then deduped is
+// looked for where its facts now live.
 const movedTo = new Map();
+const dupTo = new Map();
 for (const c of fs.existsSync(consolidationLedger) ? JSON.parse(fs.readFileSync(consolidationLedger, "utf8")) : []) {
-  if (c.kind !== "moved" || !c.to) continue;
+  const target = c.kind === "moved" ? c.to : c.kind === "duplicate" ? c.home : null;
+  if (!target) continue;
   const from = `content/${c.file}.md`;
-  const to = `content/${c.to.split(":")[0]}.md`;
-  if (from !== to) movedTo.set(from, new Set([...(movedTo.get(from) ?? []), to]));
+  const to = `content/${target.split(":")[0]}.md`;
+  if (from === to) continue;
+  const map = c.kind === "moved" ? movedTo : dupTo;
+  map.set(from, new Set([...(map.get(from) ?? []), to]));
 }
-const withMoves = (files) => [...new Set(files.flatMap((f) => [f, ...(movedTo.get(f) ?? [])]))];
+const withMoves = (files) => {
+  const moved = [...new Set(files.flatMap((f) => [f, ...(movedTo.get(f) ?? [])]))];
+  return [...new Set(moved.flatMap((f) => [f, ...(dupTo.get(f) ?? [])]))];
+};
 
 const errors = [];
 let checked = 0;

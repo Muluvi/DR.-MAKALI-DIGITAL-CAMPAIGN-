@@ -51,7 +51,7 @@ items:
 
 ## 5.3 The field: the nomination contest and the general election
 
-**Both Wiper rivals have already won countywide.** Dr. Kasalu won **{{result.2022.womanrep.kasalu}}** votes as Woman Representative and Sen. Wambua **{{result.2022.senate.wambua}}** as Senator, both in 2022 (Tier 2). Dr. Mulu has not yet stood countywide. <window-chip></window-chip>
+**Both Wiper rivals have already won countywide**, Dr. Kasalu as Woman Representative and Sen. Wambua as Senator, both in 2022; their totals are in How Kitui voted. Dr. Mulu has not yet stood countywide. <window-chip></window-chip>
 
 ```figure
 id: fig-3-5-field
@@ -67,12 +67,12 @@ preset: candidate
 items:
   - title: "Dr. Irene Kasalu"
     text: "Woman Representative, Kitui County"
-    body: "Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field: **{{result.2022.womanrep.kasalu}} votes** as Woman Representative, above the {{result.2022.gov.malombe}} that won the governorship the same year (Tier 2, a media report of the declaration; the IEBC Form 39C declaration is the record to hold, Section 2.2). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand."
+    body: "Holds the county's Woman Representative seat, a countywide constituency. Her 2022 result is the highest in the field, above the tally that won the governorship the same year (the totals are in How Kitui voted; the IEBC Form 39C declaration is the record to hold). As Woman Representative she is patron of the Kitui allocation of the National Government Affirmative Action Fund; the Auditor-General's reports on that allocation are the documentary record of her stewardship of public money, and they are not yet in hand."
     value: "{{result.2022.womanrep.kasalu}}"
     tier: 2
   - title: "Sen. Enoch Wambua"
     text: "Senator, Kitui County"
-    body: "Won the 2022 Senate race with **{{result.2022.senate.wambua}} votes** (Tier 2; the IEBC Form 38C declaration is the record to hold), within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally. His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists."
+    body: "Won the 2022 Senate race, within {{gap.wambua-to-benchmark-2022}} of the winning governor's tally (the totals are in How Kitui voted; the IEBC Form 38C declaration is the record to hold). His Senate committee roles are a matter of parliamentary record, to be cited from the Senate Hansard and committee membership lists."
     value: "{{result.2022.senate.wambua}}"
     tier: 2
   - title: "Dr. Makali Mulu"
@@ -94,12 +94,12 @@ preset: candidate
 items:
   - title: "Charity Ngilu"
     text: "Former Governor, Kitui County - NARC"
-    body: "Won the court-confirmed 2017 gubernatorial election with {{result.2017.gov.ngilu}} votes (Tier 1). She did not defend the seat in the 2022 general election (Tier 2; the IEBC's gazetted 2022 candidate list is the record)."
+    body: "Won the court-confirmed 2017 gubernatorial election (Tier 1; the result is in How Kitui voted). She did not defend the seat in the 2022 general election (Tier 2; the IEBC's gazetted 2022 candidate list is the record)."
     value: "{{result.2017.gov.ngilu}}"
     tier: 1
   - title: "David Musila"
     text: "Former Senator, Kitui County"
-    body: "Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1): {{result.2017.gov.musila}} votes in 2017 (Tier 1), and {{result.2022.gov.musila}} in 2022 (Tier 1, certified; The Star's early total of {{result.2022.gov.musila.media}} is a media variant). Where his vote came from is a question for the ward and polling-station forms (Section 2.2); until they are in hand, this proposal makes no claim about his geographic base."
+    body: "Runner-up in both the 2017 and 2022 gubernatorial elections (Tier 1; both results, and the media variant of the 2022 total, are in How Kitui voted). Where his vote came from is a question for the ward and polling-station forms (Section 2.2); until they are in hand, this proposal makes no claim about his geographic base."
     value: "{{result.2022.gov.musila}}"
     tier: 1
   - title: "Peninah Malonza"
