@@ -26,10 +26,10 @@ const COMPONENT_SUM = EQUITABLE + OWN_SOURCE + GRANTS;
 const STATED_TOTAL = bn("budget.total");
 
 const DATA: WaterfallStep[] = [
-  { name: "Equitable share", base: 0, value: EQUITABLE, display: `KSh${formatFigure(FIGURES["budget.equitable"], "bn")}bn (${formatFigure(FIGURES["budget.equitable.share"])}%)`, color: "#0056a8" },
-  { name: "Own-source revenue", base: EQUITABLE, value: OWN_SOURCE, display: `KSh${formatFigure(FIGURES["budget.osr"], "bn")}bn in the Paper; KSh${formatFigure(FIGURES["budget.osr.revised"], "bn")}bn as revised by the Assembly`, color: "#338dfd" },
-  { name: "Grants", base: EQUITABLE + OWN_SOURCE, value: GRANTS, display: `KSh${formatFigure(FIGURES["budget.grants"], "bn")}bn (${formatFigure(FIGURES["budget.grants.share"])}%)`, color: "#e31d2b" },
-  { name: "Published total", base: 0, value: STATED_TOTAL, display: `KSh${formatFigure(FIGURES["budget.total"], "bn")}bn, as published`, color: "#0b1a30", isTotal: true },
+  { name: "Equitable share", base: 0, value: EQUITABLE, display: `KSh${formatFigure(FIGURES["budget.equitable"], "bn")}bn (${formatFigure(FIGURES["budget.equitable.share"])}%)`, color: "var(--accent-solid)" },
+  { name: "Own-source revenue", base: EQUITABLE, value: OWN_SOURCE, display: `KSh${formatFigure(FIGURES["budget.osr"], "bn")}bn in the Paper; KSh${formatFigure(FIGURES["budget.osr.revised"], "bn")}bn as revised by the Assembly`, color: "var(--color-accent, var(--accent))" },
+  { name: "Grants", base: EQUITABLE + OWN_SOURCE, value: GRANTS, display: `KSh${formatFigure(FIGURES["budget.grants"], "bn")}bn (${formatFigure(FIGURES["budget.grants.share"])}%)`, color: "var(--rival-solid)" },
+  { name: "Published total", base: 0, value: STATED_TOTAL, display: `KSh${formatFigure(FIGURES["budget.total"], "bn")}bn, as published`, color: "var(--color-ink)", isTotal: true },
 ];
 
 export function ResourceEnvelopeBlock() {
