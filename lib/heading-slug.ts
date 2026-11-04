@@ -41,6 +41,8 @@ export function headingSlug(text: string): string | null {
 // Labels are the navigation, so they are sized for the narrowest place they appear. Blurbs are the
 // question or contents each chapter answers.
 export const SECTIONS = [
+  { id: "cover", part: 0, number: "", label: "Cover", blurb: "Prepared for Dr. Makali Mulu, by Firefly Management, on one line of terms" },
+  { id: "brief", part: 0, number: "", label: "In brief", blurb: "The case on one screen" },
   { id: "kitui", part: 1, number: "1", label: "Kitui at a glance", blurb: "The people, the land, living standards, how the county is run, and its money" },
   { id: "votes", part: 1, number: "2", label: "How Kitui voted", blurb: "The electorate, the results since 2013, where the votes are, the 40-ward register and the number it takes" },
   { id: "needs", part: 1, number: "3", label: "What voters need", blurb: "Water, food, health, roads, jobs, the cost of living, county money and Mui Basin" },
@@ -75,6 +77,7 @@ export type TabId = (typeof SECTIONS)[number]["id"];
 
 /** The parts, for navigation that groups each Part's chapters under one choice. */
 export const PARTS = [
+  { part: 0, label: "Cover", blurb: "Who this is for, and the case on one screen" },
   { part: 1, label: "Kitui today", blurb: "Who lives here, and what do they need?" },
   { part: 2, label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?" },
   { part: 3, label: "The strategy", blurb: "What should the campaign do, and why?" },

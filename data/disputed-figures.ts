@@ -48,12 +48,12 @@ export const DISPUTED_FIGURES: DisputedFigureEntry[] = [
     id: "kitui-fy2025-26-q1-absorption",
     label: "Kitui County FY2025/26 Q1 development-budget absorption rate",
     values: [
-      { value: 12.44, unit: "%", source: CONTROLLER_OF_BUDGET, granularity: "county" },
+      { value: 18, unit: "%", source: CONTROLLER_OF_BUDGET, granularity: "county" },
       { value: 5, unit: "% (approx.)", source: MEDIA_ABSORPTION_ALT, granularity: "county" },
     ],
     preferredIndex: 0,
     preferenceReason:
-      "The Controller of Budget is the statutory source for county absorption, and its review report gives Kitui's FY2025/26 Q1 development absorption as 12.44%; Firefly confirmed it on 25 September 2026. The 5% in media reports is not used.",
+      "The Controller of Budget is the statutory source for county absorption, and its review report gives Kitui's FY2025/26 Q1 development absorption as 18%; Firefly confirmed it on 25 September 2026. The 5% in media reports is not used.",
     resolutionPath: "The primary County Budget Implementation Review Report (CBIRR) for FY2025/26 Q1, held directly rather than via secondary reporting, would attach the document to the figure.",
     status: "resolved-preferred",
   },

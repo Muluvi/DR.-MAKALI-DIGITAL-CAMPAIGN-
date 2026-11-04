@@ -30,7 +30,7 @@ export const CONTROLLER_OF_BUDGET: Source = {
   name: "Controller of Budget, County Budget Implementation Review Report",
   publicationDate: "FY2025/26 Q1",
   tier: 1,
-  // Only the CoB's own reported absorption rate (12.44%) is drawn from this source at present;
+  // Only the CoB's own reported absorption rate (18%) is drawn from this source at present;
   // no primary CBIRR document was in the research hand-off, so no URL is attached — see
   // Section: Appendix C, "current pending bills" / audit-record row.
 };

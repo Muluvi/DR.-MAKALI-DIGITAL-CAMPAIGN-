@@ -8,6 +8,8 @@ import type { TabId } from "./heading-slug";
  * and both sides have to agree on the filename.
  */
 export const CONTENT_FILES: Record<TabId, string> = {
+  cover: "cover.md",
+  brief: "brief.md",
   kitui: "kitui.md",
   votes: "votes.md",
   needs: "needs.md",

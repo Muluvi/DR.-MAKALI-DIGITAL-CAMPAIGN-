@@ -23,6 +23,7 @@ import { FigDetail, FigureDetails, FigureDetailsToggle } from "./FigureDetails";
  * (cards, steps, matrices, decisions) open into a ruled block rather than a card (D-16).
  */
 export const HERO_FIGURES = new Set([
+  "fig-cover-map",
   "fig-1-1-timeline",
   "fig-2-1-register",
   "fig-3-1-funnel",
