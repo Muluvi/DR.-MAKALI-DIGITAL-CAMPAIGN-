@@ -155,7 +155,7 @@ export const STACK_TIERS = [
   },
   {
     label: "Tier 4: analytics & ward tracker",
-    items: ["Metabase / Apache Superset", "§15 service-delivery public policy tracker (web)"],
+    items: ["Metabase / Apache Superset", "Service-delivery public policy tracker (web)"],
   },
 ];
 

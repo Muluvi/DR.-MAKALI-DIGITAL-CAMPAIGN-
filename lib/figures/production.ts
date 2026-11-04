@@ -18,9 +18,9 @@
  * needs ĩ and ũ. Two independent reasons the bulk SMS rail cannot carry Kikamba, stated here and
  * contradicted in §3.6.1.
  */
-import { CONTENT_TYPES } from "../../data/message-architecture";
-import { PLAN_ITEMS, USSD_MENU as USSD_SPEC, menuLine } from "../../data/ussd-specimen";
-import { CountWord, countWord } from "../count-word";
+import { CONTENT_TYPES } from "../../data/message-architecture.ts";
+import { PLAN_ITEMS, USSD_MENU as USSD_SPEC, menuLine } from "../../data/ussd-specimen.ts";
+import { CountWord, countWord } from "../count-word.ts";
 import type { FigureSeries } from "./types";
 
 /* ------------------------------------------------------------------ §4.5.2 the pipeline */
@@ -265,7 +265,7 @@ export const LIBRARY_SERIES: FigureSeries = {
   measure: "§15.1.2's campaign asset repository",
   points: [],
   note:
-    "02_PRIMARY_EVIDENCE_VAULT is the one that makes §15.1.2 step 1 workable: the OAG certificates, " +
+    "02_PRIMARY_EVIDENCE_VAULT is the one that makes the approval gateway's first step workable: the OAG certificates, " +
     "the Hansard records and the KNBS baselines a drafter must attach a citation from are filed " +
     "in one place rather than looked up each time.",
 };

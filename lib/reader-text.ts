@@ -96,3 +96,19 @@ export function pageText(input: string): string {
   s = s.replace(ANY_REF, (_, at: number, whole: string) => (at === 0 || /[.!?]\s*$/.test(whole.slice(0, at)) ? "This proposal" : "this proposal"));
   return s;
 }
+
+/**
+ * A deep copy of a spec with every prose string passed through pageText. For specs built from the
+ * hand-built panels' data (lib/register/specs/s7-reference.ts), whose citations follow the older
+ * numbering pageText exists for: cleaned here, so the server-rendered page already reads in words.
+ */
+export function pageDeep<T>(value: T, key = ""): T {
+  if (typeof value === "string") return (KEEP.has(key) ? value : pageText(value)) as T;
+  if (Array.isArray(value)) return value.map((v) => pageDeep(v, key)) as T;
+  if (value && typeof value === "object" && Object.getPrototypeOf(value) === Object.prototype) {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) out[k] = KEEP.has(k) ? v : pageDeep(v, k);
+    return out as T;
+  }
+  return value;
+}

@@ -17,7 +17,7 @@
  * question, not this figure's.
  */
 import type { FigureSeries } from "./types";
-import { regFmt } from "./from-registry";
+import { regFmt } from "./from-registry.ts";
 
 /* ------------------------------------------------------------------ §4.5.7 the loop */
 

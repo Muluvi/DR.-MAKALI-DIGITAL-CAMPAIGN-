@@ -12,9 +12,10 @@ import { S4 } from "./s4-strategy.ts";
 import { S5 } from "./s5-implementation.ts";
 import { S6 } from "./s6-nextsteps.ts";
 import { S5_WS } from "./s5-workstreams.ts";
+import { S7 } from "./s7-reference.ts";
 
 /** The specs as written: tier codes, numbered phases and section citations intact. Checks and CSVs read these. */
-export const REGISTER_SOURCE: FigureSpec[] = [...S0, ...S1, ...S2, ...S3, ...S4, ...S5, ...S5_WS, ...S6];
+export const REGISTER_SOURCE: FigureSpec[] = [...S0, ...S1, ...S2, ...S3, ...S4, ...S5, ...S5_WS, ...S6, ...S7];
 
 /** The specs as the reader sees them: the same figures in plain words (lib/reader-text.ts). */
 export const REGISTER_ORDER: FigureSpec[] = REGISTER_SOURCE.map((s) => readerDeep(s));

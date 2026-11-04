@@ -4,7 +4,7 @@
  * once carried were retired with their figures (consolidation pass, Step 3); who owns which
  * station is data/media-ownership.ts, the map the proposal says governs.
  */
-import { regFmt } from "./from-registry";
+import { regFmt } from "./from-registry.ts";
 
 /**
  * §4.5.6's four bypass pillars, at both the levels the document states them.

@@ -579,7 +579,7 @@ It found only what the baseline also shows: "Chapter 3" twice, in a message-arch
 1. **Passage-level merges A, B, C, E, K, L and G's filtered views** (D4, "Not done"). The data
    under them is single-sourced; what remains is moving prose with a pointer per passage.
 2. **Volunteers into Workstream 10** (J).
-3. **42 qualitative legacy figures** to move to `FigureSpec`s (D3.4).
+3. **42 qualitative legacy figures** to move to `FigureSpec`s (D3.4). *Resolved in F10.*
 4. **Analysis reports** to regenerate once the data pack is available (D5.3). Some site figures in
    the model's narrative strings remain to convert then.
 5. **The broadcast approver** (fig-5-7 versus the content gateway) is the campaign's decision
@@ -619,3 +619,35 @@ machinery as Step 4, plus three small tools:
   (38 words) by the length of what each removed, and the entries say so.
 - Against a767371, drift is 0.84% (the baseline was 0.88%); against 2f29920 it is 0.04%.
 - 38 moved headings now redirect.
+
+### F10 The 42 legacy figures (D3.4, now resolved)
+
+**41 of the 42 are register `FigureSpec`s now**, in `lib/register/specs/s7-reference.ts`. The 42nd,
+`rapid-response-flow`, is a bespoke diagram component rather than data, and stays mapped by name.
+
+- **Same id, same fence.** Each spec keeps its legacy id, so every ```figure fence in content
+  resolves unchanged and no anchor moves. Its headline is its title, its measure its question and
+  its note its takeaway.
+- **Same data.** The qualitative tables, steps and grids stay in `lib/figures/*.ts`, which read
+  every number from the registry. Four adapters draw them: a table becomes a matrix, a stepper
+  becomes steps, a tier grid becomes cards, and paired rows become a two-column matrix. The org
+  chart, reporting lines, asset library, language map, language deployment and constituency power
+  are composed by hand. Constituency power is computed from `data/ward-register.json`, the same
+  file the registry reads.
+- **What each gains.** The register's frame: named sources with their reliability, a table view
+  and a CSV in `public/data/`. There are 91 register figures now, up from 50.
+- **Plain words at source.** The legacy data's prose cites the old section numbering ("§15.3.3").
+  This used to reach the server-rendered page and be rewritten in the browser by the plain-text
+  pass. `pageDeep` (`lib/reader-text.ts`) now applies the same rules when the spec is built, so
+  the page arrives in words. Five strings did not read well once the citation came out, and were
+  reworded in their data file. Each kept its meaning. For example, "USSD is not restricted —
+  §15.3.3 names USSD menu text…" became "USSD is not restricted: the channel rules name USSD menu
+  text…".
+- **Removed.** `components/figures/FigureFrame.tsx` and `components/figures/marks.tsx` had no
+  user left. `components/figures/registry.tsx` went from 835 lines to 99: the fence renderer, the
+  story and collapsed pointers, and the one bespoke entry. `lib/figures/register.ts` has no
+  importer either. It is left in place because the Step 0 literal baseline records it, and removing
+  it is a separate clean-up.
+
+Checked in a browser at 390px: every one of the 41 renders on its page, with no "Figure not found"
+banner, no section sign or tier code in its text, no horizontal overflow and no page error.

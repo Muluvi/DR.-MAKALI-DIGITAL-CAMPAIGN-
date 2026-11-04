@@ -348,5 +348,292 @@
     "title": "The ask is one week and one export, because the nomination window sets the clock",
     "question": "What is being asked?",
     "takeaway": "Each week of delay is a week less of directed output before a window reported for late October; the 275,570-voter pool is where that output goes."
+  },
+  {
+    "id": "audience-overview",
+    "section": "reference",
+    "title": "Six ways of cutting the same electorate, and two of them decide the channel plan",
+    "question": "This proposal's Kitui County audience architecture overview",
+    "takeaway": "Connectivity and language are the two facets the rest of the proposal turns on: 73.8% offline sets the channel mix, ~76% Kikamba sets the language mix. The 73.8% / 26.2% split is the CA/KNBS 2023/24 rate, which supersedes the 2019 census's 86.4% / 13.6%."
+  },
+  {
+    "id": "visit-loop",
+    "section": "reference",
+    "title": "Every visit logs a commitment, and twelve weeks later the tracker says what happened to it",
+    "question": "The visit-to-verification loop",
+    "takeaway": "It is a loop: the verification publishes to the tracker whether the commitment was kept or not, and that record is what the next visit is measured against. “Published either way” is the block's own phrase and the whole of its argument."
+  },
+  {
+    "id": "provenance-mandate",
+    "section": "reference",
+    "title": "Three things every figure in this document has to carry",
+    "question": "The tri-partite provenance mandate",
+    "takeaway": "Source, date and geographic unit. Every figure in this pass carries all three in its “View the data” disclosure, which is the document's own rule applied to the document's own charts."
+  },
+  {
+    "id": "tier-classification",
+    "section": "reference",
+    "title": "Three tiers, and only one of them may move money",
+    "question": "The three-tier evidential classification — tier, source types, authorised strategic use",
+    "takeaway": "The authorised-use column is what makes the tiers operational rather than descriptive: Tier 3 is strictly prohibited from driving financial or resource reallocation without escalation. Every figure in this pass carries the tier the section states, and flags disagreement rather than resolving it — which is C-8 and C-9."
+  },
+  {
+    "id": "conflict-protocol",
+    "section": "reference",
+    "title": "What to do when two sources disagree, in four steps the document wrote for itself",
+    "question": "The conflict resolution protocol, in order",
+    "takeaway": "Step 4 is the one this audit has been applying throughout: where the document disagrees with itself, both numbers are shown with their sources and neither is averaged away. The steps are numbered because they are tried in order — the methodological audit only applies once the tier test comes back equal."
+  },
+  {
+    "id": "message-by-segment",
+    "section": "reference",
+    "title": "Six segments, six messages, and a named evidence source behind every one",
+    "question": "The message-by-demographic-segment matrix — segment, tailored message and Kikamba framing, verifiable evidence",
+    "takeaway": "The evidence column is not decoration: the approval gateway makes a primary citation mandatory at drafting, and this matrix is where each segment's citation is named. The Kikamba framings are transcribed exactly, diacritics included."
+  },
+  {
+    "id": "message-by-channel",
+    "section": "reference",
+    "title": "Five channels, each with its own register and its own proof",
+    "question": "The message-by-channel matrix — channel and reach, format and linguistic style, evidential proof points",
+    "takeaway": "Reach is shown only where a source supports it: the SMS layer (phone owners not online) and the online audience, both read from the registry. Radio, caravans and church have no measured reach in Kitui. The channels overlap and must not be added."
+  },
+  {
+    "id": "escalation-ladder",
+    "section": "reference",
+    "title": "Three decision levels, three authorities, and the candidate is only in the last",
+    "question": "The operational escalation path — issues, resolution authority and the rule at each decision level. Attacks on the campaign are judged separately, by the severity tiers in Risks & response",
+    "takeaway": "The levels are numbered because escalation is ordered: a level 1 issue that is not resolved inside the hour becomes a level 2 issue, and the authority changes with it. Each level names who decides and what they must do, which is what makes it a protocol rather than a list."
+  },
+  {
+    "id": "response-matrix",
+    "section": "reference",
+    "title": "Four severity tiers, and the first instruction is to do nothing",
+    "question": "The response decision tree: severity tier, threshold, protocol, turnaround and who approves",
+    "takeaway": "Level 1's protocol is IGNORE / PASSIVE MONITOR, with an explicit instruction not to amplify or refute. It is the most easily lost line in the runbook and the one that decides whether a fringe post stays fringe. The thresholds are stated in advance, which is what makes the matrix usable at speed."
+  },
+  {
+    "id": "response-sla",
+    "section": "reference",
+    "title": "From fifteen minutes on air to twenty-four hours in print",
+    "question": "The rapid response SLA by channel",
+    "takeaway": "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal travels: radio first, then WhatsApp, then digital, then print. Bulk SMS is not on the clock: the 48-hour lodging rule in Ground & offline rules it out of rapid response."
+  },
+  {
+    "id": "holding-positions",
+    "section": "reference",
+    "title": "Four attack lines, four answers, and two sources that say the answer is not ready yet",
+    "question": "The pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
+    "takeaway": "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 says the classroom and bursary counts are pending the inventory and that only the record's 12,573 recipients and KSh 47m should be used until reconciled. Position 2 says the ward allocation methodology does not exist yet and the line should not go on air before it does. A runbook that hid either would be a runbook that sends a spokesperson on air with an unverified figure."
+  },
+  {
+    "id": "compliance-architecture",
+    "section": "reference",
+    "title": "Three statutes, and a signature count worked to its stricter reading",
+    "question": "The statutory compliance architecture",
+    "takeaway": "The endorsement count was stated two ways, 500 per sub-county (4,000) or 500 from at least 5 of the 8 (500 in total). A paper short of the statutory count is rejected and a surplus is not, so the campaign works to 4,000; the statutory figure is confirmed with counsel before filing."
+  },
+  {
+    "id": "iebc-clearance",
+    "section": "reference",
+    "title": "Seven clearances at five different stages, and one the campaign will not yet claim",
+    "question": "This proposal's IEBC statutory nomination clearance checklist — dimension, statutory standard, current status",
+    "takeaway": "The status column is the point: two Verified, one Active, one Scheduled, one Pending the filing window, one Operationalized — and one that reads “[Requires legal confirmation]”, the document declining to claim a deadline it has not confirmed."
+  },
+  {
+    "id": "liability-matrix",
+    "section": "reference",
+    "title": "Three exposures, and two of them end in a custodial sentence",
+    "question": "This proposal's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
+    "takeaway": "The exposure column carries the penalty as the document states it — Ksh 5,000,000 or two years, and disqualification plus five years — because a mitigation protocol read without its exposure is a procedure rather than a reason."
+  },
+  {
+    "id": "org-chart",
+    "section": "reference",
+    "title": "A lean core of three leads, each directing subcontracted specialists",
+    "question": "The lean core plus specialist vendor model",
+    "takeaway": "The three leads report to the Campaign Manager and the specialists are subcontracted, not hired. No role or headcount has been added: this is exactly the set the block named."
+  },
+  {
+    "id": "role-ownership",
+    "section": "reference",
+    "title": "Four core roles, and every specialist in the campaign reports through one of them",
+    "question": "The core campaign roles and ownership matrix — role, ownership, subcontractors directed",
+    "takeaway": "No role, headcount or vendor has been added. The SMS/USSD gateway vendor is stated as “selected at contracting”, which is the same pending state the procurement matrix records for every one of its five rows."
+  },
+  {
+    "id": "reporting-lines",
+    "section": "reference",
+    "title": "Two teams, one weekly brief, and a single named counterpart between them and the candidate",
+    "question": "The reporting lines",
+    "takeaway": "The weekly brief is the join: the existing team and Firefly's three people meet there, and one named counterpart carries it upward. Firefly is three people and the block says so."
+  },
+  {
+    "id": "research-and-tracker",
+    "section": "reference",
+    "title": "One programme tests whether the deficit is real; the other is the evidence it argues with",
+    "question": "The tests of the recognition hypothesis, and the service-delivery tracker",
+    "takeaway": "The research programme feeds the tracker: what the audit establishes about a ward becomes a baseline the tracker publishes against. 19B is stated as a dual asset — campaign evidence now, and a governing dashboard from day one."
+  },
+  {
+    "id": "research-modules",
+    "section": "reference",
+    "title": "Three instruments, and each one names the decision it unlocks",
+    "question": "The tests of the recognition-deficit hypothesis — module, method, record, timing and the decision it unlocks",
+    "takeaway": "The last column is what makes this a decision instrument: the audit's result routes directly to a stated change of plan, set out in advance in this proposal. All three read records that already exist: his own analytics, the IEBC's published forms and the line Firefly operates."
+  },
+  {
+    "id": "delivery-tracker",
+    "section": "reference",
+    "title": "Four delivery dimensions, two of which are still waiting on a ledger",
+    "question": "The public service-delivery tracker — dimension, statutory sources, update cadence and verification",
+    "takeaway": "The classroom and TVET counts and the bursary receipt count are stated as pending the project ledger, and they are printed that way rather than filled with an estimate. The record's 12,573 bursary recipients is the Tier 1 figure the document does have, and the row says so."
+  },
+  {
+    "id": "production-pipeline",
+    "section": "reference",
+    "title": "Four content types feed two engines, and everything leaves through one gateway",
+    "question": "This proposal's 360° content production pipeline",
+    "takeaway": "The gateway is the point of the diagram: both engines converge on it, so no asset reaches a voter without the four-step sign-off this proposal specifies. Nothing routes around it."
+  },
+  {
+    "id": "format-specs",
+    "section": "reference",
+    "title": "Five channels, and only one of them may carry Kikamba text",
+    "question": "The production format specifications — channel, technical specification, language and creative treatment",
+    "takeaway": "The SMS row states the constraint twice over: “Kiswahili or English only (CA rule)”, and GSM-7 encoding with no accented unicode — which rules out the ĩ and ũ Kikamba orthography needs. Kikamba travels by radio, voice notes and USSD instead."
+  },
+  {
+    "id": "weekly-cycle",
+    "section": "reference",
+    "title": "Approval falls on Wednesday, which is what makes Friday's market broadcast possible",
+    "question": "The weekly 7-day content production cycle — focus and output deliverables per day",
+    "takeaway": "The week is built backwards from Friday's markets: scripts Monday, studio Tuesday, the approval gateway Wednesday, print and radio dispatch Thursday. Friday's row states 100,000 ward SMS delivered, which this proposal's KPI ladder is the place to check against."
+  },
+  {
+    "id": "approval-gateway",
+    "section": "reference",
+    "title": "Nothing reaches a voter without a citation at the front and a logged signature at the end",
+    "question": "The four-step content approval gateway, in order",
+    "takeaway": "Numbered because the order is the control: a citation attached at step 1 is what steps 2 and 3 have to check, and the audit register entry at step 4 is what makes the whole chain reviewable afterwards."
+  },
+  {
+    "id": "asset-library",
+    "section": "reference",
+    "title": "Seven vaults, and the second one holds the evidence every asset has to cite",
+    "question": "The campaign asset repository",
+    "takeaway": "02_PRIMARY_EVIDENCE_VAULT is the one that makes the approval gateway's first step workable: the OAG certificates, the Hansard records and the KNBS baselines a drafter must attach a citation from are filed in one place rather than looked up each time."
+  },
+  {
+    "id": "field-loop",
+    "section": "reference",
+    "title": "What a ward coordinator hears at 18:00 can be answered on air the next morning",
+    "question": "The closed-loop field and digital integration engine",
+    "takeaway": "It is a loop, not a funnel: the inbound pipeline feeds the war room, the war room feeds the outbound pipeline and the physical channels, and what those produce comes back as field intelligence. The ASCII drew that with arrows; the order and this line carry it instead."
+  },
+  {
+    "id": "field-reports",
+    "section": "reference",
+    "title": "Four report types, one of which has a thirty-minute clock on it",
+    "question": "The ward coordinator field reporting protocol — type, frequency, channel and fields captured",
+    "takeaway": "The Critical Threat Flash is the only one with a deadline measured in minutes, and the only one routed to a direct phone rather than a queue. The other three are daily, weekly and weekly, and every one names the fields it captures."
+  },
+  {
+    "id": "four-hour-cycle",
+    "section": "reference",
+    "title": "A rumour logged by USSD is answered in three languages across four channels inside four hours",
+    "question": "The ground-to-digital cycle, on the clock",
+    "takeaway": "The clock is the claim, so it runs down the margin rather than sitting in a caption. The SMS step goes to the consented voters in Tseikuru and Kyuso, from a message lodged 48 hours ahead; how large that list is, is the target ladder's to answer, not this figure's."
+  },
+  {
+    "id": "operating-rhythm",
+    "section": "reference",
+    "title": "Seven standing forums, and the candidate is named in three of them",
+    "question": "The campaign operational rhythm and governance cadence — time, forum, agenda, owner and participants",
+    "takeaway": "The cadence is repeated on every row rather than merged down a column. A merged cell is a thing a screen reader reads once and a stacked phone layout loses entirely, and the cost of repeating it is two words."
+  },
+  {
+    "id": "data-layer",
+    "section": "reference",
+    "title": "Everything captured is tagged, consented and tiered before it reaches a channel",
+    "question": "The campaign data layer architecture — capture, validation, output, and the core beneath them",
+    "takeaway": "The ASCII original joined these with arrows. Arrows are the part that cannot survive a reflow, so the order carries the flow and the line above says in words what the arrows said: capture feeds validation, validation feeds the channels, and everything passes through the encrypted core."
+  },
+  {
+    "id": "supporter-schema",
+    "section": "reference",
+    "title": "Nineteen fields, four of them about consent and one that can never be reversed",
+    "question": "The supporter record schema — field, type, and the constraint on each",
+    "takeaway": "Transcribed field for field, including the enum members and their order: msisdn_hash is a one-way SHA-256 identifier and phone_encrypted is reversible AES-256-GCM for authorised SMS, and those are not interchangeable. It is now a real table — searchable, readable in order by a screen reader, and wrapping rather than scrolling sideways on a phone."
+  },
+  {
+    "id": "dpa-compliance",
+    "section": "reference",
+    "title": "Six sections of the Data Protection Act 2019, and what each one obliges the campaign to build",
+    "question": "The statutory compliance checklist — the legal requirement against the operational implementation",
+    "takeaway": "Each requirement cites its section of the Act. The pairing is the content, so each is drawn as one card rather than two columns that could shear apart at a narrow width."
+  },
+  {
+    "id": "tech-stack",
+    "section": "reference",
+    "title": "Four tiers, and the personal data lives in exactly one of them",
+    "question": "The campaign technology stack architecture",
+    "takeaway": "Tier 1 collects the phone numbers and tier 2 holds them encrypted; tiers 3 and 4 work on public and anonymised data. The procurement matrix rates the DPA risk of each accordingly, and every one of its five rows is still awaiting a campaign decision."
+  },
+  {
+    "id": "procurement-matrix",
+    "section": "reference",
+    "title": "Five components, rated for data-protection risk, and not one of them decided",
+    "question": "The technology stack master procurement matrix",
+    "takeaway": "All five rows read “Awaiting campaign decision” in the source and all five read it here. A figure that rendered a pending procurement as settled would be inventing the most consequential kind of thing in this chapter."
+  },
+  {
+    "id": "bypass-architecture",
+    "section": "reference",
+    "title": "Four ways to reach 532,758 voters without a commercial gatekeeper's permission",
+    "question": "The gatekeeper bypass and direct reach architecture: the operational protocol for each route",
+    "takeaway": "Four routes run in parallel but are stood up in order. Mang'elete, named in the first route, is in no ownership map; the ownership map in Who owns the airwaves governs."
+  },
+  {
+    "id": "counter-fire",
+    "section": "reference",
+    "title": "Three ground rumours, and the evidence the campaign answers each with",
+    "question": "The rumour-and-rebuttal protocol, paired",
+    "takeaway": "One of the three rebuttals ends “Share pending the ledger” — the document declining to claim a proportion it has not verified, inside its own counter-messaging table. It is kept exactly."
+  },
+  {
+    "id": "cultural-registers",
+    "section": "reference",
+    "title": "Four terms where the literal translation loses the argument",
+    "question": "The proverbial framing protocol — the term, the translation that fails, and the approved idiom",
+    "takeaway": "Every Kikamba string is transcribed with its diacritics exactly as this proposal prints them. ĩ and ũ are distinct letters rather than decorated vowels, and this proposal's own rules of engagement forbid machine translation of Kikamba for this reason."
+  },
+  {
+    "id": "qc-gateway",
+    "section": "reference",
+    "title": "Four gates between an English draft and a Kikamba broadcast",
+    "question": "The translation and quality-control gateway, in order",
+    "takeaway": "Numbered because it is a real sequence: the reverse-translation audit cannot run before the adaptation it audits exists, and the cultural sign-off is the last gate before release."
+  },
+  {
+    "id": "language-map",
+    "section": "reference",
+    "title": "Three languages, and three quarters of the county reachable in only one of them",
+    "question": "Estimated primary reach per language, as this proposal states it",
+    "takeaway": "The three shares are stated in this proposal without a citation and sum to 100%, so they describe who speaks what (a language map, unconfirmed), not a target. The content target is the 50 / 30 / 20 mix in this proposal; bulk SMS carries Kiswahili and English only."
+  },
+  {
+    "id": "language-deployment",
+    "section": "reference",
+    "title": "Every medium is allocated to the whole, and only one of them is allocated to Kikamba alone",
+    "question": "The language allocation per campaign output medium. Each row totals 100%.",
+    "takeaway": "The bulk SMS row gives Kikamba no allocation, as the bulk SMS rule requires: the Communications Authority restricts political bulk SMS to English or Kiswahili. USSD is not restricted, and takes 50% Kikamba here."
+  },
+  {
+    "id": "constituency-power",
+    "section": "reference",
+    "title": "Four of the eight constituencies hold 296,196 voters, 55.60% of the county, across 22 wards",
+    "question": "Registered voters per constituency, largest first, with ward count and average ward size",
+    "takeaway": "The \"Big 4\" (Kitui Central, Kitui South, Mwingi Central, Mwingi North) are where the register is; read with the ward map, they are where the effort is weighed."
   }
 ]
