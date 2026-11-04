@@ -651,3 +651,29 @@ machinery as Step 4, plus three small tools:
 
 Checked in a browser at 390px: every one of the 41 renders on its page, with no "Figure not found"
 banner, no section sign or tier code in its text, no horizontal overflow and no page error.
+
+### F11 The React #418 hydration error on /needs and /full
+
+This error predates the pass and was exempted in `live-check`. **It is fixed, and the exemption is
+removed**, so `live-check` now fails on any console error on any route.
+
+- **Cause.** The "How county money is spent" table has a header that carries a tier mark: "KSh,
+  itemised (Tier 1)". The tier mark draws as an "Official" chip, and the chip is a `<button>`.
+  The sortable table (`InteractiveTable`) wraps every header in its sort `<button>`. A button inside
+  a button is invalid HTML. The browser's parser splits the two apart, so the server's HTML no
+  longer matched React's tree, and React threw #418 and re-rendered the section on the client.
+  `/full` renders the same section.
+- **Fix.** The header's content is drawn under `InertMarks`, the context that already exists for a
+  chip drawn inside a control (`VisualFence` uses it). An inert chip is a `<span>` with the same
+  label and the same words for screen readers. Inside a sort control the chip does not open, and
+  the header still sorts.
+- **Checked.** On a production build, /needs, /full, /votes, /annex-evidence and /workstreams
+  showed no page error at 390px or 1280px. The /needs page has no `button button` nesting.
+- **Not changed.** A development-only warning remains: `useId` attributes differ in the
+  dynamically loaded issue-evidence panel. It is not raised in a production build, and nothing
+  looks those ids up (the fold works through refs). It has no effect on readers.
+
+### Still outstanding
+
+- **Analysis reports** (D5.3). They are regenerated from `analysis/data/`, which is gitignored and
+  not in the repository. They wait for the data pack.

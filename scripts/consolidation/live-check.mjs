@@ -5,8 +5,8 @@
  *
  * For "/" and "/full" at 390px and 1280px wide, and every chapter route at 390px, it scrolls the
  * whole page so every lazy section mounts, then checks:
- *   - console errors: none, except the React #418 hydration warning on /full and /needs, which
- *     pre-dates this pass (measured on a build of 2f29920; /full renders the needs section)
+ *   - console errors: none. (The React #418 hydration error on /full and /needs, once exempted
+ *     here, is fixed: a tier chip in a sortable table header was a button inside the sort button.)
  *   - visible text: no section number, "X of 36", Roman numeral, T1/T2/T3, "§", "Phase −1…3" (IPC
  *     phases excepted) or "Annex A–H"
  *   - visible text: none of the retired contradictions (RETIRED below)
@@ -75,8 +75,7 @@ for (const [route, widths] of RUNS) {
     await page.waitForTimeout(800);
     const text = await page.evaluate(() => document.body.innerText);
     const label = `${route} @${width}`;
-    const real = errs.filter((e) => !((route === "/full" || route === "/needs") && /Minified React error #418/.test(e)));
-    if (real.length) failures.push(`${label}: ${real.length} console error(s): ${real.slice(0, 3).join(" | ").slice(0, 400)}`);
+    if (errs.length) failures.push(`${label}: ${errs.length} console error(s): ${errs.slice(0, 3).join(" | ").slice(0, 400)}`);
     for (const [re, why] of RETIRED) { const m = re.exec(text); if (m) failures.push(`${label}: retired wording "${m[0]}" is visible (${why}): …${text.slice(Math.max(0, m.index - 80), m.index + 60).replace(/\s+/g, " ")}…`); }
     for (const [re, why] of NUMBERING) { const m = re.exec(text); if (m) failures.push(`${label}: ${why} visible: …${text.slice(Math.max(0, m.index - 60), m.index + 40).replace(/\s+/g, " ")}…`); }
     console.log(`${label}: ${text.length.toLocaleString("en-GB")} characters, ${errs.length} console error(s)`);

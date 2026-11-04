@@ -6,6 +6,7 @@ import { LayoutGroup, motion } from "motion/react";
 
 import { SourceLine, detectSources } from "./SourceLine";
 import { MatrixMarks } from "./MatrixMarks";
+import { InertMarks } from "./InertMarks";
 import ModelVariablesDrawer from "./ModelVariablesDrawer";
 import { useIsMobile, useMounted } from "../../hooks/use-mobile";
 import { chartSpecFor } from "../../lib/table-charts";
@@ -507,7 +508,9 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                           onClick={() => toggleSort(idx)}
                           className="fx-focus group flex w-full min-h-[44px] items-center gap-1.5 justify-between p-2.5 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
                         >
-                          <span>{th.props.children}</span>
+                          {/* The header is a sort button, so a chip in it (a tier mark) is drawn inert: a
+                              button inside a button is invalid HTML and fails hydration. */}
+                          <span><InertMarks.Provider value={true}>{th.props.children}</InertMarks.Provider></span>
                           <ArrowUpDown size={10} aria-hidden="true" className="fx-icon-rise text-muted group-hover:text-accent transition-colors shrink-0" />
                         </button>
                       </th>
