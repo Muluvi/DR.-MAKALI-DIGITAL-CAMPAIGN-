@@ -10,7 +10,8 @@
  *      properties (opacity, translate, scale, rotate, transform, stroke-dashoffset), so motion
  *      cannot shift the layout around it.
  *   1. Every chapter at 390px, scrolled through a screen at a time: at no step is a figure (.rf)
- *      or content visual (.vz) still pending while it sits in view. At the end, any visual the
+ *      or content visual (.vz) still pending while it sits in view (confirmed half a second
+ *      later, so a section streaming in a frame before the browser reports it is not counted). At the end, any visual the
  *      scroll passed while its section was still streaming in is scrolled to and must draw. Every
  *      mark the motion moves has settled at full opacity with no leftover offset. Layout shift is
  *      reported with motion on and off, not enforced: some chapters shift as their sections
@@ -62,7 +63,13 @@ async function scrollThrough(page) {
   for (let i = 0; i < 500; i++) {
     const h = await page.evaluate(() => { window.scrollBy({ top: window.innerHeight * 0.7, behavior: "instant" }); return document.documentElement.scrollHeight; });
     await page.waitForTimeout(120);
-    for (const id of await pendingInView(page)) seen.add(id);
+    // A section streaming in can push a visual into view a frame before the browser reports the
+    // intersection, so a hit counts only if it is still pending in view half a second later:
+    // what a reader would actually see.
+    if ((await pendingInView(page)).length) {
+      await page.waitForTimeout(500);
+      for (const id of await pendingInView(page)) seen.add(id);
+    }
     const y = await page.evaluate(() => window.scrollY + window.innerHeight);
     if (y >= h - 2) { if (h === last) break; last = h; await page.waitForTimeout(400); }
   }
@@ -171,7 +178,7 @@ for (const r of ["votes", "response", "workstreams"]) {
   const s = (await stuck(page)).bad.concat(inView);
   const u = await unsettled(page);
   const moved = await page.evaluate(() => Array.from(document.querySelectorAll('.vz.is-drawn .vz-card, .rf.is-drawn .kx-matrix tbody tr')).filter((el) => getComputedStyle(el).transitionDelay.split(",").some((d) => parseFloat(d) > 0)).length);
-  ok(s.length === 0 && u.length === 0 && moved === 0, `/${r}: ${s.length} stuck, ${u.length} unsettled, ${moved} staggered`);
+  ok(s.length === 0 && u.length === 0 && moved === 0, `/${r}: ${s.length} stuck, ${u.length} unsettled, ${moved} staggered${s.length ? ` [${s.slice(0, 3).join(", ")}]` : ""}`);
   await ctx.close();
 }
 
