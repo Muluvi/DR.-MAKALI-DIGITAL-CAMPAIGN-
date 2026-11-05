@@ -3,8 +3,9 @@
 import { useEffect } from "react";
 
 /**
- * The register's motion, and nothing else (brief §I). Every figure is complete in the HTML; this
- * only decides whether a reader sees it arrive.
+ * The draw-in for every figure (.rf, the register) and every content visual (.vz, the ```visual
+ * fences). Each is complete in the HTML; this only decides whether a reader sees it arrive. What
+ * each kind does as it arrives is in app/chart-kit.css and app/motion-draw.css.
  *
  *   Tier 1, still: scripts off, a low-end device (four cores or fewer, 2 GB or less), or Save-Data
  *              on. No class is set, so nothing moves.
@@ -15,6 +16,9 @@ import { useEffect } from "react";
  *
  * No loop, no scroll-jacking; print draws everything at once.
  */
+/** What draws in: register figures and content visuals. */
+const DRAWN = ".rf, .vz";
+
 export function RegisterMotion() {
   useEffect(() => {
     const nav = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
@@ -47,7 +51,7 @@ export function RegisterMotion() {
       f.classList.add("is-pending");
       io.observe(f);
     };
-    document.querySelectorAll<HTMLElement>(".rf").forEach(arm);
+    document.querySelectorAll<HTMLElement>(DRAWN).forEach(arm);
 
     // Most sections stream in as the reader approaches them (components/flow/StreamedSection.tsx),
     // so their figures arrive after this first pass. They are armed as they arrive, on the same
@@ -56,8 +60,8 @@ export function RegisterMotion() {
       for (const r of records) {
         r.addedNodes.forEach((n) => {
           if (!(n instanceof HTMLElement)) return;
-          if (n.matches(".rf")) arm(n);
-          n.querySelectorAll<HTMLElement>(".rf").forEach(arm);
+          if (n.matches(DRAWN)) arm(n);
+          n.querySelectorAll<HTMLElement>(DRAWN).forEach(arm);
         });
       }
     });

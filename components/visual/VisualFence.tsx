@@ -191,7 +191,7 @@ function Stats({ items, md }: { items: Item[]; md: Md }) {
   return (
     <ul className="vz-stats" style={{ "--vz-n": Math.min(items.length, 3) } as React.CSSProperties}>
       {items.map((it, i) => (
-        <li key={i} className="vz-stat">
+        <li key={i} className="vz-stat" style={{ "--i": i } as React.CSSProperties}>
           <span className="vz-stat__value">{md(it.value ?? "", true)}</span>
           <span className="vz-stat__label">
             {md(labelOf(it), true)} <TierTag tier={it.tier} />
@@ -210,7 +210,7 @@ function Cards({ items, md, preset }: { items: Item[]; md: Md; preset?: string }
   return (
     <ul className={`vz-cards ${preset ? `vz-cards--${preset}` : ""}`} data-count={items.length}>
       {items.map((it, i) => (
-        <li key={i} className="vz-card">
+        <li key={i} className="vz-card" style={{ "--i": i } as React.CSSProperties}>
           <div className="vz-card__top">
             {it.badge ? <span className="vz-badge">{it.badge}</span> : null}
             <TierTag tier={it.tier} />
@@ -308,9 +308,9 @@ function SequenceList({ items, md, kind, offset = 0 }: { items: Item[]; md: Md; 
   return (
     <Tag className={`vz-seq vz-seq--${kind}`} start={Tag === "ol" && offset ? offset + 1 : undefined}>
       {items.map((it, i) => (
-        <li key={i} className="vz-seq__item">
+        <li key={i} className="vz-seq__item" style={{ "--i": offset + i } as React.CSSProperties}>
           <span className="vz-seq__mark" aria-hidden="true">
-            {kind === "stepper" ? offset + i + 1 : kind === "checklist" ? <svg viewBox="0 0 16 16"><path d="M2 8.4l4 4L14 4" /></svg> : null}
+            {kind === "stepper" ? offset + i + 1 : kind === "checklist" ? <svg viewBox="0 0 16 16"><path d="M2 8.4l4 4L14 4" pathLength={1} /></svg> : null}
           </span>
           <div className="vz-seq__text">
             <ToggleRow it={it} md={md}>
@@ -332,7 +332,7 @@ function Column({ title, items, md, tone }: { title: string; items: Item[]; md: 
       <h5 className="vz-col__title">{title}</h5>
       <ul className="vz-col__list">
         {items.map((it, i) => (
-          <li key={i} className="vz-col__item">
+          <li key={i} className="vz-col__item" style={{ "--i": i } as React.CSSProperties}>
             <ToggleRow it={it} md={md}>
               <RowFace it={it} md={md} />
             </ToggleRow>
@@ -374,7 +374,7 @@ function Table({ spec, md }: { spec: VisualSpec; md: Md }) {
         </thead>
         <tbody>
           {(spec.rows ?? []).map((r, i) => (
-            <tr key={i}>
+            <tr key={i} style={{ "--i": i } as React.CSSProperties}>
               {r.cells.map((c, j) =>
                 j === 0 ? (
                   <th key={j} scope="row">{md(c, true)}{r.body ? <More>{md(r.body)}</More> : null}</th>
@@ -409,7 +409,7 @@ function Week({ items, md }: { items: Item[]; md: Md }) {
   return (
     <ol className="vz-week" data-count={items.length}>
       {items.map((d, i) => (
-        <li key={i} className="vz-week__day">
+        <li key={i} className="vz-week__day" style={{ "--i": i } as React.CSSProperties}>
           <span className="vz-week__name">{labelOf(d)}</span>
           {d.text ? <p className="vz-text">{md(d.text, true)}</p> : null}
           {d.items?.length ? (
@@ -437,7 +437,7 @@ function Bars({ items, md }: { items: Item[]; md: Md }) {
       {items.map((it, i) => {
         const v = Math.abs(numberOf(it.value));
         return (
-          <li key={i} className="vz-bars__row">
+          <li key={i} className="vz-bars__row" style={{ "--i": i } as React.CSSProperties}>
             <span className="vz-bars__label">{md(labelOf(it), true)} <TierTag tier={it.tier} /></span>
             <span className="vz-bars__track" aria-hidden="true">
               <span className="vz-bars__fill" style={{ width: `${max ? Math.max(2, (v / max) * 100) : 0}%` }} />
@@ -477,6 +477,8 @@ function Donut({ items, md }: { items: Item[]; md: Md }) {
               strokeWidth="6"
               strokeDasharray={`${pct} ${100 - pct}`}
               strokeDashoffset={offsets[i]}
+              className="vz-donut__seg"
+              style={{ "--i": i } as React.CSSProperties}
             />
           );
         })}
