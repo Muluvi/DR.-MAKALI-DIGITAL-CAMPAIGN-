@@ -574,8 +574,8 @@ function Steps({ chart }: { chart: Extract<ChartSpec, { type: "steps" }> }) {
 function Cards({ chart }: { chart: Extract<ChartSpec, { type: "cards" }> }) {
   return (
     <div className={`kx-cards cols-${chart.columns ?? 2}`}>
-      {chart.cards.map((c) => (
-        <div key={c.title} className={`kx-card ${c.tone ? `is-${c.tone}` : ""}`}>
+      {chart.cards.map((c, i) => (
+        <div key={c.title} className={`kx-card ${c.tone ? `is-${c.tone}` : ""}`} style={{ "--i": i } as React.CSSProperties}>
           {c.kicker && <p className="kx-card__kicker">{c.kicker}</p>}
           <h5>{c.title}</h5>
           <FigDetail><p>{c.body}</p></FigDetail>
@@ -610,8 +610,8 @@ function Matrix({ chart, caption }: { chart: Extract<ChartSpec, { type: "matrix"
           <tr>{chart.header.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
         </thead>
         <tbody>
-          {chart.rows.map((r) => (
-            <tr key={r.head}>
+          {chart.rows.map((r, ri) => (
+            <tr key={r.head} style={{ "--i": ri } as React.CSSProperties}>
               <th scope="row">{r.head}</th>
               {r.cells.map((c, i) => (
                 <td key={i} data-col={chart.header[i + 1]}>
@@ -897,8 +897,8 @@ function Mock({ chart }: { chart: Extract<ChartSpec, { type: "mock" }> }) {
         <div className="kx-phone__screen">
           <p className="kx-phone__head">{chart.header}</p>
           <ol className="kx-phone__fields">
-            {chart.fields.map((f) => (
-              <li key={f.n}>
+            {chart.fields.map((f, i) => (
+              <li key={f.n} style={{ "--i": i } as React.CSSProperties}>
                 <span className="kx-phone__k">{f.label}</span>
                 <span className="kx-phone__v">{f.shown}</span>
                 <span className="kx-pin" aria-hidden="true">{f.n}</span>
@@ -1159,7 +1159,7 @@ function Risk({ chart }: { chart: Extract<ChartSpec, { type: "risk" }> }) {
               {[1, 2, 3].map((i) => (
                 <td key={i} className={`heat-${l + i}`}>
                   {chart.items.filter((r) => r.likelihood === l && r.impact === i).map((r) => (
-                    <span key={r.code} className="kx-riskpin" tabIndex={0} role="img" aria-label={`${r.code}: ${r.label}. ${LEVEL[r.likelihood]} likelihood, ${IMPACT_LEVEL[r.impact].toLowerCase()} impact`}>
+                    <span key={r.code} className="kx-riskpin" style={{ "--i": chart.items.indexOf(r) } as React.CSSProperties} tabIndex={0} role="img" aria-label={`${r.code}: ${r.label}. ${LEVEL[r.likelihood]} likelihood, ${IMPACT_LEVEL[r.impact].toLowerCase()} impact`}>
                       {r.code}
                       <span className="kx-tip" aria-hidden="true">{r.label}</span>
                     </span>
@@ -1210,7 +1210,7 @@ function Heatmap({ chart, caption }: { chart: Extract<ChartSpec, { type: "heatma
                   if (v === null) return <td key={j} className="kx-nil">Data needed</td>;
                   const k = step(v);
                   return (
-                    <td key={j} className="kx-heat__cell pf-num" style={{ "--heat": `var(--seq-${k})`, "--heat-ink": k >= 3 ? "var(--seq-ink-dark)" : "var(--seq-ink-light)" } as React.CSSProperties}>
+                    <td key={j} className="kx-heat__cell pf-num" style={{ "--k": k, "--heat": `var(--seq-${k})`, "--heat-ink": k >= 3 ? "var(--seq-ink-dark)" : "var(--seq-ink-light)" } as React.CSSProperties}>
                       {v}{chart.unit}
                     </td>
                   );

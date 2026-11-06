@@ -45,6 +45,21 @@ import type { Transition, Variants } from "motion/react";
  * comparative balance charts, and live scorecard comparisons).
  *
  * ---------------------------------------------------------------------------
+ * EVERY VISUAL DRAWS IN, BY WHAT IT IS (November 2026, owner's direction):
+ * ---------------------------------------------------------------------------
+ * The rule above forbids a generic reveal on prose and headings, and it stands.
+ * Every register figure and every content visual does draw in once as it enters
+ * view, though, and each kind's motion states something about it: matrix rows
+ * arrive in reading order, a checklist is ticked off, a timeline's line runs
+ * down through its dates, a heatmap builds from cool to hot, risk pins land in
+ * their cells, contrast sides come from opposite sides. Folds open out of their
+ * control, and a workstream tab's panel arrives from the side its tab sits on.
+ * All of it is CSS keyed to .is-pending / .is-drawn (app/chart-kit.css,
+ * app/motion-draw.css), armed below the fold only by
+ * components/register/RegisterMotion.tsx, and checked by
+ * scripts/consolidation/motion-check.mjs.
+ *
+ * ---------------------------------------------------------------------------
  * THREE RIGID DURATIONS:
  * ---------------------------------------------------------------------------
  * 1. fast        ~150ms (0.15s) : Micro-interactions, press feedback, tab toggles, quick checks

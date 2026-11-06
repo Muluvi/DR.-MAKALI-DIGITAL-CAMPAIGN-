@@ -16,9 +16,11 @@
  * map sends on to "workstreams-sec-15-2-1") opens its tab first, through lib/fold.ts revealAround,
  * and "#ws-media" opens a tab by name.
  */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 import { PANEL_EVENT } from "../../lib/fold";
+import { SPRING } from "../../lib/motion";
 
 export const WORKSTREAM_TABS = [
   { tab: "platforms", label: "Platforms & content", range: "Workstreams 1–4" },
@@ -38,11 +40,19 @@ function groupOf(node: Node, ms: HTMLElement[]): string | null {
   return tab;
 }
 
-/** Show one group's range and hide the rest; null shows everything. */
-function apply(active: string | null) {
+/**
+ * Show one group's range and hide the rest; null shows everything.
+ *
+ * `enter` is the direction the reader moved along the tab row. The blocks that come into view are
+ * marked for one entrance from that side (app/motion-draw.css), so the panel arrives from where its
+ * tab sits: the motion says which way they went. The first choice, made as the page loads, passes
+ * none, so nothing moves under a reader who has not touched the tabs.
+ */
+function apply(active: string | null, enter?: "next" | "prev") {
   const r = root();
   if (!r) return;
-  for (const el of Array.from(r.querySelectorAll<HTMLElement>(`[${HIDDEN}]`))) { el.hidden = false; el.removeAttribute(HIDDEN); }
+  const wasHidden = Array.from(r.querySelectorAll<HTMLElement>(`[${HIDDEN}]`));
+  for (const el of wasHidden) { el.hidden = false; el.removeAttribute(HIDDEN); }
   if (active === null) return;
   const ms = marks(r);
   const walk = (el: Element) => {
@@ -54,13 +64,28 @@ function apply(active: string | null) {
     }
   };
   walk(r);
+  if (!enter) return;
+  for (const el of wasHidden) {
+    if (el.hidden) continue;
+    el.setAttribute("data-ws-enter", enter);
+    const done = () => el.removeAttribute("data-ws-enter");
+    el.addEventListener("animationend", done, { once: true });
+    window.setTimeout(done, 700);
+  }
 }
+
+const ORDER: string[] = WORKSTREAM_TABS.map((t) => t.tab);
 
 export function WorkstreamTabBar() {
   const [active, setActive] = useState<string | null>(null);
+  const current = useRef<string | null>(null);
+  const reduce = useReducedMotion();
 
   const show = useCallback((tab: string) => {
-    apply(tab);
+    const from = current.current;
+    const enter = from && from !== tab ? (ORDER.indexOf(tab) > ORDER.indexOf(from) ? "next" : "prev") : undefined;
+    apply(tab, enter);
+    current.current = tab;
     setActive(tab);
   }, []);
 
@@ -123,10 +148,20 @@ export function WorkstreamTabBar() {
                   history.replaceState(null, "", `#ws-${t.tab}`);
                   document.getElementById(`ws-${t.tab}`)?.scrollIntoView({ block: "start" });
                 }}
-                className={`flex min-h-11 flex-col justify-center rounded-xl px-3 py-1.5 text-left transition-colors ${on ? "bg-accent text-white" : "text-ink hover:bg-paper"}`}
+                className={`relative flex min-h-11 flex-col justify-center rounded-xl px-3 py-1.5 text-left transition-colors ${on ? "text-white" : "text-ink hover:bg-paper"}`}
               >
-                <span className="t-small font-bold leading-tight">{t.label}</span>
-                <span className={`t-micro leading-tight ${on ? "text-white/80" : "text-muted"}`}>{t.range}</span>
+                {/* One highlight that travels to the chosen tab, rather than one that blinks out
+                    and reappears: the reader sees where they moved from and to. */}
+                {on && (
+                  <motion.span
+                    layoutId="ws-tab-pill"
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-xl bg-accent"
+                    transition={reduce ? { duration: 0 } : SPRING.snappy}
+                  />
+                )}
+                <span className="relative t-small font-bold leading-tight">{t.label}</span>
+                <span className={`relative t-micro leading-tight ${on ? "text-white/80" : "text-muted"}`}>{t.range}</span>
               </a>
             </li>
           );

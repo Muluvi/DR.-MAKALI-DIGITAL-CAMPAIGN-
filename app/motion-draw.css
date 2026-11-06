@@ -1,0 +1,220 @@
+/* ========================================================================== */
+/*  motion-draw.css: how each visual arrives, and how what a reader opens      */
+/*  opens.                                                                     */
+/*                                                                             */
+/*  THE CONTRACT (the same as app/chart-kit.css's draw-in, extended to every   */
+/*  kind that had none):                                                       */
+/*    - Everything is drawn complete in the HTML. Motion only decides whether  */
+/*      a reader sees it arrive.                                               */
+/*    - Armed by components/register/RegisterMotion.tsx, and only for a figure */
+/*      (.rf) or content visual (.vz) that is still below the fold. It is      */
+/*      marked .is-pending and becomes .is-drawn once as it enters view. A     */
+/*      visual already on screen never moves under the reader's eyes.         */
+/*    - Scripts off, a low-end device or Save-Data: html.motion-ok is never    */
+/*      set, so nothing here applies and every visual is simply there.        */
+/*    - Reduced motion: no travel. A visual fades in once (the end of this     */
+/*      file), and folds and tabs change without movement.                    */
+/*    - Print: every rule below sits under `screen`, so paper gets the drawn   */
+/*      state. RegisterMotion also draws everything on beforeprint.           */
+/*    - Compositor only: opacity, translate, scale, rotate, stroke-dashoffset. */
+/*      Nothing animates a layout property, so nothing shifts what is around   */
+/*      it.                                                                    */
+/*    - Each kind's motion says something about it: rows arrive in reading     */
+/*      order, a checklist is ticked off item by item, a timeline's line is    */
+/*      drawn down through its dates, a heatmap builds from cool to hot, risk  */
+/*      pins land in their cells, the two sides of a contrast come from        */
+/*      opposite sides. Long sets cap their stagger so the last item never     */
+/*      waits more than about a second.                                       */
+/* ========================================================================== */
+
+:root {
+  --mx-ease: var(--pf-ease, cubic-bezier(0.16, 1, 0.3, 1));
+  --mx-ease-out: var(--pf-ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  /* The emphasis curve (lib/motion.ts EASE_EMPHASIS): a small overshoot for a mark landing on its place. */
+  --mx-land: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* ---------------------------------------------------------------- shared stagger */
+  html.motion-ok :is(.rf, .vz) {
+    --mx-step: 70ms;
+    --mx-cap: 840ms;
+  }
+  html.motion-ok :is(.rf, .vz).is-drawn [style*="--i"] {
+    --mx-d: min(calc(var(--i, 0) * var(--mx-step)), var(--mx-cap));
+  }
+
+  /* ================================================================ register figures */
+
+  /* Matrix (31 figures): the header settles, then the rows arrive in reading order. */
+  html.motion-ok .rf.is-pending .kx-matrix thead { opacity: 0; }
+  html.motion-ok .rf.is-drawn .kx-matrix thead { transition: opacity 360ms var(--mx-ease-out); }
+  html.motion-ok .rf.is-pending .kx-matrix tbody tr { opacity: 0; translate: 0 10px; }
+  html.motion-ok .rf.is-drawn .kx-matrix tbody tr {
+    transition: opacity 420ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 120ms), translate 560ms var(--mx-ease) calc(var(--mx-d, 0ms) + 120ms);
+  }
+
+  /* Cards (25 figures): each card in turn, the order they are read in. */
+  html.motion-ok .rf.is-pending .kx-card { opacity: 0; translate: 0 12px; }
+  html.motion-ok .rf.is-drawn .kx-card {
+    --mx-step: 80ms;
+    transition: opacity 420ms var(--mx-ease-out) var(--mx-d, 0ms), translate 600ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Heatmap: cells arrive by their value, so the colour builds from the cool end to the hot. */
+  html.motion-ok .rf.is-pending .kx-heat__cell { opacity: 0; scale: 0.86; }
+  html.motion-ok .rf.is-drawn .kx-heat__cell {
+    transition: opacity 360ms var(--mx-ease-out) calc((var(--k, 1) - 1) * 120ms), scale 480ms var(--mx-ease) calc((var(--k, 1) - 1) * 120ms);
+  }
+
+  /* Risk grid: the grid first, then each risk lands in its cell. */
+  html.motion-ok .rf.is-pending .kx-riskgrid td { opacity: 0; }
+  html.motion-ok .rf.is-drawn .kx-riskgrid td { transition: opacity 420ms var(--mx-ease-out); }
+  html.motion-ok .rf.is-pending .kx-riskgrid .kx-riskpin { opacity: 0; scale: 0.4; }
+  html.motion-ok .rf.is-drawn .kx-riskgrid .kx-riskpin {
+    --mx-step: 110ms;
+    transition: opacity 260ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 380ms), scale 520ms var(--mx-land) calc(var(--mx-d, 0ms) + 380ms);
+  }
+
+  /* Calendar: the week runs Monday to Sunday. */
+  html.motion-ok .rf.is-pending .kx-day { opacity: 0; translate: 0 -8px; }
+  html.motion-ok .rf.is-drawn .kx-day {
+    transition: opacity 360ms var(--mx-ease-out) var(--mx-d, 0ms), translate 520ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Phone mock-up: the screen fills field by field, then each problem is pinned where it sits. */
+  html.motion-ok .rf.is-pending .kx-phone__fields li { opacity: 0; translate: -8px 0; }
+  html.motion-ok .rf.is-drawn .kx-phone__fields li {
+    --mx-step: 90ms;
+    transition: opacity 340ms var(--mx-ease-out) var(--mx-d, 0ms), translate 480ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+  html.motion-ok .rf.is-pending .kx-phone .kx-pin { scale: 0; }
+  html.motion-ok .rf.is-drawn .kx-phone .kx-pin {
+    transition: scale 460ms var(--mx-land) calc(var(--mx-d, 0ms) * 1.4 + 420ms);
+  }
+
+  /* ================================================================ content visuals */
+
+  /* Checklist (38): the items are ticked off one by one. The ring settles, then the tick draws. */
+  html.motion-ok .vz.is-pending .vz-seq--checklist .vz-seq__mark { opacity: 0; scale: 0.7; }
+  html.motion-ok .vz.is-pending .vz-seq--checklist .vz-seq__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  html.motion-ok .vz.is-drawn .vz-seq--checklist .vz-seq__item { --mx-step: 110ms; --mx-cap: 1100ms; }
+  html.motion-ok .vz.is-drawn .vz-seq--checklist .vz-seq__mark {
+    transition: opacity 240ms var(--mx-ease-out) var(--mx-d, 0ms), scale 420ms var(--mx-land) var(--mx-d, 0ms);
+  }
+  html.motion-ok .vz.is-drawn .vz-seq--checklist .vz-seq__mark path {
+    stroke-dasharray: 1;
+    transition: stroke-dashoffset 380ms var(--mx-ease) calc(var(--mx-d, 0ms) + 160ms);
+  }
+
+  /* Stepper (6): each numbered step in order, the number first and its words after it. */
+  html.motion-ok .vz.is-pending .vz-seq--stepper .vz-seq__mark { opacity: 0; scale: 0.6; }
+  html.motion-ok .vz.is-pending .vz-seq--stepper .vz-seq__text { opacity: 0; translate: -6px 0; }
+  html.motion-ok .vz.is-drawn .vz-seq--stepper .vz-seq__item { --mx-step: 140ms; --mx-cap: 1120ms; }
+  html.motion-ok .vz.is-drawn .vz-seq--stepper .vz-seq__mark {
+    transition: opacity 260ms var(--mx-ease-out) var(--mx-d, 0ms), scale 480ms var(--mx-land) var(--mx-d, 0ms);
+  }
+  html.motion-ok .vz.is-drawn .vz-seq--stepper .vz-seq__text {
+    transition: opacity 360ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 90ms), translate 480ms var(--mx-ease) calc(var(--mx-d, 0ms) + 90ms);
+  }
+
+  /* Timeline (8): the line is drawn down through the dates, and each date appears as it reaches it. */
+  html.motion-ok .vz.is-pending .vz-seq--timeline .vz-seq__item::before { scale: 1 0; }
+  html.motion-ok .vz.is-pending .vz-seq--timeline .vz-seq__mark { scale: 0; }
+  html.motion-ok .vz.is-pending .vz-seq--timeline .vz-seq__text { opacity: 0; translate: 0 6px; }
+  html.motion-ok .vz.is-drawn .vz-seq--timeline .vz-seq__item { --mx-step: 150ms; --mx-cap: 1200ms; }
+  html.motion-ok .vz.is-drawn .vz-seq--timeline .vz-seq__item::before {
+    transform-origin: 50% 0;
+    transition: scale 320ms linear calc(var(--mx-d, 0ms) + 200ms);
+  }
+  html.motion-ok .vz.is-drawn .vz-seq--timeline .vz-seq__mark { transition: scale 420ms var(--mx-land) var(--mx-d, 0ms); }
+  html.motion-ok .vz.is-drawn .vz-seq--timeline .vz-seq__text {
+    transition: opacity 360ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 60ms), translate 480ms var(--mx-ease) calc(var(--mx-d, 0ms) + 60ms);
+  }
+
+  /* Cards (31): each card in turn. */
+  html.motion-ok .vz.is-pending .vz-card { opacity: 0; translate: 0 12px; }
+  html.motion-ok .vz.is-drawn .vz-card {
+    --mx-step: 80ms;
+    transition: opacity 420ms var(--mx-ease-out) var(--mx-d, 0ms), translate 600ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Stats (15): each number settles on its value, the label under it. */
+  html.motion-ok .vz.is-pending .vz-stat__value { opacity: 0; scale: 0.9; }
+  html.motion-ok .vz.is-pending .vz-stat :is(.vz-stat__label, .vz-stat__cap) { opacity: 0; }
+  html.motion-ok .vz.is-drawn .vz-stat { --mx-step: 120ms; }
+  html.motion-ok .vz.is-drawn .vz-stat__value {
+    transform-origin: 0 70%;
+    transition: opacity 320ms var(--mx-ease-out) var(--mx-d, 0ms), scale 560ms var(--mx-land) var(--mx-d, 0ms);
+  }
+  html.motion-ok .vz.is-drawn .vz-stat :is(.vz-stat__label, .vz-stat__cap) { transition: opacity 420ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 200ms); }
+
+  /* Bars (3): each bar grows from the baseline to its value. */
+  html.motion-ok .vz.is-pending .vz-bars__fill { scale: 0 1; }
+  html.motion-ok .vz.is-drawn .vz-bars__fill {
+    transform-origin: 0 50%;
+    transition: scale 900ms var(--mx-ease) calc(var(--mx-d, 0ms) + 100ms);
+  }
+  html.motion-ok .vz.is-pending .vz-bars__fill { transform-origin: 0 50%; }
+  html.motion-ok .vz.is-drawn .vz-bars__row { --mx-step: 90ms; }
+
+  /* Donut (2): the segments fan in clockwise from twelve o'clock, in the legend's order. */
+  html.motion-ok .vz.is-pending .vz-donut__seg { opacity: 0; rotate: -30deg; }
+  html.motion-ok :is(.vz.is-pending, .vz.is-drawn) .vz-donut__seg { transform-box: view-box; transform-origin: 21px 21px; }
+  html.motion-ok .vz.is-drawn .vz-donut__seg {
+    --mx-step: 140ms;
+    transition: opacity 300ms var(--mx-ease-out) var(--mx-d, 0ms), rotate 700ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Contrast and in/out (5): the two sides come from opposite sides, then their points in turn. */
+  html.motion-ok .vz.is-pending :is(.vz-col--left, .vz-col--in) { opacity: 0; translate: -16px 0; }
+  html.motion-ok .vz.is-pending :is(.vz-col--right, .vz-col--out) { opacity: 0; translate: 16px 0; }
+  html.motion-ok .vz.is-drawn .vz-col {
+    transition: opacity 420ms var(--mx-ease-out), translate 640ms var(--mx-ease);
+  }
+  html.motion-ok .vz.is-drawn :is(.vz-col--right, .vz-col--out) { transition-delay: 120ms; }
+  html.motion-ok .vz.is-pending .vz-col__item { opacity: 0; }
+  html.motion-ok .vz.is-drawn .vz-col__item { transition: opacity 360ms var(--mx-ease-out) calc(var(--mx-d, 0ms) + 260ms); }
+
+  /* Week (2): Monday to Sunday. */
+  html.motion-ok .vz.is-pending .vz-week__day { opacity: 0; translate: 0 -8px; }
+  html.motion-ok .vz.is-drawn .vz-week__day {
+    transition: opacity 360ms var(--mx-ease-out) var(--mx-d, 0ms), translate 520ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Matrix and crosswalk tables (2): rows in reading order. */
+  html.motion-ok .vz.is-pending .vz-table tbody tr { opacity: 0; translate: 0 8px; }
+  html.motion-ok .vz.is-drawn .vz-table tbody tr {
+    transition: opacity 400ms var(--mx-ease-out) var(--mx-d, 0ms), translate 540ms var(--mx-ease) var(--mx-d, 0ms);
+  }
+
+  /* Hypothesis and Q&A panels (2): in their argument's order, the attack before the answer. */
+  html.motion-ok .vz.is-pending .vz-panel { opacity: 0; translate: 0 10px; }
+  html.motion-ok .vz.is-drawn .vz-panel { transition: opacity 420ms var(--mx-ease-out), translate 600ms var(--mx-ease); }
+  html.motion-ok .vz.is-drawn .vz-panel:nth-child(2) { transition-delay: 160ms; }
+  html.motion-ok .vz.is-drawn .vz-panel:nth-child(3) { transition-delay: 320ms; }
+  html.motion-ok .vz.is-drawn .vz-panel:nth-child(4) { transition-delay: 480ms; }
+
+  /* ================================================================ what a reader opens */
+
+  /* A fold opened after the page loaded (a tap, find in page, a deep link): its words come down
+     out of the control that opened them. FoldBody sets the mark; a fold rendered open has none. */
+  html.motion-ok [data-fold-enter] { animation: mx-fold-in 300ms var(--mx-ease) both; }
+  html.motion-ok span[data-fold-enter] { animation-name: mx-fade-in; animation-duration: 220ms; }
+
+  /* Workstream tabs: the chosen panel arrives from the side its tab sits on. */
+  html.motion-ok [data-ws-enter="next"] { animation: mx-ws-next 380ms var(--mx-ease) both; }
+  html.motion-ok [data-ws-enter="prev"] { animation: mx-ws-prev 380ms var(--mx-ease) both; }
+}
+
+@keyframes mx-fold-in { from { opacity: 0; translate: 0 -6px; } }
+@keyframes mx-fade-in { from { opacity: 0; } }
+@keyframes mx-ws-next { from { opacity: 0; translate: 20px 0; } }
+@keyframes mx-ws-prev { from { opacity: 0; translate: -20px 0; } }
+
+/* Reduced motion: no travel, no stagger. A content visual fades in once, as register figures do
+   (app/chart-kit.css); a fold or a tab panel simply appears. */
+@media screen and (prefers-reduced-motion: reduce) {
+  html.motion-ok .vz.is-pending .vz__body { opacity: 0; }
+  html.motion-ok .vz.is-drawn .vz__body { opacity: 1; transition: opacity 400ms ease-out; }
+}

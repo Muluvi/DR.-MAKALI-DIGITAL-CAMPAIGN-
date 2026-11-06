@@ -4,6 +4,7 @@ import './globals.css'; // Global styles
 import './register.css'; // The figure register's visual system
 import './premium.css'; // The 2026 premium layer
 import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
+import './motion-draw.css'; // How each visual arrives and how folds and tabs open (after the marks it moves)
 
 // The variable axis, not a pair of static cuts.
 //

@@ -38,11 +38,25 @@ export function FoldBody({
 
   // `hidden="until-found"` cannot be rendered by React (it drops the value), so it is set here.
   // The server's markup is closed by CSS until then, so this changes nothing a reader sees.
+  //
+  // A fold that opens after it mounted (a tap, find in page, a deep link) is marked for one
+  // disclosure animation (app/motion-draw.css): the words arrive from the control that opened
+  // them. A fold rendered open never animates, and the mark is gone once the animation ends.
+  const wasOpen = useRef(open);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (open) el.removeAttribute("hidden");
     else el.setAttribute("hidden", "until-found");
+    if (open && !wasOpen.current) {
+      el.setAttribute("data-fold-enter", "");
+      const done = () => el.removeAttribute("data-fold-enter");
+      el.addEventListener("animationend", done, { once: true });
+      const t = window.setTimeout(done, 600);
+      wasOpen.current = open;
+      return () => { window.clearTimeout(t); el.removeEventListener("animationend", done); };
+    }
+    wasOpen.current = open;
   }, [open]);
 
   useEffect(() => {
