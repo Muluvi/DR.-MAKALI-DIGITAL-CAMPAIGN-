@@ -22,7 +22,8 @@
     "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check && node --no-warnings --experimental-strip-types scripts/declutter/tier-mismatches.mjs --check",
     "build:consolidation-changes": "CONTENT_BASE=2f29920 CONTENT_LEDGER=docs/consolidation-2026-11/ledger.json CONTENT_LEDGER_MD=docs/consolidation-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the consolidation pass moved, merged or replaced, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: where it went, and the pointer left behind.' node scripts/declutter/build-cuts-md.mjs",
     "scan:literals": "node --no-warnings --experimental-strip-types scripts/consolidation/scan-literals.mjs",
-    "check:contradictions": "node --no-warnings --experimental-strip-types scripts/consolidation/check-contradictions.mjs"
+    "check:contradictions": "node --no-warnings --experimental-strip-types scripts/consolidation/check-contradictions.mjs",
+    "check:preservation": "node --no-warnings --experimental-strip-types --import ./scripts/preservation/register.mjs scripts/check-preservation.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
