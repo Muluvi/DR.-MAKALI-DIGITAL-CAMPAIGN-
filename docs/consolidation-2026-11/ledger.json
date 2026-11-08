@@ -855,5 +855,83 @@
   "home": "engagement:13.3",
   "note": "Volunteers into Workstream 10 (merge J): the label the moved reference carries, consistent with the engagement scope, which puts volunteer organising outside Firefly's work.",
   "text": "*Reference for the campaign's own team. Volunteer organising is outside Firefly's scope (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*"
+ },
+ {
+  "file": "votes",
+  "section": "B.1",
+  "first12": "Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026",
+  "words": 255,
+  "kind": "moved",
+  "whole": true,
+  "to": "annex-evidence:B.1",
+  "home": "annex-evidence:B.1",
+  "note": "Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): votes B.1 moved into annex-evidence, word for word, heading and all, because it equips the team rather than argues the case.",
+  "text": "Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 register is not yet published by ward.\n\n#### 1. Mwingi North Constituency ({{con.mwingi-north}} total registered voters, Tier 1)\n\n*   **Kyuso Ward:** {{ward.kyuso}} voters\n*   **Tseikuru Ward:** {{ward.tseikuru}} voters\n*   **Mumoni Ward:** {{ward.mumoni}} voters\n*   **Ngomeni Ward:** {{ward.ngomeni}} voters\n*   **Tharaka Ward:** {{ward.tharaka}} voters\n\n#### 2. Mwingi West Constituency ({{con.mwingi-west}} total registered voters, Tier 1)\n\n*   **Nguutani Ward:** {{ward.nguutani}} voters\n*   **Kyome/Thaana Ward:** {{ward.kyome-thaana}} voters\n*   **Migwani Ward:** {{ward.migwani}} voters\n*   **Kiomo/Kyethani Ward:** {{ward.kiomo-kyethani}} voters\n\n#### 3. Mwingi Central Constituency ({{con.mwingi-central}} total registered voters, Tier 1)\n\n*   **Central Ward:** {{ward.central}} voters\n*   **Nguni Ward:** {{ward.nguni}} voters\n*   **Nuu Ward:** {{ward.nuu}} voters\n*   **Kivou Ward:** {{ward.kivou}} voters\n*   **Mui Ward:** {{ward.mui}} voters\n*   **Waita Ward:** {{ward.waita}} voters\n\n#### 4. Kitui West Constituency ({{con.kitui-west}} total registered voters, Tier 1)\n\n*   **Mutonguni Ward:** {{ward.mutonguni}} voters\n*   **Kauwi Ward:** {{ward.kauwi}} voters\n*   **Matinyani Ward:** {{ward.matinyani}} voters\n*   **Kwa Mutonga/Kithumula Ward:** {{ward.kwa-mutonga-kithumula}} voters\n\n#### 5. Kitui Rural Constituency ({{con.kitui-rural}} total registered voters, Tier 1)\n\n*   **Kwa Vonza/Yatta Ward:** {{ward.kwa-vonza-yatta}} voters\n*   **Kisasi Ward:** {{ward.kisasi}} voters\n*   **Mbitini Ward:** {{ward.mbitini}} voters\n*   **Kanyangi Ward:** {{ward.kanyangi}} voters\n\n#### 6. Kitui Central Constituency ({{con.kitui-central}} total registered voters, Tier 1)\n\n*   **Township Ward:** {{ward.township}} voters\n*   **Kyangwithya West Ward:** {{ward.kyangwithya-west}} voters\n*   **Kyangwithya East Ward:** {{ward.kyangwithya-east}} voters\n*   **Mulango Ward:** {{ward.mulango}} voters\n*   **Miambani Ward:** {{ward.miambani}} voters\n\n#### 7. Kitui East Constituency ({{con.kitui-east}} total registered voters, Tier 1)\n\n*   **Zombe/Mwitika Ward:** {{ward.zombe-mwitika}} voters\n*   **Chuluni Ward:** {{ward.chuluni}} voters\n*   **Nzambani Ward:** {{ward.nzambani}} voters\n*   **Voo/Kyamatu Ward:** {{ward.voo-kyamatu}} voters\n*   **Mutito/Kaliku Ward:** {{ward.mutito-kaliku}} voters\n*   **Endau/Malalani Ward:** {{ward.endau-malalani}} voters\n\n#### 8. Kitui South Constituency ({{con.kitui-south}} total registered voters, Tier 1)\n\n*   **Athi Ward:** {{ward.athi}} voters\n*   **Ikanga/Kyatune Ward:** {{ward.ikanga-kyatune}} voters\n*   **Mutomo Ward:** {{ward.mutomo}} voters\n*   **Ikutha Ward:** {{ward.ikutha}} voters\n*   **Mutha Ward:** {{ward.mutha}} voters\n*   **Kanziko Ward:** {{ward.kanziko}} voters"
+ },
+ {
+  "file": "votes",
+  "section": "2.3",
+  "first12": "The register of every ward, with its voters and polling stations, is",
+  "words": 0,
+  "kind": "added",
+  "home": "annex-evidence:B.1",
+  "note": "The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11).",
+  "text": "The register of every ward, with its voters and polling stations, is at the end of Evidence and sources."
+ },
+ {
+  "file": "workstreams",
+  "section": "D.1",
+  "first12": "*Reference for the campaign's own team. Volunteer organising is outside the platform's",
+  "words": 355,
+  "kind": "moved",
+  "whole": true,
+  "to": "annex-playbooks:D.1",
+  "home": "annex-playbooks:D.1",
+  "note": "Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): workstreams D.1 moved into annex-playbooks, word for word, heading and all, because it equips the team rather than argues the case.",
+  "text": "*Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*\n\n```lead\n**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).\n```\n\n#### Turning online supporters into offline organisers\n\nA tiered volunteer programme converting passive online supporters into active\noffline organisers, with gamification driving sustained engagement.\n\n#### Volunteer tiers\n\n| Tier | Name | Entry requirement | Activities |\n|---|---|---|---|\n| **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |\n| **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |\n| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 15.3.2)** |\n| **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |\n\n**Data-handling training is a gate, not an option.** No volunteer collects\npersonal data before completing it (Section 19.3).\n\n#### Gamification mechanics\n\n| Mechanic | Implementation | Reward |\n|---|---|---|\n| Points | Awarded for shares, sign-ups, training completion, verified registration drives, canvass returns | Merchandise, recognition |\n| Leaderboards | Ward and county rankings published weekly in WhatsApp groups | Public recognition, tier advancement |\n| Badges | Milestones — \"10 Voters Registered,\" \"Content Creator,\" \"Ward Champion\" | Profile display, sharing |\n| Streaks | Daily engagement tracked via WhatsApp bot | Bonus points, spotlight features |\n\n**Integrity rule.** Points reward **verified real-world action** — a registered\nvoter, a canvassed household, a completed training — not raw posting volume.\nReward systems that pay for volume produce spam and, at scale, look\nindistinguishable from inauthentic activity. That would breach both platform\npolicy and the Section 19.3 charter, and it is designed out from the start.\n\n#### Management tooling\n\n* **Custom WhatsApp bot** for lightweight volunteer management: registration,\npoint tracking, content distribution, leaderboards\n* **USSD registration path** so volunteers without smartphones can join\n(Section 15.3.3) — a genuine differentiator in the arid belt\n* Forms and spreadsheets for baseline collection\n* Task management via a shared board\n* Purpose-built volunteer platforms only at the premium level\n\n#### Volunteer KPIs\n\n| Metric | Target |\n|---|---|\n| Sign-up conversion from social traffic | ≥ 5% |\n| Active rate (engaged in last 30 days) | ≥ 40% |\n| Tier 2 advancement | ≥ 20% of Tier 1 |\n| Offline action completion | ≥ 60% |\n| Average points per volunteer per month | ≥ {{target.volunteer-points}} |\n| 90-day retention | ≥ 50% |\n| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |\n\n<ws-mark tab=\"data\"></ws-mark>"
+ },
+ {
+  "file": "workstreams",
+  "section": "15.3.4",
+  "first12": "The volunteer programme reference is in Platform playbooks, in the working platform",
+  "words": 0,
+  "kind": "added",
+  "home": "annex-playbooks:D.1",
+  "note": "The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11).",
+  "text": "The volunteer programme reference is in Platform playbooks, in the working platform that follows the proposal."
+ },
+ {
+  "file": "lawful",
+  "section": "F.8",
+  "first12": "```lead **Hardware keys for the candidate and admins are non-negotiable and take",
+  "words": 155,
+  "kind": "moved",
+  "whole": true,
+  "to": "annex-runbooks:F.8",
+  "home": "annex-runbooks:F.8",
+  "note": "Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): lawful F.8 moved into annex-runbooks, word for word, heading and all, because it equips the team rather than argues the case.",
+  "text": "```lead\n**Hardware keys for the candidate and admins are non-negotiable and take very little.**\n```\n\n```visual\nkind: checklist\nitems:\n  - label: \"**Hardware security keys (FIDO2)** for two-factor authentication\"\n    text: \"**Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap\"\n    fields:\n      - { label: \"Applies to\", text: \"Candidate, Digital Director, all admin-level accounts\" }\n  - label: \"App-based 2FA minimum\"\n    text: \"Where hardware keys are impractical\"\n    fields:\n      - { label: \"Applies to\", text: \"All staff and Tier 3–4 volunteers\" }\n  - label: \"Password manager\"\n    text: \"Unique generated credentials; no reuse\"\n    fields:\n      - { label: \"Applies to\", text: \"All staff\" }\n  - label: \"Role-based access\"\n    text: \"Least privilege; no shared logins ever\"\n    fields:\n      - { label: \"Applies to\", text: \"All platforms\" }\n  - label: \"Business Manager structure\"\n    text: \"Assets owned by the campaign entity, not individuals\"\n    fields:\n      - { label: \"Applies to\", text: \"All ad and page assets\" }\n  - label: \"Quarterly access review\"\n    text: \"Remove departed staff and volunteers within 24 hours of departure\"\n    fields:\n      - { label: \"Applies to\", text: \"Data-governance owner\" }\n  - label: \"Recovery contacts\"\n    text: \"Documented, verified, held by two named people\"\n    fields:\n      - { label: \"Applies to\", text: \"Candidate accounts\" }\n```\n\n**Hardware keys for the candidate and admins are non-negotiable and take very\nlittle.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account\nholder** so a lost key never locks an account, registered before any SMS or app code is removed."
+ },
+ {
+  "file": "lawful",
+  "section": "F.9",
+  "first12": "```visual kind: checklist items: - label: \"Onboarding training for every staff member",
+  "words": 220,
+  "kind": "moved",
+  "whole": true,
+  "to": "annex-runbooks:F.9",
+  "home": "annex-runbooks:F.9",
+  "note": "Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): lawful F.9 moved into annex-runbooks, word for word, heading and all, because it equips the team rather than argues the case.",
+  "text": "```visual\nkind: checklist\nitems:\n  - label: \"Onboarding training for every staff member and Tier 3–4 volunteer before account access is granted\"\n  - label: \"**Simulated phishing exercises quarterly**, with results used for coaching, never for punishment — punitive programmes suppress reporting, which is the opposite of the goal\"\n  - label: \"A no-blame reporting channel with a target of **under 15 minutes** from suspicion to report\"\n  - label: \"Specific coverage of the patterns most likely here: fake platform security alerts, fake IEBC or party communications, and fake media interview requests\"\n```\n\n#### Technical risk and security protocols\n\nTo keep campaign systems running and protect them from infiltration or cyber disruption:\n\n1.  **Two-factor authentication, with hardware keys for administrators:** every war room operator and every ward coordinator who opens a dashboard uses two-factor authentication, by an authenticator app (such as Google Authenticator) at minimum; database administrators use a hardware security key (such as a YubiKey).\n2.  **Automated off-site backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.\n3.  **Data redaction by role:** ground staff and ward captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the data protection officer and the campaign manager.\n\n*Source conflict: an earlier version listed Google Authenticator as a hardware key; it is an app, and the rule above separates the two.*"
+ },
+ {
+  "file": "lawful",
+  "section": "19.3",
+  "first12": "The account security baseline and phishing awareness are in Runbooks, in the",
+  "words": 0,
+  "kind": "added",
+  "home": "annex-runbooks:F.9",
+  "note": "The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11).",
+  "text": "The account security baseline and phishing awareness are in Runbooks, in the working platform that follows the proposal."
  }
 ]

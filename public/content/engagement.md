@@ -4,7 +4,7 @@
 
 **Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.** Firefly publishes nothing on Dr. Makali Mulu's accounts and runs none of his channels. This chapter opens Part IV. It sets out how the operation is built, who owns what, what is outside it, the weekly rhythm and approvals, and the meetings and escalation path.
 
-## 13.1 How this proposal is built
+## 13.1 How the work is built
 
 ```lead
 Your team works in three steps on the platform, and keeps publishing throughout: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4.
@@ -22,7 +22,7 @@ id: fig-1-4-flow
 
 Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This proposal deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
 
-## 13.2 Who owns what: your team, the campaign, and Firefly's platform
+## 13.2 Who owns what
 
 ```lead
 **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** It operates no channel at all: the offline layer, a WhatsApp Business API line and a USSD shortcode, is the campaign's to run.
@@ -78,7 +78,7 @@ R responsible · A accountable · C consulted · I informed.
 | Crisis, critical tier | — | **R** | **A** | C | I |
 | The platform: hosting, upkeep, data checks, new features | **R/A** | C | I | I | — |
 
-## 13.3 What is outside this scope
+## 13.3 What is outside the scope
 
 Stated as plainly as what is inside, because a boundary a proposal will not draw is a boundary the campaign discovers later:
 
@@ -86,7 +86,7 @@ Stated as plainly as what is inside, because a boundary a proposal will not draw
 {"kind":"inout","out":[{"label":"Publishing to Dr. Mulu's owned accounts","text":"Firefly runs the platform; your team briefs, approves and measures on it.","body":"Firefly does not post, and does not hold credentials. The offline layer in §15.3.3 is your team's to operate end to end."},{"label":"Replacing or restaffing the existing team","text":"Section 17.5 sets out how the team assesses and upskills itself on the platform.","body":"Where a capability gap cannot be closed by upskilling, the team names the gap and the campaign decides — Firefly does not propose itself for the role."},{"label":"Volunteer organising","text":"recruitment, tiers, gamification and ward-champion management (Workstream 10).","body":"The team defines the metrics the leaderboard reports, in the platform's indicator list."},{"label":"The existing technology estate","body":"accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."},{"label":"Physical event logistics","text":"staging, PA systems, tents, transport and fuel.","body":"Section 17.1 names these as subcontracted vendor classes managed by the campaign."},{"label":"Legal representation","text":"election petitions, litigation, and the data-protection and electoral-law review itself.","body":"Section 19.2 has the campaign appoint that reviewer; the team and Firefly's platform work to their sign-off rather than substituting for it."},{"label":"Candidate scheduling","text":"tour management, diary and constituency office operations."},{"label":"Party-level negotiation","text":"with Wiper Patriotic Front organs, branch committees and the national executive."},{"label":"Polling agent recruitment, accreditation and payment","text":"The team tracks indicator GE-03 on the platform's KPI tracker;","body":"the campaign supplies and accredits the agents."},{"label":"Campaign-owned field recommendations","body":"The ward-captain network (240 of 400 captains recommended for the pool's wards, Section 12.1), the 800 M-Pesa \"Economic Ambassadors\", the 1,200 boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."}]}
 ```
 
-## 13.4 The weekly rhythm, decision rights and approvals
+## 13.4 The weekly rhythm and approvals
 
 **Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.**
 
@@ -108,7 +108,7 @@ id: fig-5-7-approval
 
 **Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop.
 
-## 13.5 Meetings and the escalation path
+## 13.5 Meetings and escalation
 
 ```lead
 This annex now carries only the rhythm the engagement itself creates.
@@ -138,7 +138,7 @@ Three decision levels, so that operational decisions do not stall under pressure
 id: escalation-ladder
 ```
 
-## 17 The team
+## 17 The campaign team
 
 ```lead
 One team, one interface. The brief is the interface. **The campaign names three roles. Firefly adds the platform.**
@@ -247,7 +247,7 @@ id: role-ownership
 id: reporting-lines
 ```
 
-## 17.5 How the existing team is assessed and upskilled
+## 17.5 Assessing and upskilling the team
 
 **The team assesses itself on the platform. Firefly replaces no one.**
 

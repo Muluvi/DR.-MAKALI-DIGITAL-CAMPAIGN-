@@ -31,7 +31,7 @@ id: fig-2-8-record
 
 **The NG-CDF record, and its limits.** The constituency's NG-CDF site publishes project records, proposals, allocations and Project Implementation Status reports across its five wards: Mulango, Kyangwithya East, Kyangwithya West, Township and Miambani. The FY2026/27 allocation is **KSh {{ngcdf.allocation.2026}}** (Tier 1). A project is described as completed only where its implementation-status report says so.
 
-## 6.2 Where he is known, and where he is not
+## 6.2 Where he is known, and where not
 
 ```lead
 **Five of the twelve largest wards lie where he has never held office.** The pool is {{pool.share}}% of the entire Kitui County voter register. The pool is structural: it is derived from where he has held office, not from any measure of opinion.
@@ -85,7 +85,7 @@ id: fig-3-4-footprint
 id: fig-3-6-party-flow
 ```
 
-## 6.4 His channels today, and his rivals'
+## 6.4 His channels and his rivals'
 
 ```figure
 id: fig-2-9-channels
@@ -93,7 +93,7 @@ id: fig-2-9-channels
 
 **The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run record of completed projects, and the first content type, "Where the money went" (Section 10.1), exists to put that record in front of voters who have never heard of him. The boundary in Section 19.2 applies: the **project record** is usable; the **beneficiary personal data** behind it is not.
 
-## 6.5 What his current online presence shows
+## 6.5 What his online presence shows
 
 The findings below come from the profile as displayed, and finding them took an afternoon. They matter because a brief written over a profile that contradicts the parliamentary record inherits the contradiction. The corrections are in Section 14.3.
 

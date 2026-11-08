@@ -54,12 +54,15 @@ export function secHref(num: string): string {
     "21": "receives", "22": "receives", "23": "ask",
   };
   const annex: Record<string, string> = {
-    A: "annex-evidence", B: "votes", C: "annex-playbooks", D: "workstreams", E: "annex-technology",
+    A: "annex-evidence", B: "annex-evidence", C: "annex-playbooks", D: "annex-playbooks", E: "annex-technology",
     F: "annex-runbooks", G: "annex-terms", H: "annex-terms",
   };
   const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
+  // Sections that live outside their number's chapter: living standards and the county's money sit in
+  // What voters need, and the response tiers, times and protocol sit in Risks and response.
+  const located: Record<string, string> = { "1.3": "needs", "1.5": "needs", "F.1": "response", "F.2": "response", "F.5": "response" };
   const parts = num.split(".");
-  const tab = parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
+  const tab = located[num] ? located[num] : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);
   return `/${tab}#${tab}-sec-${parts.join("-").toLowerCase()}`;
 }

@@ -88,7 +88,7 @@ items:
 
 Ownership associations are publicly reported rather than certified, and ownership changes. The certifiable records are the Communications Authority's register of broadcast licensees and the Business Registration Service's company records. The map is checked against both before any placement is booked, and updated when either changes.
 
-## 4.3 What each channel can physically reach
+## 4.3 What each channel can reach
 
 ```lead
 If the campaign reached 100% of every internet-connected voter in Kitui County, it would reach about **{{reach.smartphone}} voters** (modelled), and even if every one of them voted for him he would be **{{reach.smartphone.short}} votes short** of the {{benchmark}} benchmark.
@@ -137,7 +137,7 @@ right:
       body: "WhatsApp and Facebook rarely reach dryland farming communities without someone to carry the message in person."
 ```
 
-## 4.4 The offline majority, and the infrastructure that reaches it
+## 4.4 Reaching the offline majority
 
 ```lead
 The election will be won or lost across the **{{reach.offline}} registered voters not reachable online** (modelled: the July 2026 register less the {{reach.smartphone}} reachable by smartphone or data).

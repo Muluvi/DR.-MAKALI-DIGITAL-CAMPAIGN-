@@ -16,7 +16,7 @@ id: fig-1-5-scorecard
 id: fig-5-6-kpis
 ```
 
-## 18.2 The scorecards for each stage
+## 18.2 Scorecards for each stage
 
 #### Stage 1: the nomination window
 
@@ -110,7 +110,7 @@ views. They move without any voter moving. **R-03 replaces likes** because a sha
 name inside a network he does not own — which, in a ward where he is unknown, is the only thing a
 post can usefully do.
 
-## 18.4 Why vanity metrics are excluded
+## 18.4 Why vanity metrics are left out
 
 Vanity metrics are kept out of every dashboard, reporting meeting and vendor contract, for three reasons. They remain visible as operational diagnostics (Section 14.4), marked as such.
 
@@ -129,7 +129,7 @@ items:
     body: "Pledges collected in person, consented SMS contacts and trained polling-day agents produce counted votes."
 ```
 
-## 18.5 The presence audit: method
+## 18.5 How the presence audit works
 
 The first work of the engagement: ninety days of Dr. Mulu's own channels, measured, coded and read against the race. Every baseline in this chapter is set by what it finds.
 

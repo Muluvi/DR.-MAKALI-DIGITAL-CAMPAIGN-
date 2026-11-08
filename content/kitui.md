@@ -4,7 +4,7 @@ Kitui is large, rural, young and poor: **{{census.population}}** people on **{{c
 
 Kitui is large, rural, young and poor: **{{census.population}}** people on **{{census.area}} km²**, a median age of **{{census.median-age}}**, and **{{poverty.2021}}%** in poverty in 2021 (Tier 1, KNBS). Its next governor runs a resource envelope of **KSh {{budget.total|bn}} billion** a year (Tier 3, unconfirmed). This chapter sets out who lives here and how the county is run; Chapter 3 sets out what they need.
 
-## 1.1 The people: population, gender, age, households
+## 1.1 Who lives here
 
 The 2019 census counted **{{census.population}}** people: {{census.male}} men, {{census.female}} women and {{census.intersex}} intersex people (Tier 1, KNBS). KNBS projects **{{population.2025}}** residents in 2025 and **{{population.2030}}** in 2030 (Tier 1, County Gender Data Sheet, October 2025).
 
@@ -33,7 +33,7 @@ id: fig-2-4-people
 
 **What it means for the campaign.** A county where half the people are under {{census.median-age}} has a large cohort of first-time voters arriving at each election, and women are the majority of residents ({{census.female.share}}%).
 
-## 1.2 The land: area, density, rural and urban, the three regions
+## 1.2 The land and its three regions
 
 Kitui covers **{{census.area}} km²**, Kenya's sixth-largest county, at **{{census.density}}** people per km² (Tier 1, KNBS 2019 Census). The national comparison is not yet sourced: an earlier draft gave 82 per km²; the record that would settle it is KNBS 2019 Census Volume I.
 
@@ -73,7 +73,7 @@ body: "**A note on the names in this table.** These are *administrative sub-coun
 
 Living standards, from poverty and water to electricity, phones and the internet, are set out with the rest of what voters need, in What voters need.
 
-## 1.4 How the county is run: 8 constituencies, 40 wards, sub-counties and villages
+## 1.4 How the county is run
 
 Kitui has eight constituencies, 40 county assembly wards and {{census.subcounties}} administrative sub-counties (Tier 1, IEBC and KNBS). The county also counts villages as administrative units. No verified figure is available yet for their number; the record that would settle it is the Kitui County Integrated Development Plan 2023–2027. The reported count is of villages, not sub-locations, and the two are not used interchangeably.
 

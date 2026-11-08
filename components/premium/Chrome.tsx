@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import measured from "../../data/section-heights.json";
 
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
-import { FLOW_ACTS, FLOW_ORDER, actOf } from "../../lib/flow";
+import { FLOW_ACTS, FLOW_ORDER, actOf, isAfterAct } from "../../lib/flow";
 import { partOf, type TabId } from "../../lib/heading-slug";
 import { PartDots } from "../flow/PartDots";
 
@@ -18,12 +18,12 @@ import { PartDots } from "../flow/PartDots";
  * and it steps away on the way down and returns on the way up, so the middle never is either
  * (D-07). What it names is decided by ClientPage's probe, not by an observer's last event (D-08).
  *
- * SPINE. Seven act segments on the right edge of a wide screen, each as long as that act is on
+ * SPINE. Eight act segments on the right edge of a wide screen, each as long as that act is on
  * the page, measured from the act openers themselves on every scroll frame, filling with the weave
  * as the reader moves through them. Every segment is a labelled button (hover and focus). Phones
- * get the same seven targets in the index instead.
+ * get the same eight targets in the index instead.
  */
-export const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"];
+export const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
 export function actNumeral(tab: TabId): string {
   return ROMAN[FLOW_ACTS.indexOf(actOf(tab))] ?? "";
@@ -54,7 +54,7 @@ export function Dock({
         {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
             they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
         <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
-          <span className="pf-dock__numeral" aria-hidden="true">{partOf(tab) === 0 || actOf(tab).id === "reference" ? "·" : <PartDots actId={actOf(tab).id} />}</span>
+          <span className="pf-dock__numeral" aria-hidden="true">{partOf(tab) === 0 || isAfterAct(actOf(tab).id) ? "·" : <PartDots actId={actOf(tab).id} />}</span>
           <span className="pf-dock__label">
             {number && <b className="pf-dock__num">{number} ·</b>} {label}
           </span>

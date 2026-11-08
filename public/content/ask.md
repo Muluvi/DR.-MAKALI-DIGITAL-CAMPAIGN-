@@ -38,7 +38,7 @@ day in three languages. What the record does not yet show is a reason behind any
 voter it was for, which of the **275,570** registered voters in the pool wards, where he has never held office, it
 reached, and whether it moved anything.
 
-## 23.1 The window, not the deadline
+## 23.1 The window that sets the pace
 
 > **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this
 > document is derived from it rather than chosen.

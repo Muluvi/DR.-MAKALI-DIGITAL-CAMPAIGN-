@@ -119,7 +119,7 @@ now directed by the team itself. Firefly's own deliverable is the platform: host
 
 *Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.*
 
-## 22 What Firefly commits to, and what the campaign provides
+## 22 Commitments on both sides
 
 ```lead
 Firefly commits to a platform, its upkeep and its data checks; the team to a method, a cadence and a standard. Neither commits to an electoral outcome, and no figure in this document should be read as one.

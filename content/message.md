@@ -156,7 +156,7 @@ id: visit-loop
 
 A commitment with no date is not logged. A date that passes with no verification post is a gap the monthly review reads as a miss, not as a scheduling accident.
 
-## 10.2 Message discipline and persuasion principles
+## 10.2 Discipline and persuasion principles
 
 ```lead
 Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**.
@@ -216,7 +216,7 @@ items:
 
 The last principle is the campaign's own. It turns Dr. Mulu's M&E credential into a persuasion technique no rival can use.
 
-## 10.3 Framing, worked through in examples
+## 10.3 Framing, in worked examples
 
 Each example applies one principle from Section 10.2 to evidence from Chapter 3.
 
@@ -260,7 +260,7 @@ items:
       - { label: "Anchoring", text: "\"Only {{fuel.clean.2022}}% of Kitui households cook with clean fuels. Energy poverty is economic poverty.\" 2022, County Gender Data Sheet, Tier 1 (Kenya {{fuel.clean.2022.kenya}}%). The 2019 Census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%." }
 ```
 
-## 10.4 Sample messaging: what the weekly brief hands the team
+## 10.4 Sample messages from the weekly brief
 
 ```lead
 **No segment in these grids carries a size.** The grids assign messages; they do not measure audiences.

@@ -8,7 +8,7 @@ Six voter segments, each with its own language, channel and content type, and si
 id: audience-overview
 ```
 
-## 11.1 The universes: base, persuasion, turnout
+## 11.1 The base, persuasion and turnout universes
 
 ```lead
 Segments say where to speak and in what language; universes say what success looks like there.
@@ -115,7 +115,7 @@ items:
       - { label: "What it takes to move them", text: "- *Core Anxiety:* Inefficient county spending that leaves their rural parents and siblings in perpetual poverty, requiring continuous emergency financial bailouts from the diaspora.\n- *Candidate Value Proposition:* Presenting Dr. Mulu as the \"Diaspora's Trusted Steward\"—an economist who will manage county funds with audited transparency, build reliable healthcare and water systems, and create an enabling environment for diaspora private investments in real estate, agribusiness, and tourism." }
 ```
 
-## 11.3 How large each segment is, and the evidence
+## 11.3 How large each segment is
 
 ```lead
 **These six segments overlap, and the figures below are not additive.** **Check the base before quoting any percentage here.**

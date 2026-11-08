@@ -46,7 +46,7 @@ const PART_NAMES: Record<string, string> = {
   I: "Kitui today",
   II: "The contest",
   III: "The strategy",
-  IV: "How the campaign runs",
+  IV: "The plan",
   V: "Proof and protection",
   VI: "The decision",
 };
@@ -81,7 +81,7 @@ export function pageText(input: string): string {
   s = s.replace(OPENS_PART, (m: string) => (m.trim().endsWith(":") ? "This chapter opens this part: " : "This chapter opens this part"));
   s = s.replace(PARTS_ROMAN, (_, a: string, b: string) => `${PART_NAMES[a]} and ${PART_NAMES[b]}`);
   s = s.replace(PART_ROMAN, (_, r: string) => PART_NAMES[r]);
-  s = s.replace(ANNEX_REF, "the reference shelf");
+  s = s.replace(ANNEX_REF, "the evidence and the working platform");
   s = s.replace(CHAPTER_REF, (m: string, n: string) => (CHAPTER_NAME.has(n) ? `“${CHAPTER_NAME.get(n)}”` : m));
   if (!/§|Section/.test(s)) return s;
   if (ONLY_REFS.test(s)) return "";

@@ -25,7 +25,7 @@ stops raising the objection rather than stopping the behaviour. The override log
 friction surfaces as evidence instead of as attrition.
 ```
 
-## 20.2 The war room and rapid-response protocol
+## 20.2 The war room
 
 > **The protocol follows below; the runbooks hold the reference material.** The four-tier response
 > decision tree, the response times by channel and the pre-approved message library follow this
@@ -74,7 +74,7 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 
 The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; and **SMS delivery and opt-out rates**.
 
-## F.1 The four-tier response decision tree
+## F.1 Four tiers of response
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
 
@@ -82,13 +82,13 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign judg
 id: response-matrix
 ```
 
-## F.2 Response times, by channel
+## F.2 Response times by channel
 
 ```figure
 id: response-sla
 ```
 
-## F.5 Rapid-response protocol and pre-approved message library
+## F.5 The protocol and message library
 
 The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
 
@@ -152,7 +152,7 @@ lie.
 This is stated in the charter, rehearsed in drills, and is the reason the
 campaign's own deepfake denials will be believed.
 
-## 20.5 Monitoring competitors: public sources only
+## 20.5 Monitoring competitors from public sources
 
 *Analysis of the rivals themselves is in Section 5.5; the tools are in Annex F.4 and the outputs in Annex F.11.*
 

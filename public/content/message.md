@@ -74,7 +74,7 @@ id: visit-loop
 
 A commitment with no date is not logged. A date that passes with no verification post is a gap the monthly review reads as a miss, not as a scheduling accident.
 
-## 10.2 Message discipline and persuasion principles
+## 10.2 Discipline and persuasion principles
 
 ```lead
 Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**.
@@ -100,7 +100,7 @@ Section 19.3 makes this a published commitment.
 
 The last principle is the campaign's own. It turns Dr. Mulu's M&E credential into a persuasion technique no rival can use.
 
-## 10.3 Framing, worked through in examples
+## 10.3 Framing, in worked examples
 
 Each example applies one principle from Section 10.2 to evidence from Chapter 3.
 
@@ -108,7 +108,7 @@ Each example applies one principle from Section 10.2 to evidence from Chapter 3.
 {"kind":"tabs","preset":"message","note":"All figures drawn from KNBS and county sources; each is verified before\npublication under the Section 19.3 fact-check protocol.","items":[{"title":"Water scarcity","fields":[{"label":"Loss aversion","text":"\"Approximately 400,000 people in Kitui still depend on surface water for drinking. Every dry season takes more from us than the boreholes would.\""},{"label":"Verification","text":"\"We will publish every borehole location, cost and completion date. Dial `[shortcode]` to check the one nearest you.\""},{"label":"Loss aversion (July 2025)","text":"\"More than a quarter of Kitui's water points were not working in July 2025 (NDMA). Every broken borehole is a longer walk for a woman in Mutha.\" 28.6% of 630 sources, Tier 1."},{"label":"Verification (the county's own count)","text":"\"The county says it drilled 57 boreholes. Dial `[shortcode]` and check the one nearest you.\" During the nomination window, the verification half only (Section 10.2)."}]},{"title":"Fiscal accountability","fields":[{"label":"Anchoring","text":"\"Kitui County will handle KSh 13.79 billion this financial year. Do you know where it goes? Dr. Mulu will publish every shilling.\""},{"label":"Loss aversion","text":"\"Every shilling lost is a borehole not drilled, a nurse not hired, a road not built.\""},{"label":"Verification","text":"\"He was certified best evaluated constituency in the Eastern region. He does not just allocate — he measures.\""}]},{"title":"Poverty and household economics","fields":[{"label":"Loss aversion","text":"\"55.2% of Kitui lived in poverty in 2021 (KNBS). That is a policy choice, not a fact of nature.\""},{"label":"Social proof","text":"\"Green grams beat the five-year average by 58% this season. Kitui farmers adapt; the county should help them sell.\" NDMA, long rains 2025, Tier 1."}]},{"title":"Youth unemployment","fields":[{"label":"Commitment device","text":"\"Pledge to register, and Dr. Mulu pledges a quarterly county jobs audit. Hold him to it.\""},{"label":"Messenger effect","text":"A SEKU graduate on how county digital hubs would have changed their job search."}]},{"title":"Women and household income","fields":[{"label":"Messenger effect","text":"A table-banking chairlady on poultry income — a sector in over 90% of Kitui households, and one that rarely appears in county policy conversation."}]},{"title":"Healthcare and nutrition","fields":[{"label":"Loss aversion","text":"\"Only 11.7% of Kitui residents have any health insurance.\" KDHS 2022, household population, Tier 1 (10.3% through NHIF). Say \"residents\", never \"voters\"."},{"label":"Social proof","text":"\"One in four children in Kitui is stunted. Join the movement.\" KDHS 2022 puts stunting at 25.1% of children under five (Tier 1); the county's older planning baseline gives 29.3% (Tier 2). Quote the KDHS figure."},{"label":"Anchoring","text":"\"Seven in ten Kitui residents report a problem getting health care. Dr. Mulu will publish which clinics have medicines this week.\" 69.5% of women, KDHS 2022, Tier 1: say \"residents report\" only with that base stated."}]},{"title":"School meals","fields":[{"label":"Messenger effect","text":"A parent from a school running a parent-funded meals programme, on why the county should carry it. NDMA links the gap to absenteeism and dropout (Section 3.5)."}]},{"title":"Energy poverty","fields":[{"label":"Anchoring","text":"\"Only 6.3% of Kitui households cook with clean fuels. Energy poverty is economic poverty.\" 2022, County Gender Data Sheet, Tier 1 (Kenya 21.2%). The 2019 Census put unclean fuels at 92.6% and firewood at 79.5%."}]}]}
 ```
 
-## 10.4 Sample messaging: what the weekly brief hands the team
+## 10.4 Sample messages from the weekly brief
 
 ```lead
 **No segment in these grids carries a size.** The grids assign messages; they do not measure audiences.

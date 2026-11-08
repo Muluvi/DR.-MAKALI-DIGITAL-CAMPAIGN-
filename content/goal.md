@@ -4,7 +4,7 @@ The goal is the Wiper ticket first and the county second: the nomination <window
 
 The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027. Five objectives for the digital operation serve it, and every one traces to one of the two deadlines. This chapter opens Part III: the strategy that the evidence in Parts I and II justifies.
 
-## 8.1 The goal and the two deadlines
+## 8.1 The goal and its two deadlines
 
 ```lead
 The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election.
@@ -24,7 +24,7 @@ The campaign operates against two deadlines: the Wiper nomination <window-chip><
 id: fig-1-1-timeline
 ```
 
-## 8.2 Five objectives for the digital operation
+## 8.2 Five objectives
 
 Each objective names its target, its owner, the finding it answers, its baseline, the strategy that serves it and the indicator that measures it.
 
@@ -32,7 +32,7 @@ Each objective names its target, its owner, the finding it answers, its baseline
 id: fig-1-3-objectives
 ```
 
-### 8.2.1 Be known where he isn't yet
+### 8.2.1 Be known where he is not yet known
 
 ```visual
 kind: cards
@@ -66,7 +66,7 @@ items:
       - { label: "Measured by", text: "R-03, shares per 1,000 reached in the deficit wards (Section 18.1)." }
 ```
 
-### 8.2.3 Build a direct line to the voters the internet doesn't reach
+### 8.2.3 Reach voters the internet does not
 
 ```visual
 kind: cards
@@ -84,7 +84,7 @@ items:
       - { label: "Measured by", text: "NW-03 and R-04 (Section 18.1)." }
 ```
 
-### 8.2.4 Give every post a voter, a ward and a reason
+### 8.2.4 Give every post a voter, ward and reason
 
 ```visual
 kind: cards
@@ -102,7 +102,7 @@ items:
       - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is the campaign's own, outside Firefly's platform, which holds only its counts (Section 15.4.1); the recruitment is the campaign's." }
 ```
 
-### 8.2.5 Hold the home base while Kitui Central runs its own race
+### 8.2.5 Hold the home base
 
 ```visual
 kind: cards

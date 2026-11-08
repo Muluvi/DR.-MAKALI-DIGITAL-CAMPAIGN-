@@ -28,7 +28,7 @@ Kitui voters are ready for a leader who understands economics, respects public m
 
 The county's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation: the competencies that define Dr. Mulu's career.
 
-## 9.3 Answering the charge that discipline is cold
+## 9.3 Answering the charge of coldness
 
 Rivals will use Dr. Mulu's economic credentials to paint him as remote from ordinary life:
 

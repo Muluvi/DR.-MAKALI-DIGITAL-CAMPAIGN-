@@ -4,7 +4,7 @@ Kitui has **{{register.2022}}** registered voters on the 2022 register, and Gove
 
 Kitui has **{{register.2022}}** registered voters on the 2022 register, and Governor Malombe won in 2022 with **{{result.2022.gov.malombe}}** votes (Tier 1, IEBC). The number to win is about **{{benchmark}}** (target), and no single region holds it. This chapter sets out the electorate, how it has voted, where the votes are, and the arithmetic of winning.
 
-## 2.1 The electorate: registered voters in 2022 and 2026, polling stations, turnout
+## 2.1 The electorate and polling stations
 
 ```visual
 kind: stats
@@ -39,7 +39,7 @@ id: fig-2-1-register
 
 The full 40-ward register, by constituency, is in Annex B.
 
-## 2.2 Results, 2013 to 2022
+## 2.2 Results from 2013 to 2022
 
 ```lead
 Julius Malombe won 2022 with **{{result.2022.gov.malombe}} votes** on a certified turnout of **{{turnout.2022}}%** (Tier 1, IEBC Form 37C); Charity Ngilu won 2017 with **{{result.2017.gov.ngilu}} votes** (Tier 1).
@@ -59,7 +59,7 @@ id: fig-2-2-results
 
 **What it means for the campaign.** Kitui voted for the opposition presidential ticket by more than two to one in 2022, and for Wiper candidates in every countywide race.
 
-## 2.3 Where the votes are: the twelve largest wards
+## 2.3 The twelve largest wards
 
 The register is concentrated. Spread evenly, the 40 wards would hold {{register.2022.ward-mean}} voters each (calculated); in fact voters cluster in urban corridors, farming belts and sub-county headquarters.
 
@@ -91,75 +91,9 @@ This annex holds the 40-ward register: background the argument rests on rather t
 
 This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in Section 3.7, drought and food security in Section 3.2, the Mui Basin in Section 3.8, and the legal ground to be careful on with each rival in Section 5.5.
 
-## B.1 The 40-ward register
+The register of every ward, with its voters and polling stations, is at the end of Evidence and sources.
 
-Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 register is not yet published by ward.
-
-#### 1. Mwingi North Constituency ({{con.mwingi-north}} total registered voters, Tier 1)
-
-*   **Kyuso Ward:** {{ward.kyuso}} voters
-*   **Tseikuru Ward:** {{ward.tseikuru}} voters
-*   **Mumoni Ward:** {{ward.mumoni}} voters
-*   **Ngomeni Ward:** {{ward.ngomeni}} voters
-*   **Tharaka Ward:** {{ward.tharaka}} voters
-
-#### 2. Mwingi West Constituency ({{con.mwingi-west}} total registered voters, Tier 1)
-
-*   **Nguutani Ward:** {{ward.nguutani}} voters
-*   **Kyome/Thaana Ward:** {{ward.kyome-thaana}} voters
-*   **Migwani Ward:** {{ward.migwani}} voters
-*   **Kiomo/Kyethani Ward:** {{ward.kiomo-kyethani}} voters
-
-#### 3. Mwingi Central Constituency ({{con.mwingi-central}} total registered voters, Tier 1)
-
-*   **Central Ward:** {{ward.central}} voters
-*   **Nguni Ward:** {{ward.nguni}} voters
-*   **Nuu Ward:** {{ward.nuu}} voters
-*   **Kivou Ward:** {{ward.kivou}} voters
-*   **Mui Ward:** {{ward.mui}} voters
-*   **Waita Ward:** {{ward.waita}} voters
-
-#### 4. Kitui West Constituency ({{con.kitui-west}} total registered voters, Tier 1)
-
-*   **Mutonguni Ward:** {{ward.mutonguni}} voters
-*   **Kauwi Ward:** {{ward.kauwi}} voters
-*   **Matinyani Ward:** {{ward.matinyani}} voters
-*   **Kwa Mutonga/Kithumula Ward:** {{ward.kwa-mutonga-kithumula}} voters
-
-#### 5. Kitui Rural Constituency ({{con.kitui-rural}} total registered voters, Tier 1)
-
-*   **Kwa Vonza/Yatta Ward:** {{ward.kwa-vonza-yatta}} voters
-*   **Kisasi Ward:** {{ward.kisasi}} voters
-*   **Mbitini Ward:** {{ward.mbitini}} voters
-*   **Kanyangi Ward:** {{ward.kanyangi}} voters
-
-#### 6. Kitui Central Constituency ({{con.kitui-central}} total registered voters, Tier 1)
-
-*   **Township Ward:** {{ward.township}} voters
-*   **Kyangwithya West Ward:** {{ward.kyangwithya-west}} voters
-*   **Kyangwithya East Ward:** {{ward.kyangwithya-east}} voters
-*   **Mulango Ward:** {{ward.mulango}} voters
-*   **Miambani Ward:** {{ward.miambani}} voters
-
-#### 7. Kitui East Constituency ({{con.kitui-east}} total registered voters, Tier 1)
-
-*   **Zombe/Mwitika Ward:** {{ward.zombe-mwitika}} voters
-*   **Chuluni Ward:** {{ward.chuluni}} voters
-*   **Nzambani Ward:** {{ward.nzambani}} voters
-*   **Voo/Kyamatu Ward:** {{ward.voo-kyamatu}} voters
-*   **Mutito/Kaliku Ward:** {{ward.mutito-kaliku}} voters
-*   **Endau/Malalani Ward:** {{ward.endau-malalani}} voters
-
-#### 8. Kitui South Constituency ({{con.kitui-south}} total registered voters, Tier 1)
-
-*   **Athi Ward:** {{ward.athi}} voters
-*   **Ikanga/Kyatune Ward:** {{ward.ikanga-kyatune}} voters
-*   **Mutomo Ward:** {{ward.mutomo}} voters
-*   **Ikutha Ward:** {{ward.ikutha}} voters
-*   **Mutha Ward:** {{ward.mutha}} voters
-*   **Kanziko Ward:** {{ward.kanziko}} voters
-
-## 2.4 The constituencies that decide it: the Mwingi bloc and the Big Four
+## 2.4 The constituencies that decide it
 
 ```lead
 Mwingi North, Mwingi West and Mwingi Central together command {{bloc.mwingi}} registered voters (Tier 1), roughly {{path.a.ballots}} ballots at the certified turnout. Mwingi is therefore **necessary and not sufficient**: no path to {{benchmark}} runs around it, and none ends there.
@@ -181,7 +115,7 @@ id: constituency-power
 2.  **Mwingi North ({{con.mwingi-north}} voters, Tier 1):** fourth by voters, but it holds the county's largest ward (**Kyuso, {{ward.kyuso}} voters**), the political home of the Wiper Patriotic Front leader, Hon. Kalonzo Musyoka (**Tseikuru, {{ward.tseikuru}} voters**), and **Mumoni ({{ward.mumoni}} voters)**, all Tier 1 (IEBC). It is both a large electorate and the party's heartland.
 3.  **Kitui South ({{con.kitui-south}} voters):** the second-largest constituency, anchored by the dense wards of Athi ({{ward.athi}}) and Ikanga/Kyatune ({{ward.ikanga-kyatune}}).
 
-## 2.5 The number it takes: the winning benchmark and four routes to it
+## 2.5 The number it takes
 
 ```lead
 Governor Julius Malombe's certified 2022 winning total was {{result.2022.gov.malombe}} votes; this document rounds it to **{{benchmark}}**. [CALC, not a forecast] Held against the July 2026 register, the number to win is ≈{{benchmark}}–{{benchmark.2026-equivalent.rounded}}.

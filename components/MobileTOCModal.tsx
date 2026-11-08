@@ -177,7 +177,7 @@ export function MobileTOCModal({
             <div>
               <h2 id={titleId} className="pf-idx__title">The index</h2>
               <p className="pf-idx__meta">
-                Six parts, then the reference shelf
+                Six parts, then the evidence and the working platform
               </p>
             </div>
             <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
@@ -190,7 +190,7 @@ export function MobileTOCModal({
               {/* The seven acts (brief G-7): each with its numeral, its portrait, what it answers
                   and how long it takes; one tap to its opener, and the act's title carries across
                   to the chapter it lands on (lib/premium/transition.ts). */}
-              <ol className="pf-idx__acts" aria-label="The six parts and the reference shelf">
+              <ol className="pf-idx__acts" aria-label="The six parts, the evidence and the working platform">
                 {FLOW_ACTS.map((a, i) => {
                   const mins = readingMinutes(
                     FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)

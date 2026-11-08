@@ -4,7 +4,7 @@ Kitui's most urgent need is water: it has the lowest share of any county in Keny
 
 Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022). Behind it come food and drought, health, roads, jobs for the young, the cost of living, how county money is spent, and the unresolved Mui Basin coalfield. Each concern below carries its evidence against the national figure where one is published, its source and year, and what it means for the campaign. The themes the campaign argues from this evidence are in Section 10.1.
 
-## 1.3 Living standards: poverty, water, electricity, phones and internet
+## 1.3 How households live
 
 More than half of Kitui lives in poverty, fewer than two households in five have safe drinking water, and fewer than one in five has electricity.
 
@@ -221,7 +221,7 @@ items:
 
 **What it means for the campaign.** A household spending seven shillings in ten on food has no margin to invest, which is the whole argument for "From Poverty to Wealth Creation" stated as a number.
 
-## 1.5 The county's money: the budget envelope, the development plan, the audit record
+## 1.5 The county's budget and plan
 
 ```lead
 The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
@@ -247,7 +247,7 @@ The three parts sum to KSh 13.80 billion (calculated) against a published total 
 
 **What it means for the campaign.** A KSh {{budget.total|bn}} billion envelope is the scale of the job: the campaign translates it into ward-level policy targets, so that an economist's case is made in shillings per ward.
 
-## 3.7 How county money is spent: the audit record and the incumbent's scorecard
+## 3.7 How county money is spent
 
 ```lead
 According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1).
@@ -297,7 +297,7 @@ The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 20
 
 **What it means for the campaign.** The audit record is the evidence for Dr. Mulu's position (Chapter 9): the county's problem is not a lack of money but how it is managed, which is the discipline he has practised.
 
-## 3.8 Mui Basin coal and the displaced communities
+## 3.8 Mui Basin coal and displaced communities
 
 ```lead
 The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1).

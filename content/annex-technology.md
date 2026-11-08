@@ -1,4 +1,4 @@
-## E.1 Technology reference architecture
+## E.1 The reference architecture
 
 ```lead
 The technology stack must bridge the gap between the war room and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practice.
@@ -75,7 +75,7 @@ id: procurement-matrix
 
 The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.
 
-## E.2 Voter model: data sources and variable dictionary
+## E.2 The voter model and its variables
 
 ```lead
 **No psychographic, personality, ethnic, clan or religious variable appears in this dictionary, and none may be added.**

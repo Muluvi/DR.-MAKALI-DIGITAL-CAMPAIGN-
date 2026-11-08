@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
-import type { FlowAct } from "../../lib/flow";
+import { isAfterAct, type FlowAct } from "../../lib/flow";
 import { Portrait, type PortraitId } from "../Portrait";
 import { CountyStatic } from "./CountyStatic";
 import { PartDots } from "../flow/PartDots";
@@ -67,14 +67,14 @@ export function ActOpener({ act, portrait, id }: { act: FlowAct; index?: number;
       </div>
       <div className="pf-act__copy">
         <p className="pf-act__count">
-          {act.id === "reference" ? "After the proposal" : <PartDots actId={act.id} />}
+          {act.id === "reference" ? "After the proposal" : act.id === "working" ? "For the campaign team" : <PartDots actId={act.id} />}
         </p>
         {/* Text, not a heading: the chapter marker beneath carries the section's heading. */}
         <p id={`${id}-title`} className="pf-act__title">
           <span className="pf-line"><span>{act.label}</span></span>
         </p>
         <p className="pf-act__answers">
-          <span className="pf-act__answers-k">{act.id === "reference" ? "What it holds" : "This part answers"}</span>
+          <span className="pf-act__answers-k">{isAfterAct(act.id) ? "What it holds" : "This part answers"}</span>
           <span className="pf-line"><span>{/[.?!]$/.test(answers) ? answers : `${answers}.`}</span></span>
         </p>
       </div>

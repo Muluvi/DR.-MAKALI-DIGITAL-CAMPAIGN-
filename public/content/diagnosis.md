@@ -20,7 +20,7 @@ id: fig-3-11-evidence
 
 **The test.** Week 1 reads ninety days of Dr. Mulu's own channels and measures how much of his reach lands in the pool (method: Section 18.5). If his reach is already landing in Mwingi and failing to convert, the problem is the message, not the reach, and the response changes. Section 12.7 sets out in advance what each finding changes, so the audit cannot be read backwards into whatever was already planned.
 
-## 7.3 What the data cannot yet tell us
+## 7.3 What the data cannot yet show
 
 Where data is missing, this proposal names the gap rather than filling it:
 
@@ -35,7 +35,7 @@ id: fig-3-10-gaps
 
 The figure above lists every open data item, with the document that would close each; it is generated from the figures store, so it cannot fall behind the text.
 
-## 7.4 The assumptions this plan rests on
+## 7.4 The assumptions the plan rests on
 
 ```lead
 Each assumption is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.

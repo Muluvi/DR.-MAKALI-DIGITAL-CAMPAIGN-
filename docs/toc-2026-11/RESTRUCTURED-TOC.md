@@ -2,6 +2,8 @@ MODE A — REPOSITORY READ. Built from commit `b7bc346` (8 November 2026). Items
 
 # Kitui 2027: the restructured table of contents
 
+> **Applied to the site.** See `APPLIED.md` for what changed and where the build differs from this proposal. The main difference is that the ward register became the last section of Evidence and sources rather than a chapter of its own.
+
 ## 1. Mode and sources
 
 **Mode A.** The repository was cloned and read at `b7bc346`. The live site was not opened, because its `robots` rule blocks automated reading. Nothing below confirms how a page looks today.

@@ -87,7 +87,7 @@ items:
   - label: "**Section 19.2 compliance opinion received**"
 ```
 
-## 14.3 Fix first: six profile corrections
+## 14.3 Six profile corrections
 
 ```lead
 **The PhD is the one to fix first.** **Is the Facebook presence a Page, or a personal profile in professional mode?** One screenshot settles this in the first hour of Week 1, and it gates the rest of the audit.
@@ -244,7 +244,7 @@ items:
   - label: "Analytics maturity Stage 4"
 ```
 
-## 16 Coalitions and endorsements, in sequence
+## 16 Coalitions and endorsements, in order
 
 ```lead
 Coalitions are built around **shared economic and civic interests**, in a sequence that runs from professional associations in the nomination window to public endorsements before the general election.
@@ -252,7 +252,7 @@ Coalitions are built around **shared economic and civic interests**, in a sequen
 
 Coalitions are built around **shared economic and civic interests**, in a sequence that runs from professional associations in the nomination window to public endorsements before the general election. Every endorsement is voluntary, documented and disclosed.
 
-## 16.1 The principle behind the sequence
+## 16.1 The principle behind the order
 
 ```lead
 Coalitions are built around **shared economic and civic interests** — water, credit, market access, employment, transparency. They are never built around ethnic, clan or religious bloc identity.
@@ -315,7 +315,7 @@ items:
       - { label: "Digital output", text: "Endorsement content series" }
 ```
 
-## 16.3 Managing endorsements, and how coalitions are measured
+## 16.3 Managing endorsements and measuring coalitions
 
 #### Managing endorsements
 
