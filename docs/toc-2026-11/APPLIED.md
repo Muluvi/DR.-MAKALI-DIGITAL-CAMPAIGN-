@@ -62,12 +62,22 @@ This records how `RESTRUCTURED-TOC.md` was applied to the site, where the build 
 - **Unchanged:** figures (630), wards (40), projects (401), CSV downloads (93) and figure fences (92).
 - **Earlier pass's guard:** the ownership pass's rewrite check (`scripts/ownership-2026-11/roles.mjs`) now expects today's wording for the eight lines this pass changed. Each still gives the work to the campaign team, not to Firefly.
 
-## Still to do (copy work, not structure)
+## The six content conflicts, fixed
 
-The six chapters tagged [CONTENT CONFLICT] in `RESTRUCTURED-TOC.md` still carry that wording:
-- "one week, one export";
-- "confidential, link-only";
-- "signs in to change it" and "enters in the KPI tracker" while sign-in is switched off;
-- "six Parts and eight annexes".
+`scripts/toc-2026-11/content-fixes.mjs` applies 25 rewordings. Every change to the chapters is logged word for word in `ledger.json` and `CHANGES.md`. Its `--check` mode runs in `npm run verify`, so the old wording cannot return unnoticed.
 
-The leads of Platform playbooks and Runbooks still say the volunteer programme is in "Annex D" and that account security is in "Lawful & ethical". The ward dossier still shows spending limits, which the site's own rules exclude (`docs/consolidation-2026-11/HOW-TO-UPDATE.md`, "No campaign-finance ceilings").
+| Chapter | It said | It now says |
+|---|---|---|
+| Who this is for | "Confidential … shared by link only"; "six Parts and eight annexes" | Prepared for Dr. Mulu personally, open to anyone with the link and kept out of search engines; "the parts that follow". The hero seal, the footer and the share-card text match. |
+| The case on one screen | "asks for one week, one export" | Asks him to approve the platform; his team runs the campaign through it |
+| Measuring success | The team enters indicators on the platform (sign-in is off) | It does so once the engagement starts |
+| The platform in one view | "Dr. Mulu's team signs in to change it" | Once the engagement starts, his team signs in to change it |
+| The ask | "one week and one export", plus read-only access and an "Access granted" first day in the decision figure | Approve the platform at the recommended Standard level; on day 1 the team signs in, and on days 1–2 the team enters its own export. Firefly holds no credentials. |
+| Fine print | "submitted in confidence" | Submitted to him and those he authorises. It is open to anyone with the link, and the request not to circulate it stays. |
+
+## Still to do
+
+- **What the campaign provides** still lists read-only analytics access as one of three gating dependencies. That wording sits partly in a text-version block, which the content guard allows to change only through a logged dispute decision.
+- The leads of Platform playbooks and Runbooks still point to "Annex D" and "Lawful & ethical".
+- The cover date is still "September 2026".
+- The ward dossier still shows spending limits, which the site's own rules exclude (`docs/consolidation-2026-11/HOW-TO-UPDATE.md`, "No campaign-finance ceilings").

@@ -1,8 +1,8 @@
-Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the six Parts and eight annexes that follow.
+Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the parts that follow.
 
 #### Prepared for, prepared by, and on what terms
 
-**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by link only. The full terms are in Annex G.
+**Prepared for Hon. Dr. Benson Makali Mulu personally.** It is open to anyone with the link and kept out of search engines. The terms of use are in the fine print.
 
 **Prepared for:**
 Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS

@@ -32,7 +32,7 @@ export const FIG_6_1: FigureSpec = {
 export const FIG_6_3: FigureSpec = {
   id: "fig-6-3-decision",
   section: "1.1",
-  title: "The ask is one week and one export, because the nomination window sets the clock",
+  title: "The ask is one decision, to approve the platform, because the nomination window sets the clock",
   question: "What is being asked?",
   takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,
   sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This proposal", tier: null, state: "target" }],
@@ -45,7 +45,7 @@ export const FIG_6_3: FigureSpec = {
           type: "cards",
           columns: 2,
           cards: [
-            { kicker: "The ask", title: "One week and one export", body: "Read-only analytics access and the ninety-day export. Everything after that is evidence.", tone: "accent" },
+            { kicker: "The ask", title: "Approve the platform", body: "At the recommended Standard level. His team runs the campaign through it; Firefly runs the platform.", tone: "accent" },
             { kicker: "What it starts", title: "The presence audit, then the first brief", body: "About six weeks for a first directed cycle, the first of them the audit that sets its targets." },
           ],
         },
@@ -56,8 +56,8 @@ export const FIG_6_3: FigureSpec = {
           type: "steps",
           horizontal: true,
           steps: [
-            { when: "Day 1", title: "Access granted", body: "Analyst role on Meta and equivalents; no publishing rights change hands." },
-            { when: "Days 1–2", title: "The export", body: "Ninety days of reach, engagement, language and geography; the Page-or-profile question settled." },
+            { when: "Day 1", title: "The team signs in", body: "Team accounts opened on the platform; Firefly holds no credentials to his channels." },
+            { when: "Days 1–2", title: "The export", body: "His team enters ninety days of reach, engagement, language and geography from its own accounts; the Page-or-profile question settled." },
             { when: "Days 2–4", title: "Against the field", body: "The same window for the two nomination rivals, on public data." },
             { when: "Day 5", title: "The read", body: "The four audit figures filled, the diagnosis tested, the first brief drafted for Week 2." },
           ],
@@ -67,8 +67,8 @@ export const FIG_6_3: FigureSpec = {
   },
   columns: [{ key: "when", label: "When" }, { key: "what", label: "What happens" }],
   rows: [
-    { cells: { when: "Day 1", what: "Read-only analytics access granted" } },
-    { cells: { when: "Days 1–2", what: "Ninety-day export pulled; Page-or-profile settled" } },
+    { cells: { when: "Day 1", what: "Team accounts opened on the platform" } },
+    { cells: { when: "Days 1–2", what: "Ninety-day export entered by the team; Page-or-profile settled" } },
     { cells: { when: "Days 2–4", what: "Same window for the two nomination rivals, public data" } },
     { cells: { when: "Day 5", what: "Audit read; diagnosis tested; first brief drafted" } },
   ],
