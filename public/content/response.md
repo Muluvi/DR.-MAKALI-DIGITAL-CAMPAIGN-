@@ -31,8 +31,8 @@ friction surfaces as evidence instead of as attrition.
 > decision tree, the response times by channel and the pre-approved message library follow this
 > section. The runbooks on the reference shelf hold the pre-drafted holding positions (F.3), the
 > monitoring tooling (F.4), the red-team drill format (F.6), the threat model and incident response
-> (F.7 and F.10) and the competitive intelligence outputs (F.11); account security and phishing are
-> in Lawful & ethical. They are operational detail: what a principal approves is that they exist
+> (F.7 and F.10) and the competitive intelligence outputs (F.11), with account security and phishing
+> awareness. They are operational detail: what a principal approves is that they exist
 > and are proportionate, which this section states.
 >
 > *Source conflict: an earlier version lettered these runbooks E.1–E.12; they sit in Annex F, and the letters above are the current ones.*

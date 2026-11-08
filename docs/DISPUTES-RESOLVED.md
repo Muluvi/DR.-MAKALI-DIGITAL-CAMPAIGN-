@@ -73,3 +73,11 @@ now shows only the chosen value, with the rejected one in a single "Not used" li
 
 `npm run verify`, lint, the figure tests (35) and a production build pass. Scanning the full
 document (`/full`) finds no "under review" or "two versions" flag left on any page.
+
+## C9: who reaches the account analytics (8 November 2026)
+
+**The conflict.** How it works (13.2) says Firefly needs no access to Dr. Mulu's accounts: his team enters its own analytics on the platform. What the campaign provides (22.2) listed read-only analytics access, with an Analyst role, as one of three dependencies that gate the engagement.
+
+**Chosen.** The team enters its own analytics exports on the platform, and no access to the accounts changes hands. This matches the ownership decisions (Firefly holds no credentials), the decision panel and the reworded ask.
+
+**What changed.** 22.2's lead and body, its text version (the one fence edit, logged under `fenceEdits` as C9), its checklist line, and the dependencies figure (`lib/register/specs/s6-nextsteps.ts`). The wording changes are logged in `docs/toc-2026-11/ledger.json`.

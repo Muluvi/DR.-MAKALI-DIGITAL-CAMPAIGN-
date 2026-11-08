@@ -73,7 +73,7 @@ id: fig-5-2-4-stack
 id: procurement-matrix
 ```
 
-The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.
+The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical.
 
 ## E.2 The voter model and its variables
 
