@@ -25,18 +25,18 @@ export default async function Implementation() {
   return (
     <>
       <PageHead kicker="Implementation" title="How each strategy is being carried out" lead="Owner, channel and status for every action, as Dr. Mulu's team enters them. Updated the moment the team saves.">
-        {session && <Link href="/workspace/implementation" className="pf-btn pf-btn-solid mt-4">Update implementation</Link>}
+        {session && <Link href="/workspace/implementation" className="plat-btn plat-btn-solid mt-4">Update implementation</Link>}
       </PageHead>
 
       <section aria-label="Status overview" className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {STATUS.map((s) => (
-          <div key={s} className="pf-card p-3">
+          <div key={s} className="plat-card p-3">
             <span className="block h-1.5 w-8 rounded-full" style={{ background: TONE[s] }} />
             <p className="mt-2 text-[1.6rem] font-semibold leading-none tabular-nums">{counts[s]}</p>
             <p className="mt-1 text-[0.75rem] text-muted">{s}</p>
           </div>
         ))}
-        <div className="pf-card p-3">
+        <div className="plat-card p-3">
           <span className="block h-1.5 w-8 rounded-full border border-dashed border-muted" />
           <p className="mt-2 text-[1.6rem] font-semibold leading-none tabular-nums">{untouched}</p>
           <p className="mt-1 text-[0.75rem] text-muted">Strategies with no action yet</p>
@@ -50,7 +50,7 @@ export default async function Implementation() {
             const list = by.get(s) ?? [];
             const [kind, ...rest] = s.split(": ");
             return (
-              <li key={s} className="pf-card p-3">
+              <li key={s} className="plat-card p-3">
                 <p className="text-[0.7rem] uppercase tracking-[0.12em] text-muted">{kind}</p>
                 <p className="mt-0.5 font-serif text-[1.02rem] leading-snug">{rest.join(": ")}</p>
                 {list.length ? (
@@ -63,7 +63,7 @@ export default async function Implementation() {
                     </div>
                     <ul className="mt-2 space-y-1 text-[0.82rem]">
                       {list.slice(0, 4).map((r) => (
-                        <li key={r.id} className="flex gap-2"><span className="pf-chip flex-none">{String(r.data.status)}</span><span className="min-w-0">{String(r.data.action)} <span className="text-muted">· {String(r.data.owner)}{r.data.channel ? ` · ${String(r.data.channel)}` : ""}</span></span></li>
+                        <li key={r.id} className="flex gap-2"><span className="plat-chip flex-none">{String(r.data.status)}</span><span className="min-w-0">{String(r.data.action)} <span className="text-muted">· {String(r.data.owner)}{r.data.channel ? ` · ${String(r.data.channel)}` : ""}</span></span></li>
                       ))}
                       {list.length > 4 && <li className="text-muted">and {list.length - 4} more below</li>}
                     </ul>

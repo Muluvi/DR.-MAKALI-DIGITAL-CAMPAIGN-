@@ -13,7 +13,7 @@ export default async function Login() {
     <div className="mx-auto max-w-md">
       <PageHead kicker="Dr. Mulu's team" title="Sign in to edit" lead="You do not need an account to view anything on this site. Sign in only to add or change records and data." />
       {mode === "off" ? (
-        <p className="pf-card p-4 text-muted">Team sign-in is not switched on yet. Firefly connects it when the platform&apos;s database is set up.</p>
+        <p className="plat-card p-4 text-muted">Team sign-in is not switched on yet. Firefly connects it when the platform&apos;s database is set up.</p>
       ) : (
         <LoginForm passwordFirst={mode === "local"} />
       )}

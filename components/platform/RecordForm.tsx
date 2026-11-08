@@ -54,14 +54,14 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
     const choices = f.options ? [...f.options] : f.source ? options[f.source] ?? [] : [];
     switch (f.type) {
       case "longtext":
-        return <textarea id={id} className="pf-input min-h-28" value={String(v ?? "")} maxLength={f.maxLength} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
+        return <textarea id={id} className="plat-input min-h-28" value={String(v ?? "")} maxLength={f.maxLength} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
       case "number":
-        return <input id={id} className="pf-input" inputMode="decimal" value={v === null || v === undefined ? "" : String(v)} onChange={(e) => set(f.key, e.target.value === "" ? null : e.target.value)} aria-invalid={invalid} />;
+        return <input id={id} className="plat-input" inputMode="decimal" value={v === null || v === undefined ? "" : String(v)} onChange={(e) => set(f.key, e.target.value === "" ? null : e.target.value)} aria-invalid={invalid} />;
       case "date":
-        return <input id={id} type="date" className="pf-input" value={String(v ?? "")} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
+        return <input id={id} type="date" className="plat-input" value={String(v ?? "")} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
       case "select":
         return (
-          <select id={id} className="pf-input" value={String(v ?? "")} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid}>
+          <select id={id} className="plat-input" value={String(v ?? "")} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid}>
             <option value="">Choose…</option>
             {choices.map((o) => <option key={o} value={o}>{o}</option>)}
           </select>
@@ -89,7 +89,7 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
           </label>
         );
       default:
-        return <input id={id} type={f.type === "url" ? "url" : "text"} inputMode={f.type === "url" ? "url" : undefined} className="pf-input" value={String(v ?? "")} maxLength={f.maxLength} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
+        return <input id={id} type={f.type === "url" ? "url" : "text"} inputMode={f.type === "url" ? "url" : undefined} className="plat-input" value={String(v ?? "")} maxLength={f.maxLength} onChange={(e) => set(f.key, e.target.value)} aria-invalid={invalid} />;
     }
   };
 
@@ -97,17 +97,17 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
     <form onSubmit={submit} className="space-y-4" noValidate>
       {c.fields.map((f) => (
         <div key={f.key}>
-          {f.type !== "boolean" && <label htmlFor={`f-${c.id}-${f.key}`} className="pf-label">{labelOf(f)}{f.required ? "" : <span className="font-normal text-muted"> (optional)</span>}</label>}
+          {f.type !== "boolean" && <label htmlFor={`f-${c.id}-${f.key}`} className="plat-label">{labelOf(f)}{f.required ? "" : <span className="font-normal text-muted"> (optional)</span>}</label>}
           {input(f)}
-          {f.hint && !shown[f.key] && <p className="pf-hint">{f.hint}</p>}
-          {shown[f.key] && <p className="pf-error" role="alert">{shown[f.key]}</p>}
+          {f.hint && !shown[f.key] && <p className="plat-hint">{f.hint}</p>}
+          {shown[f.key] && <p className="plat-error" role="alert">{shown[f.key]}</p>}
         </div>
       ))}
       {shown._ && <p className="rounded-xl border border-danger/40 bg-danger/5 p-3 text-[0.9rem] text-danger" role="alert">{shown._}</p>}
       {message && <p className="rounded-xl border border-line bg-paper p-3 text-[0.9rem] text-ink" role="status">{message}</p>}
       <div className="flex gap-2">
-        <button type="submit" className="pf-btn pf-btn-solid" disabled={pending}>{pending ? "Saving…" : recordId ? "Save changes" : "Save"}</button>
-        {onDone && <button type="button" className="pf-btn" onClick={() => onDone()}>Cancel</button>}
+        <button type="submit" className="plat-btn plat-btn-solid" disabled={pending}>{pending ? "Saving…" : recordId ? "Save changes" : "Save"}</button>
+        {onDone && <button type="button" className="plat-btn" onClick={() => onDone()}>Cancel</button>}
       </div>
     </form>
   );

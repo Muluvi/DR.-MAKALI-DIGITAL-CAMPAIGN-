@@ -17,10 +17,10 @@ export function WorkspaceCollection({ collectionId, label, columns, rows, data, 
     <div>
       {notice && editing === null && <p role="status" className="mb-4 rounded-xl border border-line bg-card p-3 text-[0.9rem] text-ink print:hidden">{notice}</p>}
       {canEdit && editing === null && (
-        <button type="button" className="pf-btn pf-btn-solid mb-4 print:hidden" onClick={() => { setNotice(null); setEditing("new"); }}><Plus size={16} /> Add to {label.toLowerCase()}</button>
+        <button type="button" className="plat-btn plat-btn-solid mb-4 print:hidden" onClick={() => { setNotice(null); setEditing("new"); }}><Plus size={16} /> Add to {label.toLowerCase()}</button>
       )}
       {canEdit && editing !== null && (
-        <section className="pf-card mb-6 p-4 sm:p-6 print:hidden" aria-label={editing === "new" ? "New record" : "Edit record"}>
+        <section className="plat-card mb-6 p-4 sm:p-6 print:hidden" aria-label={editing === "new" ? "New record" : "Edit record"}>
           <h2 className="mb-4 font-serif text-xl">{editing === "new" ? `New: ${label}` : `Edit: ${label}`}</h2>
           <RecordForm key={editing} collectionId={collectionId} options={options} initial={editing === "new" ? undefined : data[editing]} recordId={editing === "new" ? undefined : editing} onDone={(m) => { setEditing(null); setNotice(m ?? null); }} />
         </section>
@@ -31,7 +31,7 @@ export function WorkspaceCollection({ collectionId, label, columns, rows, data, 
         rows={rows}
         filename={`${collectionId}.csv`}
         empty={canEdit ? "Nothing entered yet. Add the first one." : "Nothing entered yet."}
-        rowAction={canEdit ? (r) => <button type="button" className="pf-btn pf-btn-sm" onClick={() => { setEditing(String(r._id)); window.scrollTo({ top: 0, behavior: "smooth" }); }}><Pencil size={14} /> Edit</button> : undefined}
+        rowAction={canEdit ? (r) => <button type="button" className="plat-btn plat-btn-sm" onClick={() => { setEditing(String(r._id)); window.scrollTo({ top: 0, behavior: "smooth" }); }}><Pencil size={14} /> Edit</button> : undefined}
       />
     </div>
   );

@@ -21,7 +21,7 @@ export default async function Workspace() {
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {COLLECTIONS.filter((c) => c.group === g).map((c) => (
                 <li key={c.id}>
-                  <Link href={`/workspace/${c.id}`} className="pf-card group flex h-full flex-col p-4 transition hover:border-accent">
+                  <Link href={`/workspace/${c.id}`} className="plat-card group flex h-full flex-col p-4 transition hover:border-accent">
                     <span className="flex items-start justify-between gap-2">
                       <span className="font-serif text-[1.2rem] leading-tight text-ink">{c.label}</span>
                       <ArrowRight size={18} className="mt-1 flex-none text-muted transition group-hover:translate-x-0.5 group-hover:text-accent" />

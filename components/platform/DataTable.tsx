@@ -123,15 +123,15 @@ export function DataTable({ columns, rows, ns = "", filename, link = {}, rowActi
           <Search aria-hidden size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input value={q} onChange={(e) => { setQ(e.target.value); setLimit(pageSize); }} placeholder="Search" type="search" className="h-11 w-full rounded-full border border-line bg-card pl-9 pr-4 text-[0.95rem] text-ink outline-none focus:border-accent" />
         </label>
-        <button type="button" onClick={copy} className="pf-btn" aria-label="Copy a link to this view">{copied ? <Check size={15} /> : <Link2 size={15} />}<span>{copied ? "Copied" : "Link"}</span></button>
-        <button type="button" onClick={() => downloadCsv(filename, toCsv(columns, view))} className="pf-btn"><Download size={15} /><span>CSV</span></button>
-        <button type="button" onClick={() => window.print()} className="pf-btn"><Printer size={15} /><span>PDF</span></button>
+        <button type="button" onClick={copy} className="plat-btn" aria-label="Copy a link to this view">{copied ? <Check size={15} /> : <Link2 size={15} />}<span>{copied ? "Copied" : "Link"}</span></button>
+        <button type="button" onClick={() => downloadCsv(filename, toCsv(columns, view))} className="plat-btn"><Download size={15} /><span>CSV</span></button>
+        <button type="button" onClick={() => window.print()} className="plat-btn"><Printer size={15} /><span>PDF</span></button>
       </div>
 
       {filterable.length > 0 && (
         <div className="mt-3 flex gap-2 overflow-x-auto pb-1 print:hidden" role="group" aria-label="Filters">
           {filterable.map((c) => (
-            <label key={c.key} className={`pf-filter ${filters[c.key] ? "is-on" : ""}`}>
+            <label key={c.key} className={`plat-filter ${filters[c.key] ? "is-on" : ""}`}>
               <span className="sr-only">{c.label}</span>
               <select value={filters[c.key] ?? ""} onChange={(e) => { setFilters((f) => ({ ...f, [c.key]: e.target.value })); setLimit(pageSize); }}>
                 <option value="">{c.label}: all</option>
@@ -140,7 +140,7 @@ export function DataTable({ columns, rows, ns = "", filename, link = {}, rowActi
             </label>
           ))}
           {active > 0 && (
-            <button type="button" className="pf-filter" onClick={() => { setFilters({}); setQ(""); }}><X size={14} aria-hidden /> Clear</button>
+            <button type="button" className="plat-filter" onClick={() => { setFilters({}); setQ(""); }}><X size={14} aria-hidden /> Clear</button>
           )}
         </div>
       )}
@@ -201,7 +201,7 @@ export function DataTable({ columns, rows, ns = "", filename, link = {}, rowActi
           </div>
           {view.length > shown.length && (
             <div className="mt-4 flex justify-center print:hidden">
-              <button type="button" className="pf-btn" onClick={() => setLimit(view.length)}>Show all {view.length.toLocaleString("en-KE")}</button>
+              <button type="button" className="plat-btn" onClick={() => setLimit(view.length)}>Show all {view.length.toLocaleString("en-KE")}</button>
             </div>
           )}
         </>

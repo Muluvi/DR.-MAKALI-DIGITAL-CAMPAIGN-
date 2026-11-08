@@ -13,8 +13,8 @@ export function Explorer({ datasets, current }: { datasets: DatasetMeta[]; curre
   return (
     <div>
       <label className="block max-w-xl">
-        <span className="pf-label">Dataset</span>
-        <select className="pf-input" value={current.id} onChange={(e) => router.push(`/explore?ds=${e.target.value}`)}>
+        <span className="plat-label">Dataset</span>
+        <select className="plat-input" value={current.id} onChange={(e) => router.push(`/explore?ds=${e.target.value}`)}>
           {GROUP_ORDER.map((g) => (
             <optgroup key={g} label={g}>
               {datasets.filter((d) => d.group === g).map((d) => <option key={d.id} value={d.id}>{d.label} ({d.count})</option>)}

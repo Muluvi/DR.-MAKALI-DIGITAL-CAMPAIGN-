@@ -61,22 +61,22 @@ export function HistoryList({ rows, canRevert }: { rows: HistoryRow[]; canRevert
   return (
     <ol className="space-y-3">
       {rows.map((r) => (
-        <li key={r.id} className="pf-card p-4">
+        <li key={r.id} className="plat-card p-4">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <p className="text-[0.95rem] text-ink"><strong>{r.actor}</strong> {VERB[r.action] ?? r.action} <span className="font-semibold">{r.title}</span>{r.archived ? " (hidden)" : ""}</p>
             <time dateTime={r.at} className="text-[0.75rem] tabular-nums text-muted">{r.at.slice(0, 16).replace("T", " ")}</time>
           </div>
           <p className="mt-1 flex flex-wrap items-center gap-2 text-[0.75rem] text-muted">
             <span>{r.where}</span>
-            {r.status && <span className={`pf-chip pf-status-${r.status.state}`}>{STATE[r.status.state]}</span>}
+            {r.status && <span className={`plat-chip plat-status-${r.status.state}`}>{STATE[r.status.state]}</span>}
             {r.status?.url && <a className="text-accent" href={r.status.url}>Why</a>}
             {r.commitUrl && <a className="text-accent" href={r.commitUrl}>Commit</a>}
-            {r.reverted && <span className="pf-chip">Reverted</span>}
+            {r.reverted && <span className="plat-chip">Reverted</span>}
           </p>
           {r.status?.detail && <p className="mt-1 text-[0.8rem] text-muted">{r.status.detail}</p>}
           <Diff before={r.before} after={r.after} />
           {canRevert && !r.reverted && (
-            <button type="button" className="pf-btn pf-btn-sm mt-3" disabled={pending} onClick={() => revert(r.id)}><RotateCcw size={14} /> Revert</button>
+            <button type="button" className="plat-btn plat-btn-sm mt-3" disabled={pending} onClick={() => revert(r.id)}><RotateCcw size={14} /> Revert</button>
           )}
           {msg[r.id] && <p className="mt-2 text-[0.85rem]" role="status">{msg[r.id]}</p>}
         </li>

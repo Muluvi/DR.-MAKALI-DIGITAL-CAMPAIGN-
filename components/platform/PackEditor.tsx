@@ -48,9 +48,9 @@ function useSubmit() {
 function Field({ label, children, hint }: { label: string; children: React.ReactNode; hint?: string }) {
   return (
     <label className="block">
-      <span className="pf-label">{label}</span>
+      <span className="plat-label">{label}</span>
       {children}
-      {hint && <span className="pf-hint block">{hint}</span>}
+      {hint && <span className="plat-hint block">{hint}</span>}
     </label>
   );
 }
@@ -101,12 +101,12 @@ function FigureEditor({ figures }: { figures: FigureRow[] }) {
         <label className="relative min-w-0 flex-1 basis-60">
           <span className="sr-only">Find a figure</span>
           <Search aria-hidden size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
-          <input type="search" className="pf-input pl-9" placeholder="Find a figure by id, source or note" value={q} onChange={(e) => setQ(e.target.value)} />
+          <input type="search" className="plat-input pl-9" placeholder="Find a figure by id, source or note" value={q} onChange={(e) => setQ(e.target.value)} />
         </label>
-        <button type="button" className="pf-btn" onClick={startAdd}>Add a new figure</button>
+        <button type="button" className="plat-btn" onClick={startAdd}>Add a new figure</button>
       </div>
       {matches.length > 0 && (
-        <ul className="pf-card divide-y divide-line overflow-hidden">
+        <ul className="plat-card divide-y divide-line overflow-hidden">
           {matches.map((f) => (
             <li key={f.id}>
               <button type="button" className="block w-full px-4 py-2.5 text-left hover:bg-paper" onClick={() => { choose(f); setQ(""); }}>
@@ -118,39 +118,39 @@ function FigureEditor({ figures }: { figures: FigureRow[] }) {
         </ul>
       )}
       {draft && (
-        <div className="pf-card space-y-4 p-4 sm:p-5">
+        <div className="plat-card space-y-4 p-4 sm:p-5">
           <p className="font-serif text-lg">{adding ? "New figure" : <span className="font-mono text-[0.95rem]">{draft.id}</span>}</p>
           {adding && (
             <>
               <Field label="Id" hint="Lowercase words joined by dots, such as reach.mwingi-north.2027. It is how the story cites the figure.">
-                <input className="pf-input font-mono" value={draft.id} onChange={(e) => set("id", e.target.value)} />
+                <input className="plat-input font-mono" value={draft.id} onChange={(e) => set("id", e.target.value)} />
               </Field>
               <Field label="Unit">
-                <select className="pf-input" value={draft.unit} onChange={(e) => set("unit", e.target.value)}>{UNITS.map((u) => <option key={u}>{u}</option>)}</select>
+                <select className="plat-input" value={draft.unit} onChange={(e) => set("unit", e.target.value)}>{UNITS.map((u) => <option key={u}>{u}</option>)}</select>
               </Field>
             </>
           )}
           <Field label="What kind of figure">
-            <select className="pf-input" value={draft.state} onChange={(e) => set("state", e.target.value)}>
+            <select className="plat-input" value={draft.state} onChange={(e) => set("state", e.target.value)}>
               {STATES.map((s) => <option key={s} value={s}>{s === "sourced" ? "Sourced: read from a document" : s === "modelled" ? "Modelled: calculated" : s === "needed" ? "Needed: not in hand yet" : "Target: a commitment"}</option>)}
             </select>
           </Field>
           <Field label={`Value${draft.unit ? ` (${draft.unit})` : ""}`} hint="Digits only. Leave empty for a needed figure.">
-            <input className="pf-input tabular-nums" inputMode="decimal" value={draft.value === null ? "" : String(draft.value)} onChange={(e) => set("value", e.target.value === "" ? null : e.target.value)} />
+            <input className="plat-input tabular-nums" inputMode="decimal" value={draft.value === null ? "" : String(draft.value)} onChange={(e) => set("value", e.target.value === "" ? null : e.target.value)} />
           </Field>
           <Field label="Reliability">
-            <select className="pf-input" value={draft.tier ?? ""} onChange={(e) => set("tier", e.target.value || null)}>
+            <select className="plat-input" value={draft.tier ?? ""} onChange={(e) => set("tier", e.target.value || null)}>
               <option value="">None (a target or needed figure)</option>
               {Object.entries(TIER_WORD).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
             </select>
           </Field>
-          <Field label="Source document"><input className="pf-input" value={draft.source ?? ""} onChange={(e) => set("source", e.target.value)} /></Field>
-          <Field label="As of" hint="The date of the measurement, such as 2026-09."><input className="pf-input" value={draft.asOf ?? ""} onChange={(e) => set("asOf", e.target.value)} /></Field>
-          <Field label="Note" hint="How a modelled figure was calculated, or what a target commits to."><textarea className="pf-input min-h-20" value={draft.note ?? ""} onChange={(e) => set("note", e.target.value)} /></Field>
-          {draft.state === "needed" && <Field label="The document that would supply it"><input className="pf-input" value={draft.closesWith ?? ""} onChange={(e) => set("closesWith", e.target.value)} /></Field>}
+          <Field label="Source document"><input className="plat-input" value={draft.source ?? ""} onChange={(e) => set("source", e.target.value)} /></Field>
+          <Field label="As of" hint="The date of the measurement, such as 2026-09."><input className="plat-input" value={draft.asOf ?? ""} onChange={(e) => set("asOf", e.target.value)} /></Field>
+          <Field label="Note" hint="How a modelled figure was calculated, or what a target commits to."><textarea className="plat-input min-h-20" value={draft.note ?? ""} onChange={(e) => set("note", e.target.value)} /></Field>
+          {draft.state === "needed" && <Field label="The document that would supply it"><input className="plat-input" value={draft.closesWith ?? ""} onChange={(e) => set("closesWith", e.target.value)} /></Field>}
           {problems.length > 0 && <ul className="space-y-1 text-[0.85rem] text-danger" role="alert">{problems.map((p) => <li key={p}>{p}</li>)}</ul>}
           <Result />
-          <button type="button" className="pf-btn pf-btn-solid" disabled={pending || problems.length > 0} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
+          <button type="button" className="plat-btn plat-btn-solid" disabled={pending || problems.length > 0} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
         </div>
       )}
     </div>
@@ -175,19 +175,19 @@ function RegisterEditor({ register }: { register: PackEditorData["register"] }) 
     problems.push(...wardRegisterProblems(reg).filter((p) => p.plain.startsWith("The wards of")).map((p) => p.plain));
   }
   return (
-    <div className="pf-card space-y-4 p-4 sm:p-5">
+    <div className="plat-card space-y-4 p-4 sm:p-5">
       <Field label="Constituency">
-        <select className="pf-input" value={c} onChange={(e) => { setC(e.target.value); setWard(""); setVoters(""); reset(); }}>{register.map((x) => <option key={x.name}>{x.name}</option>)}</select>
+        <select className="plat-input" value={c} onChange={(e) => { setC(e.target.value); setWard(""); setVoters(""); reset(); }}>{register.map((x) => <option key={x.name}>{x.name}</option>)}</select>
       </Field>
       <Field label="Ward">
-        <select className="pf-input" value={ward} onChange={(e) => { setWard(e.target.value); setVoters(String(con.wards.find((x) => x.name === e.target.value)?.voters ?? "")); reset(); }}>
+        <select className="plat-input" value={ward} onChange={(e) => { setWard(e.target.value); setVoters(String(con.wards.find((x) => x.name === e.target.value)?.voters ?? "")); reset(); }}>
           <option value="">Choose…</option>
           {con?.wards.map((x) => <option key={x.name} value={x.name}>{x.name} · {x.voters.toLocaleString("en-KE")}</option>)}
         </select>
       </Field>
       {w && (
         <>
-          <Field label="Registered voters"><input className="pf-input tabular-nums" inputMode="numeric" value={voters} onChange={(e) => setVoters(e.target.value)} /></Field>
+          <Field label="Registered voters"><input className="plat-input tabular-nums" inputMode="numeric" value={voters} onChange={(e) => setVoters(e.target.value)} /></Field>
           <label className="flex items-start gap-3 text-[0.9rem]">
             <input type="checkbox" className="mt-1 h-5 w-5" checked={totals} onChange={(e) => setTotals(e.target.checked)} />
             <span>Update the {con.name} total and the county totals to match. Leave this on unless the published totals themselves say otherwise.</span>
@@ -196,7 +196,7 @@ function RegisterEditor({ register }: { register: PackEditorData["register"] }) 
       )}
       {problems.length > 0 && <p className="text-[0.85rem] text-danger" role="alert">{problems.join(" ")}</p>}
       <Result />
-      <button type="button" className="pf-btn pf-btn-solid" disabled={!w || pending || problems.length > 0 || voters === ""} onClick={() => submit({ kind: "ward", constituency: con.name, ward: w!.name, voters: n, updateTotals: totals })}>{pending ? "Submitting…" : "Submit edit"}</button>
+      <button type="button" className="plat-btn plat-btn-solid" disabled={!w || pending || problems.length > 0 || voters === ""} onClick={() => submit({ kind: "ward", constituency: con.name, ward: w!.name, voters: n, updateTotals: totals })}>{pending ? "Submitting…" : "Submit edit"}</button>
     </div>
   );
 }
@@ -219,12 +219,12 @@ function ListEditor({ lists }: { lists: PackEditorData["lists"] }) {
     submit({ kind: "list", list: l.id, key, patch });
   };
   return (
-    <div className="pf-card space-y-4 p-4 sm:p-5">
+    <div className="plat-card space-y-4 p-4 sm:p-5">
       <Field label="List">
-        <select className="pf-input" value={id} onChange={(e) => { setId(e.target.value); setKey(""); reset(); }}>{lists.map((x) => <option key={x.id} value={x.id}>{x.label}</option>)}</select>
+        <select className="plat-input" value={id} onChange={(e) => { setId(e.target.value); setKey(""); reset(); }}>{lists.map((x) => <option key={x.id} value={x.id}>{x.label}</option>)}</select>
       </Field>
       <Field label="Record">
-        <select className="pf-input" value={key} onChange={(e) => pickRec(e.target.value)}>
+        <select className="plat-input" value={key} onChange={(e) => pickRec(e.target.value)}>
           <option value="">Choose…</option>
           {l.records.map((r) => <option key={String(r[l.key])} value={String(r[l.key])}>{String(r[l.key])}</option>)}
           <option value="__new">Add a new record</option>
@@ -232,25 +232,25 @@ function ListEditor({ lists }: { lists: PackEditorData["lists"] }) {
       </Field>
       {(rec || isNew) && (
         <>
-          {isNew && <Field label={l.key}><input className="pf-input" value={String(draft[l.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [l.key]: e.target.value }))} /></Field>}
+          {isNew && <Field label={l.key}><input className="plat-input" value={String(draft[l.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [l.key]: e.target.value }))} /></Field>}
           {l.fields.map((f) => (
             <Field key={f.key} label={f.key}>
               {l.choices[f.key] ? (
-                <select className="pf-input" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: f.type === "number" ? Number(e.target.value) : e.target.value }))}>
+                <select className="plat-input" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: f.type === "number" ? Number(e.target.value) : e.target.value }))}>
                   <option value="">Choose…</option>
                   {l.choices[f.key].map((o) => <option key={String(o)} value={String(o)}>{String(o)}</option>)}
                 </select>
               ) : f.type === "number" ? (
-                <input className="pf-input tabular-nums" inputMode="decimal" value={draft[f.key] === null || draft[f.key] === undefined ? "" : String(draft[f.key])} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value === "" ? null : e.target.value }))} />
+                <input className="plat-input tabular-nums" inputMode="decimal" value={draft[f.key] === null || draft[f.key] === undefined ? "" : String(draft[f.key])} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value === "" ? null : e.target.value }))} />
               ) : String(draft[f.key] ?? "").length > 70 ? (
-                <textarea className="pf-input min-h-24" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value }))} />
+                <textarea className="plat-input min-h-24" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value }))} />
               ) : (
-                <input className="pf-input" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value }))} />
+                <input className="plat-input" value={String(draft[f.key] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.value }))} />
               )}
             </Field>
           ))}
           <Result />
-          <button type="button" className="pf-btn pf-btn-solid" disabled={pending} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
+          <button type="button" className="plat-btn plat-btn-solid" disabled={pending} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
         </>
       )}
     </div>
@@ -273,13 +273,13 @@ function AnalysisEditor({ analysis }: { analysis: PackEditorData["analysis"] }) 
     submit({ kind: "analysis", file, index: idx!, patch });
   };
   return (
-    <div className="pf-card space-y-4 p-4 sm:p-5">
+    <div className="plat-card space-y-4 p-4 sm:p-5">
       <p className="text-[0.85rem] text-muted">These are the analysis model&apos;s published outputs. Firefly re-runs the model; tell Firefly when you change one, so the next run keeps it.</p>
       <Field label="Analysis">
-        <select className="pf-input" value={file} onChange={(e) => { setFile(e.target.value); setIdx(null); reset(); }}>{analysis.map((x) => <option key={x.file} value={x.file}>{x.title}</option>)}</select>
+        <select className="plat-input" value={file} onChange={(e) => { setFile(e.target.value); setIdx(null); reset(); }}>{analysis.map((x) => <option key={x.file} value={x.file}>{x.title}</option>)}</select>
       </Field>
       <Field label="Row">
-        <select className="pf-input" value={idx ?? ""} onChange={(e) => { const i = e.target.value === "" ? null : Number(e.target.value); setIdx(i); setDraft(i === null ? {} : { ...a.rows[i] }); reset(); }}>
+        <select className="plat-input" value={idx ?? ""} onChange={(e) => { const i = e.target.value === "" ? null : Number(e.target.value); setIdx(i); setDraft(i === null ? {} : { ...a.rows[i] }); reset(); }}>
           <option value="">Choose…</option>
           {a.rows.map((r) => <option key={String(r.index)} value={String(r.index)}>{String(r.label)}</option>)}
         </select>
@@ -289,18 +289,18 @@ function AnalysisEditor({ analysis }: { analysis: PackEditorData["analysis"] }) 
           {fields.map((k) => (
             <Field key={k} label={k.replace("_", " ")}>
               {k === "status" || k === "method" || k === "tier" ? (
-                <select className="pf-input" value={String(draft[k] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [k]: e.target.value }))}>
+                <select className="plat-input" value={String(draft[k] ?? "")} onChange={(e) => setDraft((d) => ({ ...d, [k]: e.target.value }))}>
                   {(k === "status" ? ["confirmed", "verify", "placeholder"] : k === "method" ? ["official", "calculated", "modelled"] : ["1", "2", "3"]).map((o) => (
                     <option key={o} value={o}>{k === "tier" ? ["Official", "Reported", "Unconfirmed"][Number(o) - 1] : o}</option>
                   ))}
                 </select>
               ) : (
-                <input className="pf-input" inputMode={k === "value" ? "decimal" : undefined} value={draft[k] === null || draft[k] === undefined ? "" : String(draft[k])} onChange={(e) => setDraft((d) => ({ ...d, [k]: e.target.value }))} />
+                <input className="plat-input" inputMode={k === "value" ? "decimal" : undefined} value={draft[k] === null || draft[k] === undefined ? "" : String(draft[k])} onChange={(e) => setDraft((d) => ({ ...d, [k]: e.target.value }))} />
               )}
             </Field>
           ))}
           <Result />
-          <button type="button" className="pf-btn pf-btn-solid" disabled={pending} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
+          <button type="button" className="plat-btn plat-btn-solid" disabled={pending} onClick={save}>{pending ? "Submitting…" : "Submit edit"}</button>
         </>
       )}
     </div>

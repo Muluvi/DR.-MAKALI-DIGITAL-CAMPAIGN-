@@ -14,7 +14,7 @@ export function Bars({ title, caption, bars, unit = "", empty = "Nothing entered
   const max = Math.max(1, ...bars.map((b) => Math.max(b.value, b.mark ?? 0)));
   const fmt = (n: number) => `${n.toLocaleString("en-KE", { maximumFractionDigits: 1 })}${unit}`;
   return (
-    <figure className="pf-card break-inside-avoid p-4 sm:p-5">
+    <figure className="plat-card break-inside-avoid p-4 sm:p-5">
       <figcaption>
         <p className="font-serif text-[1.1rem] leading-snug text-ink">{title}</p>
         {caption && <p className="mt-1 text-[0.8rem] text-muted">{caption}</p>}
