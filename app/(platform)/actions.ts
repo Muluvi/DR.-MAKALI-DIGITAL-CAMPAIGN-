@@ -27,7 +27,7 @@ function guard(e: unknown): ActionResult {
 }
 
 function refresh() {
-  for (const p of ["/workspace", "/implementation", "/dashboards", "/explore", "/history"]) revalidatePath(p, "layout");
+  for (const p of ["/workspace", "/progress", "/dashboards", "/explore", "/history"]) revalidatePath(p, "layout");
 }
 
 /* ------------------------------------------------------------------ working records */
@@ -138,6 +138,7 @@ export async function signIn(input: { email: string; password?: string; magic?: 
     if (!cred) return fail("That email and password do not match a team account.");
     const store = readStore()!;
     if (!(await store.member(email)) && fireflyAdminEmails().includes(email)) await store.upsertMember({ email, name: cred.name }, { email, name: cred.name, role: "firefly", active: true });
+    if (!(await store.member(email))?.active) return fail("This account is not on the team. Ask Firefly to add it.");
     (await cookies()).set(LOCAL_COOKIE, localToken(email), { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 14 });
     return { ok: true, message: "Signed in." };
   }
@@ -153,6 +154,10 @@ export async function signIn(input: { email: string; password?: string; magic?: 
   }
   const { error } = await sb.auth.signInWithPassword({ email, password: input.password });
   if (error) return fail("That email and password do not match a team account.");
+  if (!fireflyAdminEmails().includes(email) && !(await readStore()!.member(email))?.active) {
+    await sb.auth.signOut();
+    return fail("This account is not on the team. Ask Firefly to add it.");
+  }
   return { ok: true, message: "Signed in." };
 }
 

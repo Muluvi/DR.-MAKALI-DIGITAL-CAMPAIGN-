@@ -23,8 +23,8 @@ export function Bars({ title, caption, bars, unit = "", empty = "Nothing entered
         <p className="mt-4 rounded-xl border border-dashed border-line p-4 text-center text-[0.85rem] text-muted">{empty}</p>
       ) : (
         <ul className="mt-4 space-y-2.5">
-          {bars.map((b) => (
-            <li key={b.label}>
+          {bars.map((b, i) => (
+            <li key={`${i}-${b.label}`}>
               <div className="flex items-baseline justify-between gap-3 text-[0.82rem]">
                 <span className="min-w-0 truncate text-ink">{b.label}</span>
                 <span className="flex-none tabular-nums text-ink">{fmt(b.value)}{b.mark !== undefined && b.mark !== null ? <span className="text-muted"> / {fmt(b.mark)}</span> : null}</span>

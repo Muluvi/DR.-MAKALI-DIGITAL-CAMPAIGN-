@@ -12,7 +12,7 @@ import { COLLECTION_BY_ID, type Field } from "@/lib/platform/collections";
 import { validateRecord, type Options } from "@/lib/platform/validate";
 import { saveRecord } from "@/app/(platform)/actions";
 
-export function RecordForm({ collectionId, options, initial, recordId, onDone }: { collectionId: string; options: Options; initial?: Record<string, unknown>; recordId?: string; onDone?: () => void }) {
+export function RecordForm({ collectionId, options, initial, recordId, onDone }: { collectionId: string; options: Options; initial?: Record<string, unknown>; recordId?: string; onDone?: (message?: string) => void }) {
   const c = COLLECTION_BY_ID[collectionId];
   const router = useRouter();
   const [values, setValues] = useState<Record<string, unknown>>(() => ({ ...(initial ?? {}) }));
@@ -43,7 +43,7 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
       router.refresh();
       if (!recordId) setValues({});
       setTouched(false);
-      onDone?.();
+      onDone?.(r.message);
     });
   };
 
@@ -107,7 +107,7 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
       {message && <p className="rounded-xl border border-line bg-paper p-3 text-[0.9rem] text-ink" role="status">{message}</p>}
       <div className="flex gap-2">
         <button type="submit" className="pf-btn pf-btn-solid" disabled={pending}>{pending ? "Saving…" : recordId ? "Save changes" : "Save"}</button>
-        {onDone && <button type="button" className="pf-btn" onClick={onDone}>Cancel</button>}
+        {onDone && <button type="button" className="pf-btn" onClick={() => onDone()}>Cancel</button>}
       </div>
     </form>
   );

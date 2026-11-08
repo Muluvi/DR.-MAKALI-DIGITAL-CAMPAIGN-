@@ -32,7 +32,7 @@ const THIRTY_DAYS = 60 * 60 * 24 * 30;
  * short-lived tokens; this refreshes them on the platform's pages so a team member stays signed in.
  * It never gates anything: viewing needs no account, and edits are checked in the server actions.
  */
-const PLATFORM = /^\/(workspace|implementation|dashboards|explore|strategies|history|team)(\/|$)/;
+const PLATFORM = /^\/(workspace|progress|dashboards|explore|strategies|history|team)(\/|$)/;
 
 async function withSession(request: NextRequest, response: NextResponse): Promise<NextResponse> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

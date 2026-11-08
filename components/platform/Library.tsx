@@ -43,7 +43,7 @@ export function Library({ items }: { items: LibraryItem[] }) {
             {i.owner && <p className="mt-2 text-[0.8rem] text-ink"><span className="text-muted">Owner: </span>{i.owner}</p>}
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href={i.href} className="pf-btn pf-btn-sm">In the story <ArrowUpRight size={14} /></a>
-              <a href={`/implementation?q=${encodeURIComponent(i.title)}`} className="pf-btn pf-btn-sm">Implementation</a>
+              <a href={`/progress?q=${encodeURIComponent(i.title)}`} className="pf-btn pf-btn-sm">Implementation</a>
               {i.figures.length > 0 && (
                 <details className="w-full text-[0.8rem]">
                   <summary className="cursor-pointer text-accent">{i.figures.length} {i.figures.length === 1 ? "figure" : "figures"} behind it</summary>
