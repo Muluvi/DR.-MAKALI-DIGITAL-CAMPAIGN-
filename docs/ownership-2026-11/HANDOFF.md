@@ -303,6 +303,11 @@ See [`TEAM-GUIDE.md`](TEAM-GUIDE.md): signing in, the workspace, editing data, a
 9. **The headline was trimmed to one word under the 45-word lead limit.** It reads "Firefly Management offers a platform and asks for one week, one export."
 10. **The ledger's kind label.** `CHANGES.md` labels each entry "Replaced (a figure or source superseded)". That is the existing tool's wording for any replacement. The note column gives the real reason.
 
+11. **Speed and stale pages (fixed 8 November 2026).**
+    - The sign-in session refresh had been added to `middleware.ts`, which runs before every page, and tripled its size (34.8 → 95.9 kB) for a feature that is switched off. `middleware.ts` is restored to the baseline exactly.
+    - If team sign-in is switched on later, Supabase sessions refresh through the team's own actions. For sessions that must outlast an hour without an action, add a refresh scoped to the `/team` routes only, not to every page.
+    - The site's service worker used to answer page loads from the copy saved on the phone. After a deploy, that copy can point at stylesheets and scripts the new deployment no longer serves, so it loads without its colours and waits on missing scripts. Pages are now fetched from the network first, falling back to the saved copy only when offline or slow. Its cache version is bumped to `v2`, which clears old saved pages.
+
 ## Self-check
 
 - [x] Every Firefly task from Phase 1 is reassigned to the team and has a working site function; platform ownership stays with Firefly (section 2).
