@@ -83,7 +83,7 @@ const DETAIL: Record<string, PhaseDetail> = {
 
 /** Fixed calendar anchors the rail is measured against. */
 const ANCHORS = [
-  { at: 0.14, label: "Nomination decision", sub: "Before Q4 2026", icon: Flag },
+  { at: 0.14, label: "Nomination decision", sub: "Reported for late Oct–Nov 2026; by 8 May 2027 at the latest", icon: Flag },
   { at: 1, label: "General election", sub: "10 August 2027", icon: Vote },
 ];
 

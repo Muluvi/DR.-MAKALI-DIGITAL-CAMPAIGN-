@@ -37,6 +37,10 @@
     {
       "id": "C9",
       "chosen": "The team enters its own analytics exports on the platform; Firefly needs no access to the accounts (How it works, 13.2). The dependency in What the campaign provides (22.2) is reworded to match. Decided 8 November 2026, table-of-contents pass (docs/toc-2026-11/APPLIED.md)."
+    },
+    {
+      "id": "C10",
+      "chosen": "The calendar phases follow the IEBC timetable (Gazette Notice 13501): Awareness January–February 2027, Persuasion March to the 8 May 2027 deadline for party primaries, Turnout May–August 2027. The Wiper window stays as reported (Tier 3) with the legal deadline beside it. Decided 8 November 2026, when the proposal was revised unsigned (docs/toc-2026-11/APPLIED.md)."
     }
   ],
   "figureLevel": [
@@ -73,6 +77,24 @@
       "file": "receives",
       "from": "*   **Read-only analytics access** on the existing accounts — Analyst role, no publishing rights.\n    Without it there is nothing to analyse, and the engagement cannot start.",
       "to": "*   **The team's own analytics exports** from the existing accounts, entered on the platform; no\n    access to the accounts changes hands. Without them there is nothing to analyse, and the engagement cannot start."
+    },
+    {
+      "id": "C10",
+      "file": "timeline",
+      "from": "**Phase 1 — October–December 2026 KPIs:**",
+      "to": "**Phase 1 — January–February 2027 KPIs:**"
+    },
+    {
+      "id": "C10",
+      "file": "timeline",
+      "from": "**Phase 2 — January–March 2027 KPIs:**",
+      "to": "**Phase 2 — March–May 2027 KPIs:**"
+    },
+    {
+      "id": "C10",
+      "file": "timeline",
+      "from": "**Phase 3 — April–August 2027 KPIs:**",
+      "to": "**Phase 3 — May–August 2027 KPIs:**"
     }
   ],
   "retiredTokens": [

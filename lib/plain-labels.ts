@@ -25,7 +25,7 @@ export const PHASE_ID_BY_NAME: Record<string, string> = {
 
 const LEAD_IN = /(\b(?:in|by|before|during|after|from|through|to|of|into|until|for|across|at|and|or|than)\s+)$/i;
 const PHASE = /\bPhases?\s+(−1|-1|0|1|2|3)\b(?:\s*(?:,|and|or|&|–|to)\s*(−1|-1|0|1|2|3)\b)*/g;
-// "Phase 1: awareness, October–December 2026" — the words after the colon already name it.
+// "Phase 1: awareness, January–February 2027" — the words after the colon already name it.
 const PHASE_HEAD = /^Phase\s+(−1|-1|0|1|2|3):\s*(\S)/;
 // "Stage One: the Wiper nomination", "Stage 2: the general election" — the name follows the colon.
 const STAGE_HEAD = /^Stage\s+(?:One|Two|1|2):\s*(\S)/;

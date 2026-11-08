@@ -94,7 +94,7 @@ offline population, diaspora-skewed interaction, and no demonstrated link to tur
 is judged on the indicators in Section 18.1, every one of which traces either to the nomination
 objectives in Section 8.2 or to the ~200,000-vote benchmark. Where a row below is **bold**, it is one of those.
 
-**Phase 1 — October–December 2026 KPIs:**
+**Phase 1 — January–February 2027 KPIs:**
 
 | Metric | Target |
 |---|---|
@@ -109,7 +109,7 @@ objectives in Section 8.2 or to the ~200,000-vote benchmark. Where a row below i
 | Earned media items/month | ≥ 8 |
 | Opt-out rate | < 2% |
 
-**Phase 2 — January–March 2027 KPIs:**
+**Phase 2 — March–May 2027 KPIs:**
 
 | Metric | Target |
 |---|---|
@@ -124,7 +124,7 @@ objectives in Section 8.2 or to the ~200,000-vote benchmark. Where a row below i
 | Viral content pieces (>100,000 views) ° | ≥ 10 |
 | Red-team response times meeting target | ≥ 90% |
 
-**Phase 3 — April–August 2027 KPIs:**
+**Phase 3 — May–August 2027 KPIs:**
 
 | Metric | Target |
 |---|---|
@@ -141,7 +141,7 @@ objectives in Section 8.2 or to the ~200,000-vote benchmark. Where a row below i
 | Misinformation incidents responded to within severity target | 100% |
 ```
 
-## 14.5 Phase 1: awareness, October–December 2026
+## 14.5 Phase 1: awareness, January–February 2027
 
 Awareness and community building.
 
@@ -149,7 +149,7 @@ Awareness and community building.
 {"kind":"checklist","title":"Activities","items":[{"label":"Daily multilingual content on a structured calendar"},{"label":"Weekly Facebook Live town halls (Thursdays, 19:00–20:00 EAT)"},{"label":"Official campaign hashtag **#MuluForKitui** plus a Kikamba equivalent, developed by the native-speaker reviewer"},{"label":"Paid campaigns begin with weekly A/B testing; zone allocation 25% Anchor / 25% Mwingi / 30% Arid Belt / 20% rotating"},{"label":"**SMS programme scales to all 40 wards**"},{"label":"**Service-delivery tracker launches publicly**"},{"label":"First three \"Dr. Mulu Explains\" policy videos"},{"label":"Coalition programme: MSME associations, youth groups"},{"label":"Analytics maturity Stage 1 complete"}]}
 ```
 
-## 14.6 Phase 2: engagement and persuasion, January–March 2027
+## 14.6 Phase 2: engagement and persuasion, March–May 2027
 
 Ward-level persuasion on local issues.
 
@@ -157,7 +157,7 @@ Ward-level persuasion on local issues.
 {"kind":"checklist","title":"Activities","items":[{"label":"Ward-specific ads on local issues — water scarcity in Ikutha, mango prices in Kitui West, market fees in Mwingi Central"},{"label":"Partnerships with Kitui influencers and community leaders, all disclosed"},{"label":"Diaspora webinars every three weeks, for the expanded diaspora registration (reported as 26 countries; not yet sourced, Section 10.4)"},{"label":"Candidate vision video and digital manifesto, with **KSL interpretation and plain-language summaries in all three languages**"},{"label":"TikTok and Reels series for first-time voters"},{"label":"Live policy debates and Q&A on Facebook and X"},{"label":"Weekly sentiment reporting"},{"label":"**Quarterly red-team drill**"},{"label":"Analytics maturity Stages 2–3, subject to the compliance gate"}]}
 ```
 
-## 14.7 Phase 3: mobilisation and turnout, April–August 2027
+## 14.7 Phase 3: mobilisation and turnout, May–August 2027
 
 Registration, pledges and getting out the vote.
 
@@ -192,7 +192,7 @@ liability.
 Each group is engaged in the phase where it matters most, with the digital output that carries it.
 
 ```visual
-{"kind":"timeline","items":[{"when":"Phase −1 (signature to the nomination decision, reported for late Oct–Nov 2026)","label":"Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni","text":"Roundtables on county fiscal management, drawing on his Evaluation Society of Kenya membership","fields":[{"label":"Digital output","text":"Thought-leadership content; LinkedIn and X threads; earned media"}]},{"when":"Phase 0 (Weeks 4–10 from signature, Section 14.2)","label":"Ward-level women's cooperatives and table-banking groups","text":"Listening sessions; identify chairladies as community organisers (volunteer Tier 3, Annex D)","fields":[{"label":"Digital output","text":"Kikamba voice notes; testimonial series"}]},{"when":"Phase 1 (Oct–Dec 2026)","label":"MSME and market traders' associations (Kitui Town, Mwingi, Mutomo, Kabati, Kyuso)","text":"Licensing, cess and market infrastructure forums","fields":[{"label":"Digital output","text":"Policy briefs; Facebook Live Q&A"}]},{"when":"Phase 1–2","label":"Youth groups, boda boda SACCOs, TVET student bodies","text":"Enterprise and licensing sessions","fields":[{"label":"Digital output","text":"TikTok series; first-time-voter drive"}]},{"when":"Phase 2 (Jan–Mar 2027)","label":"Farmer and livestock cooperatives; water user associations","text":"Input supply, sand dams, drought and flood resilience","fields":[{"label":"Digital output","text":"Ward-specific video; SMS policy drops"}]},{"when":"Phase 2","label":"Faith leaders across denominations","text":"Service delivery, integrity, civic participation — **issue-based, never sectarian**","fields":[{"label":"Digital output","text":"Community-programming content"}]},{"when":"Phase 2–3","label":"Diaspora chambers and associations","text":"Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries**","fields":[{"label":"Digital output","text":"Webinars"}]},{"when":"Phase 3 (Apr–Aug 2027)","label":"Consolidation and public endorsement sequencing","text":"Staged announcements for sustained news cycles","fields":[{"label":"Digital output","text":"Endorsement content series"}]}]}
+{"kind":"timeline","items":[{"when":"Phase −1 (signature to the nomination decision: reported for late Oct–Nov 2026, by 8 May 2027 at the latest)","label":"Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni","text":"Roundtables on county fiscal management, drawing on his Evaluation Society of Kenya membership","fields":[{"label":"Digital output","text":"Thought-leadership content; LinkedIn and X threads; earned media"}]},{"when":"Phase 0 (Weeks 4–10 from signature, Section 14.2)","label":"Ward-level women's cooperatives and table-banking groups","text":"Listening sessions; identify chairladies as community organisers (volunteer Tier 3, Annex D)","fields":[{"label":"Digital output","text":"Kikamba voice notes; testimonial series"}]},{"when":"Phase 1 (Jan–Feb 2027)","label":"MSME and market traders' associations (Kitui Town, Mwingi, Mutomo, Kabati, Kyuso)","text":"Licensing, cess and market infrastructure forums","fields":[{"label":"Digital output","text":"Policy briefs; Facebook Live Q&A"}]},{"when":"Phase 1–2","label":"Youth groups, boda boda SACCOs, TVET student bodies","text":"Enterprise and licensing sessions","fields":[{"label":"Digital output","text":"TikTok series; first-time-voter drive"}]},{"when":"Phase 2 (Mar–May 2027)","label":"Farmer and livestock cooperatives; water user associations","text":"Input supply, sand dams, drought and flood resilience","fields":[{"label":"Digital output","text":"Ward-specific video; SMS policy drops"}]},{"when":"Phase 2","label":"Faith leaders across denominations","text":"Service delivery, integrity, civic participation — **issue-based, never sectarian**","fields":[{"label":"Digital output","text":"Community-programming content"}]},{"when":"Phase 2–3","label":"Diaspora chambers and associations","text":"Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries**","fields":[{"label":"Digital output","text":"Webinars"}]},{"when":"Phase 3 (May–Aug 2027)","label":"Consolidation and public endorsement sequencing","text":"Staged announcements for sustained news cycles","fields":[{"label":"Digital output","text":"Endorsement content series"}]}]}
 ```
 
 ## 16.3 Managing endorsements and measuring coalitions

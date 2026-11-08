@@ -27,7 +27,7 @@ The Wiper decision is expected in the final quarter of 2026, late October to Nov
 id: fig-2-3-nomination
 ```
 
-**When.** The Wiper decision is expected in the final quarter of 2026, late October to November on the reported timetable: **a Tier 3, single-source report, not a confirmed party decision.** It is reported to be a party-run countywide selection rather than a competitive primary, and this whole Phase −1 strategy is built on that report (Section 7.4, assumption 1).
+**When.** The Wiper decision is expected in the final quarter of 2026, late October to November on the reported timetable: **a Tier 3, single-source report, not a confirmed party decision.** Aspirant registration closed on 3 November 2026 (press reports; verify), and by law party primaries must be held by **8 May 2027** (Tier 1, the IEBC Gazette notice of 20 August 2026), so that is the latest the decision can come. It is reported to be a party-run countywide selection rather than a competitive primary, and this whole Phase −1 strategy is built on that report (Section 7.4, assumption 1).
 
 **If the report is wrong** — if Wiper runs a competitive primary, a delegate vote, or a hybrid — the phasing in Chapter 14 is revised before more effort is committed against it, and the contingency in Section 5.4 starts. This section exists so that the re-check happens on purpose rather than by accident.
 

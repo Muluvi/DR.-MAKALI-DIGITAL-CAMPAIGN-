@@ -45,7 +45,7 @@ reached, and whether it moved anything.
 >
 > **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the
 > first of those six for the presence audit that sets its targets. Counting back from a window
-> that opens in late October is the arithmetic that matters; a fixed decision date printed in a
+> reported for late October to November, and closing by law on 8 May 2027, is the arithmetic that matters; a fixed decision date printed in a
 > proposal only ages.
 >
 > **What is lost by waiting.** Each week of delay is a week less of directed output in front of the

@@ -1,7 +1,7 @@
 /**
  * Section 1, Next Steps: what the campaign provides, what is still open, and the decision.
  */
-import { NOMINATION_WINDOW } from "../../phases.ts";
+import { NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
 
@@ -34,7 +34,7 @@ export const FIG_6_3: FigureSpec = {
   section: "1.1",
   title: "The ask is one decision, to approve the platform, because the nomination window sets the clock",
   question: "What is being asked?",
-  takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,
+  takeaway: `Each week of delay is a week less of directed output before the Wiper decision, reported for ${inSentence(NOMINATION_WINDOW.whenText)} and due by ${NOMINATION_WINDOW.deadlineText} at the latest; the ${fmt("pool")}-voter pool is where that output goes.`,
   sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This proposal", tier: null, state: "target" }],
   chart: {
     type: "composite",

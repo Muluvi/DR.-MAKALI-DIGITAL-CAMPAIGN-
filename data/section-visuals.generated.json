@@ -1,4 +1,36 @@
 {
+ "goal-sec-8-1": {
+  "id": "goal-sec-8-1",
+  "tab": "goal",
+  "level": 2,
+  "number": "8.1",
+  "title": "The goal and its two deadlines",
+  "kind": "stepper",
+  "data": {
+   "steps": [
+    {
+     "n": 1,
+     "label": "The clock",
+     "body": "from signature to the close of the party's evaluation window in late 2026, then to the 10 August 2027 general election."
+    },
+    {
+     "n": 2,
+     "label": "Success",
+     "body": "the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach…"
+    },
+    {
+     "n": 3,
+     "label": "The nomination window, reported for Q4…",
+     "body": "The nomination window, reported for Q4 2026, and by 8 May 2027 at the latest: <window-chip></window-chip> Success means showing…"
+    },
+    {
+     "n": 4,
+     "label": "The general election, 10 August 2027",
+     "body": "turning out the 200,000-vote coalition a plurality win needs in a multi-candidate field."
+    }
+   ]
+  }
+ },
  "needs-sec-3-5": {
   "id": "needs-sec-3-5",
   "tab": "needs",

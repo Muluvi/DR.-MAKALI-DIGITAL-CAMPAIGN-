@@ -284,5 +284,159 @@
     "text": "The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.",
     "replacement": "The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical.",
     "at": 6585
+  },
+  {
+    "file": "race",
+    "section": "5.2",
+    "first12": "**a Tier 3, single-source report, not a confirmed party decision.** It is",
+    "words": -41,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**a Tier 3, single-source report, not a confirmed party decision.** It is reported to be a party-run countywide selection",
+    "replacement": "**a Tier 3, single-source report, not a confirmed party decision.** Aspirant registration closed on 3 November 2026 (press reports; verify), and by law party primaries must be held by **8 May 2027** (Tier 1, the IEBC Gazette notice of 20 August 2026), so that is the latest the decision can come. It is reported to be a party-run countywide selection",
+    "at": 2374
+  },
+  {
+    "file": "ask",
+    "section": "23.1",
+    "first12": "Counting back from a window > that opens in late October is",
+    "words": -9,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "Counting back from a window\n> that opens in late October is the arithmetic that matters;",
+    "replacement": "Counting back from a window\n> reported for late October to November, and closing by law on 8 May 2027, is the arithmetic that matters;",
+    "at": 2941
+  },
+  {
+    "file": "goal",
+    "section": "8.1",
+    "first12": "**The nomination window, Q4 2026 (reported):**",
+    "words": -9,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**The nomination window, Q4 2026 (reported):**",
+    "replacement": "**The nomination window, reported for Q4 2026, and by 8 May 2027 at the latest:**",
+    "at": 1648
+  },
+  {
+    "file": "diagnosis",
+    "section": "7.4",
+    "first12": "text: \"A later date lengthens the sprint;",
+    "words": -12,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "text: \"A later date lengthens the sprint;",
+    "replacement": "text: \"A later date, up to the legal deadline of 8 May 2027 for party primaries, lengthens the sprint;",
+    "at": 5109
+  },
+  {
+    "file": "timeline",
+    "section": "16.2",
+    "first12": "when: \"Phase −1 (signature to the nomination decision, reported for late Oct–Nov",
+    "words": -7,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "when: \"Phase −1 (signature to the nomination decision, reported for late Oct–Nov 2026)\"",
+    "replacement": "when: \"Phase −1 (signature to the nomination decision: reported for late Oct–Nov 2026, by 8 May 2027 at the latest)\"",
+    "at": 15766
+  },
+  {
+    "file": "timeline",
+    "section": "14.4",
+    "first12": "**Phase 1 — October–December 2026 KPIs:**",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Phase 1 — October–December 2026 KPIs:**",
+    "replacement": "**Phase 1 — January–February 2027 KPIs:**",
+    "at": 9870
+  },
+  {
+    "file": "timeline",
+    "section": "14.4",
+    "first12": "**Phase 2 — January–March 2027 KPIs:**",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Phase 2 — January–March 2027 KPIs:**",
+    "replacement": "**Phase 2 — March–May 2027 KPIs:**",
+    "at": 10457
+  },
+  {
+    "file": "timeline",
+    "section": "14.4",
+    "first12": "**Phase 3 — April–August 2027 KPIs:**",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Phase 3 — April–August 2027 KPIs:**",
+    "replacement": "**Phase 3 — May–August 2027 KPIs:**",
+    "at": 11060
+  },
+  {
+    "file": "timeline",
+    "section": "14.4",
+    "first12": "## 14.5 Phase 1: awareness, October–December 2026",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "## 14.5 Phase 1: awareness, October–December 2026",
+    "replacement": "## 14.5 Phase 1: awareness, January–February 2027",
+    "at": 11709
+  },
+  {
+    "file": "timeline",
+    "section": "14.5",
+    "first12": "## 14.6 Phase 2: engagement and persuasion, January–March 2027",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "## 14.6 Phase 2: engagement and persuasion, January–March 2027",
+    "replacement": "## 14.6 Phase 2: engagement and persuasion, March–May 2027",
+    "at": 12537
+  },
+  {
+    "file": "timeline",
+    "section": "14.6",
+    "first12": "## 14.7 Phase 3: mobilisation and turnout, April–August 2027",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "## 14.7 Phase 3: mobilisation and turnout, April–August 2027",
+    "replacement": "## 14.7 Phase 3: mobilisation and turnout, May–August 2027",
+    "at": 13475
+  },
+  {
+    "file": "timeline",
+    "section": "16.2",
+    "first12": "when: \"Phase 1 (Oct–Dec 2026)\"",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "when: \"Phase 1 (Oct–Dec 2026)\"",
+    "replacement": "when: \"Phase 1 (Jan–Feb 2027)\"",
+    "at": 16562
+  },
+  {
+    "file": "timeline",
+    "section": "16.2",
+    "first12": "when: \"Phase 2 (Jan–Mar 2027)\"",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "when: \"Phase 2 (Jan–Mar 2027)\"",
+    "replacement": "when: \"Phase 2 (Mar–May 2027)\"",
+    "at": 17071
+  },
+  {
+    "file": "timeline",
+    "section": "16.2",
+    "first12": "when: \"Phase 3 (Apr–Aug 2027)\"",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "when: \"Phase 3 (Apr–Aug 2027)\"",
+    "replacement": "when: \"Phase 3 (May–Aug 2027)\"",
+    "at": 17829
   }
 ]
