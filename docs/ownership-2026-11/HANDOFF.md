@@ -311,4 +311,23 @@ See [`TEAM-GUIDE.md`](TEAM-GUIDE.md): signing in, the workspace, editing data, a
 
 ## Production check
 
-*Filled in after the deploy.*
+PR #63 was merged as `d0cba49`. Vercel production deployment `dpl_8rVJpMG7cYz7ZxygVU7m1jqD2Uxu` is READY.
+
+The live URL was checked through Vercel's fetch, because this session's network cannot reach the host directly:
+
+| Live check | Result |
+|---|---|
+| `/explore?ds=figures` | 200; the figure registry renders |
+| `/platform` (the new chapter) | 200; "Anyone with the link sees everything" and "What Firefly runs behind the scenes" render |
+| `/engagement` | 200; the new role text ("Your team steers and publishes"); the old "Firefly steers" wording is gone |
+| `/dashboards` | 200; data-pack charts render; team charts show "nothing entered yet" |
+| `/strategies` | 200; the workstreams are listed |
+| `/workspace` | 200; preview checked before the merge |
+| `/team/login` | 200; "Team sign-in is not switched on yet" (Supabase not yet configured) |
+| `/team/data`, logged out | Sent to sign-in |
+| `/implementation` (a retired route, for old links) | Still lands on The goal |
+| Vercel runtime errors since the deploy | None |
+
+**A deploy problem found and fixed before the merge.** The first preview builds failed because `.vercelignore` keeps `/analysis/` out of the Vercel upload, and the new prebuild preservation check reported those files missing. The check now skips paths that `.vercelignore` excludes when it runs on Vercel; CI still checks them. A simulated Vercel build and the real preview both passed before the merge. **No rollback was needed.**
+
+What remains for the team functions to work live: Firefly's setup in section 3.
