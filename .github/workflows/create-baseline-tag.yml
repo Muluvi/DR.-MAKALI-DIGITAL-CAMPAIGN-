@@ -1,0 +1,30 @@
+name: create baseline tag
+
+# One-off: creates the rollback tag `pre-ownership-baseline` on a377ded, the last commit before the
+# platform-ownership work (docs/ownership-2026-11/HANDOFF.md). The authoring session could not push
+# tags, so this runs once on demand and is then removed. It never moves an existing tag.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Tag a377ded as pre-ownership-baseline
+        run: |
+          set -euo pipefail
+          SHA=a377dedabf7e7734f4ee6bf8482eb7f269b13646
+          git cat-file -e "${SHA}^{commit}"
+          if git ls-remote --exit-code --tags origin refs/tags/pre-ownership-baseline; then
+            echo "Tag already exists; leaving it as it is."
+            exit 0
+          fi
+          git tag pre-ownership-baseline "$SHA"
+          git push origin refs/tags/pre-ownership-baseline
