@@ -1,0 +1,5 @@
+{
+  "$comment": "Team edits to the figure registry, written by the in-site data editor (/team/data), never by hand. `patches` changes fields of an existing figure by id; `added` holds figures the team created. lib/data/figures.ts applies both, so derived figures recompute and every page, chart, CSV and the explorer follow. npm run verify checks the result before any edit reaches main.",
+  "patches": {},
+  "added": []
+}

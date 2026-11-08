@@ -19,6 +19,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { FIGURES } from "../lib/data/figures.ts";
 import { ALLOW } from "../lib/data/allow.ts";
+import { figureProblems } from "../lib/data/rules.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "content");
@@ -28,16 +29,10 @@ const LITERAL = /(?<![\w.,{|])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?![\d}])|(?<![\w.,{|]
 
 const errors: string[] = [];
 
+// The per-figure rules live in lib/data/rules.ts, shared with the in-site data editor, so the team
+// cannot save a figure this check would reject.
 for (const [id, f] of Object.entries(FIGURES)) {
-  if (f.id !== id) errors.push(`${id}: id field "${f.id}" does not match its key`);
-  if (f.state === "needed" && f.value !== null) errors.push(`${id}: needed but has a value`);
-  if (f.state !== "needed" && f.value === null) errors.push(`${id}: no value but not marked needed`);
-  if (f.state === "needed" && !f.closesWith) errors.push(`${id}: needed, but names no document that would close it`);
-  if (f.state === "sourced" && !f.source) errors.push(`${id}: sourced with no source`);
-  if ((f.state === "sourced" || f.state === "modelled") && !f.tier) errors.push(`${id}: ${f.state} with no tier`);
-  if (f.state === "modelled" && !f.note) errors.push(`${id}: modelled with no note`);
-  if (f.state === "target" && !f.note) errors.push(`${id}: target with no note`);
-  if (f.alt && f.alt.value === f.value) errors.push(`${id}: alt equals primary — a dispute collapsed`);
+  for (const p of figureProblems(id, f)) errors.push(p.rule);
 }
 
 for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) {

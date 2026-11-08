@@ -1,3 +1,4 @@
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 /**
  * The message architecture: one claim, three pillars, four content types. One file, read by every
  * figure that names a pillar or a content type, so a count cannot be printed two ways again.
@@ -19,7 +20,7 @@ export interface Pillar {
   carries: string[];
 }
 
-export const PILLARS: Pillar[] = [
+export const PILLARS: Pillar[] = withTeamEdits<Pillar>("pillars", "title", [
   {
     title: "Fiscal integrity and transparent public finance",
     argued: "How the county's budget should be allocated and audited, ward by ward; publish what was promised, then publish whether it happened.",
@@ -35,7 +36,7 @@ export const PILLARS: Pillar[] = [
     argued: "His record, including NG-CDF projects, shown as charts, ward maps and before-and-after comparisons.",
     carries: ["Data-driven civic engagement"],
   },
-];
+]);
 
 export interface ContentType {
   /** P1 to P4: the weekly brief's slot. */
@@ -46,10 +47,10 @@ export interface ContentType {
   name: string;
 }
 
-export const CONTENT_TYPES: ContentType[] = [
+export const CONTENT_TYPES: ContentType[] = withTeamEdits<ContentType>("content-types", "code", [
   { code: "P1", short: "Where the money went", name: "Where the money went" },
   { code: "P2", short: "One household", name: "From poverty to wealth creation, one household" },
   { code: "P3", short: "The economist explains", name: "The economist explains" },
   { code: "P4", short: "He came, and said", name: "He came, and this is what he said he would do" },
-];
+]);
 

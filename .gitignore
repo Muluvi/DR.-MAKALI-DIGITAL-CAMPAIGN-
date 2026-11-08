@@ -19,3 +19,6 @@ __pycache__/
 
 # Generated at build from data/analysis/ by scripts/copy-analysis.mjs (one editable copy)
 public/content/analysis/
+
+# The platform's development store (PLATFORM_STORE=local). Never committed.
+.platform-local/

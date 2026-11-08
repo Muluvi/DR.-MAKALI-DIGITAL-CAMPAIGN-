@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 
 /**
  * An optional passcode gate for a document that says "Confidential — personal, link-only".
@@ -26,16 +27,42 @@ import { NextResponse, type NextRequest } from "next/server";
 const COOKIE = "kitui-pass";
 const THIRTY_DAYS = 60 * 60 * 24 * 30;
 
-export function middleware(request: NextRequest) {
+/**
+ * The team's sign-in session (the campaign platform, docs/ownership-2026-11). Supabase sessions are
+ * short-lived tokens; this refreshes them on the platform's pages so a team member stays signed in.
+ * It never gates anything: viewing needs no account, and edits are checked in the server actions.
+ */
+const PLATFORM = /^\/(workspace|implementation|dashboards|explore|strategies|history|team)(\/|$)/;
+
+async function withSession(request: NextRequest, response: NextResponse): Promise<NextResponse> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key || !PLATFORM.test(request.nextUrl.pathname)) return response;
+  let out = response;
+  const supabase = createServerClient(url, key, {
+    cookies: {
+      getAll: () => request.cookies.getAll(),
+      setAll: (list) => {
+        for (const { name, value } of list) request.cookies.set(name, value);
+        out = NextResponse.next({ request });
+        for (const { name, value, options } of list) out.cookies.set(name, value, options);
+      },
+    },
+  });
+  await supabase.auth.getUser();
+  return out;
+}
+
+export async function middleware(request: NextRequest) {
   const passcode = process.env.SITE_PASSCODE;
-  if (!passcode) return NextResponse.next();
+  if (!passcode) return withSession(request, NextResponse.next({ request }));
 
   const { searchParams, pathname } = request.nextUrl;
 
   // The preview card, and anything a link unfurler needs before a human has seen the page.
   if (pathname.startsWith("/og") || pathname === "/favicon.ico") return NextResponse.next();
 
-  if (request.cookies.get(COOKIE)?.value === passcode) return NextResponse.next();
+  if (request.cookies.get(COOKIE)?.value === passcode) return withSession(request, NextResponse.next({ request }));
 
   if (searchParams.get("k") === passcode) {
     // Redirect so the passcode leaves the address bar, and so a screenshot of the page does not

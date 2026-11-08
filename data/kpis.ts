@@ -18,6 +18,7 @@
 // so that is what is encoded here, and the difference is flagged rather than smoothed over.
 import type { ClaimStatus } from "../components/markdown/ClaimBadge";
 import { fmt, val } from "../lib/data/read.ts";
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 
 export type Baseline =
   | { kind: "unmeasured"; note: string }
@@ -57,7 +58,7 @@ export function baselineStatus(b: Baseline): ClaimStatus {
  * a measure Firefly can observe on his own channels or on the SMS list it operates. The targets
  * that can be stated before Week 1 are stated; the ones that depend on the Week 1 baseline say so.
  */
-export const NOMINATION_KPIS: Kpi[] = [
+export const NOMINATION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.nomination", "code", [
   {
     code: "NW-01",
     title: "Reach share in the deficit pool",
@@ -110,9 +111,9 @@ export const NOMINATION_KPIS: Kpi[] = [
     owner: "Political Affairs Director",
     cadence: "Weekly Executive Dashboard",
   },
-];
+]);
 
-export const GENERAL_ELECTION_KPIS: Kpi[] = [
+export const GENERAL_ELECTION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.general-election", "code", [
   {
     code: "GE-01",
     title: "Pledged Voter Data Base Size",
@@ -177,7 +178,7 @@ export const GENERAL_ELECTION_KPIS: Kpi[] = [
     owner: "Chief Technology Officer (CTO)",
     cadence: "Polling Day Hourly Real-Time (17:00–21:00)",
   },
-];
+]);
 
 /**
  * The recognition indicators (Measuring success, "Recognition where he is least known"): R-01 to

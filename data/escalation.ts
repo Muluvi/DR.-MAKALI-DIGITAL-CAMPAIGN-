@@ -1,3 +1,4 @@
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 /**
  * How an attack on the campaign is judged and answered: four severity tiers, one file.
  *
@@ -34,7 +35,7 @@ export interface SeverityTier {
   approvedBy: string;
 }
 
-export const SEVERITY_TIERS: SeverityTier[] = [
+export const SEVERITY_TIERS: SeverityTier[] = withTeamEdits<SeverityTier>("escalation", "name", [
   {
     name: "Negligible",
     threshold: "Isolated comment or post with under 50 views · fringe blog or anonymous account",
@@ -67,4 +68,4 @@ export const SEVERITY_TIERS: SeverityTier[] = [
     draftedBy: "Firefly",
     approvedBy: "Candidate + senior leadership",
   },
-];
+]);

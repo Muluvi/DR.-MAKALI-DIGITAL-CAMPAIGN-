@@ -1,3 +1,4 @@
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 // §5.2.4.4's key metrics, as data.
 //
 // The table states a global benchmark and a campaign target side by side, and the thing it does
@@ -25,7 +26,7 @@ export interface Benchmark {
   /** Whether the target sits above, inside or below the benchmark band. Derived. */
 }
 
-export const PLOTTED_BENCHMARKS: Benchmark[] = [
+export const PLOTTED_BENCHMARKS: Benchmark[] = withTeamEdits<Benchmark>("benchmarks", "metric", [
   {
     metric: "Share of voice",
     definition: "% of Kitui gubernatorial mentions about Dr. Mulu",
@@ -56,7 +57,7 @@ export const PLOTTED_BENCHMARKS: Benchmark[] = [
     benchmarkFrom: 60, benchmarkTo: 80, target: 70,
     benchmarkLabel: "60–80%", targetLabel: "≥ 70%",
   },
-];
+]);
 
 /** Where a target sits relative to its benchmark band. Computed, never asserted. */
 export function targetPosition(b: Benchmark): "above" | "inside" | "below" {
