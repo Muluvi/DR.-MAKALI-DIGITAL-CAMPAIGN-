@@ -1,12 +1,12 @@
 ```lead
-Success is judged on measures Firefly can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, and the one that matters most is how much of his reach lands where he is least known.
+Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform, and the one that matters most is how much of his reach lands where he is least known.
 ```
 
-Success is judged on measures Firefly can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
+Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
 
 ## 18.1 How success will be judged
 
-Every indicator is one Firefly can observe on his own channels or on the SMS list it operates, and every one traces to the nomination objectives (Section 8.2) or to the ~200,000-vote benchmark. Firefly commits to the method and the cadence of measurement, not to an electoral outcome (Section 22.1).
+Every indicator is one his team can observe on his own channels or on the SMS list it operates, and enters in the platform's KPI tracker, and every one traces to the nomination objectives (Section 8.2) or to the ~200,000-vote benchmark. Firefly commits to the platform that holds the measurement, and the team to its method and cadence, not to an electoral outcome (Section 22.1).
 
 ```figure
 id: fig-1-5-scorecard
@@ -53,10 +53,10 @@ The indicators are read on a fixed rhythm, and each reading has a consequence:
 
 Section 18.4 sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every
 one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
-Firefly's dispatch logs.
+the team's dispatch log on Firefly's platform.
 
 ```visual
-{"kind":"cards","preset":"indicator","items":[{"title":"Followers located in Mwingi North, Central and West","chips":["R-01"],"head":{"label":"Target","text":"A stated monthly gain on the Week 1 baseline"},"fields":[{"label":"Method","text":"Meta follower city breakdown mapped to sub-county, monthly (NW-02 above)"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Share of total reach landing in the 275,570-voter pool","chips":["R-02"],"head":{"label":"Target","text":"≥ 51.7%, the pool's own share of the register"},"fields":[{"label":"Method","text":"Meta city breakdown mapped to sub-county, weekly"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Shares per 1,000 reached, deficit wards only","chips":["R-03"],"head":{"label":"Target","text":"Set against the measured Week 1 figure, as a stated point gain"},"fields":[{"label":"Method","text":"Post-level export, weekly"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Consented contacts in the 21 wards of the pool, and their share of the list","chips":["R-04"],"head":{"label":"Target","text":"Deficit-ward share of the list ≥ deficit-ward share of the register"},"fields":[{"label":"Method","text":"Firefly's own dispatch logs"},{"label":"Baseline","text":"0"}]},{"title":"Kikamba-first share of weekly output, and its engagement on reach","chips":["R-05"],"head":{"label":"Target","text":"≥ 4 of 7 weekly posts Kikamba-first (Section 12.6)"},"fields":[{"label":"Method","text":"Post coding, weekly (Section 18.5)"},{"label":"Baseline","text":"Set in Week 1"}]}]}
+{"kind":"cards","preset":"indicator","items":[{"title":"Followers located in Mwingi North, Central and West","chips":["R-01"],"head":{"label":"Target","text":"A stated monthly gain on the Week 1 baseline"},"fields":[{"label":"Method","text":"Meta follower city breakdown mapped to sub-county, monthly (NW-02 above)"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Share of total reach landing in the 275,570-voter pool","chips":["R-02"],"head":{"label":"Target","text":"≥ 51.7%, the pool's own share of the register"},"fields":[{"label":"Method","text":"Meta city breakdown mapped to sub-county, weekly"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Shares per 1,000 reached, deficit wards only","chips":["R-03"],"head":{"label":"Target","text":"Set against the measured Week 1 figure, as a stated point gain"},"fields":[{"label":"Method","text":"Post-level export, weekly"},{"label":"Baseline","text":"Set in Week 1"}]},{"title":"Consented contacts in the 21 wards of the pool, and their share of the list","chips":["R-04"],"head":{"label":"Target","text":"Deficit-ward share of the list ≥ deficit-ward share of the register"},"fields":[{"label":"Method","text":"The team's dispatch log on Firefly's platform"},{"label":"Baseline","text":"0"}]},{"title":"Kikamba-first share of weekly output, and its engagement on reach","chips":["R-05"],"head":{"label":"Target","text":"≥ 4 of 7 weekly posts Kikamba-first (Section 12.6)"},"fields":[{"label":"Method","text":"Post coding, weekly (Section 18.5)"},{"label":"Baseline","text":"Set in Week 1"}]}]}
 ```
 
 **R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the
@@ -142,14 +142,14 @@ doubles as a performance review will be resisted, and rightly.
 #### Testing the hypothesis on existing records
 
 ```lead
-The campaign tests the **recognition-deficit hypothesis** on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line Firefly operates. Nothing is commissioned to test it.
+The campaign tests the **recognition-deficit hypothesis** on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line his team operates, logged on Firefly's platform. Nothing is commissioned to test it.
 ```
 
 ```figure
 id: research-and-tracker
 ```
 
-Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign tests the **recognition-deficit hypothesis** (the proposition that Dr. Mulu's main electoral weakness outside Kitui Central is name recognition rather than unfavourable perception) on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line Firefly operates. Nothing is commissioned to test it.
+Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign tests the **recognition-deficit hypothesis** (the proposition that Dr. Mulu's main electoral weakness outside Kitui Central is name recognition rather than unfavourable perception) on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line his team operates, logged on Firefly's platform. Nothing is commissioned to test it.
 
 ```figure
 id: research-modules

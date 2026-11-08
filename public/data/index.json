@@ -30,9 +30,9 @@
   {
     "id": "fig-1-4-flow",
     "section": "1.4.1",
-    "title": "Firefly analyses, sets the strategy and directs; his team keeps publishing throughout",
-    "question": "How does the engagement run?",
-    "takeaway": "Firefly publishes nothing on his accounts: the only channel it operates directly is the WhatsApp and USSD line it already holds."
+    "title": "His team analyses, sets the strategy and directs on the platform, and keeps publishing throughout",
+    "question": "How does the work run?",
+    "takeaway": "Firefly publishes nothing on his accounts and operates no channel: it runs the platform the team works on."
   },
   {
     "id": "fig-1-5-scorecard",
@@ -247,9 +247,9 @@
   {
     "id": "fig-5-2-workstream-panels",
     "section": "4.5",
-    "title": "Fourteen workstreams in four groups: Firefly operates the analysis, the data and the offline layer, and your team keeps publishing",
+    "title": "Fourteen workstreams in four groups: your team runs them on Firefly's platform, and keeps publishing",
     "question": "What does each group produce, and who owns each workstream?",
-    "takeaway": "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch. Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement."
+    "takeaway": "Most of the output is your team's existing work, now directed by the team itself; Firefly's own product is the platform. Workstream 9, the offline layer, is the one the race turns on; two workstreams sit outside the operation."
   },
   {
     "id": "fig-5-3-four-weeks",
@@ -263,7 +263,7 @@
     "section": "4.3",
     "title": "Five phases run to the election; the Nomination sprint runs ahead of the Wiper decision, not with it",
     "question": "How does the plan run to August 2027?",
-    "takeaway": "The Nomination sprint is Firefly's work period, weeks 1–6 from signature; Wiper's decision is a separate window, reported for late October to November 2026. Three general-election phases keep their calendar dates to 10 August 2027."
+    "takeaway": "The Nomination sprint is the team's work period, weeks 1–6 from signature; Wiper's decision is a separate window, reported for late October to November 2026. Three general-election phases keep their calendar dates to 10 August 2027."
   },
   {
     "id": "fig-5-4-ladder",
@@ -291,7 +291,7 @@
     "section": "4.1.3",
     "title": "Your team drafts and publishes, one named counterpart approves, and an attack is judged against four severity tiers",
     "question": "How are decisions made?",
-    "takeaway": "Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a critical attack reaches the candidate, with the war room convened within fifteen minutes."
+    "takeaway": "Your strategy core approves new claims and Kikamba output, your team publishes everything, the offline broadcasts included, and Firefly publishes nothing; a critical attack reaches the candidate, with the war room convened within fifteen minutes."
   },
   {
     "id": "fig-5-8-risk",
@@ -303,9 +303,9 @@
   {
     "id": "fig-5-9-team",
     "section": "4.6",
-    "title": "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
+    "title": "The campaign names three strategy roles and removes no one, with five surge roles each tied to a trigger; Firefly runs the platform",
     "question": "What shape is the team?",
-    "takeaway": "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead."
+    "takeaway": "The campaign's command structure and his publishing team stay as they are; the strategy director reports to one named counterpart and briefs one named lead."
   },
   {
     "id": "fig-5-2-1-report-flow",
@@ -466,7 +466,7 @@
     "section": "reference",
     "title": "Two teams, one weekly brief, and a single named counterpart between them and the candidate",
     "question": "The reporting lines",
-    "takeaway": "The weekly brief is the join: the existing team and Firefly's three people meet there, and one named counterpart carries it upward. Firefly is three people and the block says so."
+    "takeaway": "The weekly brief is the join: the publishing team and the strategy core meet there, and one named counterpart carries it upward. Firefly runs the platform beneath both."
   },
   {
     "id": "research-and-tracker",
@@ -480,7 +480,7 @@
     "section": "reference",
     "title": "Three instruments, and each one names the decision it unlocks",
     "question": "The tests of the recognition-deficit hypothesis — module, method, record, timing and the decision it unlocks",
-    "takeaway": "The last column is what makes this a decision instrument: the audit's result routes directly to a stated change of plan, set out in advance in this proposal. All three read records that already exist: his own analytics, the IEBC's published forms and the line Firefly operates."
+    "takeaway": "The last column is what makes this a decision instrument: the audit's result routes directly to a stated change of plan, set out in advance in this proposal. All three read records that already exist: his own analytics, the IEBC's published forms and the line his team operates."
   },
   {
     "id": "delivery-tracker",

@@ -19,32 +19,32 @@ const PROPOSAL = { name: "This proposal, Sections 13.2–17", tier: null, state:
 
 type Owner = "firefly" | "team" | "outside";
 export const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: string }[] = [
-  { n: 1, name: "Service-delivery tracker; owned platform operation", owner: "firefly", ownerText: "Firefly builds the tracker; your team runs the platforms, directed", sec: "5.2.1.1" },
-  { n: 2, name: "Content production and asset governance", owner: "team", ownerText: "Your team, directed", sec: "5.2.1.2" },
-  { n: 3, name: "Creative testing and AI assistance", owner: "firefly", ownerText: "Firefly", sec: "5.2.1.3" },
-  { n: 4, name: "Accessibility and inclusion", owner: "firefly", ownerText: "Firefly standard, team-executed", sec: "5.2.1.4" },
-  { n: 5, name: "Platform tactics and paid media", owner: "team", ownerText: "Your team, directed", sec: "5.2.2.1" },
-  { n: 6, name: "Earned media, journalists and debates", owner: "team", ownerText: "Your team, directed", sec: "5.2.2.2" },
+  { n: 1, name: "Service-delivery tracker; owned platform operation", owner: "team", ownerText: "Firefly built the tracker into the platform; your team runs it and the owned platforms", sec: "5.2.1.1" },
+  { n: 2, name: "Content production and asset governance", owner: "team", ownerText: "Your team, to its own brief", sec: "5.2.1.2" },
+  { n: 3, name: "Creative testing and AI assistance", owner: "team", ownerText: "Your team, in the test log", sec: "5.2.1.3" },
+  { n: 4, name: "Accessibility and inclusion", owner: "team", ownerText: "Your team sets the standard and applies it", sec: "5.2.1.4" },
+  { n: 5, name: "Platform tactics and paid media", owner: "team", ownerText: "Your team, to its own brief", sec: "5.2.2.1" },
+  { n: 6, name: "Earned media, journalists and debates", owner: "team", ownerText: "Your team, to its own brief", sec: "5.2.2.2" },
   { n: 7, name: "Ground-digital integration", owner: "team", ownerText: "Campaign-owned", sec: "5.2.3.1" },
   { n: 8, name: "The field-to-digital loop", owner: "team", ownerText: "Campaign-owned", sec: "5.2.3.2" },
-  { n: 9, name: "Offline reach: SMS, USSD and voice", owner: "firefly", ownerText: "Firefly operates directly", sec: "5.2.3.3" },
+  { n: 9, name: "Offline reach: SMS, USSD and voice", owner: "team", ownerText: "Your team operates it, logged on the platform", sec: "5.2.3.3" },
   { n: 10, name: "Digital organising and volunteers", owner: "outside", ownerText: "Outside scope", sec: "5.2.3.4" },
-  { n: 11, name: "The data layer", owner: "firefly", ownerText: "Firefly", sec: "5.2.4.1" },
-  { n: 12, name: "Predictive voter modelling", owner: "firefly", ownerText: "Firefly, gated on the compliance review", sec: "5.2.4.2" },
+  { n: 11, name: "The data layer", owner: "team", ownerText: "Your team, on the campaign's own systems; the platform holds counts only", sec: "5.2.4.1" },
+  { n: 12, name: "Predictive voter modelling", owner: "team", ownerText: "Your team, gated on the compliance review", sec: "5.2.4.2" },
   { n: 13, name: "The technology stack", owner: "outside", ownerText: "Outside scope: he already holds it", sec: "5.2.4.3" },
-  { n: 14, name: "Analytics and attribution", owner: "firefly", ownerText: "Firefly", sec: "5.2.4.4" },
+  { n: 14, name: "Analytics and attribution", owner: "team", ownerText: "Your team, on the platform's dashboards", sec: "5.2.4.4" },
 ];
-const OWNER_LABEL: Record<Owner, string> = { firefly: "Firefly operates", team: "Your team runs, to a brief", outside: "Outside this engagement" };
+const OWNER_LABEL: Record<Owner, string> = { firefly: "Firefly runs the platform", team: "Your team runs it", outside: "Outside this operation" };
 
 // fig-5-1-workstreams is collapsed into fig-5-2 below (consolidation pass, Step 4H).
 
 /* ------------------------------------------------------------------ fig-5-2-workstream-panels */
 
 const GROUPS = [
-  { title: "Platforms and content (WS 1–4)", produces: "Daily multilingual posts, flagship video, the Kikamba voice note, the tracker", owner: "Your team produces; Firefly briefs, tests and builds the tracker", often: "Daily; video 2–3 a week; voice note weekly" },
-  { title: "Publishing and earned media (WS 5–6)", produces: "Targeting plans, placements, briefing notes, debate preparation", owner: "Your team places; Firefly plans and reads", often: "Weekly plan; placements as booked" },
-  { title: "Ground and offline reach (WS 7–10)", produces: "SMS touches, the USSD menu, field reports into the CRM", owner: "Firefly dispatches SMS and USSD; the ground team reports", often: "SMS fortnightly, rising to a GOTV surge; field reports daily" },
-  { title: "Data and technology (WS 11–14)", produces: "The data layer, the scored voter file, the weekly read and the monthly report", owner: "Firefly", often: "Weekly read; monthly report; audit refreshed monthly" },
+  { title: "Platforms and content (WS 1–4)", produces: "Daily multilingual posts, flagship video, the Kikamba voice note, the tracker", owner: "Your team briefs, tests and produces; Firefly built the tracker", often: "Daily; video 2–3 a week; voice note weekly" },
+  { title: "Publishing and earned media (WS 5–6)", produces: "Targeting plans, placements, briefing notes, debate preparation", owner: "Your team plans, places and reads", often: "Weekly plan; placements as booked" },
+  { title: "Ground and offline reach (WS 7–10)", produces: "SMS touches, the USSD menu, field reports into the CRM", owner: "Your team dispatches SMS and USSD; the ground team reports", often: "SMS fortnightly, rising to a GOTV surge; field reports daily" },
+  { title: "Data and technology (WS 11–14)", produces: "The data layer, the scored voter file, the weekly read and the monthly report", owner: "Your team, on Firefly's platform", often: "Weekly read; monthly report; audit refreshed monthly" },
 ];
 
 /** The group each workstream sits in (WS 1–4, 5–6, 7–10, 11–14), as the tabs in The workstreams. */
@@ -58,9 +58,9 @@ const groupOf = (n: number) => GROUPS[n <= 4 ? 0 : n <= 6 ? 1 : n <= 10 ? 2 : 3]
 export const FIG_5_2: FigureSpec = {
   id: "fig-5-2-workstream-panels",
   section: "4.5",
-  title: `${CountWord(WS.length)} workstreams in ${countWord(GROUPS.length)} groups: Firefly operates the analysis, the data and the offline layer, and your team keeps publishing`,
+  title: `${CountWord(WS.length)} workstreams in ${countWord(GROUPS.length)} groups: your team runs them on Firefly's platform, and keeps publishing`,
   question: "What does each group produce, and who owns each workstream?",
-  takeaway: "Most of the output is your team's existing work, now directed; Firefly's own products are the brief, the analysis and the offline dispatch. Workstream 9, the offline layer, is the one Firefly runs directly and the one the race turns on; two workstreams sit outside the engagement.",
+  takeaway: "Most of the output is your team's existing work, now directed by the team itself; Firefly's own product is the platform. Workstream 9, the offline layer, is the one the race turns on; two workstreams sit outside the operation.",
   sources: [PROPOSAL],
   chart: {
     type: "composite",
@@ -72,7 +72,7 @@ export const FIG_5_2: FigureSpec = {
       },
     ],
   },
-  notes: ["Solid accent border: Firefly operates. Plain: your team, directed. Dashed: outside this engagement."],
+  notes: ["Plain: your team runs it, on Firefly's platform. Dashed: outside this operation."],
   columns: [{ key: "ws", label: "WS", numeric: true }, { key: "name", label: "Workstream" }, { key: "group", label: "Group" }, { key: "owner", label: "Owner" }, { key: "produces", label: "The group produces" }, { key: "often", label: "How often" }],
   rows: WS.map((w) => ({ cells: { ws: w.n, name: w.name, group: groupOf(w.n).title, owner: w.ownerText, produces: groupOf(w.n).produces, often: groupOf(w.n).often } })),
 };
@@ -125,7 +125,7 @@ export const FIG_5_4: FigureSpec = {
   section: "4.3",
   title: `${CountWord(PHASES.length)} phases run to the election; the ${PHASES[0].label} runs ahead of the Wiper decision, not with it`,
   question: "How does the plan run to August 2027?",
-  takeaway: `The ${PHASES[0].label} is Firefly's work period, ${phaseWhen(PHASES[0]).toLowerCase()}; Wiper's decision is a separate window, reported for ${inSentence(NOMINATION_WINDOW.whenText)}. ${CountWord(PHASES.filter((p) => p.dates).length)} general-election phases keep their calendar dates to ${ELECTION_TEXT}.`,
+  takeaway: `The ${PHASES[0].label} is the team's work period, ${phaseWhen(PHASES[0]).toLowerCase()}; Wiper's decision is a separate window, reported for ${inSentence(NOMINATION_WINDOW.whenText)}. ${CountWord(PHASES.filter((p) => p.dates).length)} general-election phases keep their calendar dates to ${ELECTION_TEXT}.`,
   sources: [PROPOSAL, { name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }],
   chart: {
     type: "timeline",
@@ -207,10 +207,10 @@ export const FIG_5_4_LADDER: FigureSpec = {
 
 const CADENCE: [string, string[]][] = [
   ["Daily", ["Multilingual social (your team)", "Ward field reports (ground team)"]],
-  ["Weekly", ["The weekly brief, Thursday (Firefly)", "Content calendar, Friday (your team; Firefly approves)", "Kikamba voice note", "Facebook Live", "Creative test cycle (Firefly reads)"]],
-  ["Fortnightly", ["SMS touch to the consented list (Firefly), rising to a GOTV surge"]],
-  ["Monthly", ["Presence audit refresh (Firefly)", "Performance report (Firefly)", "Sentiment report (Firefly)", "Competitive brief (Firefly)", "Kitui Economic Brief (your team)"]],
-  ["Quarterly", ["Red-team drill (Firefly and your team)"]],
+  ["Weekly", ["The weekly brief, Thursday (your strategy core)", "Content calendar, Friday (your team; the strategy core approves)", "Kikamba voice note", "Facebook Live", "Creative test cycle (your team reads)"]],
+  ["Fortnightly", ["SMS touch to the consented list (your team), rising to a GOTV surge"]],
+  ["Monthly", ["Presence audit refresh (your team)", "Performance report (your team)", "Sentiment report (your team)", "Competitive brief (your team)", "Kitui Economic Brief (your team)"]],
+  ["Quarterly", ["Red-team drill (your team and an external panel)"]],
 ];
 const LEVELS: [string, string, string, string][] = [
   ["Presence audit", "Once, at start", "Refreshed monthly", "Refreshed fortnightly"],
@@ -273,7 +273,7 @@ export const FIG_5_7: FigureSpec = {
   section: "4.1.3",
   title: `Your team drafts and publishes, one named counterpart approves, and an attack is judged against ${countWord(SEVERITY_TIERS.length)} severity tiers`,
   question: "How are decisions made?",
-  takeaway: `Firefly approves new claims and Kikamba output and publishes only the offline broadcasts; a ${SEVERITY_TIERS[SEVERITY_TIERS.length - 1].name.toLowerCase()} attack reaches the candidate, with the war room convened within fifteen minutes.`,
+  takeaway: `Your strategy core approves new claims and Kikamba output, your team publishes everything, the offline broadcasts included, and Firefly publishes nothing; a ${SEVERITY_TIERS[SEVERITY_TIERS.length - 1].name.toLowerCase()} attack reaches the candidate, with the war room convened within fifteen minutes.`,
   sources: [PROPOSAL],
   chart: {
     type: "composite",
@@ -284,10 +284,10 @@ export const FIG_5_7: FigureSpec = {
           type: "steps",
           horizontal: true,
           steps: [
-            { title: "The brief", body: "Firefly issues it on Thursday: pillar weights, must-post items, ward priority, language rule." },
+            { title: "The brief", body: "Your strategy core issues it on Thursday: pillar weights, must-post items, ward priority, language rule." },
             { title: "Draft", body: "Your team drafts; the Kikamba reviewer signs off anything in Kikamba." },
-            { title: "Approve", body: "Routine posts: your team lead. A new policy claim or figure: Firefly and the campaign counterpart, 24 hours." },
-            { title: "Publish", body: "Your team publishes. Firefly publishes only SMS, USSD and WhatsApp broadcasts, after the counterpart approves." },
+            { title: "Approve", body: "Routine posts: your team lead. A new policy claim or figure: the strategy director and the campaign counterpart, 24 hours." },
+            { title: "Publish", body: "Your team publishes everything, SMS, USSD and WhatsApp broadcasts included, after the counterpart approves. Firefly publishes nothing." },
           ],
         },
       },
@@ -307,12 +307,12 @@ export const FIG_5_7: FigureSpec = {
   columns: [{ key: "type", label: "Content" }, { key: "draft", label: "Drafted by" }, { key: "approve", label: "Approved by" }, { key: "publish", label: "Published by" }, { key: "time", label: "Turnaround" }],
   rows: [
     { cells: { type: "Routine post in an approved brief", draft: "Your team", approve: "Your team lead", publish: "Your team", time: "Same day" } },
-    { cells: { type: "New policy claim or figure", draft: "Your team", approve: "Firefly + campaign counterpart", publish: "Your team", time: "24 hours" } },
-    { cells: { type: "Kikamba voice note", draft: "Your team + Kikamba reviewer", approve: "Firefly", publish: "Your team", time: "48 hours" } },
+    { cells: { type: "New policy claim or figure", draft: "Your team", approve: "Strategy director + campaign counterpart", publish: "Your team", time: "24 hours" } },
+    { cells: { type: "Kikamba voice note", draft: "Your team + Kikamba reviewer", approve: "Strategy director", publish: "Your team", time: "48 hours" } },
     ...SEVERITY_TIERS.map((t) => ({ cells: { type: `Attack, ${t.name.toLowerCase()} tier`, draft: t.draftedBy, approve: t.approvedBy, publish: t.draftedBy === "—" ? "—" : "Your team", time: t.turnaround } })),
-    { cells: { type: "SMS / USSD / WhatsApp broadcast", draft: "Firefly", approve: "Campaign counterpart", publish: "Firefly", time: "24 hours" } },
+    { cells: { type: "SMS / USSD / WhatsApp broadcast", draft: "Your team", approve: "Campaign counterpart", publish: "Your team", time: "24 hours" } },
     { cells: { type: "Any voter-file-based targeting", draft: "—", approve: "Compliance gate", publish: "—", time: "Before launch, no exceptions" } },
-    { cells: { type: "Paid targeting plan and reallocation within the agreed weighting", draft: "Firefly proposes", approve: "Campaign counterpart", publish: "Your team executes", time: "24 hours" } },
+    { cells: { type: "Paid targeting plan and reallocation within the agreed weighting", draft: "Strategy core proposes", approve: "Campaign counterpart", publish: "Your team executes", time: "24 hours" } },
   ],
 };
 
@@ -356,16 +356,16 @@ export const FIG_5_8: FigureSpec = {
 export const FIG_5_9: FigureSpec = {
   id: "fig-5-9-team",
   section: "4.6",
-  title: "Firefly adds three people and removes none, with five surge roles each tied to a trigger",
+  title: "The campaign names three strategy roles and removes no one, with five surge roles each tied to a trigger; Firefly runs the platform",
   question: "What shape is the team?",
-  takeaway: "The campaign's command structure and his publishing team stay as they are; Firefly reports to one named counterpart and briefs one named lead.",
+  takeaway: "The campaign's command structure and his publishing team stay as they are; the strategy director reports to one named counterpart and briefs one named lead.",
   sources: [PROPOSAL],
   chart: {
     type: "composite",
     parts: [
-      { heading: "The campaign's command structure (Firefly works to it)", chart: { type: "cards", columns: 4, cards: ["Campaign Manager", "Communications and media lead", "Field operations and logistics lead", "Data, tech and compliance lead"].map((r) => ({ title: r, body: "Campaign role", tone: "outside" as const })) } },
+      { heading: "The campaign's command structure (the platform serves it)", chart: { type: "cards", columns: 4, cards: ["Campaign Manager", "Communications and media lead", "Field operations and logistics lead", "Data, tech and compliance lead"].map((r) => ({ title: r, body: "Campaign role", tone: "outside" as const })) } },
       {
-        heading: "Firefly's core, retained throughout",
+        heading: "The strategy core (campaign roles), retained throughout",
         chart: {
           type: "cards",
           columns: 3,
@@ -396,7 +396,7 @@ export const FIG_5_9: FigureSpec = {
   columns: [{ key: "role", label: "Role" }, { key: "group", label: "Group" }, { key: "when", label: "Active" }],
   rows: [
     ...["Campaign Manager", "Communications and media lead", "Field operations and logistics lead", "Data, tech and compliance lead"].map((r) => ({ cells: { role: r, group: "Campaign command", when: "Throughout" } })),
-    ...["Strategy Director", "Analyst", "Offline-layer Operator"].map((r) => ({ cells: { role: r, group: "Firefly core", when: "Throughout" } })),
+    ...["Strategy Director", "Analyst", "Offline-layer Operator"].map((r) => ({ cells: { role: r, group: "Strategy core", when: "Throughout" } })),
     { cells: { role: "Kikamba Reviewer", group: "Surge", when: "Week 1 onward" } },
     { cells: { role: "Data Analyst / Modeller", group: "Surge", when: "Phase 1 onward" } },
     { cells: { role: "Earned Media Officer", group: "Surge", when: "Phase −1 onward" } },

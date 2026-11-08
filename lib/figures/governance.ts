@@ -220,7 +220,7 @@ export const REPORTING_TEAMS = [
     label: "Your team (existing)",
     items: ["Team lead / publisher", "Content producers", "Kikamba producer", "Community responders"],
   },
-  { label: "Firefly (three people)", items: ["Strategy Director", "Analyst", "Offline-layer operator"] },
+  { label: "Strategy core (three campaign roles)", items: ["Strategy Director", "Analyst", "Offline-layer operator"] },
 ];
 
 export const REPORTING_CHAIN = [
@@ -235,6 +235,6 @@ export const REPORTING_SERIES: FigureSeries = {
   measure: "§17.4's reporting lines",
   points: [],
   note:
-    "The weekly brief is the join: the existing team and Firefly's three people meet there, and " +
-    "one named counterpart carries it upward. Firefly is three people and the block says so.",
+    "The weekly brief is the join: the publishing team and the strategy core meet there, and " +
+    "one named counterpart carries it upward. Firefly runs the platform beneath both.",
 };

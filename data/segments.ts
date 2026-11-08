@@ -17,6 +17,7 @@
  */
 import { formatFigure } from "../lib/data/format.ts";
 import { figure } from "../lib/data/figures.ts";
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 
 export interface Segment {
   id: "agrarian" | "pastoralist" | "youth" | "msme" | "professionals" | "diaspora";
@@ -32,7 +33,7 @@ export interface Segment {
 
 const f = (id: string) => formatFigure(figure(id));
 
-export const SEGMENTS: Segment[] = [
+export const SEGMENTS: Segment[] = withTeamEdits<Segment>("segments", "id", [
   { id: "agrarian", name: "Rural agrarian & smallholder baseline", shortName: "Rural agrarian", size: "segment.rural.voters", share: { id: "census.rural.share", of: "county population" } },
   {
     id: "pastoralist",
@@ -66,7 +67,7 @@ export const SEGMENTS: Segment[] = [
       closesWith: "IEBC register by polling station, set against the migration tables",
     },
   },
-];
+]);
 
 export const segment = (id: Segment["id"]): Segment => {
   const s = SEGMENTS.find((x) => x.id === id);

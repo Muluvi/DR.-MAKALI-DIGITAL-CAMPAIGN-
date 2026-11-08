@@ -37,7 +37,7 @@ import { fmt } from "../lib/data/read";
  */
 const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }[] = [
   { icon: UserCheck, text: "One named counterpart with authority to approve content" },
-  { icon: Eye, text: "Read-only analytics access on the existing accounts — Analyst role, no publishing rights" },
+  { icon: Eye, text: "The team's analytics exports, entered on the platform — no account access for Firefly" },
   {
     icon: Clock,
     text: "Candidate time: approximately 3 hours per week — one Facebook Live, one voice-note recording session, one interview or content block",
@@ -50,7 +50,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
-  { icon: CheckCircle2, text: "Sign-off on the service level so the team can be assembled" },
+  { icon: CheckCircle2, text: "Sign-off on the service level, and the names of the team accounts to create" },
   { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them" },
 ];
 
@@ -82,8 +82,8 @@ export function DecisionPanel() {
           </div>
 
           <p className="text-sm text-muted leading-relaxed mt-5">
-            Firefly is proposed as the campaign&apos;s outsourced digital function, not a single
-            communications hire. The proposal deliberately claims no named clients or case studies;
+            Firefly is proposed as the owner and operator of the campaign&apos;s platform, not as its
+            outsourced digital function: the team runs the campaign on it. The proposal deliberately claims no named clients or case studies;
             its proof is the specificity of the operating model and the deliverables set out above.
           </p>
 

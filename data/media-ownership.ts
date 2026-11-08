@@ -10,6 +10,7 @@
 // is never rendered with the visual authority of a Tier 1 figure.
 import type { Source } from "./types";
 import { LOCAL_DIGITAL_MEDIA_OWNERSHIP } from "./sources.ts";
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 
 const ROYAL_MEDIA: Source = { name: "Royal Media Services corporate ownership (public record)", publicationDate: "2026", tier: 2 };
 const SDA_CHURCH: Source = { name: "Seventh-Day Adventist Church, Kitui (publicly known denominational ownership)", publicationDate: "2026", tier: 2 };
@@ -32,7 +33,7 @@ export interface RadioStation {
   posture: string;
 }
 
-export const RADIO_STATIONS: RadioStation[] = [
+export const RADIO_STATIONS: RadioStation[] = withTeamEdits<RadioStation>("radio-stations", "name", [
   {
     name: "Mbaitu FM",
     frequency: "100.4 (Mwingi & Kitui)",
@@ -105,4 +106,4 @@ export const RADIO_STATIONS: RadioStation[] = [
     reachLabel: "Low in Kitui (qualitative read — Machakos service area)",
     posture: "Secondary — state broadcaster, Machakos-centred, limited Kitui service.",
   },
-];
+]);

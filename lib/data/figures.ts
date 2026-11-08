@@ -18,14 +18,18 @@
 import register from "../../data/ward-register.json" with { type: "json" };
 import projectsByWard from "../../data/analysis/projects-by-ward.json" with { type: "json" };
 import type { Figure, Tier, Unit } from "./schema";
+// The team's edits from the in-site data editor (data/team/figures.json), applied as each figure is
+// defined, so a figure derived from an edited one recomputes. See lib/data/team-overlay.ts.
+import { FIGURE_EDITS, patchFigure } from "./team-overlay.ts";
 // Documents also cited outside the registry are defined once, in data/sources.ts, and read here by
 // name (consolidation pass, Step 2), so a source cannot be named two ways.
 import { AUDITOR_GENERAL_FY2023_24, CONTROLLER_OF_BUDGET, COURT_OF_APPEAL_2018, FISCAL_STRATEGY_PAPER_FY2026_27, IEBC_REGISTER_2026_REPORTED, IEBC_WARD_REGISTER, KDHS_2022, KNBS_CENSUS_2019, MEDIA_2022_DECLARATION } from "../../data/sources.ts";
 
 const FIG: Record<string, Figure> = {};
 
-function add(f: Figure): Figure {
-  if (FIG[f.id]) throw new Error(`figures: duplicate id ${f.id}`);
+function add(original: Figure): Figure {
+  if (FIG[original.id]) throw new Error(`figures: duplicate id ${original.id}`);
+  const f = patchFigure(original);
   FIG[f.id] = f;
   return f;
 }
@@ -693,6 +697,9 @@ sourced("scorecard.police.complete", 6, "count", "T1", SCORECARD, { note: page("
 // The 2015 abstract: history only.
 sourced("ngcdf.kitui-central.2013", 76.7e6, "ksh", "T1", ABSTRACT_2015, { asOf: "2013/14", decimals: 1, note: page("75") });
 sourced("ngcdf.kitui-central.2014", 110.3e6, "ksh", "T1", ABSTRACT_2015, { asOf: "2014/15", decimals: 1, note: page("75", "Provisional.") });
+
+// Figures the team added through the in-site data editor.
+for (const f of FIGURE_EDITS.added) add(f);
 
 export const FIGURES: Readonly<Record<string, Figure>> = FIG;
 

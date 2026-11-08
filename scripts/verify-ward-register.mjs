@@ -6,39 +6,15 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { wardRegisterProblems } from "../lib/data/rules.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const registerPath = path.join(__dirname, "..", "data", "ward-register.json");
 const register = JSON.parse(readFileSync(registerPath, "utf-8"));
 
-const errors = [];
-
-for (const c of register.constituencies) {
-  const wardSum = c.wards.reduce((sum, w) => sum + w.voters, 0);
-  if (wardSum !== c.voters) {
-    errors.push(`${c.name}: wards sum to ${wardSum}, but the constituency total is recorded as ${c.voters}.`);
-  }
-}
-
-const constituencySum = register.constituencies.reduce((sum, c) => sum + c.voters, 0);
-if (constituencySum !== register.countyTotalWards) {
-  errors.push(`Constituency totals sum to ${constituencySum}, expected countyTotalWards ${register.countyTotalWards}.`);
-}
-
-if (register.countyTotalWards + register.prisonVoters !== register.countyTotalWithPrisons) {
-  errors.push(
-    `${register.countyTotalWards} + ${register.prisonVoters} prison voters !== countyTotalWithPrisons ${register.countyTotalWithPrisons}.`
-  );
-}
-
-const wardCount = register.constituencies.reduce((sum, c) => sum + c.wards.length, 0);
-if (wardCount !== 40) {
-  errors.push(`Expected 40 wards across 8 constituencies, found ${wardCount}.`);
-}
-
-if (register.constituencies.length !== 8) {
-  errors.push(`Expected 8 constituencies, found ${register.constituencies.length}.`);
-}
+// The arithmetic lives in lib/data/rules.ts, shared with the in-site data editor (which refuses an
+// edit that would fail here). Run with Node's type stripping (Node 22).
+const errors = wardRegisterProblems(register).map((p) => p.rule);
 
 if (errors.length > 0) {
   console.error("Ward register integrity check FAILED:\n" + errors.map((e) => `  - ${e}`).join("\n"));

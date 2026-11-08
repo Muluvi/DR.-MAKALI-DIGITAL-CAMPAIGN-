@@ -1,3 +1,4 @@
+import { withTeamEdits } from "../lib/data/team-overlay.ts";
 // Phase 5c — the wider competitor field. Legal care applies throughout (see PR description /
 // <legal_care> in the task brief): only material already established in this document's own
 // sourced content appears here; no adverse claims are added from outside knowledge; Malombe's
@@ -9,7 +10,7 @@ export interface Contender {
   note: string;
 }
 
-export const CONTENDERS: Contender[] = [
+export const CONTENDERS: Contender[] = withTeamEdits<Contender>("contenders", "name", [
   { name: "Dr. Irene Kasalu", position: "Woman Representative, Kitui County", stage: "Wiper ticket", note: "The highest 2022 result in the field, as Woman Representative, countywide. Full profile in Section 2.6." },
   { name: "Sen. Enoch Wambua", position: "Senator, Kitui County", stage: "Wiper ticket", note: "Won the 2022 Senate race, countywide." },
   { name: "Charity Ngilu", position: "Former Governor, Kitui County (NARC)", stage: "General election field", note: "Won the court-confirmed 2017 governor race." },
@@ -23,7 +24,7 @@ export const CONTENDERS: Contender[] = [
     stage: "General election field",
     note: "Term-limited: two terms served (2013–2017, 2022–2027), the limit under Article 180(7). Not in the 2027 field.",
   },
-];
+]);
 
 export const MALOMBE_TERM_LIMIT_QUESTION =
   "Malombe served as Kitui Governor 2013–2017, lost the seat to Ngilu for the 2017–2022 term (the court-confirmed 2017 result, §2.2), and won again in 2022. Article 180(7) limits a governor to two terms, and he is serving his second, so he cannot stand in 2027. This proposal plans for an open seat throughout.";

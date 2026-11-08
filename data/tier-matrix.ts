@@ -24,9 +24,9 @@ export interface TierAttribute {
 export const TIER_ATTRIBUTES: TierAttribute[] = [
   {
     label: "Team model",
-    lean: "3-person Firefly core + mandatory Kikamba producer",
-    standard: "3-person Firefly core + activated surge roles",
-    premium: "3-person Firefly core + full surge bench",
+    lean: "3-person strategy core (campaign) + mandatory Kikamba producer",
+    standard: "3-person strategy core (campaign) + activated surge roles",
+    premium: "3-person strategy core (campaign) + full surge bench",
   },
   {
     label: "Wards with active SMS/USSD",

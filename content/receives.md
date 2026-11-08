@@ -26,10 +26,10 @@ not something a campaign buys more of, and it is not a line to trade away.
 
 **Purpose:** win the nomination, prove the model, keep the analysis light.
 
-* **Firefly team:** Strategy Director + Analyst; offline-layer operator part-activated
+* **Strategy core (campaign roles):** Strategy Director + Analyst; offline-layer operator part-activated. Firefly runs the platform at every level
 * **Presence audit:** once, at the start
 * **Reach reporting:** the twelve decisive wards in Section 2.3 only
-* **Weekly brief:** yes — the brief is the engagement and is never a level
+* **Weekly brief:** yes — the brief is the operation and is never a level
 * **Creative testing:** monthly cycle
 * **Team upskilling:** the written standard, delivered once
 * **Offline layer:** SMS to a consented list built organically; **USSD not activated**
@@ -41,7 +41,7 @@ cannot afford to be blind**
 
 **Purpose:** find the recognition gap ward by ward, and direct against it weekly.
 
-* **Firefly team:** the full three-person core, plus surge roles activated by phase or KPI
+* **Strategy core (campaign roles):** the full three-person core, plus surge roles activated by phase or KPI
 * **Presence audit:** refreshed monthly, against the same ninety-day rolling window
 * **Reach reporting:** **all 40 wards**
 * **Weekly brief:** yes, plus the mid-week reach check
@@ -55,7 +55,7 @@ cannot afford to be blind**
 
 **Purpose:** instrument everything, and refresh the read faster than the field can move.
 
-* **Firefly team:** three-person core + full surge bench against agreed triggers
+* **Strategy core (campaign roles):** three-person core + full surge bench against agreed triggers
 * **Presence audit:** refreshed fortnightly
 * **Reach reporting:** all 40 wards + diaspora geographies
 * **Creative testing:** weekly
@@ -91,7 +91,7 @@ assembling it from nine sections. The last column gives the section that sets ea
 shown here is the one Level 2 carries.
 
 **The "Produced by" column is the point.** Most of this schedule is your team's existing output,
-now directed. Firefly's own deliverables are the brief, the analysis and the offline dispatch.
+now directed by the team itself. Firefly's own deliverable is the platform: hosting, upkeep, the data checks and new features.
 
 <!-- keep -->
 | Deliverable | Cadence | Produced by | Form | Where it is set |
@@ -102,43 +102,44 @@ now directed. Firefly's own deliverables are the brief, the analysis and the off
 | Facebook Live | Weekly | Your team | Live broadcast with moderated comments | 15.1.2 |
 | Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | 15.1.2 |
 | "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | 15 |
-| **The weekly brief** | **Weekly, Thursday** | **Firefly** | One page: pillar weights, must-post items, ward priority, language rule | 13.4 |
-| Content calendar | Weekly, Friday | Your team, Firefly approves | Approved calendar for the week ahead | 15.1.2 |
-| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Firefly** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§15.3.3) | 15.3.3 |
-| USSD menu availability | Continuous once provisioned | **Firefly** | Zero-rated interactive menu across all networks | 15.3.3 |
+| **The weekly brief** | **Weekly, Thursday** | **Your team (strategy core)** | One page: pillar weights, must-post items, ward priority, language rule | 13.4 |
+| Content calendar | Weekly, Friday | Your team; the strategy core approves | Approved calendar for the week ahead | 15.1.2 |
+| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Your team** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§15.3.3) | 15.3.3 |
+| USSD menu availability | Continuous once provisioned | **Your team** | Zero-rated interactive menu across all networks | 15.3.3 |
 | Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 15.3.1 |
-| Creative test cycle | Weekly | **Firefly** designs and reads; your team produces variants | A/B test results and the decisions taken from them | 15.1.3 |
-| **Presence audit refresh** | **Monthly** | **Firefly** | Ninety-day rolling read: reach by ward, language, format, field comparison | 14.1 |
-| Performance report | Monthly | **Firefly** | Reach in the pool, engagement, sentiment, conversion | 13.4 |
-| Sentiment report to leadership | Monthly | **Firefly** | Written brief with ward-level detail | 15 |
-| Competitive brief | Monthly | **Firefly** | Public-source summary of rival activity | F.11 |
-| Red-team drill | Quarterly | **Firefly** + your team | Simulated attack and a written after-action note | F.6 |
+| Creative test cycle | Weekly | **Your team** designs, reads and produces variants | A/B test results and the decisions taken from them | 15.1.3 |
+| **Presence audit refresh** | **Monthly** | **Your team** | Ninety-day rolling read: reach by ward, language, format, field comparison | 14.1 |
+| Performance report | Monthly | **Your team** | Reach in the pool, engagement, sentiment, conversion | 13.4 |
+| Sentiment report to leadership | Monthly | **Your team** | Written brief with ward-level detail | 15 |
+| Competitive brief | Monthly | **Your team** | Public-source summary of rival activity | F.11 |
+| Red-team drill | Quarterly | **Your team** + an external panel | Simulated attack and a written after-action note | F.6 |
 | Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 19.2 |
 | Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 15.1.2, 13.4 |
+| The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | 13.2 |
 
 *Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.*
 
 ## 22 What Firefly commits to, and what the campaign provides
 
 ```lead
-Firefly commits to a scope, a method, a cadence and a standard. It does not commit to an electoral outcome, and no figure in this document should be read as one.
+Firefly commits to a platform, its upkeep and its data checks; the team to a method, a cadence and a standard. Neither commits to an electoral outcome, and no figure in this document should be read as one.
 ```
 
-Firefly commits to a scope, a method, a cadence and a standard. It does not commit to an electoral outcome, and no figure in this document should be read as one. This chapter sets out what Firefly commits to and what the campaign provides in return.
+Firefly commits to a platform, its upkeep and its data checks; the team to a method, a cadence and a standard. Neither commits to an electoral outcome, and no figure in this document should be read as one. This chapter sets out what Firefly commits to and what the campaign provides in return.
 
 ## 22.1 What Firefly commits to
 
-**What Firefly does not ask you to believe.** The commitment is to how the work is done, not to
+**What Firefly does not ask you to believe.** The commitment is to the platform the work is done on, and to how the work is done, not to
 what the ballot returns.
 
 ```visual
 kind: checklist
 items:
   - label: "The scope"
-    body: "is the fourteen workstreams in Section 13.2, with an owner named against each — seven Firefly operates, six the existing team runs to a Firefly brief, two are outside the engagement, with Workstream 1 shared (Firefly builds the tracker; your team runs the platforms) — and boundaries stated so that what is outside them is as clear as what is inside."
+    body: "is the fourteen workstreams in Section 13.2, with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."
   - label: "The cadence"
     text: "is in Section 13.4:"
-    body: "the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each engagement level carries, measured in depth of intelligence rather than in volume of Firefly's output."
+    body: "the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."
   - label: "The standard"
     text: "is in Sections 18.1 and 13.5:"
     body: "indicators that trace to either the nomination objectives in Section 8.2 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."

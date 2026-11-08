@@ -60,16 +60,16 @@ items:
   - title: "3. The register and connectivity figures hold."
     body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are the most recent published figures. The offline layer in Section 15.3.3 is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
   - title: "4. The campaign appoints the named roles."
-    body: "The data-protection and electoral-law reviewer and the sign-language provider are campaign appointments, not Firefly's. Section 22.2 lists them. Firefly assembles no publishing team: the one in post stays in post (Section 17.5)."
+    body: "The data-protection and electoral-law reviewer and the sign-language provider are campaign appointments, not Firefly's. Section 22.2 lists them. Firefly assembles no team: the one in post stays in post and runs the campaign on the platform (Section 17.5)."
   - title: "5. The Facebook asset is a Page, not a personal profile in professional mode."
     head: { label: "If it fails", text: "If it is a profile there are no Page Insights, no ad account and no delegated access, and Section 14.3 says what changes." }
     badge: "the largest single unknown in this document"
     body: "A visible friends list suggests otherwise. This is settled in the first hour of Week 1 and is the largest single unknown in this document."
   - title: "6. The existing team will work to a weekly brief and a named approval path."
-    head: { label: "If it fails", text: "If the team will not, or cannot, take direction from outside the campaign, the engagement is the wrong shape and should be re-scoped rather than forced." }
+    head: { label: "If it fails", text: "If the team will not, or cannot, work to a brief it writes itself, the operation is the wrong shape and should be re-scoped rather than forced." }
     body: "The direction model in Section 13.4 assumes it."
   - title: "7. Analytics access can be granted at analyst level without admin rights."
-    body: "Firefly asks for no publishing credentials and should be given none."
+    body: "Firefly, which runs the platform, asks for no publishing credentials and should be given none."
   - title: "8. Any SMS or WhatsApp list already held carries documented opt-in."
     head: { label: "If it fails", text: "Where it does not, it is not merged and not messaged (Section 19.1)." }
   - title: "9. The candidate is available to the production cycle."
@@ -78,5 +78,5 @@ items:
   - title: "10. Telco and platform access is obtained on ordinary commercial terms."
     body: "The SMS aggregator, the shortcode and the advertising platforms are assumed available to a compliant political advertiser. Section 19.4 covers the compliance conditions; Section 19.5 covers the regulatory guidance still outstanding."
   - title: "11. The engagement is embedded with the campaign."
-    body: "Firefly works alongside the campaign's own structure under Section 13.4, not at arm's length from it, and the ground-digital integration in Section 15.3.1 assumes daily contact with the field operation."
+    body: "Firefly runs the platform the campaign's own structure works on under Section 13.4, and the ground-digital integration in Section 15.3.1 assumes the team's daily contact with the field operation."
 ```

@@ -1,22 +1,43 @@
-# Keeping the data pack current
+# Keeping the data current
 
-The published site is refreshed through reviewed repository changes. Firefly's team can edit the data pack, assumptions, and `data/*.ts` files directly, then run `npm run verify` before committing. The verification workflow checks the content, figures, anchors, registers, and generated outputs; merge the change only after those checks pass.
+**Dr. Mulu's team updates the data on the site, not in GitHub.** Team members sign in at `/team/login`
+and use the data editor (`/team/data`) for figures, the ward register, the strategy lists and the
+analysis values, and the workspace (`/workspace`) for the day-to-day records: the weekly brief, the
+content calendar, the dispatch log, the KPI tracker and the rest. Nobody on the team needs the
+repository, a terminal or code. `docs/ownership-2026-11/TEAM-GUIDE.md` is their guide.
 
-A scheduled GitHub Action also collects public-source snapshots into `data/candidates/public-material.md`. Those entries are deliberately marked `verify`. They are leads for human review, not published facts: check the original source, reconcile any conflicting figure, preserve the source tier, and update the appropriate published file manually. No automated job can mark a value confirmed or deploy it without review and merge.
+**Firefly made the platform, owns it and runs it**: hosting, deployment, fixes, the automated data
+checks and new features. Firefly manages team accounts at `/team/admin`.
 
-When changing a figure, keep its named source and status beside it. Do not add a number from a candidate snapshot directly to public content until the team has verified it against the source and run the repository checks.
+## How a team edit reaches the site
+
+1. The data editor checks the edit with the data pack's own rules (`lib/data/rules.ts`, the same code
+   `npm run verify` runs) and refuses it, in plain language, if it would break them.
+2. An accepted edit is committed to its own branch, `team-edit/<time>-<what>`.
+3. `.github/workflows/team-edit.yml` regenerates the derived files and runs `npm run verify`,
+   `npm run check:preservation`, the type check and the build. Only if all pass does it move the
+   edit onto `main`, which Vercel deploys. A failing edit never reaches the site.
+4. Every edit is in the change history (`/history`) and can be reverted there.
+
+Working records (the workspace) are saved to the platform's database and show on the next page load.
+
+## Firefly's own changes
+
+Code and content changes by Firefly go through a pull request; `.github/workflows/verify.yml` runs
+lint, types, `npm run verify`, `npm run check:preservation` and the build.
+
+```bash
+npm run verify
+npm run check:preservation
+npm run build
+```
+
+A scheduled GitHub Action also collects public-source snapshots into `data/candidates/public-material.md`.
+Those entries are marked `verify`: leads for the team to check against the original source before
+updating a figure in the data editor. No automated job marks a value confirmed.
 
 ## Data recency
 
 The small “last verified” indicator belongs in the persistent site shell, beside the existing source/data-status context rather than in the cover hero. Its value should come from reviewed repository metadata—ideally a generated file written during the verification workflow from the merge commit timestamp—not from a hardcoded date or an unreviewed fetch timestamp. A future implementation should expose that generated value through the server-rendered layout and render an accessible `<time dateTime="...">` element.
 
 The exact news feed or API remains a human decision. Until an approved source is selected, the scheduled workflow uses public snapshots only and must not be treated as a complete media-monitoring system.
-
-## Local checks
-
-```bash
-npm run verify
-npm run build
-```
-
-These commands are the same publication gate used by the repository workflow.

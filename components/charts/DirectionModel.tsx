@@ -27,7 +27,7 @@ interface WeekPoint {
 
 const WEEK: WeekPoint[] = [
   { day: "Thu", owner: "firefly", label: "The brief", detail: "One page, 16:00. Pillar weights, must-post items, ward priority, language rule, one thing to stop" },
-  { day: "Fri", owner: "team", label: "The calendar", detail: "Your team returns the week, mapped to the brief. Firefly comments; it does not rewrite" },
+  { day: "Fri", owner: "team", label: "The calendar", detail: "Your team returns the week, mapped to the brief. The strategy core comments; it does not rewrite" },
   { day: "Mon", owner: "both", label: "Thirty minutes", detail: "Approve, amend, flag. The only standing meeting in the engagement" },
   { day: "Tue", owner: "team", label: "Publishing", detail: "Your accounts, your credentials" },
   { day: "Wed", owner: "firefly", label: "One number", detail: "Mid-week reach check against the deficit wards. At most one adjustment — and none if none is needed" },
@@ -35,7 +35,7 @@ const WEEK: WeekPoint[] = [
 ];
 
 const OWNER_STYLE = {
-  firefly: { cls: "border-accent bg-accent/10", dot: "bg-accent", who: "Firefly" },
+  firefly: { cls: "border-accent bg-accent/10", dot: "bg-accent", who: "Strategy core" },
   team: { cls: "border-line bg-ink/[0.04]", dot: "bg-ink/50", who: "Your team" },
   both: { cls: "border-gold bg-gold/10", dot: "bg-gold", who: "Both" },
 } as const;
@@ -50,10 +50,10 @@ export function DirectionWeek() {
       <div className="p-4 sm:p-5 pb-3">
         <p className="eyebrow-label">The direction model · §13.4</p>
         <h4 id="direction-week-title" className="font-serif t-h4 font-black text-ink leading-tight mt-1">
-          Firefly steers. Your team publishes.
+          Your team steers and publishes.
         </h4>
         <p className="t-small text-muted leading-relaxed mt-2">
-          One brief a week holds it together. Five of the seven days are your team&rsquo;s.
+          One brief a week holds it together. All seven days are your team&rsquo;s; Firefly runs the platform.
         </p>
       </div>
 
@@ -78,8 +78,8 @@ export function DirectionWeek() {
 
       <div className="px-4 sm:px-5 py-3 border-t border-line/60 bg-paper/40">
         <p className="t-micro text-muted leading-relaxed">
-          <strong className="text-ink">Firefly publishes on one channel only</strong> — the SMS,
-          USSD and WhatsApp layer it operates. Every owned account stays with the people
+          <strong className="text-ink">Firefly publishes on no channel</strong> — your team runs the SMS,
+          USSD and WhatsApp layer too, and logs it in the workspace. Every owned account stays with the people
           who run it now. Monthly, on the last Friday: recognition indicators, the overrides log,
           and the brief re-based on what the month proved.
         </p>

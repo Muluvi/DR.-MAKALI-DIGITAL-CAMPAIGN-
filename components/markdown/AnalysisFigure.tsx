@@ -186,8 +186,10 @@ export function AnalysisFigure({
       ) : null}
 
       <ul className="list-none pl-0 my-0">
-        {chart.values.map((value) => (
-          <FigureRow key={value.label} value={value} maxValue={maxValue} decimals={decimals} />
+        {/* Keyed by position as well as label: an export can carry the same label twice (two
+            published totals for one candidate), and a duplicate key would drop a row. */}
+        {chart.values.map((value, i) => (
+          <FigureRow key={`${i}-${value.label}`} value={value} maxValue={maxValue} decimals={decimals} />
         ))}
       </ul>
 
