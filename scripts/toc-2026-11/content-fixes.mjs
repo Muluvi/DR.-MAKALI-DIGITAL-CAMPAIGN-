@@ -20,6 +20,16 @@
  *      sign-in is switched off. Sign-in switches on when the engagement starts, and they now say so.
  *   6. Fine print: "submitted in confidence". The request not to circulate stays; the false claim goes.
  *
+ * Then the four items left after those six:
+ *   7. What the campaign provides listed read-only analytics access as a gating dependency, which How
+ *      it works contradicts (Firefly needs no access; the team enters its own analytics). Settled as
+ *      C9 in docs/disputes-resolved.json, which also logs the one text-version edit it needs.
+ *   8. The openings of Platform playbooks and Runbooks pointed to where their moved sections used to be.
+ *   9. The cover date: "September 2026, revised November 2026", so the original date stays on record.
+ *  10. The ward dossier showed campaign spending limits, which the site's rules exclude ("No
+ *      campaign-finance ceilings", docs/consolidation-2026-11/HOW-TO-UPDATE.md). They leave the
+ *      pages; the Gazette data stays in data/public-2026-11/, unchanged.
+ *
  * Each rewrite must match exactly once (or, with `all`, at least once). A rewrite already applied
  * is skipped, so the script is safe to run again.
  */
@@ -45,8 +55,9 @@ export const REWRITES = [
   { f: "content/cover.md", from: "**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by link only. The full terms are in Annex G.", to: "**Prepared for Hon. Dr. Benson Makali Mulu personally.** It is open to anyone with the link and kept out of search engines. The terms of use are in the fine print." },
   { f: "components/premium/CoverHero.tsx", from: "<strong>Confidential</strong> — personal, link-only.", to: "<strong>Prepared for Dr. Mulu</strong> — open to anyone with the link." },
   { f: "components/ClientPage.tsx", from: "<strong>Confidential</strong>\n            <span className=\"opacity-85\"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>", to: "<strong>Prepared for Hon. Dr. Benson Makali Mulu personally</strong>\n            <span className=\"opacity-85\"> — open to anyone with the link. Please do not circulate it further.</span>" },
-  { f: "app/layout.tsx", from: "Prepared by Firefly Management, September 2026. Confidential.';", to: "Prepared by Firefly Management, September 2026.';" },
-  { f: "app/layout.tsx", from: "Firefly Management, September 2026. Confidential.',", to: "Firefly Management, September 2026.'," },
+  // (These two also carry fix 9's date.)
+  { f: "app/layout.tsx", from: "Prepared by Firefly Management, September 2026. Confidential.';", to: "Prepared by Firefly Management, September 2026, revised November 2026.';" },
+  { f: "app/layout.tsx", from: "Firefly Management, September 2026. Confidential.',", to: "Firefly Management, September 2026, revised November 2026.'," },
 
   // 2. In brief
   { f: "content/brief.md", from: "```lead\n" + ASK_OLD, to: "```lead\n" + ASK_LEAD },
@@ -76,6 +87,36 @@ export const REWRITES = [
   { f: "content/annex-terms.md", from: "It is submitted in confidence to him and to those he authorises to review it.", to: "It is submitted to him and to those he authorises to review it." },
   { f: "content/annex-terms.md", from: "It should not be circulated beyond the campaign's decision-making group,", to: "It is open to anyone with the link, but it should not be circulated beyond the campaign's decision-making group," },
   { f: "lib/heading-slug.ts", from: "blurb: \"Confidentiality, use, and the terms used throughout\"", to: "blurb: \"Who it is for, how it may be used, and the terms used throughout\"" },
+
+  // 7. What the campaign provides (C9)
+  { f: "content/receives.md", all: true, from: "three of them gate everything else: a named counterpart, read-only analytics access and the appointment of the data-protection reviewer.", to: "three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer." },
+  { f: "content/receives.md", from: "*   **Read-only analytics access** on the existing accounts — Analyst role, no publishing rights.\n    Without it there is nothing to analyse, and the engagement cannot start.", to: "*   **The team's own analytics exports** from the existing accounts, entered on the platform; no\n    access to the accounts changes hands. Without them there is nothing to analyse, and the engagement cannot start." },
+  { f: "content/receives.md", from: "label: \"**the presence audit cannot start until read-only analytics access is granted**\"", to: "label: \"**the presence audit cannot start until the team enters its analytics exports**\"" },
+  { f: "lib/register/specs/s6-nextsteps.ts", from: "{ item: \"Read-only analytics access on every channel: Analyst role, no publishing rights\", gating: true, why: \"Without it there is nothing to analyse and the engagement cannot start\" },", to: "{ item: \"The team's own analytics exports from every channel, entered on the platform: no access to the accounts changes hands\", gating: true, why: \"Without them there is nothing to analyse and the engagement cannot start\" }," },
+  { f: "lib/register/specs/s6-nextsteps.ts", from: "takeaway: \"A counterpart, read-only access and the data-protection reviewer come first;", to: "takeaway: \"A counterpart, the team's analytics exports and the data-protection reviewer come first;" },
+
+  // 8. The openings of the two reference chapters that received moved sections
+  { f: "content/annex-playbooks.md", from: "It is reference the main text points to, not argues from; the volunteer programme is in Annex D and the technology in Annex E.", to: "It is reference the main text points to, not argues from; the volunteer programme reference is at its end, and the technology is in Technology." },
+  { f: "content/annex-runbooks.md", from: "the red-team drills, the threat model, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks & response, and account security and phishing are in Lawful & ethical.", to: "the red-team drills, the threat model, the account security baseline, phishing awareness, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks and response." },
+
+  { f: "content/response.md", from: "(F.11); account security and phishing are\n> in Lawful & ethical. They are operational detail:", to: "(F.11), with account security and phishing\n> awareness. They are operational detail:" },
+  { f: "content/annex-runbooks.md", from: "Account security and phishing awareness are in Lawful & ethical, with the law and the charter they serve.", to: "Account security and phishing awareness follow; the law and the charter they serve are in Lawful and ethical." },
+  { f: "content/annex-technology.md", from: "The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.", to: "The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical." },
+
+  // 9. The cover date
+  { f: "content/cover.md", from: "**Date:** September 2026\n", to: "**Date:** September 2026, revised November 2026\n" },
+  { f: "components/ClientPage.tsx", from: "<dd>September 2026</dd>", to: "<dd>September 2026, revised November 2026</dd>" },
+
+  // 10. Spending limits leave the ward dossier
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "import { COUNTY_LIMITS, countyTotals, PUBLIC_CONSTITUENCIES, PUBLIC_SOURCES, PUBLIC_WARDS } from \"@/lib/public-data\";", to: "import { countyTotals, PUBLIC_CONSTITUENCIES, PUBLIC_SOURCES, PUBLIC_WARDS } from \"@/lib/public-data\";" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "lead=\"Official register and spending-limit figures for the county, its constituencies and every ward.\"", to: "lead=\"Official register and Gazette figures for the county, its constituencies and every ward.\"" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "    <section className=\"mt-8\"><h2 className=\"font-serif text-2xl text-ink\">Spending limits, 2027 General Election</h2>\n      <ul className=\"mt-2 space-y-1 text-ink\">{COUNTY_LIMITS.map((l) => <li key={l.office}>{l.office}: <span className=\"font-mono\">KSh {n(l.limit)}</span></li>)}</ul>\n    </section>\n", to: "" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "<th className=\"py-2 pr-3 text-right\">Voters 2022</th><th className=\"py-2 text-right\">MP limit (KSh)</th>", to: "<th className=\"py-2 text-right\">Voters 2022</th>" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "<td className=\"py-2 pr-3 text-right font-mono\">{n(c.voters)}</td><td className=\"py-2 text-right font-mono\">{n(c.mpLimit)}</td>", to: "<td className=\"py-2 text-right font-mono\">{n(c.voters)}</td>" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "min-w-[34rem]", to: "min-w-[28rem]" },
+  { f: "app/(platform)/tools/ward-dossier/page.tsx", from: "Population, area and limits come from the August 2026 Gazette.", to: "Population and area come from the August 2026 Gazette." },
+  { f: "app/(platform)/tools/ward-dossier/[code]/page.tsx", from: "[\"MCA spending limit, 2027\", `KSh ${n(ward.mcaLimit)}`], ", to: "" },
+  { f: "lib/public-data.ts", from: "label: \"Gazette Notice 12251, 7 August 2026: spending limits\"", to: "label: \"Gazette Notice 12251, 7 August 2026: ward population and area\"" },
 ];
 
 // Words as check-content counts them: whitespace runs with a letter or digit, YAML keys not counted.

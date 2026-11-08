@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ code: string 
   const peers = PUBLIC_WARDS.filter((w) => w.constituencyCode === ward.constituencyCode).sort((a, b) => b.voters - a.voters);
   const peerTotal = peers.reduce((a, w) => a + w.voters, 0);
   const prev = PUBLIC_WARDS[i - 1], next = PUBLIC_WARDS[i + 1];
-  const stats = [["Registered voters, 2022", n(ward.voters)], ["Polling stations", n(ward.stations)], ["Registration centres", n(ward.centres)], ["Average voters per station", n(Math.round(ward.voters / ward.stations))], ["Population (Gazette)", n(ward.population)], ["Area, sq km (Gazette)", ward.areaSqKm.toLocaleString("en-KE")], ["MCA spending limit, 2027", `KSh ${n(ward.mcaLimit)}`], ["Share of constituency voters", `${((ward.voters / peerTotal) * 100).toFixed(1)}%`]];
+  const stats = [["Registered voters, 2022", n(ward.voters)], ["Polling stations", n(ward.stations)], ["Registration centres", n(ward.centres)], ["Average voters per station", n(Math.round(ward.voters / ward.stations))], ["Population (Gazette)", n(ward.population)], ["Area, sq km (Gazette)", ward.areaSqKm.toLocaleString("en-KE")], ["Share of constituency voters", `${((ward.voters / peerTotal) * 100).toFixed(1)}%`]];
   return <>
     <p className="mb-3 text-[0.85rem]"><Link className="underline" href="/tools/ward-dossier">All wards</Link></p>
     <PageHead kicker={`${ward.constituency} constituency`} title={`${ward.name} ward`} />

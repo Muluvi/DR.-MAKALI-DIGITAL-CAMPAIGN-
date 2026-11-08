@@ -491,7 +491,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             <dt className="font-semibold text-ink">Prepared by</dt>
             <dd>Firefly Management</dd>
             <dt className="font-semibold text-ink">Date</dt>
-            <dd>September 2026</dd>
+            <dd>September 2026, revised November 2026</dd>
             <dt className="font-semibold text-ink">Status</dt>
             <dd>Proposal for discussion</dd>
           </dl>

@@ -174,5 +174,115 @@
     "text": "It should not be circulated beyond the campaign's decision-making group,",
     "replacement": "It is open to anyone with the link, but it should not be circulated beyond the campaign's decision-making group,",
     "at": 525
+  },
+  {
+    "file": "receives",
+    "section": "22.2",
+    "first12": "three of them gate everything else: a named counterpart, read-only analytics access",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "three of them gate everything else: a named counterpart, read-only analytics access and the appointment of the data-protection reviewer.",
+    "replacement": "three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer.",
+    "at": 10318
+  },
+  {
+    "file": "receives",
+    "section": "22.2",
+    "first12": "three of them gate everything else: a named counterpart, read-only analytics access",
+    "words": -2,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "three of them gate everything else: a named counterpart, read-only analytics access and the appointment of the data-protection reviewer.",
+    "replacement": "three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer.",
+    "at": 10606
+  },
+  {
+    "file": "receives",
+    "section": "22.2",
+    "first12": "* **Read-only analytics access** on the existing accounts — Analyst role, no",
+    "words": -8,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "*   **Read-only analytics access** on the existing accounts — Analyst role, no publishing rights.\n    Without it there is nothing to analyse, and the engagement cannot start.",
+    "replacement": "*   **The team's own analytics exports** from the existing accounts, entered on the platform; no\n    access to the accounts changes hands. Without them there is nothing to analyse, and the engagement cannot start.",
+    "at": 10946
+  },
+  {
+    "file": "receives",
+    "section": "22.2",
+    "first12": "label: \"**the presence audit cannot start until read-only analytics access is granted**\"",
+    "words": -1,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "label: \"**the presence audit cannot start until read-only analytics access is granted**\"",
+    "replacement": "label: \"**the presence audit cannot start until the team enters its analytics exports**\"",
+    "at": 11868
+  },
+  {
+    "file": "annex-playbooks",
+    "section": "(intro)",
+    "first12": "It is reference the main text points to, not argues from; the",
+    "words": -1,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "It is reference the main text points to, not argues from; the volunteer programme is in Annex D and the technology in Annex E.",
+    "replacement": "It is reference the main text points to, not argues from; the volunteer programme reference is at its end, and the technology is in Technology.",
+    "at": 284
+  },
+  {
+    "file": "annex-runbooks",
+    "section": "(intro)",
+    "first12": "the red-team drills, the threat model, incident response and the competitor-monitoring outputs.",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "the red-team drills, the threat model, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks & response, and account security and phishing are in Lawful & ethical.",
+    "replacement": "the red-team drills, the threat model, the account security baseline, phishing awareness, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks and response.",
+    "at": 377
+  },
+  {
+    "file": "cover",
+    "section": "(intro)",
+    "first12": "**Date:** September 2026 ",
+    "words": -3,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Date:** September 2026\n",
+    "replacement": "**Date:** September 2026, revised November 2026\n",
+    "at": 662
+  },
+  {
+    "file": "response",
+    "section": "20.2",
+    "first12": "(F.11); account security and phishing are > in Lawful & ethical. They",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "(F.11); account security and phishing are\n> in Lawful & ethical. They are operational detail:",
+    "replacement": "(F.11), with account security and phishing\n> awareness. They are operational detail:",
+    "at": 1969
+  },
+  {
+    "file": "annex-runbooks",
+    "section": "F.7",
+    "first12": "Account security and phishing awareness are in Lawful & ethical, with the",
+    "words": -1,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "Account security and phishing awareness are in Lawful & ethical, with the law and the charter they serve.",
+    "replacement": "Account security and phishing awareness follow; the law and the charter they serve are in Lawful and ethical.",
+    "at": 7358
+  },
+  {
+    "file": "annex-technology",
+    "section": "E.1",
+    "first12": "The technical risk and security protocols for these systems are in Lawful",
+    "words": -2,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.",
+    "replacement": "The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical.",
+    "at": 6585
   }
 ]

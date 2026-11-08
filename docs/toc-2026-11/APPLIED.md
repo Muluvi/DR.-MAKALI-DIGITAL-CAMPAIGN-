@@ -75,9 +75,20 @@ This records how `RESTRUCTURED-TOC.md` was applied to the site, where the build 
 | The ask | "one week and one export", plus read-only access and an "Access granted" first day in the decision figure | Approve the platform at the recommended Standard level; on day 1 the team signs in, and on days 1–2 the team enters its own export. Firefly holds no credentials. |
 | Fine print | "submitted in confidence" | Submitted to him and those he authorises. It is open to anyone with the link, and the request not to circulate it stays. |
 
+## The four remaining items, fixed
+
+These are applied by the same script (`content-fixes.mjs`, items 7 to 10) and logged in the same ledger.
+
+| Item | It said | It now says |
+|---|---|---|
+| What the campaign provides | Read-only analytics access, with an Analyst role, gates the engagement | The team's own analytics exports, entered on the platform, gate it, and no access to the accounts changes hands. Settled as C9 in `docs/disputes-resolved.json`, which logs the one text-version edit; the reasons are in `docs/DISPUTES-RESOLVED.md`. The dependencies figure matches. |
+| Pointers to moved sections | The volunteer programme was "in Annex D"; account security and phishing were "in Lawful & ethical" (in the openings of Platform playbooks and Runbooks, in Risks and response, in Technology, and in the note before account security) | Each points to where the section now is |
+| Cover date | September 2026 | September 2026, revised November 2026 (cover, footer and share card). The timeline figure still marks "This proposal: September 2026", which remains true. |
+| Ward dossier | County, MP and MCA spending limits | Removed from the pages, under the site's rule against campaign-finance ceilings. The Gazette data stays in `data/public-2026-11/`, unchanged, and the source is relabelled for the population and area it supplies. |
+
 ## Still to do
 
-- **What the campaign provides** still lists read-only analytics access as one of three gating dependencies. That wording sits partly in a text-version block, which the content guard allows to change only through a logged dispute decision.
-- The leads of Platform playbooks and Runbooks still point to "Annex D" and "Lawful & ethical".
-- The cover date is still "September 2026".
-- The ward dossier still shows spending limits, which the site's own rules exclude (`docs/consolidation-2026-11/HOW-TO-UPDATE.md`, "No campaign-finance ceilings").
+- **Timing claims written in September.** These need the confirmed Wiper timetable before they are reworded, not a guess:
+  - the timeline figure's title, "about eleven months to the election, and the nomination window comes first, within weeks";
+  - the ask's "window that opens in late October";
+  - Phase 1 dated October to December 2026.

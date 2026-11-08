@@ -2,7 +2,7 @@
 These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of.
 ```
 
-These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks & response, and account security and phishing are in Lawful & ethical.
+These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the account security baseline, phishing awareness, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks and response.
 
 ## F.3 Holding positions, pre-drafted
 
@@ -129,7 +129,7 @@ items:
   - label: "Fabricated audio or video of the candidate"
 ```
 
-Account security and phishing awareness are in Lawful & ethical, with the law and the charter they serve.
+Account security and phishing awareness follow; the law and the charter they serve are in Lawful and ethical.
 
 ## F.8 Account security baseline
 

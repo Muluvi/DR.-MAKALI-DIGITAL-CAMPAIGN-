@@ -15,6 +15,6 @@ Strategic Communications & Digital Campaign Consultancy
 6th Floor, Next Gen Mall, Mombasa Road, Nairobi
 fireflymanagement.ke@gmail.com · 0726 766 800
 
-**Date:** September 2026
+**Date:** September 2026, revised November 2026
 
 **Status:** Proposal for discussion.

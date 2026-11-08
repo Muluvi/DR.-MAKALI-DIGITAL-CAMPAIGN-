@@ -18,7 +18,7 @@ export const countyTotals = PUBLIC_WARDS.reduce((t, w) => ({ stations: t.station
 export const PUBLIC_SOURCES = {
   stations: { label: "IEBC register of voters per polling station, 2022", href: "https://www.iebc.or.ke/docs/rov_per_polling_station.pdf" },
   wards: { label: "IEBC register of voters per ward, 2022", href: "https://www.iebc.or.ke/docs/rov_per_caw.pdf" },
-  limits: { label: "Gazette Notice 12251, 7 August 2026: spending limits", href: "https://www.iebc.or.ke/uploads/resources/QUTuQXad27.pdf" },
+  limits: { label: "Gazette Notice 12251, 7 August 2026: ward population and area", href: "https://www.iebc.or.ke/uploads/resources/QUTuQXad27.pdf" },
   calendar: { label: "Gazette Notices 13497 to 13503, 20 August 2026", href: "https://www.iebc.or.ke/uploads/resources/3MMJlcBEs1.pdf" },
   sms: { label: "Communications Authority political messaging guidelines, July 2017", href: "https://www.ca.go.ke/sites/default/files/2023-06/Guidelines-on-Prevention-of-Dissemination-of-Undesirable-Bulk-and-Premium-Rate-Political-Messages-and-Political-Social-Media-Content-Via-Electronic-Networks-1.pdf" },
 } as const;

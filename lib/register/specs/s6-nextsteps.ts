@@ -7,7 +7,7 @@ import { fmt } from "./_util.ts";
 
 const DEPS: { item: string; gating: boolean; why: string }[] = [
   { item: "One named counterpart who approves, and one named lead on the digital team who receives the brief", gating: true, why: "Decisions in one place" },
-  { item: "Read-only analytics access on every channel: Analyst role, no publishing rights", gating: true, why: "Without it there is nothing to analyse and the engagement cannot start" },
+  { item: "The team's own analytics exports from every channel, entered on the platform: no access to the accounts changes hands", gating: true, why: "Without them there is nothing to analyse and the engagement cannot start" },
   { item: "Appointment of the data-protection reviewer", gating: true, why: "The long-lead item; gates the voter-file work and the offline layer" },
   { item: "About three hours a week of candidate time", gating: false, why: "One Facebook Live, one voice-note session, one interview or content block" },
   { item: "Daily photo and video uploads from the ground team", gating: false, why: "The raw material of Pillar 4" },
@@ -22,7 +22,7 @@ export const FIG_6_1: FigureSpec = {
   section: "1.7",
   title: `The campaign provides ${DEPS.length} things, and three of them gate everything else`,
   question: "What does the campaign provide?",
-  takeaway: "A counterpart, read-only access and the data-protection reviewer come first; the rest follow once the engagement is running.",
+  takeaway: "A counterpart, the team's analytics exports and the data-protection reviewer come first; the rest follow once the engagement is running.",
   sources: [{ name: "This proposal, Section 22.2", tier: null, state: "target" }],
   chart: { type: "steps", steps: DEPS.map((d, i) => ({ when: d.gating ? `${i + 1} · gating` : `${i + 1}`, title: d.item, body: d.why, current: d.gating })) },
   columns: [{ key: "n", label: "#", numeric: true }, { key: "item", label: "Dependency" }, { key: "gating", label: "Gates the rest" }, { key: "why", label: "Why" }],
