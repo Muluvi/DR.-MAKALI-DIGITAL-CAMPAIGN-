@@ -9,7 +9,7 @@
  *                      November 2026 by a single source (Tier 3). Its home in prose is "How Wiper
  *                      chooses its candidate, and when" (The race for 2027).
  *   The Nomination sprint (phase "neg1")
- *                      Firefly's own work period aimed at that decision: Weeks 1–6 from signature.
+ *                      the team's own work period aimed at that decision: Weeks 1–6 from signature.
  *
  * The Nomination sprint and Set-up are counted from signature; Awareness, Persuasion and Turnout keep
  * their calendar dates, because the electoral calendar sets them (Timeline to Aug 2027).
@@ -40,14 +40,14 @@ export const PLANNING_SIGNATURE = "2026-09-01";
 export const ELECTION_DAY = "2027-08-10";
 
 export const PHASES: Phase[] = [
-  { id: "neg1", label: "Nomination sprint", window: "Weeks 1–6", focus: "Firefly's work aimed at the Wiper decision", colorVar: "--phase-neg1", weeks: { from: 1, to: 6 } },
+  { id: "neg1", label: "Nomination sprint", window: "Weeks 1–6", focus: "The team's work aimed at the Wiper decision", colorVar: "--phase-neg1", weeks: { from: 1, to: 6 } },
   { id: "0", label: "Set-up", window: "Weeks 4–10 · Instrumentation", focus: "instrumentation", colorVar: "--phase-0", weeks: { from: 4, to: 10 } },
   { id: "1", label: "Awareness", window: "Oct–Dec 2026 · Awareness & Community", focus: "awareness and community building", colorVar: "--phase-1", dates: { start: "2026-10-01", end: "2026-12-31" } },
   { id: "2", label: "Persuasion", window: "Jan–Mar 2027 · Engagement & Persuasion", focus: "engagement and persuasion", colorVar: "--phase-2", dates: { start: "2027-01-01", end: "2027-03-31" } },
   { id: "3", label: "Turnout", window: "Apr–Aug 2027 · Mobilisation & GOTV", focus: "mobilisation and turnout", colorVar: "--phase-3", dates: { start: "2027-04-01", end: ELECTION_DAY } },
 ];
 
-/** When Wiper decides its candidate: reported, not confirmed (Tier 3). Not a Firefly phase. */
+/** When Wiper decides its candidate: reported, not confirmed (Tier 3). Not one of the campaign's phases. */
 export const NOMINATION_WINDOW = {
   label: "How Wiper chooses its candidate",
   date: "2026-10-20",

@@ -28,9 +28,9 @@ notification and liability all follow controllership rather than convenience:
 <!-- keep -->
 | Channel | Operated by | Controller position to be confirmed |
 |---|---|---|
-| Owned social accounts | Your team | The campaign. Firefly holds no credentials and processes only aggregate analytics. |
-| SMS, USSD and WhatsApp Business API | **Firefly** | Firefly is a controller, or a joint controller with the campaign — **not a processor acting on instructions.** Confirmed in the Section 19.2 scope memorandum. |
-| Supporter CRM and voter model | Firefly, on the campaign's behalf | The campaign as controller, Firefly as processor, under a written processing agreement. |
+| Owned social accounts | Your team | The campaign. Firefly holds no credentials; the team enters aggregate analytics on the platform. |
+| SMS, USSD and WhatsApp Business API | **Your team** | The campaign is the controller. Firefly is not a controller of this layer; it processes only the aggregate dispatch log the team keeps on the platform. Confirmed in the Section 19.2 scope memorandum. |
+| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |
 
 ```visual
 kind: cards
@@ -271,7 +271,7 @@ items:
       - { label: "Output", text: "Written opinion" }
   - label: "Remediation of any gaps"
     fields:
-      - { label: "Owner", text: "Firefly + campaign" }
+      - { label: "Owner", text: "Campaign, with Firefly for the platform" }
       - { label: "Output", text: "Revised processing design" }
   - label: "Written sign-off"
     fields:
@@ -396,7 +396,7 @@ Two ODPC documents are now identified by name and should be put in front of the 
 
 ```visual
 kind: checklist
-note: "**Required:** before any mass SMS or USSD broadcast — which Firefly operates, and for which Firefly is a controller or joint controller (Section 19.1) — the campaign's legal lead must:"
+note: "**Required:** before any mass SMS or USSD broadcast — which your team operates, and for which the campaign is the controller and Firefly is not (Section 19.1) — the campaign's legal lead must:"
 items:
   - label: "Conduct a formal legal review with the ODPC registry to obtain the latest gazetted political campaigning guidelines and advisory notes."
   - label: "Formally register the campaign entity as a **Data Controller / Data Processor** with the ODPC if aggregate supporter records exceed statutory thresholds (Sections 15.4.1 and 19.4)."

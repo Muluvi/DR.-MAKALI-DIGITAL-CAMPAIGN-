@@ -1,5 +1,5 @@
 ```lead
-**Firefly Management asks for one week and one export.** Everything after that is evidence.
+**Firefly Management offers a platform and asks for one week, one export.** Everything after that is evidence.
 ```
 
 ```figure
@@ -18,20 +18,20 @@ constituencies where he has never held office. The working hypothesis is that th
 of recognition rather than credibility (Section 7.1). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
 
-This proposal sets out the layer that turns an active channel into a directed one: an audit of
+This proposal sets out the platform that lets his own team turn an active channel into a directed one: an audit of
 what the existing accounts are actually doing (Section 14.1), a strategy derived from it, a weekly
-brief that carries it to the team already publishing, an SMS and USSD layer built for the
+brief the team writes and carries to the people already publishing, an SMS and USSD layer built for the
 {{ict.offline}}% of Kitui residents who are offline, a published ethics charter that turns
 careful data practice into a differentiator (Section 19.3), a data-protection gate that protects
 the candidate from the legal exposure others in this cycle will walk into (Section 19.2), and a
 public service-delivery tracker that puts his strongest credential to work before a single vote is
 cast.
 
-Firefly would like one week and one export. Everything after that is evidence.
+Firefly would like one week and one export to load the platform. Everything after that is evidence, and the team's to act on.
 
 #### What the record does not yet show
 
-> **Firefly Management asks for one week and one export.**
+> **Firefly Management offers a platform and asks for one week, one export.**
 
 Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which

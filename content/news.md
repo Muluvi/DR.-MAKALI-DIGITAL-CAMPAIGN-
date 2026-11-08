@@ -157,7 +157,7 @@ items:
   - title: "SMS and USSD"
     head: { label: "Reach", text: "mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD." }
     fields:
-      - { label: null, text: "**What Firefly operates** (Section 15.3.3):\n*   *A free USSD menu (`*[shortcode]#`):* any feature phone can dial it to read Dr. Mulu's five-point manifesto in Kikamba, register as a volunteer, or find the nearest Ward Captain.\n    *   *Ward-targeted SMS:* **Kiswahili** messages to consented supporters in specific wards on the eve of market days, and on election morning to get out the vote (GOTV)." }
+      - { label: null, text: "**What your team operates** (Section 15.3.3):\n*   *A free USSD menu (`*[shortcode]#`):* any feature phone can dial it to read Dr. Mulu's five-point manifesto in Kikamba, register as a volunteer, or find the nearest Ward Captain.\n    *   *Ward-targeted SMS:* **Kiswahili** messages to consented supporters in specific wards on the eve of market days, and on election morning to get out the vote (GOTV)." }
   - title: "Mobile-money agents"
     head: { label: "Reach", text: "nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, Section 4.1)." }
     fields:

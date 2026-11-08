@@ -340,12 +340,12 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "message-sec-10-5": <CounterMessagingGrid />,
   "voters-sec-11-2": <AudienceSegmentationMatrix />,
 
-  // ---- Part IV: how Firefly delivers --------------------------------------------------------
+  // ---- Part IV: how the campaign runs --------------------------------------------------------
   // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
   "engagement-sec-13-4": (
     <>
       <SectionPortrait id="seated-grey-cropped" kicker="The engagement model" flip>
-        Firefly reports to a single named campaign-side counterpart.
+        Your team reports to a single named campaign-side counterpart.
       </SectionPortrait>
       <DirectionWeek />
     </>

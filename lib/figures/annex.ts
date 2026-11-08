@@ -431,7 +431,7 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.",
     source:
-      "The ward allocation methodology, once drafted. §15 is the delivery tracker and does not carry a schedule; Firefly would build the formula with the campaign before this line is used on air.",
+      "The ward allocation methodology, once drafted. §15 is the delivery tracker and does not carry a schedule; the team would build the formula on the platform before this line is used on air.",
   },
   {
     question: '3. The "Nairobi technocrat" question',

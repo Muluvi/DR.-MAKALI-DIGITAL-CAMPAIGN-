@@ -4,7 +4,7 @@
 Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports.
 ```
 
-Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports. Seven are Firefly's to operate, six the existing team runs to a Firefly brief, and two are outside this engagement (Section 13.2).
+Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports. Twelve are your team's to run on Firefly's platform, seven of them once proposed as Firefly's, and two are outside this operation (Section 13.2).
 
 ```figure
 id: fig-5-2-workstream-panels
@@ -18,7 +18,7 @@ id: fig-5-2-workstream-panels
 *The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*
 
 ```visual
-{"kind":"checklist","title":"Digital infrastructure, brand and civic content","items":[{"label":"Web management and digital architecture","body":"Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 26.2% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 15.1.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."},{"label":"Brand management","body":"Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp stays with your team, which publishes and holds the credentials (Section 13.2); Firefly sets the standard in the weekly brief. Community management: your team responds to comments, DMs and mentions within **2 hours** during peak periods."},{"label":"Civic content and visual data","body":"Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh 13.79 billion county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."}]}
+{"kind":"checklist","title":"Digital infrastructure, brand and civic content","items":[{"label":"Web management and digital architecture","body":"Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 26.2% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 15.1.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."},{"label":"Brand management","body":"Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp stays with your team, which publishes and holds the credentials (Section 13.2); the team sets the standard in its weekly brief. Community management: your team responds to comments, DMs and mentions within **2 hours** during peak periods."},{"label":"Civic content and visual data","body":"Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh 13.79 billion county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."}]}
 ```
 
 ```visual
@@ -34,10 +34,10 @@ The public service-delivery tracker, the content brief, creative testing and the
 ### 15.1.1 Workstream 1 — Owned platforms and the service-delivery tracker
 
 ```lead
-**The service-delivery tracker is Firefly's to build and operate; the owned platforms stay with your team.** Every candidate will promise water points, roads and markets. Only one is professionally qualified in **verifying whether promises were kept**.
+**Firefly built the service-delivery tracker into the platform; your team operates it and the owned platforms.** Every candidate will promise water points, roads and markets. Only one is professionally qualified in **verifying whether promises were kept**.
 ```
 
-**The service-delivery tracker is Firefly's to build and operate; the owned platforms stay with your team.** **Split ownership, and the split matters.** The tracker is new infrastructure nobody currently runs. The owned platforms stay with your team, who run them now and will continue to; Firefly's contribution there is the brief, the calendar and the approval gate.
+**Firefly built the service-delivery tracker into the platform; your team operates it and the owned platforms.** **Split ownership, and the split matters.** The tracker is new infrastructure nobody currently runs. The owned platforms stay with your team, who run them now and will continue to; the team's own brief, calendar and approval gate now run on the platform, which Firefly keeps running.
 
 *The single clearest expression of the candidate's actual
 professional discipline.*
@@ -82,7 +82,7 @@ id: fig-5-2-1-report-flow
 
 #### Build
 
-Built on the USSD and SMS layer Firefly operates (Section 15.3.3), plus a lightweight public register on the campaign site. **It reuses a
+Built on the USSD and SMS layer your team operates (Section 15.3.3), plus a lightweight public register on the campaign site, which Firefly hosts. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
 #### The opening register: the county's own scorecard
@@ -126,10 +126,10 @@ id: delivery-tracker
 ### 15.1.2 Workstream 2 — The content brief and asset governance
 
 ```lead
-**Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief and the approval gate.
+**Owner: your team, to its own brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief and the approval gate.
 ```
 
-**Owner: your team, to a Firefly brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief that tells them which pillar, which ward, which language and which format — and the approval gate on new policy claims and Kikamba output.
+**Owner: your team, to its own brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief that tells them which pillar, which ward, which language and which format — and the approval gate on new policy claims and Kikamba output.
 
 Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only 26.2% of residents use the internet (CA/KNBS 2023/24, Section 4.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
@@ -166,10 +166,10 @@ id: asset-library
 ### 15.1.3 Workstream 3 — Creative testing and AI assistance
 
 ```lead
-**Owner: Firefly.** Test design, variant selection and the read on the result are analysis. Your team produces the variants.
+**Owner: your team, in the test log.** Test design, variant selection and the read on the result are analysis. Your team produces the variants too.
 ```
 
-**Owner: Firefly.** Test design, variant selection and the read on the result are analysis. Your team produces the variants.
+**Owner: your team, in the test log.** Test design, variant selection and the read on the result are analysis. Your team produces the variants too.
 
 #### What AI is used for, and what it is never used for
 
@@ -210,10 +210,10 @@ id: asset-library
 ### 15.1.4 Workstream 4 — Accessibility and inclusion
 
 ```lead
-**Owner: Firefly sets the standard; your team applies it.** In a county where 15.1% of women and 9.7% of men aged six and over have no education, accessibility is reach, not compliance theatre.
+**Owner: your team sets the standard and applies it.** In a county where 15.1% of women and 9.7% of men aged six and over have no education, accessibility is reach, not compliance theatre.
 ```
 
-**Owner: Firefly sets the standard; your team applies it.** Written into every weekly brief, at every engagement level, and never traded away.
+**Owner: your team sets the standard and applies it.** Written into every weekly brief, at every engagement level, and never traded away.
 
 *The languages this standard works in, and the content mix for locally facing platforms, are set out in 12.4.*
 
@@ -270,10 +270,10 @@ Paid media on the platforms that reach the connected minority, and earned media 
 ### 15.2.1 Workstream 5 — Platform tactics and paid media
 
 ```lead
-**Owner: your team, to a Firefly brief.** Firefly writes the targeting plan and reads the performance; your team places and publishes.
+**Owner: your team, to its own brief.** The team writes the targeting plan and reads the performance on the platform; your team places and publishes.
 ```
 
-**Owner: your team, to a Firefly brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things Firefly will post. Firefly writes the targeting plan and reads the performance; your team places and publishes. The campaign holds the ad account (Section 13.4).
+**Owner: your team, to its own brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things anyone will post for you; Firefly posts nothing. The team writes the targeting plan and reads the performance on the platform; your team places and publishes. The campaign holds the ad account (Section 13.4).
 
 *Corrected: an earlier version said the ad-account recommendation was still open; Section 13.4 records it as approved in September 2026.*
 
@@ -282,10 +282,10 @@ Paid media on the platforms that reach the connected minority, and earned media 
 ### 15.2.2 Workstream 6 — Earned media, journalists and debates
 
 ```lead
-**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else.
+**Owner: your team and the campaign, to the team's brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else.
 ```
 
-**Owner: your team and the campaign, to a Firefly brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. Firefly supplies the briefing notes, the debate preparation and the evidence pack behind each pitch. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in Section 4.2.
+**Owner: your team and the campaign, to the team's brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. The team prepares the briefing notes, the debate preparation and the evidence pack behind each pitch, from the evidence on Firefly's platform. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in Section 4.2.
 
 #### The journalist relationship programme
 
@@ -375,15 +375,15 @@ To win fair coverage on national and regional outlets without paying for access 
 
 ## 15.3 Ground and offline (workstreams 7–10)
 
-Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer Firefly operates, and the volunteer programme behind them.
+Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer your team operates, logged on Firefly's platform, and the volunteer programme behind them.
 
 ### 15.3.1 Workstream 7 — Ground-digital integration
 
 ```lead
-**Owner: the campaign.** Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; Firefly supplies the reporting template and the analysis of what comes back.
+**Owner: the campaign.** Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; the team reads what comes back in the platform's field log, which Firefly built as the reporting template.
 ```
 
-**Owner: the campaign.** The 40 ward coordinators are the campaign's people. A campaign that runs field organising and digital messaging separately will fail in a county where 73.8% of residents are offline (CA/KNBS 2023/24), so the two run as one loop. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; Firefly supplies the reporting template and the analysis of what comes back. In the other direction, field captains turn the digital and radio messages into talking points, flyers and audio notes, carried through local transport and trade networks.
+**Owner: the campaign.** The 40 ward coordinators are the campaign's people. A campaign that runs field organising and digital messaging separately will fail in a county where 73.8% of residents are offline (CA/KNBS 2023/24), so the two run as one loop. Field intelligence captured by the 40 Ward Coordinators directly dictates the daily digital and radio advertising content; the team reads what comes back in the platform's field log, which Firefly built as the reporting template. In the other direction, field captains turn the digital and radio messages into talking points, flyers and audio notes, carried through local transport and trade networks.
 
 ```figure
 id: field-loop
@@ -412,7 +412,7 @@ id: four-hour-cycle
 #### Distribution beyond social media
 
 > **Campaign-owned recommendations, outside this engagement (Section 13.3).** The four networks
-> below are the campaign's to recruit, equip and run. Firefly writes the brief each one carries.
+> below are the campaign's to recruit, equip and run. The team writes the brief each one carries.
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
@@ -431,10 +431,10 @@ id: operating-rhythm
 ### 15.3.2 Workstream 8 — The field-to-digital loop
 
 ```lead
-**Owner: the campaign.** Firefly supplies the instrument and its data governance. **Opt-in rate on routed doors** is the joint KPI holding both sides honest.
+**Owner: the campaign.** The team runs the instrument and its data governance; Firefly's platform holds counts only. **Opt-in rate on routed doors** is the joint KPI holding both sides honest.
 ```
 
-**Owner: the campaign.** Firefly supplies the instrument and its data governance.
+**Owner: the campaign.** The team runs the instrument and its data governance; Firefly's platform holds counts only.
 
 #### Operating architecture and bidirectional sync
 
@@ -458,13 +458,13 @@ id: fig-5-2-3-field-loop
 {"kind":"checklist","items":[{"label":"Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data (Section 19.3)."},{"label":"Ward champions receive data-handling training before being issued the form, and cannot export or retain contact data on personal devices."},{"label":"Opt-in rate on routed doors","body":"is the joint KPI holding both sides honest: if doors the model routes do not opt in at a higher rate than doors it does not, the routing is wrong."}]}
 ```
 
-### 15.3.3 Workstream 9 — What Firefly operates: SMS, USSD and voice
+### 15.3.3 Workstream 9 — What your team operates: SMS, USSD and voice
 
 ```lead
-**Owner: Firefly, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
+**Owner: your team, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
 ```
 
-**Owner: Firefly, end to end.** Two pieces of infrastructure, held and run by Firefly: the **WhatsApp Business API line** and the **USSD shortcode**. It is also the one place where Firefly is a **data controller or joint controller** rather than a processor — see Section 19.1, which must be settled in writing before the first dispatch.
+**Owner: your team, end to end.** Two pieces of infrastructure, held and run by the campaign: the **WhatsApp Business API line** and the **USSD shortcode**. The campaign is the **data controller**; Firefly is a processor only for what the team logs on the platform — see Section 19.1, which must be settled in writing before the first dispatch. Every send is planned and logged in the platform's dispatch log, which refuses Kikamba on the bulk SMS rail.
 
 #### Why this layer decides the race
 
@@ -590,16 +590,16 @@ a vanity one.
 ### 15.3.4 Workstream 10 — Digital organising and volunteers
 
 ```lead
-**Outside this engagement.** Firefly's contribution is the metric definitions the leaderboard reports against, and nothing else.
+**Outside this engagement.** The team's contribution is the metric definitions the leaderboard reports against, kept on the platform.
 ```
 
-**Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion management belong to the ground campaign, which already runs them. Firefly's contribution is the metric definitions the leaderboard reports against, and nothing else. The material below is retained as reference for the campaign's own coordinator, not as a Firefly deliverable.
+**Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion management belong to the ground campaign, which already runs them. The team's contribution is the metric definitions the leaderboard reports against, kept on the platform. The material below is retained as reference for the campaign's own coordinator, not as a platform deliverable.
 
 *The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex D.1.*
 
 ## D.1 Volunteer programme reference
 
-*Reference for the campaign's own team. Volunteer organising is outside Firefly's scope (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*
+*Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*
 
 ```lead
 **Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).
@@ -668,10 +668,10 @@ Four workstreams under the rest: the data layer, the voter model built on it, th
 ### 15.4.1 Workstream 11 — The data layer
 
 ```lead
-**Owner: Firefly**, as processor on the campaign's behalf, under a written processing agreement (Section 19.1).
+**Owner: your team**, on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement (Section 19.1).
 ```
 
-**Owner: Firefly** , as processor on the campaign's behalf, under a written processing agreement (Section 19.1).
+**Owner: your team** , on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement (Section 19.1). No supporter record is entered on the platform: it is open to anyone with the link.
 
 A precise campaign needs a data layer it can trust. No loose spreadsheets, unverified voter claims or ad-hoc phone lists: one structured database, with provenance and audit trails on every record, run within Kenyan privacy law.
 
@@ -698,10 +698,10 @@ id: supporter-schema
 ### 15.4.2 Workstream 12 — Predictive voter modelling
 
 ```lead
-**Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
+**Owner: your team, on the platform's ward dashboards — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
 ```
 
-**Owner: Firefly — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**, which delivers most of the targeting value at a fraction of the exposure. Individual-level scoring waits for the opinion.
+**Owner: your team, on the platform's ward dashboards — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**, which delivers most of the targeting value at a fraction of the exposure. Individual-level scoring waits for the opinion.
 
 ```visual
 {"kind":"stepper","items":[{"label":"What the model scores, and why","text":"The campaign will build a model scoring Kitui's polling stations and wards on two dimensions:","body":"likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in Section 19.2.**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in Annex E.2.*"},{"label":"Modelling methodology","body":"| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in Annex E.2.*"},{"label":"How the model is evaluated","body":"| Metric | Target | Frequency |\n|---|---|---|\n| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |\n| Cross-validation stability | Variance < 5% across folds | Quarterly |\n| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |"},{"label":"Putting the model to work","body":"* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first (Section 15.3.2)"}]}
@@ -714,18 +714,18 @@ id: supporter-schema
 ### 15.4.3 Workstream 13 — The technology stack
 
 ```lead
-**Mostly outside this engagement.** Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**.
+**Mostly outside this engagement.** Firefly builds and operates one component only: the platform, which carries the **service-delivery tracker**. The **supporter CRM** and the **SMS/USSD/WhatsApp layer** are the campaign's, run by your team.
 ```
 
-**Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in daily use, and procuring a stack the campaign already has is not a service. Firefly builds and operates three components only: the **service-delivery tracker**, the **supporter CRM**, and the **SMS/USSD/WhatsApp layer**. The reference architecture the campaign owns and Firefly integrates against — component by component, with the procurement matrix and the security protocols — is in Annex E.1.
+**Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in daily use, and procuring a stack the campaign already has is not a service. Firefly builds and operates one component only: the platform, which carries the **service-delivery tracker**. The **supporter CRM** and the **SMS/USSD/WhatsApp layer** are the campaign's, run by your team. The reference architecture the campaign owns and Firefly's platform sits beside — component by component, with the procurement matrix and the security protocols — is in Annex E.1.
 
 ### 15.4.4 Workstream 14 — Analytics and attribution
 
 ```lead
-**Owner: Firefly. This is the engine room of the engagement.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~200,000-vote threshold. **No stage is skipped.**
+**Owner: your team, on Firefly's platform. This is the engine room of the operation.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~200,000-vote threshold. **No stage is skipped.**
 ```
 
-**Owner: Firefly. This is the engine room of the engagement.** It is numbered fourteenth because that is where the original numbering put it; it is read first, in Section 14.1, and it is the workstream every other one is measured by.
+**Owner: your team, on Firefly's platform. This is the engine room of the operation.** It is numbered fourteenth because that is where the original numbering put it; it is read first, in Section 14.1, and it is the workstream every other one is measured by.
 
 #### Attribution model and offline conversion tracking
 

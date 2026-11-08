@@ -55,7 +55,7 @@ export function baselineStatus(b: Baseline): ClaimStatus {
  *
  * NW-01 to NW-03 used to be a tracking-poll ballot share, a CATI name-ID booster and a survey
  * salience index. The brief keeps polls out of every KPI and commissions no survey, so each is now
- * a measure Firefly can observe on his own channels or on the SMS list it operates. The targets
+ * a measure his team can observe on his own channels or on the SMS list it operates. The targets
  * that can be stated before Week 1 are stated; the ones that depend on the Week 1 baseline say so.
  */
 export const NOMINATION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.nomination", "code", [
@@ -69,7 +69,7 @@ export const NOMINATION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.nomination", "cod
     targetValue: 51.7,
     unit: "percent",
     method: "Meta Insights reach by city, mapped to sub-county",
-    owner: "Firefly analyst",
+    owner: "Campaign analyst",
     cadence: "Weekly",
   },
   {
@@ -82,7 +82,7 @@ export const NOMINATION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.nomination", "cod
     targetValue: null,
     unit: "percent",
     method: "Meta follower city breakdown, mapped to sub-county",
-    owner: "Firefly analyst",
+    owner: "Campaign analyst",
     cadence: "Monthly",
   },
   {
@@ -94,8 +94,8 @@ export const NOMINATION_KPIS: Kpi[] = withTeamEdits<Kpi>("kpis.nomination", "cod
     target: "≥ 51.7%, the pool's share of the register",
     targetValue: 51.7,
     unit: "percent",
-    method: "Firefly's own dispatch and consent logs",
-    owner: "Firefly offline-layer operator",
+    method: "The team's dispatch and consent logs, on the platform",
+    owner: "Campaign offline-layer operator",
     cadence: "Weekly",
   },
   {

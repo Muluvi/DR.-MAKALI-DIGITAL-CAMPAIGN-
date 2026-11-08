@@ -26,7 +26,7 @@ items:
     body: "- **The presence audit (Section 18.5)** — ninety days of the existing channels: reach by ward, engagement on\n  reach, language mix, format mix, cadence, and the structural Page-or-profile question; the\n  baseline it sets is the Week 1 deliverable\n- **Competitive baseline against Dr. Kasalu and Sen. Wambua**, the two nomination rivals named in\n  Section 5.3, on public data — this is the number the whole phase is measured against. The\n  general-election field is added once the nomination is settled\n- Meta Ad Library and Google Transparency Centre review of all rival activity\n- Rapid channel-mix assessment by zone against connectivity data"
   - when: "Weeks 1–2"
     label: "foundations"
-    body: "- **The account-security baseline, specified by Firefly and applied by your team**: hardware-key\n  2FA for the candidate and all admins in week one (Annex F.8). Firefly writes the standard;\n  the credentials never leave the campaign\n- The capability map and the written standard (Section 17.5)\n- Commission the Section 19.2 compliance review — **start the clock early, it\n  is the long-lead item**\n- Confirm the Kikamba reviewer"
+    body: "- **The account-security baseline, specified and applied by your team**: hardware-key\n  2FA for the candidate and all admins in week one (Annex F.8). Firefly holds none of the accounts;\n  the credentials never leave the campaign\n- The capability map and the written standard (Section 17.5)\n- Commission the Section 19.2 compliance review — **start the clock early, it\n  is the long-lead item**\n- Confirm the Kikamba reviewer"
   - when: "Weeks 2–6"
     label: "the first directed cycles"
     body: "- The weekly brief issued from Week 2; your team's daily multilingual output weighted\n  {{effort.p-1.mwingi}}% Mwingi / {{effort.p-1.arid}}% arid belt / {{effort.p-1.anchor}}% anchor / {{effort.p-1.rotating}}% testing\n- **Immediate SMS opt-in drive** — the consented list is the phase's most\n  durable asset and compounds into every later phase\n- Two flagship videos: the vision piece, and one built entirely around the\n  verification credential\n- Facebook Live town halls weekly from Week 3\n- Kikamba voice-note series from Dr. Mulu — one per week, distributed by\n  WhatsApp and ward networks\n- Earned media push: Tier C expert placements on county fiscal management\n  (Section 15.2.2), plus priority-station radio\n- Publish the Digital Ethics and Data Charter — a news moment in its own right during a nomination contest"
@@ -67,7 +67,7 @@ items:
   - when: "Weeks 6–8"
     label: "consolidation: a full-scale red-team drill before the nomination decision (Annex F.6); coalition roundtables with professional associations; ward champion recruitment begins in the 15 highest-priority wards"
   - when: "Weeks 7–8"
-    label: "the campaign recruits ward digital champions to reach **all 40 wards** (campaign-owned, Section 13.3); Firefly delivers the mandatory data-handling training; establish WhatsApp reporting structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central"
+    label: "the campaign recruits ward digital champions to reach **all 40 wards** (campaign-owned, Section 13.3); the strategy core delivers the mandatory data-handling training, logged in the workspace (Firefly hosts the platform it is logged on); establish WhatsApp reporting structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central"
   - when: "By Week 10"
     label: "Service-delivery tracker built and tested (Section 15.1.1)"
 ```

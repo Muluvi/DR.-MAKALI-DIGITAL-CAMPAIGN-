@@ -1,5 +1,11 @@
 # How to update the site
 
+> **Dr. Mulu's team updates data on the site itself** (`/team/data` and `/workspace`), never in
+> GitHub; see `CONTRIBUTING.md` and `docs/ownership-2026-11/TEAM-GUIDE.md`. The data editor writes
+> the same files this page describes (team edits to figures and strategy lists land in
+> `data/team/*.json`, which the files below apply). This page remains the reference for Firefly,
+> which runs the platform.
+
 Every number on the site lives in **one** file. Change it there, commit on GitHub, and every page,
 chart, table, CSV, the data explorer and the analysis model pick it up on the next build. Never
 retype a number anywhere else. The build fails if you do (`scan-literals --check`).
@@ -52,7 +58,7 @@ confirmed.**
 ## Rules that do not bend
 
 - No new polling or data collection. Existing published data only.
-- No campaign-finance ceilings, and no Firefly budget tiers or fee figures. County budget and audit
+- No campaign-finance ceilings, and no budget tiers or fee figures. County budget and audit
   data are fine.
 - No section numbers, Roman numerals, "X of N" counters or tier codes shown to readers. Tiers print
   as words: Official, Reported, Unconfirmed.

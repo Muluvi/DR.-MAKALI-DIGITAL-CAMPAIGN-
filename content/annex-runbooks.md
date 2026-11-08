@@ -67,7 +67,7 @@ Quarterly at standard tier, monthly at premium, with a mandatory full-scale dril
 full-scale drill immediately before the nomination decision and again 60 days
 before the general election.
 
-**Method:** a small red-team panel — Firefly's crisis lead, one campaign
+**Method:** a small red-team panel — the campaign's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
 or when. The drill runs in real time against the Annex F.5 clock.

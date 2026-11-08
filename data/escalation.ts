@@ -50,14 +50,14 @@ export const SEVERITY_TIERS: SeverityTier[] = withTeamEdits<SeverityTier>("escal
     protocol: "CONTAIN AT WARD LEVEL — deploy a 45-second WhatsApp Kikamba voice note and a fact-check card",
     turnaround: "Under 30 minutes: deploy the audio voice note to the affected ward groups",
     draftedBy: "Your team (pre-approved library)",
-    approvedBy: "Your team lead, Firefly notified",
+    approvedBy: "Your team lead, strategy director notified",
   },
   {
     name: "High",
     threshold: "Morning vernacular radio on-air mention; prominent rival press conference; a coordinated attack, or misinformation past 10,000 views",
     protocol: "HIGH-VELOCITY REBUTTAL — authorise a live studio call-in or release a signed media card",
     turnaround: "Under 15 minutes: call-in · under 45 minutes: fact-check infographic on social media",
-    draftedBy: "Firefly",
+    draftedBy: "Strategy director",
     approvedBy: "Campaign Communications Director",
   },
   {
@@ -65,7 +65,7 @@ export const SEVERITY_TIERS: SeverityTier[] = withTeamEdits<SeverityTier>("escal
     threshold: "Coordinated county-wide smear; national TV story; legal or regulatory threat; a false allegation or manipulated or AI-generated media",
     protocol: "EXECUTIVE CRISIS COUNTER — candidate live broadcast, or a constituency lead joint press conference",
     turnaround: "Under 15 minutes: war room · under 1 hour: official press",
-    draftedBy: "Firefly",
+    draftedBy: "Strategy director",
     approvedBy: "Candidate + senior leadership",
   },
 ]);

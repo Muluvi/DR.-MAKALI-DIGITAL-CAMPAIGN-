@@ -29,7 +29,7 @@ export const RESEARCH_TIERS = [
     items: [
       "The Week 1 channel audit (confirm or refute the recognition thesis on his own data)",
       "The 2017 and 2022 ward-level results (IEBC Forms 37A and 37B)",
-      "Inbound feedback on the Firefly-operated SMS and USSD line",
+      "Inbound feedback on the campaign's SMS and USSD line, logged on the platform",
       "Gatekeeper decision triggers",
     ],
   },
@@ -89,7 +89,7 @@ export const MODULES_SERIES: FigureSeries = {
   note:
     "The last column is what makes this a decision instrument: the audit's result routes directly " +
     "to a stated change of plan, set out in advance in Section 12.7. All three read records that " +
-    "already exist: his own analytics, the IEBC's published forms and the line Firefly operates.",
+    "already exist: his own analytics, the IEBC's published forms and the line his team operates.",
 };
 
 /* ------------------------------------------------------------------ §4.5.1 the tracker */

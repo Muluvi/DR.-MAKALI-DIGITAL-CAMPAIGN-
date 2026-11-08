@@ -46,7 +46,7 @@ const PART_NAMES: Record<string, string> = {
   I: "Kitui today",
   II: "The contest",
   III: "The strategy",
-  IV: "How Firefly delivers",
+  IV: "How the campaign runs",
   V: "Proof and protection",
   VI: "The decision",
 };

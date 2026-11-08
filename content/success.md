@@ -1,12 +1,12 @@
 ```lead
-Success is judged on measures Firefly can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, and the one that matters most is how much of his reach lands where he is least known.
+Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform, and the one that matters most is how much of his reach lands where he is least known.
 ```
 
-Success is judged on measures Firefly can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
+Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
 
 ## 18.1 How success will be judged
 
-Every indicator is one Firefly can observe on his own channels or on the SMS list it operates, and every one traces to the nomination objectives (Section 8.2) or to the ~{{benchmark}}-vote benchmark. Firefly commits to the method and the cadence of measurement, not to an electoral outcome (Section 22.1).
+Every indicator is one his team can observe on his own channels or on the SMS list it operates, and enters in the platform's KPI tracker, and every one traces to the nomination objectives (Section 8.2) or to the ~{{benchmark}}-vote benchmark. Firefly commits to the platform that holds the measurement, and the team to its method and cadence, not to an electoral outcome (Section 22.1).
 
 ```figure
 id: fig-1-5-scorecard
@@ -62,7 +62,7 @@ items:
 
 Section 18.4 sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every
 one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
-Firefly's dispatch logs.
+the team's dispatch log on Firefly's platform.
 
 ```visual
 kind: cards
@@ -90,7 +90,7 @@ items:
     chips: ["R-04"]
     head: { label: "Target", text: "Deficit-ward share of the list ≥ deficit-ward share of the register" }
     fields:
-      - { label: "Method", text: "Firefly's own dispatch logs" }
+      - { label: "Method", text: "The team's dispatch log on Firefly's platform" }
       - { label: "Baseline", text: "0" }
   - title: "Kikamba-first share of weekly output, and its engagement on reach"
     chips: ["R-05"]
@@ -246,14 +246,14 @@ doubles as a performance review will be resisted, and rightly.
 #### Testing the hypothesis on existing records
 
 ```lead
-The campaign tests the **recognition-deficit hypothesis** on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line Firefly operates. Nothing is commissioned to test it.
+The campaign tests the **recognition-deficit hypothesis** on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line his team operates, logged on Firefly's platform. Nothing is commissioned to test it.
 ```
 
 ```figure
 id: research-and-tracker
 ```
 
-Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign tests the **recognition-deficit hypothesis** (the proposition that Dr. Mulu's main electoral weakness outside Kitui Central is name recognition rather than unfavourable perception) on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line Firefly operates. Nothing is commissioned to test it.
+Before committing the campaign's broadcast and caravan effort to Northern and Southern Kitui, the campaign tests the **recognition-deficit hypothesis** (the proposition that Dr. Mulu's main electoral weakness outside Kitui Central is name recognition rather than unfavourable perception) on records that already exist: his own channel analytics, the IEBC's ward-level results, and what arrives unprompted on the line his team operates, logged on Firefly's platform. Nothing is commissioned to test it.
 
 ```figure
 id: research-modules

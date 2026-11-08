@@ -85,7 +85,7 @@ export const FIG_COVER_SPINE: FigureSpec = {
     { cells: { step: "Kitui today", job: "Who lives here, and what do they need?" } },
     { cells: { step: "The contest", job: "Who is running, and where does Dr. Mulu stand?" } },
     { cells: { step: "The strategy", job: "What should the campaign do, and why?" } },
-    { cells: { step: "How Firefly delivers", job: "Who does the work, when, and how?" } },
+    { cells: { step: "How the campaign runs", job: "Who does the work, when, and how?" } },
     { cells: { step: "Proof and protection", job: "How will we know it works, and how is it kept safe and lawful?" } },
     { cells: { step: "The decision", job: "What is Dr. Mulu being asked to decide?" } },
   ],

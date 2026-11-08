@@ -40,7 +40,7 @@ preset: objective
 items:
   - head: { label: "Target", text: "At least {{pool.share}}% of his reach landing in the pool, the pool's own share of the register, and a verified subscriber footprint across all 15 Mwingi wards and 6 Kitui South wards before the opening of the party nomination window." }
     chips: ["NW-01", "R-02"]
-    text: "**Named Owner:** Director of Communications; Firefly provides the messaging infrastructure and delivery ledger."
+    text: "**Named Owner:** Director of Communications; the delivery ledger is the dispatch log on Firefly's platform."
     fields:
       - { label: "Traceability", text: "Nomination viability: name recognition and visible activity in northern Mwingi and the southern wards, where Dr. Mulu has been known mainly as the member for Kitui Central." }
       - { label: "Finding it answers", text: "{{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (Section 6.2)." }
@@ -74,7 +74,7 @@ preset: objective
 items:
   - head: { label: "Target", text: "**{{target.sms}} active, verified SMS/USSD offline subscribers** across rural wards." }
     chips: ["NW-03", "R-04"]
-    text: "**Named Owner:** Campaign Field Operations Lead; Firefly operates the USSD/SMS dispatch engine."
+    text: "**Named Owner:** Campaign Field Operations Lead, who operates the USSD/SMS dispatch and logs it on Firefly's platform."
     fields:
       - { label: "Traceability", text: "Answers the county's connectivity ceiling ({{ict.internet}}% internet use, {{ict.phone}}% mobile phone ownership, CA/KNBS 2023/24) with an offline channel the campaign owns." }
       - { label: "Finding it answers", text: "digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (Section 4.3)." }
@@ -99,7 +99,7 @@ items:
       - { label: "Baseline", text: "set in Week 1, from the post coding." }
       - { label: "Served by", text: "Chapters 10 to 12." }
       - { label: "Measured by", text: "R-05 and the weekly post coding (Sections 18.5 and 18.1)." }
-      - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is Firefly's instrument (Section 15.4.1); the recruitment is the campaign's." }
+      - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is the campaign's own, outside Firefly's platform, which holds only its counts (Section 15.4.1); the recruitment is the campaign's." }
 ```
 
 ### 8.2.5 Hold the home base while Kitui Central runs its own race

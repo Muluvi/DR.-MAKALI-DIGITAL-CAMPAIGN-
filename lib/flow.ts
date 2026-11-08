@@ -5,7 +5,7 @@ import { SECTIONS, type TabId } from "./heading-slug";
  *
  * The cover and the one-screen summary, then six Parts in the campaign-planning order: what Kitui
  * is and needs, the contest and where Dr. Mulu stands, the strategy the evidence justifies, how
- * Firefly delivers it, how it is measured and kept lawful, and the decision. The annexes follow.
+ * the campaign runs it on Firefly's platform, how it is measured and kept lawful, and the decision. The annexes follow.
  *
  * Section numbers are the document's addressing system. Every id live before this restructure has
  * a generated redirect (lib/anchors/restructure-2026-11.json), so a link already shared still lands
@@ -26,7 +26,7 @@ export const FLOW_ACTS: FlowAct[] = [
   { id: "kitui", label: "Kitui today", blurb: "Who lives here, and what do they need?", opensOn: "kitui" },
   { id: "contest", label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
   { id: "strategy", label: "The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
-  { id: "delivery", label: "How Firefly delivers", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
+  { id: "delivery", label: "How the campaign runs", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
   { id: "proof", label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
   { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
   { id: "reference", label: "Reference shelf", blurb: "Sources, playbooks, technology, runbooks and the fine print", opensOn: "annex-evidence" },

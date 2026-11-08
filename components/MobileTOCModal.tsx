@@ -26,6 +26,7 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   voters: Users,
   channels: Megaphone,
   engagement: Handshake,
+  platform: Database,
   timeline: CalendarClock,
   workstreams: Layers,
   success: Gauge,
