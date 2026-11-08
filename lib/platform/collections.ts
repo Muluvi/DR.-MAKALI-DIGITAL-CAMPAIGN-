@@ -157,6 +157,7 @@ export const COLLECTIONS: Collection[] = [
     titleField: "purpose",
     fields: [
       { key: "date", label: "Send date", type: "date", required: true, list: true },
+      { key: "sendTime", label: "Send time (24-hour, e.g. 09:30)", type: "text", maxLength: 5, hint: "Political SMS may only go out between 08:00 and 17:00 (Communications Authority guidelines, 2017)." },
       { key: "rail", label: "Rail", type: "select", options: RAILS, required: true, list: true },
       { key: "language", label: "Language", type: "select", options: LANGUAGES, required: true, list: true },
       { key: "purpose", label: "Purpose", type: "text", required: true, maxLength: 120, list: true },
@@ -172,6 +173,12 @@ export const COLLECTIONS: Collection[] = [
         r.rail === "SMS" && r.language === "Kikamba"
           ? "Bulk political SMS cannot be sent in Kikamba: the CA/NCIC guidelines restrict political SMS to English or Kiswahili. Use the WhatsApp line or a voice note for Kikamba."
           : null,
+      (r) => {
+        const time = str(r.sendTime).trim();
+        if (r.rail !== "SMS" || !time) return null;
+        if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) return "Enter the send time as 24-hour HH:MM, for example 09:30.";
+        return time < "08:00" || time > "17:00" ? "Political SMS may only go out between 08:00 and 17:00." : null;
+      },
       (r) => (r.rail === "SMS" && str(r.message).length > 160 ? `The SMS is ${str(r.message).length} characters. It must be 160 or fewer.` : null),
       (r) => {
         if (r.rail !== "SMS") return null;
