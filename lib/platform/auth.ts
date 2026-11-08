@@ -13,7 +13,7 @@ import crypto from "node:crypto";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { fireflyAdminEmails, platformMode } from "./config";
+import { fireflyAdminEmails, platformMode, teamLoginEnabled } from "./config";
 import { localStore } from "./store/local";
 import { supabaseStore } from "./store/supabase";
 import type { Actor, Store } from "./store/types";
@@ -85,6 +85,8 @@ async function signedInEmail(): Promise<string | null> {
 
 /** The signed-in team member, or null. Checks the member list on every call. */
 export async function getSession(): Promise<Session | null> {
+  // Sign-in switched off: nobody is signed in, so every edit is refused (requireMember below).
+  if (!teamLoginEnabled()) return null;
   const store = readStore();
   if (!store) return null;
   const email = await signedInEmail();
@@ -100,7 +102,7 @@ export async function getSession(): Promise<Session | null> {
 /** For every edit: the member, and a store that writes as them. Throws NotAllowed otherwise. */
 export async function requireMember(): Promise<{ session: Session; store: Store }> {
   const session = await getSession();
-  if (!session) throw new NotAllowed("Sign in with a team account to edit. Viewing needs no account.");
+  if (!session) throw new NotAllowed(teamLoginEnabled() ? "Sign in with a team account to edit. Viewing needs no account." : "Editing is switched off. The site is open to view.");
   const store = platformMode() === "supabase" ? supabaseStore(await supabaseUserClient()) : localStore;
   return { session, store };
 }

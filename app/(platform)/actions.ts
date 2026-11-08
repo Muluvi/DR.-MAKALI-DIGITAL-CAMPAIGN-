@@ -12,7 +12,7 @@ import { COLLECTION_BY_ID } from "@/lib/platform/collections";
 import { validateRecord } from "@/lib/platform/validate";
 import { resolveOptions } from "@/lib/platform/options";
 import { LOCAL_COOKIE, localCredentials, localToken, NotAllowed, readStore, requireFirefly, requireMember, supabaseUserClient } from "@/lib/platform/auth";
-import { fireflyAdminEmails, platformMode } from "@/lib/platform/config";
+import { fireflyAdminEmails, platformMode, teamLoginEnabled } from "@/lib/platform/config";
 import { commit, Refused, type Target } from "@/lib/platform/pack";
 import { serviceClient } from "@/lib/platform/store/supabase";
 
@@ -132,7 +132,7 @@ export async function signIn(input: { email: string; password?: string; magic?: 
   const email = input.email.trim().toLowerCase();
   if (!email) return { ok: false, errors: { email: "Enter your email address." } };
   const mode = platformMode();
-  if (mode === "off") return fail("Team sign-in is not switched on yet.");
+  if (!teamLoginEnabled() || mode === "off") return fail("Sign-in is switched off. The site is open to view.");
   if (mode === "local") {
     const cred = localCredentials().find((c) => c.email === email && c.password === input.password);
     if (!cred) return fail("That email and password do not match a team account.");

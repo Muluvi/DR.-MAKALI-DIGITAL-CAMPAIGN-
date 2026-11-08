@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "../platform.css";
 import { getSession } from "@/lib/platform/auth";
-import { platformMode } from "@/lib/platform/config";
+import { teamLoginEnabled } from "@/lib/platform/config";
 import { PlatformNav } from "@/components/platform/PlatformNav";
 import { signOut } from "./actions";
 
@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
  */
 export default async function PlatformLayout({ children }: { children: React.ReactNode }) {
   const session = await getSession().catch(() => null);
-  const mode = platformMode();
+  const login = teamLoginEnabled();
   return (
     <div className="min-h-dvh bg-paper text-ink">
       <header className="plat-chrome sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
@@ -28,7 +28,7 @@ export default async function PlatformLayout({ children }: { children: React.Rea
                 {session.role === "firefly" && <Link href="/team/admin" className="plat-btn plat-btn-sm">Team</Link>}
                 <form action={signOut}><button className="plat-btn plat-btn-sm" type="submit">Sign out</button></form>
               </>
-            ) : mode !== "off" ? (
+            ) : login ? (
               <Link href="/team/login" className="plat-btn plat-btn-sm">Team sign-in</Link>
             ) : null}
           </div>
@@ -37,7 +37,7 @@ export default async function PlatformLayout({ children }: { children: React.Rea
       </header>
       <main className="plat-page mx-auto max-w-6xl px-4 pb-24 pt-6 sm:px-6">{children}</main>
       <footer className="plat-chrome mx-auto max-w-6xl px-4 pb-10 text-[0.78rem] text-muted sm:px-6">
-        Open to view: anyone with the link sees everything. Dr. Mulu&apos;s team signs in to edit. Firefly built, owns and runs the platform; the campaign owns its content and data.
+        {login ? "Open to view: anyone with the link sees everything. Dr. Mulu's team signs in to edit." : "Open to view: anyone with the link sees everything."} Firefly built, owns and runs the platform; the campaign owns its content and data.
       </footer>
     </div>
   );

@@ -1,12 +1,14 @@
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getSession } from "@/lib/platform/auth";
-import { platformMode } from "@/lib/platform/config";
+import { platformMode, teamLoginEnabled } from "@/lib/platform/config";
 import { PageHead } from "@/components/platform/PageHead";
 import { LoginForm } from "@/components/platform/LoginForm";
 
 export const metadata = { title: "Team sign-in | Kitui 2027", robots: { index: false, follow: false } };
 
 export default async function Login() {
+  // Sign-in is switched off: the site is open to view, and the team pages are not served.
+  if (!teamLoginEnabled()) notFound();
   if (await getSession().catch(() => null)) redirect("/workspace");
   const mode = platformMode();
   return (
