@@ -154,7 +154,14 @@ async function main() {
   const base = JSON.parse(fs.readFileSync(MANIFEST, "utf8"));
   const failures = [];
   const changed = [];
+  // On Vercel, paths in .vercelignore (the Python analysis pipeline) are deliberately not uploaded,
+  // so they are absent by design there. CI checks them in full.
+  const notUploaded = process.env.VERCEL && fs.existsSync(path.join(ROOT, ".vercelignore"))
+    ? fs.readFileSync(path.join(ROOT, ".vercelignore"), "utf8").split("\n").map((l) => l.trim()).filter((l) => l.startsWith("/")).map((l) => l.slice(1))
+    : [];
+  let skipped = 0;
   for (const [f, h] of Object.entries(base.files)) {
+    if (notUploaded.some((p) => f.startsWith(p))) { skipped++; continue; }
     if (!fs.existsSync(path.join(ROOT, f))) failures.push(`missing: ${f}`);
     else if (sha(f) !== h) changed.push(f);
   }
@@ -175,7 +182,7 @@ async function main() {
     process.exit(1);
   }
   const added = Object.keys(now.files).filter((f) => !(f in base.files)).length;
-  console.log(`check-preservation: ${Object.keys(base.files).length} protected files present, no count below baseline${added ? `, ${added} new file(s)` : ""}`);
+  console.log(`check-preservation: ${Object.keys(base.files).length - skipped} protected files present, no count below baseline${added ? `, ${added} new file(s)` : ""}${skipped ? ` (${skipped} in .vercelignore not uploaded to Vercel; checked in CI)` : ""}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
