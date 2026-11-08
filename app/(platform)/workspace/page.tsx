@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { COLLECTIONS, GROUPS } from "@/lib/platform/collections";
 import { getSession, readStore } from "@/lib/platform/auth";
+import { teamLoginEnabled } from "@/lib/platform/config";
 import { PageHead } from "@/components/platform/PageHead";
 
 export const metadata = { title: "Workspace | Kitui 2027", robots: { index: false, follow: false } };
@@ -13,7 +14,7 @@ export default async function Workspace() {
   const latest = (id: string) => all.filter((r) => r.collection === id).map((r) => r.updatedAt).sort().pop()?.slice(0, 10);
   return (
     <>
-      <PageHead kicker="Team workspace" title="Where the team runs the campaign" lead={session ? `Signed in as ${session.name}. Add and update records; everything you save is on the site at once, and in the change history.` : "The team's working records: the weekly brief, the calendar, the dispatch log, the indicators and the response desk. Anyone can read them; the team signs in to edit."} />
+      <PageHead kicker="Team workspace" title="Where the team runs the campaign" lead={session ? `Signed in as ${session.name}. Add and update records; everything you save is on the site at once, and in the change history.` : "The team's working records: the weekly brief, the calendar, the dispatch log, the indicators and the response desk. Anyone can read them" + (teamLoginEnabled() ? "; the team signs in to edit." : ".")} />
       <div className="space-y-8">
         {GROUPS.map((g) => (
           <section key={g} aria-labelledby={`g-${g}`}>

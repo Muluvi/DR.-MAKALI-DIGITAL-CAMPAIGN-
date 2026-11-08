@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { FIGURES } from "@/lib/data/figures";
 import { CONSTITUENCIES } from "@/data/ward-register";
+import { teamLoginEnabled } from "@/lib/platform/config";
 import { getSession } from "@/lib/platform/auth";
 import { packMode } from "@/lib/platform/config";
 import { ANALYSIS_FIELDS, EDITABLE_LISTS, FIGURE_FIELDS, analysisFiles, listFields } from "@/lib/platform/pack";
@@ -12,6 +13,8 @@ import { PackEditor, type PackEditorData } from "@/components/platform/PackEdito
 export const metadata = { title: "Edit data | Kitui 2027", robots: { index: false, follow: false } };
 
 export default async function EditData() {
+  // Sign-in is switched off: the site is open to view, and the team pages are not served.
+  if (!teamLoginEnabled()) notFound();
   const session = await getSession().catch(() => null);
   if (!session) redirect("/team/login");
   const data: PackEditorData = {

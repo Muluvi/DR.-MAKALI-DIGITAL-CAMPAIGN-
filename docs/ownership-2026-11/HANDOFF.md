@@ -13,6 +13,11 @@ The baseline is `a377ded`, tagged `pre-ownership-baseline`. The decisions were a
 
 ---
 
+> **Current setting (owner's decision, November 2026): sign-in is switched off.** The site is open
+> to view only. There is no sign-in button, the team pages (`/team/*`) return "not found", and the
+> server refuses every edit. To switch team editing on later, finish the setup in section 3, set
+> `PLATFORM_TEAM_LOGIN=on` in Vercel and redeploy.
+
 ## 1. Inspection report
 
 The full report is in [`PHASE-1-2-REPORT.md`](PHASE-1-2-REPORT.md). In brief:

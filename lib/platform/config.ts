@@ -20,6 +20,15 @@ export function platformMode(): Mode {
   return "off";
 }
 
+/**
+ * Whether team sign-in and editing are switched on. Off unless PLATFORM_TEAM_LOGIN=on: the owner
+ * chose to run the site fully open (view only) for now. While off there is no sign-in anywhere on
+ * the site, the team pages are not served, and every edit is refused on the server.
+ */
+export function teamLoginEnabled(): boolean {
+  return process.env.PLATFORM_TEAM_LOGIN === "on";
+}
+
 /** Emails that hold Firefly's platform-owner rights (team management), comma separated. */
 export function fireflyAdminEmails(): string[] {
   return (process.env.FIREFLY_ADMIN_EMAILS ?? "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
