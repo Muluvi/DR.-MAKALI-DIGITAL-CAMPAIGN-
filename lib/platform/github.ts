@@ -21,7 +21,7 @@ let cached: { token: string; until: number } | null = null;
 
 async function token(): Promise<string> {
   if (process.env.GITHUB_EDIT_TOKEN) return process.env.GITHUB_EDIT_TOKEN;
-  if (cached && cached.until > Date.now() + 60_000) return cached.token;
+  if (cached && cached.until > Date.now() + 60 * 1000) return cached.token;
   const now = Math.floor(Date.now() / 1000);
   const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString("base64url");
   const unsigned = `${b64({ alg: "RS256", typ: "JWT" })}.${b64({ iat: now - 60, exp: now + 540, iss: process.env.GITHUB_APP_ID })}`;

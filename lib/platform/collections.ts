@@ -105,7 +105,7 @@ export const COLLECTIONS: Collection[] = [
       { key: "pillar1", label: "Weight: first pillar (%)", type: "number", min: 0, max: 100, hint: "Pillar weights must add up to 100." },
       { key: "pillar2", label: "Weight: second pillar (%)", type: "number", min: 0, max: 100 },
       { key: "pillar3", label: "Weight: third pillar (%)", type: "number", min: 0, max: 100 },
-      { key: "mustPost", label: "The posts that must happen, and the ward each is for", type: "longtext", required: true, maxLength: 1200 },
+      { key: "mustPost", label: "The posts that must happen, and the ward each is for", type: "longtext", required: true, maxLength: 1000 },
       { key: "wardPriority", label: "Priority wards", type: "multiselect", source: "wards", list: true },
       { key: "languageRule", label: "Language rule", type: "text", maxLength: 200, list: true },
       { key: "stopOne", label: "One thing to stop", type: "text", maxLength: 200 },
