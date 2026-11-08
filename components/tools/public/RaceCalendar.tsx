@@ -10,6 +10,17 @@ const fmtDate = (d: string) => new Date(`${d}T00:00:00+03:00`).toLocaleDateStrin
 const noSubscribe = () => () => {};
 const nairobiToday = () => new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Nairobi" });
 
+function downloadIcs(entries: CalendarEntry[]) {
+  const esc = (s: string) => s.replace(/([,;\\])/g, "\\$1");
+  const next = (d: string) => new Date(Date.parse(`${d}T00:00:00Z`) + 86400000).toISOString().slice(0, 10).replace(/-/g, "");
+  const body = entries.map((e, i) => ["BEGIN:VEVENT", `UID:kitui-race-${e.date}-${i}@kitui2027`, `DTSTAMP:${e.date.replace(/-/g, "")}T000000Z`, `DTSTART;VALUE=DATE:${e.date.replace(/-/g, "")}`, `DTEND;VALUE=DATE:${next(e.date)}`, `SUMMARY:${esc(e.event)}`, `DESCRIPTION:${esc(`Applies to: ${e.appliesTo}. Source: ${e.source}`)}`, "END:VEVENT"].join("\r\n"));
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Kitui 2027//Governor race calendar//EN", ...body, "END:VCALENDAR", ""].join("\r\n");
+  const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = "kitui-governor-race-calendar-2027.ics"; a.click();
+  URL.revokeObjectURL(url);
+}
+
 export function RaceCalendar({ entries }: { entries: CalendarEntry[] }) {
   // Read today in the browser, so a cached page never shows a deadline in the wrong state.
   const today = useSyncExternalStore(noSubscribe, nairobiToday, () => null);
@@ -30,6 +41,7 @@ export function RaceCalendar({ entries }: { entries: CalendarEntry[] }) {
         <label className="text-[0.85rem] text-muted">Applies to{" "}
           <select className="plat-input mt-1 block" value={who} onChange={(e) => setWho(e.target.value)}>{groups.map((g) => <option key={g}>{g}</option>)}</select>
         </label>
+        <button type="button" className="plat-btn plat-btn-sm print:hidden" onClick={() => downloadIcs(rows)}>Add to calendar (.ics)</button>
         <ToolActions filename="kitui-governor-race-calendar-2027.csv" link={false} rows={() => [["date", "event", "applies_to", "source"], ...rows.map((e) => [e.date, e.event, e.appliesTo, e.source])]} />
       </div>
       <ol className="mt-5 space-y-2">
