@@ -1,5 +1,5 @@
 ```lead
-**Firefly Management offers a platform and asks for one week, one export.** Everything after that is evidence.
+**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.** Everything after that is evidence.
 ```
 
 ```figure
@@ -27,11 +27,11 @@ the candidate from the legal exposure others in this cycle will walk into (Secti
 public service-delivery tracker that puts his strongest credential to work before a single vote is
 cast.
 
-Firefly would like one week and one export to load the platform. Everything after that is evidence, and the team's to act on.
+Firefly asks him to approve the platform at the recommended Standard level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.
 
 #### What the record does not yet show
 
-> **Firefly Management offers a platform and asks for one week, one export.**
+> **Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**
 
 Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which

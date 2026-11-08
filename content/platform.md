@@ -1,8 +1,8 @@
 ```lead
-**Anyone with the link sees everything. Dr. Mulu's team signs in to change it. Firefly keeps it running.**
+**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**
 ```
 
-**Anyone with the link sees everything. Dr. Mulu's team signs in to change it. Firefly keeps it running.** The data behind this story, the analysis, the strategies and the team's own working records live in one place, and the team updates them itself.
+**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.** The data behind this story, the analysis, the strategies and the team's own working records live in one place, and the team updates them itself.
 
 ```visual
 kind: contrast
@@ -14,7 +14,7 @@ left:
 right:
   title: "Sign in to edit"
   items:
-    - { label: "Dr. Mulu's team", text: "adds and changes records and data, from a phone" }
+    - { label: "Dr. Mulu's team", text: "adds and changes records and data, from a phone, once team sign-in is switched on at the start of the engagement" }
     - { label: "Every change logged", text: "who, what and when, and any change can be put back exactly" }
 ```
 

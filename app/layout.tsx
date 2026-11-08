@@ -56,7 +56,7 @@ export const viewport: Viewport = {
 
 const TITLE = 'Kitui 2027 — Analysis, Strategy and Direction';
 const DESCRIPTION =
-  'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026. Confidential.';
+  'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026.';
 
 /**
  * The share card, and why there is one.
@@ -77,7 +77,7 @@ const OG_IMAGE = {
   url: '/og/kitui-2027.png',
   width: 1200,
   height: 630,
-  alt: 'Kitui 2027 — Analysis, strategy and direction. Prepared for Hon. Dr. Benson Makali Mulu. Firefly Management, September 2026. Confidential.',
+  alt: 'Kitui 2027 — Analysis, strategy and direction. Prepared for Hon. Dr. Benson Makali Mulu. Firefly Management, September 2026.',
 };
 
 /**

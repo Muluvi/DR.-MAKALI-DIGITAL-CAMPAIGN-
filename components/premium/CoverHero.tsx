@@ -51,7 +51,7 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
             {byline}
             <p className="pf-seal">
               <span className="pf-seal__mark" aria-hidden="true" />
-              <strong>Confidential</strong> — personal, link-only.
+              <strong>Prepared for Dr. Mulu</strong> — open to anyone with the link.
             </p>
             <h1 id="pf-hero-title" className="pf-hero__title">
               <span className="pf-line"><span>Kitui 2027:</span></span>

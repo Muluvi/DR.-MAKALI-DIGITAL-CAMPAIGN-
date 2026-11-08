@@ -1,0 +1,178 @@
+[
+  {
+    "file": "cover",
+    "section": "(intro)",
+    "first12": "and the order of the six Parts and eight annexes that follow.",
+    "words": 4,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "and the order of the six Parts and eight annexes that follow.",
+    "replacement": "and the order of the parts that follow.",
+    "at": 76
+  },
+  {
+    "file": "cover",
+    "section": "(intro)",
+    "first12": "**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by",
+    "words": -10,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Confidential.** Prepared for Hon. Dr. Benson Makali Mulu personally, and shared by link only. The full terms are in Annex G.",
+    "replacement": "**Prepared for Hon. Dr. Benson Makali Mulu personally.** It is open to anyone with the link and kept out of search engines. The terms of use are in the fine print.",
+    "at": 168
+  },
+  {
+    "file": "brief",
+    "section": "(intro)",
+    "first12": "```lead **Firefly Management offers a platform and asks for one week, one",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "```lead\n**Firefly Management offers a platform and asks for one week, one export.**",
+    "replacement": "```lead\n**Firefly Management offers a platform and asks him to approve it.**",
+    "at": 0
+  },
+  {
+    "file": "brief",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "words": -8,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "replacement": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "at": 280
+  },
+  {
+    "file": "success",
+    "section": "(intro)",
+    "first12": "```lead Success is judged on measures his team can observe on Dr.",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "```lead\nSuccess is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform, and",
+    "replacement": "```lead\nSuccess is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered once the engagement starts, and",
+    "at": 0
+  },
+  {
+    "file": "success",
+    "section": "(intro)",
+    "first12": "on the SMS list it operates, entered on Firefly's platform, and the",
+    "words": -4,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "on the SMS list it operates, entered on Firefly's platform, and the one that matters most",
+    "replacement": "on the SMS list it operates, entered on Firefly's platform once the engagement starts, and the one that matters most",
+    "at": 342
+  },
+  {
+    "file": "success",
+    "section": "18.1",
+    "first12": "or on the SMS list it operates, and enters in the platform's",
+    "words": -4,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "or on the SMS list it operates, and enters in the platform's KPI tracker,",
+    "replacement": "or on the SMS list it operates, and, once the engagement starts, enters in the platform's KPI tracker,",
+    "at": 833
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "**Anyone with the link sees everything. Dr. Mulu's team signs in to",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Anyone with the link sees everything. Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "replacement": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "at": 8
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "**Anyone with the link sees everything. Dr. Mulu's team signs in to",
+    "words": -4,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Anyone with the link sees everything. Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "replacement": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "at": 120
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "text: \"adds and changes records and data, from a phone\"",
+    "words": -12,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "text: \"adds and changes records and data, from a phone\"",
+    "replacement": "text: \"adds and changes records and data, from a phone, once team sign-in is switched on at the start of the engagement\"",
+    "at": 788
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "replacement": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "at": 8
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "words": -8,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "**Firefly Management offers a platform and asks for one week, one export.**",
+    "replacement": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "at": 1961
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "Firefly would like one week and one export to load the platform.",
+    "words": -9,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "Firefly would like one week and one export to load the platform. Everything after that is evidence, and the team's to act on.",
+    "replacement": "Firefly asks him to approve the platform at the recommended Standard level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.",
+    "at": 1839
+  },
+  {
+    "file": "annex-terms",
+    "section": "(intro)",
+    "first12": "## G.1 Confidentiality and use",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "## G.1 Confidentiality and use",
+    "replacement": "## G.1 Who it is for, and how it may be used",
+    "at": 92
+  },
+  {
+    "file": "annex-terms",
+    "section": "G.1",
+    "first12": "It is submitted in confidence to him and to those he authorises",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "It is submitted in confidence to him and to those he authorises to review it.",
+    "replacement": "It is submitted to him and to those he authorises to review it.",
+    "at": 268
+  },
+  {
+    "file": "annex-terms",
+    "section": "G.1",
+    "first12": "It should not be circulated beyond the campaign's decision-making group,",
+    "words": -9,
+    "kind": "replaced",
+    "note": "Content-conflict fix (table-of-contents restructure, docs/toc-2026-11): the passage claimed something the build contradicts (confidentiality, the one-week-one-export ask, or team editing while sign-in is off) and now says what is true.",
+    "text": "It should not be circulated beyond the campaign's decision-making group,",
+    "replacement": "It is open to anyone with the link, but it should not be circulated beyond the campaign's decision-making group,",
+    "at": 525
+  }
+]

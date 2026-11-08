@@ -468,8 +468,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <footer className="pf-shell pf-footer relative mt-10 pt-8">
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
           <div className="confidentiality-marker mb-3">
-            <strong>Confidential</strong>
-            <span className="opacity-85"> — link-only, prepared for Hon. Dr. Benson Makali Mulu personally. Not for circulation.</span>
+            <strong>Prepared for Hon. Dr. Benson Makali Mulu personally</strong>
+            <span className="opacity-85"> — open to anyone with the link. Please do not circulate it further.</span>
           </div>
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button
