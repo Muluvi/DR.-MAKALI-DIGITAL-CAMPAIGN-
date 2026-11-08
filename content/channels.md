@@ -67,7 +67,7 @@ items:
 
 **The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at {{ict.internet.2019}}% of residents (the 2019 census rate). On the 2023/24 rate of {{ict.internet}}% digital still reaches at most {{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark (Section 4.3), so the case for an offline-led mix is unchanged. The split is re-read at each monthly review against the reach data (confirmed by Firefly, September 2026).
 
-## 12.3 The gatekeeper bottleneck
+## 12.3 The radio gatekeepers
 
 The stations with the widest Kikamba reach are tied to rivals (Section 4.2), and that creates three hazards for the campaign:
 

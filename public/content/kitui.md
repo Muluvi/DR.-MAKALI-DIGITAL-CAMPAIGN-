@@ -4,7 +4,7 @@ Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, 
 
 Kitui is large, rural, young and poor: **1,136,187** people on **30,430 km²**, a median age of **18.9**, and **55.2%** in poverty in 2021 (Tier 1, KNBS). Its next governor runs a resource envelope of **KSh 13.79 billion** a year (Tier 3, unconfirmed). This chapter sets out who lives here and how the county is run; Chapter 3 sets out what they need.
 
-## 1.1 The people: population, gender, age, households
+## 1.1 Who lives here
 
 The 2019 census counted **1,136,187** people: 549,003 men, 587,151 women and 33 intersex people (Tier 1, KNBS). KNBS projects **1,258,954** residents in 2025 and **1,327,463** in 2030 (Tier 1, County Gender Data Sheet, October 2025).
 
@@ -20,7 +20,7 @@ id: fig-2-4-people
 
 **What it means for the campaign.** A county where half the people are under 18.9 has a large cohort of first-time voters arriving at each election, and women are the majority of residents (51.7%).
 
-## 1.2 The land: area, density, rural and urban, the three regions
+## 1.2 The land and its three regions
 
 Kitui covers **30,430 km²**, Kenya's sixth-largest county, at **37** people per km² (Tier 1, KNBS 2019 Census). The national comparison is not yet sourced: an earlier draft gave 82 per km²; the record that would settle it is KNBS 2019 Census Volume I.
 
@@ -42,7 +42,7 @@ id: fig-3-7-zones
 
 Living standards, from poverty and water to electricity, phones and the internet, are set out with the rest of what voters need, in What voters need.
 
-## 1.4 How the county is run: 8 constituencies, 40 wards, sub-counties and villages
+## 1.4 How the county is run
 
 Kitui has eight constituencies, 40 county assembly wards and 18 administrative sub-counties (Tier 1, IEBC and KNBS). The county also counts villages as administrative units. No verified figure is available yet for their number; the record that would settle it is the Kitui County Integrated Development Plan 2023–2027. The reported count is of villages, not sub-locations, and the two are not used interchangeably.
 

@@ -2,7 +2,7 @@
 
 Every passage the consolidation pass moved, merged or replaced, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: where it went, and the pointer left behind.
 
-29 cuts, 31 words; 46 passages moved to their homes.
+32 cuts, 31 words; 50 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -81,3 +81,10 @@ Every passage the consolidation pass moved, merged or replaced, generated from `
 | annex-technology | E.1 | The technical risk and security protocols for these systems are in Lawful | 0 | Added (new, sourced) | lawful:F.9 | The pointer left where the passage was. |
 | annex-volunteers | D.1 | ```lead **Data-handling training is a gate, not an option.** No volunteer collects | 319 | Moved to its home | workstreams:D.1 | Section move (consolidation, passage-level merges): annex-volunteers D.1 moved into workstreams, word for word, heading and all. |
 | workstreams | D.1 | Reference for the campaign's own team. Volunteer organising is outside Firefly's | 0 | Added (new, sourced) | engagement:13.3 | Volunteers into Workstream 10 (merge J): the label the moved reference carries, consistent with the engagement scope, which puts volunteer organising outside Firefly's work. |
+| votes | B.1 | Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 | 255 | Moved to its home | annex-evidence:B.1 | Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): votes B.1 moved into annex-evidence, word for word, heading and all, because it equips the team rather than argues the case. |
+| votes | 2.3 | The register of every ward, with its voters and polling stations, is | 0 | Added (new, sourced) | annex-evidence:B.1 | The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11). |
+| workstreams | D.1 | *Reference for the campaign's own team. Volunteer organising is outside the platform's | 355 | Moved to its home | annex-playbooks:D.1 | Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): workstreams D.1 moved into annex-playbooks, word for word, heading and all, because it equips the team rather than argues the case. |
+| workstreams | 15.3.4 | The volunteer programme reference is in Platform playbooks, in the working platform | 0 | Added (new, sourced) | annex-playbooks:D.1 | The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11). |
+| lawful | F.8 | ```lead **Hardware keys for the candidate and admins are non-negotiable and take | 155 | Moved to its home | annex-runbooks:F.8 | Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): lawful F.8 moved into annex-runbooks, word for word, heading and all, because it equips the team rather than argues the case. |
+| lawful | F.9 | ```visual kind: checklist items: - label: "Onboarding training for every staff member | 220 | Moved to its home | annex-runbooks:F.9 | Table-of-contents restructure (docs/toc-2026-11/RESTRUCTURED-TOC.md): lawful F.9 moved into annex-runbooks, word for word, heading and all, because it equips the team rather than argues the case. |
+| lawful | 19.3 | The account security baseline and phishing awareness are in Runbooks, in the | 0 | Added (new, sourced) | annex-runbooks:F.9 | The pointer left where the section was (table-of-contents restructure, docs/toc-2026-11). |

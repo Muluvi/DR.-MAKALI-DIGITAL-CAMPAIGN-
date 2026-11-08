@@ -64,7 +64,7 @@ id: fig-2-7-media
 
 Ownership associations are publicly reported rather than certified, and ownership changes. The certifiable records are the Communications Authority's register of broadcast licensees and the Business Registration Service's company records. The map is checked against both before any placement is booked, and updated when either changes.
 
-## 4.3 What each channel can physically reach
+## 4.3 What each channel can reach
 
 ```lead
 If the campaign reached 100% of every internet-connected voter in Kitui County, it would reach about **158,696 voters** (modelled), and even if every one of them voted for him he would be **41,304 votes short** of the 200,000 benchmark.
@@ -95,7 +95,7 @@ id: fig-3-8-ceiling
 {"kind":"contrast","left":{"title":"What digital can do","items":[{"label":"Set the agenda, and defend it","body":"The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 20.2) records it from the first month rather than assuming it."},{"label":"Recruit young volunteers","body":"Reaching the ~234,000 young voters on TikTok and WhatsApp recruits field volunteers who run ground logistics and serve as polling agents."},{"label":"Target urban traders","body":"Geofencing commercial centres (Kitui CBD, Mwingi Central) tests policy messages (\"The Economist's Single Business Permit\") with little waste."}]},"right":{"title":"What digital cannot do","items":[{"label":"Deliver the 200,000 vote benchmark alone","body":"Capped at about 158,696 reachable voters inside Kitui County (modelled)."},{"label":"Reach the rural farming base","body":"73.8% of Kitui's residents are offline (CA/KNBS 2023/24), and rural smallholders do not meet political content through social media: few smartphones, high data costs, and weak 3G/4G coverage in rural wards (for example Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha)."},{"label":"Answer rumours on the ground","body":"WhatsApp and Facebook rarely reach dryland farming communities without someone to carry the message in person."}]}}
 ```
 
-## 4.4 The offline majority, and the infrastructure that reaches it
+## 4.4 Reaching the offline majority
 
 ```lead
 The election will be won or lost across the **447,007 registered voters not reachable online** (modelled: the July 2026 register less the 158,696 reachable by smartphone or data).

@@ -4,7 +4,7 @@
 
 2027 is an open seat: Governor Malombe has served two terms and cannot stand. Both Wiper rivals have already won a countywide election; Dr. Makali Mulu has not yet stood countywide. The contest has two stages, the Wiper nomination and then the general election, and this chapter sets out the rules, the calendar and the field for each.
 
-## 5.1 An open seat: the incumbent is term-limited
+## 5.1 An open seat
 
 ```lead
 Article 180(7) of the Constitution of Kenya limits a governor to two terms (Tier 1). Governor Malombe is serving his second, so he cannot stand in 2027.
@@ -17,7 +17,7 @@ Governor Malombe served from 2013 to 2017, lost the 2017 election to Charity Ngi
 <!-- keep -->
 *   **What would change it:** only a court ruling or an IEBC decision to accept his nomination papers. The campaign's electoral-law reviewer (Section 19.2) reads Kenya Law and the IEBC's gazetted 2027 nominations for either, and the plan changes only if one appears.
 
-## 5.2 How Wiper chooses its candidate, and when
+## 5.2 How Wiper chooses its candidate
 
 ```lead
 The Wiper decision is expected in the final quarter of 2026, late October to November on the reported timetable: **a Tier 3, single-source report, not a confirmed party decision.** The 2022 precedent was selected delegates and panels (Tier 1, Kenya Law).
@@ -44,7 +44,7 @@ The method is fluid and subject to negotiation inside the party. It moves from a
 {"kind":"checklist","title":"What would confirm the selection method","items":[{"label":"An official, signed resolution by the **Wiper National Executive Council (NEC)**."},{"label":"**The party's nomination rules and timetable for 2027**","body":"the documentary record the party files with the IEBC and the Office of the Registrar of Political Parties. This is the obtainable test, and the useful one: it states who selects, by what mode, and when. A signed communique from the party leader would settle the question but is not something the campaign can produce on demand."}]}
 ```
 
-## 5.3 The field: the nomination contest and the general election
+## 5.3 The field in both stages
 
 **Both Wiper rivals have already won countywide**, Dr. Kasalu as Woman Representative and Sen. Wambua as Senator, both in 2022; their totals are in How Kitui voted. Dr. Mulu has not yet stood countywide. <window-chip></window-chip>
 
@@ -82,7 +82,7 @@ If Wiper party leadership departs from the reported countywide selection and rev
 {"kind":"stepper","items":[{"label":"Map the delegates","body":"List the official delegates from the party's register (constituency executives, sub-branch officials and ward-level party committee members)."},{"label":"Move the ward captains to the delegates","body":"The campaign moves its ward captains (campaign-owned, Section 13.3) from general voter outreach to lobbying delegates in person. Each captain is assigned the delegates who live in their ward."},{"label":"A dedicated delegate channel","body":"A secure SMS and USSD loop to the delegates alone, carrying policy briefs on Dr. Mulu's \"Economist Governor\" platform, to reinforce party loyalty and the case for his administrative competence."}]}
 ```
 
-## 5.5 Each rival, and the legal ground to be careful on
+## 5.5 Each rival, and the legal limits
 
 ```lead
 The strategic implication is not to compete for the same countywide presence but to **compete on a dimension she is not occupying**: verifiable fiscal and delivery competence.

@@ -1,13 +1,13 @@
-import { FLOW_ACTS } from "../../lib/flow";
+import { FLOW_ACTS, isAfterAct } from "../../lib/flow";
 
 /**
  * The one "where am I" signal: six dots for the six parts, the current one filled and the ones
  * already read half-filled. It replaces the section number, the "3 of 36" position, the act
  * numeral and the act counter, which said the same thing four ways and never agreed.
  *
- * The reference shelf sits after the argument, so it shows no dots.
+ * The evidence shelf and the working platform sit after the argument, so they show no dots.
  */
-const PARTS = FLOW_ACTS.filter((a) => a.id !== "reference");
+const PARTS = FLOW_ACTS.filter((a) => !isAfterAct(a.id));
 
 export function PartDots({ actId, className = "" }: { actId: string | null | undefined; className?: string }) {
   const current = PARTS.findIndex((a) => a.id === actId);

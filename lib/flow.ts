@@ -4,8 +4,9 @@ import { SECTIONS, type TabId } from "./heading-slug";
  * The document as one continuous scroll, evidence first (the November 2026 restructure).
  *
  * The cover and the one-screen summary, then six Parts in the campaign-planning order: what Kitui
- * is and needs, the contest and where Dr. Mulu stands, the strategy the evidence justifies, how
- * the campaign runs it on Firefly's platform, how it is measured and kept lawful, and the decision. The annexes follow.
+ * is and needs, the contest and where Dr. Mulu stands, the strategy the evidence justifies, the
+ * plan, how it is measured and kept lawful, and the decision. The evidence shelf follows, and then
+ * the working platform the team uses (docs/toc-2026-11/RESTRUCTURED-TOC.md).
  *
  * Section numbers are the document's addressing system. Every id live before this restructure has
  * a generated redirect (lib/anchors/restructure-2026-11.json), so a link already shared still lands
@@ -13,7 +14,7 @@ import { SECTIONS, type TabId } from "./heading-slug";
  */
 export const FLOW_ORDER: TabId[] = SECTIONS.map((s) => s.id);
 
-/** The six Parts and the annexes, so the reader can feel where they are without a menu. */
+/** The six Parts, then the evidence shelf and the working platform, so the reader can feel where they are without a menu. */
 export interface FlowAct {
   id: string;
   label: string;
@@ -23,14 +24,22 @@ export interface FlowAct {
 }
 
 export const FLOW_ACTS: FlowAct[] = [
-  { id: "kitui", label: "Kitui today", blurb: "Who lives here, and what do they need?", opensOn: "kitui" },
+  { id: "kitui", label: "Kitui today", blurb: "What is true about the county and its voters?", opensOn: "kitui" },
   { id: "contest", label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
   { id: "strategy", label: "The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
-  { id: "delivery", label: "How the campaign runs", blurb: "Who does the work, when, and how?", opensOn: "engagement" },
-  { id: "proof", label: "Proof and protection", blurb: "How will we know it works, and how is it kept safe and lawful?", opensOn: "success" },
-  { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "receives" },
-  { id: "reference", label: "Reference shelf", blurb: "Sources, playbooks, technology, runbooks and the fine print", opensOn: "annex-evidence" },
+  { id: "delivery", label: "The plan", blurb: "Who does the work, in what order, and how?", opensOn: "engagement" },
+  { id: "proof", label: "Proof and protection", blurb: "How would we know it worked, and stay safe?", opensOn: "success" },
+  { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "platform" },
+  { id: "reference", label: "The evidence behind it", blurb: "Where every figure comes from, and the terms it is offered on", opensOn: "annex-evidence" },
+  { id: "working", label: "The working platform", blurb: "The playbooks, runbooks and technology the team works from", opensOn: "annex-playbooks" },
 ];
+
+/**
+ * The acts that follow the argument: the evidence shelf, then the working platform. They carry no
+ * part dots, because the six-part argument has ended before them.
+ */
+export const AFTER_ACTS: ReadonlySet<string> = new Set(["reference", "working"]);
+export const isAfterAct = (actId: string | null | undefined): boolean => !!actId && AFTER_ACTS.has(actId);
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));
 

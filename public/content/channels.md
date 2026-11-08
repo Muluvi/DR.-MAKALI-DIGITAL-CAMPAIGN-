@@ -54,7 +54,7 @@ id: fig-4-6-channel-shift
 
 **The 82/18 weighting stands on the 2023/24 rate.** It was first set when digital reach was put at 13.6% of residents (the 2019 census rate). On the 2023/24 rate of 26.2% digital still reaches at most 158,696 voters, 41,304 short of the 200,000 benchmark (Section 4.3), so the case for an offline-led mix is unchanged. The split is re-read at each monthly review against the reach data (confirmed by Firefly, September 2026).
 
-## 12.3 The gatekeeper bottleneck
+## 12.3 The radio gatekeepers
 
 The stations with the widest Kikamba reach are tied to rivals (Section 4.2), and that creates three hazards for the campaign:
 

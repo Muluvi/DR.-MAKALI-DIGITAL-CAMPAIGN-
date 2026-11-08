@@ -165,13 +165,36 @@ async function main() {
     if (!fs.existsSync(path.join(ROOT, f))) failures.push(`missing: ${f}`);
     else if (sha(f) !== h) changed.push(f);
   }
+  // A chapter may hand a whole section to another chapter by a logged move (scripts/consolidation/
+  // move-section.mjs writes docs/consolidation-2026-11/ledger.json). Its own counts then fall, and
+  // the receiving chapter's rise by the same amount. Such a fall is allowed only when the chapter has
+  // a logged move out AND the total of that count across every chapter is still at or above the
+  // baseline, so content can move between chapters but never leave the site.
+  const moveLedger = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+  const movedOut = new Set(
+    (fs.existsSync(moveLedger) ? JSON.parse(fs.readFileSync(moveLedger, "utf8")) : [])
+      .filter((e) => e.kind === "moved" && e.to && e.to.split(":")[0] !== e.file)
+      .map((e) => `content/${e.file}.md`)
+  );
+  const contentTotal = (counts, k) =>
+    Object.entries(counts).filter(([f]) => f.startsWith("content/") && f.endsWith(".md")).reduce((n, [, c]) => n + (c[k] ?? 0), 0);
+  const moves = [];
   for (const [f, set] of Object.entries(base.counts)) {
     const cur = now.counts[f];
     if (!cur) { failures.push(`no longer countable: ${f}`); continue; }
     for (const [k, n] of Object.entries(set)) {
       if (k === "words") continue; // words are guarded by check:content against its own ledger
-      if ((cur[k] ?? 0) < n) failures.push(`count dropped: ${f} ${k} ${n} -> ${cur[k] ?? 0}`);
+      if ((cur[k] ?? 0) >= n) continue;
+      if (movedOut.has(f) && contentTotal(now.counts, k) >= contentTotal(base.counts, k)) {
+        moves.push(`${f} ${k} ${n} -> ${cur[k] ?? 0} (logged move out; all chapters ${contentTotal(base.counts, k)} -> ${contentTotal(now.counts, k)})`);
+        continue;
+      }
+      failures.push(`count dropped: ${f} ${k} ${n} -> ${cur[k] ?? 0}`);
     }
+  }
+  if (moves.length) {
+    console.log(`check-preservation: ${moves.length} count(s) moved to another chapter by a logged move, none lost:`);
+    for (const m of moves) console.log(`   ${m}`);
   }
   if (changed.length) {
     console.log(`check-preservation: ${changed.length} protected file(s) edited since the baseline (allowed; list each in the Preservation Audit):`);

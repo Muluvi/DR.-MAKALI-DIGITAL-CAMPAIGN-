@@ -54,7 +54,7 @@ The directed cycles that start in Weeks 2–4 run on to Week 6; the consolidatio
 {"kind":"checklist","title":"KPIs","items":[{"label":"Analytics access live on every existing channel, and the audit reproducible monthly"},{"label":"Baseline metrics recorded across reach, engagement and sentiment"},{"label":"Website live, WCAG 2.1 AA audited, with volunteer forms"},{"label":"USSD code live across all networks"},{"label":"40 ward digital champions onboarded and data-trained"},{"label":"First 100 pieces of content approved and scheduled"},{"label":"**Section 19.2 compliance opinion received**"}]}
 ```
 
-## 14.3 Fix first: six profile corrections
+## 14.3 Six profile corrections
 
 ```lead
 **The PhD is the one to fix first.** **Is the Facebook presence a Page, or a personal profile in professional mode?** One screenshot settles this in the first hour of Week 1, and it gates the rest of the audit.
@@ -165,7 +165,7 @@ Registration, pledges and getting out the vote.
 {"kind":"checklist","title":"Activities","items":[{"label":"Digital and SMS voter registration drives; pledge-to-vote cards"},{"label":"Ward-level WhatsApp command centres for real-time updates and verification"},{"label":"Daily live streams; continuous misinformation monitoring and rebuttal"},{"label":"**Full GOTV SMS sequence** to the consented list, segmented by turnout score"},{"label":"Targeted ads to registered voters in the pool and the high-potential polling-station areas (Section 15.4.2)"},{"label":"Closing-argument video combining testimonials, county fiscal data and the tracker record"},{"label":"Daily countdown content from 30 days out"},{"label":"**Full-scale red-team drill at 60 days**"},{"label":"Analytics maturity Stage 4"}]}
 ```
 
-## 16 Coalitions and endorsements, in sequence
+## 16 Coalitions and endorsements, in order
 
 ```lead
 Coalitions are built around **shared economic and civic interests**, in a sequence that runs from professional associations in the nomination window to public endorsements before the general election.
@@ -173,7 +173,7 @@ Coalitions are built around **shared economic and civic interests**, in a sequen
 
 Coalitions are built around **shared economic and civic interests**, in a sequence that runs from professional associations in the nomination window to public endorsements before the general election. Every endorsement is voluntary, documented and disclosed.
 
-## 16.1 The principle behind the sequence
+## 16.1 The principle behind the order
 
 ```lead
 Coalitions are built around **shared economic and civic interests** — water, credit, market access, employment, transparency. They are never built around ethnic, clan or religious bloc identity.
@@ -195,7 +195,7 @@ Each group is engaged in the phase where it matters most, with the digital outpu
 {"kind":"timeline","items":[{"when":"Phase −1 (signature to the nomination decision, reported for late Oct–Nov 2026)","label":"Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni","text":"Roundtables on county fiscal management, drawing on his Evaluation Society of Kenya membership","fields":[{"label":"Digital output","text":"Thought-leadership content; LinkedIn and X threads; earned media"}]},{"when":"Phase 0 (Weeks 4–10 from signature, Section 14.2)","label":"Ward-level women's cooperatives and table-banking groups","text":"Listening sessions; identify chairladies as community organisers (volunteer Tier 3, Annex D)","fields":[{"label":"Digital output","text":"Kikamba voice notes; testimonial series"}]},{"when":"Phase 1 (Oct–Dec 2026)","label":"MSME and market traders' associations (Kitui Town, Mwingi, Mutomo, Kabati, Kyuso)","text":"Licensing, cess and market infrastructure forums","fields":[{"label":"Digital output","text":"Policy briefs; Facebook Live Q&A"}]},{"when":"Phase 1–2","label":"Youth groups, boda boda SACCOs, TVET student bodies","text":"Enterprise and licensing sessions","fields":[{"label":"Digital output","text":"TikTok series; first-time-voter drive"}]},{"when":"Phase 2 (Jan–Mar 2027)","label":"Farmer and livestock cooperatives; water user associations","text":"Input supply, sand dams, drought and flood resilience","fields":[{"label":"Digital output","text":"Ward-specific video; SMS policy drops"}]},{"when":"Phase 2","label":"Faith leaders across denominations","text":"Service delivery, integrity, civic participation — **issue-based, never sectarian**","fields":[{"label":"Digital output","text":"Community-programming content"}]},{"when":"Phase 2–3","label":"Diaspora chambers and associations","text":"Investment, remittance, **the expansion of diaspora registration from 12 to 26 countries**","fields":[{"label":"Digital output","text":"Webinars"}]},{"when":"Phase 3 (Apr–Aug 2027)","label":"Consolidation and public endorsement sequencing","text":"Staged announcements for sustained news cycles","fields":[{"label":"Digital output","text":"Endorsement content series"}]}]}
 ```
 
-## 16.3 Managing endorsements, and how coalitions are measured
+## 16.3 Managing endorsements and measuring coalitions
 
 #### Managing endorsements
 

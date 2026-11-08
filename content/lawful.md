@@ -289,69 +289,7 @@ and aggregate ward-level statistics only.** This fallback is carried at every
 engagement level (Section 15.4.2), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.
 
-## F.8 Account security baseline
-
-```lead
-**Hardware keys for the candidate and admins are non-negotiable and take very little.**
-```
-
-```visual
-kind: checklist
-items:
-  - label: "**Hardware security keys (FIDO2)** for two-factor authentication"
-    text: "**Mandatory** — SMS-based 2FA is not sufficient and is vulnerable to SIM-swap"
-    fields:
-      - { label: "Applies to", text: "Candidate, Digital Director, all admin-level accounts" }
-  - label: "App-based 2FA minimum"
-    text: "Where hardware keys are impractical"
-    fields:
-      - { label: "Applies to", text: "All staff and Tier 3–4 volunteers" }
-  - label: "Password manager"
-    text: "Unique generated credentials; no reuse"
-    fields:
-      - { label: "Applies to", text: "All staff" }
-  - label: "Role-based access"
-    text: "Least privilege; no shared logins ever"
-    fields:
-      - { label: "Applies to", text: "All platforms" }
-  - label: "Business Manager structure"
-    text: "Assets owned by the campaign entity, not individuals"
-    fields:
-      - { label: "Applies to", text: "All ad and page assets" }
-  - label: "Quarterly access review"
-    text: "Remove departed staff and volunteers within 24 hours of departure"
-    fields:
-      - { label: "Applies to", text: "Data-governance owner" }
-  - label: "Recovery contacts"
-    text: "Documented, verified, held by two named people"
-    fields:
-      - { label: "Applies to", text: "Candidate accounts" }
-```
-
-**Hardware keys for the candidate and admins are non-negotiable and take very
-little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
-holder** so a lost key never locks an account, registered before any SMS or app code is removed.
-
-## F.9 Phishing awareness
-
-```visual
-kind: checklist
-items:
-  - label: "Onboarding training for every staff member and Tier 3–4 volunteer before account access is granted"
-  - label: "**Simulated phishing exercises quarterly**, with results used for coaching, never for punishment — punitive programmes suppress reporting, which is the opposite of the goal"
-  - label: "A no-blame reporting channel with a target of **under 15 minutes** from suspicion to report"
-  - label: "Specific coverage of the patterns most likely here: fake platform security alerts, fake IEBC or party communications, and fake media interview requests"
-```
-
-#### Technical risk and security protocols
-
-To keep campaign systems running and protect them from infiltration or cyber disruption:
-
-1.  **Two-factor authentication, with hardware keys for administrators:** every war room operator and every ward coordinator who opens a dashboard uses two-factor authentication, by an authenticator app (such as Google Authenticator) at minimum; database administrators use a hardware security key (such as a YubiKey).
-2.  **Automated off-site backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
-3.  **Data redaction by role:** ground staff and ward captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the data protection officer and the campaign manager.
-
-*Source conflict: an earlier version listed Google Authenticator as a hardware key; it is an app, and the rule above separates the two.*
+The account security baseline and phishing awareness are in Runbooks, in the working platform that follows the proposal.
 
 ## 19.4 IEBC clearance and liability
 

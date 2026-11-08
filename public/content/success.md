@@ -16,7 +16,7 @@ id: fig-1-5-scorecard
 id: fig-5-6-kpis
 ```
 
-## 18.2 The scorecards for each stage
+## 18.2 Scorecards for each stage
 
 #### Stage 1: the nomination window
 
@@ -69,7 +69,7 @@ views. They move without any voter moving. **R-03 replaces likes** because a sha
 name inside a network he does not own — which, in a ward where he is unknown, is the only thing a
 post can usefully do.
 
-## 18.4 Why vanity metrics are excluded
+## 18.4 Why vanity metrics are left out
 
 Vanity metrics are kept out of every dashboard, reporting meeting and vendor contract, for three reasons. They remain visible as operational diagnostics (Section 14.4), marked as such.
 
@@ -77,7 +77,7 @@ Vanity metrics are kept out of every dashboard, reporting meeting and vendor con
 {"kind":"cards","items":[{"title":"Most voters are offline","text":"73.8% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1).","body":"Chasing likes takes effort away from village barazas and market caravans."},{"title":"Much of the interaction comes from outside Kitui","text":"Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards.","body":"**Evidence required:** an earlier draft of this section put that share at \"over 60%\", which no source in this proposal supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 18.5) and should replace this sentence once measured. The argument does not depend on the precise number.","tier":"not yet tiered"},{"title":"No demonstrated link to turnout","text":"A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning.","body":"Pledges collected in person, consented SMS contacts and trained polling-day agents produce counted votes."}]}
 ```
 
-## 18.5 The presence audit: method
+## 18.5 How the presence audit works
 
 The first work of the engagement: ninety days of Dr. Mulu's own channels, measured, coded and read against the race. Every baseline in this chapter is set by what it finds.
 

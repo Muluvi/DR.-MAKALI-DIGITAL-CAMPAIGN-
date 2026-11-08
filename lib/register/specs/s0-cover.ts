@@ -61,32 +61,32 @@ export const FIG_COVER_MAP: FigureSpec = {
 };
 
 // The document's own table of contents, in the order the page runs: the evidence first, then
-// the strategy it justifies, how it is delivered, how it is proven and protected, and the decision.
+// the strategy it justifies, the plan, how it is proven and protected, and the decision.
 // Each step is a part, and each row's job is the question that part answers.
 export const SPINE_STEPS = [
   { label: "Kitui today", href: "/kitui" },
   { label: "The contest", href: "/race" },
   { label: "The strategy", href: "/goal" },
-  { label: "Delivery", href: "/engagement" },
+  { label: "The plan", href: "/engagement" },
   { label: "Proof", href: "/success" },
-  { label: "The decision", href: "/receives" },
+  { label: "The decision", href: "/platform" },
 ];
 
 export const FIG_COVER_SPINE: FigureSpec = {
   id: "fig-cover-spine",
   section: "Cover",
-  title: "The proposal runs evidence first: what Kitui is and needs, the contest, the strategy, how it is delivered, how it is proven and kept lawful, and the decision",
+  title: "The proposal runs evidence first: what Kitui is and needs, the contest, the strategy, the plan, how it is proven and kept lawful, and the decision",
   question: "What is the shape of the argument?",
-  takeaway: "Kitui today and The contest are the evidence; The strategy and Delivery are the plan built on it; Proof and protection shows how it is measured and kept safe; The decision closes with what Dr. Mulu is asked to decide. The reference shelf follows.",
+  takeaway: "Kitui today and The contest are the evidence; The strategy and The plan are built on it; Proof and protection shows how it is measured and kept safe; The decision closes with what Dr. Mulu is asked to decide. The evidence behind it follows, then the working platform.",
   sources: [{ name: "This proposal's structure", tier: null, state: "target" }],
   chart: { type: "spine", steps: SPINE_STEPS },
   columns: [{ key: "step", label: "Part" }, { key: "job", label: "The question it answers" }],
   rows: [
-    { cells: { step: "Kitui today", job: "Who lives here, and what do they need?" } },
+    { cells: { step: "Kitui today", job: "What is true about the county and its voters?" } },
     { cells: { step: "The contest", job: "Who is running, and where does Dr. Mulu stand?" } },
     { cells: { step: "The strategy", job: "What should the campaign do, and why?" } },
-    { cells: { step: "How the campaign runs", job: "Who does the work, when, and how?" } },
-    { cells: { step: "Proof and protection", job: "How will we know it works, and how is it kept safe and lawful?" } },
+    { cells: { step: "The plan", job: "Who does the work, in what order, and how?" } },
+    { cells: { step: "Proof and protection", job: "How would we know it worked, and stay safe?" } },
     { cells: { step: "The decision", job: "What is Dr. Mulu being asked to decide?" } },
   ],
 };

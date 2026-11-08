@@ -57,8 +57,15 @@ for (const c of fs.existsSync(consolidationLedger) ? JSON.parse(fs.readFileSync(
   map.set(from, new Set([...(map.get(from) ?? []), to]));
 }
 const withMoves = (files) => {
-  const moved = [...new Set(files.flatMap((f) => [f, ...(movedTo.get(f) ?? [])]))];
-  return [...new Set(moved.flatMap((f) => [f, ...(dupTo.get(f) ?? [])]))];
+  // Moves are followed to the end of the chain: a passage the consolidation pass moved, and a later
+  // pass (the table-of-contents restructure, docs/toc-2026-11) moved again, is looked for where it
+  // now lives, and in every file along the way.
+  const moved = new Set(files);
+  for (let grew = true; grew; ) {
+    grew = false;
+    for (const f of [...moved]) for (const t of movedTo.get(f) ?? []) if (!moved.has(t)) { moved.add(t); grew = true; }
+  }
+  return [...new Set([...moved].flatMap((f) => [f, ...(dupTo.get(f) ?? [])]))];
 };
 
 const errors = [];
