@@ -3,6 +3,7 @@ import "../platform.css";
 import { getSession } from "@/lib/platform/auth";
 import { teamLoginEnabled } from "@/lib/platform/config";
 import { PlatformNav } from "@/components/platform/PlatformNav";
+import { PUBLIC_RETRIEVED } from "@/lib/public-data";
 import { signOut } from "./actions";
 
 export const dynamic = "force-dynamic";
@@ -38,6 +39,7 @@ export default async function PlatformLayout({ children }: { children: React.Rea
       <main className="plat-page mx-auto max-w-6xl px-4 pb-24 pt-6 sm:px-6">{children}</main>
       <footer className="plat-chrome mx-auto max-w-6xl px-4 pb-10 text-[0.78rem] text-muted sm:px-6">
         {login ? "Open to view: anyone with the link sees everything. Dr. Mulu's team signs in to edit." : "Open to view: anyone with the link sees everything."} Firefly built, owns and runs the platform; the campaign owns its content and data.
+        <p className="mt-1">Official election data last verified <time dateTime={PUBLIC_RETRIEVED}>{new Date(`${PUBLIC_RETRIEVED}T00:00:00+03:00`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Africa/Nairobi" })}</time>. <Link className="underline" href="/tools/sources">Sources and gaps</Link></p>
       </footer>
     </div>
   );
