@@ -1,0 +1,351 @@
+/*
+ * The summary layer (streamline pass, November 2026; docs/streamline-2026-11).
+ *
+ *   .rm        the route map that opens the flow (components/flow/RouteMap.tsx)
+ *   .cd        a chapter's digest (components/flow/ChapterDigest.tsx)
+ *   .cd-body   the chapter it opens, a FoldBody
+ *
+ * Tokens only: the palette, faces, durations and easing are the ones docs/design-tokens.md and
+ * MOTION-SYSTEM.md name. Every entrance is gated on `html.motion-ok`, which the layout sets only
+ * when scripts run and the reader has not asked for reduced motion, so the server HTML, a reader
+ * without JavaScript and a reader with reduced motion all see the route drawn and every number at
+ * its value. Motion is transform, opacity and colour only.
+ */
+
+/* ------------------------------------------------------------------ route map */
+
+.rm {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.1rem, 4vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: color-mix(in oklch, var(--card) 72%, transparent);
+}
+
+.rm__kicker {
+  margin: 0;
+  font: 700 0.75rem/1 var(--pf-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.rm__title {
+  margin: 0.5rem 0 0;
+  font-family: var(--pf-display);
+  font-weight: 800;
+  font-stretch: var(--pf-display-stretch);
+  font-size: clamp(1.75rem, 1.3rem + 2.4vw, 2.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.rm__sub {
+  margin: 0.6rem 0 0;
+  max-width: 46ch;
+  font: 400 1.0625rem/1.5 var(--pf-serif);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.rm__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.rm__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--accent-solid);
+  border-radius: 99px;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font: 650 0.9375rem/1 var(--pf-display);
+  cursor: pointer;
+  transition: transform var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.rm__cta:hover { transform: translateY(-1px); }
+.rm__cta:active { transform: translateY(0); }
+.rm__cta--quiet { background: transparent; color: var(--accent); border-color: var(--line); }
+.rm__cta--quiet:hover { border-color: var(--accent); }
+
+.rm__route {
+  position: relative;
+  display: grid;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* The line the route runs along, and the laterite that draws down it. */
+.rm__route::before,
+.rm__route::after {
+  content: "";
+  position: absolute;
+  left: calc(1rem - 1px);
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.rm__route::after { background: var(--gold); transform-origin: top; }
+
+.rm__stop { position: relative; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.85rem; align-items: start; }
+.rm__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 99px;
+  background: var(--gold-solid);
+  color: var(--on-gold);
+  font: 750 0.875rem/1 var(--pf-display);
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--card) 72%, var(--paper));
+}
+.rm__part {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 750 1.1875rem/1.15 var(--pf-display);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+.rm__part:hover { color: var(--accent); }
+.rm__q { margin: 0.1rem 0 0; font: 400 1rem/1.4 var(--pf-serif); color: var(--muted); }
+.rm__chapters { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0.6rem 0 0; padding: 0; list-style: none; }
+.rm__chip {
+  min-height: 34px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--card);
+  color: var(--ink);
+  font: 550 0.8125rem/1 var(--pf-display);
+  cursor: pointer;
+  transition: border-color var(--pf-dur-fast) var(--pf-ease-out), color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.rm__chip:hover { border-color: var(--accent); color: var(--accent); }
+
+.rm__shelves { padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.rm__shelves ul { display: grid; gap: 0.5rem; margin: 0.7rem 0 0; padding: 0; list-style: none; }
+.rm__shelf {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.rm__shelf:hover { border-color: var(--accent); }
+.rm__shelf strong { font: 700 0.9375rem/1.2 var(--pf-display); color: var(--ink); }
+.rm__shelf span { font: 400 0.875rem/1.4 var(--pf-display); color: var(--muted); }
+
+@media (min-width: 760px) {
+  .rm__route { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; row-gap: 1.5rem; }
+  /* Two columns have no single line to run along; the numbered stops carry the order. */
+  .rm__route::before, .rm__route::after { content: none; }
+  .rm__shelves ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* The cover map closes on the four figures the hero has just counted up, one screen earlier. In
+   the summary layer the map stands alone; /full, /cover and print keep the figure whole. */
+.pf-preface[data-summary="true"] .kx-composite > .kx-part:nth-child(n + 2) { display: none; }
+
+/* ------------------------------------------------------------ chapter digest */
+
+.cd { display: grid; gap: 1.15rem; margin: 0 0 clamp(1.75rem, 5vw, 2.5rem); }
+
+.cd__lead {
+  font-family: var(--pf-serif);
+  font-size: clamp(1.1875rem, 1.05rem + 0.75vw, 1.4375rem);
+  line-height: 1.42;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.cd__lead p { margin: 0 0 0.5rem; font: inherit; color: inherit; }
+.cd__lead p:last-child { margin-bottom: 0; }
+.cd__lead strong { font-weight: 650; color: var(--prose-strong); }
+
+.cd__stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.cd__stats[data-count="3"] > :last-child { grid-column: 1 / -1; }
+.cd__stat {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  padding: 0.85rem 0.9rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+.cd__value {
+  font-family: var(--pf-display);
+  font-weight: 800;
+  font-stretch: var(--pf-display-stretch);
+  font-size: clamp(1.625rem, 1.3rem + 1.6vw, 2.125rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.cd__stat:first-child .cd__value { color: var(--gold); }
+.cd__label { font: 500 0.8438rem/1.3 var(--pf-display); color: var(--muted); text-wrap: pretty; }
+.cd__tier {
+  justify-self: start;
+  margin-top: 0.15rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 99px;
+  font: 700 0.6875rem/1 var(--pf-display);
+  text-transform: capitalize;
+}
+.cd__tier--t1 { color: var(--pf-t1); }
+.cd__tier--t2 { color: var(--pf-t2); }
+.cd__tier--t3 { color: var(--pf-t3); border-style: dashed; }
+.cd__tier--model { color: var(--muted); }
+
+.cd__kicker {
+  margin: 0 0 0.5rem;
+  font: 700 0.75rem/1 var(--pf-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cd__steps { position: relative; display: grid; margin: 0; padding: 0; list-style: none; }
+.cd__steps::before,
+.cd__steps::after {
+  content: "";
+  position: absolute;
+  left: calc(0.8125rem - 1px);
+  top: 1.375rem;
+  bottom: 1.375rem;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.cd__steps::after { background: var(--accent-solid); transform-origin: top; }
+.cd__step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.625rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.3rem 0.4rem 0.3rem 0;
+  border: 0;
+  border-radius: 0.6rem;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.cd__node {
+  display: grid;
+  place-items: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 99px;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font: 750 0.75rem/1 var(--pf-display);
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 3px var(--paper);
+}
+.cd__step-title { font: 600 1rem/1.25 var(--pf-display); color: var(--ink); text-wrap: pretty; }
+.cd__step-go { color: var(--muted); opacity: 0.55; transition: transform var(--pf-dur-fast) var(--pf-ease-out), opacity var(--pf-dur-fast) var(--pf-ease-out); }
+.cd__step:hover .cd__step-title { color: var(--accent); }
+.cd__step:hover .cd__step-go { opacity: 1; color: var(--accent); transform: translate(2px, -2px); }
+.cd__more { margin: 0.35rem 0 0 2.375rem; font: 500 0.875rem/1.3 var(--pf-display); color: var(--muted); }
+
+.cd__open {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--accent-solid);
+  border-radius: 0.9rem;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font: 650 1rem/1 var(--pf-display);
+  cursor: pointer;
+  transition: transform var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out), color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.cd__open:hover { transform: translateY(-1px); }
+.cd__open:active { transform: translateY(0); }
+.cd__mins { margin-left: auto; font-weight: 500; font-size: 0.875rem; opacity: 0.85; }
+.cd__chev { flex: none; transition: transform var(--pf-dur-fast) var(--pf-ease-out); }
+.cd__open[aria-expanded="true"] { background: transparent; color: var(--accent); border-color: var(--line); }
+.cd__open[aria-expanded="true"] .cd__chev { margin-left: auto; transform: rotate(180deg); }
+
+/* An opened chapter starts with its own lead and carries its own numbers, so the digest steps back
+   to what is still useful above it: the way to each part, and the control that closes it. */
+.cd[data-open="true"] :is(.cd__lead, .cd__stats, .cd__more) { display: none; }
+.cd[data-open="true"] { margin-bottom: 1.25rem; }
+.cd-body[data-fold-body="open"] { padding-top: 0.25rem; }
+.cd-close { display: flex; justify-content: center; margin: 2rem 0 0.5rem; }
+.cd-close__btn {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--card);
+  color: var(--accent);
+  font: 650 0.9375rem/1 var(--pf-display);
+  cursor: pointer;
+}
+.cd-close__btn:hover { border-color: var(--accent); }
+
+:is(.rm, .cd, .cd-close) button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (min-width: 640px) {
+  .cd__stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cd__stats[data-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cd__stats[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cd__stats[data-count="3"] > :last-child { grid-column: auto; }
+  .cd__open { width: auto; justify-self: start; padding-right: 1rem; }
+  .cd__mins { margin-left: 0.4rem; }
+  .cd__open[aria-expanded="true"] .cd__chev { margin-left: 0; }
+}
+
+/* --------------------------------------------------------------------- motion */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The route draws down its line, and each stop takes its colour as the line reaches it. */
+  html.motion-ok .rm__route::after { transition: transform calc(var(--pf-dur-settle) + var(--rm-stops, 6) * 90ms) var(--pf-ease); }
+  html.motion-ok .rm[data-in-view="false"] .rm__route::after { transform: scaleY(0); }
+  html.motion-ok .rm__node { transition: background-color var(--pf-dur-entrance) var(--pf-ease) calc(var(--rm-i, 0) * 140ms + 120ms), color var(--pf-dur-entrance) var(--pf-ease) calc(var(--rm-i, 0) * 140ms + 120ms), transform var(--pf-dur-entrance) var(--pf-ease) calc(var(--rm-i, 0) * 140ms + 120ms); }
+  html.motion-ok .rm[data-in-view="false"] .rm__node { background-color: var(--card); color: var(--muted); transform: scale(0.86); }
+
+  /* A digest's steps draw forward in order; the words are never hidden. */
+  html.motion-ok .cd__steps::after { transition: transform calc(var(--pf-dur-deliberate) + var(--cd-steps, 4) * 75ms) var(--pf-ease) 120ms; }
+  html.motion-ok .cd[data-in-view="false"] .cd__steps::after { transform: scaleY(0); }
+  html.motion-ok .cd__node { transition: background-color var(--pf-dur-entrance) var(--pf-ease) calc(var(--cd-i, 0) * 75ms + 160ms), color var(--pf-dur-entrance) var(--pf-ease) calc(var(--cd-i, 0) * 75ms + 160ms), transform var(--pf-dur-entrance) var(--pf-ease) calc(var(--cd-i, 0) * 75ms + 160ms); }
+  html.motion-ok .cd[data-in-view="false"] .cd__node { background-color: var(--card); color: var(--muted); transform: scale(0.86); }
+
+  /* The numbers settle a few pixels as they start to count. */
+  html.motion-ok .cd__stat { transition: transform var(--pf-dur-entrance) var(--pf-ease), border-color var(--pf-dur-entrance) var(--pf-ease); }
+  html.motion-ok .cd__stat:nth-child(2) { transition-delay: 60ms; }
+  html.motion-ok .cd__stat:nth-child(3) { transition-delay: 120ms; }
+  html.motion-ok .cd__stat:nth-child(4) { transition-delay: 180ms; }
+  html.motion-ok .cd[data-in-view="false"] .cd__stat { transform: translateY(8px); }
+}
+
+/* ---------------------------------------------------------------------- print */
+
+@media print {
+  .rm, .cd__open, .cd-close, .cd__step-go { display: none !important; }
+}

@@ -750,6 +750,19 @@ function withoutNumber(children: React.ReactNode): React.ReactNode {
   });
 }
 
+/**
+ * A chapter's takeaway, on its digest (components/flow/ChapterDigest.tsx): the chapter's own lead,
+ * through the same components as the chapter, so a tier mark, a status chip and the nomination
+ * window read on the digest exactly as they do in the text they were drawn from.
+ */
+export function LeadMarkdown({ text, tabId }: { text: string; tabId: TabId }) {
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+      {text}
+    </ReactMarkdown>
+  );
+}
+
 export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
   // segmentContent lays each section out: what shows on load, and what sits behind "Read the
   // full text" (lib/collapse-groups.ts). Each segment gets its own components map, so the one

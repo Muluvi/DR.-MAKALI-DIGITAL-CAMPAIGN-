@@ -10,6 +10,7 @@ import { CONTENT_FILES } from "@/lib/content-files";
 import { buildSectionIndex } from "@/lib/section-index";
 import { visibleProseWords } from "@/lib/collapse-groups";
 import { visibleWordsOfJson } from "@/lib/visual";
+import { chapterDigest } from "@/lib/digest";
 
 const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];
 
@@ -164,8 +165,15 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     served.map((id) => [id, <MarkdownViewer key={id} content={documents[id]} tabId={id} />])
   ) as Partial<Record<TabId, React.ReactNode>>;
 
+  // The summary layer of "/": each chapter's takeaway and numbers, read from the chapter itself
+  // (lib/digest.ts). A few hundred bytes a chapter, in place of the chapter.
+  const digests = streamed
+    ? (Object.fromEntries(SECTIONS.map((s) => [s.id, chapterDigest(documents[s.id])])) as Record<TabId, ReturnType<typeof chapterDigest>>)
+    : undefined;
+
   return (
     <ClientPage
+      digests={digests}
       sections={sections}
       documents={rendered}
       wordCounts={wordCounts}
