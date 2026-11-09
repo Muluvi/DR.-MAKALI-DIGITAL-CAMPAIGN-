@@ -1,0 +1,3574 @@
+{
+ "version": 1,
+ "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+ "constituencies": [
+  "Mwingi North",
+  "Mwingi West",
+  "Mwingi Central",
+  "Kitui West",
+  "Kitui Rural",
+  "Kitui Central",
+  "Kitui East",
+  "Kitui South"
+ ],
+ "wards": [
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "first_village_code": 1,
+   "last_village_code": 5,
+   "village_count": 5
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "first_village_code": 6,
+   "last_village_code": 14,
+   "village_count": 9
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "first_village_code": 15,
+   "last_village_code": 21,
+   "village_count": 7
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "first_village_code": 22,
+   "last_village_code": 29,
+   "village_count": 8
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "first_village_code": 30,
+   "last_village_code": 34,
+   "village_count": 5
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "first_village_code": 35,
+   "last_village_code": 41,
+   "village_count": 7
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "first_village_code": 42,
+   "last_village_code": 48,
+   "village_count": 7
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "first_village_code": 49,
+   "last_village_code": 54,
+   "village_count": 6
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "first_village_code": 55,
+   "last_village_code": 60,
+   "village_count": 6
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "first_village_code": 61,
+   "last_village_code": 65,
+   "village_count": 5
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "first_village_code": 66,
+   "last_village_code": 71,
+   "village_count": 6
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "first_village_code": 72,
+   "last_village_code": 78,
+   "village_count": 7
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "first_village_code": 79,
+   "last_village_code": 85,
+   "village_count": 7
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "first_village_code": 86,
+   "last_village_code": 90,
+   "village_count": 5
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "first_village_code": 91,
+   "last_village_code": 95,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "first_village_code": 96,
+   "last_village_code": 101,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "first_village_code": 102,
+   "last_village_code": 107,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "first_village_code": 108,
+   "last_village_code": 113,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "first_village_code": 114,
+   "last_village_code": 118,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "first_village_code": 119,
+   "last_village_code": 125,
+   "village_count": 7
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "first_village_code": 126,
+   "last_village_code": 131,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "first_village_code": 132,
+   "last_village_code": 137,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "first_village_code": 138,
+   "last_village_code": 143,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "first_village_code": 144,
+   "last_village_code": 149,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "first_village_code": 150,
+   "last_village_code": 154,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "first_village_code": 155,
+   "last_village_code": 160,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "first_village_code": 161,
+   "last_village_code": 167,
+   "village_count": 7
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "first_village_code": 168,
+   "last_village_code": 173,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "first_village_code": 174,
+   "last_village_code": 179,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "first_village_code": 180,
+   "last_village_code": 184,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "first_village_code": 185,
+   "last_village_code": 190,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "first_village_code": 191,
+   "last_village_code": 196,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "first_village_code": 197,
+   "last_village_code": 201,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "first_village_code": 202,
+   "last_village_code": 206,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "first_village_code": 207,
+   "last_village_code": 213,
+   "village_count": 7
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "first_village_code": 214,
+   "last_village_code": 219,
+   "village_count": 6
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "first_village_code": 220,
+   "last_village_code": 226,
+   "village_count": 7
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "first_village_code": 227,
+   "last_village_code": 233,
+   "village_count": 7
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "first_village_code": 234,
+   "last_village_code": 238,
+   "village_count": 5
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "first_village_code": 239,
+   "last_village_code": 247,
+   "village_count": 9
+  }
+ ],
+ "villages": [
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "village_code": 1,
+   "village_name": "Kimela/Syumani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kimela/syumani",
+    "kimela",
+    "syumani"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "village_code": 2,
+   "village_name": "Mitamisyi/Kathalaani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mitamisyi/kathalaani",
+    "mitamisyi",
+    "kathalaani"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "village_code": 3,
+   "village_name": "Ndatani/Kamusiliu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndatani/kamusiliu",
+    "ndatani",
+    "kamusiliu"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "village_code": 4,
+   "village_name": "Kalwa/Kavuti",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalwa/kavuti",
+    "kalwa",
+    "kavuti"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 331,
+   "ward": "Ngomeni",
+   "village_code": 5,
+   "village_name": "Kavaani/Ikime",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavaani/ikime",
+    "kavaani",
+    "ikime"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 6,
+   "village_name": "Kyuso",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyuso"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 7,
+   "village_name": "Mivukoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mivukoni"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 8,
+   "village_name": "Itiva Nzou",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "itiva nzou"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 9,
+   "village_name": "Kamuwongo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kamuwongo"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 10,
+   "village_name": "Ngaaie",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngaaie"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 11,
+   "village_name": "Kimu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kimu"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 12,
+   "village_name": "Kimangao",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kimangao"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 13,
+   "village_name": "Twimyua",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "twimyua"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 332,
+   "ward": "Kyuso",
+   "village_code": 14,
+   "village_name": "Kamula",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kamula"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 15,
+   "village_name": "Mutanda",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutanda"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 16,
+   "village_name": "Nguuku",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nguuku"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 17,
+   "village_name": "Katse",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katse"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 18,
+   "village_name": "Mukong'a",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mukonga"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 19,
+   "village_name": "Kakuyu/Kyandali",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kakuyu/kyandali",
+    "kakuyu",
+    "kyandali"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 20,
+   "village_name": "Tyaa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "tyaa"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 333,
+   "ward": "Muumoni",
+   "village_code": 21,
+   "village_name": "Ngungani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngungani"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 22,
+   "village_name": "Kaivirya/Ngongoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kaivirya/ngongoni",
+    "kaivirya",
+    "ngongoni"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 23,
+   "village_name": "Tseikuru/Nziitu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "tseikuru/nziitu",
+    "tseikuru",
+    "nziitu"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 24,
+   "village_name": "Ngalange/Nzanzeni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngalange/nzanzeni",
+    "ngalange",
+    "nzanzeni"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 25,
+   "village_name": "Karingo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "karingo"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 26,
+   "village_name": "Musavani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "musavani"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 27,
+   "village_name": "Masyungwa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "masyungwa"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 28,
+   "village_name": "Katumbi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katumbi"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 334,
+   "ward": "Tseikuru",
+   "village_code": 29,
+   "village_name": "Mulangoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mulangoni"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "village_code": 30,
+   "village_name": "Gakombe",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "gakombe"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "village_code": 31,
+   "village_name": "Gacigongo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "gacigongo"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "village_code": 32,
+   "village_name": "Kanyengya/Gatoroni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanyengya/gatoroni",
+    "kanyengya",
+    "gatoroni"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "village_code": 33,
+   "village_name": "Kanthungu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanthungu"
+   ]
+  },
+  {
+   "constituency": "Mwingi North",
+   "ward_code": 335,
+   "ward": "Tharaka",
+   "village_code": 34,
+   "village_name": "Kamaindi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kamaindi"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 35,
+   "village_name": "Winzyeii (Winzyeii, Wikivuvwa)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Winzyeii",
+    "Wikivuvwa"
+   ],
+   "search_terms": [
+    "winzyeii (winzyeii, wikivuvwa)",
+    "winzyeii",
+    "wikivuvwa"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 36,
+   "village_name": "Kyome (Kyome, Ndaluni)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kyome",
+    "Ndaluni"
+   ],
+   "search_terms": [
+    "kyome (kyome, ndaluni)",
+    "kyome",
+    "ndaluni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 37,
+   "village_name": "Thitani (Kasanga, Kavaini)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kasanga",
+    "Kavaini"
+   ],
+   "search_terms": [
+    "thitani (kasanga, kavaini)",
+    "thitani",
+    "kasanga",
+    "kavaini"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 38,
+   "village_name": "Kanyaa (Kanyaa, Kitulani)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kanyaa",
+    "Kitulani"
+   ],
+   "search_terms": [
+    "kanyaa (kanyaa, kitulani)",
+    "kanyaa",
+    "kitulani"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 39,
+   "village_name": "Thokoa (Thokoa, Kasevi, Nguuni)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Thokoa",
+    "Kasevi",
+    "Nguuni"
+   ],
+   "search_terms": [
+    "thokoa (thokoa, kasevi, nguuni)",
+    "thokoa",
+    "kasevi",
+    "nguuni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 40,
+   "village_name": "Thaana Nzau (Yenzuva, Kyusyani, Thaana Nzau)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Yenzuva",
+    "Kyusyani",
+    "Thaana Nzau"
+   ],
+   "search_terms": [
+    "thaana nzau (yenzuva, kyusyani, thaana nzau)",
+    "thaana nzau",
+    "yenzuva",
+    "kyusyani"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 336,
+   "ward": "Kyome/Thaana",
+   "village_code": 41,
+   "village_name": "Musuani (Musuani, Kanyekini, Kitumbi)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Musuani",
+    "Kanyekini",
+    "Kitumbi"
+   ],
+   "search_terms": [
+    "musuani (musuani, kanyekini, kitumbi)",
+    "musuani",
+    "kanyekini",
+    "kitumbi"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 42,
+   "village_name": "Muivu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "muivu"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 43,
+   "village_name": "Kikiini/Nzauni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kikiini/nzauni",
+    "kikiini",
+    "nzauni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 44,
+   "village_name": "Muthioni/Katoteni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "muthioni/katoteni",
+    "muthioni",
+    "katoteni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 45,
+   "village_name": "Nzawa/Mavuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzawa/mavuni",
+    "nzawa",
+    "mavuni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 46,
+   "village_name": "Ngongoni/Mathunzini/Kavoloi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngongoni/mathunzini/kavoloi",
+    "ngongoni",
+    "mathunzini",
+    "kavoloi"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 47,
+   "village_name": "Nzalae/Kakululo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzalae/kakululo",
+    "nzalae",
+    "kakululo"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 337,
+   "ward": "Nguutani",
+   "village_code": 48,
+   "village_name": "Nguutani/Katuyu/Mukauni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nguutani/katuyu/mukauni",
+    "nguutani",
+    "katuyu",
+    "mukauni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 49,
+   "village_name": "Kyamboo/Kaliluni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyamboo/kaliluni",
+    "kyamboo",
+    "kaliluni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 50,
+   "village_name": "Migwani/Itoloni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "migwani/itoloni",
+    "migwani",
+    "itoloni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 51,
+   "village_name": "Nzatani/Ilalambyu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzatani/ilalambyu",
+    "nzatani",
+    "ilalambyu"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 52,
+   "village_name": "Nzeluni/Mung'alu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzeluni/mungalu",
+    "nzeluni",
+    "mungalu"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 53,
+   "village_name": "Kisovo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kisovo"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 338,
+   "ward": "Migwani",
+   "village_code": 54,
+   "village_name": "Katalwa/Mumbuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katalwa/mumbuni",
+    "katalwa",
+    "mumbuni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 55,
+   "village_name": "Kavuvwani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavuvwani"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 56,
+   "village_name": "Mbondoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mbondoni"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 57,
+   "village_name": "Kiomo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kiomo"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 58,
+   "village_name": "Kairungu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kairungu"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 59,
+   "village_name": "Kyethani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyethani"
+   ]
+  },
+  {
+   "constituency": "Mwingi West",
+   "ward_code": 339,
+   "ward": "Kiomo/Kyethani",
+   "village_code": 60,
+   "village_name": "Karura/Wikithuki",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "karura/wikithuki",
+    "karura",
+    "wikithuki"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "village_code": 61,
+   "village_name": "Mwingi Central",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mwingi central"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "village_code": 62,
+   "village_name": "Mathyakani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mathyakani"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "village_code": 63,
+   "village_name": "Kanzanzu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanzanzu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "village_code": 64,
+   "village_name": "Kalisasi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalisasi"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 340,
+   "ward": "Mwingi Central",
+   "village_code": 65,
+   "village_name": "Mulang'a",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mulanga"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 66,
+   "village_name": "Kivou",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kivou"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 67,
+   "village_name": "Kyanika",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyanika"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 68,
+   "village_name": "Ithumbi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ithumbi"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 69,
+   "village_name": "Kanzui",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanzui"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 70,
+   "village_name": "Enziu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "enziu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 341,
+   "ward": "Kivou",
+   "village_code": 71,
+   "village_name": "Kisana",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kisana"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 72,
+   "village_name": "Sosoma/Mwanzele",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "sosoma/mwanzele",
+    "sosoma",
+    "mwanzele"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 73,
+   "village_name": "Ukasi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ukasi"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 74,
+   "village_name": "Mathyakani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mathyakani"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 75,
+   "village_name": "Mwasuma",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mwasuma"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 76,
+   "village_name": "Mbuvu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mbuvu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 77,
+   "village_name": "Imba",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "imba"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 342,
+   "ward": "Nguni",
+   "village_code": 78,
+   "village_name": "Maai",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "maai"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 79,
+   "village_name": "Nyaani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nyaani"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 80,
+   "village_name": "Mwambiu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mwambiu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 81,
+   "village_name": "Nuu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nuu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 82,
+   "village_name": "Wingemi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "wingemi"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 83,
+   "village_name": "Nguuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nguuni"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 84,
+   "village_name": "Kyangati",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyangati"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 343,
+   "ward": "Nuu",
+   "village_code": 85,
+   "village_name": "Mutyangombe",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutyangombe"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "village_code": 86,
+   "village_name": "Itiko/Yumbu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "itiko/yumbu",
+    "itiko",
+    "yumbu"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "village_code": 87,
+   "village_name": "Kitise",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kitise"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "village_code": 88,
+   "village_name": "Ngiluni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngiluni"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "village_code": 89,
+   "village_name": "Ngoo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngoo"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 344,
+   "ward": "Mui",
+   "village_code": 90,
+   "village_name": "Ngungi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngungi"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "village_code": 91,
+   "village_name": "Mwambui/Ikuusya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mwambui/ikuusya",
+    "mwambui",
+    "ikuusya"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "village_code": 92,
+   "village_name": "Thonoa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "thonoa"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "village_code": 93,
+   "village_name": "Waita",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "waita"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "village_code": 94,
+   "village_name": "Kathoka",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kathoka"
+   ]
+  },
+  {
+   "constituency": "Mwingi Central",
+   "ward_code": 345,
+   "ward": "Waita",
+   "village_code": 95,
+   "village_name": "Nyanyaa/Katitika",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nyanyaa/katitika",
+    "nyanyaa",
+    "katitika"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 96,
+   "village_name": "Yalatani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "yalatani"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 97,
+   "village_name": "Kangondi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kangondi"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 98,
+   "village_name": "Musengo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "musengo"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 99,
+   "village_name": "Mithini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mithini"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 100,
+   "village_name": "Mutonguni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutonguni"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 346,
+   "ward": "Mutonguni",
+   "village_code": 101,
+   "village_name": "Kakeani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kakeani"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 102,
+   "village_name": "Kauwi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kauwi"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 103,
+   "village_name": "Mutini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutini"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 104,
+   "village_name": "Kivani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kivani"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 105,
+   "village_name": "Mutanda",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutanda"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 106,
+   "village_name": "Kyeng'e",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyenge"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 347,
+   "ward": "Kauwi",
+   "village_code": 107,
+   "village_name": "Katutu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katutu"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 108,
+   "village_name": "Kalimani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalimani"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 109,
+   "village_name": "Maseki",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "maseki"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 110,
+   "village_name": "Kyondoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyondoni"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 111,
+   "village_name": "Katheuni/Kaliakatya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katheuni/kaliakatya",
+    "katheuni",
+    "kaliakatya"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 112,
+   "village_name": "Kauma/Musosya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kauma/musosya",
+    "kauma",
+    "musosya"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 348,
+   "ward": "Matinyani",
+   "village_code": 113,
+   "village_name": "Kathuma",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kathuma"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "village_code": 114,
+   "village_name": "Mutonga",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutonga"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "village_code": 115,
+   "village_name": "Mithikwani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mithikwani"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "village_code": 116,
+   "village_name": "Kithumula",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kithumula"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "village_code": 117,
+   "village_name": "Kasaini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kasaini"
+   ]
+  },
+  {
+   "constituency": "Kitui West",
+   "ward_code": 349,
+   "ward": "Kwa Mutonga/Kithumula",
+   "village_code": 118,
+   "village_name": "Kwa Mulungu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kwa mulungu"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 119,
+   "village_name": "Maliku",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "maliku"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 120,
+   "village_name": "Kavisuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavisuni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 121,
+   "village_name": "Masimbini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "masimbini"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 122,
+   "village_name": "Mbusyani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mbusyani"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 123,
+   "village_name": "Ngiluni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngiluni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 124,
+   "village_name": "Nguuni/Mukameni/Ung'atu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nguuni/mukameni/ungatu",
+    "nguuni",
+    "mukameni",
+    "ungatu"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 350,
+   "ward": "Kisasi",
+   "village_code": 125,
+   "village_name": "Mosa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mosa"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 126,
+   "village_name": "Mbitini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mbitini"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 127,
+   "village_name": "Katwala",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katwala"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 128,
+   "village_name": "Kitungati",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kitungati"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 129,
+   "village_name": "Ngangani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngangani"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 130,
+   "village_name": "Kanzau",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanzau"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 351,
+   "ward": "Mbitini",
+   "village_code": 131,
+   "village_name": "Kivuuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kivuuni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 132,
+   "village_name": "Kanyonyoo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanyonyoo"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 133,
+   "village_name": "Kwa Vonza",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kwa vonza"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 134,
+   "village_name": "Nyanyaa/Ndunguni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nyanyaa/ndunguni",
+    "nyanyaa",
+    "ndunguni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 135,
+   "village_name": "Makusya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "makusya"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 136,
+   "village_name": "Ilika",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ilika"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 352,
+   "ward": "Kwa Vonza/Yatta",
+   "village_code": 137,
+   "village_name": "Kawongo/Nthongoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kawongo/nthongoni",
+    "kawongo",
+    "nthongoni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 138,
+   "village_name": "Kanyangi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanyangi"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 139,
+   "village_name": "Kalulini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalulini"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 140,
+   "village_name": "Nzambia",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzambia"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 141,
+   "village_name": "Kanyongonyo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanyongonyo"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 142,
+   "village_name": "Kiseuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kiseuni"
+   ]
+  },
+  {
+   "constituency": "Kitui Rural",
+   "ward_code": 353,
+   "ward": "Kanyangi",
+   "village_code": 143,
+   "village_name": "Kitooni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kitooni"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 144,
+   "village_name": "Mutula/Mutukya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutula/mutukya",
+    "mutula",
+    "mutukya"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 145,
+   "village_name": "Munganga",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "munganga"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 146,
+   "village_name": "Nzaaya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzaaya"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 147,
+   "village_name": "Kavalo/Usiani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavalo/usiani",
+    "kavalo",
+    "usiani"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 148,
+   "village_name": "Kamandio/Ndiani/Nzune",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kamandio/ndiani/nzune",
+    "kamandio",
+    "ndiani",
+    "nzune"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 354,
+   "ward": "Miambani",
+   "village_code": 149,
+   "village_name": "Kanzau/Malili/Mikuyuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kanzau/malili/mikuyuni",
+    "kanzau",
+    "malili",
+    "mikuyuni"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "village_code": 150,
+   "village_name": "Town",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "town"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "village_code": 151,
+   "village_name": "Kalundu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalundu"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "village_code": 152,
+   "village_name": "Majengo/Manyenyoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "majengo/manyenyoni",
+    "majengo",
+    "manyenyoni"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "village_code": 153,
+   "village_name": "Kaveta/Syongila",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kaveta/syongila",
+    "kaveta",
+    "syongila"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 355,
+   "ward": "Township",
+   "village_code": 154,
+   "village_name": "Katyethoka/Ngiini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katyethoka/ngiini",
+    "katyethoka",
+    "ngiini"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 155,
+   "village_name": "Kavuta",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavuta"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 156,
+   "village_name": "Itoleka",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "itoleka"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 157,
+   "village_name": "Utooni/Mbusyani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "utooni/mbusyani",
+    "utooni",
+    "mbusyani"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 158,
+   "village_name": "Tungutu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "tungutu"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 159,
+   "village_name": "Mulutu/Unyaa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mulutu/unyaa",
+    "mulutu",
+    "unyaa"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 356,
+   "ward": "Kyangwithya West",
+   "village_code": 160,
+   "village_name": "Kyamathyaka/Nduumoni/Tiva",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyamathyaka/nduumoni/tiva",
+    "kyamathyaka",
+    "nduumoni",
+    "tiva"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 161,
+   "village_name": "Kathungi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kathungi"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 162,
+   "village_name": "Katulani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katulani"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 163,
+   "village_name": "Kwa Muli",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kwa muli"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 164,
+   "village_name": "Wii",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "wii"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 165,
+   "village_name": "Wikililye",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "wikililye"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 166,
+   "village_name": "Kyangunga",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyangunga"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 357,
+   "ward": "Mulango",
+   "village_code": 167,
+   "village_name": "Kyambiti",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyambiti"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 168,
+   "village_name": "Ivaini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ivaini"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 169,
+   "village_name": "Mulundi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mulundi"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 170,
+   "village_name": "Misewani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "misewani"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 171,
+   "village_name": "Museve",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "museve"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 172,
+   "village_name": "Mutune",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mutune"
+   ]
+  },
+  {
+   "constituency": "Kitui Central",
+   "ward_code": 358,
+   "ward": "Kyangwithya East",
+   "village_code": 173,
+   "village_name": "Kalawa/Kabaa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalawa/kabaa",
+    "kalawa",
+    "kabaa"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 174,
+   "village_name": "Ngungi/Kasunguni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngungi/kasunguni",
+    "ngungi",
+    "kasunguni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 175,
+   "village_name": "Thua",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "thua"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 176,
+   "village_name": "Malatani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "malatani"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 177,
+   "village_name": "Ilaa/Katikoni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ilaa/katikoni",
+    "ilaa",
+    "katikoni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 178,
+   "village_name": "Makongo/Kavingo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "makongo/kavingo",
+    "makongo",
+    "kavingo"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 359,
+   "ward": "Zombe/Mwitika",
+   "village_code": 179,
+   "village_name": "Kikuu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kikuu"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "village_code": 180,
+   "village_name": "Kyanika/Mwembe Tayari",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyanika/mwembe tayari",
+    "kyanika",
+    "mwembe tayari"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "village_code": 181,
+   "village_name": "Kavalula/Ngengi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavalula/ngengi",
+    "kavalula",
+    "ngengi"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "village_code": 182,
+   "village_name": "Kilonzo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kilonzo"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "village_code": 183,
+   "village_name": "Ikuyuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ikuyuni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 360,
+   "ward": "Nzambani",
+   "village_code": 184,
+   "village_name": "Kangweni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kangweni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 185,
+   "village_name": "Kyanzai (Kamaembe, Kaliluni, Kwa-wewa, Itula-aka, Kenzini, Ka-kya)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kamaembe",
+    "Kaliluni",
+    "Kwa-wewa",
+    "Itula-aka",
+    "Kenzini",
+    "Ka-kya"
+   ],
+   "search_terms": [
+    "kyanzai (kamaembe, kaliluni, kwawewa, itulaaka, kenzini, kakya)",
+    "kyanzai",
+    "kamaembe",
+    "kaliluni",
+    "kwawewa",
+    "itulaaka",
+    "kenzini",
+    "kakya"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 186,
+   "village_name": "Kenze (Ka-nzooko, Ka-nguu, Ilamba, Kinzeni)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Ka-nzooko",
+    "Ka-nguu",
+    "Ilamba",
+    "Kinzeni"
+   ],
+   "search_terms": [
+    "kenze (kanzooko, kanguu, ilamba, kinzeni)",
+    "kenze",
+    "kanzooko",
+    "kanguu",
+    "ilamba",
+    "kinzeni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 187,
+   "village_name": "Ngungi (Inyuu, Kwa-amutei, Kwa-aombe, Kiongwe, Mutuluni, Kitho, Mbangulo)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Inyuu",
+    "Kwa-amutei",
+    "Kwa-aombe",
+    "Kiongwe",
+    "Mutuluni",
+    "Kitho",
+    "Mbangulo"
+   ],
+   "search_terms": [
+    "ngungi (inyuu, kwaamutei, kwaaombe, kiongwe, mutuluni, kitho, mbangulo)",
+    "ngungi",
+    "inyuu",
+    "kwaamutei",
+    "kwaaombe",
+    "kiongwe",
+    "mutuluni",
+    "kitho",
+    "mbangulo"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 188,
+   "village_name": "Kanduti (Katumbu, Kivutini, Kanduti, Ndunga, Union)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Katumbu",
+    "Kivutini",
+    "Kanduti",
+    "Ndunga",
+    "Union"
+   ],
+   "search_terms": [
+    "kanduti (katumbu, kivutini, kanduti, ndunga, union)",
+    "kanduti",
+    "katumbu",
+    "kivutini",
+    "ndunga",
+    "union"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 189,
+   "village_name": "Kyalele (Kanzauw'u, Nzangathi, Utwiini, Ngomango, Kavumbuni)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kanzauw'u",
+    "Nzangathi",
+    "Utwiini",
+    "Ngomango",
+    "Kavumbuni"
+   ],
+   "search_terms": [
+    "kyalele (kanzauwu, nzangathi, utwiini, ngomango, kavumbuni)",
+    "kyalele",
+    "kanzauwu",
+    "nzangathi",
+    "utwiini",
+    "ngomango",
+    "kavumbuni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 361,
+   "ward": "Chuluni",
+   "village_code": 190,
+   "village_name": "Ithumula (Kyangala, Matalwa, Kavuo, Kamale, Kiliku, Ithumula, Manzini, Malangayu)",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [
+    "Kyangala",
+    "Matalwa",
+    "Kavuo",
+    "Kamale",
+    "Kiliku",
+    "Ithumula",
+    "Manzini",
+    "Malangayu"
+   ],
+   "search_terms": [
+    "ithumula (kyangala, matalwa, kavuo, kamale, kiliku, ithumula, manzini, malangayu)",
+    "ithumula",
+    "kyangala",
+    "matalwa",
+    "kavuo",
+    "kamale",
+    "kiliku",
+    "manzini",
+    "malangayu"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 191,
+   "village_name": "Kyaango",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyaango"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 192,
+   "village_name": "Imale/Kiangini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "imale/kiangini",
+    "imale",
+    "kiangini"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 193,
+   "village_name": "Muthungue",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "muthungue"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 194,
+   "village_name": "Kyamatu/Nzanzu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyamatu/nzanzu",
+    "kyamatu",
+    "nzanzu"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 195,
+   "village_name": "Nzunguni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzunguni"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 362,
+   "ward": "Voo/Kyamatu",
+   "village_code": 196,
+   "village_name": "Kasasi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kasasi"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "village_code": 197,
+   "village_name": "Twambui/Makuka",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "twambui/makuka",
+    "twambui",
+    "makuka"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "village_code": 198,
+   "village_name": "Katumbi/Koi of Twambui",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katumbi/koi of twambui",
+    "katumbi",
+    "koi of twambui"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "village_code": 199,
+   "village_name": "Ndetani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndetani"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "village_code": 200,
+   "village_name": "Yiuku/Kathua",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "yiuku/kathua",
+    "yiuku",
+    "kathua"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 363,
+   "ward": "Endau/Malalani",
+   "village_code": 201,
+   "village_name": "Malalani/Syou",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "malalani/syou",
+    "malalani",
+    "syou"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "village_code": 202,
+   "village_name": "Musukini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "musukini"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "village_code": 203,
+   "village_name": "Manyoeni/Masasini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "manyoeni/masasini",
+    "manyoeni",
+    "masasini"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "village_code": 204,
+   "village_name": "Kyaimu/Itiko",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyaimu/itiko",
+    "kyaimu",
+    "itiko"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "village_code": 205,
+   "village_name": "Kawala/Kavutei",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kawala/kavutei",
+    "kawala",
+    "kavutei"
+   ]
+  },
+  {
+   "constituency": "Kitui East",
+   "ward_code": 364,
+   "ward": "Mutito/Kaliku",
+   "village_code": 206,
+   "village_name": "Kitoo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kitoo"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 207,
+   "village_name": "Ithumula",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ithumula"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 208,
+   "village_name": "Kathungu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kathungu"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 209,
+   "village_name": "Nduu-ndune/Kwa-Songe/Ilusya",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nduundune/kwasonge/ilusya",
+    "nduundune",
+    "kwasonge",
+    "ilusya"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 210,
+   "village_name": "Makele/Kiangwa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "makele/kiangwa",
+    "makele",
+    "kiangwa"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 211,
+   "village_name": "Kyatune",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyatune"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 212,
+   "village_name": "Ngwani/Yongela",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngwani/yongela",
+    "ngwani",
+    "yongela"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 365,
+   "ward": "Ikanga/Kyatune",
+   "village_code": 213,
+   "village_name": "Ndatani/Vote",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndatani/vote",
+    "ndatani",
+    "vote"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 214,
+   "village_name": "Kitoo",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kitoo"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 215,
+   "village_name": "Mwala",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "mwala"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 216,
+   "village_name": "Kandae",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kandae"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 217,
+   "village_name": "Kawelu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kawelu"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 218,
+   "village_name": "Kibwea",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kibwea"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 366,
+   "ward": "Mutomo/Kibwea",
+   "village_code": 219,
+   "village_name": "Uae",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "uae"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 220,
+   "village_name": "Ndakani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndakani"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 221,
+   "village_name": "Ngaani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngaani"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 222,
+   "village_name": "Kaliakatune",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kaliakatune"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 223,
+   "village_name": "Kivyuni/Kiimani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kivyuni/kiimani",
+    "kivyuni",
+    "kiimani"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 224,
+   "village_name": "Kengo/Kiati/Mwengea",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kengo/kiati/mwengea",
+    "kengo",
+    "kiati",
+    "mwengea"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 225,
+   "village_name": "Kaatene/Kalambani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kaatene/kalambani",
+    "kaatene",
+    "kalambani"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 367,
+   "ward": "Mutha",
+   "village_code": 226,
+   "village_name": "Isaa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "isaa"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 227,
+   "village_name": "Ndili",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndili"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 228,
+   "village_name": "Maaini/Ngaw'uni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "maaini/ngawuni",
+    "maaini",
+    "ngawuni"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 229,
+   "village_name": "Kyoani",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kyoani"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 230,
+   "village_name": "Ngwate",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ngwate"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 231,
+   "village_name": "Nzamba",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "nzamba"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 232,
+   "village_name": "Kasaala/Uiini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kasaala/uiini",
+    "kasaala",
+    "uiini"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 368,
+   "ward": "Ikutha",
+   "village_code": 233,
+   "village_name": "Kiangu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kiangu"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "village_code": 234,
+   "village_name": "Ekani/Simisi",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ekani/simisi",
+    "ekani",
+    "simisi"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "village_code": 235,
+   "village_name": "Kavindini/Mwanianga",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kavindini/mwanianga",
+    "kavindini",
+    "mwanianga"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "village_code": 236,
+   "village_name": "Kituvwi/Ilamba",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kituvwi/ilamba",
+    "kituvwi",
+    "ilamba"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "village_code": 237,
+   "village_name": "Ndilili/Mivuni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "ndilili/mivuni",
+    "ndilili",
+    "mivuni"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 369,
+   "ward": "Kanziku/Simisi",
+   "village_code": 238,
+   "village_name": "Keutunda/Kyanyaa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "keutunda/kyanyaa",
+    "keutunda",
+    "kyanyaa"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 239,
+   "village_name": "Kilawa",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kilawa"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 240,
+   "village_name": "Kisiio",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kisiio"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 241,
+   "village_name": "Lower Kituti",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "lower kituti"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 242,
+   "village_name": "Upper Kituti",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "upper kituti"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 243,
+   "village_name": "Makaiye",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "makaiye"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 244,
+   "village_name": "Katilini",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "katilini"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 245,
+   "village_name": "Kalivu",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "kalivu"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 246,
+   "village_name": "Maluma",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "maluma"
+   ]
+  },
+  {
+   "constituency": "Kitui South",
+   "ward_code": 370,
+   "ward": "Athi",
+   "village_code": 247,
+   "village_name": "Muambani/Monguni",
+   "source": "Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule, Kitui County Gazette Supplement No. 2, 24 March 2015",
+   "sub_areas": [],
+   "search_terms": [
+    "muambani/monguni",
+    "muambani",
+    "monguni"
+   ]
+  }
+ ]
+}

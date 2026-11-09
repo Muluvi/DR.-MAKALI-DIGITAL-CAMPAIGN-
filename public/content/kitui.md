@@ -46,6 +46,10 @@ Living standards, from poverty and water to electricity, phones and the internet
 
 Kitui has eight constituencies, 40 county assembly wards and 18 administrative sub-counties (Tier 1, IEBC and KNBS). The county also counts villages as administrative units. No verified figure is available yet for their number; the record that would settle it is the Kitui County Integrated Development Plan 2023–2027. The reported count is of villages, not sub-locations, and the two are not used interchangeably.
 
+```figure
+id: network-units
+```
+
 Constituencies and wards are the electoral units, and the ward register in Annex B uses them. Sub-counties are the administrative units the census reports by, and they do not map one-to-one onto constituencies (Section 1.2).
 
 The Governor of Kitui heads the county executive. Under the County Governments Act the office runs public services for more than one million residents. Its main responsibilities:

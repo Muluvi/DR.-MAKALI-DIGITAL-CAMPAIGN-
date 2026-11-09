@@ -100,6 +100,8 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
   // React Server Component payloads are tied to one build and one navigation; never serve stale.
   if (request.headers.get("RSC") || url.searchParams.has("_rsc")) return;
+  // The campaigner network's private pages and its API carry personal data: never cached on a device.
+  if (url.pathname.startsWith("/network") || url.pathname.startsWith("/api/network")) return;
 
   if (url.pathname.startsWith("/_next/static/")) {
     event.respondWith(cacheFirst(request));

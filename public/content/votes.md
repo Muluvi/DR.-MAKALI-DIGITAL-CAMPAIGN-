@@ -50,6 +50,10 @@ id: fig-3-2-register-map
 {"kind":"stats","title":"Where the votes concentrate","items":[{"value":"37.78%","label":"of the register in the 12 largest wards","tier":1,"body":"**Twelve wards, 30% of the total, hold 201,267 registered voters** (37.78% of the county, calculated from IEBC's 2022 register). That is as many registered voters as the 2022 winning tally, but registration is not turnout: at the 61.7% turnout rate they cast about **124,182 ballots** (calculated)."},{"value":"59.13%","label":"in the largest 20","tier":1,"body":"**The largest 20 wards**, half the total, hold **315,006 registered voters** (**59.13%** of the county, calculated)."},{"value":"18.10%","label":"in the smallest 10","tier":1,"body":"**The ten smallest wards** (from Mui down to Tharaka), a quarter of the total, hold **96,415 registered voters** (**18.10%** of the register, calculated) across large areas that are slow and costly to cover on the ground."}]}
 ```
 
+```figure
+id: network-seats
+```
+
 ```lead
 This annex holds the 40-ward register: background the argument rests on rather than part of the argument.
 ```

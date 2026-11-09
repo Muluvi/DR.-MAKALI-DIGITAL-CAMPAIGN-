@@ -51,3 +51,7 @@ Where an official indicator bears on a segment — drought and food security (Se
 ```figure
 id: fig-4-3-segments
 ```
+
+```figure
+id: network-groups
+```

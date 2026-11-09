@@ -45,7 +45,7 @@ export const FIG_1_1: FigureSpec = {
 
 /* ------------------------------------------------------------------ the five objectives */
 
-const OBJECTIVES = [
+export const OBJECTIVES = [
   {
     n: "1", title: "Be known where he isn't yet",
     target: `At least ${fmt("pool.share")}% of his reach landing in the ${fmt("pool")}-voter pool`,

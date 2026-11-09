@@ -66,12 +66,29 @@ const fenceBodies = (texts, kind) => {
   }
   return out.sort();
 };
+// A figure fence may be ADDED only by a logged addition (kind "added-figure", e.g.
+// docs/network-2026-11/ledger.json), naming the file and the fence body. Nothing logged may stand in
+// for a fence that is missing or changed: every base fence must still be present, word for word.
+const loggedFigures = cuts.filter((c) => c.kind === "added-figure").map((c) => `${c.file}|${String(c.text).trim()}`);
 for (const kind of ["figure", "textversion"]) {
   const b = fenceBodies(weighed, kind);
   const a = fenceBodies(after, kind);
   const missing = b.filter((x) => !a.includes(x));
-  if (missing.length || a.length !== b.length) errors.push(`3: ${kind} fences ${b.length} before, ${a.length} after; missing or changed: ${missing.map((x) => x.slice(0, 40)).join(" | ")}`);
-  else console.log(`3. ${kind} fences: ${a.length} of ${b.length} present, unchanged`);
+  // Fences present now beyond the base, as a multiset, each with the file it sits in.
+  const pool = [...b];
+  const extra = [];
+  for (const [f, t] of Object.entries(after)) {
+    for (const m of t.matchAll(new RegExp("^```" + kind + "\\n([\\s\\S]*?)^```", "gm"))) {
+      const body = m[1].trim();
+      const i = pool.indexOf(body);
+      if (i >= 0) pool.splice(i, 1);
+      else extra.push(`${path.basename(f, ".md")}|${body}`);
+    }
+  }
+  const unlogged = extra.filter((x) => kind !== "figure" || !loggedFigures.includes(x));
+  if (missing.length || unlogged.length || a.length !== b.length + extra.length) {
+    errors.push(`3: ${kind} fences ${b.length} before, ${a.length} after; missing or changed: ${missing.map((x) => x.slice(0, 40)).join(" | ")}${unlogged.length ? `; added without a logged addition: ${unlogged.join(" | ")}` : ""}`);
+  } else console.log(`3. ${kind} fences: ${b.length} of ${b.length} present, unchanged${extra.length ? `; ${extra.length} added, each logged` : ""}`);
 }
 
 /* ---------------------------------------------------------------- 4: conservation */

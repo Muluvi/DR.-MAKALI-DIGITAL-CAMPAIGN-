@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { PanelFold } from "../markdown/PanelFold";
 import { RapidResponseFlowDiagram } from "../markdown/RapidResponseFlowDiagram";
 import { RegisterFigure } from "../register/Figure";
@@ -24,10 +25,57 @@ import { REGISTER } from "../../lib/register/specs";
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
 
+/*
+ * The Campaigner Network's figures (components/network/story.tsx). One chunk, loaded where the
+ * chapters reach them. They draw the Act's reference data and the open aggregate, which carries
+ * counts and states only.
+ */
+const story = () => import("../network/story");
+const NetworkUnits = dynamic(() => story().then((m) => m.NetworkUnits));
+const NetworkSeats = dynamic(() => story().then((m) => m.NetworkSeats));
+const NetworkObjectives = dynamic(() => story().then((m) => m.NetworkObjectives));
+const NetworkChain = dynamic(() => story().then((m) => m.NetworkChain));
+const NetworkGroups = dynamic(() => story().then((m) => m.NetworkGroups));
+const NetworkDrilldown = dynamic(() => story().then((m) => m.NetworkDrilldown));
+const NetworkTasks = dynamic(() => story().then((m) => m.NetworkTasks));
+const NetworkDigest = dynamic(() => story().then((m) => m.NetworkDigest));
+
 export const FIGURES: Record<string, FigureEntry> = {
   "rapid-response-flow": {
     note: "Monitoring feeds through the decision tree and the legal gateway to the response channels.",
     render: () => <RapidResponseFlowDiagram />,
+  },
+  "network-units": {
+    note: "The Campaigner Network's units: 8 constituencies, 40 wards and 247 villages, from the Kitui County Villages Act, 2015.",
+    render: () => <NetworkUnits />,
+  },
+  "network-seats": {
+    note: "Seats required, spans of control, the ward average of voters per village (estimated) and live gaps by ward.",
+    render: () => <NetworkSeats />,
+  },
+  "network-objectives": {
+    note: "How each campaigner role serves the five objectives.",
+    render: () => <NetworkObjectives />,
+  },
+  "network-chain": {
+    note: "The chain of command: a task moving down and a report moving up.",
+    render: () => <NetworkChain />,
+  },
+  "network-groups": {
+    note: "The special-groups overlay: the group chain, and active units by type and constituency.",
+    render: () => <NetworkGroups />,
+  },
+  "network-drilldown": {
+    note: "Registration and coverage, from the county to every village seat.",
+    render: () => <NetworkDrilldown />,
+  },
+  "network-tasks": {
+    note: "Task allocation, the funnel, field signals, and the WhatsApp and USSD journeys.",
+    render: () => <NetworkTasks />,
+  },
+  "network-digest": {
+    note: "Dr. Makali's one-screen digest.",
+    render: () => <NetworkDigest />,
   },
 };
 

@@ -1,0 +1,412 @@
+{
+ "description": "How each of the 40 wards in the Kitui County Villages Act, 2015 Schedule matches a ward in the site ward data (data/ward-register.json, data/geo/ward-keys.json). Hand-checked. Neither dataset is renamed: the Act keeps its names and codes, the register keeps its own, and every difference is listed here.",
+ "differences": 6,
+ "wards": [
+  {
+   "act_ward_code": 331,
+   "act_ward": "Ngomeni",
+   "act_constituency": "Mwingi North",
+   "register_slug": "ngomeni",
+   "register_ward": "Ngomeni",
+   "register_constituency": "Mwingi North",
+   "boundary_wardcode": 331,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 332,
+   "act_ward": "Kyuso",
+   "act_constituency": "Mwingi North",
+   "register_slug": "kyuso",
+   "register_ward": "Kyuso",
+   "register_constituency": "Mwingi North",
+   "boundary_wardcode": 332,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 333,
+   "act_ward": "Muumoni",
+   "act_constituency": "Mwingi North",
+   "register_slug": "mumoni",
+   "register_ward": "Mumoni",
+   "register_constituency": "Mwingi North",
+   "boundary_wardcode": 333,
+   "match": "spelling",
+   "note": "The Act spells the ward Muumoni; the IEBC register spells it Mumoni. data/geo/ward-keys.json already lists Muumoni as an alias of Mumoni."
+  },
+  {
+   "act_ward_code": 334,
+   "act_ward": "Tseikuru",
+   "act_constituency": "Mwingi North",
+   "register_slug": "tseikuru",
+   "register_ward": "Tseikuru",
+   "register_constituency": "Mwingi North",
+   "boundary_wardcode": 334,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 335,
+   "act_ward": "Tharaka",
+   "act_constituency": "Mwingi North",
+   "register_slug": "tharaka",
+   "register_ward": "Tharaka",
+   "register_constituency": "Mwingi North",
+   "boundary_wardcode": 335,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 336,
+   "act_ward": "Kyome/Thaana",
+   "act_constituency": "Mwingi West",
+   "register_slug": "kyome-thaana",
+   "register_ward": "Kyome/Thaana",
+   "register_constituency": "Mwingi West",
+   "boundary_wardcode": 336,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 337,
+   "act_ward": "Nguutani",
+   "act_constituency": "Mwingi West",
+   "register_slug": "nguutani",
+   "register_ward": "Nguutani",
+   "register_constituency": "Mwingi West",
+   "boundary_wardcode": 337,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 338,
+   "act_ward": "Migwani",
+   "act_constituency": "Mwingi West",
+   "register_slug": "migwani",
+   "register_ward": "Migwani",
+   "register_constituency": "Mwingi West",
+   "boundary_wardcode": 338,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 339,
+   "act_ward": "Kiomo/Kyethani",
+   "act_constituency": "Mwingi West",
+   "register_slug": "kiomo-kyethani",
+   "register_ward": "Kiomo/Kyethani",
+   "register_constituency": "Mwingi West",
+   "boundary_wardcode": 339,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 340,
+   "act_ward": "Mwingi Central",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "central",
+   "register_ward": "Central",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 340,
+   "match": "name",
+   "note": "The Act names the ward Mwingi Central; the IEBC register names it Central. Matched on constituency (Mwingi Central) and position: it is the only Mwingi Central ward without another match."
+  },
+  {
+   "act_ward_code": 341,
+   "act_ward": "Kivou",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "kivou",
+   "register_ward": "Kivou",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 341,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 342,
+   "act_ward": "Nguni",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "nguni",
+   "register_ward": "Nguni",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 342,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 343,
+   "act_ward": "Nuu",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "nuu",
+   "register_ward": "Nuu",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 343,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 344,
+   "act_ward": "Mui",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "mui",
+   "register_ward": "Mui",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 344,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 345,
+   "act_ward": "Waita",
+   "act_constituency": "Mwingi Central",
+   "register_slug": "waita",
+   "register_ward": "Waita",
+   "register_constituency": "Mwingi Central",
+   "boundary_wardcode": 345,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 346,
+   "act_ward": "Mutonguni",
+   "act_constituency": "Kitui West",
+   "register_slug": "mutonguni",
+   "register_ward": "Mutonguni",
+   "register_constituency": "Kitui West",
+   "boundary_wardcode": 346,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 347,
+   "act_ward": "Kauwi",
+   "act_constituency": "Kitui West",
+   "register_slug": "kauwi",
+   "register_ward": "Kauwi",
+   "register_constituency": "Kitui West",
+   "boundary_wardcode": 347,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 348,
+   "act_ward": "Matinyani",
+   "act_constituency": "Kitui West",
+   "register_slug": "matinyani",
+   "register_ward": "Matinyani",
+   "register_constituency": "Kitui West",
+   "boundary_wardcode": 348,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 349,
+   "act_ward": "Kwa Mutonga/Kithumula",
+   "act_constituency": "Kitui West",
+   "register_slug": "kwa-mutonga-kithumula",
+   "register_ward": "Kwa Mutonga/Kithumula",
+   "register_constituency": "Kitui West",
+   "boundary_wardcode": 349,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 350,
+   "act_ward": "Kisasi",
+   "act_constituency": "Kitui Rural",
+   "register_slug": "kisasi",
+   "register_ward": "Kisasi",
+   "register_constituency": "Kitui Rural",
+   "boundary_wardcode": 350,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 351,
+   "act_ward": "Mbitini",
+   "act_constituency": "Kitui Rural",
+   "register_slug": "mbitini",
+   "register_ward": "Mbitini",
+   "register_constituency": "Kitui Rural",
+   "boundary_wardcode": 351,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 352,
+   "act_ward": "Kwa Vonza/Yatta",
+   "act_constituency": "Kitui Rural",
+   "register_slug": "kwa-vonza-yatta",
+   "register_ward": "Kwa Vonza/Yatta",
+   "register_constituency": "Kitui Rural",
+   "boundary_wardcode": 352,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 353,
+   "act_ward": "Kanyangi",
+   "act_constituency": "Kitui Rural",
+   "register_slug": "kanyangi",
+   "register_ward": "Kanyangi",
+   "register_constituency": "Kitui Rural",
+   "boundary_wardcode": 353,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 354,
+   "act_ward": "Miambani",
+   "act_constituency": "Kitui Central",
+   "register_slug": "miambani",
+   "register_ward": "Miambani",
+   "register_constituency": "Kitui Central",
+   "boundary_wardcode": 354,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 355,
+   "act_ward": "Township",
+   "act_constituency": "Kitui Central",
+   "register_slug": "township",
+   "register_ward": "Township",
+   "register_constituency": "Kitui Central",
+   "boundary_wardcode": 355,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 356,
+   "act_ward": "Kyangwithya West",
+   "act_constituency": "Kitui Central",
+   "register_slug": "kyangwithya-west",
+   "register_ward": "Kyangwithya West",
+   "register_constituency": "Kitui Central",
+   "boundary_wardcode": 356,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 357,
+   "act_ward": "Mulango",
+   "act_constituency": "Kitui Central",
+   "register_slug": "mulango",
+   "register_ward": "Mulango",
+   "register_constituency": "Kitui Central",
+   "boundary_wardcode": 357,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 358,
+   "act_ward": "Kyangwithya East",
+   "act_constituency": "Kitui Central",
+   "register_slug": "kyangwithya-east",
+   "register_ward": "Kyangwithya East",
+   "register_constituency": "Kitui Central",
+   "boundary_wardcode": 358,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 359,
+   "act_ward": "Zombe/Mwitika",
+   "act_constituency": "Kitui East",
+   "register_slug": "zombe-mwitika",
+   "register_ward": "Zombe/Mwitika",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 359,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 360,
+   "act_ward": "Nzambani",
+   "act_constituency": "Kitui East",
+   "register_slug": "nzambani",
+   "register_ward": "Nzambani",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 361,
+   "match": "code",
+   "note": "The Act gives Nzambani code 360; the ward boundary file (data/geo/ward-keys.json, wardcode) gives Nzambani 361. Matched by name. Neither code is changed."
+  },
+  {
+   "act_ward_code": 361,
+   "act_ward": "Chuluni",
+   "act_constituency": "Kitui East",
+   "register_slug": "chuluni",
+   "register_ward": "Chuluni",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 360,
+   "match": "code",
+   "note": "The Act gives Chuluni code 361; the ward boundary file (data/geo/ward-keys.json, wardcode) gives Chuluni 360. Matched by name. Neither code is changed."
+  },
+  {
+   "act_ward_code": 362,
+   "act_ward": "Voo/Kyamatu",
+   "act_constituency": "Kitui East",
+   "register_slug": "voo-kyamatu",
+   "register_ward": "Voo/Kyamatu",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 362,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 363,
+   "act_ward": "Endau/Malalani",
+   "act_constituency": "Kitui East",
+   "register_slug": "endau-malalani",
+   "register_ward": "Endau/Malalani",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 363,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 364,
+   "act_ward": "Mutito/Kaliku",
+   "act_constituency": "Kitui East",
+   "register_slug": "mutito-kaliku",
+   "register_ward": "Mutito/Kaliku",
+   "register_constituency": "Kitui East",
+   "boundary_wardcode": 364,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 365,
+   "act_ward": "Ikanga/Kyatune",
+   "act_constituency": "Kitui South",
+   "register_slug": "ikanga-kyatune",
+   "register_ward": "Ikanga/Kyatune",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 365,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 366,
+   "act_ward": "Mutomo/Kibwea",
+   "act_constituency": "Kitui South",
+   "register_slug": "mutomo",
+   "register_ward": "Mutomo",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 366,
+   "match": "name",
+   "note": "The Act names the ward Mutomo/Kibwea; the IEBC register names it Mutomo. data/geo/ward-keys.json already lists Mutomo/Kibwea as an alias."
+  },
+  {
+   "act_ward_code": 367,
+   "act_ward": "Mutha",
+   "act_constituency": "Kitui South",
+   "register_slug": "mutha",
+   "register_ward": "Mutha",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 367,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 368,
+   "act_ward": "Ikutha",
+   "act_constituency": "Kitui South",
+   "register_slug": "ikutha",
+   "register_ward": "Ikutha",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 368,
+   "match": "exact"
+  },
+  {
+   "act_ward_code": 369,
+   "act_ward": "Kanziku/Simisi",
+   "act_constituency": "Kitui South",
+   "register_slug": "kanziko",
+   "register_ward": "Kanziko",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 369,
+   "match": "spelling",
+   "note": "The Act names the ward Kanziku/Simisi; the IEBC register names it Kanziko. data/geo/ward-keys.json already lists Kanziku/Simisi as an alias."
+  },
+  {
+   "act_ward_code": 370,
+   "act_ward": "Athi",
+   "act_constituency": "Kitui South",
+   "register_slug": "athi",
+   "register_ward": "Athi",
+   "register_constituency": "Kitui South",
+   "boundary_wardcode": 370,
+   "match": "exact"
+  }
+ ]
+}

@@ -128,3 +128,7 @@ items:
 ```figure
 id: fig-4-3-segments
 ```
+
+```figure
+id: network-groups
+```

@@ -85,6 +85,10 @@ items:
     body: "**The ten smallest wards** (from Mui down to Tharaka), a quarter of the total, hold **{{pareto.bottom10}} registered voters** (**{{pareto.bottom10.share}}%** of the register, calculated) across large areas that are slow and costly to cover on the ground."
 ```
 
+```figure
+id: network-seats
+```
+
 ```lead
 This annex holds the 40-ward register: background the argument rests on rather than part of the argument.
 ```

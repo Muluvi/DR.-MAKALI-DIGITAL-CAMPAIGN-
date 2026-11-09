@@ -1,0 +1,47 @@
+# Kitui County Villages Act, 2015 (No. 1 of 2015), Schedule.
+# Kitui County Gazette Supplement No. 2, 24 March 2015.
+#
+# One line per ward: constituency|ward_code|ward|first_code-last_code|village names separated by semicolons.
+# Village codes run sequentially within each range, in the order listed. Names are exactly as gazetted,
+# slashes and brackets included; a bracketed list names sub-areas of that village.
+# scripts/network/build-villages.mjs turns this file into kitui-villages.v1.json. Edit this file, never the JSON.
+Mwingi North|331|Ngomeni|1-5|Kimela/Syumani;Mitamisyi/Kathalaani;Ndatani/Kamusiliu;Kalwa/Kavuti;Kavaani/Ikime
+Mwingi North|332|Kyuso|6-14|Kyuso;Mivukoni;Itiva Nzou;Kamuwongo;Ngaaie;Kimu;Kimangao;Twimyua;Kamula
+Mwingi North|333|Muumoni|15-21|Mutanda;Nguuku;Katse;Mukong'a;Kakuyu/Kyandali;Tyaa;Ngungani
+Mwingi North|334|Tseikuru|22-29|Kaivirya/Ngongoni;Tseikuru/Nziitu;Ngalange/Nzanzeni;Karingo;Musavani;Masyungwa;Katumbi;Mulangoni
+Mwingi North|335|Tharaka|30-34|Gakombe;Gacigongo;Kanyengya/Gatoroni;Kanthungu;Kamaindi
+Mwingi West|336|Kyome/Thaana|35-41|Winzyeii (Winzyeii, Wikivuvwa);Kyome (Kyome, Ndaluni);Thitani (Kasanga, Kavaini);Kanyaa (Kanyaa, Kitulani);Thokoa (Thokoa, Kasevi, Nguuni);Thaana Nzau (Yenzuva, Kyusyani, Thaana Nzau);Musuani (Musuani, Kanyekini, Kitumbi)
+Mwingi West|337|Nguutani|42-48|Muivu;Kikiini/Nzauni;Muthioni/Katoteni;Nzawa/Mavuni;Ngongoni/Mathunzini/Kavoloi;Nzalae/Kakululo;Nguutani/Katuyu/Mukauni
+Mwingi West|338|Migwani|49-54|Kyamboo/Kaliluni;Migwani/Itoloni;Nzatani/Ilalambyu;Nzeluni/Mung'alu;Kisovo;Katalwa/Mumbuni
+Mwingi West|339|Kiomo/Kyethani|55-60|Kavuvwani;Mbondoni;Kiomo;Kairungu;Kyethani;Karura/Wikithuki
+Mwingi Central|340|Mwingi Central|61-65|Mwingi Central;Mathyakani;Kanzanzu;Kalisasi;Mulang'a
+Mwingi Central|341|Kivou|66-71|Kivou;Kyanika;Ithumbi;Kanzui;Enziu;Kisana
+Mwingi Central|342|Nguni|72-78|Sosoma/Mwanzele;Ukasi;Mathyakani;Mwasuma;Mbuvu;Imba;Maai
+Mwingi Central|343|Nuu|79-85|Nyaani;Mwambiu;Nuu;Wingemi;Nguuni;Kyangati;Mutyangombe
+Mwingi Central|344|Mui|86-90|Itiko/Yumbu;Kitise;Ngiluni;Ngoo;Ngungi
+Mwingi Central|345|Waita|91-95|Mwambui/Ikuusya;Thonoa;Waita;Kathoka;Nyanyaa/Katitika
+Kitui West|346|Mutonguni|96-101|Yalatani;Kangondi;Musengo;Mithini;Mutonguni;Kakeani
+Kitui West|347|Kauwi|102-107|Kauwi;Mutini;Kivani;Mutanda;Kyeng'e;Katutu
+Kitui West|348|Matinyani|108-113|Kalimani;Maseki;Kyondoni;Katheuni/Kaliakatya;Kauma/Musosya;Kathuma
+Kitui West|349|Kwa Mutonga/Kithumula|114-118|Mutonga;Mithikwani;Kithumula;Kasaini;Kwa Mulungu
+Kitui Rural|350|Kisasi|119-125|Maliku;Kavisuni;Masimbini;Mbusyani;Ngiluni;Nguuni/Mukameni/Ung'atu;Mosa
+Kitui Rural|351|Mbitini|126-131|Mbitini;Katwala;Kitungati;Ngangani;Kanzau;Kivuuni
+Kitui Rural|352|Kwa Vonza/Yatta|132-137|Kanyonyoo;Kwa Vonza;Nyanyaa/Ndunguni;Makusya;Ilika;Kawongo/Nthongoni
+Kitui Rural|353|Kanyangi|138-143|Kanyangi;Kalulini;Nzambia;Kanyongonyo;Kiseuni;Kitooni
+Kitui Central|354|Miambani|144-149|Mutula/Mutukya;Munganga;Nzaaya;Kavalo/Usiani;Kamandio/Ndiani/Nzune;Kanzau/Malili/Mikuyuni
+Kitui Central|355|Township|150-154|Town;Kalundu;Majengo/Manyenyoni;Kaveta/Syongila;Katyethoka/Ngiini
+Kitui Central|356|Kyangwithya West|155-160|Kavuta;Itoleka;Utooni/Mbusyani;Tungutu;Mulutu/Unyaa;Kyamathyaka/Nduumoni/Tiva
+Kitui Central|357|Mulango|161-167|Kathungi;Katulani;Kwa Muli;Wii;Wikililye;Kyangunga;Kyambiti
+Kitui Central|358|Kyangwithya East|168-173|Ivaini;Mulundi;Misewani;Museve;Mutune;Kalawa/Kabaa
+Kitui East|359|Zombe/Mwitika|174-179|Ngungi/Kasunguni;Thua;Malatani;Ilaa/Katikoni;Makongo/Kavingo;Kikuu
+Kitui East|360|Nzambani|180-184|Kyanika/Mwembe Tayari;Kavalula/Ngengi;Kilonzo;Ikuyuni;Kangweni
+Kitui East|361|Chuluni|185-190|Kyanzai (Kamaembe, Kaliluni, Kwa-wewa, Itula-aka, Kenzini, Ka-kya);Kenze (Ka-nzooko, Ka-nguu, Ilamba, Kinzeni);Ngungi (Inyuu, Kwa-amutei, Kwa-aombe, Kiongwe, Mutuluni, Kitho, Mbangulo);Kanduti (Katumbu, Kivutini, Kanduti, Ndunga, Union);Kyalele (Kanzauw'u, Nzangathi, Utwiini, Ngomango, Kavumbuni);Ithumula (Kyangala, Matalwa, Kavuo, Kamale, Kiliku, Ithumula, Manzini, Malangayu)
+Kitui East|362|Voo/Kyamatu|191-196|Kyaango;Imale/Kiangini;Muthungue;Kyamatu/Nzanzu;Nzunguni;Kasasi
+Kitui East|363|Endau/Malalani|197-201|Twambui/Makuka;Katumbi/Koi of Twambui;Ndetani;Yiuku/Kathua;Malalani/Syou
+Kitui East|364|Mutito/Kaliku|202-206|Musukini;Manyoeni/Masasini;Kyaimu/Itiko;Kawala/Kavutei;Kitoo
+Kitui South|365|Ikanga/Kyatune|207-213|Ithumula;Kathungu;Nduu-ndune/Kwa-Songe/Ilusya;Makele/Kiangwa;Kyatune;Ngwani/Yongela;Ndatani/Vote
+Kitui South|366|Mutomo/Kibwea|214-219|Kitoo;Mwala;Kandae;Kawelu;Kibwea;Uae
+Kitui South|367|Mutha|220-226|Ndakani;Ngaani;Kaliakatune;Kivyuni/Kiimani;Kengo/Kiati/Mwengea;Kaatene/Kalambani;Isaa
+Kitui South|368|Ikutha|227-233|Ndili;Maaini/Ngaw'uni;Kyoani;Ngwate;Nzamba;Kasaala/Uiini;Kiangu
+Kitui South|369|Kanziku/Simisi|234-238|Ekani/Simisi;Kavindini/Mwanianga;Kituvwi/Ilamba;Ndilili/Mivuni;Keutunda/Kyanyaa
+Kitui South|370|Athi|239-247|Kilawa;Kisiio;Lower Kituti;Upper Kituti;Makaiye;Katilini;Kalivu;Maluma;Muambani/Monguni

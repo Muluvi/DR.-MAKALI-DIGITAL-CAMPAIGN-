@@ -32,6 +32,10 @@ Each objective names its target, its owner, the finding it answers, its baseline
 id: fig-1-3-objectives
 ```
 
+```figure
+id: network-objectives
+```
+
 ### 8.2.1 Be known where he is not yet known
 
 ```visual

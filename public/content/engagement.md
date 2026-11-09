@@ -247,6 +247,18 @@ id: role-ownership
 id: reporting-lines
 ```
 
+```figure
+id: network-drilldown
+```
+
+```figure
+id: network-tasks
+```
+
+```figure
+id: network-digest
+```
+
 ## 17.5 Assessing and upskilling the team
 
 **The team assesses itself on the platform. Firefly replaces no one.**

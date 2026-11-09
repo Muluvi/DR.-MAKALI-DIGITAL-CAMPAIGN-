@@ -1,0 +1,66 @@
+[
+ {
+  "file": "kitui",
+  "section": "1.4",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-units",
+  "note": "Data: the Campaigner Network units, 8 constituencies, 40 wards and 247 villages, from the Kitui County Villages Act, 2015 Schedule. Placed after the paragraph that says no verified village count was available; that paragraph is unchanged and flagged to the owner."
+ },
+ {
+  "file": "votes",
+  "section": "2.3",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-seats",
+  "note": "Analysis: seats required, spans of control, the ward average of voters per village (estimated) and live gaps by ward."
+ },
+ {
+  "file": "goal",
+  "section": "8.2",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-objectives",
+  "note": "Objectives: how each campaigner role serves the five existing objectives, read from the site, not rewritten."
+ },
+ {
+  "file": "channels",
+  "section": "12.2",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-chain",
+  "note": "Strategies: the chain of command, a task moving down and a report moving up."
+ },
+ {
+  "file": "voters",
+  "section": "11.3",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-groups",
+  "note": "Strategies: the special-groups overlay and the group type by constituency matrix."
+ },
+ {
+  "file": "engagement",
+  "section": "17.4",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-drilldown",
+  "note": "Implementation: registration and coverage from the county to every village seat."
+ },
+ {
+  "file": "engagement",
+  "section": "17.4",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-tasks",
+  "note": "Implementation: tasks, the funnel, field signals, and the WhatsApp and USSD journeys (preview)."
+ },
+ {
+  "file": "engagement",
+  "section": "17.4",
+  "kind": "added-figure",
+  "words": 0,
+  "text": "id: network-digest",
+  "note": "Implementation: Dr. Makali one-screen digest."
+ }
+]
