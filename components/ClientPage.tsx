@@ -33,7 +33,10 @@ import { CoverHero } from "./premium/CoverHero";
 import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
 import { Story } from "./premium/Story";
-import { VisualOverview } from "./VisualOverview";
+import { ChapterDigest } from "./flow/ChapterDigest";
+import { RouteMap } from "./flow/RouteMap";
+import { FoldBody } from "./markdown/FoldBody";
+import type { ChapterDigest as Digest } from "../lib/digest";
 import { jumpTo } from "../lib/premium/transition";
 
 
@@ -72,7 +75,16 @@ interface ClientPageProps {
   expanded: boolean;
   /** True on "/": sections past the opening pair arrive as the reader reaches them. */
   streamed?: boolean;
+  /** Each chapter's takeaway and numbers, read from its own markdown (lib/digest.ts). */
+  digests?: Partial<Record<TabId, Digest>>;
 }
+
+/**
+ * The chapters "/" shows opened: the case on one screen and the ask. They are the pitch and the
+ * decision, and each is already a single screen; every other chapter opens as its digest
+ * (components/flow/ChapterDigest.tsx).
+ */
+const ALWAYS_OPEN: ReadonlySet<string> = new Set(["brief", "ask"]);
 
 const WiperUmbrellaLogo = () => (
   <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none">
@@ -86,9 +98,12 @@ const WiperUmbrellaLogo = () => (
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
+/** What a closed chapter reserves before it has been laid out: a digest on a 390 px phone. */
+const DIGEST_HEIGHT = 620;
+
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -146,10 +161,39 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
    * a document they arrived in the middle of.
    */
   const [forced, setForced] = useState<Set<string>>(() => new Set());
+
+  /**
+   * The summary layer (streamline pass, November 2026). On "/" a chapter shows its digest and its
+   * body stays closed, unfetched and unmounted, until the reader opens it or a link lands inside
+   * it. "/full" and the single-chapter routes are unchanged: everything open, for print and for a
+   * shared link.
+   */
+  const digestMode = streamed && !!digests;
+  const [opened, setOpened] = useState<Set<string>>(() => new Set());
+  const openChapter = useCallback((tab: string) => setOpened((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab))), []);
+  const toggleChapter = useCallback((tab: string) => {
+    setOpened((prev) => {
+      const next = new Set(prev);
+      if (!next.has(tab)) {
+        next.add(tab);
+        return next;
+      }
+      next.delete(tab);
+      // Closing a chapter the reader is deep inside would leave them thousands of pixels below
+      // where the page now ends, so the chapter's head comes back to the top of the screen first.
+      const head = document.getElementById(`section-${tab}`);
+      if (head && head.getBoundingClientRect().top < 0) head.scrollIntoView({ behavior: "instant", block: "start" });
+      return next;
+    });
+  }, []);
+
   const forceFor = useCallback((rawId: string) => {
+    // A jump to a chapter lands on its digest, so there is nothing to mount. Only a link to a
+    // heading inside the chapter needs its body.
+    if (digestMode && !rawId.includes("-sec-")) return;
     const tab = rawId.replace(/^section-/, "").split("-sec-")[0];
     if (TAB_IDS.includes(tab)) setForced((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab)));
-  }, []);
+  }, [digestMode]);
 
   const validSectionIds = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
 
@@ -300,11 +344,13 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   /* ----------------------------------------------------------------- print */
 
   const printDocument = useCallback(() => {
-    if (expanded) {
+    if (expanded && !streamed) {
       window.print();
       return;
     }
-    router.push("/", { scroll: false });
+    // "/" holds each chapter as a digest and fetches a chapter when it is opened, so the printed
+    // document is /full: every chapter, opened, rendered on the server.
+    router.push("/full", { scroll: false });
     let done = false;
     const fire = () => {
       if (done) return;
@@ -312,7 +358,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
       requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
     };
     window.setTimeout(fire, 1400);
-  }, [expanded, router]);
+  }, [expanded, streamed, router]);
 
   const labelOf = useCallback(
     (id: string) => {
@@ -369,18 +415,29 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
         {/* ------------------------------------------------ evidence preface */}
         {expanded && (
-          <section aria-label="The figures behind the decision" className="cv-auto-strip pf-shell pf-preface">
+          <section aria-label="The figures behind the decision" className="cv-auto-strip pf-shell pf-preface" data-summary={digestMode ? "true" : undefined}>
             {/* One reading time, measured from what the page shows on load (app/[[...slug]]/page.tsx),
                 so it cannot drift from what the page does. */}
-            <div className="pf-reading">
-              <p className="pf-reading__time">~{readingMinutes(Object.values(visibleWordCounts).reduce((a, b) => a + b, 0))} min read</p>
-              <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
-            </div>
-            <VisualOverview sections={FLOW_SECTIONS.map((section) => ({ id: section.id as TabId, label: section.label, number: section.number }))} wordCounts={wordCounts} visibleWordCounts={visibleWordCounts} />
-            {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
-                the pool and the spine of the argument. The hero above tells the same map's story. */}
-            <Figure id="fig-cover-map" />
-            <Figure id="fig-cover-spine" />
+            {digestMode ? (
+              // The route, then the one map the argument turns on. The spine figure repeated the
+              // four figures the hero has just shown and the six parts the route now carries, so
+              // it opens the cover chapter instead (below), where /full and print still have it.
+              <>
+                <RouteMap onSelect={goToSection} />
+                <Figure id="fig-cover-map" />
+              </>
+            ) : (
+              <>
+                <div className="pf-reading">
+                  <p className="pf-reading__time">~{readingMinutes(Object.values(visibleWordCounts).reduce((a, b) => a + b, 0))} min read</p>
+                  <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
+                </div>
+                {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
+                    the pool and the spine of the argument. The hero above tells the same map's story. */}
+                <Figure id="fig-cover-map" />
+                <Figure id="fig-cover-spine" />
+              </>
+            )}
           </section>
         )}
 
@@ -398,39 +455,13 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           <div id="content-area" className="flow-body">
             {served.map((item) => {
               const act = expanded ? opensAct(item.id) : null;
-              return (
-                <React.Fragment key={item.id}>
-                  {/* The act opener sits before its section, not inside it: a section is
-                      `content-visibility: auto`, which contains paint, and a full-bleed opener
-                      inside one was clipped to the reading column. */}
-                  {act && (
-                    <ActOpener
-                      act={act}
-                      index={FLOW_ACTS.indexOf(act)}
-                      total={FLOW_ACTS.length}
-                      portrait={ACT_PORTRAITS[FLOW_ACTS.indexOf(act)]}
-                      id={`act-${act.id}`}
-                    />
-                  )}
-                <section
-                  id={`section-${item.id}`}
-                  className="flow-section print:break-inside-auto"
-                  aria-labelledby={`chap-${item.id}`}
-                  // The real measured height of this section, so `content-visibility: auto` can
-                  // skip laying it out without misreporting the document's length. One flat
-                  // placeholder for all thirty made a 480,000px document claim to be 42,000px,
-                  // and every deep link past the third section landed in the wrong place.
-                  style={{ containIntrinsicSize: `auto ${sectionHeight(item.id, item.wordCount)}px` }}
-                >
-                  <div id={`chap-${item.id}`}>
-                    <ChapterMarker
-                      partLabel={partOf(item.id) === 0 ? null : actOf(item.id).label}
-                      actId={partOf(item.id) === 0 ? null : actOf(item.id).id}
-                      label={item.label}
-                      blurb={item.blurb}
-                      asTitle={!expanded}
-                    />
-                  </div>
+              const digest = digestMode && !ALWAYS_OPEN.has(item.id) ? digests?.[item.id] : undefined;
+              const isOpen = !digest || opened.has(item.id);
+              // What the chapter holds below its marker. In the summary layer it mounts when the
+              // chapter is opened or a link lands inside it; the first chapter is already in the
+              // server HTML and simply sits in the closed fold.
+              const body = (
+                <>
                   {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
                   {item.id === "votes" && (
                     <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
@@ -454,8 +485,77 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                       <Figure id="fig-cover-spine" />
                     </>
                   )}
+                  {/* In the summary layer the spine of the argument opens the cover chapter. */}
+                  {digestMode && item.id === "cover" && <Figure id="fig-cover-spine" />}
                   {item.content ?? (
-                    <StreamedSection tabId={item.id} words={item.wordCount} force={forced.has(item.id)} />
+                    <StreamedSection tabId={item.id} words={item.wordCount} force={!!digest || forced.has(item.id)} />
+                  )}
+                </>
+              );
+              return (
+                <React.Fragment key={item.id}>
+                  {/* The act opener sits before its section, not inside it: a section is
+                      `content-visibility: auto`, which contains paint, and a full-bleed opener
+                      inside one was clipped to the reading column. */}
+                  {act && (
+                    <ActOpener
+                      act={act}
+                      index={FLOW_ACTS.indexOf(act)}
+                      total={FLOW_ACTS.length}
+                      portrait={ACT_PORTRAITS[FLOW_ACTS.indexOf(act)]}
+                      id={`act-${act.id}`}
+                    />
+                  )}
+                <section
+                  id={`section-${item.id}`}
+                  className="flow-section print:break-inside-auto"
+                  aria-labelledby={`chap-${item.id}`}
+                  // The real measured height of this section, so `content-visibility: auto` can
+                  // skip laying it out without misreporting the document's length. One flat
+                  // placeholder for all thirty made a 480,000px document claim to be 42,000px,
+                  // and every deep link past the third section landed in the wrong place.
+                  // A chapter showing its digest is about one screen, whatever the chapter measures.
+                  style={{ containIntrinsicSize: `auto ${digest && !isOpen ? DIGEST_HEIGHT : sectionHeight(item.id, item.wordCount)}px` }}
+                  data-digest={digest ? (isOpen ? "open" : "closed") : undefined}
+                >
+                  <div id={`chap-${item.id}`}>
+                    <ChapterMarker
+                      partLabel={partOf(item.id) === 0 ? null : actOf(item.id).label}
+                      actId={partOf(item.id) === 0 ? null : actOf(item.id).id}
+                      label={item.label}
+                      blurb={item.blurb}
+                      asTitle={!expanded}
+                    />
+                  </div>
+                  {digest ? (
+                    <>
+                      <ChapterDigest
+                        tabId={item.id}
+                        lead={digest.lead}
+                        stats={digest.stats}
+                        steps={sections.filter((sec) => sec.tabId === item.id && sec.level === 2).map((sec) => ({ id: sec.id, title: sec.title }))}
+                        minutes={readingMinutes(item.visibleWordCount)}
+                        open={isOpen}
+                        controls={`body-${item.id}`}
+                        onToggle={() => toggleChapter(item.id)}
+                        onStep={(id) => {
+                          openChapter(item.id);
+                          navigateToSection(id);
+                        }}
+                      />
+                      <FoldBody id={`body-${item.id}`} open={isOpen} onReveal={() => openChapter(item.id)} className="cd-body">
+                        {isOpen || forced.has(item.id) || item.content ? body : null}
+                        {isOpen && (
+                          <p className="cd-close not-prose">
+                            <button type="button" className="cd-close__btn" onClick={() => toggleChapter(item.id)}>
+                              Close this chapter
+                            </button>
+                          </p>
+                        )}
+                      </FoldBody>
+                    </>
+                  ) : (
+                    body
                   )}
                 </section>
                 </React.Fragment>

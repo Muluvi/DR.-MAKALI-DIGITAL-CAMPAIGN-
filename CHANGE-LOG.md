@@ -1,3 +1,26 @@
+# Change log — the summary layer: each chapter on one screen (10 November 2026)
+
+**No content changed.** `content/*.md` is untouched; every guard's baseline stands. The pass, its
+prompt and its measurements are in `docs/streamline-2026-11/`.
+
+| | |
+|---|---|
+| **Why** | "/" was 441,013 px on a phone, about 520 screens, with the ask in chapter 23 of 28. The chapters were already visual; nothing above them said what each concludes |
+| **Digests** | On "/", 26 chapters open as one screen: takeaway, up to four numbers, the steps of the argument, "Read the chapter". Derived from the chapter's own first `lead` fence, first `stats` visual and level-2 headings (`lib/digest.ts`, `components/flow/ChapterDigest.tsx`). The case and the ask stay open |
+| **Loading** | A closed chapter is not fetched or mounted. A deep link into one mounts it, opens it and lands on the heading. `/full` and the single-chapter routes are unchanged |
+| **Route** | `components/flow/RouteMap.tsx` replaces `VisualOverview`: six parts, the question each answers, every chapter a jump, "Go to the ask" |
+| **Opening** | The spine figure moved into the cover chapter; the four figures show once before the case |
+| **Motion** | `app/streamline.css`: numbers count up, the route and the steps draw forward, all gated on `html.motion-ok` with final values in the server HTML |
+| **Dashboards** | Charts with data first; the empty team charts as one list |
+| **Print** | "Print, or save as PDF" on "/" opens `/full` first |
+| **Result** | "/" is about 37,100 px (about 44 screens) with 2,911 words visible on load |
+| **Guards** | `lib/digest.test.ts` joins `npm run test:declutter`. Lint, types, `npm run verify`, `npm run check:preservation` and the build pass |
+
+One trade-off for the owner is recorded in `docs/streamline-2026-11/REPORT.md`: browser find on "/"
+does not reach chapters that have not been opened; the index search and `/full` do.
+
+---
+
 # Change log — the November restructure: six Parts, 23 chapters, eight annexes (30 October 2026)
 
 **Content baseline moves to `a767371`.** The restructure renumbered every section, so the
