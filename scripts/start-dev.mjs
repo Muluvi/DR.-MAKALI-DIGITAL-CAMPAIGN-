@@ -104,16 +104,6 @@ async function ensureDependencies() {
  * Clean up stale build locks if any
  */
 function cleanStaleLocks() {
-  const prodManifest = path.join(APP_DIR, '.next', 'routes-manifest.json');
-  if (existsSync(prodManifest)) {
-    try {
-      rmSync(path.join(APP_DIR, '.next'), { recursive: true, force: true });
-      console.log('[start-dev] Cleared production .next artifacts for clean development server.');
-    } catch {
-      // Ignore
-    }
-  }
-
   const lockFiles = [
     path.join(APP_DIR, '.next', 'trace'),
     path.join(APP_DIR, '.next', 'lock'),
