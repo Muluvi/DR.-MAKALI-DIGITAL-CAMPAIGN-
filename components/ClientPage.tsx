@@ -119,7 +119,23 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   // Offline reading for the team (public/sw.js): what a phone has read reopens on a weak signal.
   // Production only, so a development server is never answered from a stale cache.
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
+    if (!("serviceWorker" in navigator)) return;
+    const isDevHost = window.location.hostname.includes("run.app") || window.location.hostname === "localhost";
+    if (process.env.NODE_ENV !== "production" || isDevHost) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const reg of registrations) {
+          reg.unregister();
+        }
+      });
+      if ("caches" in window) {
+        caches.keys().then((names) => {
+          for (const name of names) {
+            caches.delete(name);
+          }
+        });
+      }
+      return;
+    }
     navigator.serviceWorker.register("/sw.js").catch(() => { /* unsupported or refused: the page works without it */ });
   }, []);
 

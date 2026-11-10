@@ -146,6 +146,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             __html: `try{var t=null;try{t=localStorage.getItem("theme")}catch(e){}var l=t==="light"||t==="sepia"||(t!=="dark"&&matchMedia("(prefers-color-scheme: light)").matches);document.documentElement.classList.toggle("dark",!l)}catch(e){}`,
           }}
         />
+        {/* Unregister any production service worker and clear stale chunk caches in development or sandbox preview environments */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator && (location.hostname.includes('run.app') || location.hostname === 'localhost')){navigator.serviceWorker.getRegistrations().then(function(regs){for(var i=0;i<regs.length;i++){regs[i].unregister()}});if('caches' in window){caches.keys().then(function(keys){for(var j=0;j<keys.length;j++){caches.delete(keys[j])}})}}`,
+          }}
+        />
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
             and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>

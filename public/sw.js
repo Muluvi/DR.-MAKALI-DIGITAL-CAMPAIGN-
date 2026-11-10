@@ -25,6 +25,10 @@ const VERSION = "kitui-2027-v2";
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 
+if (typeof self !== "undefined" && self.location && (self.location.hostname.includes("run.app") || self.location.hostname === "localhost")) {
+  self.registration?.unregister();
+}
+
 self.addEventListener("install", () => self.skipWaiting());
 
 self.addEventListener("activate", (event) => {
