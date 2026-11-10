@@ -1,3 +1,23 @@
+# Change log — the effects layer: site-wide visual effects and motion (10 November 2026)
+
+**No content changed.** `content/*.md` is untouched; `npm run verify` and the build pass. Requested
+by the owner as a site-wide catalogue of effects "without skipping any sections"; it supersedes
+the three-loop ambient budget in `MOTION-SYSTEM.md`, which now records the new contract.
+
+| | |
+|---|---|
+| **Where** | `components/fx/` (FxRoot, FxPanel, HeroFX), `lib/fx/` (reveal, scroll, pointer, prefs, feedback), `app/fx-suite.css`. Mounted once in `app/layout.tsx`, so the flow, `/full`, every section route, `/tools` and the platform all get it |
+| **Coverage** | Delegated, not wired per component: one IntersectionObserver plus a MutationObserver tags every element a rule names, including chapters streamed in after hydration. A full-document audit (scroll every 0.7 screen, desktop and 390 px) finds no armed element left hidden in view |
+| **Hero** | WebGL shader (liquid mesh gradient, ray-marched metaballs, caustics, pointer displacement, bloom, chromatic aberration, vignette, grain); 3D particle constellation with depth of field; typewriter; split-character title with gradient, extrusion and glitch; pin drop, catchment pulse and flight-line arcs on the county; rotating seal; split-screen, blur and scale entrances; Ken Burns; scroll parallax; a once-per-visit branded splash |
+| **Scroll** | 22 reveal variants (slide, blur, pop, flip, unfold, roll, light speed, wipe, iris, curtain…) with staggers and ripples; stat cards re-fire; progress bar; back to top with a progress ring; nav dots; direction-aware glass header; velocity skew; colour zones; proximity snap; the route pins and travels sideways; scroll-driven zoom, rotation, colour grade, blur-out and fade zones |
+| **Pointer** | Custom cursor on a spring with a trail and contextual words; 3D tilt with inner parallax; spotlight; conic border draw; magnetism; click ripples; tooltips; copy link with glow, checkmark and confetti; drag-to-pan with momentum and a rubber band |
+| **Reader controls** | "Look and motion" panel (drawer; bottom sheet with detents on phones): animated light/dark switch with a circular reveal, five colour themes with live preview (incl. a seasonal one), ambient / cursor / sound switches, effect strength, hold-to-reset. Kept in this browser only |
+| **Honesty** | Palettes theme the interface, never the data: map and chart encodings stay Wiper blue, and no palette hue sits near the earth or gold the maps encode with (Laterite was rejected for that reason). Counters and bars still settle on true values |
+| **Fallbacks** | Reduced motion: nothing is armed, every loop stops, tooltips, copy link and back to top remain. No script: nothing is hidden; the splash is pure CSS and ends itself. Hidden tab: every loop pauses |
+| **Not built** | Video background and scroll-scrubbed video (no footage exists; placeholders are against AGENTS.md); before/after slider (no paired images); Three.js and model viewers (no 3D asset; the shader is raw WebGL, no new dependency); notification bell and live-status claims (nothing here is live); pull-to-refresh, pinch-zoom and drag-to-reorder (no list or surface where they would mean anything) |
+
+---
+
 # Change log — the summary layer: each chapter on one screen (10 November 2026)
 
 **No content changed.** `content/*.md` is untouched; every guard's baseline stands. The pass, its

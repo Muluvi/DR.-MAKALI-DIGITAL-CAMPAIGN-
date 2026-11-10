@@ -55,7 +55,11 @@ export function RouteMap({ onSelect }: { onSelect: (tab: TabId) => void }) {
         </div>
       </header>
 
-      <ol className="rm__route" style={{ "--rm-stops": PARTS.length } as React.CSSProperties}>
+      {/* On a wide screen with motion welcome, the route pins and travels sideways as the page
+          scrolls (app/fx-suite.css, lib/fx/scroll.ts); everywhere else it is the vertical route. */}
+      <div className="fx-hscroll" style={{ "--fx-h-n": PARTS.length } as React.CSSProperties}>
+      <div className="fx-hscroll__pin">
+      <ol className="rm__route fx-hscroll__track" style={{ "--rm-stops": PARTS.length } as React.CSSProperties}>
         {PARTS.map((part, i) => (
           <li key={part.id} className="rm__stop" style={{ "--rm-i": i } as React.CSSProperties}>
             <span className="rm__node" aria-hidden="true">{i + 1}</span>
@@ -77,6 +81,9 @@ export function RouteMap({ onSelect }: { onSelect: (tab: TabId) => void }) {
           </li>
         ))}
       </ol>
+      <div className="fx-hscroll__meter" aria-hidden="true"><span /></div>
+      </div>
+      </div>
 
       <div className="rm__shelves">
         <p className="rm__kicker">After the proposal</p>

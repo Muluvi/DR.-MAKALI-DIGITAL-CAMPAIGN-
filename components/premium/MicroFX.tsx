@@ -15,7 +15,7 @@ import { useEffect } from "react";
  * Press states are CSS alone (app/premium.css, "micro-interactions"). Everything here is off
  * under reduced motion, and the pointer effects are off on a coarse pointer.
  */
-const MAGNETIC = "[data-magnetic], button.bg-accent-solid, a.bg-accent-solid, .pf-storyptr a";
+const MAGNETIC = "[data-magnetic], button.bg-accent-solid, a.bg-accent-solid, .pf-storyptr a, .rm__cta, .cd__open, .pf-dock__icon, .fx-btt, .fx-trigger, .plat-btn-solid";
 const LIGHT = ".rf--hero";
 const TAPPABLE = "button, a[href], [role='tab'], label, summary";
 const PULL = 6;
@@ -63,7 +63,10 @@ export function MicroFX() {
           release(magnet);
           magnet = null;
         } else {
-          magnet.style.setProperty("translate", `${(dx * PULL).toFixed(1)}px ${(dy * PULL * 0.6).toFixed(1)}px`);
+          // Scaled by the reader's effect strength (components/fx/FxPanel.tsx).
+          const k = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fx-k")) || 0.7;
+          const pull = PULL * k * 1.4;
+          magnet.style.setProperty("translate", `${(dx * pull).toFixed(1)}px ${(dy * pull * 0.6).toFixed(1)}px`);
         }
       }
     };

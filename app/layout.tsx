@@ -6,6 +6,8 @@ import './premium.css'; // The 2026 premium layer
 import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
 import './motion-draw.css'; // How each visual arrives and how folds and tabs open (after the marks it moves)
 import './streamline.css'; // The summary layer: the route map and the chapter digests
+import './fx-suite.css'; // The site-wide effects layer (components/fx, lib/fx), last so it composes over the rest
+import { FxRoot } from '@/components/fx/FxRoot';
 
 // The variable axis, not a pair of static cuts.
 //
@@ -135,7 +137,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             switching after hydration, which shifted the evidence page (CLS 0.48). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-story-pin","")}catch(e){}`,
+            __html: `try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.setAttribute("data-story-pin","");document.documentElement.classList.add("fx-on")}}catch(e){}`,
           }}
         />
         {/* The theme, before first paint (visual-first pass). A stored choice wins; without one the
@@ -152,13 +154,37 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             __html: `if('serviceWorker' in navigator && (location.hostname.includes('run.app') || location.hostname === 'localhost')){navigator.serviceWorker.getRegistrations().then(function(regs){for(var i=0;i<regs.length;i++){regs[i].unregister()}});if('caches' in window){caches.keys().then(function(keys){for(var j=0;j<keys.length;j++){caches.delete(keys[j])}})}}`,
           }}
         />
+        {/* The branded intro plays once per visit, on the front door only. Decided before first
+            paint so a returning reader or a deep link never sees it; it is pure CSS, ends itself,
+            and never blocks a click (pointer-events: none), so nothing depends on script. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var s=sessionStorage.getItem("kitui2027:fx-splash");if(s||location.pathname!=="/"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-fx-nosplash","");else sessionStorage.setItem("kitui2027:fx-splash","1")}catch(e){document.documentElement.setAttribute("data-fx-nosplash","")}`,
+          }}
+        />
         {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
             and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
         <noscript>
-          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}[data-row-more]{display:revert!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-panel__btn,.pf-textver__summary,.vz-tabs__list{display:none!important}`}</style>
+          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}[data-row-more]{display:revert!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-panel__btn,.pf-textver__summary,.vz-tabs__list,.fx-trigger{display:none!important}`}</style>
         </noscript>
       </head>
-      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
+      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">
+        <div className="fx-splash print:hidden" aria-hidden="true">
+          <span className="fx-splash__panel fx-splash__panel--l" />
+          <span className="fx-splash__panel fx-splash__panel--r" />
+          <span className="fx-splash__mark">
+            <svg viewBox="0 0 120 120" width="72" height="72" fill="none">
+              <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" pathLength="1" className="fx-splash__l" />
+              <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" pathLength="1" className="fx-splash__r" />
+              <path d="M60 58 V92 C60 99 51 99 51 92" pathLength="1" className="fx-splash__h" />
+            </svg>
+            <span className="fx-splash__word">Kitui 2027</span>
+            <span className="fx-splash__bar"><span /></span>
+          </span>
+        </div>
+        {children}
+        <FxRoot />
+      </body>
     </html>
   );
 }
