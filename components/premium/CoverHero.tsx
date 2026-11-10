@@ -9,6 +9,7 @@ import { Portrait } from "../Portrait";
 import { BigNumber } from "./BigNumber";
 import { CountyStatic } from "./CountyStatic";
 import { provenanceOf } from "./ProvPill";
+import { HeroFX, HeroKinetic, HeroType } from "../fx/HeroFX";
 
 /**
  * The cover hero (brief §10 Cover, G-2).
@@ -38,6 +39,7 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
     <>
       <section className="pf-hero" data-story="false" aria-labelledby="pf-hero-title">
         <div className="pf-hero__stage">
+          <HeroFX />
           <div className="pf-hero__glow" aria-hidden="true" />
           <div className="pf-hero__county">
             <CountyStatic id="pf-hero-static" className="pf-hero__static" draw label={`Kitui's 40 wards. ${LAYERS.footprint.description}`} />
@@ -53,8 +55,16 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
               <span className="pf-seal__mark" aria-hidden="true" />
               <strong>Prepared for Dr. Mulu</strong> — open to anyone with the link.
             </p>
+            <HeroType />
             <h1 id="pf-hero-title" className="pf-hero__title">
-              <span className="pf-line"><span>Kitui 2027:</span></span>
+              {/* The first line is split into characters for the entrance, with the words kept whole
+                  for assistive technology; data-text feeds the glitch layers (app/fx-suite.css). */}
+              <span className="pf-line">
+                <span className="fx-glitch" data-text="Kitui 2027:">
+                  <span className="sr-only">Kitui 2027:</span>
+                  <HeroKinetic text="Kitui 2027:" />
+                </span>
+              </span>
               <span className="pf-line"><span>Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Digital Operation</span></span>
             </h1>
             <p className="pf-hero__sub">

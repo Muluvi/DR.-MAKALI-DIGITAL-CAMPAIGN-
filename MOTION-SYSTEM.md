@@ -81,7 +81,34 @@ focus ring that never appears is a bug, not a preference.
 | Accordion, drawer | Height transition | Instant, focus moves to content |
 | Hover, press, focus | 120–180ms | **Kept**, shortened to ~80ms |
 
-## Ambient loop budget: 3
+## The effects layer (November 2026)
+
+At the owner's request the site now carries a full effects layer: `components/fx/`, `lib/fx/`
+and `app/fx-suite.css`, mounted once in `app/layout.tsx`. It **supersedes the three-loop budget
+below**, which is kept for the record. What still holds from this document, and is enforced:
+
+- **Never animate to the truth.** Reveals only hide elements below the fold or in a closed fold;
+  a value is never shown as anything but itself once it settles. Palettes never touch data
+  encodings (`--pf-accent*`, `--kx-accent` and accent bars stay Wiper blue).
+- **Reduced motion wins.** `html.fx-on` is never set under `reduce`: nothing is armed, every loop
+  stops, and the reader keeps the non-motion aids (tooltips, copy link, back to top).
+- **No script, nothing hidden.** Armed states come only from the engine.
+- **Composited properties.** transform (and translate / scale / rotate), opacity, filter,
+  clip-path. One passive scroll listener, one rAF per frame.
+
+The reader controls ambient motion, the cursor, sound and effect strength in the "Look and motion"
+panel. Loops pause in a hidden tab and off-screen (the hero canvases use an IntersectionObserver).
+
+| Engine | File | Does |
+|---|---|---|
+| Reveal | `lib/fx/reveal.ts` | Rule table → `data-fx` variant, stagger/ripple/refire; scramble; lazy-image blur-up |
+| Scroll | `lib/fx/scroll.ts` | Progress, back to top, nav dots, header state, velocity, zones, pinned rails, favicon, idle, the end |
+| Pointer | `lib/fx/pointer.ts` | Cursor and trail, tilt, spotlight, ripple, tooltip, copy link, drag with momentum |
+| Hero | `components/fx/HeroFX.tsx` | WebGL shader, 3D particles, typewriter, kinetic title, map pins and arcs |
+
+A new surface is covered by adding one line to `RULES` in `lib/fx/reveal.ts`.
+
+## Ambient loop budget: 3 (superseded, see above)
 
 Looping motion is the commonest migraine and vestibular trigger, and — more important here —
 it implies a running system. Nothing on this page is live: it is a proposal for work not yet

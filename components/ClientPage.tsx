@@ -87,7 +87,7 @@ interface ClientPageProps {
 const ALWAYS_OPEN: ReadonlySet<string> = new Set(["brief", "ask"]);
 
 const WiperUmbrellaLogo = () => (
-  <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none">
+  <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="fx-logo shrink-0 select-none" aria-hidden="true">
     <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" fill="#00209f" />
     <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" fill="#e31d2b" />
     <path d="M60 20 V58" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
@@ -583,6 +583,21 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
         <footer className="pf-shell pf-footer relative mt-10 pt-8">
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
+          {/* Every chapter on one moving belt, each a link into the document. The second copy exists
+              only to close the loop and is hidden from assistive technology and from the tab order. */}
+          <nav className="fx-marquee print:hidden" aria-label="All chapters">
+            {[0, 1].map((copy) => (
+              <ul key={copy} className="fx-marquee__track" aria-hidden={copy === 1 ? "true" : undefined}>
+                {navItems.map((t) => (
+                  <li key={t.id}>
+                    <button type="button" tabIndex={copy === 1 ? -1 : undefined} onClick={() => goToSection(t.id)}>
+                      {t.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </nav>
           <div className="confidentiality-marker mb-3">
             <strong>Prepared for Hon. Dr. Benson Makali Mulu personally</strong>
             <span className="opacity-85"> — open to anyone with the link. Please do not circulate it further.</span>
