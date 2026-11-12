@@ -1,5 +1,7 @@
 "use client";
 
+// The platform's controls and cards: the story pages do not load this sheet otherwise.
+import "@/app/platform.css";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";

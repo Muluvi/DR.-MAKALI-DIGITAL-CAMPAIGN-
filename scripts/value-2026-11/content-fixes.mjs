@@ -50,7 +50,8 @@ const LAYERS_LEAD = "**What Firefly offers comes in four layers: the platform as
 
 
 /** A live model inside a chapter: rendered by components/models/ModelEmbed.tsx. */
-const embed = (slug) => `<model-embed slug="${slug}"></model-embed>\n`;
+// The opening tag alone on its line makes it an HTML block, not inline HTML inside a paragraph.
+const embed = (slug) => `<model-embed slug="${slug}">\n</model-embed>\n`;
 
 export const REWRITES = [
   // 1. In brief

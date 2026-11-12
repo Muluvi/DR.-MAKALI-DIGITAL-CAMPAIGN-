@@ -82,7 +82,8 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign judg
 id: response-matrix
 ```
 
-<model-embed slug="response-tier"></model-embed>
+<model-embed slug="response-tier">
+</model-embed>
 
 ## F.2 Response times by channel
 

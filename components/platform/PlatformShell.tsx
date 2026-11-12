@@ -40,6 +40,7 @@ export async function PlatformShell({ children }: { children: React.ReactNode })
       <footer className="plat-chrome mx-auto max-w-6xl px-4 pb-10 text-[0.78rem] text-muted sm:px-6">
         {login ? "Open to view: anyone with the link sees everything. Dr. Mulu's team signs in to edit." : "Open to view: anyone with the link sees everything."} Firefly built, owns and runs the platform; the campaign owns its content and data.
         <p className="mt-1">Official election data last verified <time dateTime={PUBLIC_RETRIEVED}>{new Date(`${PUBLIC_RETRIEVED}T00:00:00+03:00`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Africa/Nairobi" })}</time>. <Link className="underline" href="/tools/sources">Sources and gaps</Link></p>
+        <p className="mt-1 print:hidden"><Link className="underline" href="/help">Help</Link> · <Link className="underline" href="/status">Status</Link> · <Link className="underline" href="/privacy">Privacy</Link></p>
       </footer>
     </div>
   );

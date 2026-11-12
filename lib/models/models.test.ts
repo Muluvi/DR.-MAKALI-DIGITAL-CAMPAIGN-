@@ -131,6 +131,11 @@ test("send check: each SMS rule refuses on its own", () => {
   assert.equal(checkSend({ ...okSms, lodgedOn: "" }).allowed, false);
 });
 
+test("send check: a phone number in the message is refused on any rail", () => {
+  assert.equal(checkSend({ ...okSms, message: "Call 0712345678" }).allowed, false);
+  assert.equal(checkSend({ ...okSms, rail: "WhatsApp", message: "Call 0712345678" }).allowed, false);
+});
+
 test("send check: on a rail the log sets no rule for, nothing is refused and the result says so", () => {
   const r = checkSend({ ...okSms, rail: "WhatsApp", language: "Kikamba", sendTime: "22:00", lodgedOn: "" });
   assert.equal(r.allowed, true);

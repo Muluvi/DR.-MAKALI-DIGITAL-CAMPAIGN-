@@ -34,10 +34,31 @@ Each model's arithmetic is a pure function in `lib/models/`, called by its page 
 | Ward priority | Live | Ward register, station list, the scorecard's itemised projects by ward |
 | Send check | Live | The dispatch collection's own rules (`lib/platform/collections.ts`) |
 | Rollout planner | Live | The gazetted race calendar |
-| Reach by channel | Planned | Channel reach and connectivity figures |
-| Weekly brief mix | Planned | Message architecture and segments |
-| Response tier | Planned | Escalation ladder and runbooks |
-| Record finder | Planned | County projects register |
+| Reach by channel | Live | Internet use and phone ownership (CA/KNBS 2023/24); 2022 register by constituency |
+| Weekly brief mix | Live | The segment plan fig-4-3 prints (`SEGMENT_PLAN`) |
+| Response tier | Live | The four-tier escalation ladder and the pre-drafted holding positions |
+| Record finder | Live | The scorecard's 401 itemised projects |
+
+Each model also runs inside its chapter: `<model-embed slug="…">` on its own line opens it in
+place (`components/models/ModelEmbed.tsx`), loading only when a reader opens it, and never changing
+the story's address. Winning number: How Kitui voted. Ward priority: The voters to win. Reach by
+channel and send check: Channels and language. Weekly brief mix: The message. Record finder: His
+record and reach. Response tier: Risks and response. Polling-agent cover: the workstreams. Rollout
+planner: How the platform reaches all 40 wards.
+
+## The second batch
+
+| Change | Where |
+|---|---|
+| New chapter, How the platform reaches all 40 wards (29 chapters) | `content/rollout.md`, `lib/heading-slug.ts`, `lib/content-files.ts` |
+| Who does what, Lawful and ethical, Measuring success (18.6), Risks and response (20.6) | logged in `ledger.json` |
+| Free text refuses phone numbers, ID numbers and email addresses, in the browser and on the server | `lib/platform/personal-data.ts`, `lib/platform/validate.ts` |
+| Rate limits on sign-in and on saving | `lib/platform/rate-limit.ts`, `app/(platform)/actions.ts` |
+| Security headers on every response; no `X-Powered-By` | `next.config.ts` |
+| `/help` (English, and Kiswahili marked as a draft until reviewed), `/status`, `/privacy` | `app/(platform)/` |
+
+The rate limits are per server instance: they stop a burst from one visitor, not a determined
+attack across instances. A shared store makes them a hard cap, in the Readiness phase.
 
 The plain-language AI layer over the models (step 4) is not built: it waits on an AI service and a
 usage ceiling. The models work without it, and it will never produce a number of its own.
@@ -56,6 +77,4 @@ The structure note left four decisions open. This pass builds on:
 ## Not done here
 
 - Making the source repository private: a repository setting, not a code change.
-- The new chapter "How the platform reaches all 40 wards", embedding models in their chapters, and
-  the four planned models (step 5).
 - Live sign-in, scoped edit roles, staging, backups and monitoring (step 6).

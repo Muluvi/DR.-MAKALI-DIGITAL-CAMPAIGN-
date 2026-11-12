@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   allowedDevOrigins: ['*.run.app', 'localhost:3000'],
   reactStrictMode: true,
+  // No 'X-Powered-By: Next.js' header: it tells an attacker which framework advisories to try.
+  poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: false,
   },
@@ -37,7 +39,20 @@ const nextConfig: NextConfig = {
   // only on a merge: a short max-age with a long stale-while-revalidate answers from cache on a
   // weak signal while still picking up the next deploy.
   async headers() {
+    // Security headers on every response. The policy restricts framing, plugins, the base URL and
+    // where forms post; it leaves scripts and styles alone, because a script policy needs nonces
+    // threaded through the app and would break the page if guessed. HSTS is sent on every host;
+    // browsers ignore it over plain HTTP, so local development is unaffected.
+    const security = [
+      { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()' },
+      { key: 'Content-Security-Policy', value: "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'" },
+    ];
     return [
+      { source: '/:path*', headers: security },
       { source: '/sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }] },
       { source: '/data/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
       { source: '/content/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },

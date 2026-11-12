@@ -151,4 +151,5 @@ id: fig-3-3-paths
 
 **What it means for the campaign.** The margin is built in Mwingi and Kitui South, where Dr. Mulu has never held office (Section 6.2), and the home belt is held, not relied on.
 
-<model-embed slug="winning-number"></model-embed>
+<model-embed slug="winning-number">
+</model-embed>

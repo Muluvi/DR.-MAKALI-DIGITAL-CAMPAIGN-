@@ -15,6 +15,7 @@ import { LOCAL_COOKIE, localCredentials, localToken, NotAllowed, readStore, requ
 import { fireflyAdminEmails, platformMode, teamLoginEnabled } from "@/lib/platform/config";
 import { commit, Refused, type Target } from "@/lib/platform/pack";
 import { serviceClient } from "@/lib/platform/store/supabase";
+import { callerKey, limiter, LIMITS, waitMessage } from "@/lib/platform/rate-limit";
 
 export type ActionResult = { ok: true; message: string } | { ok: false; errors: Record<string, string> };
 
@@ -26,6 +27,12 @@ function guard(e: unknown): ActionResult {
   return fail(e instanceof Error ? e.message : "Something went wrong. Nothing was saved.");
 }
 
+/** Refuses the call when this caller has hit the action's limit (lib/platform/rate-limit.ts). */
+async function throttled(action: keyof typeof LIMITS, extra = ""): Promise<ActionResult | null> {
+  const wait = limiter.hit(`${action}|${callerKey(await headers())}|${extra}`, LIMITS[action]);
+  return wait ? fail(waitMessage(wait)) : null;
+}
+
 function refresh() {
   for (const p of ["/workspace", "/progress", "/dashboards", "/explore", "/history"]) revalidatePath(p, "layout");
 }
@@ -34,6 +41,8 @@ function refresh() {
 
 export async function saveRecord(collectionId: string, id: string | null, input: Record<string, unknown>): Promise<ActionResult> {
   try {
+    const limited = await throttled("save");
+    if (limited) return limited;
     const { session, store } = await requireMember();
     const c = COLLECTION_BY_ID[collectionId];
     if (!c) return fail("That workspace does not exist.");
@@ -52,6 +61,8 @@ export async function saveRecord(collectionId: string, id: string | null, input:
 /** Puts a change back exactly as it was. A revert is itself logged, and can be reverted. */
 export async function revertChange(auditId: string): Promise<ActionResult> {
   try {
+    const limited = await throttled("save");
+    if (limited) return limited;
     const { session, store } = await requireMember();
     const entry = await store.auditEntry(auditId);
     if (!entry) return fail("That change is not in the history.");
@@ -87,6 +98,8 @@ export async function revertChange(auditId: string): Promise<ActionResult> {
 
 export async function savePackEdit(target: Target): Promise<ActionResult> {
   try {
+    const limited = await throttled("save");
+    if (limited) return limited;
     const { session, store } = await requireMember();
     const done = await commit(target, session.name);
     await store.logPack(session, {
@@ -131,6 +144,8 @@ export async function saveMember(input: { email: string; name: string; role: "te
 export async function signIn(input: { email: string; password?: string; magic?: boolean }): Promise<ActionResult> {
   const email = input.email.trim().toLowerCase();
   if (!email) return { ok: false, errors: { email: "Enter your email address." } };
+  const limited = await throttled("signIn", email);
+  if (limited) return limited;
   const mode = platformMode();
   if (!teamLoginEnabled() || mode === "off") return fail("Sign-in is switched off. The site is open to view.");
   if (mode === "local") {

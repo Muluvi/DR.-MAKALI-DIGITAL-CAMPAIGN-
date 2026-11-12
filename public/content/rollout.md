@@ -18,7 +18,8 @@ The six implementation phases start the week the first phase is approved, not on
 
 The dates that do not move are the Gazette's: Governor nominations and the Governor campaign period open on 3 June 2027, chief election agents are named by 27 July, and the campaign period closes 48 hours before polling day, 10 August. Which of them the field operation must be reporting by is the campaign's decision, taken in Discovery. The rollout planner lays the six implementation phases from any start date, with every length an input, and shows the weeks to spare or the overrun.
 
-<model-embed slug="rollout-planner"></model-embed>
+<model-embed slug="rollout-planner">
+</model-embed>
 
 ## 24.2 The centre first, then two pilot constituencies, then the rest
 

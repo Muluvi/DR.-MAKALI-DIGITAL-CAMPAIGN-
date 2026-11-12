@@ -27,7 +27,7 @@ export function ResponseTier({ tiers, lines, initial, embedded = false }: { tier
 
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-      <div className="plat-card grid gap-4 p-4 sm:p-5">
+      <div className="plat-card grid content-start gap-4 p-4 sm:p-5">
         <label className="plat-label">What happened
           <select className="plat-input mt-1" value={i.kind} onChange={(e) => set("kind", e.target.value as KindKey)}>{KINDS.map((k) => <option key={k.key} value={k.key}>{k.label}</option>)}</select>
         </label>

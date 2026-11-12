@@ -308,7 +308,8 @@ Built on what each channel can reach (Section 4.3):
 id: message-by-channel
 ```
 
-<model-embed slug="brief-mix"></model-embed>
+<model-embed slug="brief-mix">
+</model-embed>
 
 ## 10.5 Countering disinformation
 

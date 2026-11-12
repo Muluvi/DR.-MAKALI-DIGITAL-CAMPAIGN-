@@ -428,7 +428,8 @@ To maintain operational tempo across 8 constituencies and 40 wards, the campaign
 id: operating-rhythm
 ```
 
-<model-embed slug="polling-agents"></model-embed>
+<model-embed slug="polling-agents">
+</model-embed>
 
 ### 15.3.2 Workstream 8 — The field-to-digital loop
 

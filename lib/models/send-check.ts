@@ -7,6 +7,7 @@
  * provider confirms the current text of the guidelines the rules encode.
  */
 import { COLLECTIONS } from "../platform/collections.ts";
+import { findPersonalData, personalDataMessage } from "../platform/personal-data.ts";
 
 export type SendInputs = { rail: string; language: string; date: string; sendTime: string; lodgedOn: string; message: string };
 export type SendResult = { allowed: boolean; refusals: string[]; ruled: boolean };
@@ -33,5 +34,8 @@ export const SMS_LIMIT = Number(/(\d+) characters/.exec(field("message").hint ??
 export function checkSend(i: SendInputs): SendResult {
   const record: Record<string, unknown> = { ...i };
   const refusals = (DISPATCH!.rules ?? []).map((r) => r(record)).filter((m): m is string => !!m);
+  // The log's form refuses contact details in free text on every rail (lib/platform/validate.ts).
+  const personal = findPersonalData(i.message);
+  if (personal) refusals.push(personalDataMessage("The message", personal));
   return { allowed: refusals.length === 0, refusals, ruled: RULED_RAILS.has(i.rail) };
 }
