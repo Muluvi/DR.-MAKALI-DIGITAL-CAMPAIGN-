@@ -1,18 +1,18 @@
 /**
  * Which backend the platform runs on.
  *
- *   supabase  production: Supabase Postgres + Supabase Auth, configured by Vercel environment
- *             variables (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY,
- *             SUPABASE_SERVICE_ROLE_KEY). Never committed.
+ *   supabase  production: Supabase Postgres, configured by Vercel environment variables
+ *             (NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY). Never committed.
  *   local     development and testing only (PLATFORM_STORE=local): a JSON file under
- *             .platform-local/ and accounts from PLATFORM_LOCAL_USERS. Refused on Vercel.
+ *             .platform-local/. Refused on Vercel.
  *   off       nothing configured: every public page still renders the data pack in full; the
  *             team's working records show as not yet entered, and editing is unavailable.
  */
 export type Mode = "supabase" | "local" | "off";
 
 export function platformMode(): Mode {
-  if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) return "supabase";
+  // No sign-in: the server alone talks to the database, so the browser (anon) key is not needed.
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) return "supabase";
   if (process.env.PLATFORM_STORE === "local") {
     if (process.env.VERCEL) throw new Error("PLATFORM_STORE=local is for development only and cannot run on Vercel.");
     return "local";

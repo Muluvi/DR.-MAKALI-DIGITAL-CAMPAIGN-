@@ -11,15 +11,15 @@ Anyone with the link can see everything, without an account:
 - **Strategies** (`/strategies`): every objective, strategy, workstream and response, with the figures behind each.
 - **Implementation** (`/progress`): who is doing what, on which channel, and where it stands.
 - **Workspace** (`/workspace`): the team's working records.
-- **Changes** (`/history`): every change, who made it and when.
+- **Changes** (`/history`): every change and when it was made.
+- **Models** (`/models`): set the options, or type an instruction such as "turnout 70% in Mwingi North", and see the outcome explained. **Save this scenario** keeps it in the workspace for a brief.
 
-## Signing in
+## No sign-in
 
-1. Firefly adds you and you receive an email invitation.
-2. Open the link **on your phone**. You are signed in.
-3. Later: go to **Team sign-in**, enter your email and tap **Email me a sign-in link**.
+There are no accounts. Anyone with the link can add and change records, so:
 
-If the site says your account is not on the team, ask Firefly.
+- never type a name, phone number, ID number or email address: the forms refuse them;
+- if you see a change that should not be there, tell Firefly, or put it back yourself from **Changes**.
 
 ## Your day-to-day work (the workspace)
 
@@ -46,7 +46,7 @@ To change a record, tap **Edit** on it.
 
 ## Updating the data (figures, register, lists)
 
-Open **Edit data** (`/team/data`).
+Open **Edit data** (`/edit-data`).
 
 - **Figures**: search for the figure, change the value, source or date, then tap **Submit edit**. If something is wrong, for example a sourced figure with no source, the form tells you what to fix before anything is sent.
 - **Register**: pick the ward and enter the number. Leave "update the totals" ticked.

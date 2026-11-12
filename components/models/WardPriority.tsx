@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CRITERIA, KEYS, cleanWeights, leadingCriterion, rankWards, type CriterionKey, type PriorityWard, type Weights } from "@/lib/models/ward-priority";
 import { GRID, WARD_TILES } from "@/lib/geo/wards";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "./InstructionBox";
 import { parsePriority } from "@/lib/models/instruct/parse";
 import { explainPriority } from "@/lib/models/instruct/explain";
@@ -45,7 +46,7 @@ export function WardPriority({ wards, initial, embedded = false }: { wards: Prio
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={explainPriority(ranked)} examples={["focus on register size and where he has not held office", "only polling stations", "voters 60, projects 40", "even weights"]} />
+      <InstructionBox onRun={instruct} explanation={explainPriority(ranked)} model="ward-priority" examples={EXAMPLES["ward-priority"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5">
         {CRITERIA.map((c) => (
           <label key={c.key} className="block text-[0.85rem] text-muted">

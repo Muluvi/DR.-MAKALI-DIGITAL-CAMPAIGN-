@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { checkSend, LANGUAGE_OPTIONS, RAIL_OPTIONS, SMS_LIMIT, type SendInputs } from "@/lib/models/send-check";
 import { addDays } from "@/lib/models/rollout";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "./InstructionBox";
 import { parseSend } from "@/lib/models/instruct/parse";
 import { explainSend } from "@/lib/models/instruct/explain";
@@ -39,7 +40,7 @@ export function SendCheck({ today, initial, embedded = false }: { today: string;
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={explainSend(result, v.rail)} examples={["SMS in Kiswahili at 10am on 20 March, lodged on 17 March", "SMS in Kikamba at 6pm tomorrow, not lodged", "WhatsApp in Kikamba today at 7pm"]} />
+      <InstructionBox onRun={instruct} explanation={explainSend(result, v.rail)} model="send-check" examples={EXAMPLES["send-check"]} />
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5">
         <label className="plat-label">Rail

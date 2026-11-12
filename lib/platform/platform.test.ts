@@ -47,3 +47,13 @@ test("rate limit: memory stays bounded", () => {
   for (let i = 0; i < 100; i++) r.hit(`k${i}`, { limit: 1, windowMs: 60_000 }, 0);
   assert.ok((r as unknown as { slots: Map<string, unknown> }).slots.size <= 10);
 });
+
+test("saved scenarios: a model's page link is accepted, anything else is refused", () => {
+  const c = COLLECTIONS.find((x) => x.id === "scenarios")!;
+  const ok = validateRecord(c, { model: "Ward priority", title: "Pool first", link: "https://example.org/models/ward-priority?w=0-100-0-0" }, {});
+  assert.equal(ok.ok, true);
+  const bad = validateRecord(c, { model: "Ward priority", title: "Elsewhere", link: "https://example.org/somewhere" }, {});
+  assert.equal(bad.ok, false);
+  const unknown = validateRecord(c, { model: "Not a model", title: "x", link: "https://example.org/models/ward-priority" }, {});
+  assert.equal(unknown.ok, false);
+});

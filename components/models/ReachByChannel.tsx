@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CHANNELS, LAYERS, layerReach, reachByConstituency, type ChannelKey, type LayerKey, type Mix } from "@/lib/models/reach";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "./InstructionBox";
 import { parseReach } from "@/lib/models/instruct/parse";
 import { explainReach } from "@/lib/models/instruct/explain";
@@ -46,7 +47,7 @@ export function ReachByChannel({ constituencies, shares, initial, embedded = fal
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={explainReach(rows, reach)} examples={["no radio, SMS 40%", "only social media at 60%", "radio 50%, ground work 30%"]} />
+      <InstructionBox onRun={instruct} explanation={explainReach(rows, reach)} model="reach-by-channel" examples={EXAMPLES["reach-by-channel"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5">
         {CHANNELS.map((c) => (
           <div key={c.key} className="text-[0.85rem]">

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { PublicWard } from "@/lib/public-data";
 import { agentInputsReady, agentPlan, agentTotals } from "@/lib/models/polling-agents";
 import { ToolActions } from "./ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "../../models/InstructionBox";
 import { parseAgents } from "@/lib/models/instruct/parse";
 import { explainAgents } from "@/lib/models/instruct/explain";
@@ -37,7 +38,7 @@ export function PollingAgentPlanner({ wards, initial, embedded = false }: { ward
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={ready ? explainAgents(plan, sum) : ["Enter agents per station, or type an instruction such as \u201c2 agents per station, 10% reserve\u201d."]} examples={["2 agents per station, 10% reserve", "1 agent per station, one supervisor per 10 stations", "3 agents per station, 20% reserve"]} />
+      <InstructionBox onRun={instruct} explanation={ready ? explainAgents(plan, sum) : ["Enter agents per station, or type an instruction such as \u201c2 agents per station, 10% reserve\u201d."]} model="polling-agents" examples={EXAMPLES["polling-agents"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-3">
         <label className="plat-label">Agents per station (required)
           <input className="plat-input mt-1 block w-full" type="number" min="1" step="1" inputMode="numeric" value={perStation} onChange={(e) => setPerStation(e.target.value)} />

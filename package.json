@@ -30,6 +30,7 @@
     "test:platform": "node --experimental-strip-types --test lib/platform/platform.test.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
     "autoprefixer": "^10.4.21",

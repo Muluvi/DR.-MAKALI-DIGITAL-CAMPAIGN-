@@ -104,3 +104,13 @@ A hosted AI can be put behind the same box later, at a cost per question.
 figures. The defences are that every change is visible and reversible, data-pack edits must pass the
 data checks before they go live, saving can be paused, and the rate limits slow a flood. Watching
 the change history becomes part of Firefly's service.
+
+## The fourth batch: finished for launch
+
+| Change | Where |
+|---|---|
+| Saved scenarios: "Save this scenario" on every model page keeps its settings as a link in the workspace; the Models hub lists the latest | `components/models/SaveScenario.tsx`, `lib/platform/collections.ts` (`scenarios`) |
+| Optional AI step behind the instruction boxes: off and free with no key; with `ANTHROPIC_API_KEY` set, Claude Haiku 5.5 rewrites wording the rules cannot place into wording they can, shown to the visitor, within per-visitor and monthly limits; personal data refused before sending | `app/api/instruct/route.ts`, `components/models/InstructionBox.tsx`, `lib/models/instruct/examples.ts` |
+| The database closed to browsers: only the site's server reads and writes | `supabase/migrations/20261112000000_open_editing.sql` |
+| Supabase needs only its URL and service-role key; the browser key is no longer used | `lib/platform/config.ts`, `.env.example` |
+| Every setting and step to put the site live | `docs/DEPLOY.md` |

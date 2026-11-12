@@ -275,17 +275,6 @@
     "at": 11712
   },
   {
-    "file": "lawful",
-    "section": "19.2",
-    "first12": "## 19.3 The Digital Ethics and Data Charter",
-    "words": 0,
-    "kind": "replaced",
-    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
-    "text": "## 19.3 The Digital Ethics and Data Charter",
-    "replacement": "<model-embed slug=\"send-check\">\n</model-embed>\n\n## 19.3 The Digital Ethics and Data Charter",
-    "at": 9140
-  },
-  {
     "file": "annex-runbooks",
     "section": "F.3",
     "first12": "## F.4 Monitoring tools",
@@ -317,17 +306,6 @@
     "text": "separates the platform, its hosting, upkeep and data checks, which Firefly provides, from analysis",
     "replacement": "separates the platform and the service around it (hosting, upkeep, the data checks, security hardening, training by role, support, a monthly service report and the models), which Firefly provides, from analysis",
     "at": 2316
-  },
-  {
-    "file": "lawful",
-    "section": "19.1",
-    "first12": "| Supporter CRM and voter model | Your team, on the campaign's",
-    "words": -72,
-    "kind": "replaced",
-    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
-    "text": "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n",
-    "replacement": "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n| Edits on the platform | Firefly | There are no accounts, so the platform holds no name, email address or password for anyone who edits; each change is logged with its time and content only. The campaign is controller of the records themselves, and Firefly processor. |\n| The models | Firefly | Nothing typed into a model is stored or sent anywhere: the instruction box is worked out in the visitor's own browser, with no AI service. |\n",
-    "at": 2207
   },
   {
     "file": "success",
@@ -427,5 +405,27 @@
     "text": "    - { label: \"Dr. Mulu's team\", text: \"adds and changes records and data, from a phone, once team sign-in is switched on at the start of the engagement\" }",
     "replacement": "    - { label: \"Anyone with the link\", text: \"adds and changes records and data, from a phone, with no account and no sign-in\" }",
     "at": 747
+  },
+  {
+    "file": "lawful",
+    "section": "19.2",
+    "first12": "## 19.3 The Digital Ethics and Data Charter",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "## 19.3 The Digital Ethics and Data Charter",
+    "replacement": "<model-embed slug=\"send-check\">\n</model-embed>\n\n## 19.3 The Digital Ethics and Data Charter",
+    "at": 9140
+  },
+  {
+    "file": "lawful",
+    "section": "19.1",
+    "first12": "| Supporter CRM and voter model | Your team, on the campaign's",
+    "words": -110,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n",
+    "replacement": "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n| Edits on the platform | Firefly | There are no accounts, so the platform holds no name, email address or password for anyone who edits; each change is logged with its time and content only. The campaign is controller of the records themselves, and Firefly processor. |\n| The models | Firefly | Nothing typed into a model is stored. The instruction box reads it in the visitor's own browser; only wording it cannot place, and only when Firefly has switched the AI step on, is sent to Anthropic's Claude service to be reworded, never with a phone number, ID or email address. Assessed by the Section 19.2 reviewer before the AI step is switched on. |\n",
+    "at": 2207
   }
 ]

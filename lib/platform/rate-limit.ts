@@ -23,6 +23,7 @@ const MINUTE = 60 * 1000;
 export const LIMITS = {
   save: { limit: 30, windowMs: 10 * MINUTE },
   packEdit: { limit: 5, windowMs: 60 * MINUTE },
+  ai: { limit: 12, windowMs: 60 * MINUTE },
 } satisfies Record<string, Limit>;
 
 export class RateLimiter {

@@ -30,7 +30,8 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="The models' instruction boxes">
-        <p>What you type into a model&apos;s instruction box is read on your own device, by rule. It is not sent to Firefly or to any AI service, and it is not stored; leaving or reloading the page clears it. No AI service is used anywhere on the site.</p>
+        <p>What you type into a model&apos;s instruction box is read on your own device, by rule, and is not stored; leaving or reloading the page clears it.</p>
+        <p>{process.env.ANTHROPIC_API_KEY ? "The site's optional AI step is switched on. " : "The site's optional AI step is switched off at present. "}When it is on, an instruction the rules cannot place is sent to Anthropic&apos;s Claude service to be reworded, and you see what it read. Only the instruction and the model&apos;s name are sent, never your address or anything else about you; an instruction carrying a phone number, ID number or email address is refused before it is sent. Neither the site nor Firefly keeps it.</p>
       </Section>
 
       <p className="mt-6 text-[0.9rem] text-muted">Questions about the platform go to Firefly; questions about the campaign&apos;s own data go to the campaign&apos;s data-protection lead. <Link className="underline" href="/help">Help and role guides</Link> · <Link className="underline" href="/status">Platform status</Link></p>

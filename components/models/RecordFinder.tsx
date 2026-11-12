@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { findRecords, sectorsOf, totalKsh, type FinderInputs, type Project } from "@/lib/models/record-finder";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "./InstructionBox";
 import { parseRecord } from "@/lib/models/instruct/parse";
 import { explainRecord } from "@/lib/models/instruct/explain";
@@ -39,7 +40,7 @@ export function RecordFinder({ projects, wards, source, initial, embedded = fals
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={explainRecord(found, ward.name)} examples={["completed water projects in Kyuso", "health in Mutomo, with constituency projects", "roads in Tseikuru that are not complete"]} />
+      <InstructionBox onRun={instruct} explanation={explainRecord(found, ward.name)} model="record-finder" examples={EXAMPLES["record-finder"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-4">
         <label className="plat-label">Ward
           <select className="plat-input mt-1" value={v.ward} onChange={(e) => { const w = wards.find((x) => x.slug === e.target.value)!; setV({ ...v, ward: w.slug, constituency: w.constituency }); }}>

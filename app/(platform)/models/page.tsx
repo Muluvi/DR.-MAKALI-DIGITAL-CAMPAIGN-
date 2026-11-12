@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHead } from "@/components/platform/PageHead";
 import { MODELS } from "@/lib/models/catalogue";
+import { readStore } from "@/lib/platform/auth";
 
 export const metadata = { title: "Models | Kitui 2027", robots: { index: false, follow: false } };
 
@@ -11,7 +12,9 @@ const LIMITS = [
   "Every model prints what it does not do beside its numbers.",
 ];
 
-export default function ModelsHub() {
+export default async function ModelsHub() {
+  const store = readStore();
+  const saved = store ? (await store.list("scenarios").catch(() => [])).slice(0, 8) : [];
   const live = MODELS.filter((m) => m.status === "Live");
   const planned = MODELS.filter((m) => m.status === "Planned");
   return (
@@ -39,6 +42,19 @@ export default function ModelsHub() {
         </ul>
       </section>
 
+      {saved.length > 0 && (
+        <section className="mt-8" aria-labelledby="saved-scenarios">
+          <div className="flex flex-wrap items-baseline justify-between gap-2"><h2 id="saved-scenarios" className="font-serif text-xl text-ink">Saved scenarios</h2><Link href="/workspace/scenarios" className="text-[0.85rem] underline">All saved scenarios</Link></div>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {saved.map((r) => {
+              const link = String(r.data.link ?? "");
+              const path = (() => { try { const u = new URL(link); return `${u.pathname}${u.search}`; } catch { return "/models"; } })();
+              return <li key={r.id}><Link href={path.startsWith("/models/") ? path : "/models"} className="plat-card block p-3 hover:border-accent"><span className="block font-semibold text-ink">{String(r.data.title ?? "")}</span><span className="text-[0.8rem] text-muted">{String(r.data.model ?? "")} · saved {r.createdAt.slice(0, 10)}</span></Link></li>;
+            })}
+          </ul>
+        </section>
+      )}
+
       <section className="plat-card mt-8 p-4 text-[0.9rem] leading-relaxed sm:p-5" aria-labelledby="model-limits">
         <h2 id="model-limits" className="font-serif text-xl text-ink">What every model carries</h2>
         <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">{LIMITS.map((l) => <li key={l}>{l}</li>)}</ul>
@@ -46,7 +62,7 @@ export default function ModelsHub() {
 
       <section className="mt-8 text-[0.9rem] leading-relaxed" aria-labelledby="instructions">
         <h2 id="instructions" className="font-serif text-xl text-ink">Type what you want to try</h2>
-        <p className="mt-2 max-w-2xl text-muted">Every model has an instruction box: write what to try in plain words, such as &ldquo;turnout 70% in Mwingi North&rdquo; or &ldquo;no radio, SMS 40%&rdquo;, and it sets the options, runs the model and explains the outcome in sentences. It is worked out on your own device, by rule, with no AI service and at no cost: nothing you type is sent or stored. It never makes up a number; every figure in its explanation comes from the model. What it cannot place, it says so, and the controls are always there.</p>
+        <p className="mt-2 max-w-2xl text-muted">Every model has an instruction box: write what to try in plain words, such as &ldquo;turnout 70% in Mwingi North&rdquo; or &ldquo;no radio, SMS 40%&rdquo;, and it sets the options, runs the model and explains the outcome in sentences. It is read on your own device, by rule, at no cost, and nothing you type is stored. If the site&apos;s optional AI step is switched on, wording the rules cannot place is reworded by AI and you see what it read. Neither ever makes up a number; every figure in the explanation comes from the model. What cannot be placed is said so, and the controls are always there.</p>
         {planned.length > 0 && (
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {planned.map((m) => <li key={m.slug} className="rounded-xl border border-dashed border-line p-3"><span className="font-semibold text-ink">{m.name}.</span> <span className="text-muted">{m.question}</span></li>)}

@@ -218,7 +218,7 @@ export const REWRITES = [
     to:
       "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n" +
       "| Edits on the platform | Firefly | There are no accounts, so the platform holds no name, email address or password for anyone who edits; each change is logged with its time and content only. The campaign is controller of the records themselves, and Firefly processor. |\n" +
-      "| The models | Firefly | Nothing typed into a model is stored or sent anywhere: the instruction box is worked out in the visitor's own browser, with no AI service. |\n",
+      "| The models | Firefly | Nothing typed into a model is stored. The instruction box reads it in the visitor's own browser; only wording it cannot place, and only when Firefly has switched the AI step on, is sent to Anthropic's Claude service to be reworded, never with a phone number, ID or email address. Assessed by the Section 19.2 reviewer before the AI step is switched on. |\n",
   },
 
   // 9. Measuring success: the platform's own measures, kept apart from the campaign's

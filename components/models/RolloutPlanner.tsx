@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { CalendarEntry } from "@/lib/public-data";
 import { fmtWeeks, planRollout, validDay, weeksBetween, type RolloutInputs } from "@/lib/models/rollout";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
 import { InstructionBox } from "./InstructionBox";
 import { parseRollout } from "@/lib/models/instruct/parse";
 import { explainRollout } from "@/lib/models/instruct/explain";
@@ -61,7 +62,7 @@ export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDead
   };
   return (
     <div>
-      <InstructionBox onRun={instruct} explanation={plan ? explainRollout(plan, deadlineEntry ? `${deadlineEntry.event} (${day(deadlineEntry.date)})` : "the deadline") : ["Enter a start date before polling day to see the plan."]} examples={["start 1 February; pilot 8 weeks", "waves of 2; 4 weeks per wave", "finish before the chief agents are submitted", "discovery 3 weeks, readiness 4 weeks"]} />
+      <InstructionBox onRun={instruct} explanation={plan ? explainRollout(plan, deadlineEntry ? `${deadlineEntry.event} (${day(deadlineEntry.date)})` : "the deadline") : ["Enter a start date before polling day to see the plan."]} model="rollout-planner" examples={EXAMPLES["rollout-planner"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-3">
         <label className="plat-label">Start date
           <input className="plat-input mt-1" type="date" value={v.start} onChange={(e) => setV({ ...v, start: e.target.value })} />

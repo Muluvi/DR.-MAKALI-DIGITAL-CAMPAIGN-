@@ -38,7 +38,8 @@ export default async function StatusPage() {
     { label: "Public site", state: "ok", detail: "This page was served, so the site is up." },
     await database(),
     { label: "Saving records", state: platformMode() === "off" ? "off" : "ok", detail: platformMode() === "off" ? "Opens once the workspace database is connected. There is no sign-in: anyone with the link will be able to add and change records." : "Open to anyone with the link, with no sign-in. Every change is in the change history and can be put back." },
-    { label: "Model instructions", state: "ok", detail: "Worked out in each visitor's browser, by rule, with no AI service: nothing to go down, and nothing to pay for." },
+    { label: "Model instructions", state: "ok", detail: "Read in each visitor's browser, by rule: nothing to go down, and nothing to pay for." },
+    { label: "AI step for instructions", state: process.env.ANTHROPIC_API_KEY ? "ok" : "off", detail: process.env.ANTHROPIC_API_KEY ? "Switched on: wording the rules cannot place is reworded by Claude Haiku 5.5, within per-visitor and monthly limits." : "Switched off: no AI key is set, so it costs nothing. Every model and its instruction box work without it." },
   ];
   const open = INCIDENTS.filter((i) => !i.closed);
   return (
