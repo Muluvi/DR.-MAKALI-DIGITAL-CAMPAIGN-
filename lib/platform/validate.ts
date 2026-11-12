@@ -4,6 +4,7 @@
  * keyed by field ("_" for a rule across fields).
  */
 import type { Collection, Field } from "./collections";
+import { findPersonalData, personalDataMessage } from "./personal-data.ts";
 
 export type Options = Record<string, string[]>;
 export type Result = { ok: true; data: Record<string, unknown> } | { ok: false; errors: Record<string, string> };
@@ -51,6 +52,9 @@ function clean(f: Field, raw: unknown, options: Options, errors: Record<string, 
     default: {
       const s = String(raw).trim();
       if (f.maxLength && s.length > f.maxLength) errors[f.key] = `${f.label} is ${s.length} characters; the limit is ${f.maxLength}.`;
+      // The site is open to anyone with the link: free text may not carry a phone, ID or email.
+      const personal = findPersonalData(s);
+      if (personal && !errors[f.key]) errors[f.key] = personalDataMessage(f.label, personal);
       return s;
     }
   }

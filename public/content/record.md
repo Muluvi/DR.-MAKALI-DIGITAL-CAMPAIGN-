@@ -31,6 +31,9 @@ id: fig-2-8-record
 
 **The NG-CDF record, and its limits.** The constituency's NG-CDF site publishes project records, proposals, allocations and Project Implementation Status reports across its five wards: Mulango, Kyangwithya East, Kyangwithya West, Township and Miambani. The FY2026/27 allocation is **KSh 192,613,000** (Tier 1). A project is described as completed only where its implementation-status report says so.
 
+<model-embed slug="record-finder">
+</model-embed>
+
 ## 6.2 Where he is known, and where not
 
 ```lead

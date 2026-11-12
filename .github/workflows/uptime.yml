@@ -1,0 +1,32 @@
+# Uptime check for the live site. Every 30 minutes it loads the status page and two working pages;
+# if any fails, the run fails and GitHub emails the repository's owner. A failed run is the alert.
+# Change the address below if the site moves to its own domain.
+name: Uptime
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE: https://dr-makali-digital-campaign.vercel.app
+    steps:
+      - name: Load the status page and two working pages
+        run: |
+          set -u
+          fail=0
+          for path in /status /models /workspace; do
+            code=$(curl -s -o /tmp/page.html -w "%{http_code}" --max-time 30 --retry 2 --retry-delay 10 "$SITE$path")
+            echo "$path -> $code"
+            if [ "$code" != "200" ]; then fail=1; fi
+          done
+          # The status page reports each part of the platform; "Not working" means a live check failed.
+          curl -s --max-time 30 "$SITE/status" | grep -q "Not working" && { echo "The status page reports a part that is not working."; fail=1; }
+          exit $fail

@@ -14,6 +14,9 @@ The working diagnosis is that Dr. Makali Mulu's gap is one of recognition outsid
 id: fig-3-11-evidence
 ```
 
+<model-embed slug="ward-priority">
+</model-embed>
+
 ## 7.2 What could overturn it
 
 **The case against.** Dr. Kasalu won the 2022 Woman Representative race with **201,899 votes**, more than the **198,004** that won the governorship the same year (Tier 2, Section 2.2). She has already shown she can win countywide votes above the benchmark. That is not the profile of a race decided by passive name recognition alone.

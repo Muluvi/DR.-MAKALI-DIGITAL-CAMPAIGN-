@@ -1,13 +1,14 @@
 # Keeping the data current
 
-**Dr. Mulu's team updates the data on the site, not in GitHub.** Team members sign in at `/team/login`
-and use the data editor (`/team/data`) for figures, the ward register, the strategy lists and the
+**The data is updated on the site, not in GitHub.** There is no sign-in: anyone with the link
+uses the data editor (`/edit-data`) for figures, the ward register, the strategy lists and the
 analysis values, and the workspace (`/workspace`) for the day-to-day records: the weekly brief, the
-content calendar, the dispatch log, the KPI tracker and the rest. Nobody on the team needs the
-repository, a terminal or code. `docs/ownership-2026-11/TEAM-GUIDE.md` is their guide.
+content calendar, the dispatch log, the KPI tracker, saved model scenarios and the rest. Nobody needs
+the repository, a terminal or code. `docs/ownership-2026-11/TEAM-GUIDE.md` is the team's guide.
 
 **Firefly made the platform, owns it and runs it**: hosting, deployment, fixes, the automated data
-checks and new features. Firefly manages team accounts at `/team/admin`.
+checks, new features, and watching the change history, where any unwanted change is put back.
+`docs/DEPLOY.md` lists every setting the live site needs.
 
 ## How a team edit reaches the site
 
@@ -17,7 +18,7 @@ checks and new features. Firefly manages team accounts at `/team/admin`.
 3. `.github/workflows/team-edit.yml` regenerates the derived files and runs `npm run verify`,
    `npm run check:preservation`, the type check and the build. Only if all pass does it move the
    edit onto `main`, which Vercel deploys. A failing edit never reaches the site.
-4. Every edit is in the change history (`/history`) and can be reverted there.
+4. Every edit is in the change history (`/history`), attributed to "Anyone with the link", and can be reverted there.
 
 Working records (the workspace) are saved to the platform's database and show on the next page load.
 

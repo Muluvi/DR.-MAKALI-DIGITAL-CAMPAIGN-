@@ -20,7 +20,7 @@ export type AuditAction = "create" | "update" | "revert" | "pack-edit" | "pack-r
 export interface AuditEntry {
   id: string;
   at: string;
-  /** The team member's display name. Emails are never shown publicly. */
+  /** How the change is attributed. There are no accounts, so it is never a person's name. */
   actor: string;
   layer: "ops" | "pack";
   action: AuditAction;
@@ -36,14 +36,6 @@ export interface AuditEntry {
   revertOf: string | null;
 }
 
-export interface Member {
-  email: string;
-  name: string;
-  role: "team" | "firefly";
-  active: boolean;
-  addedAt: string;
-  addedBy: string;
-}
 
 export interface Store {
   list(collection: string): Promise<StoredRecord[]>;
@@ -54,7 +46,4 @@ export interface Store {
   audit(limit?: number): Promise<AuditEntry[]>;
   auditEntry(id: string): Promise<AuditEntry | null>;
   logPack(actor: Actor, entry: Omit<AuditEntry, "id" | "at" | "actor" | "layer">): Promise<AuditEntry>;
-  members(): Promise<Member[]>;
-  member(email: string): Promise<Member | null>;
-  upsertMember(by: Actor, m: Pick<Member, "email" | "name" | "role" | "active">): Promise<Member>;
 }

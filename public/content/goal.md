@@ -24,6 +24,9 @@ The campaign operates against two deadlines: the Wiper nomination <window-chip><
 id: fig-1-1-timeline
 ```
 
+<model-embed slug="winning-number">
+</model-embed>
+
 ## 8.2 Five objectives
 
 Each objective names its target, its owner, the finding it answers, its baseline, the strategy that serves it and the indicator that measures it.

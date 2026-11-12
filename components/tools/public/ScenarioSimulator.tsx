@@ -3,26 +3,24 @@
 import { useEffect, useMemo, useState } from "react";
 import type { PublicConstituency } from "@/lib/public-data";
 import { val } from "../../../lib/data/read";
+import { clampPct as clamp, scenarioTotals, startingScenario, type Cell, type Scenario } from "../../../lib/models/winning-number";
 import { ToolActions } from "./ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
+import { InstructionBox } from "../../models/InstructionBox";
+import { parseWinning } from "../../../lib/models/instruct/parse";
+import { explainWinning } from "../../../lib/models/instruct/explain";
 
-type Cell = { turnout: number; share: number };
-type Scenario = Record<string, Cell>;
 const n = (v: number) => Math.round(v).toLocaleString("en-KE");
-const clamp = (v: number) => Math.min(100, Math.max(0, v));
 
 function decode(raw: string | undefined): { a?: Scenario; b?: Scenario } {
   if (!raw) return {};
   try { return JSON.parse(atob(raw)); } catch { return {}; }
 }
 
-export function ScenarioSimulator({ constituencies, initial }: { constituencies: PublicConstituency[]; initial?: string }) {
+export function ScenarioSimulator({ constituencies, initial, embedded = false }: { constituencies: PublicConstituency[]; initial?: string; embedded?: boolean }) {
   const benchmark = val("benchmark");
   const baseTurnout = val("turnout.constant");
-  const start = useMemo<Scenario>(() => {
-    const voters = constituencies.reduce((a, c) => a + c.voters, 0);
-    const neutral = clamp(Math.ceil((benchmark / (voters * baseTurnout / 100)) * 1000) / 10);
-    return Object.fromEntries(constituencies.map((c) => [c.code, { turnout: baseTurnout, share: neutral }]));
-  }, [constituencies, benchmark, baseTurnout]);
+  const start = useMemo<Scenario>(() => startingScenario(constituencies, benchmark, baseTurnout), [constituencies, benchmark, baseTurnout]);
   const [a, setA] = useState<Scenario>(() => ({ ...start, ...decode(initial).a }));
   const [b, setB] = useState<Scenario>(() => ({ ...start, ...decode(initial).b }));
   const [active, setActive] = useState<"A" | "B">("A");
@@ -32,10 +30,11 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
   const set = active === "A" ? setA : setB;
 
   useEffect(() => {
+    if (embedded) return;
     window.history.replaceState(null, "", `?s=${encodeURIComponent(btoa(JSON.stringify({ a, b })))}`);
-  }, [a, b]);
+  }, [a, b, embedded]);
 
-  const total = (s: Scenario) => constituencies.reduce((t, c) => { const ballots = c.voters * s[c.code].turnout / 100; return { ballots: t.ballots + ballots, votes: t.votes + ballots * s[c.code].share / 100 }; }, { ballots: 0, votes: 0 });
+  const total = (s: Scenario) => scenarioTotals(constituencies, s);
   const ta = total(a), tb = total(b);
 
   const load = () => {
@@ -58,8 +57,14 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
     </div>
   );
   const update = (code: string, key: keyof Cell, v: number) => set({ ...cur, [code]: { ...cur[code], [key]: v } });
+  const instruct = (text: string) => {
+    const r = parseWinning(text, { a, b, active }, constituencies);
+    setA(r.next.a); setB(r.next.b); setActive(r.next.active);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={explainWinning(constituencies, cur, benchmark)} model="winning-number" examples={EXAMPLES["winning-number"]} />
       <div className="grid gap-3 sm:grid-cols-2">{summary("A", ta)}{summary("B", tb)}</div>
       <p className="mt-3 text-[0.9rem] text-ink" role="status">B minus A: {tb.votes - ta.votes >= 0 ? "+" : "−"}{n(Math.abs(tb.votes - ta.votes))} votes</p>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
@@ -67,7 +72,7 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
           {(["A", "B"] as const).map((s) => <button key={s} type="button" aria-pressed={active === s} onClick={() => setActive(s)} className={`plat-btn plat-btn-sm ${active === s ? "plat-btn-solid" : ""}`}>Edit {s}</button>)}
           <button type="button" className="plat-btn plat-btn-sm" onClick={() => set(start)}>Reset {active}</button>
         </div>
-        <ToolActions filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]} />
+        <ToolActions link={!embedded} filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]} />
       </div>
       <div className="mt-4 grid gap-3 lg:grid-cols-2">
         {constituencies.map((c) => {

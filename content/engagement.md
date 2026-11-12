@@ -37,7 +37,7 @@ Firefly is a **Kenya-based media and consulting company**, and it made, owns and
 **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** It operates no channel at all: the offline layer, a WhatsApp Business API line and a USSD shortcode, is the campaign's to run.
 ```
 
-**The boundary.** The digital operation separates the platform, its hosting, upkeep and data checks, which Firefly provides, from analysis, strategy, messaging, voter mobilisation, ground staffing, broadcast advertising and logistics, which the campaign owns and runs. **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** It operates no channel at all: the offline layer, a WhatsApp Business API line and a USSD shortcode, is the campaign's to run. It needs no access to the owned accounts: the team enters their analytics on the platform, so the work can be measured. Everything on the owned channels stays with the people who run it now.
+**The boundary.** The digital operation separates the platform and the service around it (hosting, upkeep, the data checks, security hardening, training by role, support, a monthly service report and the models), which Firefly provides, from analysis, strategy, messaging, voter mobilisation, ground staffing, broadcast advertising and logistics, which the campaign owns and runs. **Firefly publishes nothing on Dr. Mulu's accounts and holds no credentials to them.** It operates no channel at all: the offline layer, a WhatsApp Business API line and a USSD shortcode, is the campaign's to run. It needs no access to the owned accounts: the team enters their analytics on the platform, so the work can be measured. Everything on the owned channels stays with the people who run it now.
 
 **The Firefly proposition.** Firefly provides the campaign's **data and analytics platform**, not a replacement for the team already publishing, and not an outside strategist. The team does the work on it: an audit of what the existing channels are doing, a strategy derived from it, a weekly brief that turns the strategy into instructions, a measurement cycle that says whether it worked, and the offline SMS, USSD and WhatsApp layer, reaching the voters no owned account can.
 
@@ -174,6 +174,9 @@ id: fig-5-7-approval
 ```
 
 **Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop.
+
+<model-embed slug="brief-mix">
+</model-embed>
 
 ## 13.5 Meetings and escalation
 

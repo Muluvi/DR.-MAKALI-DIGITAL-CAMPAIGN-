@@ -258,3 +258,23 @@ Before committing the campaign's broadcast and caravan effort to Northern and So
 ```figure
 id: research-modules
 ```
+
+## 18.6 The platform's own measures, kept apart
+
+```lead
+The platform is measured on its own terms, apart from the campaign's indicators: whether it is available, whether its data checks pass, whether it can be restored, and whether the team uses it.
+```
+
+The platform is measured on its own terms, apart from the campaign's indicators: whether it is available, whether its data checks pass, whether it can be restored, and whether the team uses it. A platform measure is never counted as a campaign result, and a campaign result is never credited to the platform. Firefly reports these each month in its service report to the campaign's counterpart; the targets are agreed in Discovery, and none is set here.
+
+```visual
+kind: checklist
+title: "What the monthly service report measures"
+items:
+  - { label: "Availability", body: "the share of the month the site and the workspace were up, against the agreed target" }
+  - { label: "Data checks", body: "every change to the data pack passed the site's own checks before it went live" }
+  - { label: "Restore", body: "the last restore test, and whether it finished within the agreed time" }
+  - { label: "Support", body: "requests answered and closed within the agreed response targets" }
+  - { label: "Use", body: "wards with a trained, active account, and whether the weekly cycle ran on the platform" }
+  - { label: "Security", body: "open findings by severity, and the access review" }
+```

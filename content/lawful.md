@@ -31,6 +31,8 @@ notification and liability all follow controllership rather than convenience:
 | Owned social accounts | Your team | The campaign. Firefly holds no credentials; the team enters aggregate analytics on the platform. |
 | SMS, USSD and WhatsApp Business API | **Your team** | The campaign is the controller. Firefly is not a controller of this layer; it processes only the aggregate dispatch log the team keeps on the platform. Confirmed in the Section 19.2 scope memorandum. |
 | Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |
+| Edits on the platform | Firefly | There are no accounts, so the platform holds no name, email address or password for anyone who edits; each change is logged with its time and content only. The campaign is controller of the records themselves, and Firefly processor. |
+| The models | Firefly | Nothing typed into a model is stored. The instruction box reads it in the visitor's own browser; only wording it cannot place, and only when Firefly has switched the AI step on, is sent to Anthropic's Claude service to be reworded, never with a phone number, ID or email address. Assessed by the Section 19.2 reviewer before the AI step is switched on. |
 
 ```visual
 kind: cards
@@ -138,6 +140,9 @@ items:
 ```
 
 The compliance sign-off gate that puts this law into practice follows the charter, below.
+
+<model-embed slug="send-check">
+</model-embed>
 
 ## 19.3 The Digital Ethics and Data Charter
 

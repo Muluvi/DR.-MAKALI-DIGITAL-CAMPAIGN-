@@ -86,7 +86,7 @@ const typeName = (code: string) => {
   return t ? `${t.code} · ${t.short}` : code;
 };
 /** Segment sizes and what is known about the unsized ones: data/segments.ts. Language, channel and content type stay here. */
-const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channel: string }> = {
+export const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channel: string }> = {
   agrarian: { pillar: "P2", lang: "Kikamba on voice; Kiswahili on SMS", channel: "WhatsApp voice note, SMS" },
   pastoralist: { pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
   youth: { pillar: "P3", lang: "Kiswahili and Sheng, Kikamba hooks", channel: "TikTok, Facebook" },

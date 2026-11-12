@@ -1,7 +1,6 @@
 /**
  * Section 1, Next Steps: what the campaign provides, what is still open, and the decision.
  */
-import { NOMINATION_WINDOW } from "../../phases.ts";
 import type { FigureSpec } from "../types.ts";
 import { fmt } from "./_util.ts";
 
@@ -32,10 +31,10 @@ export const FIG_6_1: FigureSpec = {
 export const FIG_6_3: FigureSpec = {
   id: "fig-6-3-decision",
   section: "1.1",
-  title: "The ask is one decision, to approve the platform, because the nomination window sets the clock",
+  title: "The ask is one decision, to approve the first phase; every later phase follows proof",
   question: "What is being asked?",
-  takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,
-  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This proposal", tier: null, state: "target" }],
+  takeaway: `Each phase starts only once the one before it is accepted, so the campaign never commits beyond what has been shown to work, and the ${fmt("pool")}-voter pool is where the work goes.`,
+  sources: [{ name: "This proposal", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -45,32 +44,35 @@ export const FIG_6_3: FigureSpec = {
           type: "cards",
           columns: 2,
           cards: [
-            { kicker: "The ask", title: "Approve the platform", body: "At the recommended Standard level. His team runs the campaign through it; Firefly runs the platform.", tone: "accent" },
-            { kicker: "What it starts", title: "The presence audit, then the first brief", body: "About six weeks for a first directed cycle, the first of them the audit that sets its targets." },
+            { kicker: "The ask", title: "Approve the first phase", body: "Discovery: an executed audit, every user mapped to a role, the legal position scoped. Nothing beyond it is committed.", tone: "accent" },
+            { kicker: "What follows", title: "Proof, then the next decision", body: "Each later phase starts once the one before it is accepted, and the campaign can stop at any of them." },
           ],
         },
       },
       {
-        heading: "Week 1",
+        heading: "Six implementation phases, each accepted before the next",
         chart: {
           type: "steps",
-          horizontal: true,
           steps: [
-            { when: "Day 1", title: "The team signs in", body: "Team accounts opened on the platform; Firefly holds no credentials to his channels." },
-            { when: "Days 1–2", title: "The export", body: "His team enters ninety days of reach, engagement, language and geography from its own accounts; the Page-or-profile question settled." },
-            { when: "Days 2–4", title: "Against the field", body: "The same window for the two nomination rivals, on public data." },
-            { when: "Day 5", title: "The read", body: "The four audit figures filled, the diagnosis tested, the first brief drafted for Week 2." },
+            { when: "1", title: "Discovery", body: "If it stops here, the campaign keeps the audit, the plan and the public tools.", current: true },
+            { when: "2", title: "Readiness", body: "The live database proven, backups and monitoring; the central team starts entering." },
+            { when: "3", title: "Pilot", body: "The centre and two contrasting constituencies run the weekly cycle on the platform." },
+            { when: "4", title: "County rollout", body: "All 40 wards reporting; every coordinator trained on their own phone." },
+            { when: "5", title: "Optimisation", body: "Monthly service reports, patching, restore tests and the weekly management pack." },
+            { when: "6", title: "Election-day readiness", body: "Change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support." },
           ],
         },
       },
     ],
   },
-  columns: [{ key: "when", label: "When" }, { key: "what", label: "What happens" }],
+  columns: [{ key: "when", label: "Phase" }, { key: "what", label: "What the campaign can do at the end" }],
   rows: [
-    { cells: { when: "Day 1", what: "Team accounts opened on the platform" } },
-    { cells: { when: "Days 1–2", what: "Ninety-day export entered by the team; Page-or-profile settled" } },
-    { cells: { when: "Days 2–4", what: "Same window for the two nomination rivals, public data" } },
-    { cells: { when: "Day 5", what: "Audit read; diagnosis tested; first brief drafted" } },
+    { cells: { when: "1. Discovery", what: "Decide on facts: an executed audit, every user mapped to a role, the legal position scoped" } },
+    { cells: { when: "2. Readiness", what: "Let the central team start entering, on a proven database with backups and monitoring" } },
+    { cells: { when: "3. Pilot", what: "Run the weekly cycle on the platform with the centre and two constituencies" } },
+    { cells: { when: "4. County rollout", what: "See all 40 wards reporting, every coordinator trained" } },
+    { cells: { when: "5. Optimisation", what: "Rely on it: monthly service reports, patching, restore tests" } },
+    { cells: { when: "6. Election-day readiness", what: "Know its own operation is in place on the day: rehearsed fallbacks, change freeze, on-call cover" } },
   ],
 };
 

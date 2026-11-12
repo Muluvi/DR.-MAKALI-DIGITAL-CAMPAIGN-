@@ -600,7 +600,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           </nav>
           <div className="confidentiality-marker mb-3">
             <strong>Prepared for Hon. Dr. Benson Makali Mulu personally</strong>
-            <span className="opacity-85"> — open to anyone with the link. Please do not circulate it further.</span>
+            <span className="opacity-85"> — open to anyone with the link. Please do not republish it.</span>
           </div>
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button

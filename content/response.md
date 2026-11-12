@@ -91,6 +91,9 @@ To avoid elevating fringe attacks or wasting campaign capital, the campaign judg
 id: response-matrix
 ```
 
+<model-embed slug="response-tier">
+</model-embed>
+
 ## F.2 Response times by channel
 
 ```figure
@@ -215,3 +218,31 @@ statements, public records. **No hacking, no impersonation,
 no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
+
+## 20.6 Platform risks and election-day fallbacks
+
+```lead
+The platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day.
+```
+
+The platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day, and none of them depends on the platform being up.
+
+| Risk | What guards against it | The fallback |
+|---|---|---|
+| The site or the workspace is down | Monitoring and alerts; every change tried on a staging site first | Pages already opened stay readable offline; ward reports go to the constituency coordinator by phone and are entered once the site is back |
+| A record is lost or damaged | Daily backups, and a restore test each month | Restore from the last backup; the change history puts back any single edit exactly |
+| A wrong figure or record is saved | The data checks run before anything is saved | Revert it from the change history |
+| A name, phone or ID number is typed into a form | Forms refuse phone and ID numbers; training says why | Firefly removes it at once, and the data-protection lead decides whether it must be reported |
+| Someone alters or defaces the records | Every change is logged and nothing can be deleted; each visitor's saves are rate limited | Each change is put back from the change history; Firefly can pause saving for everyone while it is cleaned up |
+| A late change breaks something | A change freeze before polling day | Nothing ships in the freeze except a fix the on-call lead approves |
+
+```visual
+kind: checklist
+title: "In place before polling day"
+items:
+  - { label: "Two rehearsals", body: "of the fallbacks above, with the people who will use them" }
+  - { label: "A restore", body: "finished within the agreed time" }
+  - { label: "An access review", body: "every account checked against the campaign's current list" }
+  - { label: "Named decision-makers", body: "on the day, on the campaign's side and on Firefly's" }
+  - { label: "On-call cover", body: "to the close of polling-day support" }
+```

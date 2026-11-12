@@ -17,6 +17,7 @@
  *
  * This file is pure (no server code), so the forms and the server validate with the same rules.
  */
+import { MODELS } from "../models/catalogue.ts";
 
 export type OptionSource =
   | "wards"
@@ -317,6 +318,23 @@ export const COLLECTIONS: Collection[] = [
       { key: "meeting", label: "Meeting", type: "select", source: "meetings", required: true, list: true },
       { key: "chair", label: "Chaired by (role)", type: "text", maxLength: 80, list: true },
       { key: "decisions", label: "Decisions", type: "longtext", required: true, maxLength: 2000 },
+    ],
+  },
+  {
+    id: "scenarios",
+    label: "Saved scenarios",
+    purpose: "Model settings kept so a brief or a meeting can refer to them: the link opens the model exactly as it was set.",
+    replaces: "Saving a model scenario to the workspace (website structure note, November 2026)",
+    group: "Direct the team",
+    titleField: "title",
+    fields: [
+      { key: "model", label: "Model", type: "select", options: MODELS.map((m) => m.name), required: true, list: true },
+      { key: "title", label: "What it shows", type: "text", required: true, maxLength: 120, list: true },
+      { key: "link", label: "Link to the scenario", type: "url", required: true, list: true, hint: "The Save button fills this in: the model's page with its settings." },
+      { key: "note", label: "Note", type: "longtext", maxLength: 1000 },
+    ],
+    rules: [
+      (r) => (/\/models\/[a-z-]+/.test(str(r.link)) ? null : "The link must be a model's page on this site, as the Save button gives it."),
     ],
   },
 ];

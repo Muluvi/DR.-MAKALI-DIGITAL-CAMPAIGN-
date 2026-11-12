@@ -2,33 +2,43 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { PublicWard } from "@/lib/public-data";
+import { agentInputsReady, agentPlan, agentTotals } from "@/lib/models/polling-agents";
 import { ToolActions } from "./ToolActions";
+import { EXAMPLES } from "@/lib/models/instruct/examples";
+import { InstructionBox } from "../../models/InstructionBox";
+import { parseAgents } from "@/lib/models/instruct/parse";
+import { explainAgents } from "@/lib/models/instruct/explain";
 
 const n = (v: number) => v.toLocaleString("en-KE");
+const r0 = (v: string) => (Number.isFinite(Number(v)) ? Number(v) : 0);
 
-export function PollingAgentPlanner({ wards, initial }: { wards: PublicWard[]; initial: { agents?: string; reserve?: string; span?: string } }) {
+export function PollingAgentPlanner({ wards, initial, embedded = false }: { wards: PublicWard[]; initial: { agents?: string; reserve?: string; span?: string }; embedded?: boolean }) {
   const [perStation, setPerStation] = useState(initial.agents ?? "");
   const [reserve, setReserve] = useState(initial.reserve ?? "0");
   const [perSupervisor, setPerSupervisor] = useState(initial.span ?? "");
   useEffect(() => {
+    if (embedded) return;
     const p = new URLSearchParams();
     if (perStation) p.set("agents", perStation);
     if (reserve !== "0") p.set("reserve", reserve);
     if (perSupervisor) p.set("span", perSupervisor);
     const q = p.toString();
     window.history.replaceState(null, "", q ? `?${q}` : window.location.pathname);
-  }, [perStation, reserve, perSupervisor]);
+  }, [perStation, reserve, perSupervisor, embedded]);
   const a = Number(perStation), r = Number(reserve), s = Number(perSupervisor);
-  const ready = a > 0 && r >= 0;
-  const plan = useMemo(() => wards.map((w) => {
-    const base = w.stations * a;
-    const reserves = Math.ceil(base * r / 100);
-    const supervisors = s > 0 ? Math.ceil(w.stations / s) : 0;
-    return { w, base, reserves, supervisors, total: base + reserves + supervisors };
-  }), [wards, a, r, s]);
-  const sum = plan.reduce((t, p) => ({ base: t.base + p.base, reserves: t.reserves + p.reserves, supervisors: t.supervisors + p.supervisors, total: t.total + p.total, stations: t.stations + p.w.stations }), { base: 0, reserves: 0, supervisors: 0, total: 0, stations: 0 });
+  const ready = agentInputsReady({ perStation: a, reservePct: r, perSupervisor: s });
+  const plan = useMemo(() => agentPlan(wards, { perStation: a, reservePct: r, perSupervisor: s }), [wards, a, r, s]);
+  const sum = agentTotals(plan);
+  const instruct = (text: string) => {
+    const r = parseAgents(text, { perStation: a, reservePct: r0(reserve), perSupervisor: s });
+    setPerStation(r.next.perStation ? String(r.next.perStation) : perStation);
+    setReserve(String(r.next.reservePct));
+    setPerSupervisor(r.next.perSupervisor ? String(r.next.perSupervisor) : "");
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={ready ? explainAgents(plan, sum) : ["Enter agents per station, or type an instruction such as \u201c2 agents per station, 10% reserve\u201d."]} model="polling-agents" examples={EXAMPLES["polling-agents"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-3">
         <label className="plat-label">Agents per station (required)
           <input className="plat-input mt-1 block w-full" type="number" min="1" step="1" inputMode="numeric" value={perStation} onChange={(e) => setPerStation(e.target.value)} />
@@ -42,7 +52,7 @@ export function PollingAgentPlanner({ wards, initial }: { wards: PublicWard[]; i
         </label>
       </div>
       {!ready && <p className="plat-hint mt-4" role="status">Enter agents per station to see the plan. The station counts below are official 2022 figures.</p>}
-      {ready && <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="text-ink" role="status"><strong className="font-mono text-2xl">{n(sum.total)}</strong> people across {n(sum.stations)} stations</p><ToolActions filename="kitui-polling-agent-plan.csv" rows={() => [["ward_code", "ward", "constituency", "stations", "agents", "reserves", "supervisors", "total"], ...plan.map((p) => [p.w.code, p.w.name, p.w.constituency, p.w.stations, p.base, p.reserves, p.supervisors, p.total])]} /></div>}
+      {ready && <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="text-ink" role="status"><strong className="font-mono text-2xl">{n(sum.total)}</strong> people across {n(sum.stations)} stations</p><ToolActions link={!embedded} filename="kitui-polling-agent-plan.csv" rows={() => [["ward_code", "ward", "constituency", "stations", "agents", "reserves", "supervisors", "total"], ...plan.map((p) => [p.w.code, p.w.name, p.w.constituency, p.w.stations, p.base, p.reserves, p.supervisors, p.total])]} /></div>}
       <div className="mt-4 overflow-x-auto">
         <table className="w-full min-w-[34rem] text-left text-[0.88rem]">
           <thead className="text-muted"><tr><th className="py-2 pr-3">Ward</th><th className="py-2 pr-3">Constituency</th><th className="py-2 pr-3 text-right">Stations</th><th className="py-2 pr-3 text-right">Agents</th><th className="py-2 pr-3 text-right">Reserves</th><th className="py-2 pr-3 text-right">Supervisors</th><th className="py-2 text-right">Total</th></tr></thead>

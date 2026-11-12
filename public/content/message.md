@@ -156,6 +156,9 @@ Built on what each channel can reach (Section 4.3):
 id: message-by-channel
 ```
 
+<model-embed slug="brief-mix">
+</model-embed>
+
 ## 10.5 Countering disinformation
 
 Each rumour circulating on the ground is paired with the evidence that answers it. The response protocol, its clock and the holding lines are in Section 20.2 and Annex F.

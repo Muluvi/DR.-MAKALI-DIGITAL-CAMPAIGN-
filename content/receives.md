@@ -1,8 +1,18 @@
 ```lead
-**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.
+**What Firefly offers comes in four layers: the platform as it stands, the work of making it dependable, running it with the campaign, and new development.** Only the first exists today; each of the others is accepted when it is shown to work.
 ```
 
-**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument. This chapter sets out what Dr. Makali Mulu receives at each of the three scope levels, and how often, and then the full schedule of deliverables.
+**What Firefly offers comes in four layers: the platform as it stands, the work of making it dependable, running it with the campaign, and new development.** Only the first exists today; each of the others is accepted when it is shown to work. This chapter sets out the four layers, then what the campaign's own operation carries at each of the three scope levels, and how often, and then the full schedule of deliverables. The scope level is the campaign's to set once the first phase is complete; Firefly's recommendation, Level 2, Standard, is in Section 21.1.2, where all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.
+
+```visual
+kind: cards
+title: "The four layers"
+items:
+  - { title: "The platform as it stands", text: "Live today: the story, the figure registry, the electoral data, the reference tools and the models. The team workspace is written, and switches on when the engagement starts" }
+  - { title: "Making it dependable", text: "Security hardening, the live database, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk" }
+  - { title: "Running it with the campaign", text: "A weekly management pack, dashboards shaped to the leadership's questions, inputs for the data-protection paperwork, a named incident lead and a monthly service report" }
+  - { title: "New development", text: "Offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and saved model scenarios" }
+```
 
 ## 21.1 The three scope levels, compared
 
@@ -91,7 +101,7 @@ assembling it from nine sections. The last column gives the section that sets ea
 shown here is the one Level 2 carries.
 
 **The "Produced by" column is the point.** Most of this schedule is your team's existing output,
-now directed by the team itself. Firefly's own deliverable is the platform: hosting, upkeep, the data checks and new features.
+now directed by the team itself. Firefly's own deliverable is the platform and the service around it: hosting, upkeep, the data checks, hardening, training by role, support, a monthly service report, the models and new features.
 
 <!-- keep -->
 | Deliverable | Cadence | Produced by | Form | Where it is set |
@@ -115,7 +125,7 @@ now directed by the team itself. Firefly's own deliverable is the platform: host
 | Red-team drill | Quarterly | **Your team** + an external panel | Simulated attack and a written after-action note | F.6 |
 | Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 19.2 |
 | Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 15.1.2, 13.4 |
-| The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | 13.2 |
+| The platform: hosting, upkeep, data checks, hardening, training, support, service reporting, the models, new features | Continuous | **Firefly** | The live site, its explorer, dashboards, models and workspace; every edit checked before it goes live | 13.2 |
 
 *Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.*
 
@@ -186,4 +196,18 @@ items:
   - label: "the USSD menu cannot be provisioned until the shortcode is"
   - label: "the compliance review cannot start until the reviewer is appointed"
   - label: "sign-language interpretation on flagship content depends on the interpreter or service named in the figure above"
+```
+
+#### What must be true before the first phase starts
+
+Four of these are the campaign's, and the platform cannot be accepted, or the team's records entered, without them. The last is Firefly's.
+
+```visual
+kind: checklist
+items:
+  - label: "A sponsor, an operational lead and a data-protection lead, named by the campaign"
+  - label: "Counsel engaged on registration, the impact assessment and the processing agreement"
+  - label: "Agreement that the team's records are open to anyone with the link, as the whole site is"
+  - label: "A mandate that the weekly cycle runs on the platform, not beside it"
+  - label: "On Firefly's side: the source repository made private, and the live services the workspace needs set up"
 ```

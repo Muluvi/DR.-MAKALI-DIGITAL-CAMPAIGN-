@@ -137,6 +137,9 @@ right:
       body: "WhatsApp and Facebook rarely reach dryland farming communities without someone to carry the message in person."
 ```
 
+<model-embed slug="reach-by-channel">
+</model-embed>
+
 ## 4.4 Reaching the offline majority
 
 ```lead

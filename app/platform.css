@@ -38,3 +38,11 @@
   body { background: #fff !important; }
   .plat-card, .platform-table table { break-inside: auto; }
 }
+
+/* A model inside the story (components/models/ModelEmbed.tsx): undo the story's prose rules that
+   are not scoped away by .not-prose, so the model looks as it does on its own page. */
+.model-embed table { display: table; width: 100%; overflow: visible; }
+.model-embed h2::after, .model-embed h3::after, .model-embed h2::before, .model-embed h3::before { content: none; display: none; }
+.model-embed h2, .model-embed h3 { margin: 0; padding: 0; border: 0; }
+.model-embed summary { list-style: none; }
+.model-embed summary::-webkit-details-marker { display: none; }

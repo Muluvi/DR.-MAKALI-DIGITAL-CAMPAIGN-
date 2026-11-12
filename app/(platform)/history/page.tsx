@@ -1,5 +1,5 @@
 import { COLLECTION_BY_ID } from "@/lib/platform/collections";
-import { getSession, readStore } from "@/lib/platform/auth";
+import { editingAvailable, readStore } from "@/lib/platform/auth";
 import { editStatus, type EditStatus } from "@/lib/platform/github";
 import { packMode } from "@/lib/platform/config";
 import { PageHead } from "@/components/platform/PageHead";
@@ -14,7 +14,7 @@ const DATASET_LABEL: Record<string, string> = {
 
 export default async function History() {
   const store = readStore();
-  const [session, entries] = await Promise.all([getSession().catch(() => null), store ? store.audit(300).catch(() => []) : []]);
+  const entries = store ? await store.audit(300).catch(() => []) : [];
   const reverted = new Set(entries.map((e) => e.revertOf).filter(Boolean));
   const github = packMode() === "github";
   const statuses = new Map<string, EditStatus>();
@@ -39,7 +39,7 @@ export default async function History() {
   return (
     <>
       <PageHead kicker="Change history" title="Every change, who made it, and when" lead="Every edit the team makes, to its working records and to the data pack, with what it changed from and to. Any change can be put back exactly as it was." />
-      <HistoryList rows={rows} canRevert={!!session} />
+      <HistoryList rows={rows} canRevert={editingAvailable()} />
     </>
   );
 }

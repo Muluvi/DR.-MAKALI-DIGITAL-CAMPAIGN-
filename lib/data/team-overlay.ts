@@ -1,7 +1,7 @@
 /**
  * The team's edits to the data pack, applied where the data is defined.
  *
- * Dr. Mulu's team edits data on the site (/team/data), not in GitHub. The editor writes its
+ * Dr. Mulu's team edits data on the site (/edit-data), not in GitHub. The editor writes its
  * changes to two overlay files, data/team/figures.json and data/team/lists.json, and commits them
  * through the gated edit branch (docs/ownership-2026-11). The original records stay exactly where
  * they are, in the file that defines them; the overlay changes fields and adds records, and never

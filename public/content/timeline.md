@@ -2,7 +2,7 @@
 Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout.
 ```
 
-Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.
+Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 24.1, in How the platform reaches all 40 wards, lays its six implementation phases from the week the first phase is approved, against the gazetted dates.
 
 ```figure
 id: fig-5-4-phases

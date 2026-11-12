@@ -9,9 +9,10 @@ work for the Kitui gubernatorial campaign, and is provided for the purpose of ev
 engagement.
 
 <!-- keep -->
-It is open to anyone with the link, but it should not be circulated beyond the campaign's decision-making group, published, or disclosed
-to any third party — including any other aspirant, party organ or media house — without Firefly
-Management's written consent.
+It is open to anyone with the link, and so is the platform it describes: anything the team enters
+there can be read by anyone who has the link, rivals and the press included, so nothing that must
+stay private is entered on it. Firefly asks readers not to republish this proposal or pass it to
+another aspirant, party organ or media house; nothing in it depends on its being kept secret.
 
 <!-- keep -->
 Nothing in this document constitutes a binding commitment by either party. Commercial terms are
