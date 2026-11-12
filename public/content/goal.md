@@ -17,7 +17,7 @@ The campaign operates against two deadlines: the Wiper nomination <window-chip><
 
 **The two deadlines:**
 
-1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.
+1.  **The nomination window, reported for Q4 2026, and by 8 May 2027 at the latest:** <window-chip></window-chip> Success means showing organised reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.
 2.  **The general election, 10 August 2027:** turning out the 200,000-vote coalition a plurality win needs in a multi-candidate field.
 
 ```figure

@@ -183,7 +183,7 @@ export function WindowChip() {
   const title = titles["5.2"] ?? NOMINATION_WINDOW.label;
   return (
     <span className="wchip">
-      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span> ·{" "}
+      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span> · by {NOMINATION_WINDOW.deadlineText} at the latest ·{" "}
       {inert ? <span>{title}</span> : <CrossSectionLink id={id}>{title}</CrossSectionLink>}
     </span>
   );

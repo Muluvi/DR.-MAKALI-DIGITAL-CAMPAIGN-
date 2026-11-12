@@ -88,7 +88,7 @@ export function DecisionPanel() {
           </p>
 
           <p className="text-sm text-ink font-semibold leading-relaxed mt-4">
-            <InlineMarks text={`The Wiper nomination is reported for ${inSentence(NOMINATION_WINDOW.whenText)}, by a party-run countywide selection (Tier 3, Section 5.2). Every dependency below sits on that clock.`} />
+            <InlineMarks text={`The Wiper nomination is reported for ${inSentence(NOMINATION_WINDOW.whenText)}, by a party-run countywide selection (Tier 3, Section 5.2), and by law it comes by ${NOMINATION_WINDOW.deadlineText} at the latest. Every dependency below sits on that clock.`} />
           </p>
         </div>
 

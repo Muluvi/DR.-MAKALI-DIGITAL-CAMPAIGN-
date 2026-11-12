@@ -81,3 +81,18 @@ document (`/full`) finds no "under review" or "two versions" flag left on any pa
 **Chosen.** The team enters its own analytics exports on the platform, and no access to the accounts changes hands. This matches the ownership decisions (Firefly holds no credentials), the decision panel and the reworded ask.
 
 **What changed.** 22.2's lead and body, its text version (the one fence edit, logged under `fenceEdits` as C9), its checklist line, and the dependencies figure (`lib/register/specs/s6-nextsteps.ts`). The wording changes are logged in `docs/toc-2026-11/ledger.json`.
+
+## C10: when the phases run (8 November 2026)
+
+**The conflict.** The September plan dated Awareness October–December 2026, Persuasion January–March 2027 and Turnout April–August 2027, around a Wiper decision reported for late October to November 2026. By 8 November 2026 the proposal was still unsigned. Awareness depends on Set-up (the SMS layer, the tracker, the analytics), which cannot start before signature. And the IEBC's timetable, which the timeline says sets these phases, places party primaries by 8 May 2027 and governor nominations on 3–6 June 2027 (Gazette Notice 13501).
+
+**Chosen.**
+- **Awareness:** January–February 2027, as Set-up completes from a December 2026 signature.
+- **Persuasion:** March 2027 to the 8 May 2027 deadline for party primaries.
+- **Turnout:** May–August 2027, through the nominations and the campaign period to election day.
+- **The Wiper window:** stays as reported (late October to November 2026, Tier 3, unconfirmed), with the legal deadline of 8 May 2027 shown beside it (Tier 1).
+
+**What changed.**
+- **`lib/phases.ts`:** the phase dates and the planning signature. Every chart, rail and chip reads these.
+- **Timeline chapter:** its headings, and the three KPI labels inside its text version. These are the three fence edits logged under `fenceEdits` as C10.
+- **Window sentences:** the reported-window sentences gain the legal deadline. The wording changes are logged in `docs/toc-2026-11/ledger.json`.

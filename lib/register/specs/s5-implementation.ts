@@ -4,7 +4,7 @@
  */
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../../data/kpis.ts";
 import type { FigureSpec } from "../types.ts";
-import { ELECTION, NOMINATION, TODAY } from "./s1-objectives.ts";
+import { ELECTION, NOMINATION, PRIMARIES_DEADLINE, TODAY } from "./s1-objectives.ts";
 import { NOMINATION_WINDOW, PHASES, PLANNING_SIGNATURE, inSentence, phaseSpan, phaseTitle, phaseWhen } from "../../phases.ts";
 import { CountWord, countWord } from "../../count-word.ts";
 import { SEVERITY_TIERS } from "../../../data/escalation.ts";
@@ -123,10 +123,10 @@ const PHASE_EVENTS = PHASES.map((p) => ({ date: phaseSpan(p).start, end: phaseSp
 export const FIG_5_4: FigureSpec = {
   id: "fig-5-4-phases",
   section: "4.3",
-  title: `${CountWord(PHASES.length)} phases run to the election; the ${PHASES[0].label} runs ahead of the Wiper decision, not with it`,
+  title: `${CountWord(PHASES.length)} phases run to the election; the ${PHASES[0].label} is the team's own work, separate from the Wiper decision`,
   question: "How does the plan run to August 2027?",
-  takeaway: `The ${PHASES[0].label} is the team's work period, ${phaseWhen(PHASES[0]).toLowerCase()}; Wiper's decision is a separate window, reported for ${inSentence(NOMINATION_WINDOW.whenText)}. ${CountWord(PHASES.filter((p) => p.dates).length)} general-election phases keep their calendar dates to ${ELECTION_TEXT}.`,
-  sources: [PROPOSAL, { name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }],
+  takeaway: `The ${PHASES[0].label} is the team's work period, ${phaseWhen(PHASES[0]).toLowerCase()}; Wiper's decision is a separate window, reported for ${inSentence(NOMINATION_WINDOW.whenText)} and due by law by ${NOMINATION_WINDOW.deadlineText}. ${CountWord(PHASES.filter((p) => p.dates).length)} general-election phases keep their calendar dates to ${ELECTION_TEXT}.`,
+  sources: [PROPOSAL, { name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: NOMINATION_WINDOW.deadlineSource, tier: NOMINATION_WINDOW.deadlineTier }],
   chart: {
     type: "timeline",
     from: "2026-09-01",
@@ -135,6 +135,7 @@ export const FIG_5_4: FigureSpec = {
     events: [
       ...PHASE_EVENTS.map((e) => ({ ...e, state: "target" as const })),
       { ...NOMINATION, label: "Wiper nomination window", state: "sourced" as const, reported: true },
+      PRIMARIES_DEADLINE,
       { date: ELECTION, label: "General election", state: "sourced" as const },
     ],
   },
@@ -143,6 +144,7 @@ export const FIG_5_4: FigureSpec = {
   rows: [
     ...PHASES.map((p) => ({ cells: { phase: phaseTitle(p), when: phaseWhen(p) }, state: "target" as const })),
     { cells: { phase: `${NOMINATION_WINDOW.label} (reported)`, when: NOMINATION_WINDOW.whenText } },
+    { cells: { phase: PRIMARIES_DEADLINE.label, when: NOMINATION_WINDOW.deadlineText } },
     { cells: { phase: "General election", when: ELECTION_TEXT } },
   ],
 };
@@ -150,7 +152,7 @@ export const FIG_5_4: FigureSpec = {
 /* ------------------------------------------------------------------ fig-5-4-ladder */
 
 /** The three phases' KPI tables (Sections 4.3.2–4.3.4) as one ladder (brief §12 [CHECK REF]). */
-const PHASE_LABELS = ["Phase 1 · Oct–Dec 2026", "Phase 2 · Jan–Mar 2027", "Phase 3 · Apr–Aug 2027"];
+const PHASE_LABELS = PHASES.filter((p) => p.dates).map((p) => `Phase ${p.id} · ${phaseWhen(p)}`);
 const CLIMB: { title: string; ids: [string, string, string] }[] = [
   { title: "Consented SMS contacts", ids: ["target.sms.phase-1b", "target.sms.phase-2", "target.sms"] },
   { title: "USSD unique sessions", ids: ["target.ussd.phase-1", "target.ussd.phase-2", "target.ussd.phase-3"] },

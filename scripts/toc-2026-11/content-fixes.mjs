@@ -30,6 +30,14 @@
  *      campaign-finance ceilings", docs/consolidation-2026-11/HOW-TO-UPDATE.md). They leave the
  *      pages; the Gazette data stays in data/public-2026-11/, unchanged.
  *
+ * And the timing written in September (revised 8 November 2026):
+ *  11. The Wiper window stays as reported (late October to November 2026, Tier 3, unconfirmed), and
+ *      now carries the legal bound beside it: party primaries by 8 May 2027 (Tier 1, IEBC Gazette
+ *      Notice 13501). "A window that opens in late October" and "Q4 2026" say so.
+ *  12. The calendar phases are re-anchored in lib/phases.ts to the IEBC timetable (Awareness
+ *      January–February 2027, Persuasion March to 8 May 2027, Turnout May–August 2027), and the
+ *      timeline's headings and KPI labels follow.
+ *
  * Each rewrite must match exactly once (or, with `all`, at least once). A rewrite already applied
  * is skipped, so the script is safe to run again.
  */
@@ -102,6 +110,24 @@ export const REWRITES = [
   { f: "content/response.md", from: "(F.11); account security and phishing are\n> in Lawful & ethical. They are operational detail:", to: "(F.11), with account security and phishing\n> awareness. They are operational detail:" },
   { f: "content/annex-runbooks.md", from: "Account security and phishing awareness are in Lawful & ethical, with the law and the charter they serve.", to: "Account security and phishing awareness follow; the law and the charter they serve are in Lawful and ethical." },
   { f: "content/annex-technology.md", from: "The technical risk and security protocols for these systems are in Lawful & ethical, with account security and the data law they serve.", to: "The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical." },
+
+  // 11. The Wiper window, with its legal bound
+  { f: "content/race.md", from: "**a Tier 3, single-source report, not a confirmed party decision.** It is reported to be a party-run countywide selection", to: "**a Tier 3, single-source report, not a confirmed party decision.** Aspirant registration closed on 3 November 2026 (press reports; verify), and by law party primaries must be held by **8 May 2027** (Tier 1, the IEBC Gazette notice of 20 August 2026), so that is the latest the decision can come. It is reported to be a party-run countywide selection" },
+  { f: "content/ask.md", from: "Counting back from a window\n> that opens in late October is the arithmetic that matters;", to: "Counting back from a window\n> reported for late October to November, and closing by law on 8 May 2027, is the arithmetic that matters;" },
+  { f: "content/goal.md", from: "**The nomination window, Q4 2026 (reported):**", to: "**The nomination window, reported for Q4 2026, and by 8 May 2027 at the latest:**" },
+  { f: "content/diagnosis.md", from: "text: \"A later date lengthens the sprint;", to: "text: \"A later date, up to the legal deadline of 8 May 2027 for party primaries, lengthens the sprint;" },
+  { f: "content/timeline.md", from: "when: \"Phase −1 (signature to the nomination decision, reported for late Oct–Nov 2026)\"", to: "when: \"Phase −1 (signature to the nomination decision: reported for late Oct–Nov 2026, by 8 May 2027 at the latest)\"" },
+
+  // 12. The calendar phases, re-anchored to the IEBC timetable (lib/phases.ts)
+  { f: "content/timeline.md", from: "**Phase 1 — October–December 2026 KPIs:**", to: "**Phase 1 — January–February 2027 KPIs:**" },
+  { f: "content/timeline.md", from: "**Phase 2 — January–March 2027 KPIs:**", to: "**Phase 2 — March–May 2027 KPIs:**" },
+  { f: "content/timeline.md", from: "**Phase 3 — April–August 2027 KPIs:**", to: "**Phase 3 — May–August 2027 KPIs:**" },
+  { f: "content/timeline.md", from: "when: \"Phase 1 (Oct–Dec 2026)\"", to: "when: \"Phase 1 (Jan–Feb 2027)\"" },
+  { f: "content/timeline.md", from: "when: \"Phase 2 (Jan–Mar 2027)\"", to: "when: \"Phase 2 (Mar–May 2027)\"" },
+  { f: "content/timeline.md", from: "when: \"Phase 3 (Apr–Aug 2027)\"", to: "when: \"Phase 3 (May–Aug 2027)\"" },
+  { f: "content/timeline.md", from: "## 14.5 Phase 1: awareness, October–December 2026", to: "## 14.5 Phase 1: awareness, January–February 2027" },
+  { f: "content/timeline.md", from: "## 14.6 Phase 2: engagement and persuasion, January–March 2027", to: "## 14.6 Phase 2: engagement and persuasion, March–May 2027" },
+  { f: "content/timeline.md", from: "## 14.7 Phase 3: mobilisation and turnout, April–August 2027", to: "## 14.7 Phase 3: mobilisation and turnout, May–August 2027" },
 
   // 9. The cover date
   { f: "content/cover.md", from: "**Date:** September 2026\n", to: "**Date:** September 2026, revised November 2026\n" },

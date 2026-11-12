@@ -7,18 +7,38 @@ import { ELECTION_DAY, NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 
 /* ------------------------------------------------------------------ the calendar, shared with 5.4 */
 
-export const TODAY = "2026-09";
+/** Where the reader stands on the timelines: the month this proposal was last revised. */
+export const TODAY = "2026-11";
+/** When the proposal was first prepared, kept on the timeline as its own event. */
+const PREPARED = "2026-09";
 /** The election and the nomination decision window, read from lib/phases.ts (the one calendar). */
 export const ELECTION = ELECTION_DAY;
 export const NOMINATION = { date: NOMINATION_WINDOW.date, end: NOMINATION_WINDOW.end, whenText: NOMINATION_WINDOW.whenText };
+/** The legal deadline for party primaries (IEBC Gazette Notice 13501), drawn as its own event. */
+export const PRIMARIES_DEADLINE = {
+  date: NOMINATION_WINDOW.deadline,
+  label: "Deadline for party primaries",
+  state: "sourced" as const,
+  whenText: NOMINATION_WINDOW.deadlineText,
+  note: "The latest Wiper's decision can come, by law.",
+};
+
+/** Whole months from TODAY to election day, in words, so the clock never goes stale in a title. */
+const MONTH_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+const monthsLeft = (() => {
+  const [ty, tm] = TODAY.split("-").map(Number);
+  const [ey, em] = ELECTION_DAY.split("-").map(Number);
+  return (ey - ty) * 12 + (em - tm);
+})();
+const MONTHS_LEFT = MONTH_WORDS[monthsLeft] ?? String(monthsLeft);
 
 export const FIG_1_1: FigureSpec = {
   id: "fig-1-1-timeline",
   section: "1.2",
-  title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
+  title: `There are about ${MONTHS_LEFT} months to the election, and the Wiper decision comes first: reported for now, and due by ${NOMINATION_WINDOW.deadlineText} at the latest`,
   question: "How long is there?",
-  takeaway: `The Wiper ticket is settled in a window reported for ${inSentence(NOMINATION_WINDOW.whenText)}; everything the engagement does before then is aimed at it.`,
-  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
+  takeaway: `The Wiper ticket is reported to be settled in ${inSentence(NOMINATION_WINDOW.whenText)}, and by law it is settled by ${NOMINATION_WINDOW.deadlineText} at the latest; everything the engagement does before then is aimed at it.`,
+  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: NOMINATION_WINDOW.deadlineSource, tier: NOMINATION_WINDOW.deadlineTier }, { name: "General election date: Constitution of Kenya, Article 101", tier: "T1" }],
   chart: {
     type: "timeline",
     countdown: { date: ELECTION, label: "general election" },
@@ -26,8 +46,9 @@ export const FIG_1_1: FigureSpec = {
     to: "2027-08-31",
     today: TODAY,
     events: [
-      { date: TODAY, label: "This proposal", state: "sourced", whenText: "September 2026" },
+      { date: PREPARED, label: "This proposal", state: "sourced", whenText: "September 2026, revised November 2026" },
       { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party." },
+      PRIMARIES_DEADLINE,
       { date: ELECTION, label: "General election", state: "sourced", note: "The second Tuesday of August, fixed by the Constitution." },
     ],
   },
@@ -37,8 +58,9 @@ export const FIG_1_1: FigureSpec = {
     { key: "tier", label: "Tier" },
   ],
   rows: [
-    { cells: { event: "This proposal", when: "September 2026", tier: "—" } },
+    { cells: { event: "This proposal", when: "September 2026, revised November 2026", tier: "—" } },
     { cells: { event: "Wiper nomination window (reported)", when: NOMINATION.whenText, tier: NOMINATION_WINDOW.tier } },
+    { cells: { event: "Deadline for party primaries", when: NOMINATION_WINDOW.deadlineText, tier: NOMINATION_WINDOW.deadlineTier } },
     { cells: { event: "General election", when: "10 August 2027", tier: "T1" } },
   ],
 };

@@ -86,9 +86,20 @@ These are applied by the same script (`content-fixes.mjs`, items 7 to 10) and lo
 | Cover date | September 2026 | September 2026, revised November 2026 (cover, footer and share card). The timeline figure still marks "This proposal: September 2026", which remains true. |
 | Ward dossier | County, MP and MCA spending limits | Removed from the pages, under the site's rule against campaign-finance ceilings. The Gazette data stays in `data/public-2026-11/`, unchanged, and the source is relabelled for the population and area it supplies. |
 
+## The timing claims, fixed
+
+These are applied by the same script (`content-fixes.mjs`, items 11 and 12), with the phase dates in `lib/phases.ts`. The decision is recorded as C10 in `docs/disputes-resolved.json`, with its reasons in `docs/DISPUTES-RESOLVED.md`.
+
+| Claim | It said | It now says |
+|---|---|---|
+| Clock figure | "about eleven months to the election … within weeks" | "about nine months", worked out from the revision month so it cannot drift, with the Wiper decision "reported for now, and due by 8 May 2027 at the latest" |
+| The Wiper window | Late October to November 2026 (Tier 3) | Unchanged, because it is still the report on record and still unconfirmed. Beside it: party primaries by 8 May 2027 (Tier 1, IEBC Gazette Notice 13501), on the timelines, the window chip, the decision panel, the status figure, the race chapter, the goal and the diagnosis. The race chapter adds that aspirant registration closed on 3 November 2026 (press reports; marked verify). |
+| The ask | "a window that opens in late October" | "a window reported for late October to November, and closing by law on 8 May 2027" |
+| Phases | Awareness Oct–Dec 2026; Persuasion Jan–Mar 2027; Turnout Apr–Aug 2027 | Awareness Jan–Feb 2027; Persuasion March to 8 May 2027; Turnout May–Aug 2027. These follow the IEBC timetable and a December 2026 signature (the planning assumption, updated from September). |
+
+The timelines now mark today as November 2026, and keep "This proposal" at September 2026 with "revised November 2026" beside it.
+
 ## Still to do
 
-- **Timing claims written in September.** These need the confirmed Wiper timetable before they are reworded, not a guess:
-  - the timeline figure's title, "about eleven months to the election, and the nomination window comes first, within weeks";
-  - the ask's "window that opens in late October";
-  - Phase 1 dated October to December 2026.
+- **Wiper's registration deadline.** Confirm the 3 November 2026 date from the party or a primary source. It came from press search results that could not be opened from this session.
+- **Re-plan when Wiper publishes.** When Wiper publishes its nomination rules and timetable, replace the reported window with the party's dates in `lib/phases.ts`. Every chart, rail and chip follows from that one file.
