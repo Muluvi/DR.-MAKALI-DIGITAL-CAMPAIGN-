@@ -1,5 +1,5 @@
 ```lead
-**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.** Everything after that is evidence.
+**Firefly Management offers a platform that is already built, and asks for one decision: approve its first phase.** Everything after it follows proof.
 ```
 
 ```figure
@@ -27,11 +27,11 @@ the candidate from the legal exposure others in this cycle will walk into (Secti
 public service-delivery tracker that puts his strongest credential to work before a single vote is
 cast.
 
-Firefly asks him to approve the platform at the recommended Standard level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.
+Firefly asks him to approve the first phase, Discovery, and nothing beyond it; everything after it follows proof. Discovery ends in an executed audit of the platform, every user mapped to a role, the team's phones and connectivity checked, and the legal position scoped, with the campaign's sponsor signing the requirements. Five phases follow, and each starts only when the one before it has been accepted: readiness, a pilot with the centre and two constituencies, county rollout, optimisation and election-day readiness. The campaign can stop after any of them and keep what it has. If it stops after the first, it keeps the audit, the plan and the public tools, which are open today. The scope level in Section 21.1 is set once Discovery is complete, not in this decision; his team then enters its own ninety-day export, and everything after that is evidence for the team to act on.
 
 #### What the record does not yet show
 
-> **Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**
+> **Firefly Management offers a platform that is already built, and asks for one decision: approve its first phase.**
 
 Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which

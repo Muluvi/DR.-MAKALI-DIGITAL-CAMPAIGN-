@@ -65,7 +65,7 @@ export const SECTIONS = [
   { id: "lawful", part: 5, number: "19", label: "Lawful and ethical", blurb: "A data-protection gate, a published charter and IEBC clearance" },
   { id: "response", part: 5, number: "20", label: "Risks and response", blurb: "Six risks, and a rehearsed answer to attack" },
   { id: "platform", part: 6, number: "", label: "The platform in one view", blurb: "Who sees what, who edits what, and what Firefly runs" },
-  { id: "receives", part: 6, number: "21", label: "What you get and what you provide", blurb: "Three scope levels, the deliverables, and both sides' commitments" },
+  { id: "receives", part: 6, number: "21", label: "What you get and what you provide", blurb: "Four layers, three scope levels, the deliverables and both sides' commitments" },
   { id: "ask", part: 6, number: "23", label: "The ask", blurb: "The decision in front of him, and the window that sets the pace" },
   { id: "annex-evidence", part: 7, number: "A", label: "Evidence and sources", blurb: "The standard every figure meets, where each comes from, and every ward in one table" },
   { id: "annex-terms", part: 7, number: "G", label: "Fine print", blurb: "Who it is for, how it may be used, and the terms used throughout" },

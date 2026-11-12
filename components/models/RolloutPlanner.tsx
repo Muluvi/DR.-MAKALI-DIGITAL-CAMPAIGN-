@@ -79,7 +79,7 @@ export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDead
             <p className="max-w-2xl text-ink" role="status">
               All 40 wards are reporting by <strong>{day(plan.rolloutEnd)}</strong>,{" "}
               {plan.slackToDeadline >= 0 ? <>{fmtWeeks(plan.slackToDeadline)} before</> : <strong>{fmtWeeks(-plan.slackToDeadline)} after</strong>}{" "}
-              {deadlineEntry ? <>{deadlineEntry.event.charAt(0).toLowerCase() + deadlineEntry.event.slice(1)} ({day(deadlineEntry.date)})</> : "the deadline"}.{" "}
+              {deadlineEntry ? <>the deadline you chose, {day(deadlineEntry.date)} ({deadlineEntry.event})</> : "the deadline"}.{" "}
               {plan.optimisationWeeks >= 0 ? <>That leaves {fmtWeeks(plan.optimisationWeeks)} of steady running before changes freeze.</> : null}
             </p>
             <ToolActions filename="kitui-platform-rollout.csv" rows={() => [["phase", "name", "start", "end", "weeks", "what_it_delivers"], ...plan.phases.map((p) => [p.n, p.label, p.start, p.end, p.weeks, p.note])]} />

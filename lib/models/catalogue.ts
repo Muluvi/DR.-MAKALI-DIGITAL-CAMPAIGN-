@@ -3,7 +3,7 @@
  * model's page read this list, so a model is described once.
  *
  * "Live" means the page exists and runs the shared functions in lib/models/. "Planned" is in the
- * plan (docs/value-2026-11/MODELS.md) and has no page yet; the hub names it and does not link it.
+ * plan (docs/value-2026-11/README.md) and has no page yet; the hub names it and does not link it.
  */
 
 export type ModelEntry = {

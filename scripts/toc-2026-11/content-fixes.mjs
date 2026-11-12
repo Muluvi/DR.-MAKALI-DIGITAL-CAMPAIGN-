@@ -36,6 +36,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { superseded } from "../value-2026-11/superseded.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const LEDGER = path.join(ROOT, "docs", "toc-2026-11", "ledger.json");
@@ -148,7 +149,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     let text = fs.readFileSync(file, "utf8");
     const count = text.split(r.from).length - 1;
     if (count === 0) {
-      if (text.includes(r.to)) { skipped++; continue; }
+      if (text.includes(r.to) || superseded(r.f, r.to, text)) { skipped++; continue; }
       missing.push(`${r.f}: not found: ${r.from.slice(0, 80)}`);
       continue;
     }

@@ -13,13 +13,17 @@
 ```
 
 ```visual
-{"kind":"cards","title":"The work, and where the team does it","items":[{"title":"Analyse","text":"Explore data and Dashboards"},{"title":"Decide","text":"Strategies, linked to the data behind each"},{"title":"Direct the publishing team","text":"the weekly brief and the content calendar"},{"title":"Run the channels","text":"the SMS, USSD and WhatsApp dispatch log"},{"title":"Measure","text":"the KPI tracker, channel audit, tests and field reports"},{"title":"Protect","text":"the rapid-response desk"},{"title":"Update the data","text":"the data editor, with the same checks the site runs"}]}
+{"kind":"cards","title":"The work, and where the team does it","items":[{"title":"Analyse","text":"Explore data and Dashboards"},{"title":"Test a scenario","text":"Models: set the options and see the outcome, signed in or not"},{"title":"Decide","text":"Strategies, linked to the data behind each"},{"title":"Direct the publishing team","text":"the weekly brief and the content calendar"},{"title":"Run the channels","text":"the SMS, USSD and WhatsApp dispatch log"},{"title":"Measure","text":"the KPI tracker, channel audit, tests and field reports"},{"title":"Protect","text":"the rapid-response desk"},{"title":"Update the data","text":"the data editor, with the same checks the site runs"}]}
 ```
 
 ```visual
 {"kind":"checklist","title":"What Firefly runs behind the scenes","items":[{"label":"Hosting and deployment"},{"label":"The automated data checks, on every change"},{"label":"Fixes and new features"},{"label":"Team accounts: adding and removing them"}]}
 ```
 
+```visual
+{"kind":"cards","title":"What is live, what switches on, what is still to build","items":[{"title":"Live","text":"The story, Explore data, Dashboards, the reference tools and five models: open now, with no account"},{"title":"Switches on","text":"Team sign-in, the workspace, the data editor and the change history: written, and proven on live services before the team relies on them"},{"title":"Still to build","text":"Edit roles scoped by constituency and ward, offline entry, Kiswahili field forms, roll-up dashboards and four more models"}]}
+```
+
 The campaign owns its content and its data. Firefly made the platform, owns it and runs it.
 
-[Explore the data](/explore) · [Dashboards](/dashboards) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)
+[Explore the data](/explore) · [Dashboards](/dashboards) · [Models](/models) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)

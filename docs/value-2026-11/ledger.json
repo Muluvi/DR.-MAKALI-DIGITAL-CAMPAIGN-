@@ -1,0 +1,200 @@
+[
+  {
+    "file": "brief",
+    "section": "(intro)",
+    "first12": "```lead **Firefly Management offers a platform and asks him to approve it.**",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "```lead\n**Firefly Management offers a platform and asks him to approve it.**",
+    "replacement": "```lead\n**Firefly asks him to approve the first phase of a built platform.**",
+    "at": 0
+  },
+  {
+    "file": "brief",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one decision: approve it,",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "replacement": "**Firefly Management offers a platform that is already built, and asks for one decision: approve its first phase.**",
+    "at": 280
+  },
+  {
+    "file": "brief",
+    "section": "(intro)",
+    "first12": "Firefly recommends Level 2, Standard, and commits to the platform, its data",
+    "words": -30,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "Firefly recommends Level 2, Standard, and commits to the platform, its data checks and its upkeep, not to an electoral outcome.",
+    "replacement": "The first phase ends in an executed audit of the platform and a plan; each later phase starts only once the one before it is accepted, and the campaign can stop at any of them. Firefly commits to the platform, its availability and its data checks, not to an electoral outcome.",
+    "at": 1247
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one decision: approve it,",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "replacement": "**Firefly Management offers a platform that is already built, and asks for one decision: approve its first phase.**",
+    "at": 8
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "**Firefly Management offers a platform and asks for one decision: approve it,",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**",
+    "replacement": "**Firefly Management offers a platform that is already built, and asks for one decision: approve its first phase.**",
+    "at": 2068
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "approve its first phase.** Everything after that is evidence. ```",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "approve its first phase.** Everything after that is evidence.\n```",
+    "replacement": "approve its first phase.** Everything after it follows proof.\n```",
+    "at": 97
+  },
+  {
+    "file": "ask",
+    "section": "(intro)",
+    "first12": "Firefly asks him to approve the platform at the recommended Standard level.",
+    "words": -118,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "Firefly asks him to approve the platform at the recommended Standard level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.",
+    "replacement": "Firefly asks him to approve the first phase, Discovery, and nothing beyond it; everything after it follows proof. Discovery ends in an executed audit of the platform, every user mapped to a role, the team's phones and connectivity checked, and the legal position scoped, with the campaign's sponsor signing the requirements. Five phases follow, and each starts only when the one before it has been accepted: readiness, a pilot with the centre and two constituencies, county rollout, optimisation and election-day readiness. The campaign can stop after any of them and keep what it has. If it stops after the first, it keeps the audit, the plan and the public tools, which are open today. The scope level in Section 21.1 is set once Discovery is complete, not in this decision; his team then enters its own ninety-day export, and everything after that is evidence for the team to act on.",
+    "at": 1832
+  },
+  {
+    "file": "receives",
+    "section": "(intro)",
+    "first12": "```lead **Firefly recommends Level 2, Standard.** It is the level at which",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "```lead\n**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.\n```",
+    "replacement": "```lead\n**What Firefly offers comes in four layers: the platform as it stands, the work of making it dependable, running it with the campaign, and new development.** Only the first exists today; each of the others is accepted when it is shown to work.\n```",
+    "at": 0
+  },
+  {
+    "file": "receives",
+    "section": "(intro)",
+    "first12": "**Firefly recommends Level 2, Standard.** It is the level at which all",
+    "words": -172,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument. This chapter sets out what Dr. Makali Mulu receives at each of the three scope levels, and how often, and then the full schedule of deliverables.",
+    "replacement": "**What Firefly offers comes in four layers: the platform as it stands, the work of making it dependable, running it with the campaign, and new development.** Only the first exists today; each of the others is accepted when it is shown to work. This chapter sets out the four layers, then what the campaign's own operation carries at each of the three scope levels, and how often, and then the full schedule of deliverables. The scope level is the campaign's to set once the first phase is complete; Firefly's recommendation, Level 2, Standard, is in Section 21.1.2, where all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.\n\n```visual\nkind: cards\ntitle: \"The four layers\"\nitems:\n  - { title: \"The platform as it stands\", text: \"Live today: the story, the figure registry, the electoral data, the reference tools and the models. The team workspace is written, and switches on when the engagement starts\" }\n  - { title: \"Making it dependable\", text: \"Security hardening, live sign-in, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk\" }\n  - { title: \"Running it with the campaign\", text: \"A weekly management pack, dashboards shaped to the leadership's questions, inputs for the data-protection paperwork, a named incident lead and a monthly service report\" }\n  - { title: \"New development\", text: \"Scoped edit roles, offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and the remaining models\" }\n```",
+    "at": 257
+  },
+  {
+    "file": "receives",
+    "section": "21.2",
+    "first12": "Firefly's own deliverable is the platform: hosting, upkeep, the data checks and",
+    "words": -16,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "Firefly's own deliverable is the platform: hosting, upkeep, the data checks and new features.",
+    "replacement": "Firefly's own deliverable is the platform and the service around it: hosting, upkeep, the data checks, hardening, training by role, support, a monthly service report, the models and new features.",
+    "at": 6378
+  },
+  {
+    "file": "receives",
+    "section": "21.2",
+    "first12": "| The platform: hosting, upkeep, data checks, new features | Continuous |",
+    "words": -8,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "| The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | 13.2 |",
+    "replacement": "| The platform: hosting, upkeep, data checks, hardening, training, support, service reporting, the models, new features | Continuous | **Firefly** | The live site, its explorer, dashboards, models and workspace; every edit checked before it goes live | 13.2 |",
+    "at": 9009
+  },
+  {
+    "file": "receives",
+    "section": "22.2",
+    "first12": " - label: \"sign-language interpretation on flagship content depends on the interpreter",
+    "words": -105,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "  - label: \"sign-language interpretation on flagship content depends on the interpreter or service named in the figure above\"\n```",
+    "replacement": "  - label: \"sign-language interpretation on flagship content depends on the interpreter or service named in the figure above\"\n```\n\n#### What must be true before the first phase starts\n\nFour of these are the campaign's, and the platform cannot be accepted, or the team's records entered, without them. The last is Firefly's.\n\n```visual\nkind: checklist\nitems:\n  - label: \"A sponsor, an operational lead and a data-protection lead, named by the campaign\"\n  - label: \"Counsel engaged on registration, the impact assessment and the processing agreement\"\n  - label: \"Agreement that the team's records are open to anyone with the link, as the whole site is\"\n  - label: \"A mandate that the weekly cycle runs on the platform, not beside it\"\n  - label: \"On Firefly's side: the source repository made private, and the live services the workspace needs set up\"\n```",
+    "at": 13558
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": " - { title: \"Analyse\", text: \"Explore data and Dashboards\" } ",
+    "words": -15,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n",
+    "replacement": "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n  - { title: \"Test a scenario\", text: \"Models: set the options and see the outcome, signed in or not\" }\n",
+    "at": 1537
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": " - { label: \"Team accounts: adding and removing them\" } ```",
+    "words": -76,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "  - { label: \"Team accounts: adding and removing them\" }\n```",
+    "replacement": "  - { label: \"Team accounts: adding and removing them\" }\n```\n\n```visual\nkind: cards\ntitle: \"What is live, what switches on, what is still to build\"\nitems:\n  - { title: \"Live\", text: \"The story, Explore data, Dashboards, the reference tools and five models: open now, with no account\" }\n  - { title: \"Switches on\", text: \"Team sign-in, the workspace, the data editor and the change history: written, and proven on live services before the team relies on them\" }\n  - { title: \"Still to build\", text: \"Edit roles scoped by constituency and ward, offline entry, Kiswahili field forms, roll-up dashboards and four more models\" }\n```",
+    "at": 2422
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "[Explore the data](/explore) · [Dashboards](/dashboards) · ",
+    "words": -1,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "[Explore the data](/explore) · [Dashboards](/dashboards) · ",
+    "replacement": "[Explore the data](/explore) · [Dashboards](/dashboards) · [Models](/models) · ",
+    "at": 3144
+  },
+  {
+    "file": "annex-terms",
+    "section": "G.1",
+    "first12": "It is open to anyone with the link, but it should not",
+    "words": -32,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "It is open to anyone with the link, but it should not be circulated beyond the campaign's decision-making group, published, or disclosed\nto any third party — including any other aspirant, party organ or media house — without Firefly\nManagement's written consent.",
+    "replacement": "It is open to anyone with the link, and so is the platform it describes: anything the team enters\nthere can be read by anyone who has the link, rivals and the press included, so nothing that must\nstay private is entered on it. Firefly asks readers not to republish this proposal or pass it to\nanother aspirant, party organ or media house; nothing in it depends on its being kept secret.",
+    "at": 525
+  },
+  {
+    "file": "timeline",
+    "section": "(intro)",
+    "first12": "Phases −1 and 0 are counted from signature; Phases 1 to 3",
+    "words": -41,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "Phases −1 and 0 are counted from signature; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.",
+    "replacement": "Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 14.9 lays its six implementation phases from the week the first phase is approved, against the gazetted dates.",
+    "at": 385
+  },
+  {
+    "file": "timeline",
+    "section": "14.8",
+    "first12": "- Full campaign post-mortem with performance against every KPI in this document",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Value-proposition pass (docs/value-2026-11): the decision is the first phase, the offer is set out in four layers, the site stays open, and the timeline no longer counts from a signature date that has passed.",
+    "text": "- Full campaign post-mortem with performance against every KPI in this document\n",
+    "replacement": "- Full campaign post-mortem with performance against every KPI in this document\n\n## 14.9 The platform's own rollout, against the gazetted dates\n\n```lead\nThe platform reaches all 40 wards in six implementation phases that start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar.\n```\n\nThe platform reaches all 40 wards in six implementation phases that start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar. The campaign's five phases above are what the campaign does; these six are how the platform it works on becomes something a county-wide team can rely on.\n\n```visual\nkind: stepper\ntitle: \"Six implementation phases, each accepted before the next starts\"\nitems:\n  - { label: \"Discovery\", text: \"an executed audit, every user mapped to a role, the team's phones and connectivity checked, the legal position scoped\" }\n  - { label: \"Readiness\", text: \"sign-in proven on live services, scoped edit roles, backups and monitoring; the central team starts entering\" }\n  - { label: \"Pilot\", text: \"the centre and two contrasting constituencies run the weekly cycle on the platform\" }\n  - { label: \"County rollout\", text: \"the remaining constituencies in waves, every coordinator trained on their own phone\" }\n  - { label: \"Optimisation\", text: \"monthly service reports, patching, restore tests and the weekly management pack\" }\n  - { label: \"Election-day readiness\", text: \"a change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support\" }\n```\n\nThe dates that do not move are the Gazette's: Governor nominations and the Governor campaign period open on 3 June 2027, chief election agents are named by 27 July, and the campaign period closes 48 hours before polling day, 10 August. Which of them the field operation must be reporting by is the campaign's decision, taken in Discovery. The [rollout planner](/models/rollout-planner) lays the six implementation phases from any start date, with every length an input, and shows the weeks to spare or the overrun.\n",
+    "at": 19519
+  }
+]
