@@ -4,6 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { CRITERIA, KEYS, cleanWeights, leadingCriterion, rankWards, type CriterionKey, type PriorityWard, type Weights } from "@/lib/models/ward-priority";
 import { GRID, WARD_TILES } from "@/lib/geo/wards";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { InstructionBox } from "./InstructionBox";
+import { parsePriority } from "@/lib/models/instruct/parse";
+import { explainPriority } from "@/lib/models/instruct/explain";
 
 const n = (v: number) => v.toLocaleString("en-KE");
 const EVEN: Weights = { voters: 25, pool: 25, stations: 25, projects: 25 };
@@ -35,8 +38,14 @@ export function WardPriority({ wards, initial, embedded = false }: { wards: Prio
   const topPool = top.filter((r) => r.ward.pool === 1).length;
   const pick = selected ? bySlug.get(selected) : null;
 
+  const instruct = (text: string) => {
+    const r = parsePriority(text, weights);
+    setWeights(r.next);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={explainPriority(ranked)} examples={["focus on register size and where he has not held office", "only polling stations", "voters 60, projects 40", "even weights"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5">
         {CRITERIA.map((c) => (
           <label key={c.key} className="block text-[0.85rem] text-muted">

@@ -9,9 +9,9 @@ kind: cards
 title: "The four layers"
 items:
   - { title: "The platform as it stands", text: "Live today: the story, the figure registry, the electoral data, the reference tools and the models. The team workspace is written, and switches on when the engagement starts" }
-  - { title: "Making it dependable", text: "Security hardening, live sign-in, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk" }
+  - { title: "Making it dependable", text: "Security hardening, the live database, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk" }
   - { title: "Running it with the campaign", text: "A weekly management pack, dashboards shaped to the leadership's questions, inputs for the data-protection paperwork, a named incident lead and a monthly service report" }
-  - { title: "New development", text: "Scoped edit roles, offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and the remaining models" }
+  - { title: "New development", text: "Offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and saved model scenarios" }
 ```
 
 ## 21.1 The three scope levels, compared

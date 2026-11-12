@@ -23,7 +23,8 @@
  *   5. Timeline: the September 2026 signature it counted from has passed. The campaign's own phases
  *      keep their dates; the platform's rollout moves to its own chapter, How the platform reaches
  *      all 40 wards (content/rollout.md, written whole, so not logged here: no base text to weigh).
- *   6. The nine models, each embedded in the chapter it belongs to.
+ *   6. The nine models, each embedded in the chapters it belongs to (fifteen places).
+ *   11. No sign-in: the platform chapter says anyone with the link can add and change records.
  *   7–10. Who does what names the service around the platform; Lawful and ethical names what the
  *      platform itself holds; Measuring success adds the platform's own measures; Risks and response
  *      adds the platform's risks and the election-day fallbacks.
@@ -88,12 +89,12 @@ export const REWRITES = [
   {
     f: "lib/register/specs/s6-nextsteps.ts",
     from: "        heading: \"Week 1\",\n        chart: {\n          type: \"steps\",\n          horizontal: true,\n          steps: [\n            { when: \"Day 1\", title: \"The team signs in\", body: \"Team accounts opened on the platform; Firefly holds no credentials to his channels.\" },\n            { when: \"Days 1–2\", title: \"The export\", body: \"His team enters ninety days of reach, engagement, language and geography from its own accounts; the Page-or-profile question settled.\" },\n            { when: \"Days 2–4\", title: \"Against the field\", body: \"The same window for the two nomination rivals, on public data.\" },\n            { when: \"Day 5\", title: \"The read\", body: \"The four audit figures filled, the diagnosis tested, the first brief drafted for Week 2.\" },\n          ],",
-    to: "        heading: \"Six implementation phases, each accepted before the next\",\n        chart: {\n          type: \"steps\",\n          steps: [\n            { when: \"1\", title: \"Discovery\", body: \"If it stops here, the campaign keeps the audit, the plan and the public tools.\", current: true },\n            { when: \"2\", title: \"Readiness\", body: \"Sign-in proven, scoped edit roles, backups and monitoring; the central team starts entering.\" },\n            { when: \"3\", title: \"Pilot\", body: \"The centre and two contrasting constituencies run the weekly cycle on the platform.\" },\n            { when: \"4\", title: \"County rollout\", body: \"All 40 wards reporting; every coordinator trained on their own phone.\" },\n            { when: \"5\", title: \"Optimisation\", body: \"Monthly service reports, patching, restore tests and the weekly management pack.\" },\n            { when: \"6\", title: \"Election-day readiness\", body: \"Change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support.\" },\n          ],",
+    to: "        heading: \"Six implementation phases, each accepted before the next\",\n        chart: {\n          type: \"steps\",\n          steps: [\n            { when: \"1\", title: \"Discovery\", body: \"If it stops here, the campaign keeps the audit, the plan and the public tools.\", current: true },\n            { when: \"2\", title: \"Readiness\", body: \"The live database proven, backups and monitoring; the central team starts entering.\" },\n            { when: \"3\", title: \"Pilot\", body: \"The centre and two contrasting constituencies run the weekly cycle on the platform.\" },\n            { when: \"4\", title: \"County rollout\", body: \"All 40 wards reporting; every coordinator trained on their own phone.\" },\n            { when: \"5\", title: \"Optimisation\", body: \"Monthly service reports, patching, restore tests and the weekly management pack.\" },\n            { when: \"6\", title: \"Election-day readiness\", body: \"Change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support.\" },\n          ],",
   },
   {
     f: "lib/register/specs/s6-nextsteps.ts",
     from: "  columns: [{ key: \"when\", label: \"When\" }, { key: \"what\", label: \"What happens\" }],\n  rows: [\n    { cells: { when: \"Day 1\", what: \"Team accounts opened on the platform\" } },\n    { cells: { when: \"Days 1–2\", what: \"Ninety-day export entered by the team; Page-or-profile settled\" } },\n    { cells: { when: \"Days 2–4\", what: \"Same window for the two nomination rivals, public data\" } },\n    { cells: { when: \"Day 5\", what: \"Audit read; diagnosis tested; first brief drafted\" } },\n  ],",
-    to: "  columns: [{ key: \"when\", label: \"Phase\" }, { key: \"what\", label: \"What the campaign can do at the end\" }],\n  rows: [\n    { cells: { when: \"1. Discovery\", what: \"Decide on facts: an executed audit, every user mapped to a role, the legal position scoped\" } },\n    { cells: { when: \"2. Readiness\", what: \"Let the central team start entering, on proven sign-in, scoped roles and backups\" } },\n    { cells: { when: \"3. Pilot\", what: \"Run the weekly cycle on the platform with the centre and two constituencies\" } },\n    { cells: { when: \"4. County rollout\", what: \"See all 40 wards reporting, every coordinator trained\" } },\n    { cells: { when: \"5. Optimisation\", what: \"Rely on it: monthly service reports, patching, restore tests\" } },\n    { cells: { when: \"6. Election-day readiness\", what: \"Know its own operation is in place on the day: rehearsed fallbacks, change freeze, on-call cover\" } },\n  ],",
+    to: "  columns: [{ key: \"when\", label: \"Phase\" }, { key: \"what\", label: \"What the campaign can do at the end\" }],\n  rows: [\n    { cells: { when: \"1. Discovery\", what: \"Decide on facts: an executed audit, every user mapped to a role, the legal position scoped\" } },\n    { cells: { when: \"2. Readiness\", what: \"Let the central team start entering, on a proven database with backups and monitoring\" } },\n    { cells: { when: \"3. Pilot\", what: \"Run the weekly cycle on the platform with the centre and two constituencies\" } },\n    { cells: { when: \"4. County rollout\", what: \"See all 40 wards reporting, every coordinator trained\" } },\n    { cells: { when: \"5. Optimisation\", what: \"Rely on it: monthly service reports, patching, restore tests\" } },\n    { cells: { when: \"6. Election-day readiness\", what: \"Know its own operation is in place on the day: rehearsed fallbacks, change freeze, on-call cover\" } },\n  ],",
   },
 
   // 2. What you get and what you provide
@@ -110,9 +111,9 @@ export const REWRITES = [
       " This chapter sets out the four layers, then what the campaign's own operation carries at each of the three scope levels, and how often, and then the full schedule of deliverables. The scope level is the campaign's to set once the first phase is complete; Firefly's recommendation, Level 2, Standard, is in Section 21.1.2, where all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.\n\n" +
       "```visual\nkind: cards\ntitle: \"The four layers\"\nitems:\n" +
       "  - { title: \"The platform as it stands\", text: \"Live today: the story, the figure registry, the electoral data, the reference tools and the models. The team workspace is written, and switches on when the engagement starts\" }\n" +
-      "  - { title: \"Making it dependable\", text: \"Security hardening, live sign-in, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk\" }\n" +
+      "  - { title: \"Making it dependable\", text: \"Security hardening, the live database, backups, monitoring, a staging site, guides in English and Kiswahili, training by role and a help desk\" }\n" +
       "  - { title: \"Running it with the campaign\", text: \"A weekly management pack, dashboards shaped to the leadership's questions, inputs for the data-protection paperwork, a named incident lead and a monthly service report\" }\n" +
-      "  - { title: \"New development\", text: \"Scoped edit roles, offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and the remaining models\" }\n" +
+      "  - { title: \"New development\", text: \"Offline entry with sync, coordinator roll-ups, escalation alerts, Kiswahili field forms and saved model scenarios\" }\n" +
       "```",
   },
   {
@@ -143,16 +144,16 @@ export const REWRITES = [
   { f: "lib/heading-slug.ts", from: "blurb: \"Three scope levels, the deliverables, and both sides' commitments\"", to: "blurb: \"Four layers, three scope levels, the deliverables and both sides' commitments\"" },
 
   // 3. The platform in one view
-  { f: "content/platform.md", from: "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n", to: "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n  - { title: \"Test a scenario\", text: \"Models: set the options and see the outcome, signed in or not\" }\n" },
+  { f: "content/platform.md", from: "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n", to: "  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n  - { title: \"Test a scenario\", text: \"Models: set the options or type an instruction, and see the outcome\" }\n" },
   {
     f: "content/platform.md",
     from: "  - { label: \"Team accounts: adding and removing them\" }\n```",
     to:
-      "  - { label: \"Team accounts: adding and removing them\" }\n```\n\n" +
+      "  - { label: \"Watching the change history, and putting back unwanted changes\" }\n```\n\n" +
       "```visual\nkind: cards\ntitle: \"What is live, what switches on, what is still to build\"\nitems:\n" +
-      "  - { title: \"Live\", text: \"The story, Explore data, Dashboards, the reference tools and five models: open now, with no account\" }\n" +
-      "  - { title: \"Switches on\", text: \"Team sign-in, the workspace, the data editor and the change history: written, and proven on live services before the team relies on them\" }\n" +
-      "  - { title: \"Still to build\", text: \"Edit roles scoped by constituency and ward, offline entry, Kiswahili field forms, roll-up dashboards and four more models\" }\n" +
+      "  - { title: \"Live\", text: \"The story, Explore data, Dashboards, the reference tools and nine models: open now, with no account\" }\n" +
+      "  - { title: \"Switches on\", text: \"The workspace, the data editor and the change history, open to anyone with the link: written, and proven on live services before the team relies on them\" }\n" +
+      "  - { title: \"Still to build\", text: \"Offline entry, Kiswahili field forms, roll-up dashboards and saved model scenarios\" }\n" +
       "```",
   },
   { f: "content/platform.md", from: "[Explore the data](/explore) · [Dashboards](/dashboards) · ", to: "[Explore the data](/explore) · [Dashboards](/dashboards) · [Models](/models) · " },
@@ -171,6 +172,22 @@ export const REWRITES = [
     from: "Phases −1 and 0 are counted from signature; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.",
     to: "Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 24.1, in How the platform reaches all 40 wards, lays its six implementation phases from the week the first phase is approved, against the gazetted dates.",
   },
+  // 11. No sign-in (Firefly's decision): everything open to view and to edit, with no account
+  {
+    f: "content/platform.md",
+    all: true,
+    from: "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    to: "**Anyone with the link sees everything and can add to it, with no account. Every change can be put back. Firefly keeps it running.**",
+  },
+  { f: "content/platform.md", from: "  title: \"Sign in to edit\"", to: "  title: \"Open to edit\"" },
+  {
+    f: "content/platform.md",
+    from: "    - { label: \"Dr. Mulu's team\", text: \"adds and changes records and data, from a phone, once team sign-in is switched on at the start of the engagement\" }",
+    to: "    - { label: \"Anyone with the link\", text: \"adds and changes records and data, from a phone, with no account and no sign-in\" }",
+  },
+
+  { f: "components/DecisionPanel.tsx", from: "text: \"Sign-off on the service level, and the names of the team accounts to create\" }", to: "text: \"Sign-off on the service level, and who on the team is trained first\" }" },
+
   // 6. The models, inside the chapters they belong to (components/models/ModelEmbed.tsx)
   { f: "content/votes.md", append: "\n" + embed("winning-number") },
   { f: "content/voters.md", from: "## 11.2 The six voter segments", to: embed("ward-priority") + "\n## 11.2 The six voter segments" },
@@ -179,6 +196,12 @@ export const REWRITES = [
   { f: "content/message.md", from: "## 10.5 Countering disinformation", to: embed("brief-mix") + "\n## 10.5 Countering disinformation" },
   { f: "content/record.md", from: "## 6.2 Where he is known, and where not", to: embed("record-finder") + "\n## 6.2 Where he is known, and where not" },
   { f: "content/response.md", from: "## F.2 Response times by channel", to: embed("response-tier") + "\n## F.2 Response times by channel" },
+  { f: "content/news.md", from: "## 4.4 Reaching the offline majority", to: embed("reach-by-channel") + "\n## 4.4 Reaching the offline majority" },
+  { f: "content/goal.md", from: "## 8.2 Five objectives", to: embed("winning-number") + "\n## 8.2 Five objectives" },
+  { f: "content/diagnosis.md", from: "## 7.2 What could overturn it", to: embed("ward-priority") + "\n## 7.2 What could overturn it" },
+  { f: "content/engagement.md", from: "## 13.5 Meetings and escalation", to: embed("brief-mix") + "\n## 13.5 Meetings and escalation" },
+  { f: "content/lawful.md", from: "## 19.3 The Digital Ethics and Data Charter", to: embed("send-check") + "\n## 19.3 The Digital Ethics and Data Charter" },
+  { f: "content/annex-runbooks.md", from: "## F.4 Monitoring tools", to: embed("response-tier") + "\n## F.4 Monitoring tools" },
   { f: "content/workstreams.md", from: "### 15.3.2 Workstream 8 — The field-to-digital loop", to: embed("polling-agents") + "\n### 15.3.2 Workstream 8 — The field-to-digital loop" },
 
   // 7. Who does what: what "Firefly runs the platform" now covers
@@ -194,8 +217,8 @@ export const REWRITES = [
     from: "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n",
     to:
       "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n" +
-      "| The platform's team sign-in | Firefly | The campaign as controller of its own staff's names and email addresses, which sign-in holds once it is switched on; Firefly as processor. Nothing else about a team member is held, and access ends when the campaign asks. |\n" +
-      "| The models | Firefly | Nothing typed into a model is stored. The planned AI layer, once switched on, would send a model's settings and result to the AI service, never a name or a phone number, and is assessed by the Section 19.2 reviewer before it is. |\n",
+      "| Edits on the platform | Firefly | There are no accounts, so the platform holds no name, email address or password for anyone who edits; each change is logged with its time and content only. The campaign is controller of the records themselves, and Firefly processor. |\n" +
+      "| The models | Firefly | Nothing typed into a model is stored or sent anywhere: the instruction box is worked out in the visitor's own browser, with no AI service. |\n",
   },
 
   // 9. Measuring success: the platform's own measures, kept apart from the campaign's
@@ -229,7 +252,7 @@ export const REWRITES = [
       "| A record is lost or damaged | Daily backups, and a restore test each month | Restore from the last backup; the change history puts back any single edit exactly |\n" +
       "| A wrong figure or record is saved | The data checks run before anything is saved | Revert it from the change history |\n" +
       "| A name, phone or ID number is typed into a form | Forms refuse phone and ID numbers; training says why | Firefly removes it at once, and the data-protection lead decides whether it must be reported |\n" +
-      "| A team account is taken over | A second sign-in factor for approvers; access ends when the campaign asks | Firefly closes the account; the change history shows what it changed, and each change is reverted |\n" +
+      "| Someone alters or defaces the records | Every change is logged and nothing can be deleted; each visitor's saves are rate limited | Each change is put back from the change history; Firefly can pause saving for everyone while it is cleaned up |\n" +
       "| A late change breaks something | A change freeze before polling day | Nothing ships in the freeze except a fix the on-call lead approves |\n\n" +
       "```visual\nkind: checklist\ntitle: \"In place before polling day\"\nitems:\n" +
       "  - { label: \"Two rehearsals\", body: \"of the fallbacks above, with the people who will use them\" }\n" +

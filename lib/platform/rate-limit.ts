@@ -1,14 +1,15 @@
 /**
- * Rate limits for the platform's server actions: sign-in (which sends email) and saving.
+ * Rate limits for the platform's server actions. There is no sign-in, so anyone with the link can
+ * save: these limits stop one visitor flooding the records or the change history.
  *
  * A fixed window per key: at most `limit` calls in each `windowMs`. Keys are the action and the
- * caller's address (and, for sign-in, the email asked for), so one visitor hammering the form
- * cannot exhaust the email service or flood the change history.
+ * caller's address. A data-pack edit opens a branch and runs the full data checks, so it carries
+ * the tightest limit.
  *
  * WHAT THIS IS AND IS NOT. The counts live in the memory of one server instance. On Vercel each
  * instance keeps its own, so this stops a burst from one visitor but is not a hard global cap; a
  * shared store (a Redis or KV service) is the step that makes it one, and it is part of the
- * Readiness phase. It is also the place the planned AI layer's per-visitor limit will live.
+ * Readiness phase.
  *
  * Pure apart from the clock, which the tests pass in.
  */
@@ -20,8 +21,8 @@ const MINUTE = 60 * 1000;
 
 /** The limits each action carries. */
 export const LIMITS = {
-  signIn: { limit: 5, windowMs: 10 * MINUTE },
-  save: { limit: 60, windowMs: MINUTE },
+  save: { limit: 30, windowMs: 10 * MINUTE },
+  packEdit: { limit: 5, windowMs: 60 * MINUTE },
 } satisfies Record<string, Limit>;
 
 export class RateLimiter {

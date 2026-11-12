@@ -95,7 +95,7 @@ export function planRollout(raw: RolloutInputs, constituencies: number, pollingD
 
   const phases: PhaseRow[] = [
     { n: 1, label: "Discovery", ...pick(discovery), weeks: i.discoveryWeeks, note: "Audit executed, users mapped to roles, the team's phones and connectivity checked, legal position scoped" },
-    { n: 2, label: "Readiness", ...pick(readiness), weeks: i.readinessWeeks, note: "Sign-in proven, scoped edit roles, backups and monitoring" },
+    { n: 2, label: "Readiness", ...pick(readiness), weeks: i.readinessWeeks, note: "The live database proven, backups and monitoring" },
     { n: 3, label: "Pilot", ...pick(pilot), weeks: i.pilotWeeks, note: `The centre and ${i.pilotConstituencies} constituenc${i.pilotConstituencies === 1 ? "y" : "ies"} run the weekly cycle on the platform` },
     {
       n: 4,

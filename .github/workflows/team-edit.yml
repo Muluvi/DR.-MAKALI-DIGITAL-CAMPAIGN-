@@ -1,6 +1,6 @@
 name: team edit
 
-# WHY THIS EXISTS. Dr. Mulu's team edits the data pack on the site (/team/data), never in GitHub.
+# WHY THIS EXISTS. Dr. Mulu's team edits the data pack on the site (/edit-data), never in GitHub.
 # Each edit arrives here as one commit on its own branch, team-edit/<time>-<what>. This workflow is
 # the gate between that commit and the live site: it regenerates the files derived from the data,
 # runs every check `npm run verify` runs, the preservation check and the production build, and

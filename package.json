@@ -25,7 +25,7 @@
     "check:contradictions": "node --no-warnings --experimental-strip-types scripts/consolidation/check-contradictions.mjs",
     "check:preservation": "node --no-warnings --experimental-strip-types --import ./scripts/preservation/register.mjs scripts/check-preservation.js",
     "build:ownership-changes": "CONTENT_BASE=a377ded CONTENT_LEDGER=docs/ownership-2026-11/ledger.json CONTENT_LEDGER_MD=docs/ownership-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the platform-ownership pass reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the campaign duty it gave Firefly, and the words that now give it to the campaign team.' node scripts/declutter/build-cuts-md.mjs",
-    "test:models": "node --experimental-strip-types --test lib/models/models.test.ts",
+    "test:models": "node --experimental-strip-types --test lib/models/models.test.ts lib/models/instruct/instruct.test.ts",
     "build:value-changes": "CONTENT_BASE=60a4bc0 CONTENT_LEDGER=docs/value-2026-11/ledger.json CONTENT_LEDGER_MD=docs/value-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the value-proposition pass reworded or added, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the words before, and the words that now set out the first-phase decision, the four layers of the offer, the open site and the re-anchored rollout.' node scripts/declutter/build-cuts-md.mjs",
     "test:platform": "node --experimental-strip-types --test lib/platform/platform.test.ts"
   },

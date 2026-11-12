@@ -5,6 +5,9 @@ import type { PublicConstituency } from "@/lib/public-data";
 import { val } from "../../../lib/data/read";
 import { clampPct as clamp, scenarioTotals, startingScenario, type Cell, type Scenario } from "../../../lib/models/winning-number";
 import { ToolActions } from "./ToolActions";
+import { InstructionBox } from "../../models/InstructionBox";
+import { parseWinning } from "../../../lib/models/instruct/parse";
+import { explainWinning } from "../../../lib/models/instruct/explain";
 
 const n = (v: number) => Math.round(v).toLocaleString("en-KE");
 
@@ -53,8 +56,14 @@ export function ScenarioSimulator({ constituencies, initial, embedded = false }:
     </div>
   );
   const update = (code: string, key: keyof Cell, v: number) => set({ ...cur, [code]: { ...cur[code], [key]: v } });
+  const instruct = (text: string) => {
+    const r = parseWinning(text, { a, b, active }, constituencies);
+    setA(r.next.a); setB(r.next.b); setActive(r.next.active);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={explainWinning(constituencies, cur, benchmark)} examples={["turnout 65%, share 52%", "turnout 75% in Mwingi North; share 60% in Kitui Central", "scenario b: turnout 55%"]} />
       <div className="grid gap-3 sm:grid-cols-2">{summary("A", ta)}{summary("B", tb)}</div>
       <p className="mt-3 text-[0.9rem] text-ink" role="status">B minus A: {tb.votes - ta.votes >= 0 ? "+" : "−"}{n(Math.abs(tb.votes - ta.votes))} votes</p>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">

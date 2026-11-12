@@ -18,6 +18,9 @@ body: "That test is not a formality; it is the first deliverable. A further line
 id: fig-3-11-evidence
 ```
 
+<model-embed slug="ward-priority">
+</model-embed>
+
 ## 7.2 What could overturn it
 
 **The case against.** Dr. Kasalu won the 2022 Woman Representative race with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year (Tier 2, Section 2.2). She has already shown she can win countywide votes above the benchmark. That is not the profile of a race decided by passive name recognition alone.

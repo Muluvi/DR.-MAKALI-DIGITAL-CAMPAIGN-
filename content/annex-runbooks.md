@@ -28,6 +28,9 @@ The campaign maintains ready-to-deploy holding positions, evidential citations, 
 id: holding-positions
 ```
 
+<model-embed slug="response-tier">
+</model-embed>
+
 ## F.4 Monitoring tools
 
 ```visual

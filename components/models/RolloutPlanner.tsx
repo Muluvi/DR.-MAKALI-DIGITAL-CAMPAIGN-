@@ -4,6 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import type { CalendarEntry } from "@/lib/public-data";
 import { fmtWeeks, planRollout, validDay, weeksBetween, type RolloutInputs } from "@/lib/models/rollout";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { InstructionBox } from "./InstructionBox";
+import { parseRollout } from "@/lib/models/instruct/parse";
+import { explainRollout } from "@/lib/models/instruct/explain";
 
 const day = (iso: string) => (iso ? new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "–");
 
@@ -51,8 +54,14 @@ export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDead
   const pos = (iso: string) => `${Math.min(100, Math.max(0, (100 * weeksBetween(v.start, iso)) / span))}%`;
   const markers = ok ? calendar.filter((c) => c.date >= v.start && c.date <= pollingDay) : [];
 
+  const instruct = (text: string) => {
+    const r = parseRollout(text, v, anchors, defaultStart);
+    setV(r.next);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={plan ? explainRollout(plan, deadlineEntry ? `${deadlineEntry.event} (${day(deadlineEntry.date)})` : "the deadline") : ["Enter a start date before polling day to see the plan."]} examples={["start 1 February; pilot 8 weeks", "waves of 2; 4 weeks per wave", "finish before the chief agents are submitted", "discovery 3 weeks, readiness 4 weeks"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-3">
         <label className="plat-label">Start date
           <input className="plat-input mt-1" type="date" value={v.start} onChange={(e) => setV({ ...v, start: e.target.value })} />

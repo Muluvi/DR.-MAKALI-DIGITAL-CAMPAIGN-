@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { CHANNELS, LAYERS, layerReach, reachByConstituency, type ChannelKey, type LayerKey, type Mix } from "@/lib/models/reach";
 import { ToolActions } from "@/components/tools/public/ToolActions";
+import { InstructionBox } from "./InstructionBox";
+import { parseReach } from "@/lib/models/instruct/parse";
+import { explainReach } from "@/lib/models/instruct/explain";
 
 const n = (v: number) => Math.round(v).toLocaleString("en-KE");
 const pct = (v: number) => `${Math.round(v * 100)}%`;
@@ -36,8 +39,14 @@ export function ReachByChannel({ constituencies, shares, initial, embedded = fal
   const set = (k: ChannelKey, v: Partial<Mix[ChannelKey]>) => setMix({ ...mix, [k]: { ...mix[k], ...v } });
   const worst = LAYERS.reduce((a, l) => (reach[l.key] < reach[a.key] ? l : a), LAYERS[0]);
 
+  const instruct = (text: string) => {
+    const r = parseReach(text, mix);
+    setMix(r.next);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={explainReach(rows, reach)} examples={["no radio, SMS 40%", "only social media at 60%", "radio 50%, ground work 30%"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-2 sm:p-5">
         {CHANNELS.map((c) => (
           <div key={c.key} className="text-[0.85rem]">

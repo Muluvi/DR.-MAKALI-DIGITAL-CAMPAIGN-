@@ -78,3 +78,29 @@ The structure note left four decisions open. This pass builds on:
 
 - Making the source repository private: a repository setting, not a code change.
 - Live sign-in, scoped edit roles, staging, backups and monitoring (step 6).
+
+## The third batch: no sign-in, and instructions on every model
+
+Firefly's decisions of 12 November 2026: no public and team split, no sign-in anywhere, the team's
+side open to everyone, and models that any visitor can instruct in plain words, using free options.
+
+| Change | Where |
+|---|---|
+| Sign-in removed: no accounts, no login, team or admin pages, no member list. Old `/team/*` URLs redirect | `lib/platform/auth.ts`, `app/(platform)/actions.ts`, `next.config.ts` |
+| Anyone with the link can add and change records and the data pack. Writes go through the server only; every change is in the public change history as "Anyone with the link" and can be put back; nothing can be deleted | `lib/platform/auth.ts`, `lib/platform/store/` |
+| Safeguards: phone, ID and email refused in free text; per-visitor rate limits (30 saves per 10 minutes, 5 data-pack edits per hour); `PLATFORM_EDITING=paused` stops all saving during a clean-up | `lib/platform/validate.ts`, `lib/platform/rate-limit.ts` |
+| The data editor moves to `/edit-data` and is in the navigation for everyone | `app/(platform)/edit-data/page.tsx` |
+| An instruction box on all nine models: plain words set the options, and the outcome is explained in sentences built from the model's own numbers. Worked out in the browser by rule, with no AI service: free, offline, nothing sent or stored | `lib/models/instruct/`, `components/models/InstructionBox.tsx` |
+| Models embedded in fifteen places in the story (six more chapters) | `scripts/value-2026-11/content-fixes.mjs` |
+| The site's wording follows: no sign-in, open editing, the instruction box | `ledger.json`; help, privacy, status pages |
+
+**What "free" means here.** No free Claude or other hosted AI API exists that would survive an open
+link, so the instruction box is a rule-based reader, not a generative AI: it understands the
+phrasings its parser knows (see the examples under each box and
+`lib/models/instruct/instruct.test.ts`), says what it could not place, and never invents a figure.
+A hosted AI can be put behind the same box later, at a cost per question.
+
+**The risk of open editing.** Anyone, including opponents, can change the campaign's records and
+figures. The defences are that every change is visible and reversible, data-pack edits must pass the
+data checks before they go live, saving can be paused, and the rate limits slow a flood. Watching
+the change history becomes part of Firefly's service.

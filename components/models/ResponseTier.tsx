@@ -2,6 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { classify, KINDS, SPREADS, type Incident, type KindKey, type SpreadKey, type Tier } from "@/lib/models/response-tier";
+import { InstructionBox } from "./InstructionBox";
+import { parseIncident } from "@/lib/models/instruct/parse";
+import { explainTier } from "@/lib/models/instruct/explain";
 
 export type HoldingLine = { question: string; attack: string; holding: string; kikamba: string; source: string };
 
@@ -25,7 +28,16 @@ export function ResponseTier({ tiers, lines, initial, embedded = false }: { tier
   const pick = line >= 0 ? lines[line] : null;
   const set = <K extends keyof Incident>(k: K, v: Incident[K]) => setI({ ...i, [k]: v });
 
+  const instruct = (text: string) => {
+    const p = parseIncident(text, i, lines);
+    const { line: l, ...incident } = p.next;
+    setI(incident);
+    if (l >= 0) setLine(l);
+    return p;
+  };
   return (
+    <div>
+      <InstructionBox onRun={instruct} explanation={explainTier(r)} examples={["a doctored video of him, 4,200 views, county-wide", "mentioned on vernacular radio this morning", "a rumour in 4 ward WhatsApp groups that he will favour Kitui Central"]} />
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
       <div className="plat-card grid content-start gap-4 p-4 sm:p-5">
         <label className="plat-label">What happened
@@ -74,6 +86,7 @@ export function ResponseTier({ tiers, lines, initial, embedded = false }: { tier
         )}
         <p className="mt-4 text-[0.8rem] text-muted">No tier answers by bulk SMS: political SMS is lodged with the operator 48 hours ahead, so it cannot carry a rapid response.</p>
       </section>
+    </div>
     </div>
   );
 }

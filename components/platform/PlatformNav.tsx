@@ -13,11 +13,12 @@ const LINKS = [
   { href: "/progress", label: "Implementation" },
   { href: "/workspace", label: "Workspace" },
   { href: "/history", label: "Changes" },
+  { href: "/edit-data", label: "Edit data" },
 ];
 
-export function PlatformNav({ signedIn }: { signedIn: boolean }) {
+export function PlatformNav() {
   const path = usePathname();
-  const links = signedIn ? [...LINKS, { href: "/team/data", label: "Edit data" }] : LINKS;
+  const links = LINKS;
   return (
     <nav aria-label="Platform" className="mx-auto max-w-6xl overflow-x-auto px-2 sm:px-4">
       <ul className="flex gap-1 py-2 text-[0.85rem]">

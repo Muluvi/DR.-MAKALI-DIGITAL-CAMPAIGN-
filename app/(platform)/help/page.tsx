@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { PageHead } from "@/components/platform/PageHead";
 import { GUIDES, SW_REVIEWED } from "@/lib/platform/help";
-import { teamLoginEnabled } from "@/lib/platform/config";
+import { editingAvailable } from "@/lib/platform/auth";
 
 export const metadata = { title: "Help | Kitui 2027", robots: { index: false, follow: false } };
 
 export default async function HelpPage({ searchParams }: { searchParams: Promise<{ lang?: string }> }) {
   const { lang } = await searchParams;
   const sw = lang === "sw";
-  const login = teamLoginEnabled();
+  const canSave = editingAvailable();
   return (
     <>
       <PageHead
@@ -25,9 +25,7 @@ export default async function HelpPage({ searchParams }: { searchParams: Promise
       {sw && !SW_REVIEWED && (
         <p className="mb-4 rounded-xl border border-line p-3 text-[0.88rem] text-ink" lang="en">This Kiswahili is a draft by Firefly, not yet reviewed by a native speaker. Use the English where they differ.</p>
       )}
-      {!login && (
-        <p className="mb-4 rounded-xl border border-line p-3 text-[0.88rem] text-muted">{sw ? "Kuingia kwa timu bado kumezimwa. Hatua zinazohitaji akaunti zitafanya kazi kitakapowashwa mwanzoni mwa ushirikiano." : "Team sign-in is switched off for now. Steps that need an account work once it is switched on at the start of the engagement."}</p>
-      )}
+      <p className="mb-4 rounded-xl border border-line p-3 text-[0.88rem] text-muted">{sw ? "Hakuna akaunti wala kuingia: yeyote mwenye kiungo anaweza kusoma na kuongeza. Kila mabadiliko huonekana katika historia ya mabadiliko na yanaweza kurudishwa." : "There are no accounts and no sign-in: anyone with the link can read and add. Every change shows in the change history and can be put back."}{!canSave && (sw ? " Kuhifadhi kutaanza hifadhidata ya timu itakapounganishwa." : " Saving opens once the workspace database is connected.")}</p>
 
       <nav aria-label={sw ? "Majukumu" : "Roles"} className="mb-6 flex flex-wrap gap-2 print:hidden">
         {GUIDES.map((g) => <a key={g.id} href={`#${g.id}`} className="plat-chip hover:border-accent">{sw ? g.sw : g.en}</a>)}
@@ -37,7 +35,6 @@ export default async function HelpPage({ searchParams }: { searchParams: Promise
         {GUIDES.map((g) => (
           <section key={g.id} id={g.id} className="plat-card scroll-mt-28 p-4 sm:p-5" lang={sw ? "sw" : "en"}>
             <h2 className="font-serif text-xl text-ink">{sw ? g.sw : g.en}</h2>
-            <p className="mt-1 text-[0.8rem] text-muted">{g.needsAccount ? (sw ? "Inahitaji akaunti ya timu" : "Needs a team account") : (sw ? "Hakuna akaunti inayohitajika" : "No account needed")}</p>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-[0.93rem] text-ink">
               {g.steps.map((s) => <li key={s.en}>{sw ? s.sw : s.en} <Link className="whitespace-nowrap text-[0.85rem] underline" href={s.href}>{sw ? "Fungua" : "Open"}</Link></li>)}
             </ol>

@@ -5,14 +5,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
-import type { Actor, AuditEntry, Member, Store, StoredRecord } from "./types";
+import type { Actor, AuditEntry, Store, StoredRecord } from "./types";
 
-interface Db { records: StoredRecord[]; audit: AuditEntry[]; members: Member[] }
+interface Db { records: StoredRecord[]; audit: AuditEntry[] }
 
 const FILE = path.join(process.cwd(), ".platform-local", "store.json");
 
 function load(): Db {
-  if (!fs.existsSync(FILE)) return { records: [], audit: [], members: [] };
+  if (!fs.existsSync(FILE)) return { records: [], audit: [] };
   return JSON.parse(fs.readFileSync(FILE, "utf8")) as Db;
 }
 function save(db: Db) {
@@ -68,20 +68,5 @@ export const localStore: Store = {
     db.audit.push(a);
     save(db);
     return a;
-  },
-  async members() {
-    return load().members;
-  },
-  async member(email) {
-    return load().members.find((m) => m.email === email.toLowerCase()) ?? null;
-  },
-  async upsertMember(by, m) {
-    const db = load();
-    const email = m.email.toLowerCase();
-    const existing = db.members.find((x) => x.email === email);
-    if (existing) Object.assign(existing, { name: m.name, role: m.role, active: m.active });
-    else db.members.push({ ...m, email, addedAt: now(), addedBy: by.name });
-    save(db);
-    return db.members.find((x) => x.email === email)!;
   },
 };

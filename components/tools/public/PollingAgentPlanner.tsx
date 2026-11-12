@@ -4,8 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import type { PublicWard } from "@/lib/public-data";
 import { agentInputsReady, agentPlan, agentTotals } from "@/lib/models/polling-agents";
 import { ToolActions } from "./ToolActions";
+import { InstructionBox } from "../../models/InstructionBox";
+import { parseAgents } from "@/lib/models/instruct/parse";
+import { explainAgents } from "@/lib/models/instruct/explain";
 
 const n = (v: number) => v.toLocaleString("en-KE");
+const r0 = (v: string) => (Number.isFinite(Number(v)) ? Number(v) : 0);
 
 export function PollingAgentPlanner({ wards, initial, embedded = false }: { wards: PublicWard[]; initial: { agents?: string; reserve?: string; span?: string }; embedded?: boolean }) {
   const [perStation, setPerStation] = useState(initial.agents ?? "");
@@ -24,8 +28,16 @@ export function PollingAgentPlanner({ wards, initial, embedded = false }: { ward
   const ready = agentInputsReady({ perStation: a, reservePct: r, perSupervisor: s });
   const plan = useMemo(() => agentPlan(wards, { perStation: a, reservePct: r, perSupervisor: s }), [wards, a, r, s]);
   const sum = agentTotals(plan);
+  const instruct = (text: string) => {
+    const r = parseAgents(text, { perStation: a, reservePct: r0(reserve), perSupervisor: s });
+    setPerStation(r.next.perStation ? String(r.next.perStation) : perStation);
+    setReserve(String(r.next.reservePct));
+    setPerSupervisor(r.next.perSupervisor ? String(r.next.perSupervisor) : "");
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={ready ? explainAgents(plan, sum) : ["Enter agents per station, or type an instruction such as \u201c2 agents per station, 10% reserve\u201d."]} examples={["2 agents per station, 10% reserve", "1 agent per station, one supervisor per 10 stations", "3 agents per station, 20% reserve"]} />
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-3">
         <label className="plat-label">Agents per station (required)
           <input className="plat-input mt-1 block w-full" type="number" min="1" step="1" inputMode="numeric" value={perStation} onChange={(e) => setPerStation(e.target.value)} />

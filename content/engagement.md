@@ -175,6 +175,9 @@ id: fig-5-7-approval
 
 **Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop.
 
+<model-embed slug="brief-mix">
+</model-embed>
+
 ## 13.5 Meetings and escalation
 
 ```lead

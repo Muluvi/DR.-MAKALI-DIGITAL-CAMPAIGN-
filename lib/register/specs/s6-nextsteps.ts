@@ -55,7 +55,7 @@ export const FIG_6_3: FigureSpec = {
           type: "steps",
           steps: [
             { when: "1", title: "Discovery", body: "If it stops here, the campaign keeps the audit, the plan and the public tools.", current: true },
-            { when: "2", title: "Readiness", body: "Sign-in proven, scoped edit roles, backups and monitoring; the central team starts entering." },
+            { when: "2", title: "Readiness", body: "The live database proven, backups and monitoring; the central team starts entering." },
             { when: "3", title: "Pilot", body: "The centre and two contrasting constituencies run the weekly cycle on the platform." },
             { when: "4", title: "County rollout", body: "All 40 wards reporting; every coordinator trained on their own phone." },
             { when: "5", title: "Optimisation", body: "Monthly service reports, patching, restore tests and the weekly management pack." },
@@ -68,7 +68,7 @@ export const FIG_6_3: FigureSpec = {
   columns: [{ key: "when", label: "Phase" }, { key: "what", label: "What the campaign can do at the end" }],
   rows: [
     { cells: { when: "1. Discovery", what: "Decide on facts: an executed audit, every user mapped to a role, the legal position scoped" } },
-    { cells: { when: "2. Readiness", what: "Let the central team start entering, on proven sign-in, scoped roles and backups" } },
+    { cells: { when: "2. Readiness", what: "Let the central team start entering, on a proven database with backups and monitoring" } },
     { cells: { when: "3. Pilot", what: "Run the weekly cycle on the platform with the centre and two constituencies" } },
     { cells: { when: "4. County rollout", what: "See all 40 wards reporting, every coordinator trained" } },
     { cells: { when: "5. Optimisation", what: "Rely on it: monthly service reports, patching, restore tests" } },

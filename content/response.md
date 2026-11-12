@@ -233,7 +233,7 @@ The platform carries risks of its own: an outage, a lost record, a wrong edit, a
 | A record is lost or damaged | Daily backups, and a restore test each month | Restore from the last backup; the change history puts back any single edit exactly |
 | A wrong figure or record is saved | The data checks run before anything is saved | Revert it from the change history |
 | A name, phone or ID number is typed into a form | Forms refuse phone and ID numbers; training says why | Firefly removes it at once, and the data-protection lead decides whether it must be reported |
-| A team account is taken over | A second sign-in factor for approvers; access ends when the campaign asks | Firefly closes the account; the change history shows what it changed, and each change is reverted |
+| Someone alters or defaces the records | Every change is logged and nothing can be deleted; each visitor's saves are rate limited | Each change is put back from the change history; Firefly can pause saving for everyone while it is cleaned up |
 | A late change breaks something | A change freeze before polling day | Nothing ships in the freeze except a fix the on-call lead approves |
 
 ```visual

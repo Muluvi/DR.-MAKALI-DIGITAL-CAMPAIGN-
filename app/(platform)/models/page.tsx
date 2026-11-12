@@ -7,7 +7,7 @@ export const metadata = { title: "Models | Kitui 2027", robots: { index: false, 
 const LIMITS = [
   "Each model is arithmetic on stated assumptions. It predicts nothing and promises nothing.",
   "Ward and constituency level only. No individual voter is scored or profiled, and no sensitive characteristic is an input.",
-  "What you enter stays in your browser and in the link you share. Nothing is stored.",
+  "What you enter or type stays in your browser and in the link you share. Nothing is sent or stored.",
   "Every model prints what it does not do beside its numbers.",
 ];
 
@@ -16,7 +16,7 @@ export default function ModelsHub() {
   const planned = MODELS.filter((m) => m.status === "Planned");
   return (
     <>
-      <PageHead kicker="Models" title="Set the options, see the outcome" lead="Open to anyone with the link, signed in or not. Each model runs on the data the site already holds, so every outcome traces to a sourced figure and an assumption you can see." />
+      <PageHead kicker="Models" title="Set the options, see the outcome" lead="Open to anyone with the link, with no account. Each model runs on the data the site already holds, so every outcome traces to a sourced figure and an assumption you can see." />
 
       <section aria-labelledby="live-models">
         <h2 id="live-models" className="sr-only">Models you can use now</h2>
@@ -44,14 +44,14 @@ export default function ModelsHub() {
         <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">{LIMITS.map((l) => <li key={l}>{l}</li>)}</ul>
       </section>
 
-      <section className="mt-8 text-[0.9rem] leading-relaxed" aria-labelledby="planned-models">
-        <h2 id="planned-models" className="font-serif text-xl text-ink">{planned.length ? "Still to build" : "Still to come"}</h2>
+      <section className="mt-8 text-[0.9rem] leading-relaxed" aria-labelledby="instructions">
+        <h2 id="instructions" className="font-serif text-xl text-ink">Type what you want to try</h2>
+        <p className="mt-2 max-w-2xl text-muted">Every model has an instruction box: write what to try in plain words, such as &ldquo;turnout 70% in Mwingi North&rdquo; or &ldquo;no radio, SMS 40%&rdquo;, and it sets the options, runs the model and explains the outcome in sentences. It is worked out on your own device, by rule, with no AI service and at no cost: nothing you type is sent or stored. It never makes up a number; every figure in its explanation comes from the model. What it cannot place, it says so, and the controls are always there.</p>
         {planned.length > 0 && (
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {planned.map((m) => <li key={m.slug} className="rounded-xl border border-dashed border-line p-3"><span className="font-semibold text-ink">{m.name}.</span> <span className="text-muted">{m.question}</span></li>)}
           </ul>
         )}
-        <p className="mt-2 max-w-2xl text-muted">A plain-language layer that sets a model&apos;s options from a sentence and explains the outcome is planned on top of these. It is not switched on: it needs a paid AI service and a usage ceiling first. When it is, it will read the model&apos;s result and cite the registry; it will never produce a number of its own, and every model will keep working without it.</p>
       </section>
     </>
   );

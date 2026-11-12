@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageHead } from "@/components/platform/PageHead";
-import { platformMode, teamLoginEnabled } from "@/lib/platform/config";
+import { platformMode } from "@/lib/platform/config";
 import { serviceClient } from "@/lib/platform/store/supabase";
 import { INCIDENTS } from "@/lib/platform/incidents";
 import { PUBLIC_RETRIEVED } from "@/lib/public-data";
@@ -19,7 +19,7 @@ async function database(): Promise<Check> {
   if (mode === "local") return { label: "Workspace database", state: "ok", detail: "A local development store, not the live service." };
   const started = Date.now();
   try {
-    const query = serviceClient().from("team_members").select("email", { count: "exact", head: true });
+    const query = serviceClient().from("records").select("id", { count: "exact", head: true });
     const timeout = new Promise<never>((_, reject) => setTimeout(() => reject(new Error("no answer within three seconds")), 3 * 1000));
     const { error } = await Promise.race([query, timeout]);
     if (error) return { label: "Workspace database", state: "down", detail: `Not answering correctly: ${error.message}` };
@@ -37,8 +37,8 @@ export default async function StatusPage() {
   const checks: Check[] = [
     { label: "Public site", state: "ok", detail: "This page was served, so the site is up." },
     await database(),
-    { label: "Team sign-in", state: teamLoginEnabled() ? "ok" : "off", detail: teamLoginEnabled() ? "Switched on: the team can sign in to edit." : "Switched off: the site is open to view, and editing is unavailable until the engagement starts." },
-    { label: "AI layer over the models", state: "off", detail: "Not built yet. Every model works without it." },
+    { label: "Saving records", state: platformMode() === "off" ? "off" : "ok", detail: platformMode() === "off" ? "Opens once the workspace database is connected. There is no sign-in: anyone with the link will be able to add and change records." : "Open to anyone with the link, with no sign-in. Every change is in the change history and can be put back." },
+    { label: "Model instructions", state: "ok", detail: "Worked out in each visitor's browser, by rule, with no AI service: nothing to go down, and nothing to pay for." },
   ];
   const open = INCIDENTS.filter((i) => !i.closed);
   return (

@@ -17,7 +17,7 @@ kind: stepper
 title: "Six implementation phases, each accepted before the next starts"
 items:
   - { label: "Discovery", text: "an executed audit, every user mapped to a role, the team's phones and connectivity checked, the legal position scoped" }
-  - { label: "Readiness", text: "sign-in proven on live services, scoped edit roles, backups and monitoring; the central team starts entering" }
+  - { label: "Readiness", text: "the live database proven, backups and monitoring; the central team starts entering" }
   - { label: "Pilot", text: "the centre and two contrasting constituencies run the weekly cycle on the platform" }
   - { label: "County rollout", text: "the remaining constituencies in waves, every coordinator trained on their own phone" }
   - { label: "Optimisation", text: "monthly service reports, patching, restore tests and the weekly management pack" }
@@ -32,10 +32,10 @@ The dates that do not move are the Gazette's: Governor nominations and the Gover
 ## 24.2 The centre first, then two pilot constituencies, then the rest
 
 ```lead
-The central team starts entering once sign-in is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves.
+The central team starts entering once the live database is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves.
 ```
 
-The central team starts entering once sign-in is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves. Contrasting means one where Dr. Mulu is known and one where he has never held office, so the pilot meets both the easiest and the hardest conditions the county offers before anything is rolled out.
+The central team starts entering once the live database is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves. Contrasting means one where Dr. Mulu is known and one where he has never held office, so the pilot meets both the easiest and the hardest conditions the county offers before anything is rolled out.
 
 **The pilot decides what Kitui needs, by measurement.** The registry records {{ict.internet}}% internet use and {{electricity.mains.2019}}% of households lighting their homes from mains electricity. A platform built for a city would fail here, so the pilot measures it rather than assuming it:
 
@@ -64,16 +64,16 @@ Every user is trained for the job their role does, on the phone they will use, a
 ## 24.4 What each role can use, and when
 
 ```lead
-Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; scoped access, offline entry and roll-ups come with new development.
+Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; offline entry and roll-ups come with new development.
 ```
 
-Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; scoped access, offline entry and roll-ups come with new development.
+Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; offline entry and roll-ups come with new development.
 
 | Role | Usable the day the campaign says yes | Added once the workspace is proven live | Added by new development |
 |---|---|---|---|
 | Campaign director | Race calendar; agent headcount plan; strategy library; the models | Implementation tracker by owner and status; decisions log; approvals | Weekly management pack; escalation alerts |
 | County management | Ward and station data in one place | The weekly brief as the single instruction; calendar sign-off | Cross-constituency roll-ups |
-| Constituency coordinators | Dossiers and station lists for their wards | Field and sentiment entries; status reporting | Their own area dashboard; scoped access; offline entry |
+| Constituency coordinators | Dossiers and station lists for their wards | Field and sentiment entries; status reporting | Their own area dashboard; offline entry |
 | Ward coordinators | Their ward's page, readable offline once opened | A short field report form | Offline entry with sync; Kiswahili forms |
 | Field operations | Agent headcount by ward, exportable | Service-delivery visits logged against the projects register | None proposed: a named agent roster stays off the platform |
 | Communications | Sourced figures for statements; the send check | Content calendar with approval states; dispatch log; rapid-response desk | Notifications on escalated incidents |
@@ -86,6 +86,6 @@ Reference and planning are open today, without an account; the operating cycle o
 The platform is open to anyone with the link, so nothing that names a person goes on it: no supporter, no voter, no agent and no volunteer.
 ```
 
-The platform is open to anyone with the link, so nothing that names a person goes on it: no supporter, no voter, no agent and no volunteer. Headcounts go on the platform; the people behind them stay in the campaign's own systems. The forms refuse a phone or ID number typed into a free-text field, and the training says why.
+The platform is open to anyone with the link, so nothing that names a person goes on it: no supporter, no voter, no agent and no volunteer. Headcounts go on the platform; the people behind them stay in the campaign's own systems. Anyone with the link can also add and change records, with no account, so the change history is watched and an unwanted change is put back. The forms refuse a phone or ID number typed into a free-text field, and the training says why.
 
 Working drafts stay off it too. A rapid-response draft or a note on a rival is readable by rivals and the press the moment it is saved, so the desk logs the incident, its tier and the approved line, and the drafting happens elsewhere.

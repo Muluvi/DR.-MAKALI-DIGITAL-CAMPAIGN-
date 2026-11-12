@@ -95,6 +95,9 @@ id: fig-3-8-ceiling
 {"kind":"contrast","left":{"title":"What digital can do","items":[{"label":"Set the agenda, and defend it","body":"The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 20.2) records it from the first month rather than assuming it."},{"label":"Recruit young volunteers","body":"Reaching the ~234,000 young voters on TikTok and WhatsApp recruits field volunteers who run ground logistics and serve as polling agents."},{"label":"Target urban traders","body":"Geofencing commercial centres (Kitui CBD, Mwingi Central) tests policy messages (\"The Economist's Single Business Permit\") with little waste."}]},"right":{"title":"What digital cannot do","items":[{"label":"Deliver the 200,000 vote benchmark alone","body":"Capped at about 158,696 reachable voters inside Kitui County (modelled)."},{"label":"Reach the rural farming base","body":"73.8% of Kitui's residents are offline (CA/KNBS 2023/24), and rural smallholders do not meet political content through social media: few smartphones, high data costs, and weak 3G/4G coverage in rural wards (for example Tharaka, Tseikuru, Voo/Kyamatu, Endau, Mutha)."},{"label":"Answer rumours on the ground","body":"WhatsApp and Facebook rarely reach dryland farming communities without someone to carry the message in person."}]}}
 ```
 
+<model-embed slug="reach-by-channel">
+</model-embed>
+
 ## 4.4 Reaching the offline majority
 
 ```lead

@@ -113,8 +113,15 @@ const nextConfig: NextConfig = {
       '/tools/winning-number': '/models/winning-number',
       '/tools/polling-agents': '/models/polling-agents',
     };
+    // Sign-in was removed (November 2026): the old team pages lead to where their work is now done.
+    const signIn: Record<string, string> = {
+      '/team/data': '/edit-data',
+      '/team/login': '/workspace',
+      '/team/admin': '/workspace',
+    };
     return [
       ...Object.entries(models).map(([source, destination]) => ({ source, destination, permanent: true })),
+      ...Object.entries(signIn).map(([source, destination]) => ({ source, destination, permanent: false })),
       ...Object.entries(moved).map(([from, to]) => ({
         source: `/content/${from}.md`,
         destination: `/content/${to}.md`,

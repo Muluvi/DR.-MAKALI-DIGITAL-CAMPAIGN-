@@ -2,6 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { allChannels, coverage, sharesTotal, type ContentCode, type PlanRow } from "@/lib/models/brief-mix";
+import { InstructionBox } from "./InstructionBox";
+import { parseBrief } from "@/lib/models/instruct/parse";
+import { explainBrief } from "@/lib/models/instruct/explain";
 
 type TypeRow = { code: ContentCode; short: string };
 const CODES: ContentCode[] = ["P1", "P2", "P3", "P4"];
@@ -27,8 +30,14 @@ export function BriefMix({ plan, types, languages, sizes, initial, embedded = fa
   const covered = result.filter((r) => r.covered).length;
   const toggle = (list: string[], set: (v: string[]) => void, v: string) => set(list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
 
+  const instruct = (text: string) => {
+    const r = parseBrief(text, { shares, languages: langs, channels: chans, minShare }, types, languages, channels);
+    setShares(r.next.shares); setLangs(r.next.languages); setChans(r.next.channels); setMinShare(r.next.minShare);
+    return r;
+  };
   return (
     <div>
+      <InstructionBox onRun={instruct} explanation={explainBrief(result)} examples={["P1 50%, P3 50%", "no Kikamba; no TikTok", "P2 40%, P3 30%, P4 30%; minimum 20%"]} />
       <div className="plat-card grid gap-5 p-4 sm:p-5 lg:grid-cols-3">
         <fieldset className="lg:col-span-1">
           <legend className="font-semibold text-ink">Share of the week, by content type</legend>
