@@ -133,15 +133,26 @@ export function startScroll(): () => void {
   const iconCanvas = document.createElement("canvas");
   iconCanvas.width = iconCanvas.height = 64;
   let lastIconPct = -1;
+  let iconColours: { accent: string; gold: string } | null = null;
+  const colourMO = new MutationObserver(() => {
+    iconColours = null;
+    lastIconPct = -1;
+  });
+  colourMO.observe(root, { attributes: true, attributeFilter: ["class", "data-fx-palette", "data-theme"] });
+  cleanups.push(() => colourMO.disconnect());
   const drawIcon = (pct: number) => {
     const step = Math.round(pct * 50) / 50; // every 2%
     if (step === lastIconPct) return;
     lastIconPct = step;
     const g = iconCanvas.getContext("2d");
     if (!g) return;
-    const s = getComputedStyle(root);
-    const accent = s.getPropertyValue("--accent-solid").trim() || "#2546c8";
-    const gold = s.getPropertyValue("--gold").trim() || "#c99a2e";
+    // The colours are read once and again only when the theme or palette changes: reading
+    // computed style on every scroll step forced a restyle of the whole page each time.
+    if (!iconColours) {
+      const s = getComputedStyle(root);
+      iconColours = { accent: s.getPropertyValue("--accent-solid").trim() || "#2546c8", gold: s.getPropertyValue("--gold").trim() || "#c99a2e" };
+    }
+    const { accent, gold } = iconColours;
     g.clearRect(0, 0, 64, 64);
     g.lineWidth = 8;
     g.strokeStyle = "rgba(127,127,127,0.35)";
@@ -223,42 +234,83 @@ export function startScroll(): () => void {
   let frame = 0;
   let decay = 0;
 
+  // Last values written, so a frame writes only what changed. An attribute set on <html> restyles
+  // the whole document, so writing the same value every frame cost a full style recalculation per
+  // frame of scrolling.
+  const last: Record<string, string> = {};
+  const flag = (name: string, on: boolean) => {
+    const key = `@${name}`;
+    const v = on ? "1" : "";
+    if (last[key] === v) return;
+    last[key] = v;
+    root.toggleAttribute(name, on);
+  };
+  let rails: HTMLElement[] = Array.from(document.querySelectorAll<HTMLElement>(".fx-hscroll"));
+  // The only elements that read the scroll velocity (fx-suite.css). It is set on them, not on
+  // <html>: a custom property on the root is inherited by every element, so each change restyled
+  // the whole page, many times a second while scrolling.
+  const VEL = ".cd__stats, .rm__shelves ul, .fx-marquee, .flow-chap__label";
+  let velTargets: HTMLElement[] = Array.from(document.querySelectorAll<HTMLElement>(VEL));
+  let lastVel = "";
+  const railMO = new MutationObserver(() => {
+    rails = Array.from(document.querySelectorAll<HTMLElement>(".fx-hscroll"));
+    velTargets = Array.from(document.querySelectorAll<HTMLElement>(VEL));
+    lastVel = "";
+  });
+  const setVel = (value: string) => {
+    if (value === lastVel) return;
+    lastVel = value;
+    for (const el of velTargets) el.style.setProperty("--fx-vel", value);
+  };
+  railMO.observe(document.body, { childList: true, subtree: true });
+  cleanups.push(() => railMO.disconnect());
+
   const read = () => {
     frame = 0;
+    // Reads first: the scroll position, the page height, and every pinned rail's box.
     const y = window.scrollY;
     const t = performance.now();
     const max = Math.max(1, root.scrollHeight - root.clientHeight);
+    const vh = window.innerHeight;
+    const railBoxes = rails.map((wrap) => {
+      const track = wrap.querySelector<HTMLElement>(".fx-hscroll__track");
+      const pin = wrap.querySelector<HTMLElement>(".fx-hscroll__pin");
+      if (!track || !pin) return null;
+      return { wrap, track, r: wrap.getBoundingClientRect(), shift: Math.max(0, track.scrollWidth - pin.clientWidth) };
+    });
     const p = Math.min(1, Math.max(0, y / max));
 
-    fill.style.transform = `scaleX(${p.toFixed(4)})`;
-    ring.style.strokeDashoffset = String(100 - p * 100);
-    btt.toggleAttribute("data-show", y > window.innerHeight * 0.9);
-    root.toggleAttribute("data-fx-deep", y > window.innerHeight * 0.9);
-    root.toggleAttribute("data-fx-scrolled", y > 8);
-    if (Math.abs(y - lastY) > 4) root.setAttribute("data-fx-dir", y > lastY ? "down" : "up");
-    root.style.setProperty("--fx-scroll", p.toFixed(4));
+    // Then writes.
+    fill.style.transform = `scaleX(${p.toFixed(3)})`;
+    ring.style.strokeDashoffset = (100 - p * 100).toFixed(1);
+    btt.toggleAttribute("data-show", y > vh * 0.9);
+    flag("data-fx-deep", y > vh * 0.9);
+    flag("data-fx-scrolled", y > 8);
+    if (Math.abs(y - lastY) > 4) {
+      const dir = y > lastY ? "down" : "up";
+      if (last["@dir"] !== dir) {
+        last["@dir"] = dir;
+        root.setAttribute("data-fx-dir", dir);
+      }
+    }
 
-    // Velocity in px/ms, normalised so a brisk flick reads ~1.
+    // Velocity in px/ms, normalised so a brisk flick reads ~1. Written in steps of 0.05: finer
+    // steps are invisible in the skew it drives and each one restyles the page.
     const dt = Math.max(1, t - lastT);
     const v = (y - lastY) / dt;
     vel = vel * 0.7 + Math.max(-1, Math.min(1, v / 3)) * 0.3;
-    root.style.setProperty("--fx-vel", vel.toFixed(3));
+    setVel((Math.round(vel * 20) / 20).toFixed(2));
     lastY = y;
     lastT = t;
 
     // Pinned horizontal rails.
-    document.querySelectorAll<HTMLElement>(".fx-hscroll").forEach((wrap) => {
-      const track = wrap.querySelector<HTMLElement>(".fx-hscroll__track");
-      const pin = wrap.querySelector<HTMLElement>(".fx-hscroll__pin");
-      if (!track || !pin) return;
-      const r = wrap.getBoundingClientRect();
-      const span = Math.max(1, r.height - window.innerHeight);
-      const prog = Math.min(1, Math.max(0, -r.top / span));
-      // How far the track overflows the pinned window it travels through.
-      const shift = Math.max(0, track.scrollWidth - pin.clientWidth);
-      track.style.setProperty("--fx-hx", `${(-prog * shift).toFixed(1)}px`);
-      wrap.style.setProperty("--fx-hp", prog.toFixed(3));
-    });
+    for (const box of railBoxes) {
+      if (!box) continue;
+      const span = Math.max(1, box.r.height - vh);
+      const prog = Math.min(1, Math.max(0, -box.r.top / span));
+      box.track.style.setProperty("--fx-hx", `${(-prog * box.shift).toFixed(1)}px`);
+      box.wrap.style.setProperty("--fx-hp", prog.toFixed(3));
+    }
 
     drawIcon(p);
 
@@ -266,14 +318,15 @@ export function startScroll(): () => void {
     window.clearTimeout(decay);
     decay = window.setTimeout(() => {
       vel = 0;
-      root.style.setProperty("--fx-vel", "0");
+      setVel("0.00");
     }, 140);
   };
   const onScroll = () => {
     wake();
     if (!frame) frame = requestAnimationFrame(read);
   };
-  read();
+  // The first read waits for a frame, so it does not force a layout as the engines start.
+  frame = requestAnimationFrame(read);
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   cleanups.push(() => {

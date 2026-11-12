@@ -206,32 +206,59 @@ export function startReveal(): () => void {
     img.addEventListener("error", done, { once: true });
   };
 
-  const take = (el: HTMLElement) => {
-    if (seen.has(el)) return;
-    seen.add(el);
-    if (el.closest(NEVER)) return;
-    const rule = ruleOf(el);
-    if (!rule) return;
-    const r = el.getBoundingClientRect();
-    const below = r.top > window.innerHeight * 0.92;
-    const folded = hiddenByFold(el) || (r.width === 0 && r.height === 0);
-    if (rule.stagger) el.dataset.fxStagger = String(rule.stagger);
-    if (rule.ripple) el.dataset.fxRipple = "1";
-    if (rule.refire) el.dataset.fxRefire = "1";
-    if (below || folded) {
-      el.setAttribute("data-fx", rule.v);
-      io.observe(el);
-    } else if (rule.refire) {
-      // Visible now and will re-fire later: start in the arrived state.
-      el.setAttribute("data-fx", rule.v);
-      el.setAttribute("data-fx-in", "");
-      io.observe(el);
+  /**
+   * Where each new element sits is learned from an IntersectionObserver, not by measuring it:
+   * the browser reports positions as part of its normal rendering, so arming even thousands of
+   * elements forces no layout. (Measuring each one, as this did before, made a long page lay
+   * itself out again and again and held a mid-range phone's main thread for seconds.) An element
+   * found on screen, or above it, is left exactly as it is; one below the fold or inside a closed
+   * fold is armed for its entrance.
+   */
+  const rules = new WeakMap<Element, Rule>();
+  const placer = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        const el = e.target as HTMLElement;
+        placer.unobserve(el);
+        const rule = rules.get(el);
+        if (!rule) continue;
+        const r = e.boundingClientRect;
+        const folded = hiddenByFold(el) || (r.width === 0 && r.height === 0);
+        const onOrAbove = e.isIntersecting || r.bottom <= 0;
+        if (rule.stagger) el.dataset.fxStagger = String(rule.stagger);
+        if (rule.ripple) el.dataset.fxRipple = "1";
+        if (rule.refire) el.dataset.fxRefire = "1";
+        if (!onOrAbove || folded) {
+          el.setAttribute("data-fx", rule.v);
+          io.observe(el);
+        } else if (rule.refire) {
+          // Visible now and will re-fire later: start in the arrived state.
+          el.setAttribute("data-fx", rule.v);
+          el.setAttribute("data-fx-in", "");
+          io.observe(el);
+        }
+      }
+    },
+    { threshold: 0, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  const takeAll = (els: HTMLElement[]) => {
+    for (const el of els) {
+      if (seen.has(el)) continue;
+      seen.add(el);
+      if (el.closest(NEVER)) continue;
+      const rule = ruleOf(el);
+      if (!rule) continue;
+      rules.set(el, rule);
+      placer.observe(el);
     }
   };
 
   const scan = (root: ParentNode) => {
-    if (root instanceof HTMLElement && root.matches(ALL)) take(root);
-    root.querySelectorAll<HTMLElement>(ALL).forEach(take);
+    const found: HTMLElement[] = [];
+    if (root instanceof HTMLElement && root.matches(ALL)) found.push(root);
+    root.querySelectorAll<HTMLElement>(ALL).forEach((el) => found.push(el));
+    takeAll(found);
     if (root instanceof HTMLElement && root.matches(SCRAMBLE)) scrambleIO.observe(root);
     root.querySelectorAll<HTMLElement>(SCRAMBLE).forEach((el) => {
       if (!seen.has(el)) {
@@ -247,9 +274,19 @@ export function startReveal(): () => void {
   let raf = 0;
   const flush = () => {
     raf = 0;
-    const nodes = pending;
+    const nodes = pending.filter((n): n is HTMLElement => n instanceof HTMLElement && n.isConnected);
     pending = [];
-    for (const n of nodes) if (n.isConnected && (n instanceof HTMLElement || n instanceof DocumentFragment)) scan(n as ParentNode);
+    // A node inside another added node is scanned with it: scanning it again repeats the work.
+    const set = new Set(nodes);
+    for (const n of nodes) {
+      let up = n.parentElement;
+      let nested = false;
+      while (up) {
+        if (set.has(up)) { nested = true; break; }
+        up = up.parentElement;
+      }
+      if (!nested) scan(n);
+    }
   };
   const mo = new MutationObserver((records) => {
     for (const rec of records) rec.addedNodes.forEach((n) => n.nodeType === 1 && pending.push(n));
@@ -261,6 +298,7 @@ export function startReveal(): () => void {
 
   return () => {
     io.disconnect();
+    placer.disconnect();
     scrambleIO.disconnect();
     mo.disconnect();
     if (raf) cancelAnimationFrame(raf);

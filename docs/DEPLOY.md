@@ -31,8 +31,10 @@ Set these in Vercel: Project, Settings, Environment Variables (Production, and P
 ## Steps
 
 1. **Storage (about a minute).** In Vercel, open the project, then **Storage**, **Create**,
-   **Blob**. Name it `dr-makali-campaign-records`, choose **Private**, and connect it to this
-   project for Production and Preview. Vercel adds `BLOB_READ_WRITE_TOKEN` itself; nothing to
+   **Blob**. Name it `dr-makali-campaign-records`, choose **Private**, pick the **Cape Town
+   (cpt1)** region, and connect it to this project for Production and Preview. The site's server
+   code runs in Cape Town too (`vercel.json`), the closest Vercel region to Kenya, so server and
+   data sit together. Vercel adds `BLOB_READ_WRITE_TOKEN` itself; nothing to
    copy. Records and the change history are kept as private files only the site's server can read
    (`lib/platform/store/blob.ts`); nothing is ever deleted.
    *Alternative:* a Supabase project instead. Run `supabase/migrations/20261108000000_platform.sql`

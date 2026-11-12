@@ -23,18 +23,45 @@ export type FxPrefs = {
 
 export const FX_DEFAULTS: FxPrefs = { sound: false, cursor: true, ambient: true, intensity: 70, palette: "wiper" };
 
+/** Lighter starting point for constrained devices: no shader, aurora or cursor, gentler motion. */
+export const FX_LITE: FxPrefs = { sound: false, cursor: false, ambient: false, intensity: 30, palette: "wiper" };
+
+type NavigatorHints = Navigator & { deviceMemory?: number; connection?: { saveData?: boolean; effectiveType?: string } };
+
+/**
+ * True on a device or connection where the ambient effects cost more than they give: data saver
+ * on, a 2G or 3G connection, two CPU cores or fewer, or 2 GB of memory or less. Most of Kitui's
+ * readers are on mid-range phones and mobile data, so this is the common case, not the exception.
+ */
+export function constrained(): boolean {
+  try {
+    const n = navigator as NavigatorHints;
+    if (n.connection?.saveData) return true;
+    if (n.connection?.effectiveType && /(^|-)(2g|3g)$/.test(n.connection.effectiveType)) return true;
+    if (typeof n.deviceMemory === "number" && n.deviceMemory <= 2) return true;
+    if (typeof n.hardwareConcurrency === "number" && n.hardwareConcurrency <= 2) return true;
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+/** The defaults for this device: the full set, or the lighter one on a constrained device. */
+export const deviceDefaults = (): FxPrefs => ({ ...(constrained() ? FX_LITE : FX_DEFAULTS) });
+
 const KEY = "kitui2027:fx";
 export const FX_EVENT = "kitui:fx-prefs";
 
 export function readPrefs(): FxPrefs {
   try {
+    const base = deviceDefaults();
     const raw = window.localStorage.getItem(KEY);
-    if (!raw) return { ...FX_DEFAULTS };
+    if (!raw) return base;
     const parsed = JSON.parse(raw) as Partial<FxPrefs>;
     if (!PALETTES.includes(parsed.palette as Palette)) delete parsed.palette;
-    return { ...FX_DEFAULTS, ...parsed, intensity: Math.max(0, Math.min(100, Number(parsed.intensity ?? FX_DEFAULTS.intensity))) };
+    return { ...base, ...parsed, intensity: Math.max(0, Math.min(100, Number(parsed.intensity ?? base.intensity))) };
   } catch {
-    return { ...FX_DEFAULTS };
+    return deviceDefaults();
   }
 }
 
@@ -54,8 +81,9 @@ export function resetPrefs() {
   } catch {
     // As above.
   }
-  applyPrefs(FX_DEFAULTS);
-  window.dispatchEvent(new CustomEvent<FxPrefs>(FX_EVENT, { detail: { ...FX_DEFAULTS } }));
+  const defaults = deviceDefaults();
+  applyPrefs(defaults);
+  window.dispatchEvent(new CustomEvent<FxPrefs>(FX_EVENT, { detail: defaults }));
 }
 
 /**

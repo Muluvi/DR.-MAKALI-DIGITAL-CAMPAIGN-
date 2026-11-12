@@ -328,7 +328,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     const on = () => {
       if (!frame) frame = requestAnimationFrame(read);
     };
-    read();
+    // The first read waits for a frame, so it does not force a layout during hydration.
+    on();
     window.addEventListener("scroll", on, { passive: true });
     window.addEventListener("resize", on, { passive: true });
     return () => {
