@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageHead } from "@/components/platform/PageHead";
 import { platformMode } from "@/lib/platform/config";
 import { serviceClient } from "@/lib/platform/store/supabase";
+import { list } from "@vercel/blob";
 import { INCIDENTS } from "@/lib/platform/incidents";
 import { PUBLIC_RETRIEVED } from "@/lib/public-data";
 
@@ -17,6 +18,16 @@ async function database(): Promise<Check> {
   const mode = platformMode();
   if (mode === "off") return { label: "Workspace database", state: "off", detail: "Not connected yet. Every public page works from the data pack; the team's working records switch on with the database." };
   if (mode === "local") return { label: "Workspace database", state: "ok", detail: "A local development store, not the live service." };
+  if (mode === "blob") {
+    const started = Date.now();
+    try {
+      const timeout = new Promise<never>((_, reject) => setTimeout(() => reject(new Error("no answer within three seconds")), 3 * 1000));
+      await Promise.race([list({ prefix: "records/", limit: 1 }), timeout]);
+      return { label: "Workspace database", state: "ok", detail: `Vercel Blob answered in ${Date.now() - started} ms, checked as this page loaded.` };
+    } catch (e) {
+      return { label: "Workspace database", state: "down", detail: `Not reachable: ${e instanceof Error ? e.message : "unknown error"}.` };
+    }
+  }
   const started = Date.now();
   try {
     const query = serviceClient().from("records").select("id", { count: "exact", head: true });

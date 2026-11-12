@@ -17,6 +17,7 @@
  * and every save says why.
  */
 import { platformMode } from "./config";
+import { blobStore } from "./store/blob";
 import { localStore } from "./store/local";
 import { supabaseStore } from "./store/supabase";
 import type { Actor, Store } from "./store/types";
@@ -30,6 +31,7 @@ export const VISITOR: Actor = { email: "", name: "Anyone with the link" };
 export function readStore(): Store | null {
   const mode = platformMode();
   if (mode === "supabase") return supabaseStore();
+  if (mode === "blob") return blobStore;
   if (mode === "local") return localStore;
   return null;
 }
