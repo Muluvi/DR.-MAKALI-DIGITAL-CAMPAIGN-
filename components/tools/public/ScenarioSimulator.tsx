@@ -3,12 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import type { PublicConstituency } from "@/lib/public-data";
 import { val } from "../../../lib/data/read";
+import { clampPct as clamp, scenarioTotals, startingScenario, type Cell, type Scenario } from "../../../lib/models/winning-number";
 import { ToolActions } from "./ToolActions";
 
-type Cell = { turnout: number; share: number };
-type Scenario = Record<string, Cell>;
 const n = (v: number) => Math.round(v).toLocaleString("en-KE");
-const clamp = (v: number) => Math.min(100, Math.max(0, v));
 
 function decode(raw: string | undefined): { a?: Scenario; b?: Scenario } {
   if (!raw) return {};
@@ -18,11 +16,7 @@ function decode(raw: string | undefined): { a?: Scenario; b?: Scenario } {
 export function ScenarioSimulator({ constituencies, initial }: { constituencies: PublicConstituency[]; initial?: string }) {
   const benchmark = val("benchmark");
   const baseTurnout = val("turnout.constant");
-  const start = useMemo<Scenario>(() => {
-    const voters = constituencies.reduce((a, c) => a + c.voters, 0);
-    const neutral = clamp(Math.ceil((benchmark / (voters * baseTurnout / 100)) * 1000) / 10);
-    return Object.fromEntries(constituencies.map((c) => [c.code, { turnout: baseTurnout, share: neutral }]));
-  }, [constituencies, benchmark, baseTurnout]);
+  const start = useMemo<Scenario>(() => startingScenario(constituencies, benchmark, baseTurnout), [constituencies, benchmark, baseTurnout]);
   const [a, setA] = useState<Scenario>(() => ({ ...start, ...decode(initial).a }));
   const [b, setB] = useState<Scenario>(() => ({ ...start, ...decode(initial).b }));
   const [active, setActive] = useState<"A" | "B">("A");
@@ -35,7 +29,7 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
     window.history.replaceState(null, "", `?s=${encodeURIComponent(btoa(JSON.stringify({ a, b })))}`);
   }, [a, b]);
 
-  const total = (s: Scenario) => constituencies.reduce((t, c) => { const ballots = c.voters * s[c.code].turnout / 100; return { ballots: t.ballots + ballots, votes: t.votes + ballots * s[c.code].share / 100 }; }, { ballots: 0, votes: 0 });
+  const total = (s: Scenario) => scenarioTotals(constituencies, s);
   const ta = total(a), tb = total(b);
 
   const load = () => {

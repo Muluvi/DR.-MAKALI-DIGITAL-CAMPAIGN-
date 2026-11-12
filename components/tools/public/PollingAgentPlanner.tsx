@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { PublicWard } from "@/lib/public-data";
+import { agentInputsReady, agentPlan, agentTotals } from "@/lib/models/polling-agents";
 import { ToolActions } from "./ToolActions";
 
 const n = (v: number) => v.toLocaleString("en-KE");
@@ -19,14 +20,9 @@ export function PollingAgentPlanner({ wards, initial }: { wards: PublicWard[]; i
     window.history.replaceState(null, "", q ? `?${q}` : window.location.pathname);
   }, [perStation, reserve, perSupervisor]);
   const a = Number(perStation), r = Number(reserve), s = Number(perSupervisor);
-  const ready = a > 0 && r >= 0;
-  const plan = useMemo(() => wards.map((w) => {
-    const base = w.stations * a;
-    const reserves = Math.ceil(base * r / 100);
-    const supervisors = s > 0 ? Math.ceil(w.stations / s) : 0;
-    return { w, base, reserves, supervisors, total: base + reserves + supervisors };
-  }), [wards, a, r, s]);
-  const sum = plan.reduce((t, p) => ({ base: t.base + p.base, reserves: t.reserves + p.reserves, supervisors: t.supervisors + p.supervisors, total: t.total + p.total, stations: t.stations + p.w.stations }), { base: 0, reserves: 0, supervisors: 0, total: 0, stations: 0 });
+  const ready = agentInputsReady({ perStation: a, reservePct: r, perSupervisor: s });
+  const plan = useMemo(() => agentPlan(wards, { perStation: a, reservePct: r, perSupervisor: s }), [wards, a, r, s]);
+  const sum = agentTotals(plan);
   return (
     <div>
       <div className="plat-card grid gap-4 p-4 sm:grid-cols-3">

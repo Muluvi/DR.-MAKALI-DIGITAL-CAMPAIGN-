@@ -92,7 +92,14 @@ const nextConfig: NextConfig = {
       'workstreams-ground': 'workstreams',
       'workstreams-data': 'workstreams',
     };
+    // The Models area (November 2026) took in the two planning tools that are scenario models; the
+    // query string, which carries a shared scenario, is kept by the redirect.
+    const models: Record<string, string> = {
+      '/tools/winning-number': '/models/winning-number',
+      '/tools/polling-agents': '/models/polling-agents',
+    };
     return [
+      ...Object.entries(models).map(([source, destination]) => ({ source, destination, permanent: true })),
       ...Object.entries(moved).map(([from, to]) => ({
         source: `/content/${from}.md`,
         destination: `/content/${to}.md`,
