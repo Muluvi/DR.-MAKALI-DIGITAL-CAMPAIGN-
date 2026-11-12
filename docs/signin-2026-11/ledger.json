@@ -1,0 +1,134 @@
+[
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "replacement": "**Anyone with the link sees everything, with no account and no sign-in. Firefly keeps it running and makes the changes.**",
+    "at": 8
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's",
+    "words": 2,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**",
+    "replacement": "**Anyone with the link sees everything, with no account and no sign-in. Firefly keeps it running and makes the changes.**",
+    "at": 148
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "live in one place, and the team updates them itself.",
+    "words": -2,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "live in one place, and the team updates them itself.",
+    "replacement": "live in one place, and Firefly updates them at the team's request.",
+    "at": 349
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "title: \"Sign in to edit\"",
+    "words": 3,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "title: \"Sign in to edit\"",
+    "replacement": "title: \"Read-only\"",
+    "at": 708
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "- { label: \"Dr. Mulu's team\", text: \"adds and changes records and",
+    "words": 4,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "- { label: \"Dr. Mulu's team\", text: \"adds and changes records and data, from a phone, once team sign-in is switched on at the start of the engagement\" }",
+    "replacement": "- { label: \"No accounts\", text: \"there is no sign-in anywhere on the site, and nothing on it can be changed by a visitor\" }",
+    "at": 740
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "text: \"who, what and when, and any change can be put back",
+    "words": 3,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "text: \"who, what and when, and any change can be put back exactly\"",
+    "replacement": "text: \"who, what and when, kept in the repository's history\"",
+    "at": 902
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "title: \"How the team's edit reaches the site\"",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "title: \"How the team's edit reaches the site\"",
+    "replacement": "title: \"How the team's change reaches the site\"",
+    "at": 994
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "- { label: \"Edit\", text: \"a team member changes a figure, a",
+    "words": -3,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "- { label: \"Edit\", text: \"a team member changes a figure, a record or a status\" }",
+    "replacement": "- { label: \"Ask\", text: \"a team member asks Firefly to change a figure, a record or a status\" }",
+    "at": 1051
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "text: \"working records show at once; data-pack edits after the full checks",
+    "words": 3,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "text: \"working records show at once; data-pack edits after the full checks pass\"",
+    "replacement": "text: \"the change is published once the full checks pass\"",
+    "at": 1255
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "text: \"any change can be undone from the change history\"",
+    "words": 0,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "text: \"any change can be undone from the change history\"",
+    "replacement": "text: \"any change can be undone from the repository's history\"",
+    "at": 1338
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "- { title: \"Update the data\", text: \"the data editor, with the",
+    "words": 1,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "- { title: \"Update the data\", text: \"the data editor, with the same checks the site runs\" }",
+    "replacement": "- { title: \"Check the data\", text: \"Explore data, every figure with its source and status\" }",
+    "at": 1949
+  },
+  {
+    "file": "platform",
+    "section": "(intro)",
+    "first12": "- { label: \"Team accounts: adding and removing them\" }",
+    "words": -1,
+    "kind": "replaced",
+    "note": "Sign-in removal (docs/signin-2026-11): the site has no sign-in and no editing, so the passage that said the team signs in, or that team accounts exist, now says what is true.",
+    "text": "- { label: \"Team accounts: adding and removing them\" }",
+    "replacement": "- { label: \"Making the changes the team asks for\" }",
+    "at": 2267
+  }
+]

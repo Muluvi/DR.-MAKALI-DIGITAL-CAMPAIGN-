@@ -4,7 +4,7 @@ import { PROJECTS } from "@/data/projects";
 import { ANALYSIS_EXPORTS } from "@/data/analysis-exports";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "@/data/kpis";
 import { AnalysisFigure } from "@/components/markdown/AnalysisFigure";
-import { readStore } from "@/lib/platform/auth";
+import { readStore } from "@/lib/platform/store";
 import type { StoredRecord } from "@/lib/platform/store/types";
 import { PageHead } from "@/components/platform/PageHead";
 import { Bars, type Bar } from "@/components/platform/Bars";

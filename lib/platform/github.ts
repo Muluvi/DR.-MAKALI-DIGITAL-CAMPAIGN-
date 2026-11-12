@@ -1,15 +1,12 @@
 /**
- * Commits a data-pack edit to its own branch on GitHub. Server only.
- *
- * The branch is named team-edit/<time>-<slug>. The team-edit workflow
- * (.github/workflows/team-edit.yml) then regenerates the derived files, runs `npm run verify`,
- * `npm run check:preservation` and the build, and only if all pass does it move the edit onto
- * main, which Vercel deploys. A failing edit never reaches main.
+ * Reads, on GitHub, whether a past data-pack edit passed its checks, for the change history.
+ * Server only, read-only: the site no longer makes edits (there is no sign-in), so nothing here
+ * writes to the repository.
  *
  * Credentials come from Vercel environment variables, never the repository:
  *   GITHUB_REPOSITORY_SLUG   owner/name
  *   GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY, GITHUB_APP_INSTALLATION_ID   (a GitHub App), or
- *   GITHUB_EDIT_TOKEN        (a fine-grained token with Contents read/write on this repository)
+ *   GITHUB_EDIT_TOKEN        (a fine-grained token with read access to this repository)
  */
 import crypto from "node:crypto";
 
@@ -49,25 +46,6 @@ async function gh<T>(method: string, url: string, body?: unknown): Promise<T> {
 }
 
 /** A file as it stands on main now (not as it stood when this deployment was built). */
-export async function readMain(file: string): Promise<{ text: string; sha: string }> {
-  const j = await gh<{ content: string; sha: string }>("GET", `/contents/${file}?ref=${BASE()}`);
-  return { text: Buffer.from(j.content, "base64").toString("utf8"), sha: j.sha };
-}
-
-export async function commitEdit(opts: { file: string; text: string; sha: string; message: string; name: string }): Promise<{ branch: string; commitUrl: string }> {
-  const head = await gh<{ object: { sha: string } }>("GET", `/git/ref/heads/${BASE()}`);
-  const stamp = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14);
-  const branch = `team-edit/${stamp}-${opts.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`;
-  await gh("POST", "/git/refs", { ref: `refs/heads/${branch}`, sha: head.object.sha });
-  const put = await gh<{ commit: { html_url: string } }>("PUT", `/contents/${opts.file}`, {
-    message: opts.message,
-    content: Buffer.from(opts.text).toString("base64"),
-    sha: opts.sha,
-    branch,
-  });
-  return { branch, commitUrl: put.commit.html_url };
-}
-
 export type EditStatus = { state: "checking" | "live" | "rejected" | "unknown"; detail?: string; url?: string };
 
 /** Where an edit branch stands: still being checked, live on main, or refused by the checks. */

@@ -2,7 +2,7 @@
  * The data pack's rules, in one place, shared by `npm run verify` and the in-site data editor.
  *
  * scripts/check-figures.ts and scripts/verify-ward-register.mjs call these functions at build; the
- * editor's server actions (lib/platform/pack.ts) call the same functions before an edit is
+ * former in-site editor called the same functions before an edit was
  * accepted. So a rule cannot be enforced in one place and forgotten in the other, and the team
  * cannot save a figure or a register total that the build would reject.
  *

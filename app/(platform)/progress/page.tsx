@@ -1,7 +1,6 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import { COLLECTION_BY_ID } from "@/lib/platform/collections";
-import { getSession, readStore } from "@/lib/platform/auth";
+import { readStore } from "@/lib/platform/store";
 import { strategyChoices } from "@/lib/platform/library";
 import { PageHead } from "@/components/platform/PageHead";
 import { DataTable } from "@/components/platform/DataTable";
@@ -15,7 +14,7 @@ const TONE: Record<string, string> = { Planned: "var(--line)", "In progress": "o
 export default async function Implementation() {
   const c = COLLECTION_BY_ID.implementation;
   const store = readStore();
-  const [session, records] = await Promise.all([getSession().catch(() => null), store ? store.list(c.id).catch(() => []) : []]);
+  const records = store ? await store.list(c.id).catch(() => []) : [];
   const strategies = strategyChoices();
   const by = new Map<string, typeof records>();
   for (const r of records) by.set(String(r.data.strategy), [...(by.get(String(r.data.strategy)) ?? []), r]);
@@ -24,9 +23,7 @@ export default async function Implementation() {
   const { columns, rows } = recordRows(c, records);
   return (
     <>
-      <PageHead kicker="Implementation" title="How each strategy is being carried out" lead="Owner, channel and status for every action, as Dr. Mulu's team enters them. Updated the moment the team saves.">
-        {session && <Link href="/workspace/implementation" className="plat-btn plat-btn-solid mt-4">Update implementation</Link>}
-      </PageHead>
+      <PageHead kicker="Implementation" title="How each strategy is being carried out" lead="Owner, channel and status for every action, as Dr. Mulu's team enters them. Updated the moment the team saves." />
 
       <section aria-label="Status overview" className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {STATUS.map((s) => (

@@ -1,5 +1,9 @@
 # Team quick guide
 
+> **Superseded in part (November 2026).** The site no longer has a team sign-in, a data editor,
+> workspace editing or team accounts: it is read-only, and Firefly makes changes at the team's
+> request. See `docs/signin-2026-11/` and `CONTRIBUTING.md`. The rest of this document stands.
+
 For Dr. Mulu's team. Five minutes to read. You never need GitHub, a terminal or code.
 
 ## Viewing

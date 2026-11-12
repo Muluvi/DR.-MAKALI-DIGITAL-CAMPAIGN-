@@ -1,9 +1,3 @@
-"use client";
-
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
-import { RotateCcw } from "lucide-react";
-import { revertChange } from "@/app/(platform)/actions";
 import type { EditStatus } from "@/lib/platform/github";
 
 export interface HistoryRow {
@@ -45,19 +39,9 @@ function Diff({ before, after }: { before: Record<string, unknown> | null; after
   );
 }
 
-export function HistoryList({ rows, canRevert }: { rows: HistoryRow[]; canRevert: boolean }) {
-  const router = useRouter();
-  const [msg, setMsg] = useState<Record<string, string>>({});
-  const [pending, start] = useTransition();
+/** The change history, read-only. */
+export function HistoryList({ rows }: { rows: HistoryRow[] }) {
   if (!rows.length) return <p className="rounded-2xl border border-dashed border-line p-6 text-center text-muted">No changes yet.</p>;
-  const revert = (id: string) => {
-    if (!window.confirm("Put this change back exactly as it was before? The revert is itself logged, and can be reverted.")) return;
-    start(async () => {
-      const r = await revertChange(id);
-      setMsg((m) => ({ ...m, [id]: r.ok ? r.message : Object.values(r.errors)[0] }));
-      router.refresh();
-    });
-  };
   return (
     <ol className="space-y-3">
       {rows.map((r) => (
@@ -75,10 +59,6 @@ export function HistoryList({ rows, canRevert }: { rows: HistoryRow[]; canRevert
           </p>
           {r.status?.detail && <p className="mt-1 text-[0.8rem] text-muted">{r.status.detail}</p>}
           <Diff before={r.before} after={r.after} />
-          {canRevert && !r.reverted && (
-            <button type="button" className="plat-btn plat-btn-sm mt-3" disabled={pending} onClick={() => revert(r.id)}><RotateCcw size={14} /> Revert</button>
-          )}
-          {msg[r.id] && <p className="mt-2 text-[0.85rem]" role="status">{msg[r.id]}</p>}
         </li>
       ))}
     </ol>
