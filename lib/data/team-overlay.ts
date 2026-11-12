@@ -1,9 +1,9 @@
 /**
  * The team's edits to the data pack, applied where the data is defined.
  *
- * Dr. Mulu's team edits data on the site (/team/data), not in GitHub. The editor writes its
- * changes to two overlay files, data/team/figures.json and data/team/lists.json, and commits them
- * through the gated edit branch (docs/ownership-2026-11). The original records stay exactly where
+ * The team's past edits, made through the in-site data editor before it was removed with the
+ * sign-in (November 2026, docs/signin-2026-11), sit in two overlay files, data/team/figures.json
+ * and data/team/lists.json. Any further change to them goes through a reviewed pull request. The original records stay exactly where
  * they are, in the file that defines them; the overlay changes fields and adds records, and never
  * removes one. Every reader of the data (prose tokens, charts, CSVs, the explorer, the analysis
  * export) sees the edited values because they are applied here, at definition.

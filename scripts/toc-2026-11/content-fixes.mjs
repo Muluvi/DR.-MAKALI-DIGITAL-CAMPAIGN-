@@ -36,6 +36,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { REWRITES as LATER } from "../signin-2026-11/rewrites.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const LEDGER = path.join(ROOT, "docs", "toc-2026-11", "ledger.json");
@@ -149,6 +150,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const count = text.split(r.from).length - 1;
     if (count === 0) {
       if (text.includes(r.to)) { skipped++; continue; }
+      // Reworded again by a later, logged pass (docs/signin-2026-11): accounted for there, but only
+      // when that pass's rewrite starts from exactly this fix's wording and has been applied.
+      if (LATER.some((l) => l.f === r.f && l.from.includes(r.to.split("\n")[0].slice(0, 60)) && text.includes(l.to))) { skipped++; continue; }
       missing.push(`${r.f}: not found: ${r.from.slice(0, 80)}`);
       continue;
     }

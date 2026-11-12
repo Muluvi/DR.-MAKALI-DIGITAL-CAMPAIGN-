@@ -1,3 +1,20 @@
+# Change log — sign-in removed: the site is read-only (12 November 2026)
+
+**One content passage changed, and it is logged.** Requested by the owner: "remove all sign in
+features". The rewordings are in `docs/signin-2026-11/` (ledger and `CHANGES.md`), applied by
+`scripts/signin-2026-11/content-fixes.mjs` and checked by `npm run check:content`.
+
+| | |
+|---|---|
+| **Removed** | The team sign-in (`/team/login`, the magic-link callback), team-account management (`/team/admin`), the data editor (`/team/data`), editing and reverting in the workspace and the change history, every server action that wrote, the session code, the local test accounts, the `team-edit` workflow (which only ran on branches the editor made, with write access), and the `@supabase/ssr` dependency |
+| **Why the edits went too** | Sign-in was the only thing authorising an edit. Leaving the write actions without it would have let anyone with the link change the campaign's data |
+| **What stays** | Every page, read-only: the workspace's records, the implementation tracker, the change history (past edits still listed) and the dashboards. Past edits in `data/team/*.json` are still applied. The store (`lib/platform/store.ts`) now reads only |
+| **Content** | The platform page no longer says the team signs in: it says the site is read-only and Firefly makes changes at the team's request. The Week 1 figure's Day 1 and the decision panel no longer mention team accounts. Earlier passes' checkers accept a fix of theirs only when this pass's logged rewrite starts from its exact wording |
+| **Not changed** | `SITE_PASSCODE` (an optional, off-by-default link passcode, not a sign-in), the Supabase migration (database history), and the proposal's description of the team entering its own data once the engagement starts, which is its operating model rather than a site feature |
+| **Guards** | Lint, types, `npm run verify` (all content checks), `npm run check:preservation` and the build pass. Every `/team/*` route returns 404 |
+
+---
+
 # Change log — the effects layer: site-wide visual effects and motion (10 November 2026)
 
 **No content changed.** `content/*.md` is untouched; `npm run verify` and the build pass. Requested

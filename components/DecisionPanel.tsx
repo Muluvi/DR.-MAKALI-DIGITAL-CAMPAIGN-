@@ -50,7 +50,7 @@ const DEPENDENCIES: { icon: typeof UserCheck; text: string; longLead?: boolean }
   },
   { icon: MapPin, text: "Current ward-level registration data from the IEBC published file" },
   { icon: Briefcase, text: "Access to the existing NG-CDF project record for verified proof points" },
-  { icon: CheckCircle2, text: "Sign-off on the service level, and the names of the team accounts to create" },
+  { icon: CheckCircle2, text: "Sign-off on the service level, and who on the team asks Firefly for changes" },
   { icon: FileText, text: "Wiper's 2027 nomination rules or NEC resolution, as soon as the party issues them" },
 ];
 

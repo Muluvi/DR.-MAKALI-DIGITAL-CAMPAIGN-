@@ -56,7 +56,7 @@ export const FIG_6_3: FigureSpec = {
           type: "steps",
           horizontal: true,
           steps: [
-            { when: "Day 1", title: "The team signs in", body: "Team accounts opened on the platform; Firefly holds no credentials to his channels." },
+            { when: "Day 1", title: "The team opens the platform", body: "Read-only, with no accounts to set up; Firefly holds no credentials to his channels." },
             { when: "Days 1–2", title: "The export", body: "His team enters ninety days of reach, engagement, language and geography from its own accounts; the Page-or-profile question settled." },
             { when: "Days 2–4", title: "Against the field", body: "The same window for the two nomination rivals, on public data." },
             { when: "Day 5", title: "The read", body: "The four audit figures filled, the diagnosis tested, the first brief drafted for Week 2." },
@@ -67,7 +67,7 @@ export const FIG_6_3: FigureSpec = {
   },
   columns: [{ key: "when", label: "When" }, { key: "what", label: "What happens" }],
   rows: [
-    { cells: { when: "Day 1", what: "Team accounts opened on the platform" } },
+    { cells: { when: "Day 1", what: "The team opens the platform, read-only" } },
     { cells: { when: "Days 1–2", what: "Ninety-day export entered by the team; Page-or-profile settled" } },
     { cells: { when: "Days 2–4", what: "Same window for the two nomination rivals, public data" } },
     { cells: { when: "Day 5", what: "Audit read; diagnosis tested; first brief drafted" } },

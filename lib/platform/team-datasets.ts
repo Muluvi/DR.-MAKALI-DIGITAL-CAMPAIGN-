@@ -1,6 +1,6 @@
 /** The team's working records, as explorer datasets. Server only. */
 import { COLLECTIONS } from "./collections";
-import { readStore } from "./auth";
+import { readStore } from "./store";
 import { recordRows } from "@/components/platform/rows";
 import type { Dataset } from "./catalogue";
 

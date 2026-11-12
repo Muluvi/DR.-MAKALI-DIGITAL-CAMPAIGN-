@@ -1,25 +1,22 @@
 # Keeping the data current
 
-**Dr. Mulu's team updates the data on the site, not in GitHub.** Team members sign in at `/team/login`
-and use the data editor (`/team/data`) for figures, the ward register, the strategy lists and the
-analysis values, and the workspace (`/workspace`) for the day-to-day records: the weekly brief, the
-content calendar, the dispatch log, the KPI tracker and the rest. Nobody on the team needs the
-repository, a terminal or code. `docs/ownership-2026-11/TEAM-GUIDE.md` is their guide.
+**The site is read-only, and there is no sign-in.** Anyone with the link sees everything; nothing on
+the site can be changed by a visitor. The team sign-in, the in-site data editor, the workspace
+editing and team-account management were removed in November 2026 (`docs/signin-2026-11/`).
 
 **Firefly made the platform, owns it and runs it**: hosting, deployment, fixes, the automated data
-checks and new features. Firefly manages team accounts at `/team/admin`.
+checks and new features, and every change to the data, made at the team's request.
 
-## How a team edit reaches the site
+## How a change reaches the site
 
-1. The data editor checks the edit with the data pack's own rules (`lib/data/rules.ts`, the same code
-   `npm run verify` runs) and refuses it, in plain language, if it would break them.
-2. An accepted edit is committed to its own branch, `team-edit/<time>-<what>`.
-3. `.github/workflows/team-edit.yml` regenerates the derived files and runs `npm run verify`,
-   `npm run check:preservation`, the type check and the build. Only if all pass does it move the
-   edit onto `main`, which Vercel deploys. A failing edit never reaches the site.
-4. Every edit is in the change history (`/history`) and can be reverted there.
+1. Dr. Mulu's team asks Firefly for the change: a figure, a ward register value, a strategy list entry,
+   an analysis value or a working record.
+2. Firefly makes it in a pull request. The data pack's own rules (`lib/data/rules.ts`) and
+   `npm run verify` refuse anything that would break them.
+3. The pull request merges only when the checks pass, and Vercel deploys `main`.
 
-Working records (the workspace) are saved to the platform's database and show on the next page load.
+Past edits made through the former data editor remain in `data/team/figures.json` and
+`data/team/lists.json` and are still applied; the change history (`/history`) still lists them.
 
 ## Firefly's own changes
 
@@ -34,7 +31,7 @@ npm run build
 
 A scheduled GitHub Action also collects public-source snapshots into `data/candidates/public-material.md`.
 Those entries are marked `verify`: leads for the team to check against the original source before
-updating a figure in the data editor. No automated job marks a value confirmed.
+asking for a figure to be updated. No automated job marks a value confirmed.
 
 ## Data recency
 

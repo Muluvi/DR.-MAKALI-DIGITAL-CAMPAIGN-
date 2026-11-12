@@ -1,5 +1,9 @@
 # Platform ownership: handoff report
 
+> **Superseded in part (November 2026).** The site no longer has a team sign-in, a data editor,
+> workspace editing or team accounts: it is read-only, and Firefly makes changes at the team's
+> request. See `docs/signin-2026-11/` and `CONTRIBUTING.md`. The rest of this document stands.
+
 Firefly made the site, owns it and runs it. Dr. Mulu's team runs the campaign through it.
 
 The baseline is `a377ded`, tagged `pre-ownership-baseline`. The decisions were approved as recommended:

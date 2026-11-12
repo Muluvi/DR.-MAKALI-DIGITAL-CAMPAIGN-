@@ -1,8 +1,3 @@
-export interface Actor {
-  email: string;
-  name: string;
-}
-
 export interface StoredRecord {
   id: string;
   collection: string;
@@ -36,25 +31,10 @@ export interface AuditEntry {
   revertOf: string | null;
 }
 
-export interface Member {
-  email: string;
-  name: string;
-  role: "team" | "firefly";
-  active: boolean;
-  addedAt: string;
-  addedBy: string;
-}
-
+/** Read-only: the site has no sign-in and accepts no edits. */
 export interface Store {
   list(collection: string): Promise<StoredRecord[]>;
   listAll(): Promise<StoredRecord[]>;
   get(collection: string, id: string): Promise<StoredRecord | null>;
-  create(actor: Actor, collection: string, data: Record<string, unknown>, title: string): Promise<StoredRecord>;
-  update(actor: Actor, collection: string, id: string, data: Record<string, unknown>, title: string, opts?: { archived?: boolean; revertOf?: string }): Promise<StoredRecord>;
   audit(limit?: number): Promise<AuditEntry[]>;
-  auditEntry(id: string): Promise<AuditEntry | null>;
-  logPack(actor: Actor, entry: Omit<AuditEntry, "id" | "at" | "actor" | "layer">): Promise<AuditEntry>;
-  members(): Promise<Member[]>;
-  member(email: string): Promise<Member | null>;
-  upsertMember(by: Actor, m: Pick<Member, "email" | "name" | "role" | "active">): Promise<Member>;
 }
