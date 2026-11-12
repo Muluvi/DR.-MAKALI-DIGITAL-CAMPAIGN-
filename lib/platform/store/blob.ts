@@ -11,6 +11,7 @@
  * CDN cache, so a save shows on the next page load.
  *
  * Change-history ids start with an inverted timestamp, so the store's name order is newest first.
+ * Objects read are kept in memory by version tag, so a page view re-reads only what changed.
  */
 import crypto from "node:crypto";
 import { get, list, put } from "@vercel/blob";
@@ -31,26 +32,50 @@ async function writeJson(pathname: string, value: unknown, overwrite: boolean): 
   await put(pathname, JSON.stringify(value), { access: ACCESS, contentType: "application/json", addRandomSuffix: false, allowOverwrite: overwrite, cacheControlMaxAge: 60 });
 }
 
-/** Every pathname under a prefix, following the list's pages. */
-async function pathnames(prefix: string, max = Infinity): Promise<string[]> {
-  const out: string[] = [];
+type Listed = { pathname: string; etag: string };
+
+/** Every object under a prefix, with its version tag, following the list's pages. */
+async function listed(prefix: string, max = Infinity): Promise<Listed[]> {
+  const out: Listed[] = [];
   let cursor: string | undefined;
   do {
     const page = await list({ prefix, cursor, limit: 1000 });
-    out.push(...page.blobs.map((b) => b.pathname));
+    out.push(...page.blobs.map((b) => ({ pathname: b.pathname, etag: b.etag })));
     cursor = page.hasMore ? page.cursor : undefined;
   } while (cursor && out.length < max);
   return out.slice(0, max);
 }
 
-/** Read many objects, twenty at a time. */
-async function readAll<T>(paths: string[]): Promise<T[]> {
-  const out: T[] = [];
-  for (let i = 0; i < paths.length; i += 20) {
-    const batch = await Promise.all(paths.slice(i, i + 20).map((p) => readJson<T>(p)));
-    out.push(...(batch.filter(Boolean) as T[]));
+/**
+ * Objects already read, by path and version tag. A page view then costs one list call plus a read
+ * of only what changed since this server last looked, instead of a read of every record. Bounded,
+ * so a long-lived server cannot grow without limit.
+ */
+const memo = new Map<string, unknown>();
+const MEMO_MAX = 4096;
+const remember = (key: string, value: unknown) => {
+  if (memo.size >= MEMO_MAX) memo.delete(memo.keys().next().value as string);
+  memo.set(key, value);
+};
+
+/** Read many objects, twenty at a time, from memory where the version is unchanged. */
+async function readAll<T>(items: Listed[]): Promise<T[]> {
+  const out: (T | null)[] = new Array(items.length).fill(null);
+  const missing: number[] = [];
+  items.forEach((it, i) => {
+    const hit = memo.get(`${it.pathname}@${it.etag}`);
+    if (hit !== undefined) out[i] = hit as T;
+    else missing.push(i);
+  });
+  for (let k = 0; k < missing.length; k += 20) {
+    const batch = missing.slice(k, k + 20);
+    const got = await Promise.all(batch.map((i) => readJson<T>(items[i].pathname)));
+    batch.forEach((i, j) => {
+      out[i] = got[j];
+      if (got[j] !== null) remember(`${items[i].pathname}@${items[i].etag}`, got[j]);
+    });
   }
-  return out;
+  return out.filter((x): x is T => x !== null);
 }
 
 const recordPath = (collection: string, id: string) => {
@@ -69,11 +94,11 @@ async function audit(actor: Actor, e: Omit<AuditEntry, "id" | "at" | "actor">): 
 export const blobStore: Store = {
   async list(collection) {
     if (!SLUG.test(collection)) return [];
-    const rows = await readAll<StoredRecord>(await pathnames(`records/${collection}/`));
+    const rows = await readAll<StoredRecord>(await listed(`records/${collection}/`));
     return rows.filter((r) => !r.archived).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   },
   async listAll() {
-    return (await readAll<StoredRecord>(await pathnames("records/"))).filter((r) => !r.archived);
+    return (await readAll<StoredRecord>(await listed("records/"))).filter((r) => !r.archived);
   },
   async get(collection, id) {
     try {
@@ -104,7 +129,7 @@ export const blobStore: Store = {
     return r;
   },
   async audit(limit = 200) {
-    return readAll<AuditEntry>(await pathnames("audit/", limit));
+    return readAll<AuditEntry>(await listed("audit/", limit));
   },
   async auditEntry(id) {
     if (!AUDIT_ID.test(id)) return null;

@@ -28,10 +28,23 @@ export function FxRoot() {
     root.classList.toggle("fx-on", motion);
     root.classList.add("fx-js");
 
+    // The engines start once the browser is idle after the first paint, so they never compete
+    // with the page's own rendering or a reader's first tap. The page is complete without them.
     const stops: Array<() => void> = [];
-    stops.push(startScroll());
-    stops.push(startPointer(motion));
-    if (motion) stops.push(startReveal());
+    let cancelled = false;
+    const start = () => {
+      if (cancelled) return;
+      stops.push(startScroll());
+      stops.push(startPointer(motion));
+      if (motion) stops.push(startReveal());
+    };
+    const idle = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void });
+    const idleId = idle.requestIdleCallback ? idle.requestIdleCallback(start, { timeout: 1500 }) : window.setTimeout(start, 300);
+    stops.push(() => {
+      cancelled = true;
+      if (idle.cancelIdleCallback) idle.cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
+    });
 
     const onPrefs = (e: Event) => applyPrefs((e as CustomEvent<FxPrefs>).detail);
     window.addEventListener(FX_EVENT, onPrefs);

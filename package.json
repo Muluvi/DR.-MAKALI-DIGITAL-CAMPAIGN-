@@ -73,6 +73,7 @@
   "overrides": {
     "next": {
       "postcss": "$postcss"
-    }
+    },
+    "zod": "$zod"
   }
 }

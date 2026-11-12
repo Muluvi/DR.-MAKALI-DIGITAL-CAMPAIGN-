@@ -15,7 +15,7 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh bg-paper text-ink">
       <header className="plat-chrome sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 pt-3 sm:px-6">
-          <Link href="/" className="font-serif text-lg leading-none text-ink">Kitui 2027</Link>
+          <Link href="/" prefetch={false} className="font-serif text-lg leading-none text-ink">Kitui 2027</Link>
           <span className="hidden text-[0.75rem] text-muted sm:inline">The campaign platform</span>
         </div>
         <PlatformNav />

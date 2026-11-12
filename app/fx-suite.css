@@ -1168,3 +1168,8 @@ html[data-fx-vt]::view-transition-new(root) { animation: fx-vt-circle 650ms var(
   :is(.flow-chap__label, .rm__title, .fx-kinetic__ch) { color: CanvasText; background: none; }
   .fx-aurora, .fx-hero, .fx-cursor, .fx-trail { display: none; }
 }
+
+/* With ambient effects off (the default on constrained phones and data saver), surfaces drop their
+   live background blur: blurring what scrolls beneath a sticky bar is repainted on every frame,
+   which a phone's GPU pays for in dropped frames. The surfaces keep their translucent colour. */
+html[data-fx-still] [class*="backdrop-blur"] { -webkit-backdrop-filter: none; backdrop-filter: none; }

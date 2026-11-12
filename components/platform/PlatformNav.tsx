@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+/**
+ * The story (`/`) is not prefetched: its bundle is the site's heaviest, and prefetching it from every
+ * platform page spent a reader's mobile data and phone on a page they may never open.
+ */
 const LINKS = [
   { href: "/", label: "Story" },
   { href: "/explore", label: "Explore data" },
@@ -26,7 +30,7 @@ export function PlatformNav() {
           const on = l.href === "/" ? false : path === l.href || path.startsWith(`${l.href}/`);
           return (
             <li key={l.href} className="flex-none">
-              <Link href={l.href} aria-current={on ? "page" : undefined} className={`block rounded-full px-3 py-1.5 ${on ? "bg-accent-solid text-on-accent" : "text-ink hover:bg-card"}`}>
+              <Link href={l.href} prefetch={l.href === "/" ? false : undefined} aria-current={on ? "page" : undefined} className={`block rounded-full px-3 py-1.5 ${on ? "bg-accent-solid text-on-accent" : "text-ink hover:bg-card"}`}>
                 {l.label}
               </Link>
             </li>

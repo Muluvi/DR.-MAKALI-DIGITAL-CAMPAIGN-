@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { sound, confetti } from "../../lib/fx/feedback";
-import { FX_DEFAULTS, FX_EVENT, readPrefs, resetPrefs, seasonalPalette, writePrefs, type FxPrefs, type Palette } from "../../lib/fx/prefs";
+import { deviceDefaults, FX_DEFAULTS, FX_EVENT, readPrefs, resetPrefs, seasonalPalette, writePrefs, type FxPrefs, type Palette } from "../../lib/fx/prefs";
 
 /**
  * The effects panel: how the page looks and moves, chosen by the reader.
@@ -157,7 +157,7 @@ export function FxPanel() {
       if (p < 1) holdRaf.current = requestAnimationFrame(tick);
       else {
         resetPrefs();
-        setPrefs({ ...FX_DEFAULTS });
+        setPrefs(deviceDefaults());
         setHold(0);
         sound("success");
         const r = panel.current?.getBoundingClientRect();
