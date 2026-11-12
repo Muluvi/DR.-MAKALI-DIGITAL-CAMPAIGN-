@@ -21,8 +21,12 @@
  *   4. Fine print: an open site cannot be confidential, so the wording says what is true. The request
  *      not to republish stays.
  *   5. Timeline: the September 2026 signature it counted from has passed. The campaign's own phases
- *      keep their dates; the platform's rollout gets its own section, laid from the week the first
- *      phase is approved against the gazetted dates, with the rollout planner linked.
+ *      keep their dates; the platform's rollout moves to its own chapter, How the platform reaches
+ *      all 40 wards (content/rollout.md, written whole, so not logged here: no base text to weigh).
+ *   6. The nine models, each embedded in the chapter it belongs to.
+ *   7–10. Who does what names the service around the platform; Lawful and ethical names what the
+ *      platform itself holds; Measuring success adds the platform's own measures; Risks and response
+ *      adds the platform's risks and the election-day fallbacks.
  *
  * Earlier passes' --check scripts accept text this pass replaced (scripts/value-2026-11/superseded.mjs).
  * Each rewrite must match exactly once (or, with `all`, at least once). A rewrite already applied is
@@ -44,7 +48,9 @@ const ASK_NEW = "**Firefly Management offers a platform that is already built, a
 
 const LAYERS_LEAD = "**What Firefly offers comes in four layers: the platform as it stands, the work of making it dependable, running it with the campaign, and new development.** Only the first exists today; each of the others is accepted when it is shown to work.";
 
-const ROLLOUT_LEAD = "The platform reaches all 40 wards in six implementation phases that start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar.";
+
+/** A live model inside a chapter: rendered by components/models/ModelEmbed.tsx. */
+const embed = (slug) => `<model-embed slug="${slug}"></model-embed>\n`;
 
 export const REWRITES = [
   // 1. In brief
@@ -162,28 +168,75 @@ export const REWRITES = [
   {
     f: "content/timeline.md",
     from: "Phases −1 and 0 are counted from signature; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.",
-    to: "Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 14.9 lays its six implementation phases from the week the first phase is approved, against the gazetted dates.",
+    to: "Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 24.1, in How the platform reaches all 40 wards, lays its six implementation phases from the week the first phase is approved, against the gazetted dates.",
   },
+  // 6. The models, inside the chapters they belong to (components/models/ModelEmbed.tsx)
+  { f: "content/votes.md", append: "\n" + embed("winning-number") },
+  { f: "content/voters.md", from: "## 11.2 The six voter segments", to: embed("ward-priority") + "\n## 11.2 The six voter segments" },
+  { f: "content/channels.md", from: "## 12.2 Which channel does which job", to: embed("reach-by-channel") + "\n## 12.2 Which channel does which job" },
+  { f: "content/channels.md", from: "## 12.5 Register, dialect and quality control", to: embed("send-check") + "\n## 12.5 Register, dialect and quality control" },
+  { f: "content/message.md", from: "## 10.5 Countering disinformation", to: embed("brief-mix") + "\n## 10.5 Countering disinformation" },
+  { f: "content/record.md", from: "## 6.2 Where he is known, and where not", to: embed("record-finder") + "\n## 6.2 Where he is known, and where not" },
+  { f: "content/response.md", from: "## F.2 Response times by channel", to: embed("response-tier") + "\n## F.2 Response times by channel" },
+  { f: "content/workstreams.md", from: "### 15.3.2 Workstream 8 — The field-to-digital loop", to: embed("polling-agents") + "\n### 15.3.2 Workstream 8 — The field-to-digital loop" },
+
+  // 7. Who does what: what "Firefly runs the platform" now covers
   {
-    f: "content/timeline.md",
-    // A new section after 14.8: its words belong to 14.9, which the base never had, so 14.8's balance is unchanged.
-    newSection: true,
-    from: "- Full campaign post-mortem with performance against every KPI in this document\n",
+    f: "content/engagement.md",
+    from: "separates the platform, its hosting, upkeep and data checks, which Firefly provides, from analysis",
+    to: "separates the platform and the service around it (hosting, upkeep, the data checks, security hardening, training by role, support, a monthly service report and the models), which Firefly provides, from analysis",
+  },
+
+  // 8. Lawful and ethical: what the platform itself holds, and how the models treat what is typed
+  {
+    f: "content/lawful.md",
+    from: "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n",
     to:
-      "- Full campaign post-mortem with performance against every KPI in this document\n\n" +
-      "## 14.9 The platform's own rollout, against the gazetted dates\n\n" +
-      "```lead\n" + ROLLOUT_LEAD + "\n```\n\n" +
-      ROLLOUT_LEAD +
-      " The campaign's five phases above are what the campaign does; these six are how the platform it works on becomes something a county-wide team can rely on.\n\n" +
-      "```visual\nkind: stepper\ntitle: \"Six implementation phases, each accepted before the next starts\"\nitems:\n" +
-      "  - { label: \"Discovery\", text: \"an executed audit, every user mapped to a role, the team's phones and connectivity checked, the legal position scoped\" }\n" +
-      "  - { label: \"Readiness\", text: \"sign-in proven on live services, scoped edit roles, backups and monitoring; the central team starts entering\" }\n" +
-      "  - { label: \"Pilot\", text: \"the centre and two contrasting constituencies run the weekly cycle on the platform\" }\n" +
-      "  - { label: \"County rollout\", text: \"the remaining constituencies in waves, every coordinator trained on their own phone\" }\n" +
-      "  - { label: \"Optimisation\", text: \"monthly service reports, patching, restore tests and the weekly management pack\" }\n" +
-      "  - { label: \"Election-day readiness\", text: \"a change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support\" }\n" +
-      "```\n\n" +
-      "The dates that do not move are the Gazette's: Governor nominations and the Governor campaign period open on 3 June 2027, chief election agents are named by 27 July, and the campaign period closes 48 hours before polling day, 10 August. Which of them the field operation must be reporting by is the campaign's decision, taken in Discovery. The [rollout planner](/models/rollout-planner) lays the six implementation phases from any start date, with every length an input, and shows the weeks to spare or the overrun.\n",
+      "| Supporter CRM and voter model | Your team, on the campaign's own systems | The campaign as controller. No supporter record goes on Firefly's platform, which holds counts only; for those, Firefly is processor under a written processing agreement. |\n" +
+      "| The platform's team sign-in | Firefly | The campaign as controller of its own staff's names and email addresses, which sign-in holds once it is switched on; Firefly as processor. Nothing else about a team member is held, and access ends when the campaign asks. |\n" +
+      "| The models | Firefly | Nothing typed into a model is stored. The planned AI layer, once switched on, would send a model's settings and result to the AI service, never a name or a phone number, and is assessed by the Section 19.2 reviewer before it is. |\n",
+  },
+
+  // 9. Measuring success: the platform's own measures, kept apart from the campaign's
+  {
+    f: "content/success.md",
+    newSection: true,
+    append:
+      "\n## 18.6 The platform's own measures, kept apart\n\n" +
+      "```lead\nThe platform is measured on its own terms, apart from the campaign's indicators: whether it is available, whether its data checks pass, whether it can be restored, and whether the team uses it.\n```\n\n" +
+      "The platform is measured on its own terms, apart from the campaign's indicators: whether it is available, whether its data checks pass, whether it can be restored, and whether the team uses it. A platform measure is never counted as a campaign result, and a campaign result is never credited to the platform. Firefly reports these each month in its service report to the campaign's counterpart; the targets are agreed in Discovery, and none is set here.\n\n" +
+      "```visual\nkind: checklist\ntitle: \"What the monthly service report measures\"\nitems:\n" +
+      "  - { label: \"Availability\", body: \"the share of the month the site and the workspace were up, against the agreed target\" }\n" +
+      "  - { label: \"Data checks\", body: \"every change to the data pack passed the site's own checks before it went live\" }\n" +
+      "  - { label: \"Restore\", body: \"the last restore test, and whether it finished within the agreed time\" }\n" +
+      "  - { label: \"Support\", body: \"requests answered and closed within the agreed response targets\" }\n" +
+      "  - { label: \"Use\", body: \"wards with a trained, active account, and whether the weekly cycle ran on the platform\" }\n" +
+      "  - { label: \"Security\", body: \"open findings by severity, and the access review\" }\n" +
+      "```\n",
+  },
+
+  // 10. Risks and response: the platform's own risks, and the fallbacks rehearsed before polling day
+  {
+    f: "content/response.md",
+    newSection: true,
+    append:
+      "\n## 20.6 Platform risks and election-day fallbacks\n\n" +
+      "```lead\nThe platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day.\n```\n\n" +
+      "The platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day, and none of them depends on the platform being up.\n\n" +
+      "| Risk | What guards against it | The fallback |\n|---|---|---|\n" +
+      "| The site or the workspace is down | Monitoring and alerts; every change tried on a staging site first | Pages already opened stay readable offline; ward reports go to the constituency coordinator by phone and are entered once the site is back |\n" +
+      "| A record is lost or damaged | Daily backups, and a restore test each month | Restore from the last backup; the change history puts back any single edit exactly |\n" +
+      "| A wrong figure or record is saved | The data checks run before anything is saved | Revert it from the change history |\n" +
+      "| A name, phone or ID number is typed into a form | Forms refuse phone and ID numbers; training says why | Firefly removes it at once, and the data-protection lead decides whether it must be reported |\n" +
+      "| A team account is taken over | A second sign-in factor for approvers; access ends when the campaign asks | Firefly closes the account; the change history shows what it changed, and each change is reverted |\n" +
+      "| A late change breaks something | A change freeze before polling day | Nothing ships in the freeze except a fix the on-call lead approves |\n\n" +
+      "```visual\nkind: checklist\ntitle: \"In place before polling day\"\nitems:\n" +
+      "  - { label: \"Two rehearsals\", body: \"of the fallbacks above, with the people who will use them\" }\n" +
+      "  - { label: \"A restore\", body: \"finished within the agreed time\" }\n" +
+      "  - { label: \"An access review\", body: \"every account checked against the campaign's current list\" }\n" +
+      "  - { label: \"Named decision-makers\", body: \"on the day, on the campaign's side and on Firefly's\" }\n" +
+      "  - { label: \"On-call cover\", body: \"to the close of polling-day support\" }\n" +
+      "```\n",
   },
 ];
 
@@ -214,6 +267,17 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   for (const r of REWRITES) {
     const file = path.join(ROOT, r.f);
     let text = fs.readFileSync(file, "utf8");
+    // An appended passage: applied once the file ends with it.
+    if (r.append !== undefined) {
+      if (text.endsWith(r.append)) { skipped++; continue; }
+      if (CHECK) { missing.push(`${r.f}: not appended: ${r.append.trim().slice(0, 80)}`); continue; }
+      const tab = path.basename(r.f, ".md");
+      const w = where(text + "\n", text.length + 1);
+      ledger.push({ file: tab, section: w.section, first12: r.append.trim().replace(/\s+/g, " ").split(" ").slice(0, 12).join(" "), words: r.newSection ? 0 : -words(r.append), kind: "replaced", note: NOTE, text: "", replacement: r.append, at: text.length });
+      fs.writeFileSync(file, text + r.append);
+      applied++;
+      continue;
+    }
     // An addition keeps the words it is anchored to, so it is applied once its whole new text is there.
     if (r.to.includes(r.from) && text.includes(r.to)) { skipped++; continue; }
     const count = text.split(r.from).length - 1;

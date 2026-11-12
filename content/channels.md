@@ -41,6 +41,8 @@ id: fig-4-2-effort
 
 Phase −1 deliberately puts more effort into Mwingi and the arid belt than their share of the population, on the working hypothesis that his gap is one of recognition, concentrated outside the home base (Section 7.1). If Week 1 refutes it, Section 12.7 sets out how the weighting changes. The weightings are reviewed monthly against the reach data (Section 18.3) and reallocated.
 
+<model-embed slug="reach-by-channel"></model-embed>
+
 ## 12.2 Which channel does which job
 
 ```lead
@@ -147,6 +149,8 @@ items:
 ```figure
 id: language-deployment
 ```
+
+<model-embed slug="send-check"></model-embed>
 
 ## 12.5 Register, dialect and quality control
 

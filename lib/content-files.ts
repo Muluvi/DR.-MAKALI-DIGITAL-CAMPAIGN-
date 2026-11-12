@@ -25,6 +25,7 @@ export const CONTENT_FILES: Record<TabId, string> = {
   engagement: "engagement.md",
   platform: "platform.md",
   timeline: "timeline.md",
+  rollout: "rollout.md",
   workstreams: "workstreams.md",
   success: "success.md",
   lawful: "lawful.md",

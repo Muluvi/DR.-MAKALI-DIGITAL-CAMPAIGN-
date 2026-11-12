@@ -19,13 +19,14 @@ function decode(raw: string | undefined): Weights {
 
 const tint = (score: number) => `color-mix(in oklch, var(--accent-solid) ${Math.round(8 + 0.84 * score)}%, var(--card))`;
 
-export function WardPriority({ wards, initial }: { wards: PriorityWard[]; initial?: string }) {
+export function WardPriority({ wards, initial, embedded = false }: { wards: PriorityWard[]; initial?: string; embedded?: boolean }) {
   const [weights, setWeights] = useState<Weights>(() => decode(initial));
   const [selected, setSelected] = useState<string | null>(null);
 
   useEffect(() => {
+    if (embedded) return;
     window.history.replaceState(null, "", `?w=${KEYS.map((k) => weights[k]).join("-")}`);
-  }, [weights]);
+  }, [weights, embedded]);
 
   const ranked = useMemo(() => rankWards(wards, weights), [wards, weights]);
   const bySlug = useMemo(() => new Map(ranked.map((r) => [r.ward.slug, r])), [ranked]);
@@ -95,7 +96,7 @@ export function WardPriority({ wards, initial }: { wards: PriorityWard[]; initia
         <div className="plat-card p-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-serif text-xl text-ink">The ranking</h2>
-            <ToolActions filename="kitui-ward-priority.csv" rows={() => [["rank", "ward", "constituency", "score", ...KEYS.map((k) => `weight_${k}`), "voters_2022", "stations_2022", "county_projects", "not_held_office"], ...ranked.map((r) => [r.rank, r.ward.name, r.ward.constituency, r.score.toFixed(1), ...KEYS.map((k) => weights[k]), r.ward.voters, r.ward.stations, r.ward.projects, r.ward.pool ? "yes" : "no"])]} />
+            <ToolActions link={!embedded} filename="kitui-ward-priority.csv" rows={() => [["rank", "ward", "constituency", "score", ...KEYS.map((k) => `weight_${k}`), "voters_2022", "stations_2022", "county_projects", "not_held_office"], ...ranked.map((r) => [r.rank, r.ward.name, r.ward.constituency, r.score.toFixed(1), ...KEYS.map((k) => weights[k]), r.ward.voters, r.ward.stations, r.ward.projects, r.ward.pool ? "yes" : "no"])]} />
           </div>
           <div className="mt-3 max-h-[34rem] overflow-auto">
             <table className="w-full min-w-[30rem] text-left text-[0.85rem]">

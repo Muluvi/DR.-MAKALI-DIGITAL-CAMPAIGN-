@@ -45,12 +45,13 @@ export default function ModelsHub() {
       </section>
 
       <section className="mt-8 text-[0.9rem] leading-relaxed" aria-labelledby="planned-models">
-        <h2 id="planned-models" className="font-serif text-xl text-ink">Still to build</h2>
-        <p className="mt-2 max-w-2xl text-muted">Four more are planned on data the site already holds. They are listed so the set is complete; none has a page yet.</p>
-        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-          {planned.map((m) => <li key={m.slug} className="rounded-xl border border-dashed border-line p-3"><span className="font-semibold text-ink">{m.name}.</span> <span className="text-muted">{m.question}</span></li>)}
-        </ul>
-        <p className="mt-6 max-w-2xl text-muted">A plain-language layer that sets a model&apos;s options from a sentence and explains the outcome is planned on top of these. It is not switched on: it needs a paid AI service and a usage ceiling first. When it is, it will read the model&apos;s result and cite the registry; it will never produce a number of its own, and every model will keep working without it.</p>
+        <h2 id="planned-models" className="font-serif text-xl text-ink">{planned.length ? "Still to build" : "Still to come"}</h2>
+        {planned.length > 0 && (
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {planned.map((m) => <li key={m.slug} className="rounded-xl border border-dashed border-line p-3"><span className="font-semibold text-ink">{m.name}.</span> <span className="text-muted">{m.question}</span></li>)}
+          </ul>
+        )}
+        <p className="mt-2 max-w-2xl text-muted">A plain-language layer that sets a model&apos;s options from a sentence and explains the outcome is planned on top of these. It is not switched on: it needs a paid AI service and a usage ceiling first. When it is, it will read the model&apos;s result and cite the registry; it will never produce a number of its own, and every model will keep working without it.</p>
       </section>
     </>
   );

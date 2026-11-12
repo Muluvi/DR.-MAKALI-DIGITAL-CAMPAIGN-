@@ -2,7 +2,7 @@
 Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout.
 ```
 
-Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 14.9 lays its six implementation phases from the week the first phase is approved, against the gazetted dates.
+Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature, which this plan assumed for September 2026; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement. That assumed date has passed, so the platform's own rollout no longer counts from it: Section 24.1, in How the platform reaches all 40 wards, lays its six implementation phases from the week the first phase is approved, against the gazetted dates.
 
 ```figure
 id: fig-5-4-phases
@@ -214,17 +214,3 @@ Each group is engaged in the phase where it matters most, with the digital outpu
 - Personal data deleted within **90 days** of the declaration of results, under charter clause 5 (Section 19.3), with public confirmation
 - Service-delivery tracker continues, per the Section 15.1.1 commitment
 - Full campaign post-mortem with performance against every KPI in this document
-
-## 14.9 The platform's own rollout, against the gazetted dates
-
-```lead
-The platform reaches all 40 wards in six implementation phases that start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar.
-```
-
-The platform reaches all 40 wards in six implementation phases that start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar. The campaign's five phases above are what the campaign does; these six are how the platform it works on becomes something a county-wide team can rely on.
-
-```visual
-{"kind":"stepper","title":"Six implementation phases, each accepted before the next starts","items":[{"label":"Discovery","text":"an executed audit, every user mapped to a role, the team's phones and connectivity checked, the legal position scoped"},{"label":"Readiness","text":"sign-in proven on live services, scoped edit roles, backups and monitoring; the central team starts entering"},{"label":"Pilot","text":"the centre and two contrasting constituencies run the weekly cycle on the platform"},{"label":"County rollout","text":"the remaining constituencies in waves, every coordinator trained on their own phone"},{"label":"Optimisation","text":"monthly service reports, patching, restore tests and the weekly management pack"},{"label":"Election-day readiness","text":"a change freeze, rehearsed fallbacks and on-call cover to the close of polling-day support"}]}
-```
-
-The dates that do not move are the Gazette's: Governor nominations and the Governor campaign period open on 3 June 2027, chief election agents are named by 27 July, and the campaign period closes 48 hours before polling day, 10 August. Which of them the field operation must be reporting by is the campaign's decision, taken in Discovery. The [rollout planner](/models/rollout-planner) lays the six implementation phases from any start date, with every length an input, and shows the weeks to spare or the overrun.

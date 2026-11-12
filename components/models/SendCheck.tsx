@@ -6,7 +6,7 @@ import { addDays } from "@/lib/models/rollout";
 
 const KEYS = ["rail", "language", "date", "sendTime", "lodgedOn"] as const;
 
-export function SendCheck({ today, initial }: { today: string; initial: Partial<Record<(typeof KEYS)[number], string>> }) {
+export function SendCheck({ today, initial, embedded = false }: { today: string; initial: Partial<Record<(typeof KEYS)[number], string>>; embedded?: boolean }) {
   const [v, setV] = useState<SendInputs>(() => ({
     rail: RAIL_OPTIONS.includes(initial.rail ?? "") ? initial.rail! : RAIL_OPTIONS[0],
     language: LANGUAGE_OPTIONS.includes(initial.language ?? "") ? initial.language! : "Kiswahili",
@@ -18,10 +18,11 @@ export function SendCheck({ today, initial }: { today: string; initial: Partial<
 
   // The message is never put in the link: a shared link carries the settings, not the words.
   useEffect(() => {
+    if (embedded) return;
     const p = new URLSearchParams();
     for (const k of KEYS) if (v[k]) p.set(k, v[k]);
     window.history.replaceState(null, "", `?${p.toString()}`);
-  }, [v]);
+  }, [v, embedded]);
 
   const result = useMemo(() => checkSend(v), [v]);
   const set = (k: keyof SendInputs) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setV({ ...v, [k]: e.target.value });

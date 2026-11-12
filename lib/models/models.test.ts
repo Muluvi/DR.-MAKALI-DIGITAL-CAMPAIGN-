@@ -22,6 +22,12 @@ import { buildPriorityWards, POOL_CONSTITUENCIES } from "./join.ts";
 import { checkSend, LANGUAGE_OPTIONS, RAIL_OPTIONS, SMS_LIMIT } from "./send-check.ts";
 import { addDays, planRollout, validDay, weeksBetween } from "./rollout.ts";
 import { LIVE_MODELS, MODELS } from "./catalogue.ts";
+import { CHANNELS, layerReach, layerShares, reachByConstituency, type Mix } from "./reach.ts";
+import { allChannels, coverage, languagesIn, toPlanRows } from "./brief-mix.ts";
+import { classify, thresholds, type Incident } from "./response-tier.ts";
+import { findRecords, totalKsh, type Project } from "./record-finder.ts";
+import { SEGMENT_PLAN } from "../register/specs/s4-strategy.ts";
+import { SEVERITY_TIERS } from "../../data/escalation.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const json = (p: string) => JSON.parse(fs.readFileSync(path.join(ROOT, p), "utf8"));
@@ -165,8 +171,100 @@ test("rollout: date helpers", () => {
 });
 
 /* ------------------------------------------------------------ catalogue */
-test("catalogue: nine models, five live, each live model has a page", () => {
+test("catalogue: nine models, all live, each with a page", () => {
   assert.equal(MODELS.length, 9);
-  assert.equal(LIVE_MODELS.length, 5);
+  assert.equal(LIVE_MODELS.length, 9);
   for (const m of LIVE_MODELS) assert.ok(fs.existsSync(path.join(ROOT, "app", "(platform)", "models", m.slug, "page.tsx")), `no page for ${m.slug}`);
+});
+
+/* ------------------------------------------------------------ reach by channel */
+const OFF = { on: false, reach: 0 };
+const mixOf = (m: Partial<Mix>): Mix => ({ social: OFF, sms: OFF, radio: OFF, ground: OFF, ...m });
+
+test("reach: the three layers come from the registry rates and add to 100", () => {
+  const s = layerShares(val("ict.internet"), val("ict.phone"));
+  assert.equal(Math.round((s.data + s.smsOnly + s.offline) * 1000) / 1000, 100);
+  assert.equal(s.offline, 100 - val("ict.phone"));
+});
+
+test("reach: social media alone never reaches anyone without internet", () => {
+  const r = layerReach(mixOf({ social: { on: true, reach: 100 } }));
+  assert.deepEqual(r, { data: 1, smsOnly: 0, offline: 0 });
+});
+
+test("reach: channels combine as independent chances, by hand", () => {
+  const r = layerReach(mixOf({ sms: { on: true, reach: 50 }, radio: { on: true, reach: 50 } }));
+  assert.equal(r.smsOnly, 0.75);
+  assert.equal(r.offline, 0.5);
+  const rows = reachByConstituency([{ code: "a", name: "A", voters: 1000 }], { data: 20, smsOnly: 30, offline: 50 }, mixOf({ sms: { on: true, reach: 50 }, radio: { on: true, reach: 50 } }));
+  assert.equal(rows[0].reached, 200 * 0.75 + 300 * 0.75 + 500 * 0.5);
+  assert.equal(rows[0].reached + rows[0].missed, 1000);
+  assert.equal(CHANNELS.length, 4);
+});
+
+/* ------------------------------------------------------------ weekly brief mix */
+const PLAN = toPlanRows(SEGMENT_PLAN, {});
+
+test("brief mix: the plan names six segments, each with a language and a channel", () => {
+  assert.equal(PLAN.length, 6);
+  for (const r of PLAN) { assert.ok(r.languages.length > 0, r.id); assert.ok(r.channels.length > 0, r.id); }
+  assert.deepEqual(languagesIn("Kikamba on voice; Kiswahili on SMS"), ["Kikamba", "Kiswahili"]);
+});
+
+test("brief mix: everything in the week covers every segment; an empty week covers none", () => {
+  const full = coverage(PLAN, { shares: { P1: 25, P2: 25, P3: 25, P4: 25 }, languages: ["Kikamba", "Kiswahili", "English", "Sheng"], channels: allChannels(PLAN), minShare: 10 });
+  assert.ok(full.every((c) => c.covered));
+  const none = coverage(PLAN, { shares: { P1: 0, P2: 0, P3: 0, P4: 0 }, languages: [], channels: [], minShare: 10 });
+  assert.ok(none.every((c) => !c.covered && c.reasons.length === 3));
+});
+
+test("brief mix: dropping a content type drops the segments it serves", () => {
+  const c = coverage(PLAN, { shares: { P1: 50, P2: 0, P3: 50, P4: 0 }, languages: ["Kikamba", "Kiswahili", "English"], channels: allChannels(PLAN), minShare: 10 });
+  const missed = c.filter((x) => !x.covered).map((x) => x.row.id);
+  assert.deepEqual(missed, PLAN.filter((r) => r.pillar === "P2" || r.pillar === "P4").map((r) => r.id));
+});
+
+/* ------------------------------------------------------------ response tier */
+const inc = (i: Partial<Incident>): Incident => ({ kind: "comment", spread: "ward", views: 10, wardGroups: 0, fringe: false, ...i });
+
+test("response tier: reads its numbers from the ladder", () => {
+  const t = thresholds(SEVERITY_TIERS);
+  assert.deepEqual([t.negligibleViews, t.moderateGroups, t.highViews], [50, 3, 10_000]);
+});
+
+test("response tier: each rule lands in its tier", () => {
+  const name = (i: Partial<Incident>) => classify(SEVERITY_TIERS, inc(i)).tier.name;
+  assert.equal(name({}), "Negligible");
+  assert.equal(name({ kind: "rumour", wardGroups: 3 }), "Moderate");
+  assert.equal(name({ kind: "baraza" }), "Moderate");
+  assert.equal(name({ kind: "radio" }), "High");
+  assert.equal(name({ views: 10_001 }), "High");
+  assert.equal(name({ kind: "coordinated" }), "High");
+  assert.equal(name({ kind: "coordinated", spread: "county" }), "Critical");
+  assert.equal(name({ kind: "media" }), "Critical");
+});
+
+test("response tier: a case the ladder does not name is flagged, not guessed upward", () => {
+  const r = classify(SEVERITY_TIERS, inc({ views: 500, wardGroups: 1 }));
+  assert.equal(r.tier.name, "Negligible");
+  assert.ok(r.flagged);
+});
+
+/* ------------------------------------------------------------ record finder */
+const PROJECTS = json("data/analysis/projects-register.json").values as Project[];
+
+test("record finder: every ward-level project is found in its own ward", () => {
+  const wardLevel = PROJECTS.filter((p) => p.dims.level === "ward");
+  const found = new Set(WARDS.flatMap((w) => findRecords(PROJECTS, { ward: w.slug, constituency: w.constituency, sector: "all", status: "all", includeConstituency: false }).filter((f) => f.placed === "ward").map((f) => f.project.dims.id)));
+  assert.equal(found.size, wardLevel.length);
+});
+
+test("record finder: filters narrow, and the constituency option only adds", () => {
+  const w = WARDS.find((x) => x.slug === "kiomo-kyethani")!;
+  const base = findRecords(PROJECTS, { ward: w.slug, constituency: w.constituency, sector: "all", status: "all", includeConstituency: false });
+  const wider = findRecords(PROJECTS, { ward: w.slug, constituency: w.constituency, sector: "all", status: "all", includeConstituency: true });
+  assert.ok(base.length > 0 && wider.length >= base.length);
+  const agri = findRecords(PROJECTS, { ward: w.slug, constituency: w.constituency, sector: "Agriculture", status: "all", includeConstituency: false });
+  assert.ok(agri.every((f) => f.project.dims.sector === "Agriculture"));
+  assert.ok(totalKsh(agri) <= totalKsh(base));
 });

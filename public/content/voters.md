@@ -22,6 +22,8 @@ The segments in Section 11.2 describe **who** the voters are. The universes desc
 
 **Why two sizes are not stated.** No official source reports ward-level recognition or support (Section 7.3). This proposal works from existing records only: Week 1 measures what his own channels reach (Section 18.5), which is evidence about reach, not support, and the IEBC's ward-level results (Section 2.2) show how each ward has actually voted. A register count is the most a universe can contain, never what it does contain. Estimating the difference would be the exact failure the ban on guesswork in Annex A.1.3 forbids.
 
+<model-embed slug="ward-priority"></model-embed>
+
 ## 11.2 The six voter segments
 
 ```lead

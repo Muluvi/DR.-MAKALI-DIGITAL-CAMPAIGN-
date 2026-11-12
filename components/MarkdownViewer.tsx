@@ -86,6 +86,7 @@ const PublicServiceDeliveryTracker = dynamic(() => import("./markdown/PublicServ
 const MediaRadioLandscapeCard = dynamic(() => import("./markdown/MediaRadioLandscapeCard").then((m) => m.MediaRadioLandscapeCard));
 const DataSecurityEthicsCharter = dynamic(() => import("./markdown/DataSecurityEthicsCharter").then((m) => m.DataSecurityEthicsCharter));
 const ObjectivesIndex = dynamic(() => import("./markdown/ObjectivesIndex").then((m) => m.ObjectivesIndex));
+const ModelEmbed = dynamic(() => import("./models/ModelEmbed").then((m) => m.ModelEmbed));
 
 const REHYPE = [rehypeRaw, rehypeInlineMarks, rehypePlainLabels];
 import { CrossRef } from "./CrossRef";
@@ -689,6 +690,8 @@ function buildComponents(tabId: TabId): Components {
               "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
               "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
               "window-chip": () => <WindowChip />,
+              // A live model inside a chapter (components/models/ModelEmbed.tsx).
+              "model-embed": (props: { slug?: string }) => <ModelEmbed slug={props.slug} />,
               // Where each workstream group begins; the tab bar reads these (consolidation pass, Step 4H).
               "ws-mark": (props: { tab?: string }) => <WorkstreamMark tab={props.tab} />,
             } as unknown as Components),

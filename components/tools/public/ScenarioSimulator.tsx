@@ -13,7 +13,7 @@ function decode(raw: string | undefined): { a?: Scenario; b?: Scenario } {
   try { return JSON.parse(atob(raw)); } catch { return {}; }
 }
 
-export function ScenarioSimulator({ constituencies, initial }: { constituencies: PublicConstituency[]; initial?: string }) {
+export function ScenarioSimulator({ constituencies, initial, embedded = false }: { constituencies: PublicConstituency[]; initial?: string; embedded?: boolean }) {
   const benchmark = val("benchmark");
   const baseTurnout = val("turnout.constant");
   const start = useMemo<Scenario>(() => startingScenario(constituencies, benchmark, baseTurnout), [constituencies, benchmark, baseTurnout]);
@@ -26,8 +26,9 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
   const set = active === "A" ? setA : setB;
 
   useEffect(() => {
+    if (embedded) return;
     window.history.replaceState(null, "", `?s=${encodeURIComponent(btoa(JSON.stringify({ a, b })))}`);
-  }, [a, b]);
+  }, [a, b, embedded]);
 
   const total = (s: Scenario) => scenarioTotals(constituencies, s);
   const ta = total(a), tb = total(b);
@@ -61,7 +62,7 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
           {(["A", "B"] as const).map((s) => <button key={s} type="button" aria-pressed={active === s} onClick={() => setActive(s)} className={`plat-btn plat-btn-sm ${active === s ? "plat-btn-solid" : ""}`}>Edit {s}</button>)}
           <button type="button" className="plat-btn plat-btn-sm" onClick={() => set(start)}>Reset {active}</button>
         </div>
-        <ToolActions filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]} />
+        <ToolActions link={!embedded} filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]} />
       </div>
       <div className="mt-4 grid gap-3 lg:grid-cols-2">
         {constituencies.map((c) => {

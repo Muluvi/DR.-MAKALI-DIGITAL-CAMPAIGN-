@@ -2,8 +2,8 @@
  * The Models area: what each model takes, what it shows and what it stands on. The hub and each
  * model's page read this list, so a model is described once.
  *
- * "Live" means the page exists and runs the shared functions in lib/models/. "Planned" is in the
- * plan (docs/value-2026-11/README.md) and has no page yet; the hub names it and does not link it.
+ * "Live" means the page exists and runs the shared functions in lib/models/. "Planned" would name a
+ * model in the plan with no page yet; the hub lists it without a link. All nine are live.
  */
 
 export type ModelEntry = {
@@ -66,28 +66,28 @@ export const MODELS: ModelEntry[] = [
     slug: "reach-by-channel",
     name: "Reach by channel",
     question: "Who does a channel mix reach, and who does it miss?",
-    inputs: "Share of effort per channel and assumed reach per channel",
+    inputs: "The channels in the mix, and the reach you assume for each",
     outcome: "Reach by constituency, and the gap",
-    data: "Channel reach and connectivity figures in the registry",
-    status: "Planned",
+    data: "Internet use and phone ownership (CA/KNBS 2023/24) and the IEBC 2022 register by constituency",
+    status: "Live",
   },
   {
     slug: "brief-mix",
     name: "Weekly brief mix",
     question: "Which voter segments does this week's brief cover?",
-    inputs: "Pillar weights, content types, languages",
+    inputs: "Each content type's share of the week, the languages and the channels used",
     outcome: "The six segments covered and missed",
-    data: "The message architecture and segment definitions",
-    status: "Planned",
+    data: "The segment plan: each segment's content type, languages and lead channels",
+    status: "Live",
   },
   {
     slug: "response-tier",
     name: "Response tier",
     question: "How serious is this incident, and who approves the answer?",
-    inputs: "What happened, where, how far it has spread",
+    inputs: "What happened, how far it has spread, and the line of attack",
     outcome: "Severity tier, approver and the holding line to start from",
-    data: "The escalation ladder and the runbooks",
-    status: "Planned",
+    data: "The four-tier escalation ladder and the pre-drafted holding positions",
+    status: "Live",
   },
   {
     slug: "record-finder",
@@ -96,7 +96,7 @@ export const MODELS: ModelEntry[] = [
     inputs: "Ward, sector, project status",
     outcome: "Projects with their sources",
     data: "The county projects register (401 itemised projects)",
-    status: "Planned",
+    status: "Live",
   },
 ];
 

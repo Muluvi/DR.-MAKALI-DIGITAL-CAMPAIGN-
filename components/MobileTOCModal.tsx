@@ -28,6 +28,7 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   engagement: Handshake,
   platform: Database,
   timeline: CalendarClock,
+  rollout: Users,
   workstreams: Layers,
   success: Gauge,
   lawful: Shield,

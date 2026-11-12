@@ -1,27 +1,12 @@
 import { ModelHead } from "@/components/models/ModelHead";
-import { RolloutPlanner, type RolloutDefaults } from "@/components/models/RolloutPlanner";
+import { RolloutPlanner } from "@/components/models/RolloutPlanner";
 import { ToolLimits } from "@/components/tools/public/ToolLimits";
-import { addDays } from "@/lib/models/rollout";
+import { CAMPAIGN_START, ROLLOUT_DEFAULTS as DEFAULTS, nextMonday } from "@/lib/models/rollout-defaults";
 import { ELECTION_DAY } from "@/lib/phases";
 import { PUBLIC_CONSTITUENCIES, PUBLIC_SOURCES, RACE_CALENDAR } from "@/lib/public-data";
 
 export const metadata = { title: "Rollout planner | Kitui 2027", robots: { index: false, follow: false } };
 
-/**
- * Starting values for the conversation, not a plan Firefly has committed to: every one is an input
- * on the page, and the method note says so.
- */
-const DEFAULTS: RolloutDefaults = { discoveryWeeks: 4, readinessWeeks: 6, pilotWeeks: 6, pilotConstituencies: 2, perWave: 3, weeksPerWave: 3, readinessBeforePollWeeks: 4 };
-
-/** The first deadline offered: the day the Governor campaign period starts, read from the Gazette calendar. */
-const CAMPAIGN_START = RACE_CALENDAR.find((c) => /Governor campaign period starts/.test(c.event));
-
-/** The next Monday on or after today in Nairobi. */
-function nextMonday(): string {
-  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Nairobi" }).format(new Date());
-  const dow = new Date(`${today}T00:00:00Z`).getUTCDay();
-  return addDays(today, (8 - dow) % 7);
-}
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const initial = await searchParams;

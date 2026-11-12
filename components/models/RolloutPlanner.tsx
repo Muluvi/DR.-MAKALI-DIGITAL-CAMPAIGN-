@@ -22,7 +22,7 @@ const NUMBERS: { key: Exclude<Key, "start" | "deadline">; label: string; min: nu
 
 export type RolloutDefaults = Omit<RolloutInputs, "start" | "deadline">;
 
-export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDeadline, defaults, constituencies, initial }: { calendar: CalendarEntry[]; pollingDay: string; defaultStart: string; defaultDeadline: string; defaults: RolloutDefaults; constituencies: number; initial: Partial<Record<string, string>> }) {
+export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDeadline, defaults, constituencies, initial, embedded = false }: { calendar: CalendarEntry[]; pollingDay: string; defaultStart: string; defaultDeadline: string; defaults: RolloutDefaults; constituencies: number; initial: Partial<Record<string, string>>; embedded?: boolean }) {
   const anchors = useMemo(() => calendar.filter((c) => c.date < pollingDay), [calendar, pollingDay]);
   const [v, setV] = useState<RolloutInputs>(() => {
     const out: RolloutInputs = { start: defaultStart, deadline: defaultDeadline, ...defaults };
@@ -38,10 +38,11 @@ export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDead
   });
 
   useEffect(() => {
+    if (embedded) return;
     const p = new URLSearchParams();
     for (const k of Object.keys(PARAMS) as Key[]) p.set(PARAMS[k], String(v[k]));
     window.history.replaceState(null, "", `?${p.toString()}`);
-  }, [v]);
+  }, [v, embedded]);
 
   const ok = validDay(v.start) && v.start < pollingDay;
   const plan = useMemo(() => (ok ? planRollout(v, constituencies, pollingDay) : null), [v, ok, constituencies, pollingDay]);
@@ -82,7 +83,7 @@ export function RolloutPlanner({ calendar, pollingDay, defaultStart, defaultDead
               {deadlineEntry ? <>the deadline you chose, {day(deadlineEntry.date)} ({deadlineEntry.event})</> : "the deadline"}.{" "}
               {plan.optimisationWeeks >= 0 ? <>That leaves {fmtWeeks(plan.optimisationWeeks)} of steady running before changes freeze.</> : null}
             </p>
-            <ToolActions filename="kitui-platform-rollout.csv" rows={() => [["phase", "name", "start", "end", "weeks", "what_it_delivers"], ...plan.phases.map((p) => [p.n, p.label, p.start, p.end, p.weeks, p.note])]} />
+            <ToolActions link={!embedded} filename="kitui-platform-rollout.csv" rows={() => [["phase", "name", "start", "end", "weeks", "what_it_delivers"], ...plan.phases.map((p) => [p.n, p.label, p.start, p.end, p.weeks, p.note])]} />
           </div>
           {plan.warnings.length > 0 && (
             <ul className="mt-3 space-y-1 rounded-xl border border-[color:var(--danger)] p-3 text-[0.9rem] text-[color:var(--danger)]" role="alert">{plan.warnings.map((w) => <li key={w}>{w}</li>)}</ul>
