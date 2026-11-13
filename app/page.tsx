@@ -3,14 +3,15 @@ import path from "node:path";
 import { Nav } from "@/components/site/Nav";
 import { ChapterLoader } from "@/components/site/ChapterLoader";
 import { Island, type IslandName } from "@/components/site/Island";
+import { PlatformIntro } from "@/components/site/PlatformIntro";
 import { ChapterBody } from "@/components/story/ChapterBody";
 import { STAGES, type Chapter } from "@/lib/story/stages";
 import { compileChapter } from "@/lib/story/tokens";
 import { PUBLIC_RETRIEVED, PUBLIC_SOURCES } from "@/lib/public-data";
 
 /**
- * The whole site: one page, one story. The opening is in the HTML; each chapter, tool and
- * dashboard loads as the reader nears it, into space reserved for it.
+ * The whole site: one page, one story. Platform introduction first, then the campaign
+ * opening narrative; each chapter, tool and dashboard loads as the reader nears it.
  */
 export const dynamic = "force-static";
 
@@ -94,10 +95,13 @@ function Sources() {
 }
 
 export default function Page() {
-  const items = STAGES.map((s) => ({ id: s.id, label: s.label }));
+  const items = [
+    { id: "platform", label: "Platform" },
+    ...STAGES.map((s) => ({ id: s.id, label: s.label })),
+  ];
   return (
     <>
-      <a className="skip" href="#data">Skip to the data</a>
+      <a className="skip" href="#platform">Skip to platform overview</a>
       <header className="site-head">
         <div className="wrap">
           <a className="brand" href="#top">Kitui 2027</a>
@@ -106,7 +110,9 @@ export default function Page() {
       </header>
 
       <main id="top" className="wrap">
-        <section className="opening" aria-labelledby="opening-title">
+        <PlatformIntro />
+
+        <section id="opening" className="opening" aria-labelledby="opening-title">
           <p className="kicker">Hon. Dr. Makali Mulu · Kitui governor, 10 August 2027</p>
           <h1 id="opening-title" className="h1" style={{ marginTop: 10 }}>Close the recognition gap outside Kitui Central</h1>
           <p className="lede" style={{ marginTop: 14 }}>The data, the analysis, the objectives, the strategies and the plan, in one story.</p>
