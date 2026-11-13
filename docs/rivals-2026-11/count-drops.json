@@ -1,0 +1,77 @@
+{
+ "$comment": "Counts the rivals pass (docs/rivals-2026-11/DECISION.md) lowered by Firefly's decision, each with the floor it may fall to. scripts/check-preservation.js holds every other count to its baseline, and these to their floors.",
+ "drops": [
+  {
+   "file": "content/annex-evidence.md",
+   "key": "tableRows",
+   "to": 248,
+   "why": "the derived gap between a 2027 rival's 2022 result and the benchmark is removed"
+  },
+  {
+   "file": "content/engagement.md",
+   "key": "tableRows",
+   "to": 28,
+   "why": "the crisis-tier approval row, the crisis communications role and the red-team drill are removed"
+  },
+  {
+   "file": "content/message.md",
+   "key": "headings",
+   "to": 11,
+   "why": "10.5 Countering disinformation (attack response) is removed"
+  },
+  {
+   "file": "content/message.md",
+   "key": "figureFences",
+   "to": 5,
+   "why": "the counter-fire figure (rumour rebuttals) is removed with 10.5"
+  },
+  {
+   "file": "content/position.md",
+   "key": "headings",
+   "to": 2,
+   "why": "9.3 Answering the charge of coldness (attack response) is removed"
+  },
+  {
+   "file": "content/position.md",
+   "key": "visualFences",
+   "to": 0,
+   "why": "the attack-and-answer panel is removed with 9.3"
+  },
+  {
+   "file": "content/receives.md",
+   "key": "tableRows",
+   "to": 19,
+   "why": "the monthly competitive brief and the red-team drill are removed from the deliverables"
+  },
+  {
+   "file": "content/timeline.md",
+   "key": "tableRows",
+   "to": 44,
+   "why": "the red-team and misinformation-response indicators are removed"
+  },
+  {
+   "file": "data/registry.export.json",
+   "key": "figures",
+   "to": 629,
+   "why": "gap.wambua-to-benchmark-2022, a 2027 rival's gap to the benchmark, is removed"
+  },
+  {
+   "file": "lib/data/figures.ts",
+   "key": "FIGURES",
+   "to": 629,
+   "why": "gap.wambua-to-benchmark-2022, a 2027 rival's gap to the benchmark, is removed"
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "key": "TERMINAL_MODES",
+   "to": 3,
+   "why": "the incident-dispatch (rapid response) mode is removed from the field terminal"
+  },
+  {
+   "file": "data/tier-matrix.ts",
+   "key": "TIER_ATTRIBUTES",
+   "to": 7,
+   "why": "the red-team drill row is removed from the scope-level comparison"
+  }
+ ]
+}

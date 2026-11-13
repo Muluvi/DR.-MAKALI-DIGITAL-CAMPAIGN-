@@ -49,7 +49,7 @@ items:
 ## 19.2 The Data Protection Act and the regulator
 
 ```lead
-Vendors openly market databases of millions of Kenyan mobile numbers. Rival campaigns may well buy them. The campaign will not.
+Vendors openly market databases of millions of Kenyan mobile numbers. The campaign will not buy them.
 ```
 
 #### The regulatory environment as it stands
@@ -77,7 +77,7 @@ items:
 ```
 
 **The commercial reality this creates.** Vendors openly market databases of
-millions of Kenyan mobile numbers. Rival campaigns may well buy them. Doing so
+millions of Kenyan mobile numbers. Buying them
 would give short-term reach and long-term exposure — regulatory, and
 reputational for a candidate whose entire proposition is rigour and
 accountability. The campaign will not.
@@ -153,9 +153,8 @@ language, at a permanent URL.*
 commitment published with a verification route is a differentiator. This is the
 "Economist Governor" proposition applied to the campaign's own conduct: it is
 the campaign holding itself to the standard it asks of the county government.
-It also has hard defensive value — when an opponent alleges bot activity or
-spam, a published charter plus a retained audit trail is an answer, not a
-denial.
+It also has practical value — if anyone alleges bot activity or spam, a
+published charter plus a retained audit trail is an answer, not a denial.
 
 <!-- keep -->
 > ### DIGITAL ETHICS & DATA CHARTER
@@ -168,8 +167,7 @@ denial.
 > follower count is honest.
 >
 > **2. No disinformation.**
-> We will not publish false claims about any candidate, including our
-> opponents. We will not create or share manipulated images, audio or video. We
+> We will not publish false claims about any candidate. We will not create or share manipulated images, audio or video. We
 > will not present AI-generated content as real footage. Where AI assists in
 > producing an illustration, we label it.
 >
@@ -208,7 +206,7 @@ denial.
 >
 > **8. No voter suppression.**
 > We will never discourage any eligible Kenyan from registering or voting,
-> including supporters of rival candidates. We will publish accurate
+> whoever they support. We will publish accurate
 > registration and polling information to anyone who asks, whoever they support.
 >
 > **9. Accountability.**
@@ -288,8 +286,6 @@ items:
 and aggregate ward-level statistics only.** This fallback is carried at every
 engagement level (Section 15.4.2), so the campaign loses no time waiting and
 carries no exposure if the answer is restrictive.
-
-The account security baseline and phishing awareness are in Runbooks, in the working platform that follows the proposal.
 
 ## 19.4 IEBC clearance and liability
 

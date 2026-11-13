@@ -1,5 +1,5 @@
 import { fmt, val } from "../lib/data/read.ts";
-export type TerminalModeId = "dgp" | "mea" | "iad" | "tpc";
+export type TerminalModeId = "dgp" | "mea" | "tpc";
 
 export interface TerminalMode {
   id: TerminalModeId;
@@ -17,7 +17,7 @@ export const TERMINAL_MODES: TerminalMode[] = [
     name: "Daily Ground Pulse",
     label: "Ground Pulse (DGP)",
     cadence: "Daily @ 18:00 EAT",
-    summary: "Ward-level intelligence reports tracking local economic anxieties, competitor movements, and daily supporter growth.",
+    summary: "Ward-level intelligence reports tracking local economic anxieties and daily supporter growth.",
   },
   {
     id: "mea",
@@ -26,14 +26,6 @@ export const TERMINAL_MODES: TerminalMode[] = [
     label: "Market Audit (MEA)",
     cadence: "Weekly by Market Day",
     summary: "Crowd density metrics, physical Kikamba leaflet uptake, and grassroots sentiment captured at major Kitui trading centres.",
-  },
-  {
-    id: "iad",
-    code: "IAD-SEC",
-    name: "Incident Alert Dispatch",
-    label: "Incident Dispatch (IAD)",
-    cadence: "Instantaneous (<15 min)",
-    summary: "Real-time rapid-response triage for hostile propaganda, billboard interference, and voter confusion incidents.",
   },
   {
     id: "tpc",
@@ -53,7 +45,6 @@ export interface WardPulseData {
   signalStrength: number;
   battery: string;
   dominantIssue: string;
-  competitorSignal: string;
   optInSupportersToday: number;
   totalWardSupporters: number;
   targetThreshold: number;
@@ -70,13 +61,6 @@ export interface WardPulseData {
     leafletsDistributed: number;
     bodaBodaChampionsActive: number;
     keyQuote: string;
-  };
-  incidentAlert?: {
-    tier: "Tier 1 — Flash Critical" | "Tier 2 — High Priority" | "Tier 3 — Routine Watch";
-    incidentType: string;
-    adversary: string;
-    status: "Verified & Debunk Sent" | "Counter-Ad Geofenced" | "Under War Room Review";
-    timestamp: string;
   };
   turnoutPacing?: {
     registeredVoters: number;
@@ -96,7 +80,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
     signalStrength: 4,
     battery: "96%",
     dominantIssue: "Water trucking tariffs & municipal stall fees along Kalundu market strip",
-    competitorSignal: "Rival camp distribution of unbranded flyers targeting civil servant vote",
     optInSupportersToday: 184,
     totalWardSupporters: 8420,
     targetThreshold: 11200,
@@ -114,13 +97,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       bodaBodaChampionsActive: 48,
       keyQuote: "Traders demand predictable county licensing rather than arbitrary daily impoundment.",
     },
-    incidentAlert: {
-      tier: "Tier 2 — High Priority",
-      incidentType: "False claim regarding Kitui municipal tax enforcement in rival WhatsApp groups",
-      adversary: "Rival Independent network",
-      status: "Verified & Debunk Sent",
-      timestamp: "14:18 EAT",
-    },
     turnoutPacing: {
       registeredVoters: val("ward.township"),
       targetTurnoutPct: 78,
@@ -137,7 +113,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
     signalStrength: 2,
     battery: "88%",
     dominantIssue: "Solar borehole pump failure at Kamuwongo; livestock watering queues",
-    competitorSignal: "Incumbent proxy promising borehole repairs before market day",
     optInSupportersToday: 126,
     totalWardSupporters: 6140,
     targetThreshold: 7900,
@@ -155,13 +130,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       bodaBodaChampionsActive: 36,
       keyQuote: "Pastoralists want the county veterinary revolving fund operationalized immediately.",
     },
-    incidentAlert: {
-      tier: "Tier 1 — Flash Critical",
-      incidentType: "Doctored audio circulating on SMS claiming endorsement withdrawal",
-      adversary: "Malicious anonymous bulk SMS sender",
-      status: "Counter-Ad Geofenced",
-      timestamp: "11:05 EAT",
-    },
     turnoutPacing: {
       registeredVoters: val("ward.kyuso"),
       targetTurnoutPct: 72,
@@ -178,7 +146,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
     signalStrength: 1,
     battery: "91%",
     dominantIssue: "Boundary water security and sand harvesting concessions without royalty share",
-    competitorSignal: "Low physical presence; rival relying on second-hand radio mentions",
     optInSupportersToday: 98,
     totalWardSupporters: 4950,
     targetThreshold: 6400,
@@ -196,13 +163,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       bodaBodaChampionsActive: 28,
       keyQuote: "Communities want community conservancy management contracts audited in public.",
     },
-    incidentAlert: {
-      tier: "Tier 3 — Routine Watch",
-      incidentType: "Rival branded t-shirts handed out at sand collection depot",
-      adversary: "UDA ward mobilization team",
-      status: "Under War Room Review",
-      timestamp: "16:40 EAT",
-    },
     turnoutPacing: {
       registeredVoters: val("ward.mutha"),
       targetTurnoutPct: 70,
@@ -219,7 +179,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
     signalStrength: 3,
     battery: "84%",
     dominantIssue: "Feeder road erosion cutoffs disconnecting vegetable farmers from Kitui Town",
-    competitorSignal: "Ward-level WhatsApp groups debating the candidate's CDF audit record",
     optInSupportersToday: 142,
     totalWardSupporters: 5880,
     targetThreshold: 7200,
@@ -237,13 +196,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       bodaBodaChampionsActive: 24,
       keyQuote: "Dr. Makali's CDF track record on school masonry has created immense trust here.",
     },
-    incidentAlert: {
-      tier: "Tier 2 — High Priority",
-      incidentType: "Misrepresented allocation figures for Kavisuni Health Centre",
-      adversary: "County Government communication staffer account",
-      status: "Verified & Debunk Sent",
-      timestamp: "09:30 EAT",
-    },
     turnoutPacing: {
       registeredVoters: val("ward.miambani"),
       targetTurnoutPct: 75,
@@ -260,7 +212,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
     signalStrength: 3,
     battery: "92%",
     dominantIssue: "Delay in county medical supply replenishment at Migwani Sub-County Hospital",
-    competitorSignal: "Wiper local ward delegates rallying uncommitted teachers",
     optInSupportersToday: 165,
     totalWardSupporters: 7310,
     targetThreshold: 9100,
@@ -277,13 +228,6 @@ export const WARD_DATA: Record<string, WardPulseData> = {
       leafletsDistributed: 2900,
       bodaBodaChampionsActive: 42,
       keyQuote: "Voters compare Dr. Makali's parliamentary oversight to the county health deficit.",
-    },
-    incidentAlert: {
-      tier: "Tier 1 — Flash Critical",
-      incidentType: "Rival sound truck broadcasting unverified claim regarding bursary formulas",
-      adversary: "Independent faction sound caravan",
-      status: "Verified & Debunk Sent",
-      timestamp: "13:45 EAT",
     },
     turnoutPacing: {
       registeredVoters: val("ward.migwani"),

@@ -18,51 +18,6 @@
  * slogan would be doing the exact thing §3.6.2 exists to prevent.
  */
 import type { FigureSeries } from "./types";
-import { regFmt } from "./from-registry.ts";
-
-/* ------------------------------------------------------------------ §3.5.1 counter-fire */
-
-/**
- * The three ground rumours §3.5.1 names, and what the campaign says back.
- *
- * TRANSCRIBED, INCLUDING THE HONEST GAP. The bursary rebuttal ends "Share pending the ledger" —
- * the document declining to claim a proportion it has not verified, in the middle of its own
- * counter-messaging table. That sentence is the most creditable thing in the block and it is kept
- * exactly, rather than tidied into a cleaner-sounding rebuttal.
- */
-export const COUNTER_FIRE = [
-  {
-    rumour:
-      "Dr. Mulu is only interested in Kitui Central and will neglect Northern/Southern wards.",
-    answers: [
-      "FACT: As MP, Dr. Mulu defended equal revenue allocation for all 47 counties and sponsored national water subsidies for ASAL regions (Hansard).",
-      "COMMITMENT: Ward development funds allocated by one needs-weighted formula, published before any allocation and audited after.",
-    ],
-  },
-  {
-    rumour: "Economists only care about numbers, not the poor.",
-    answers: [
-      `FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — ${regFmt("record.bursary.recipients")} recipients, KSh ${regFmt("record.bursary.ksh", "m")}m (Tier 1) — and village boreholes.`,
-    ],
-    note: "Share pending the ledger.",
-  },
-  {
-    rumour: "He is not politically aligned with Kalonzo Musyoka / Azimio.",
-    answers: [
-      "FACT: Dr. Mulu is a senior founding parliamentary stalwart of the Wiper Democratic Movement, trusted by Party Leader Kalonzo Musyoka on national budget and economic coalition planning.",
-    ],
-  },
-];
-
-export const COUNTER_FIRE_SERIES: FigureSeries = {
-  id: "counter-fire",
-  headline: "Three ground rumours, and the evidence the campaign answers each with",
-  measure: "§10.5's rumour-and-rebuttal protocol, paired",
-  points: [],
-  note:
-    "One of the three rebuttals ends “Share pending the ledger” — the document declining to claim " +
-    "a proportion it has not verified, inside its own counter-messaging table. It is kept exactly.",
-};
 
 /* ------------------------------------------------------------------ §3.6.2 cultural registers */
 

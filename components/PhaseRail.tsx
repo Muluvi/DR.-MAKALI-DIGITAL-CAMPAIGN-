@@ -46,7 +46,7 @@ const DETAIL: Record<string, PhaseDetail> = {
     id: "0",
     objective: "Stand up the infrastructure the rest of the plan runs on.",
     highlights: [
-      "Weeks 1–2: competitor analysis, structural gaps and opportunities",
+      "Weeks 1–2: presence analysis, structural gaps and opportunities",
       "Weeks 3–4: pages, website, analytics and donation portal live",
       "USSD shared code commissioned — 5–7 working days to set up",
     ],

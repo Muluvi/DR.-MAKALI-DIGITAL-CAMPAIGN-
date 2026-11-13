@@ -11,7 +11,7 @@ import { TierBadge } from "./TierBadge";
  *
  * WHAT THIS DELIBERATELY DOES NOT SHOW: any measure of opinion. Firefly works from existing
  * records only, and §3.10 records ward-level recognition as unmeasured. An earlier version of this component
- * carried per-ward `muluPollingBaseline` / `kasaluPollingBaseline` percentages; they were
+ * carried per-ward polling-baseline percentages; they were
  * invented, and they are gone.
  *
  * What replaces them is what §3.4 actually asserts: a STRUCTURAL recognition status per

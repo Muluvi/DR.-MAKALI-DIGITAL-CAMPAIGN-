@@ -15,7 +15,7 @@ import MediaOwnershipChart, { type StationBar } from "../charts/MediaOwnershipCh
  * theme set the lightness. See --align-a/b/c in app/globals.css.
  */
 function alignmentColor(alignment: string): string {
-  if (alignment.includes("Ngilu")) return "var(--align-a)";
+  if (alignment.includes("politically affiliated")) return "var(--align-a)";
   if (alignment.includes("Kalonzo")) return "var(--align-b)";
   return "var(--align-c)";
 }
@@ -30,7 +30,7 @@ const CHART_DATA: StationBar[] = RADIO_STATIONS.map((s) => ({
 
 /**
  * Media ownership map (§3.7.1). The strategic point: the highest-reach
- * stations on §3.7.1's own reading are controlled by a rival or the party gatekeeper,
+ * stations on §3.7.1's own reading are controlled by political owners or the party gatekeeper,
  * not by the campaign. Reach is a qualitative 1–3 read, never a measured listenership figure —
  * see the Data Gaps Register for that gap.
  */

@@ -7,8 +7,6 @@ import type { FigureSpec } from "../types.ts";
 import { ELECTION, NOMINATION, TODAY } from "./s1-objectives.ts";
 import { NOMINATION_WINDOW, PHASES, PLANNING_SIGNATURE, inSentence, phaseSpan, phaseTitle, phaseWhen } from "../../phases.ts";
 import { CountWord, countWord } from "../../count-word.ts";
-import { SEVERITY_TIERS } from "../../../data/escalation.ts";
-import { RISKS } from "../../../data/risks.ts";
 
 const ELECTION_TEXT = "10 August 2027";
 import { bar, fmt } from "./_util.ts";
@@ -80,10 +78,10 @@ export const FIG_5_2: FigureSpec = {
 /* ------------------------------------------------------------------ fig-5-3-four-weeks */
 
 const WEEKS = [
-  { when: "Week 1", title: "The presence audit", body: "Ninety days of his channels against the rivals; the Page-or-profile question; 2FA applied by your team." },
+  { when: "Week 1", title: "The presence audit", body: "Ninety days of his channels; the Page-or-profile question; 2FA applied by your team." },
   { when: "Weeks 1–2", title: "Foundations", body: "Capability map, compliance review commissioned, Kikamba reviewer confirmed; the six profile fixes shipped." },
   { when: "Weeks 2–6", title: "First directed cycles", body: `The weekly brief from Week 2; output weighted ${fmt("effort.p-1.mwingi")}% Mwingi, ${fmt("effort.p-1.arid")}% arid belt, ${fmt("effort.p-1.anchor")}% anchor, ${fmt("effort.p-1.rotating")}% testing; SMS opt-in drive.` },
-  { when: "Weeks 6–8", title: "Consolidation", body: "Red-team drill before the nomination decision; coalition roundtables; ward champions in the highest-priority wards." },
+  { when: "Weeks 6–8", title: "Consolidation", body: "Coalition roundtables; ward champions in the highest-priority wards." },
 ];
 
 export const FIG_5_3: FigureSpec = {
@@ -101,11 +99,10 @@ export const FIG_5_3: FigureSpec = {
         heading: "The Week 1 method, condensed",
         chart: {
           type: "cards",
-          columns: 3,
+          columns: 2,
           cards: [
             { title: "The window", body: "The ninety days before signature, on every channel he runs." },
             { title: "What is measured", body: "Reach by ward, engagement on reach, language mix, format mix, cadence." },
-            { title: "Against", body: "The same window for Dr. Kasalu, Sen. Wambua and Hon. Ngilu, on public data." },
           ],
         },
       },
@@ -167,12 +164,10 @@ const PHASE_TARGETS: [string, string, string, string][] = [
   ["Opt-out rate", "< 2%", "—", "—"],
   ["Positive sentiment", "—", "≥ 50%", "≥ 80%"],
   ["Viral content pieces (>100,000 views) °", "—", "≥ 10", "—"],
-  ["Red-team response times meeting target", "—", "≥ 90%", "—"],
   ["Digital pledges to vote", "—", "—", fmt("target.pledges")],
   ["Voter registration lift in target wards", "—", "—", "≥ 10%"],
   ["GOTV contact rate", "—", "—", "≥ 70%"],
   [`Contact share of the ~${fmt("benchmark")} win threshold`, "—", "—", "≥ 75%"],
-  ["Misinformation incidents answered within their severity target", "—", "—", "100%"],
 ];
 
 export const FIG_5_4_LADDER: FigureSpec = {
@@ -209,8 +204,7 @@ const CADENCE: [string, string[]][] = [
   ["Daily", ["Multilingual social (your team)", "Ward field reports (ground team)"]],
   ["Weekly", ["The weekly brief, Thursday (your strategy core)", "Content calendar, Friday (your team; the strategy core approves)", "Kikamba voice note", "Facebook Live", "Creative test cycle (your team reads)"]],
   ["Fortnightly", ["SMS touch to the consented list (your team), rising to a GOTV surge"]],
-  ["Monthly", ["Presence audit refresh (your team)", "Performance report (your team)", "Sentiment report (your team)", "Competitive brief (your team)", "Kitui Economic Brief (your team)"]],
-  ["Quarterly", ["Red-team drill (your team and an external panel)"]],
+  ["Monthly", ["Presence audit refresh (your team)", "Performance report (your team)", "Sentiment report (your team)", "Kitui Economic Brief (your team)"]],
 ];
 const LEVELS: [string, string, string, string][] = [
   ["Presence audit", "Once, at start", "Refreshed monthly", "Refreshed fortnightly"],
@@ -271,9 +265,9 @@ export const FIG_5_6: FigureSpec = {
 export const FIG_5_7: FigureSpec = {
   id: "fig-5-7-approval",
   section: "4.1.3",
-  title: `Your team drafts and publishes, one named counterpart approves, and an attack is judged against ${countWord(SEVERITY_TIERS.length)} severity tiers`,
+  title: "Your team drafts and publishes, and one named counterpart approves",
   question: "How are decisions made?",
-  takeaway: `Your strategy core approves new claims and Kikamba output, your team publishes everything, the offline broadcasts included, and Firefly publishes nothing; a ${SEVERITY_TIERS[SEVERITY_TIERS.length - 1].name.toLowerCase()} attack reaches the candidate, with the war room convened within fifteen minutes.`,
+  takeaway: "Your strategy core approves new claims and Kikamba output, your team publishes everything, the offline broadcasts included, and Firefly publishes nothing.",
   sources: [PROPOSAL],
   chart: {
     type: "composite",
@@ -291,17 +285,6 @@ export const FIG_5_7: FigureSpec = {
           ],
         },
       },
-      {
-        heading: "The severity tiers",
-        chart: {
-          type: "decision",
-          question: "When an attack lands",
-          rules: SEVERITY_TIERS.map((t) => ({
-            if: t.name,
-            then: t.draftedBy === "—" ? `${t.protocol.split(" — ")[0].toLowerCase()}; ${t.approvedBy.toLowerCase()}` : `${t.draftedBy} drafts; approval: ${t.approvedBy}; ${t.turnaround.split(" · ")[0].toLowerCase()}`,
-          })),
-        },
-      },
     ],
   },
   columns: [{ key: "type", label: "Content" }, { key: "draft", label: "Drafted by" }, { key: "approve", label: "Approved by" }, { key: "publish", label: "Published by" }, { key: "time", label: "Turnaround" }],
@@ -309,46 +292,10 @@ export const FIG_5_7: FigureSpec = {
     { cells: { type: "Routine post in an approved brief", draft: "Your team", approve: "Your team lead", publish: "Your team", time: "Same day" } },
     { cells: { type: "New policy claim or figure", draft: "Your team", approve: "Strategy director + campaign counterpart", publish: "Your team", time: "24 hours" } },
     { cells: { type: "Kikamba voice note", draft: "Your team + Kikamba reviewer", approve: "Strategy director", publish: "Your team", time: "48 hours" } },
-    ...SEVERITY_TIERS.map((t) => ({ cells: { type: `Attack, ${t.name.toLowerCase()} tier`, draft: t.draftedBy, approve: t.approvedBy, publish: t.draftedBy === "—" ? "—" : "Your team", time: t.turnaround } })),
     { cells: { type: "SMS / USSD / WhatsApp broadcast", draft: "Your team", approve: "Campaign counterpart", publish: "Your team", time: "24 hours" } },
     { cells: { type: "Any voter-file-based targeting", draft: "—", approve: "Compliance gate", publish: "—", time: "Before launch, no exceptions" } },
     { cells: { type: "Paid targeting plan and reallocation within the agreed weighting", draft: "Strategy core proposes", approve: "Campaign counterpart", publish: "Your team executes", time: "24 hours" } },
   ],
-};
-
-/* ------------------------------------------------------------------ fig-5-8-risk */
-
-/** The risk register: data/risks.ts, the one list (read here and counted in Risks & response). */
-const LEVEL = ["", "Low", "Medium", "High"];
-const IMPACT = ["", "Moderate", "High", "Severe"];
-
-export const FIG_5_8: FigureSpec = {
-  id: "fig-5-8-risk",
-  section: "6.1",
-  title: `Two of the ${countWord(RISKS.length)} risks would change the plan rather than damage it, and both are settled by measurement early`,
-  question: "What could go wrong?",
-  takeaway: "R1 closes with the party's 2027 nomination rules, R2 with the Week 1 audit. The incumbent is term-limited under Article 180(7), so the plan is for an open seat.",
-  sources: [PROPOSAL, { name: "Constitution of Kenya, Article 180(7): a governor serves at most two terms", tier: "T1" }],
-  chart: {
-    type: "risk",
-    items: RISKS.map(({ code, label, likelihood, impact }) => ({ code, label, likelihood, impact })),
-    branches: [
-      {
-        title: "If it becomes a delegate primary",
-        question: "Does Wiper move to a delegates' vote?",
-        rules: [
-          { if: "yes, delegates decide", then: "map the delegate register, move ward captains to peer lobbying, open a dedicated SMS channel to delegates" },
-          { if: "no, the reported countywide selection stands", then: "the Phase −1 plan runs as written" },
-        ],
-      },
-    ],
-  },
-  notes: [
-    "R1 and R2 change the plan rather than damage it, and both resolve inside the first weeks, by measurement rather than contingency: the argument for starting there.",
-    "R6 is specific to this engagement's shape: a direction model with no disagreement protocol fails on its first collision, and quietly, because a team overruled once stops raising the objection rather than stopping the behaviour. The override log makes friction surface as evidence instead of as attrition.",
-  ],
-  columns: [{ key: "code", label: "#" }, { key: "risk", label: "Risk" }, { key: "l", label: "Likelihood" }, { key: "i", label: "Impact" }, { key: "owner", label: "Owner" }, { key: "why", label: "Why it matters" }, { key: "mitigation", label: "Mitigation" }],
-  rows: RISKS.map((r) => ({ cells: { code: r.code, risk: r.label, l: LEVEL[r.likelihood], i: IMPACT[r.impact], owner: r.owner, why: r.why, mitigation: r.mitigation } })),
 };
 
 /* ------------------------------------------------------------------ fig-5-9-team */
@@ -405,4 +352,4 @@ export const FIG_5_9: FigureSpec = {
   ],
 };
 
-export const S5: FigureSpec[] = [FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_5, FIG_5_6, FIG_5_7, FIG_5_8, FIG_5_9];
+export const S5: FigureSpec[] = [FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_5, FIG_5_6, FIG_5_7, FIG_5_9];

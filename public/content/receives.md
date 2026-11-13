@@ -48,7 +48,6 @@ cannot afford to be blind**
 * **Creative testing:** weekly cycle
 * **Team upskilling:** the standard, plus paired brief-writing to Month 3 (Section 17.5)
 * **Offline layer:** **SMS and USSD active across all 40 wards**; shared code, all networks
-* **Crisis:** dedicated lead from Phase 2; quarterly red-team drills
 * **Trade-offs:** no premium social listening licences
 
 #### Level 3: Premium
@@ -63,7 +62,6 @@ cannot afford to be blind**
 * **Offline layer:** everything in Standard, plus a dedicated USSD short code and expanded
 WhatsApp Business API capacity
 * **Analytics:** licensed social listening (Brandwatch/Meltwater class); full attribution
-* **Crisis:** monthly red-team drills; retained deepfake detection capability
 * **Trade-offs:** it refreshes the analysis faster than a nomination sprint has capacity to act on,
 and that is a real drawback rather than a disclaimer
 
@@ -108,11 +106,9 @@ now directed by the team itself. Firefly's own deliverable is the platform: host
 | USSD menu availability | Continuous once provisioned | **Your team** | Zero-rated interactive menu across all networks | 15.3.3 |
 | Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 15.3.1 |
 | Creative test cycle | Weekly | **Your team** designs, reads and produces variants | A/B test results and the decisions taken from them | 15.1.3 |
-| **Presence audit refresh** | **Monthly** | **Your team** | Ninety-day rolling read: reach by ward, language, format, field comparison | 14.1 |
+| **Presence audit refresh** | **Monthly** | **Your team** | Ninety-day rolling read: reach by ward, language and format | 14.1 |
 | Performance report | Monthly | **Your team** | Reach in the pool, engagement, sentiment, conversion | 13.4 |
 | Sentiment report to leadership | Monthly | **Your team** | Written brief with ward-level detail | 15 |
-| Competitive brief | Monthly | **Your team** | Public-source summary of rival activity | F.11 |
-| Red-team drill | Quarterly | **Your team** + an external panel | Simulated attack and a written after-action note | F.6 |
 | Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 19.2 |
 | Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 15.1.2, 13.4 |
 | The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | 13.2 |
@@ -162,7 +158,7 @@ Nine dependencies. Three of them gate everything else:
 The remaining six: about **three hours** of candidate time per week; daily ground-team photo
 and video uploads; current ward-level registration data from the IEBC published file; access to
 the existing NG-CDF project record; sign-off on the engagement level; and the Wiper Patriotic Front's 2027 nomination
-rules or NEC resolution as soon as the party issues them (Section 5.2).
+rules or NEC resolution as soon as the party issues them.
 ```
 
 ```visual

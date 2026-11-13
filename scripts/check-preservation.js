@@ -131,7 +131,7 @@ async function snapshot() {
     if (f.startsWith("content/") && f.endsWith(".md")) counts[f] = contentCounts(f);
     if (f.endsWith(".csv")) counts[f] = { rows: fs.readFileSync(path.join(ROOT, f), "utf8").trim().split("\n").length - 1 };
   }
-  for (const f of TS_MODULES) counts[f] = await moduleCounts(f);
+  for (const f of TS_MODULES) if (fs.existsSync(path.join(ROOT, f))) counts[f] = await moduleCounts(f);
   return { files, counts };
 }
 
@@ -152,6 +152,14 @@ async function main() {
     return;
   }
   const base = JSON.parse(fs.readFileSync(MANIFEST, "utf8"));
+  // The rivals pass (docs/rivals-2026-11, November 2026) removed rival and attack-response material
+  // by Firefly's decision. A protected file it removed (removed-files.json), and a count it lowered
+  // (count-drops.json, each with the count it may fall to and why), are reported as retired. A drop
+  // below the logged floor, or in any file or count it does not list, still fails.
+  const { isRetiredFile } = await import(pathToFileURL(path.join(ROOT, "scripts", "rivals-2026-11", "retired.mjs")).href);
+  const dropsFile = path.join(ROOT, "docs", "rivals-2026-11", "count-drops.json");
+  const drops = new Map((fs.existsSync(dropsFile) ? JSON.parse(fs.readFileSync(dropsFile, "utf8")).drops : []).map((d) => [`${d.file}|${d.key}`, d]));
+  const retired = [];
   const failures = [];
   const changed = [];
   // On Vercel, paths in .vercelignore (the Python analysis pipeline) are deliberately not uploaded,
@@ -162,7 +170,7 @@ async function main() {
   let skipped = 0;
   for (const [f, h] of Object.entries(base.files)) {
     if (notUploaded.some((p) => f.startsWith(p))) { skipped++; continue; }
-    if (!fs.existsSync(path.join(ROOT, f))) failures.push(`missing: ${f}`);
+    if (!fs.existsSync(path.join(ROOT, f))) (isRetiredFile(f) ? retired.push(`removed: ${f}`) : failures.push(`missing: ${f}`));
     else if (sha(f) !== h) changed.push(f);
   }
   // A chapter may hand a whole section to another chapter by a logged move (scripts/consolidation/
@@ -178,19 +186,43 @@ async function main() {
   );
   const contentTotal = (counts, k) =>
     Object.entries(counts).filter(([f]) => f.startsWith("content/") && f.endsWith(".md")).reduce((n, [, c]) => n + (c[k] ?? 0), 0);
+  // The chapters as they stood when the rivals pass began: content the pass removed was content the
+  // logged moves had already accounted for, so the moves are weighed against that total, and the
+  // pass's own drops are held to the floors in count-drops.json.
+  const { RIVALS_BASE } = await import(pathToFileURL(path.join(ROOT, "scripts", "rivals-2026-11", "retired.mjs")).href);
+  const { execFileSync } = require("node:child_process");
+  const rivalsBaseCounts = {};
+  try {
+    for (const rel of execFileSync("git", ["ls-tree", "--name-only", RIVALS_BASE, "content/"], { cwd: ROOT, encoding: "utf8" }).split("\n").filter((x) => x.endsWith(".md"))) {
+      const t = execFileSync("git", ["show", `${RIVALS_BASE}:${rel}`], { cwd: ROOT, encoding: "utf8" });
+      const tmp = path.join(require("node:os").tmpdir(), `rivals-base-${path.basename(rel)}`);
+      fs.writeFileSync(tmp, t);
+      rivalsBaseCounts[rel] = contentCounts(path.relative(ROOT, tmp));
+      fs.unlinkSync(tmp);
+    }
+  } catch {
+    /* no history (a shallow checkout): the moves are weighed against today's totals, as before */
+  }
+  const movesTotal = (k) => Math.max(contentTotal(now.counts, k), contentTotal(rivalsBaseCounts, k));
   const moves = [];
   for (const [f, set] of Object.entries(base.counts)) {
     const cur = now.counts[f];
-    if (!cur) { failures.push(`no longer countable: ${f}`); continue; }
+    if (!cur) { isRetiredFile(f) ? retired.push(`no longer counted (removed): ${f}`) : failures.push(`no longer countable: ${f}`); continue; }
     for (const [k, n] of Object.entries(set)) {
       if (k === "words") continue; // words are guarded by check:content against its own ledger
       if ((cur[k] ?? 0) >= n) continue;
-      if (movedOut.has(f) && contentTotal(now.counts, k) >= contentTotal(base.counts, k)) {
+      if (movedOut.has(f) && movesTotal(k) >= contentTotal(base.counts, k)) {
         moves.push(`${f} ${k} ${n} -> ${cur[k] ?? 0} (logged move out; all chapters ${contentTotal(base.counts, k)} -> ${contentTotal(now.counts, k)})`);
         continue;
       }
+      const drop = drops.get(`${f}|${k}`);
+      if (drop && (cur[k] ?? 0) >= drop.to) { retired.push(`${f} ${k} ${n} -> ${cur[k] ?? 0} (${drop.why})`); continue; }
       failures.push(`count dropped: ${f} ${k} ${n} -> ${cur[k] ?? 0}`);
     }
+  }
+  if (retired.length) {
+    console.log(`check-preservation: ${retired.length} item(s) retired by the rivals pass (docs/rivals-2026-11):`);
+    for (const r of retired) console.log(`   ${r}`);
   }
   if (moves.length) {
     console.log(`check-preservation: ${moves.length} count(s) moved to another chapter by a logged move, none lost:`);

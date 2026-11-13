@@ -42,10 +42,9 @@ preset: message
 items:
   - title: "Pillar 1: Fiscal integrity and transparent public finance"
     fields:
-      - { label: "How it is argued", text: "Dr. Mulu's parliamentary work for fair distribution of resources becomes a clear manifesto for Kitui's 40 wards, showing line by line how the county's KSh {{budget.total|bn}} billion should be allocated and audited. And the pillar that distinguishes him from every rival: **publishing what was promised, then publishing whether it happened**, through the public service-delivery tracker (Section 15.1.1), the analytics cadence in Section 15.4.4, and the disclosure of every paid placement under the Digital Ethics and Data Charter (Section 19.3). An M&E specialist who campaigns without a way to verify is wasting his strongest asset." }
-      - { label: "Narrative Statement *(held until the Auditor-General's reports below are in hand)*", text: "*\"Kitui's KSh {{budget.total|bn}} billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu is the only candidate with a verified track record of managing public funds with zero financial audit queries.\"*" }
-      - { label: "Comparison — awaiting primary documents", text: "\"The only candidate\" is a claim about every rival, so it rests on the Auditor-General's reports on each public fund a rival has managed — the Kitui allocation of the National Government Affirmative Action Fund (Dr. Kasalu's office) and the county executive (Governor Malombe) among them — as well as on Dr. Mulu's own NG-CDF reports below. Until all are in hand the comparative line is not published; the usable form is his own record, quoted year by year from the audit opinions." }
-      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in an opponent's hands than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the Tier 1 claim in Section 6.1, best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
+      - { label: "How it is argued", text: "Dr. Mulu's parliamentary work for fair distribution of resources becomes a clear manifesto for Kitui's 40 wards, showing line by line how the county's KSh {{budget.total|bn}} billion should be allocated and audited. And the pillar that sets him apart: **publishing what was promised, then publishing whether it happened**, through the public service-delivery tracker (Section 15.1.1), the analytics cadence in Section 15.4.4, and the disclosure of every paid placement under the Digital Ethics and Data Charter (Section 19.3). An M&E specialist who campaigns without a way to verify is wasting his strongest asset." }
+      - { label: "Narrative Statement *(held until the Auditor-General's reports below are in hand)*", text: "*\"Kitui's KSh {{budget.total|bn}} billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu has a verified track record of managing public funds with zero financial audit queries.\"*" }
+      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in public debate than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the Tier 1 claim in Section 6.1, best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
       - { label: "Contrast — awaiting primary documents", text: "Kitui County Government audited accounts under both predecessor administrations are reported to have accumulated over **KSh {{audit.pending.contested|bn}} billion in contested pending bills** (Tier 3; OAG County Executive Audit FY2021/22 and FY2022/23, Tier 3). This is a **different measure** from the KSh {{budget.pending-bills.2021|bn}} billion pending-bill figure at FY2020/21 carried as Tier 1 in Section 3.7: different years, different scopes. Both are usable; whichever is quoted is named with its year." }
     badge: "sources pending"
   - title: "Pillar 2: Household economic empowerment and agricultural value"
@@ -64,7 +63,7 @@ items:
     badge: "sources pending"
 ```
 
-**The ward fund forces a choice.** Dr. Kasalu has publicly criticised the incumbent's equal-ward allocation (Section 5.5), and Pillar 3 proposes an equal-ward guarantee of its own. The campaign cannot run both.
+**The ward fund forces a choice.** The incumbent's equal-ward allocation is open to criticism, and Pillar 3 proposes an equal-ward guarantee of its own. The campaign cannot run both.
 
 ```visual
 kind: cards
@@ -72,7 +71,7 @@ preset: policy
 items:
   - title: "Settled: the needs-weighted formula."
     text: "**The platform is the second position: a published, needs-weighted allocation formula, because it is the stronger fit with the verification pillar (Pillar 1) and leaves the campaign free to make the argument against equal-ward allocation.** The equal-ward guarantee of Ksh {{policy.ward-fund|m}} million per ward (about Ksh {{policy.ward-fund.total|bn}} billion a year, {{policy.ward-fund.share}}% of the envelope) is withdrawn from campaign copy."
-    body: "Her public criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Pillar 3 currently proposes an equal-ward guarantee of its own. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula."
+    body: "Criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Pillar 3 currently proposes an equal-ward guarantee of its own. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula."
 ```
 
 ```visual
@@ -201,7 +200,7 @@ items:
     fields:
       - { label: "Definition", text: "Limited time drives action" }
   - title: "**Anchoring**"
-    text: "Launch policy with strong comparative data before opponents define the frame"
+    text: "Launch policy with strong comparative data before others define the frame"
     fields:
       - { label: "Definition", text: "First information shapes later judgement" }
   - title: "**Framing effects**"
@@ -214,7 +213,7 @@ items:
       - { label: "Definition", text: "Claims that can be checked are trusted more than claims that cannot" }
 ```
 
-The last principle is the campaign's own. It turns Dr. Mulu's M&E credential into a persuasion technique no rival can use.
+The last principle is the campaign's own. It turns Dr. Mulu's M&E credential into a persuasion technique built on his own record.
 
 ## 10.3 Framing, in worked examples
 
@@ -306,12 +305,4 @@ Built on what each channel can reach (Section 4.3):
 
 ```figure
 id: message-by-channel
-```
-
-## 10.5 Countering disinformation
-
-Each rumour circulating on the ground is paired with the evidence that answers it. The response protocol, its clock and the holding lines are in Section 20.2 and Annex F.
-
-```figure
-id: counter-fire
 ```

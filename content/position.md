@@ -2,7 +2,7 @@
 **Dr. Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working.
 ```
 
-**Dr. Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working. Kitui does not lack money; it lacks the discipline to use it well, and that discipline is his profession. This chapter states the claim, the paradox it answers, and the answer to the one attack it invites.
+**Dr. Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working. Kitui does not lack money; it lacks the discipline to use it well, and that discipline is his profession. This chapter states the claim and the paradox it answers.
 
 ## 9.1 The central claim
 
@@ -10,7 +10,7 @@
 Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
 ```
 
-**Why this claim.** Both Wiper rivals have already won a countywide election (Section 5.3). What distinguishes Dr. Mulu is not a vote tally but his record (Section 6.1). So the campaign's core narrative is that **Dr. Makali Mulu is the Economist Governor Kitui needs**: an economist who can show his working and hold others to account. It rests on one premise: Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
+**Why this claim.** What distinguishes Dr. Mulu is not a vote tally but his record (Section 6.1). So the campaign's core narrative is that **Dr. Makali Mulu is the Economist Governor Kitui needs**: an economist who can show his working and hold others to account. It rests on one premise: Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
 
 **What makes it his.** Dr. Mulu is not only an economist. He is a specialist in **verifying whether public expenditure delivers what it promised**, and the county's own audit record documents the gap: unconfirmed balances, pending bills and low development absorption (Section 3.7). This proposal turns that qualification into a public service-delivery tracker (Section 15.1.1): a line on a CV becomes a daily, public demonstration of accountability.
 
@@ -28,15 +28,3 @@ Kitui voters are ready for a leader who understands economics, respects public m
 
 The county's primary developmental obstacle is not a lack of funding, but a lack of fiscal discipline, project oversight, and structural monitoring and evaluation: the competencies that define Dr. Mulu's career.
 
-## 9.3 Answering the charge of coldness
-
-Rivals will use Dr. Mulu's economic credentials to paint him as remote from ordinary life:
-
-```visual
-kind: qa
-attack: "*\"Dr. Mulu is a cold, distant, Nairobi-facing intellectual who spends his time in air-conditioned parliamentary offices, completely out of touch with the raw, daily struggles of rural Kitui households.\"*"
-answer: "A \"warm\", charismatic leader without fiscal discipline is what has delivered KSh {{audit.cash|m}} million in unconfirmed cash balances and KSh {{budget.pending-bills.2021|bn}} billion in pending bills, leaving rural boreholes dry, clinics unstaffed and schools unbuilt. Dr. Mulu's precision is not coldness; it is how care for public money shows itself."
-body: "The campaign turns this attack into an asset. Fiscal discipline is what stops public money being stolen or wasted on white-elephant projects, and it makes sure each shilling reaches the rural majority, {{ict.offline}}% of whom are offline (CA/KNBS 2023/24) and who depend on county services. Kitui has resources. What it has lacked is leadership that understands how to use them—and the discipline to prove it did."
-```
-
-The best answer to "too technical" is a demonstration, not a denial: answered in Kikamba, with a household example (Annex F.3).

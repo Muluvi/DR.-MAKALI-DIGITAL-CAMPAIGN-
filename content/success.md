@@ -163,9 +163,9 @@ items:
     fields:
       - { label: "Why this one", text: "Establishes what the team's current capacity actually is, before any brief assumes more of it." }
   - label: "Paid"
-    body: "Meta Ad Library and Google Ads Transparency Centre, for Dr. Mulu and both nomination rivals"
+    body: "Meta Ad Library and Google Ads Transparency Centre, for Dr. Mulu"
     fields:
-      - { label: "Why this one", text: "Public, needs no access from anyone, and is the only competitive advertising signal that exists." }
+      - { label: "Why this one", text: "Public, needs no access from anyone, and is the only paid-advertising signal that exists." }
   - label: "Other platforms"
     body: "X: **@MakaliMulu**, about {{channel.x.followers}} followers in a September 2026 snapshot (Tier 3, a dated baseline). TikTok, Instagram, YouTube and any WhatsApp Channel or Business number: recorded in the Week 1 audit where they exist."
     fields:
@@ -221,10 +221,8 @@ items:
     text: "every post in the window."
   - label: "Code it twice"
     body: "Two coders score each post on the four axes independently; disagreements go to a third pass; the inter-coder agreement rate is reported alongside the findings. A coding exercise that does not report its own agreement rate is an opinion."
-  - label: "Competitive baseline"
-    body: "The same public post-level coding for Dr. Kasalu and Sen. Wambua, the two nomination rivals in Section 5.3. Public posts only."
   - label: "Ad libraries"
-    text: "for all three."
+    text: "for his pages."
   - label: "Overlay"
     body: "Reach-by-city onto the twelve decisive wards in Section 2.3 and the {{pool}}-voter pool in Section 6.2."
   - label: "Aggregate only"

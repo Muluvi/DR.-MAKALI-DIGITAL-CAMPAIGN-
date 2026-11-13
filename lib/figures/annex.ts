@@ -2,8 +2,7 @@
  * §5 [CHECK REF], §1A and the annexes — the last thirteen box-drawing blocks in the document.
  *
  * WHAT THESE REPLACE. The audience architecture and segment summary, the visit-to-verification
- * loop, the three provenance blocks, both message matrices, the escalation protocol, and the three
- * rapid-response runbooks.
+ * loop, the three provenance blocks, both message matrices and the escalation protocol.
  *
  * THE PROVENANCE BLOCKS ARE THE DOCUMENT'S OWN RULES ABOUT EVIDENCE, and they are the rules this
  * entire audit has been applying. §A.1.3's step 4 — "if unreconciled, report both numbers
@@ -12,16 +11,7 @@
  * blocks into figures that state the rules plainly is the closest thing to a self-portrait this
  * pass produces, and the reason they are transcribed rather than paraphrased.
  *
- * THE KIKAMBA IN THE RUNBOOKS IS LOAD-BEARING. §E.3's four holding positions each carry a
- * Kikamba framing with full diacritics — ĩ, ũ, w' — and §3.6.2 forbids machine translation of
- * exactly this material. Every string is transcribed character for character.
- *
- * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §E.3's first position
- * says the classroom and bursary counts are pending the inventory and that only §2.10.1's 12,573
- * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
- * does not exist yet and the line should not go on air before it does.
  */
-import { SEVERITY_TIERS } from "../../data/escalation.ts";
 import { CountWord, countWord } from "../count-word.ts";
 import { RADIO_STATIONS } from "../../data/media-ownership.ts";
 import { regFmt } from "./from-registry.ts";
@@ -333,7 +323,7 @@ export const ESCALATION_LADDER = [
   {
     title: "Strategic & scope escalation — under 2 hours",
     steps: [
-      "Issues: unexpected scope overruns, a competitor attack requiring a major change in media weighting, or a constituency coordinator dispute.",
+      "Issues: unexpected scope overruns, a sharp change in reach requiring a major change in media weighting, or a constituency coordinator dispute.",
       "Resolution authority: Campaign Manager & Chief of Operations.",
       "Rule: the Campaign Manager makes a binding operational determination.",
     ],
@@ -351,7 +341,7 @@ export const ESCALATION_LADDER = [
 export const ESCALATION_SERIES: FigureSeries = {
   id: "escalation-ladder",
   headline: `${CountWord(ESCALATION_LADDER.length)} decision levels, ${countWord(ESCALATION_LADDER.length)} authorities, and the candidate is only in the last`,
-  measure: "The operational escalation path — issues, resolution authority and the rule at each decision level. Attacks on the campaign are judged separately, by the severity tiers in Risks & response",
+  measure: "The operational escalation path — issues, resolution authority and the rule at each decision level",
   points: [],
   note:
     "The levels are numbered because escalation is ordered: a level 1 issue that is not resolved " +
@@ -359,112 +349,3 @@ export const ESCALATION_SERIES: FigureSeries = {
     "who decides and what they must do, which is what makes it a protocol rather than a list.",
 };
 
-/* ------------------------------------------------------------------ §E.1 the decision matrix */
-
-/** The four severity tiers, read from data/escalation.ts (the one escalation model). */
-export const RESPONSE_MATRIX: string[][] = SEVERITY_TIERS.map((t) => [t.name, t.threshold, t.protocol, t.turnaround, t.approvedBy]);
-
-export const MATRIX_SERIES: FigureSeries = {
-  id: "response-matrix",
-  headline: `${CountWord(SEVERITY_TIERS.length)} severity tiers, and the first instruction is to do nothing`,
-  measure: "The response decision tree: severity tier, threshold, protocol, turnaround and who approves",
-  points: [],
-  note:
-    "Level 1's protocol is IGNORE / PASSIVE MONITOR, with an explicit instruction not to amplify " +
-    "or refute. It is the most easily lost line in the runbook and the one that decides whether a " +
-    "fringe post stays fringe. The thresholds are stated in advance, which is what makes the " +
-    "matrix usable at speed.",
-};
-
-/* ------------------------------------------------------------------ §E.2 the SLA ladder */
-
-export const RESPONSE_SLA: string[][] = [
-  [
-    "1. Live vernacular radio (Musyi, Mbaitu, Syokimau, County FM, Athiani)",
-    "Under 15 minutes: studio call-in by the authorised campaign spokesperson or lead",
-  ],
-  [
-    "2. WhatsApp community groups (40-ward network)",
-    "Under 30 minutes: dispatch of a 45-second debunking Kikamba audio clip by the ward captain",
-  ],
-  ["3. Digital platforms (X, Meta)", "Under 45 minutes: verified evidence card with a primary document citation"],
-  [
-    "4. Direct 2G bulk SMS (targeted wards only)",
-    "Not a rapid-response channel: political bulk SMS is lodged with the operator 48 hours before sending, so a correction follows on the next scheduled send",
-  ],
-  [
-    "5. Printed baraza fact sheets",
-    "Under 24 hours: overnight print and courier to market centre distribution champions",
-  ],
-];
-
-export const SLA_SERIES: FigureSeries = {
-  id: "response-sla",
-  headline: "From fifteen minutes on air to twenty-four hours in print",
-  measure: "§E.2's rapid response SLA by channel",
-  points: [],
-  note:
-    "The ladder runs from the fastest channel to the slowest, which is also the order a rebuttal " +
-    "travels: radio first, then WhatsApp, then digital, then print. Bulk SMS is not on the clock: " +
-    "the 48-hour lodging rule in Ground & offline rules it out of rapid response.",
-};
-
-/* ------------------------------------------------------------------ §E.3 holding positions */
-
-export const HOLDING_POSITIONS = [
-  {
-    question: '1. The "term-limit / career politician" question',
-    attack: '"He has been in Parliament for three terms (15 years); it is time for new blood."',
-    holding:
-      '"Service is measured by verifiable results and integrity, not turnover. Dr. Makali Mulu used his 13 years in Parliament to build the top-ranked CDF infrastructure in Kenya, serve as Ranking Member on Finance, and maintain a spotless anti-corruption record."',
-    kikamba:
-      "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya mbesa sya mwananchi.",
-    source:
-      `National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in Record and reach is ${regFmt("record.bursary.recipients")} bursary recipients and KSh ${regFmt("record.bursary.ksh", "m")}m, and only that figure should be used until it is reconciled).`,
-  },
-  {
-    question: '2. The "northern & southern recognition deficit" question',
-    attack:
-      '"He is a Kitui Central leader who does not understand the challenges of Mwingi North, Mwingi Central, or Kitui South."',
-    holding:
-      "\"Kitui's economic challenges—water scarcity, unpaved feeder roads, and broker cartels—do not carry a sub-county boundary. As an economist, Dr. Mulu's 2027 Blueprint establishes a statutory Ksh 100 Million/Ward Annual Equalization Fund ensuring every single ward in Mwingi North and Kitui South receives guaranteed, direct capital investment.\"",
-    kikamba:
-      "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.",
-    source:
-      "The ward allocation methodology, once drafted. §15 is the delivery tracker and does not carry a schedule; the team would build the formula on the platform before this line is used on air.",
-  },
-  {
-    question: '3. The "Nairobi technocrat" question',
-    attack:
-      '"He is a bookish technocrat who spends his time in Nairobi committees rather than on the ground with ordinary wananchi."',
-    holding:
-      "\"Dr. Mulu's presence in Nairobi was spent on the floor of the National Assembly fighting punitive taxes, defending devolved county revenue allocations, and bringing national treasury resources directly home to build schools and water pans across the county.\"",
-    kikamba:
-      "Nĩwe wĩkalaa mbungene akĩsũngĩĩa mwananchi mbesa itie kũtelemw'a. Meko make me mĩũndanĩ.",
-    source:
-      "Commission on Revenue Allocation county allocation defences; parliamentary Hansard, Division of Revenue Bills 2017–2024.",
-  },
-  {
-    question: '4. The "county government debt & pending bills collapse" comparison',
-    attack: '"All politicians make promises, but once in office, public funds disappear."',
-    holding:
-      '"Look at the record, not the rhetoric. In 13 years managing public funds in Kitui Central, Dr. Makali Mulu achieved 13 consecutive unqualified clean audit certificates from the Auditor-General. By contrast, Kitui County executive accounts accumulated over Ksh 2.4 Billion in pending bills and audit queries under previous administrations."',
-    kikamba:
-      "Tala meko, ndũkatale ndeto. Kĩtĩo kya Kũthũkũma nĩ kĩũ kĩtheu kĩte na ũkĩlyo wa ũkũli.",
-    source:
-      "Office of the Auditor-General certified audit reports 2013–2025; OAG county executive audit reports FY 2021/22 and FY 2022/23.",
-  },
-];
-
-export const HOLDING_SERIES: FigureSeries = {
-  id: "holding-positions",
-  headline: "Four attack lines, four answers, and two sources that say the answer is not ready yet",
-  measure: "§E.3's pre-drafted holding positions — attack line, holding message, Kikamba framing and primary source",
-  points: [],
-  note:
-    "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +
-    `says the classroom and bursary counts are pending the inventory and that only the record's ${regFmt("record.bursary.recipients")} ` +
-    `recipients and KSh ${regFmt("record.bursary.ksh", "m")}m should be used until reconciled. ` + "Position 2 says the ward allocation " +
-    "methodology does not exist yet and the line should not go on air before it does. A runbook " +
-    "that hid either would be a runbook that sends a spokesperson on air with an unverified figure.",
-};

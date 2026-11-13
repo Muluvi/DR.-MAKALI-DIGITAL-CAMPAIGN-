@@ -3,7 +3,7 @@
  *
  * Nothing here is written by hand. Objectives, strategies and solutions are the numbered headings
  * of the chapters that state them; the workstreams are the fourteen "Workstream N" headings; the
- * structured parts (pillars, content types, segments, indicators, risks, severity tiers) are the
+ * structured parts (pillars, content types, segments, indicators) are the
  * data pack's own lists. Each item links back to the place in the story that argues it, and to
  * every registry figure its passage cites, so the evidence behind it is one tap away.
  */
@@ -15,10 +15,8 @@ import { FIGURES } from "../data/figures";
 import { PILLARS, CONTENT_TYPES } from "../../data/message-architecture";
 import { SEGMENTS } from "../../data/segments";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS, RECOGNITION_INDICATORS } from "../../data/kpis";
-import { RISKS } from "../../data/risks";
-import { SEVERITY_TIERS } from "../../data/escalation";
 
-export type LibraryKind = "Objective" | "Strategy" | "Workstream" | "Pillar" | "Content type" | "Segment" | "Indicator" | "Risk" | "Response tier" | "Solution";
+export type LibraryKind = "Objective" | "Strategy" | "Workstream" | "Pillar" | "Content type" | "Segment" | "Indicator";
 
 export interface LibraryItem {
   id: string;
@@ -104,14 +102,11 @@ export function library(): LibraryItem[] {
     ...fromHeadings("voters", "Strategy", (h) => h.level === 2),
     ...fromHeadings("channels", "Strategy", (h) => h.level === 2),
     ...fromHeadings("workstreams", "Workstream", (h) => /Workstream \d+/.test(h.text)),
-    ...fromHeadings("response", "Solution", (h) => h.level === 2),
     ...PILLARS.map((p, i) => ({ id: `pillar-${i + 1}`, kind: "Pillar" as const, title: p.title, summary: p.argued, chapter: TAB_LABELS.message, href: anchorOf("message", "10.1"), figures: [] })),
     ...CONTENT_TYPES.map((c) => ({ id: `content-type-${c.code}`, kind: "Content type" as const, title: c.name, summary: `Weekly brief slot ${c.short}.`, chapter: TAB_LABELS.message, href: anchorOf("message", "10.1"), figures: [] })),
     ...SEGMENTS.map((s) => ({ id: `segment-${s.id}`, kind: "Segment" as const, title: s.name, summary: s.shortName, chapter: TAB_LABELS.voters, href: anchorOf("voters", "11.2"), figures: [s.size, s.share?.id].filter((x): x is string => !!x && !!FIGURES[x]) })),
     ...[...NOMINATION_KPIS, ...GENERAL_ELECTION_KPIS].map((k) => ({ id: `kpi-${k.code}`, kind: "Indicator" as const, title: `${k.title}`, summary: k.definition, chapter: TAB_LABELS.success, href: "/#success", figures: [], owner: k.owner })),
     ...RECOGNITION_INDICATORS.map((k) => ({ id: `kpi-${k.code}`, kind: "Indicator" as const, title: k.title, summary: "Recognition indicator.", chapter: TAB_LABELS.success, href: "/#success", figures: [] })),
-    ...RISKS.map((r) => ({ id: `risk-${r.code}`, kind: "Risk" as const, title: r.label, summary: r.mitigation, chapter: TAB_LABELS.response, href: anchorOf("response", "20.1"), figures: [], owner: r.owner })),
-    ...SEVERITY_TIERS.map((t) => ({ id: `tier-${t.name.toLowerCase()}`, kind: "Response tier" as const, title: t.name, summary: t.threshold, chapter: TAB_LABELS.response, href: anchorOf("response", "F.1"), figures: [], owner: t.approvedBy })),
   ];
   cache = items;
   return items;

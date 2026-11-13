@@ -44,10 +44,10 @@ export function readerDeep<T>(value: T, key = ""): T {
 
 const PART_NAMES: Record<string, string> = {
   I: "Kitui today",
-  II: "The contest",
+  II: "His standing",
   III: "The strategy",
   IV: "The plan",
-  V: "Proof and protection",
+  V: "Proof and safeguards",
   VI: "The decision",
 };
 const PART_ROMAN = /\bPart (VI|IV|V|III|II|I)\b(?!\s*\d)/g;

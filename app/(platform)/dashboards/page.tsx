@@ -44,7 +44,6 @@ export default async function Dashboards() {
     { title: "Content calendar, by channel", bars: countBy(of("calendar"), "channel"), empty: "The calendar is empty." },
     { title: "Field reports, by ward", caption: "The wards raising issues most often.", bars: countBy(of("field"), "ward").slice(0, 12), empty: "No field report has been entered yet." },
     { title: "Field sentiment", bars: countBy(of("field"), "sentiment"), empty: "No field report has been entered yet." },
-    { title: "Rapid response, by severity", bars: countBy(of("incidents"), "severity"), empty: "No incident has been logged." },
   ];
   const filled = team.filter((c) => c.bars.length > 0);
   const waiting = team.filter((c) => c.bars.length === 0);

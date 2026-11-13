@@ -7,8 +7,8 @@ id: fig-6-3-decision
 ```
 
 Dr. Makali Mulu has the credentials, the experience and the vision to be an
-outstanding governor of Kitui County. He also has something no rival in this
-race has: a professional qualification in verifying whether public money
+outstanding governor of Kitui County. He also has something rare in county politics:
+a professional qualification in verifying whether public money
 delivered what it promised. Unconfirmed balances, pending bills and low development absorption are what the
 Auditor-General and the Controller of Budget report for the county (Section 3.7), and that qualification is currently the campaign's most under-used
 asset.

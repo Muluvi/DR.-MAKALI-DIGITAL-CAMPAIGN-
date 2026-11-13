@@ -30,7 +30,7 @@ const STAT_PROVENANCE = [
   provenanceOf(FIGURES["register.2026"]),
   provenanceOf(FIGURES["benchmark.2026-equivalent.rounded"]),
   provenanceOf(FIGURES["pool.share"]),
-  provenanceOf(FIGURES["result.2022.womanrep.kasalu"]),
+  provenanceOf(FIGURES["register.polling-stations"]),
 ];
 
 export function CoverHero({ byline, children }: { byline?: ReactNode; children?: ReactNode }) {

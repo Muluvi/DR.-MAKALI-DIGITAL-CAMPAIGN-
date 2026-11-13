@@ -9,7 +9,7 @@ interface RadioStation {
   name: string;
   frequency: string;
   ownership: string;
-  politicalAllegiance: "Rival (Ngilu)" | "Party Gatekeeper (Kalonzo)" | "Commercially Independent" | "Church / Faith-Based" | "Public / State";
+  politicalAllegiance: "Politically Affiliated" | "Party Gatekeeper (Kalonzo)" | "Commercially Independent" | "Church / Faith-Based" | "Public / State";
   campaignPosture: string;
   isPriority: boolean;
   reachEstimate: string;
@@ -60,12 +60,12 @@ const RADIO_STATIONS: RadioStation[] = [
   {
     name: "Mbaitu FM / Syokimau FM",
     frequency: "100.4 FM",
-    ownership: "Associated with Charity Ngilu (Declared Rival)",
-    politicalAllegiance: "Rival (Ngilu)",
-    campaignPosture: "Hostile / Monitoring Only — Do not buy prime inventory; establish rapid response war room protocol to counter on-air attacks within 30 mins.",
+    ownership: "Politically affiliated ownership (publicly reported)",
+    politicalAllegiance: "Politically Affiliated",
+    campaignPosture: "Monitoring Only — Do not buy prime inventory; do not rely on placement.",
     isPriority: false,
     reachEstimate: "Strong in Central & Southern Kitui",
-    recommendedSlot: "War Room Audio Monitoring Only"
+    recommendedSlot: "Audio Monitoring Only"
   },
   {
     name: "KBC Mwatu FM",
@@ -151,7 +151,7 @@ export function MediaRadioLandscapeCard() {
       <div className="p-3.5 bg-amber-500/10 border-b border-amber-500/20 t-label text-amber-900 dark:text-amber-300 flex items-start gap-2">
         <ShieldAlert size={16} className="shrink-0 mt-0.5" />
         <div>
-          <strong className="font-bold">Ownership Risk Reality:</strong> Two major Kikamba radio networks are owned or affiliated with declared political rivals (Charity Ngilu) and party leadership. Prime broadcast strategy concentrates on <strong>Musyi FM, County FM, and Wikwatyo FM</strong>.
+          <strong className="font-bold">Ownership Risk Reality:</strong> Two major Kikamba radio networks have politically affiliated ownership or ties to party leadership. Prime broadcast strategy concentrates on <strong>Musyi FM, County FM, and Wikwatyo FM</strong>.
         </div>
       </div>
 
@@ -163,7 +163,7 @@ export function MediaRadioLandscapeCard() {
             className={`p-4 rounded-xl border transition-all ${
  station.isPriority
                 ? "bg-paper/80 border-accent/30 hover:border-accent"
-                : station.politicalAllegiance.includes("Rival")
+                : station.politicalAllegiance.includes("Affiliated")
                 ? "bg-rose-500/5 border-rose-500/20"
                 : "bg-paper/40 border-line"
             }`}
@@ -173,7 +173,7 @@ export function MediaRadioLandscapeCard() {
                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold shrink-0 ${
  station.isPriority 
                     ? "bg-accent-solid text-on-accent" 
-                    : station.politicalAllegiance.includes("Rival")
+                    : station.politicalAllegiance.includes("Affiliated")
                     ? "bg-rose-500/20 text-rose-600"
                     : "bg-paper border border-line text-muted"
                 }`}>
@@ -203,7 +203,7 @@ export function MediaRadioLandscapeCard() {
                 <span className={`t-label font-bold px-2.5 py-1 rounded-lg border ${
  station.politicalAllegiance.includes("Independent")
                     ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
-                    : station.politicalAllegiance.includes("Rival")
+                    : station.politicalAllegiance.includes("Affiliated")
                     ? "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20"
                     : "bg-paper text-ink border-line"
                 }`}>

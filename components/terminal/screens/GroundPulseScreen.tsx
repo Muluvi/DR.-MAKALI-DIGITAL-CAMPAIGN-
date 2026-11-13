@@ -2,7 +2,7 @@
 
 import React from "react";
 import { type WardPulseData } from "@/data/terminal-showcase";
-import { Activity, Radio, Users, AlertTriangle, CheckCircle2, TrendingUp } from "lucide-react";
+import { Activity, Radio, Users, CheckCircle2, TrendingUp } from "lucide-react";
 
 export function GroundPulseScreen({ data }: { data: WardPulseData }) {
   const pctOfTarget = Math.min(100, Math.round((data.totalWardSupporters / data.targetThreshold) * 100));
@@ -58,21 +58,6 @@ export function GroundPulseScreen({ data }: { data: WardPulseData }) {
           </div>
           <p className="text-slate-200 leading-snug font-medium" style={{ fontSize: "0.75em" }}>
             &ldquo;{data.dominantIssue}&rdquo;
-          </p>
-        </div>
-
-        {/* Competitor Reconnaissance */}
-        <div className="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800/80">
-          <div className="flex items-center justify-between mb-1">
-            <span className="font-mono uppercase text-slate-400 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
-              <AlertTriangle className="w-3 h-3 text-rose-400" /> Adversary Field Activity
-            </span>
-            <span className="font-mono text-rose-400 bg-rose-950/40 px-1.5 py-0.2 rounded border border-rose-900/40" style={{ fontSize: "0.5625em" }}>
-              Monitored
-            </span>
-          </div>
-          <p className="text-slate-300 leading-snug" style={{ fontSize: "0.75em" }}>
-            {data.competitorSignal}
           </p>
         </div>
 

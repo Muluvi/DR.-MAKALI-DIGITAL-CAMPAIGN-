@@ -240,7 +240,7 @@ export const FIG_4_7: FigureSpec = {
   section: "4.2.3",
   title: `${CountWord(FIXES.length)} profile corrections, each minutes of work, and the missing PhD comes first`,
   question: "What gets fixed first?",
-  takeaway: "The doctorate is the differentiator no rival holds, and it is absent from the one field a voter checks.",
+  takeaway: "The doctorate is his differentiator, and it is absent from the one field a voter checks.",
   sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }],
   chart: {
     type: "cards",
@@ -259,14 +259,13 @@ const RULES = [
   { if: "Kikamba posts out-engage English by a wide margin", then: "language becomes a rule in the weekly brief" },
   { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the Section 21.2 cadence is re-cut" },
   { if: "most engagement comes from a few hundred repeat accounts", then: "priority moves from page growth to consented WhatsApp and SMS lists" },
-  { if: "rivals run Meta ads while he does not", then: "part of the gap is bought reach; the ad-account question becomes urgent" },
   { if: "the presence is a personal profile, not a Page", then: "nothing can be directed against it until it migrates: settled in the first hour" },
 ];
 
 export const FIG_4_8: FigureSpec = {
   id: "fig-4-8-decision-rules",
   section: "3.8",
-  title: "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
+  title: "Six findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
   question: "When does the plan change?",
   takeaway: "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned.",
   sources: [{ name: "This proposal; the test runs on the Week 1 export", tier: null, state: "target" }],

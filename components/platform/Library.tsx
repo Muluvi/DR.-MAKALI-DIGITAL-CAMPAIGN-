@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { ArrowUpRight, Search } from "lucide-react";
 import type { LibraryItem, LibraryKind } from "@/lib/platform/library";
 
-const ORDER: LibraryKind[] = ["Objective", "Strategy", "Workstream", "Pillar", "Content type", "Segment", "Indicator", "Risk", "Response tier", "Solution"];
+const ORDER: LibraryKind[] = ["Objective", "Strategy", "Workstream", "Pillar", "Content type", "Segment", "Indicator"];
 
 export function Library({ items }: { items: LibraryItem[] }) {
   const params = useSearchParams();

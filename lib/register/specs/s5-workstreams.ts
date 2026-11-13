@@ -94,7 +94,7 @@ const STACK: [string, string, string, string, string, string][] = [
   [
     "3. Publishing and listening suite",
     "Buffer / Hootsuite Enterprise to publish; Brand24 / Talkwalker to listen",
-    "Scheduling across Facebook, X, Instagram, TikTok and YouTube; 24/7 monitoring of Kamba and national political keywords (\"Dr. Makali Mulu\", \"Kitui Governor 2027\", \"Kitui Central CDF\", \"Wiper Primaries\", \"Kalonzo Musyoka\"), flagging rumours, attacks and local issues in real time",
+    "Scheduling across Facebook, X, Instagram, TikTok and YouTube; 24/7 monitoring of Kamba and national political keywords (\"Dr. Makali Mulu\", \"Kitui Governor 2027\", \"Kitui Central CDF\", \"Wiper Primaries\", \"Kalonzo Musyoka\"), flagging local issues in real time",
     "Public posts, comments, engagement metrics, sentiment scores, influencer handles, public reach",
     "LOW TO MODERATE: public posts and aggregated sentiment only; compliant with Section 15.3.4 provided no profile is scraped or merged into voter records without consent",
     "The software subscription",

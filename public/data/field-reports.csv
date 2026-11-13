@@ -1,5 +1,5 @@
 Report type,Frequency,Channel,Data captured,Basis
-1. Daily Ground Pulse (DGP),Daily by 18:00 EAT,Encrypted SMS / USSD tree,Ward ID and polling station · dominant issue or rumour · competitor activity · opt-in supporter count,Sourced
+1. Daily Ground Pulse (DGP),Daily by 18:00 EAT,Encrypted SMS / USSD tree,Ward ID and polling station · dominant issue raised · opt-in supporter count,Sourced
 2. Market Day Event Audit (MEA),Weekly on market day by 16:00 EAT,WhatsApp field bot / voice note dispatch,Crowd size estimates · audio and video clips · leaflet distribution · local leader feedback,Sourced
-3. Critical Threat Flash (CTF),"Real-time, under 30 minutes",Direct phone / red-alert SMS trigger,Opponent disinformation · security or clash alert · local defection risk,Sourced
+3. Critical Threat Flash (CTF),"Real-time, under 30 minutes",Direct phone / red-alert SMS trigger,Security or clash alert · local defection risk,Sourced
 4. Weekly Ward Log & Supporter Roster,"Weekly, Sundays by 20:00 EAT",Structured web / paper sheet ingestion,Polling station grid · verified sign-up logs · delegate loyalty map,Sourced

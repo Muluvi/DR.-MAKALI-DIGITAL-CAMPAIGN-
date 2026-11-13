@@ -86,8 +86,16 @@ const consolidationFile = path.join(ROOT, "lib", "anchors", "consolidation-2026-
 const consolidation = fs.existsSync(consolidationFile)
   ? (JSON.parse(fs.readFileSync(consolidationFile, "utf8")) as { moves: Record<string, string> }).moves
   : {};
+// The rivals pass (docs/rivals-2026-11) removed headings by Firefly's decision: an id whose heading
+// it removed lands where lib/anchors/rivals-2026-11.json says (scripts/rivals-2026-11/anchors.mjs).
+const rivalsFile = path.join(ROOT, "lib", "anchors", "rivals-2026-11.json");
+const rivals = fs.existsSync(rivalsFile)
+  ? (JSON.parse(fs.readFileSync(rivalsFile, "utf8")) as { moves: Record<string, string> }).moves
+  : {};
+/** A target the rivals pass removed, followed to where it now lands. */
+const land = (id: string): string => (live.has(id) ? id : rivals[id] ?? id);
 /** Where an id lives today: itself if live, else where the consolidation pass moved it. */
-const today = (id: string): string => (live.has(id) ? id : consolidation[id] ?? id);
+const today = (id: string): string => land(live.has(id) ? id : consolidation[id] ?? id);
 
 function climb(id: string): string | null {
   const [route, slug] = id.split("-sec-");
@@ -108,7 +116,7 @@ function resolve(start: string): string | null {
   while (!seen.has(id)) {
     if (live.has(id)) return id;
     seen.add(id);
-    const next = consolidation[id] ?? november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
+    const next = rivals[id] ?? consolidation[id] ?? november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
     if (next) { id = next; continue; }
     const parent = climb(id);
     if (parent) return parent;
@@ -125,7 +133,7 @@ function resolve(start: string): string | null {
 
 const redirects: Record<string, string> = {};
 const orphans: string[] = [];
-const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november), ...Object.keys(consolidation)]);
+const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november), ...Object.keys(consolidation), ...Object.keys(rivals)]);
 for (const id of [...everyOld].sort()) {
   if (live.has(id)) continue;
   const target = resolve(id);

@@ -26,13 +26,13 @@ export interface StationBar {
  * A station has two attributes that matter and neither is continuous: how far it reaches, and
  * whose it is. So it becomes a matrix. Tier is a row; alignment is a column; each station is a
  * chip in a cell. Nothing about the layout implies a measured quantity, and the strategic finding
- * — that the highest-reach stations sit with a rival or the party gatekeeper — becomes visible as
+ * — that the highest-reach stations sit with political owners or the party gatekeeper — becomes visible as
  * a cluster in the top-left rather than something the reader has to assemble from bar lengths.
  */
 
 /** Ordered so the axis reads from most to least useful to this campaign. */
 const ALIGNMENTS = [
-  { key: "ngilu", label: "Rival-aligned", match: (a: string) => a.includes("Ngilu") },
+  { key: "affiliated", label: "Politically affiliated", match: (a: string) => a.includes("politically affiliated") },
   { key: "kalonzo", label: "Party gatekeeper", match: (a: string) => a.includes("Kalonzo") },
   { key: "other", label: "Commercial / independent", match: () => true },
 ] as const;

@@ -1,7 +1,6 @@
 /**
- * Section 2, The Data: the figure register's nine records of what the official sources show.
+ * Section 2, The Data: the figure register's eight records of what the official sources show.
  */
-import { NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 import register from "../../../data/ward-register.json" with { type: "json" };
 import { RADIO_STATIONS } from "../../../data/media-ownership.ts";
 import type { FigureSpec } from "../types.ts";
@@ -79,59 +78,12 @@ export const FIG_2_2: FigureSpec = {
   section: "2.2",
   title: `Every countywide seat in 2022 was won with about ${fmt("benchmark")} votes, and one winner beat the governor's total`,
   question: "What does it take to win a countywide seat in Kitui?",
-  takeaway: `The ${fmt("result.2022.gov.malombe")} line is the working bar: the Woman Representative cleared it, the Senator came within ${fmt("gap.wambua-to-benchmark-2022")}, and both are Wiper rivals for the ticket.`,
+  takeaway: `The ${fmt("result.2022.gov.malombe")} line is the working bar: in 2022 the Woman Representative cleared it and the Senator came close.`,
   sources: [src("result.2017.gov.ngilu"), src("result.2022.gov.malombe"), src("result.2022.mp.mulu"), { name: "Senator and Woman Representative 2022: media reporting of the IEBC declaration", tier: "T2" }],
   chart: { type: "multiples", panels: PANELS, max: Math.max(...PANELS.flatMap((p) => p.bars.map((b) => b.value ?? 0))), ref: WIN },
   notes: ["One scale for all five panels, so bar lengths compare across races. The vertical line is the same value in every panel."],
   columns: [{ key: "race", label: "Race" }, { key: "candidate", label: "Candidate" }, { key: "votes", label: "Votes", numeric: true }],
   rows: RESULT_ROWS,
-};
-
-/* ------------------------------------------------------------------ fig-2-3-nomination */
-
-export const FIG_2_3: FigureSpec = {
-  id: "fig-2-3-nomination",
-  section: "2.5",
-  title: "The nomination method is reported, not confirmed, and two documents would settle it",
-  question: "What is the nomination method, and how confident are we?",
-  takeaway: "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report.",
-  sources: [{ name: "Nomination method and window: single-source campaign report", tier: "T3" }, { name: "Party name change: Office of the Registrar of Political Parties (August 2025)", tier: "T1" }],
-  chart: {
-    type: "composite",
-    parts: [
-      {
-        heading: "Status: reported, not confirmed",
-        chart: {
-          type: "cards",
-          columns: 2,
-          cards: [
-            { kicker: "Method · T3", title: "A party-run countywide selection, not a competitive primary", body: "Single-sourced campaign report; not confirmed by party officials.", tone: "outside" },
-            { kicker: `Window · ${NOMINATION_WINDOW.tier}`, title: NOMINATION_WINDOW.whenText, body: "Reported for the Wiper Patriotic Front's selection; no party calendar published.", tone: "outside" },
-            { kicker: "Constitution · T1", title: "Article 180(7): the incumbent cannot stand", body: "Governor Malombe has served two terms, 2013–2017 and 2022–2027, the limit Article 180(7) sets. 2027 is an open seat." },
-            { kicker: "Party · T1", title: "Wiper Democratic Movement is now Wiper Patriotic Front", body: "Certificate of change of name issued by the Registrar, August 2025." },
-          ],
-        },
-      },
-      {
-        heading: "What would confirm it",
-        chart: {
-          type: "matrix",
-          header: ["Document", "Holder", "Status"],
-          rows: [
-            { head: "Signed resolution of the Wiper National Executive Council", cells: ["Wiper NEC", "Not in hand"] },
-            { head: "The party's 2027 nomination rules and timetable, as filed with the IEBC and the Registrar of Political Parties", cells: ["Wiper, via the campaign", "Not in hand: the obtainable test"] },
-          ],
-        },
-      },
-    ],
-  },
-  columns: [{ key: "item", label: "Item" }, { key: "status", label: "Status" }, { key: "holder", label: "Holder" }],
-  rows: [
-    { cells: { item: "Nomination method: party-run countywide selection", status: "Reported, not confirmed (T3)", holder: "—" } },
-    { cells: { item: `Nomination window: ${inSentence(NOMINATION_WINDOW.whenText)}`, status: `Reported, not confirmed (${NOMINATION_WINDOW.tier})`, holder: "—" } },
-    { cells: { item: "Wiper NEC signed resolution", status: "Not in hand", holder: "Wiper NEC" } },
-    { cells: { item: "Party nomination rules and timetable, 2027", status: "Not in hand", holder: "Wiper, via the campaign" } },
-  ],
 };
 
 /* ------------------------------------------------------------------ fig-2-4-people */
@@ -249,7 +201,7 @@ export const FIG_2_6: FigureSpec = {
 /* ------------------------------------------------------------------ fig-2-7-media */
 
 const OWNER_OF = (alignment: string): { id: string; name: string } => {
-  if (/Ngilu/.test(alignment)) return { id: "ngilu", name: "Charity Ngilu (rival)" };
+  if (/politically affiliated/i.test(alignment)) return { id: "affiliated", name: "Politically affiliated owners" };
   if (/Kalonzo/.test(alignment)) return { id: "kalonzo", name: "Kalonzo Musyoka (Wiper)" };
   if (/Royal Media/.test(alignment)) return { id: "rms", name: "Royal Media Services" };
   if (/Adventist/.test(alignment)) return { id: "sda", name: "SDA Church, Kitui" };
@@ -265,7 +217,7 @@ export const FIG_2_7: FigureSpec = {
   section: "2.9.2",
   title: "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
   question: "Who owns the airwaves, and where do we place vs monitor?",
-  takeaway: "Musyi, County FM and Wikwatyo carry the campaign's placements; the Ngilu-linked stations and the party leader's station are watched, not relied on.",
+  takeaway: "Musyi, County FM and Wikwatyo carry the campaign's placements; the politically affiliated stations and the party leader's station are watched, not relied on.",
   sources: [{ name: "Local media ownership reporting (publicly reported, not certified)", tier: "T3" }, { name: "Corporate and denominational ownership records", tier: "T2" }, src("radio.musyi")],
   chart: {
     type: "composite",
@@ -382,4 +334,4 @@ export const FIG_2_9: FigureSpec = {
   ],
 };
 
-export const S2: FigureSpec[] = [FIG_2_1, FIG_2_2, FIG_2_3, FIG_2_4, FIG_2_5, FIG_2_6, FIG_2_7, FIG_2_8, FIG_2_9];
+export const S2: FigureSpec[] = [FIG_2_1, FIG_2_2, FIG_2_4, FIG_2_5, FIG_2_6, FIG_2_7, FIG_2_8, FIG_2_9];

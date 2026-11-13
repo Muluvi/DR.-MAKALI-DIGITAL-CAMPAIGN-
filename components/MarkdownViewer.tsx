@@ -51,7 +51,6 @@ const AsciiDiagram = dynamic(() => import("./markdown/AsciiDiagram").then((m) =>
 const ReachSplit = dynamic(() => import("./ReachSplit").then((m) => m.ReachSplit));
 const FlywheelSchematic = dynamic(() => import("./StrategicAids").then((m) => m.FlywheelSchematic));
 const MessagingPlayground = dynamic(() => import("./StrategicAids").then((m) => m.MessagingPlayground));
-const CounterMessagingGrid = dynamic(() => import("./StrategicAids").then((m) => m.CounterMessagingGrid));
 const ToneVoiceSlider = dynamic(() => import("./StrategicAids").then((m) => m.ToneVoiceSlider));
 const SloganBuilder = dynamic(() => import("./StrategicAids").then((m) => m.SloganBuilder));
 const MediaPlaybackMockup = dynamic(() => import("./StrategicAids").then((m) => m.MediaPlaybackMockup));
@@ -63,8 +62,6 @@ const ElectoralHistoryPanel = dynamic(() => import("./markdown/ElectoralHistoryP
 const FiscalAuditPanel = dynamic(() => import("./markdown/FiscalAuditPanel").then((m) => m.FiscalAuditPanel));
 const DroughtFoodSecurityPanel = dynamic(() => import("./markdown/DroughtFoodSecurityPanel").then((m) => m.DroughtFoodSecurityPanel));
 const MuiBasinPanel = dynamic(() => import("./markdown/MuiBasinPanel").then((m) => m.MuiBasinPanel));
-const CompetitorFieldPanel = dynamic(() => import("./markdown/CompetitorFieldPanel").then((m) => m.CompetitorFieldPanel));
-const NominationPathPanel = dynamic(() => import("./markdown/NominationPathPanel").then((m) => m.NominationPathPanel));
 const EconomistGovernorThesis = dynamic(() => import("./markdown/EconomistGovernorThesis").then((m) => m.EconomistGovernorThesis));
 const DecisionPanel = dynamic(() => import("./DecisionPanel").then((m) => m.DecisionPanel));
 const CommitmentFields = dynamic(() => import("./markdown/CommitmentFields").then((m) => m.CommitmentFields));
@@ -312,9 +309,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // voters than the six apps together.
   "news-sec-4-3": <PhoneShowcase />,
 
-  // ---- Part II: the contest ----------------------------------------------------------------
-  "race-sec-5-2": <NominationPathPanel />,
-  "race-sec-5-5": <CompetitorFieldPanel />,
+  // ---- Part II: his standing ----------------------------------------------------------------
   "record-sec-6-1": (
     <SectionPortrait id="gesture-explaining" kicker="Candidate profile">
       Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
@@ -337,7 +332,6 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   "message-sec-10-3": <SloganBuilder />,
   // O-6 (approved 24 September 2026): the "Upcoming" market-assembly scheduler is removed. Its
   // two events were invented and already past.
-  "message-sec-10-5": <CounterMessagingGrid />,
   "voters-sec-11-2": <AudienceSegmentationMatrix />,
 
   // ---- Part IV: how the campaign runs --------------------------------------------------------
@@ -375,7 +369,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // describing the stack, which is the part this reader is most likely to test against the artifact.
   "workstreams-sec-15-4-4": <BenchmarkLadder />,
 
-  // ---- Part V: proof and protection ---------------------------------------------------------
+  // ---- Part V: proof and safeguards ---------------------------------------------------------
   // The scorecards are the objectives. What they do not carry is the indicator sets that stayed
   // with the work they measure — indexed beneath them rather than moved here.
   "success-sec-18-1": <ObjectivesIndex />,
@@ -506,7 +500,7 @@ function buildComponents(tabId: TabId): Components {
               }
 
               // FOUR BLOCKS USED TO BE MATCHED HERE, on their own banner text — §11's two
-              // scorecards, the architecture that anchors them, and §13.1's rapid-response flow.
+              // scorecards, the architecture that anchors them, and §13.1's flow diagram.
               // The markdown was under a content-integrity guard and could not be edited to carry
               // a marker, so the substitution had to key on a banner nobody could rename, and the
               // ASCII stayed in the markdown carrying the words anyway. Rule 1a now authorises

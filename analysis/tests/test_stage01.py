@@ -346,7 +346,7 @@ def test_explaining_the_rename_is_not_flagged_as_stale():
 
 def test_a_genuinely_stale_party_name_is_still_flagged():
     from src.checks import _stale_party_uses
-    stale = "Sen. Wambua commands significant standing within the Wiper Democratic Movement today."
+    stale = "The senator commands significant standing within the Wiper Democratic Movement today."
     assert _stale_party_uses(stale) == 1
 
 

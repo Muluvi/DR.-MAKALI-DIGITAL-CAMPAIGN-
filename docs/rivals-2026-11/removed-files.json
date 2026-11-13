@@ -1,0 +1,30 @@
+{
+ "$comment": "Files the rivals pass removed by Firefly's decision (docs/rivals-2026-11/DECISION.md). The guards read their base content from git (RIVALS_BASE) as retired, not lost.",
+ "files": [
+  "analysis/reports/08_competitors.md",
+  "analysis/src/stage08_competitors.py",
+  "components/markdown/CompetitorFieldPanel.tsx",
+  "components/markdown/ConstitutionalBranchNavigator.tsx",
+  "components/markdown/RapidResponseFlowDiagram.tsx",
+  "components/phone/RapidResponsePhoneMockup.tsx",
+  "components/terminal/screens/IncidentScreen.tsx",
+  "components/tools/RadioTunerConsole.tsx",
+  "content/annex-runbooks.md",
+  "content/race.md",
+  "content/response.md",
+  "data/competitors.ts",
+  "data/escalation.ts",
+  "data/risks.ts",
+  "public/content/annex-runbooks.md",
+  "public/content/race.md",
+  "public/content/response.md",
+  "public/data/counter-fire.csv",
+  "public/data/fig-2-3-nomination.csv",
+  "public/data/fig-3-5-field.csv",
+  "public/data/fig-5-8-risk.csv",
+  "public/data/four-hour-cycle.csv",
+  "public/data/holding-positions.csv",
+  "public/data/response-matrix.csv",
+  "public/data/response-sla.csv"
+ ]
+}

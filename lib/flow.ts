@@ -25,13 +25,13 @@ export interface FlowAct {
 
 export const FLOW_ACTS: FlowAct[] = [
   { id: "kitui", label: "Kitui today", blurb: "What is true about the county and its voters?", opensOn: "kitui" },
-  { id: "contest", label: "The contest", blurb: "Who is running, and where does Dr. Mulu stand?", opensOn: "race" },
+  { id: "contest", label: "His standing", blurb: "Where does Dr. Mulu stand today?", opensOn: "record" },
   { id: "strategy", label: "The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
   { id: "delivery", label: "The plan", blurb: "Who does the work, in what order, and how?", opensOn: "engagement" },
-  { id: "proof", label: "Proof and protection", blurb: "How would we know it worked, and stay safe?", opensOn: "success" },
+  { id: "proof", label: "Proof and safeguards", blurb: "How would we know it worked, and that it stayed lawful?", opensOn: "success" },
   { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "platform" },
   { id: "reference", label: "The evidence behind it", blurb: "Where every figure comes from, and the terms it is offered on", opensOn: "annex-evidence" },
-  { id: "working", label: "The working platform", blurb: "The playbooks, runbooks and technology the team works from", opensOn: "annex-playbooks" },
+  { id: "working", label: "The working platform", blurb: "The playbooks and technology the team works from", opensOn: "annex-playbooks" },
 ];
 
 /**

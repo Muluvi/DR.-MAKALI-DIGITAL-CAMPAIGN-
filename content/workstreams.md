@@ -20,7 +20,7 @@ items:
     badge: "workstreams 1 to 4"
   - title: "Publishing and earned media"
     badge: "5 and 6"
-    text: "Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals."
+    text: "Two workstreams: paid media across the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely politically owned."
   - title: "Ground and offline reach"
     badge: "7 to 10"
     text: "Four workstreams that reach voters off the internet: ground-digital integration, the field-to-digital loop, the SMS, USSD and voice layer, and the volunteer programme behind them."
@@ -46,14 +46,12 @@ items:
 
 ```visual
 kind: checklist
-title: "Growth, field advertising and reputation operations"
+title: "Growth and field advertising"
 items:
   - label: "Data analytics"
     body: "Real-time dashboards tracking reach, engagement, sentiment and conversion. Ward-level analytics identifying priority areas. Weekly A/B testing of messages, visuals and ad formats. Monthly voter sentiment reports to campaign leadership."
   - label: "Digital advertising"
     body: "Targeted Meta ads by ward, age, gender and interest. Google Search and Display to capture high-intent voters. YouTube pre-roll before local and national content. TikTok ads reaching first-time and younger voters. Retargeting to convert engaged users into volunteers. Monthly allocation matrix based on ward-level registration and engagement data."
-  - label: "Crisis and reputation management"
-    body: "Continuous sentiment monitoring across platforms. Rapid-response statements managing emerging narratives or opponent claims. Real-time monitoring and countering of misinformation and manipulated media (Sections 10.2 and 20.4)."
 ```
 
 <ws-mark tab="platforms"></ws-mark>
@@ -122,7 +120,7 @@ items:
   - label: "Outcomes published honestly — including failures"
     body: "Where an issue is not resolved, the register says so. A tracker that only shows successes is marketing, and voters recognise it instantly. Publishing unresolved items is what makes the resolved ones credible."
   - label: "No false authority"
-    body: "Dr. Mulu is not the county government. The tracker records what was reported, what was raised, and what happened — never implying powers he does not hold. Overclaiming here would invite exactly the attack the tool exists to pre-empt."
+    body: "Dr. Mulu is not the county government. The tracker records what was reported, what was raised, and what happened — never implying powers he does not hold. Overclaiming here would undermine the credibility the tool exists to build."
   - label: "Continues after the election"
     body: "Stated up front. A tracker that closes on polling day was a campaign tactic; one that continues is a governance commitment — and the commitment is the persuasive element."
 ```
@@ -140,8 +138,6 @@ items:
     body: "every report is a consented contact and a warm lead for ward champions"
   - label: "Earned media"
     body: "a public register of county service-delivery failures is a standing story for county correspondents (Section 15.2.2)"
-  - label: "Defensive"
-    body: "it makes \"he is not close to ordinary people\" a difficult attack to sustain against a candidate publishing their reported problems"
 ```
 
 #### Build
@@ -202,7 +198,7 @@ id: delivery-tracker
 
 1.  **As a Campaign Credibility Asset (Pre-Election):**
     *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
-    *   *Debate & Media Weapon:* Equips candidate and spokespersons with instant, primary-sourced factual data to rebut rival exaggerations on live radio and television debates.
+    *   *Debate & Media Resource:* Equips candidate and spokespersons with instant, primary-sourced factual data for live radio and television debates.
 2.  **As a Day-One Governing Tool (Post-Election; a pledge Dr. Mulu may make, not a deliverable of this engagement):**
     *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing ward development funds allocated by the published, needs-weighted formula that replaced the Ksh {{policy.ward-fund|m}} million equal-ward guarantee (Section 10.1), tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
@@ -270,7 +266,7 @@ right:
     - { label: "to fabricate imagery of real people" }
     - { label: "to simulate events that did not occur" }
     - { label: "to generate synthetic voices of the candidate or any other person" }
-body: "**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment (Section 19.3) and a defensive necessity in an environment where opponents may deploy manipulated media (Section 20.4)."
+body: "**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment (Section 19.3)."
 ```
 
 #### Tools and platforms
@@ -396,7 +392,7 @@ important content last.
 
 ## 15.2 Media (workstreams 5–6)
 
-Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely controlled by rivals (Section 4.2).
+Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely politically owned (Section 4.2).
 
 ### 15.2.1 Workstream 5 — Platform tactics and paid media
 
@@ -438,13 +434,13 @@ items:
     chips: ["Quarterly"]
   - title: "Tier D"
     text: "Fact-checking organisations"
-    head: { label: "Offer", text: "Proactive contact on manipulated media; the campaign as a reliable source" }
+    head: { label: "Offer", text: "The campaign as a reliable, sourced reference" }
     chips: ["Standing relationship"]
 ```
 
 **Tier C is the underused opportunity.** A gubernatorial aspirant who is also a
 credible national commentator on county fiscal management earns coverage that
-no rival can buy, and it reinforces the core narrative every time it runs.
+money cannot buy, and it reinforces the core narrative every time it runs.
 
 **Standing press kit** — permanently available: approved biography (short,
 medium, long), high-resolution photography, the M&E and parliamentary record (Section 6.1)
@@ -462,10 +458,10 @@ under 30 seconds without losing accuracy. The characteristic risk for a
 technically expert candidate is answering at the length the question
 deserves rather than the length the audience will hold.
 2. **Hostile interview and radio phone-in** — handling interruption, aggressive
-framing, and callers on stations with rival-aligned ownership; the discipline
+framing, and callers on politically aligned stations; the discipline
 of never repeating a hostile framing in the answer.
 3. **Debate performance** — the 60-second answer, the memorable close, the
-prepared pivot, and handling direct attack without appearing rattled.
+prepared pivot, and staying composed under pressure.
 
 **Refreshers** before each debate or major forum, plus a recorded mock with
 playback review.
@@ -474,9 +470,8 @@ playback review.
 
 **Preparation:**
 
-* Full briefing pack: rival positions, likely lines of attack, verified
-counter-data with sources
-* Mock debate with a stand-in playing the leading rival
+* Full briefing pack: verified data with sources for every likely question
+* A mock debate with playback review
 * Three prepared "moments" — a memorable, quotable formulation for each of the
 top three issues
 
@@ -511,13 +506,11 @@ items:
     label: "Debate clips published within 60 minutes"
   - value: "≥ 50%"
     label: "Share of voice in Kitui gubernatorial coverage"
-  - value: "100% of material false claims challenged"
-    label: "Fact-checker corrections secured on false claims"
 ```
 
 #### Getting on air around a hostile gatekeeper
 
-So that the campaign can reach all {{register.2022}} registered voters in the 40 wards whatever the rival-aligned stations do (Section 12.3), it runs four routes that need none of them:
+So that the campaign can reach all {{register.2022}} registered voters in the 40 wards whatever the politically aligned stations do (Section 12.3), it runs four routes that need none of them:
 
 ```figure
 id: bypass-architecture
@@ -529,9 +522,7 @@ To win fair coverage on national and regional outlets without paying for access 
 
 1.  **Hansard and audit exclusives:** verified, data-rich policy briefs for national bureau chiefs (*Daily Nation, Standard, Citizen TV, KTN News*) on national debt, equalisation-fund legislation and the county's pending bills.
 2.  **Project tours:** accredited regional correspondents taken to Kitui Central projects (solar boreholes, TVET workshops, secondary-school laboratories), with on-camera interviews with the people they serve.
-3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya (MCK) Act whenever a rival station misrepresents the candidate's record.
-
-**Lines for likely attacks.** The pre-drafted response lines for the debate and the phone-in are kept with the holding positions, in Annex F.3.
+3.  **The right of reply:** using the statutory right of reply under the Media Council of Kenya (MCK) Act whenever a station misrepresents the candidate's record.
 
 <ws-mark tab="ground"></ws-mark>
 
@@ -565,21 +556,9 @@ preset: report
 title: "What Ward Coordinators Report"
 items:
   - title: "Issues Raised in Public"
-    text: "What residents raised at barazas, markets and public meetings, logged as it was said. E.g., *\"Farmers at the Kyuso market raised uncollected green grams; opponents are claiming Dr. Mulu will eliminate county agricultural subsidies.\"* No coordinator canvasses opinion or asks anyone how they will vote: the report records what was said in public, not a measured sentiment."
-  - title: "Competitor Movement & Expenditure"
-    text: "E.g., *\"Opponent convoy visited Migwani market; distributed Ksh 500 notes to youth groups; promised new market shades.\"*"
-  - title: "Ground Disinformation & Counter-Narratives"
-    text: "E.g., *\"Rumor circulating in Mutomo that Dr. Mulu's CDF bursary program excluded non-Kitui Central students.\"*"
+    text: "What residents raised at barazas, markets and public meetings, logged as it was said. E.g., *\"Farmers at the Kyuso market raised uncollected green grams.\"* No coordinator canvasses opinion or asks anyone how they will vote: the report records what was said in public, not a measured sentiment."
   - title: "Field Inventory & Collateral Levels"
     text: "Current stock of Kikamba manifesto summary leaflets, posters, audio flash drives, and volunteer T-shirts."
-```
-
-#### From ground intel to a published response in four hours
-
-When field intelligence reaches the War Room, it triggers an automated, standardized four-stage response cycle:
-
-```figure
-id: four-hour-cycle
 ```
 
 #### Distribution beyond social media
@@ -738,8 +717,7 @@ penalise unsolicited messaging.
 > pillars already put it. SMS carries the Kiswahili and English versions of the same message.
 >
 > Two practical consequences the operating rhythm must absorb: a 48-hour lodging lead time makes
-> **same-day SMS rapid response impossible** — the rebuttal row below runs on WhatsApp and radio
-> instead — and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
+> **same-day SMS sends impossible**, and a **2020 draft revision** proposed narrowing the sending window to 08:00–18:00
 > `[VERIFY whether in force]`.
 
 **Message architecture** — 160 characters, **English or Kiswahili only**, ward-tagged:
@@ -751,7 +729,6 @@ penalise unsolicited messaging.
 | **Registration drive** | Phase-specific | Kiswahili / English | Deadline, nearest centre, what to bring |
 | **Event notice** | As scheduled | Kiswahili | Ward-targeted baraza details |
 | **GOTV sequence** | Final 30 days | Kiswahili / English | Countdown, polling station, time |
-| **Rapid rebuttal** | On trigger | — | **Not an SMS channel.** The 48-hour lodging rule rules it out; runs on WhatsApp, radio and the ward networks |
 
 ```visual
 kind: checklist
@@ -1017,7 +994,7 @@ Responsibilities:
 * Maintains the data inventory: what is held, lawful basis, retention period,
 who has access
 * Owns the consent audit trail and can produce it on demand within
-**24 hours** — the standard the Annex F.6 drill tests
+**24 hours**
 * Owns the deletion schedule and executes it (Section 19.3)
 * Is the campaign's standing point of contact for the Section 19.2 compliance
 reviewer

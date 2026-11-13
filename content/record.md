@@ -85,7 +85,7 @@ id: fig-3-4-footprint
 id: fig-3-6-party-flow
 ```
 
-## 6.4 His channels and his rivals'
+## 6.4 His channels
 
 ```figure
 id: fig-2-9-channels
@@ -105,7 +105,7 @@ id: fig-3-9-audit
 kind: cards
 preset: audit
 title: "What the audit produces"
-note: "Four figures and a two-page note. Not a report."
+note: "Three figures and a two-page note. Not a report."
 items:
   - title: "The reach map against the vote map"
     text: "reach by ward beside register share by ward, and the difference between them."
@@ -115,9 +115,6 @@ items:
     badge: "set in Week 1"
   - title: "Which language travels"
     text: "engagement rate by post language."
-    badge: "set in Week 1"
-  - title: "Him against the field"
-    text: "posts per week, median shares per post, and ads live, for him and the two nomination rivals named in Section 5.3."
     badge: "set in Week 1"
 ```
 

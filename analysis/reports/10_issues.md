@@ -37,7 +37,7 @@ NDMA drought phase Alert from Dec 2025 through Feb 2026; Normal but worsening by
 *Food takes 72.5% of household spending, among the highest nationally [S40]*
 
 **5. How county money is split between wards** — evidence strength 0.71, county-wide  
-CLIDP splits county resources equally across all 40 wards; the leading rival attacks it as entrenching inequality. [S24, T2, 2025-10]  
+CLIDP splits county resources equally across all 40 wards; it is publicly criticised as entrenching inequality. [S24, T2, 2025-10]  
 *A live fault line where an economist's position differentiates — and where the proposal's own equal-ward guarantee conflicts with itself*
 
 **6. Youth, jobs and registration** — evidence strength 0.71, county-wide  
@@ -57,7 +57,7 @@ NG-CDF project record and Budget & Appropriations service. [S20, T3, 2026]
 
 - **Water is the strongest available argument.** Being the worst county in Kenya on a Tier 1 measure is a rare thing to be able to say with a citation. It is county-wide, it is current, and it needs nothing beyond the official record to justify.
 - **Poverty anchors the existing cover line.** The profile already carries "From Poverty to Wealth Creation"; 55.2% in poverty and 72.5% of spending going on food give that line evidence instead of sentiment.
-- **Allocation is the sharpest point of difference, and the campaign is not yet ready for it.** The leading rival attacks equal-ward CLIDP as entrenching inequality. The site's own §7.1.1 proposes an equal-ward guarantee, which is the same policy. Those two positions cannot both be run, and this stage cannot resolve it — it is a policy decision, flagged here because the content plan depends on it.
+- **Allocation is the sharpest point of difference, and the campaign is not yet ready for it.** Equal-ward CLIDP is publicly criticised as entrenching inequality. The site's own §7.1.1 proposes an equal-ward guarantee, which is the same policy. Those two positions cannot both be run, and this stage cannot resolve it — it is a policy decision, flagged here because the content plan depends on it.
 
 
 ## Issues deliberately not ranked as content pillars

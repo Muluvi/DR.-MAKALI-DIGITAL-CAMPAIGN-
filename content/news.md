@@ -1,8 +1,8 @@
 ```lead
-**{{ict.offline}}%** of Kitui's residents are offline, and the Kikamba radio stations with the widest reach are tied to political rivals. Digital alone reaches about **{{reach.smartphone}} voters** (modelled), so the election is reached mainly by phone, radio and in person.
+**{{ict.offline}}%** of Kitui's residents are offline, and the Kikamba radio stations with the widest reach have political owners. Digital alone reaches about **{{reach.smartphone}} voters** (modelled), so the election is reached mainly by phone, radio and in person.
 ```
 
-**{{ict.offline}}%** of Kitui's residents are offline, and the Kikamba radio stations with the widest reach are tied to political rivals. Digital alone reaches about **{{reach.smartphone}} voters** (modelled), so the election is reached mainly by phone, radio and in person. This chapter sets out where people get information, who owns the airwaves, what each channel can reach, and the infrastructure that reaches the offline majority.
+**{{ict.offline}}%** of Kitui's residents are offline, and the Kikamba radio stations with the widest reach have political owners. Digital alone reaches about **{{reach.smartphone}} voters** (modelled), so the election is reached mainly by phone, radio and in person. This chapter sets out where people get information, who owns the airwaves, what each channel can reach, and the infrastructure that reaches the offline majority.
 
 ## 4.1 Where people get information
 
@@ -46,10 +46,10 @@ id: fig-2-6-connectivity
 ## 4.2 Who owns the airwaves
 
 ```lead
-**The highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers.** The ownership map and posture for every station are set out once, below.
+**The highest-reach commercial radio stations broadcasting in Kikamba are owned, financed or editorially steered by political figures or party gatekeepers.** The ownership map and posture for every station are set out once, below.
 ```
 
-Kikamba radio is the main source of news and political talk in rural and peri-urban Kitui, and it is the dominant information channel for the {{ict.offline}}% of residents outside the internet-using population (CA/KNBS 2023/24). But ownership is concentrated: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed, or editorially steered by active political rivals or entrenched party gatekeepers**. So the campaign works with the commercial stations on disciplined terms, and builds routes around the rest (Section 15.2.2).
+Kikamba radio is the main source of news and political talk in rural and peri-urban Kitui, and it is the dominant information channel for the {{ict.offline}}% of residents outside the internet-using population (CA/KNBS 2023/24). But ownership is concentrated: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed or editorially steered by political figures or party gatekeepers**. So the campaign works with the commercial stations on disciplined terms, and builds routes around the rest (Section 15.2.2).
 
 ```figure
 id: fig-2-7-media
@@ -59,7 +59,7 @@ id: fig-2-7-media
 kind: checklist
 title: "The three facts that shape the radio plan"
 items:
-  - label: "**Two stations are associated with Charity Ngilu**, a declared general-election rival:"
+  - label: "**Two stations have politically affiliated ownership**:"
     text: "**Mbaitu FM** and **Syokimau FM**. Both are monitoring targets, not placement targets."
   - label: "**One station is associated with Kalonzo Musyoka**, the Wiper party leader:"
     text: "**Athiani FM**. It is party-sensitive rather than hostile, and it matters most during the nomination window, when coverage may track party leadership sentiment rather than merit."
@@ -71,8 +71,8 @@ items:
 
 | Station | Kitui frequency | Ownership association | Campaign posture |
 |---|---|---|---|
-| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Associated with **Charity Ngilu** — a declared rival | Monitor closely; expect unfavourable framing; do not rely on placement |
-| **Syokimau FM** | — | Associated with **Charity Ngilu** | As above |
+| **Mbaitu FM** | 100.4 (Kitui/Mwingi) | Politically affiliated ownership (publicly reported) | Monitor closely; do not rely on placement |
+| **Syokimau FM** | — | Politically affiliated ownership (publicly reported) | As above |
 | **Athiani FM** | 97.7 | Associated with **Kalonzo Musyoka**, Wiper Patriotic Front leader | Party-aligned, not neutral. Relevant during the nomination window — coverage may track party leadership sentiment rather than merit |
 | **Musyi FM** | 102.2 (regional) | Royal Media Services | **Priority — commercially independent, broad Ukambani reach** |
 | **County FM** | 90.3 Kitui / 91.8 Mwingi | Kitui-based independent | **Priority — local, independent, Mwingi reach** |
@@ -82,7 +82,7 @@ items:
 | **KBC Mwatu FM** | 93.1 | Public broadcaster | Institutional coverage |
 
 
-**What it means for the campaign:** the radio plan runs through Musyi, County FM and Wikwatyo, treats Athiani as party-sensitive, and treats Mbaitu and Syokimau as monitoring targets rather than placement targets. Attacks on Dr. Makali Mulu are more likely to start on air than online, which is why radio monitoring sits in the war room (Annex F.4).
+**What it means for the campaign:** the radio plan runs through Musyi, County FM and Wikwatyo, treats Athiani as party-sensitive, and treats Mbaitu and Syokimau as monitoring targets rather than placement targets.
 
 > **Listenership.** The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}%, Athiani FM at {{radio.athiani}}%, Mbaitu FM at {{radio.mbaitu}}% and County FM at {{radio.county}}% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience.
 
@@ -120,8 +120,8 @@ kind: contrast
 left:
   title: "What digital can do"
   items:
-    - label: "Set the agenda, and defend it"
-      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so rapid response there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the war room's monitoring log (Section 20.2) records it from the first month rather than assuming it."
+    - label: "Set the agenda"
+      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so what is posted there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the channel audit (Section 18.5) records it from the first month rather than assuming it."
     - label: "Recruit young volunteers"
       body: "Reaching the ~{{segment.youth.voters}} young voters on TikTok and WhatsApp recruits field volunteers who run ground logistics and serve as polling agents."
     - label: "Target urban traders"
@@ -152,7 +152,7 @@ items:
   - title: "Kikamba radio"
     fields:
       - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience." }
-      - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (Ngilu-associated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — Section 4.2 has the ownership map and the posture for each." }
+      - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (politically affiliated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — Section 4.2 has the ownership map and the posture for each." }
       - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3):\n*   *Weekly morning interviews:* two-hour studio interviews (06:30–08:30) with Dr. Mulu in the weeks a policy is launched.\n    *   *Kikamba jingles and testimonials:* 45-second stories from farmers in Mwingi North, Kitui South and Kitui Rural on how Dr. Mulu's economic plan protects their harvest prices.\n    *   *Outside broadcasts:* sponsored live broadcast vans at major market rallies in Kalundu, Kabati and Mutomo." }
   - title: "SMS and USSD"
     head: { label: "Reach", text: "mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD." }

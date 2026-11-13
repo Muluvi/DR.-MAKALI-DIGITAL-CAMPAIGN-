@@ -14,6 +14,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isRetiredFile, isRetiredText } from "../rivals-2026-11/retired.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const { units } = JSON.parse(fs.readFileSync(path.join(ROOT, "docs", "restructure-2026-11", "preservation.json"), "utf8"));
@@ -68,16 +69,24 @@ const withMoves = (files) => {
   return [...new Set([...moved].flatMap((f) => [f, ...(dupTo.get(f) ?? [])]))];
 };
 
+const RIVALS_FILES = new Set(
+  (fs.existsSync(path.join(ROOT, "docs", "rivals-2026-11", "ledger.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "docs", "rivals-2026-11", "ledger.json"), "utf8")) : []).map((e) => `content/${e.file}.md`),
+);
 const errors = [];
 let checked = 0;
 for (const u of units) {
   const text = withMoves(u.files).map(read).join("\n");
   const excused = (t) => u.files.some((f) => retired.has(`${f}|{{${t}}}`));
+  // The rivals pass (docs/rivals-2026-11) removed whole chapters and passages by Firefly's decision.
+  // An item is excused only where the unit lives in a file that pass removed or changed, and the
+  // item itself is in the text the pass logged as removed.
+  const rivalsTouched = withMoves(u.files).some((f) => isRetiredFile(f) || RIVALS_FILES.has(f));
+  const retiredItem = (n) => rivalsTouched && isRetiredText(n);
   const missing = [
-    ...u.tokens.filter((t) => !excused(t) && !new RegExp(`\\{\\{${esc(t)}(\\|[a-z0-9]+)?\\}\\}`).test(text)).map((t) => `{{${t}}}`),
+    ...u.tokens.filter((t) => !excused(t) && !new RegExp(`\\{\\{${esc(t)}(\\|[a-z0-9]+)?\\}\\}`).test(text) && !retiredItem(`{{${t}`)).map((t) => `{{${t}}}`),
     ...[...u.acronyms, ...u.names]
       .filter((n) => !(markersSettled && n === "CONFLICT"))
-      .filter((n) => !new RegExp(`(?<![\\w])${esc(n)}(?![\\w])`).test(text)),
+      .filter((n) => !new RegExp(`(?<![\\w])${esc(n)}(?![\\w])`).test(text) && !retiredItem(n)),
   ];
   checked += u.tokens.length + u.acronyms.length + u.names.length;
   if (missing.length) errors.push(`${u.c} (${u.from}, ${u.treatment}) → ${u.files.join(", ")}: missing ${missing.join(", ")}`);

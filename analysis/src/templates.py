@@ -77,28 +77,6 @@ TEMPLATES: tuple[Template, ...] = (
         ),
     ),
     Template(
-        name="competitors",
-        purpose="Rival channel benchmarks for Kasalu, Wambua and Ngilu.",
-        stage="Stage 8",
-        columns=(
-            Column("candidate", "Mulu | Kasalu | Wambua | Ngilu"),
-            Column("platform", "facebook | x | tiktok | instagram | youtube"),
-            Column("handle", "Public account handle."),
-            Column("followers", "Integer, as at measured_on."),
-            Column("posts_last_28d", "Integer. 28 days, not 'a month', so weeks divide evenly."),
-            Column("total_engagements_last_28d", "Reactions + comments + shares over the same window."),
-            Column("mentions_last_28d", "Public mentions, for share of voice."),
-            Column("meta_ads_active", "yes | no | unknown — from the Meta Ad Library."),
-            Column("meta_ads_count", "Active ads in the library. Blank if unknown."),
-            Column("measured_on", "ISO date the row was collected. Every figure is a snapshot."),
-            Column("source_note", "How it was collected, e.g. 'manual audit of public page'."),
-        ),
-        notes=(
-            "Public, observable metrics only. No private or scraped personal data.",
-            "Stage 8 output is internal: rival analysis is never copied to the public site.",
-        ),
-    ),
-    Template(
         name="register_2026_by_ward",
         purpose="The post-ECVR 2026 register, by ward — the IEBC annex figure.",
         stage="Stages 1, 3, 4",

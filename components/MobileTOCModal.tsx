@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, ShieldCheck, Users, TriangleAlert, FileCog } from "lucide-react";
+import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, Users, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
 import { ACT_PORTRAITS } from "../lib/premium/acts";
@@ -17,7 +17,6 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   votes: Gauge,
   needs: ClipboardList,
   news: Radio,
-  race: Users,
   record: FileText,
   diagnosis: Compass,
   goal: Compass,
@@ -31,13 +30,11 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   workstreams: Layers,
   success: Gauge,
   lawful: Shield,
-  response: TriangleAlert,
   receives: ListChecks,
   ask: Handshake,
   "annex-evidence": ClipboardList,
   "annex-playbooks": MessageSquare,
   "annex-technology": FileCog,
-  "annex-runbooks": ShieldCheck,
   "annex-terms": Shield,
 };
 
