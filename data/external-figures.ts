@@ -17,21 +17,21 @@
 
 import type { Source } from "./types";
 
-const NAPOLEONCAT_MAY_2026: Source = {
+export const NAPOLEONCAT_MAY_2026: Source = {
   name: "NapoleonCat — Kenya social media audience estimates",
   url: "https://napoleoncat.com/stats/social-media-users-in-kenya/",
   publicationDate: "2026-05",
   tier: 2,
 };
 
-const DATAREPORTAL_2026: Source = {
+export const DATAREPORTAL_2026: Source = {
   name: "DataReportal — Digital 2026: Kenya",
   url: "https://datareportal.com/reports/digital-2026-kenya",
   publicationDate: "2026",
   tier: 2,
 };
 
-interface PlatformAudience {
+export interface PlatformAudience {
   /** Platform name as it appears in ad-buying interfaces. */
   name: string;
   /** Millions of accounts/users. Plotted value. */

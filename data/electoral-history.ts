@@ -4,16 +4,16 @@ import type { Source } from "./types";
 import { COURT_OF_APPEAL_2018, IEBC_2022_RESULTS, MEDIA_2022_DECLARATION } from "./sources";
 import { val } from "../lib/data/read.ts";
 
-interface RaceResult {
+export interface RaceResult {
   candidate: string;
   party?: string;
   votes: number;
   source: Source;
-  /** Set when this candidate's figure is one of the two values sources disagree on. */
+  /** Set when this candidate's figure is one of the two disputed values — see data/disputed-figures.ts. */
   disputedFigureId?: string;
 }
 
-interface ElectionRace {
+export interface ElectionRace {
   year: number;
   office: string;
   results: RaceResult[] | null;
@@ -59,7 +59,7 @@ export const ELECTORAL_HISTORY: ElectionRace[] = [
   },
 ];
 
-// Musila's 2022 governor figure is 117,606, the IEBC Form 37C total (
+// Musila's 2022 governor figure is 117,606, the IEBC Form 37C total (see data/disputed-figures.ts,
 // id "musila-2022-governor-votes", resolved 25 September 2026). The Star's early 114,606 is not
 // used. Any render of this race pairs it with <DisputedFigure> so the reader sees both published
 // values and why one is preferred (see components/markdown/ElectoralTimelineBlock.tsx).

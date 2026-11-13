@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    // lib/figures/figures.test.ts runs under `node --experimental-strip-types --test`, and Node's
+    // ESM resolver requires the real file extension on a relative import. tsc rejects a ".ts"
+    // specifier unless told that nothing is being emitted from it — which is the case here, since
+    // Next type-checks but never compiles that file. Without this the test could not be both
+    // runnable by Node and type-checked by the build, and it needs to be both.
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -25,18 +26,9 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

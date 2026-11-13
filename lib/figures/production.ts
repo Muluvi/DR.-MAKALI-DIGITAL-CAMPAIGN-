@@ -19,6 +19,7 @@
  * contradicted in §3.6.1.
  */
 import { CONTENT_TYPES } from "../../data/message-architecture.ts";
+import { PLAN_ITEMS, USSD_MENU as USSD_SPEC, menuLine } from "../../data/ussd-specimen.ts";
 import { CountWord, countWord } from "../count-word.ts";
 import type { FigureSeries } from "./types";
 
@@ -102,6 +103,11 @@ export const FORMAT_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §4.5.2 the USSD menu */
 
+/** The menu tree, from data/ussd-specimen.ts (the one definition); option 1 opens the plan items. */
+export const USSD_MENU = {
+  root: "The campaign shortcode (zero-rated gateway)",
+  nodes: USSD_SPEC.map((o) => ({ label: menuLine(o), ...(o.key === "1" ? { children: PLAN_ITEMS.map((p, i) => `${i + 1}. ${p}`) } : {}) })),
+};
 
 /* ------------------------------------------------------------------ §4.5.2 the weekly cycle */
 
@@ -206,7 +212,7 @@ export const ASSET_LIBRARY = {
       children: [
         "Typography/ (Plus_Jakarta_Sans, Playfair_Display, Inter)",
         "Color_Palettes/ (Kitui_Blue, Earth_Gold, Clean_White)",
-        "Candidate_Logos_&_Emblems/",
+        "Official_Candidate_Logos_&_Emblems/",
       ],
     },
     {

@@ -10,7 +10,7 @@ import { withTeamEdits } from "../lib/data/team-overlay.ts";
  * To edit: change a row here. Likelihood and impact are 1 (low / moderate) to 3 (high / severe).
  */
 
-interface Risk {
+export interface Risk {
   code: string;
   label: string;
   likelihood: 1 | 2 | 3;

@@ -1,0 +1,94 @@
+{
+ "decision": [
+  "The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide.",
+  "## 1.2 The goal and the two deadlines",
+  "### 1.4.2 The fourteen workstreams, by owner",
+  "*How the three engagement levels change what runs, and the Level 2 recommendation, are set out once, in 1.5.1.*",
+  "## 1.7 What this needs from the campaign",
+  "*The indicators themselves are set out in 5.1.*"
+ ],
+ "evidence": [
+  "## 2.1 The electorate and the number it takes",
+  "## 2.6 The field: rivals and an open seat",
+  "## 2.8 The county: people, budget and three regions",
+  "## 2.9 How voters get information, and what each channel can reach",
+  "### 2.9.3 What each channel can physically reach",
+  "## 2.10 His record and his channels today"
+ ],
+ "strategy": [
+  "## 3.2 The pillar architecture",
+  "### 3.2.1 Campaign pillars",
+  "### 3.2.3 Production pillars and the visit-to-verification loop",
+  "## 3.3 Where the effort goes, and which channel does which job",
+  "### 3.4.1 The universes: voter, turnout, victory, base, persuasion, mobilisation",
+  "### 3.5.2 Persuasion principles and message discipline",
+  "## 3.6 Language, register and dialect",
+  "### 3.6.1 Which language reaches which voters, on which channel",
+  "## 3.7 A week of publishing, before and after"
+ ],
+ "delivery": [
+  "How the engagement is run, when and by whom: the weekly operating rhythm, the first weeks, the phases to August 2027 and the coalition calendar.",
+  "## 4.2 The first weeks: audit, foundations, instrumentation",
+  "### 4.2.1 The first four weeks",
+  "## 4.3 The phases to August 2027",
+  "Phase −1 and Phase 0 are set out in 4.2.",
+  "### 4.3.1 The target ladder",
+  "## 4.4 Coalitions and endorsements"
+ ],
+ "workstreams-platforms": [
+  "*The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*",
+  "*The four content pillars are now in 3.2.3, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex G.2.*",
+  "*The languages this standard works in, and the content mix for locally facing platforms, are set out in 3.6.1.*"
+ ],
+ "workstreams-media": [
+  "*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1.*"
+ ],
+ "workstreams-ground": [
+  "*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3.*"
+ ],
+ "workstreams-data": [
+  "*The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 5.3.2.*",
+  "*The data sources the model draws on are listed in Annex G.5.*",
+  "*The model's variable dictionary is in Annex G.5.*",
+  "*The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex G.4.*",
+  "*The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4.*"
+ ],
+ "staffing": [
+  "Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled."
+ ],
+ "measurement": [
+  "How progress is measured, how the Week 1 presence audit is run, and how the work is kept lawful.",
+  "### 5.1.1 Stage scorecards: nomination window and general election",
+  "## 5.2 The presence audit: method",
+  "### 5.2.6 Testing the hypothesis on existing records",
+  "## 5.3 Data protection, ethics and compliance",
+  "### 5.3.2 The regulatory environment and compliance measures",
+  "### 5.3.5 Statutory compliance, IEBC clearance and liability",
+  "### 5.3.6 Open regulatory action items"
+ ],
+ "risks": [
+  "## 6.2 Rapid response and the war room",
+  "## 6.3 Manipulated media and cybersecurity",
+  "## 6.4 Competitor monitoring",
+  "*Analysis of the rivals themselves is in 2.6.4; the tools and outputs are in Annex E.4 and E.12.*"
+ ],
+ "annex-terms": [
+  "*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*"
+ ],
+ "annex-spec": [
+  "ANNEX G. Channel and technical specifications: the platform playbooks, formats and copy samples, the volunteer programme reference, the technology reference architecture, and the voter model's data sources and variables. Reference the main text points to, not argues from.",
+  "## G.1 Platform playbooks",
+  "## G.2 Formats, copy samples and USSD pointer",
+  "## G.3 Volunteer programme reference",
+  "## G.4 Technology reference architecture",
+  "## G.5 Voter model: data sources and variable dictionary"
+ ],
+ "cover": [],
+ "annex-evidence": [],
+ "annex-county": [
+  "*The field itself is analysed in 2.6; each line below records the documents a rival's attributes rest on.*"
+ ],
+ "annex-messages": [],
+ "annex-cadence": [],
+ "annex-runbooks": []
+}

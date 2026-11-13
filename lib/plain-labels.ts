@@ -5,7 +5,7 @@
  * them). The reader sees a name instead: a negative phase number reads as a typo, and five numbered
  * phases next to numbered parts, sections and tiers were one more numbering system to decode.
  */
-const PHASE_NAMES: Record<string, string> = {
+export const PHASE_NAMES: Record<string, string> = {
   "−1": "Nomination sprint",
   "-1": "Nomination sprint",
   "0": "Set-up",
@@ -14,6 +14,14 @@ const PHASE_NAMES: Record<string, string> = {
   "3": "Turnout",
 };
 
+/** Phase id (lib/phases.ts) for a plain phase name, so a renamed heading keeps its colour. */
+export const PHASE_ID_BY_NAME: Record<string, string> = {
+  "Nomination sprint": "neg1",
+  "Set-up": "0",
+  Awareness: "1",
+  Persuasion: "2",
+  Turnout: "3",
+};
 
 const LEAD_IN = /(\b(?:in|by|before|during|after|from|through|to|of|into|until|for|across|at|and|or|than)\s+)$/i;
 const PHASE = /\bPhases?\s+(−1|-1|0|1|2|3)\b(?:\s*(?:,|and|or|&|–|to)\s*(−1|-1|0|1|2|3)\b)*/g;

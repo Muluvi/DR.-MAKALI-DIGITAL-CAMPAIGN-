@@ -88,7 +88,7 @@ export interface VisualSpec {
   rows?: { cells: Text[]; body?: Text }[];
 }
 
-const VISUAL_KINDS = [
+export const VISUAL_KINDS = [
   "stats",
   "cards",
   "tabs",
@@ -134,7 +134,7 @@ export function validateVisual(spec: unknown): string[] {
   return errors;
 }
 
-/** The number in a resolved value string: "605,703" → 605703, "51.7%" → 51.7, "KES 13.79bn" → 13.79. */
+/** The number in a resolved value string: "605,703" → 605703, "51.7%" → 51.7, "KSh 13.79bn" → 13.79. */
 export function numberOf(value: unknown): number {
   if (typeof value === "number") return value;
   if (typeof value !== "string") return NaN;
@@ -142,7 +142,77 @@ export function numberOf(value: unknown): number {
   return m ? Number(m[0].replace(/,/g, "")) : NaN;
 }
 
+const words = (t: unknown): number => (typeof t === "string" ? t.split(/\s+/).filter(Boolean).length : 0);
+const itemLabel = (it: Item) => it.title ?? it.label ?? it.day ?? "";
 
+/** What one item shows before its disclosure. */
+function itemVisible(it: Item): number {
+  return (
+    words(itemLabel(it)) +
+    words(it.text) +
+    words(it.value) +
+    words(it.caption) +
+    words(it.badge) +
+    words(it.when) +
+    (it.head ? words(it.head.label) + words(it.head.text) : 0) +
+    (it.chips ?? []).reduce((n, c) => n + words(c), 0)
+  );
+}
 
+/** Words a reader meets on load in this visual, before any of its disclosures. */
+export function visibleWords(spec: VisualSpec): number {
+  let n = words(spec.title) + words(spec.note) + words(spec.source);
+  const items = spec.items ?? [];
+  switch (spec.kind) {
+    case "tabs":
+      n += items.reduce((a, it) => a + words(itemLabel(it)), 0);
+      if (items[0]) n += itemVisible(items[0]) - words(itemLabel(items[0])) + (items[0].fields ?? []).reduce((a, f) => a + words(f.label) + words(f.text), 0) + words(items[0].body);
+      break;
+    case "inout":
+      n += [...(spec.in ?? []), ...(spec.out ?? [])].reduce((a, it) => a + itemVisible(it), 0);
+      break;
+    case "contrast":
+      for (const side of [spec.left, spec.right]) if (side) n += words(side.title) + side.items.reduce((a, it) => a + itemVisible(it), 0);
+      break;
+    case "hypothesis":
+      n += words(spec.hypothesis) + words(spec.for) + words(spec.against) + words(spec.test);
+      break;
+    case "qa":
+      n += words(spec.attack) + words(spec.answer);
+      break;
+    case "crosswalk":
+    case "matrix":
+      n += (spec.columns ?? []).reduce((a, c) => a + words(c), 0);
+      n += (spec.rows ?? []).reduce((a, r) => a + r.cells.reduce((b, c) => b + words(c), 0), 0);
+      break;
+    case "week":
+    case "nested":
+      n += items.reduce((a, it) => a + itemVisible(it) + (it.items ?? []).reduce((b, x) => b + itemVisible(x), 0), 0);
+      break;
+    default:
+      n += items.reduce((a, it) => a + itemVisible(it), 0);
+  }
+  return n;
+}
 
+/** Every string in a spec, in order: what the conservation and lead checks read. */
+export function allText(spec: VisualSpec): string[] {
+  const out: string[] = [];
+  const walk = (v: unknown, key = "") => {
+    if (typeof v === "string") {
+      if (!["kind", "id", "preset"].includes(key)) out.push(v);
+    } else if (Array.isArray(v)) v.forEach((x) => walk(x, key));
+    else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) walk(x, k);
+  };
+  walk(spec);
+  return out;
+}
 
+/** Visible words in a JSON fence body, for the reading-time figure. Malformed JSON counts as nothing. */
+export function visibleWordsOfJson(json: string): number {
+  try {
+    return visibleWords(JSON.parse(json) as VisualSpec);
+  } catch {
+    return 0;
+  }
+}

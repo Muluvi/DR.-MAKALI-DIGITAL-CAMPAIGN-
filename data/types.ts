@@ -21,12 +21,39 @@
  */
 export type Tier = 1 | 2 | 3;
 
+// `label` and `short` are both rendered as visible text by TierBadge (never hover-only) — Tier
+// 3's must say "Unconfirmed" outright, per the source-discipline rule that a Tier 3 claim is
+// never shown without a visible unconfirmed marker.
+export const TIER_META: Record<Tier, { label: string; short: string; description: string }> = {
+  1: { label: "Official", short: "Official", description: "Named public institution — IEBC, KNBS, Controller of Budget, Auditor-General, NDMA, Communications Authority, Kenya Law, Kenya Gazette, county government." },
+  2: { label: "Reported", short: "Reported", description: "Established media, not officially confirmed." },
+  3: { label: "Unconfirmed (single-source)", short: "Unconfirmed", description: "One local or partisan digital outlet only — unconfirmed." },
+};
 
+/**
+ * The plain word for a tier, from TIER_META: "Official", "Reported", "Unconfirmed". Accepts the
+ * registry's codes ("T1") or the numbers (1) so every view prints the same word. The single tier
+ * vocabulary for the site (consolidation pass, Step 2): lib/tier-word.ts and component-local maps
+ * are retired in its favour.
+ */
+export function tierWord(tier: string | number | null | undefined): string {
+  if (tier === null || tier === undefined) return "";
+  const n = Number(String(tier).replace(/^T/, ""));
+  return n === 1 || n === 2 || n === 3 ? TIER_META[n].short : String(tier);
+}
 
+/** The registry's code for a numeric tier: 1 -> "T1". */
+export const tierCode = (tier: number): "T1" | "T2" | "T3" | null => (tier === 1 || tier === 2 || tier === 3 ? (`T${tier}` as "T1" | "T2" | "T3") : null);
 
 /** Geographic granularity a figure was measured or reported at. Never conflate these. */
 export type Granularity = "national" | "county" | "constituency" | "ward";
 
+export const GRANULARITY_LABEL: Record<Granularity, string> = {
+  national: "National",
+  county: "County",
+  constituency: "Constituency",
+  ward: "Ward",
+};
 
 export interface Source {
   name: string;
@@ -61,4 +88,23 @@ export interface SourcedFigure<T = number> {
   provenance: Provenance;
 }
 
+export interface DisputedValue<T = number> {
+  value: T;
+  unit: string;
+  source: Source;
+  granularity: Granularity;
+}
 
+export interface DisputedFigureEntry<T = number> {
+  id: string;
+  label: string;
+  /** Every value in the dispute, shown side by side. Never averaged, never dropped. */
+  values: [DisputedValue<T>, DisputedValue<T>, ...DisputedValue<T>[]];
+  /** Index into `values` this document treats as preferred, if any. */
+  preferredIndex?: number;
+  /** Required whenever `preferredIndex` is set — the reasoning must be visible, not implied. */
+  preferenceReason?: string;
+  /** What confirmation would require — shown even when a preference is stated. */
+  resolutionPath: string;
+  status: "resolved-preferred" | "unresolved";
+}

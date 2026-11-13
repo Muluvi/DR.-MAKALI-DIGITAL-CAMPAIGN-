@@ -1,0 +1,7 @@
+Legal requirement,Operational campaign implementation,Basis
+1. Lawful basis for processing (Sec 30),"Explicit, affirmative opt-in consent captured before any voter receives bulk political SMS.",Sourced
+2. Purpose limitation (Sec 25),"Supporter contact details collected for campaign updates will NEVER be sold, shared or repurposed.",Sourced
+3. Data minimisation (Sec 25),Collect only necessary operational fields; avoid harvesting unnecessary biometric or sensitive data.,Sourced
+4. Mandatory opt-out (Sec 34),"EVERY broadcast message MUST include an immediate, free opt-out mechanism (e.g. ""Reply STOP to OptOut"").",Sourced
+5. Data security & encryption (Sec 41),"Role-based access control (RBAC), end-to-end encryption (AES-256) and local cloud hosting.",Sourced
+6. Right to rectify / erasure (Sec 40),Direct automated USSD/SMS command to allow users to request complete deletion of their profile.,Sourced

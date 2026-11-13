@@ -13,7 +13,7 @@ const T_FIREFLY = { name: "Firefly's weighting, this proposal", tier: null, stat
 
 /* ------------------------------------------------------------------ fig-4-1-message-house */
 
-const FIG_4_1: FigureSpec = {
+export const FIG_4_1: FigureSpec = {
   id: "fig-4-1-message-house",
   section: "3.2.1",
   title: `One position, ${countWord(PILLARS.length)} pillars that argue it, and a record that holds it up`,
@@ -23,11 +23,11 @@ const FIG_4_1: FigureSpec = {
   chart: {
     type: "house",
     roof: "Dr. Makali Mulu is the Economist Governor Kitui needs: an expert who shows his working and enforces accountability.",
-    pillars: PILLARS.map((p) => ({ title: p.title, body: `${p.argued.replace("the county's budget", `the county's KES ${fmt("budget.total", "bn")}bn`)} Carries: ${p.carries.join("; ")}.` })),
+    pillars: PILLARS.map((p) => ({ title: p.title, body: `${p.argued.replace("the county's budget", `the county's KSh ${fmt("budget.total", "bn")}bn`)} Carries: ${p.carries.join("; ")}.` })),
     foundation: [
       "PhD in Economics, Kenyatta University",
       "Budget and Appropriations Committee",
-      `KES ${fmt("record.bursary.ksh", "m")}m in bursaries to ${fmt("record.bursary.recipients")} students`,
+      `KSh ${fmt("record.bursary.ksh", "m")}m in bursaries to ${fmt("record.bursary.recipients")} students`,
       "Best-evaluated constituency, Eastern region, FY2014/15",
       "M&E Champion, Ministry of Finance; Evaluation Society of Kenya",
       "Thirteen years as MP for Kitui Central",
@@ -39,7 +39,7 @@ const FIG_4_1: FigureSpec = {
     ...PILLARS.map((p) => ({ cells: { level: "Pillar", text: `${p.title} (carries: ${p.carries.join("; ")})` } })),
     { cells: { level: "Foundation", text: "PhD in Economics (T1)" } },
     { cells: { level: "Foundation", text: "Budget and Appropriations Committee (T1)" } },
-    { cells: { level: "Foundation", text: `Bursaries: ${fmt("record.bursary.recipients")} students, KES ${fmt("record.bursary.ksh", "m")}m (T1)` } },
+    { cells: { level: "Foundation", text: `Bursaries: ${fmt("record.bursary.recipients")} students, KSh ${fmt("record.bursary.ksh", "m")}m (T1)` } },
     { cells: { level: "Foundation", text: "Best-evaluated constituency, Eastern region, FY2014/15 (T1)" } },
     { cells: { level: "Foundation", text: "M&E Champion; Evaluation Society of Kenya (T1)" } },
   ],
@@ -50,7 +50,7 @@ const FIG_4_1: FigureSpec = {
 const ZONE_ROWS = [["anchor", "Anchor (Central/West)"], ["mwingi", "Mwingi block"], ["arid", "Arid and resource belt"], ["rotating", "Rotating / testing"]] as const;
 const PHASES = [["p-1", "Phase −1 (nomination)"], ["p12", "Phases 1–2"], ["p3", "Phase 3 (GOTV)"]] as const;
 
-const FIG_4_2: FigureSpec = {
+export const FIG_4_2: FigureSpec = {
   id: "fig-4-2-effort",
   section: "3.3.1",
   title: `In Phase −1, ${num("effort.p-1.mwingi") + num("effort.p-1.arid")}% of the effort goes to Mwingi and the arid belt, well above their share of residents`,
@@ -74,7 +74,7 @@ const FIG_4_2: FigureSpec = {
       },
     ],
   },
-  notes: ["Firefly's weighting, not a measurement: every cell is a target, reviewed monthly against the reach data in Measuring success."],
+  notes: ["Firefly's weighting, not a measurement: every cell is a target, reviewed monthly against the reach data in Section 18.1."],
   columns: [{ key: "zone", label: "Zone" }, { key: "pop", label: "Share of residents, %", numeric: true }, ...PHASES.map(([p, l]) => ({ key: p, label: `${l}, %`, numeric: true }))],
   rows: ZONE_ROWS.map(([z, l]) => ({ cells: { zone: l, pop: z === "rotating" ? "—" : Math.round(num(`zone.${z}.share`) * 10) / 10, ...Object.fromEntries(PHASES.map(([p]) => [p, num(`effort.${p}.${z}`)])) }, state: "target" as const })),
 };
@@ -86,7 +86,7 @@ const typeName = (code: string) => {
   return t ? `${t.code} · ${t.short}` : code;
 };
 /** Segment sizes and what is known about the unsized ones: data/segments.ts. Language, channel and content type stay here. */
-export const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channel: string }> = {
+const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channel: string }> = {
   agrarian: { pillar: "P2", lang: "Kikamba on voice; Kiswahili on SMS", channel: "WhatsApp voice note, SMS" },
   pastoralist: { pillar: "P1", lang: "Kikamba on radio and USSD; Kiswahili on SMS", channel: "SMS, USSD, radio" },
   youth: { pillar: "P3", lang: "Kiswahili and Sheng, Kikamba hooks", channel: "TikTok, Facebook" },
@@ -96,7 +96,7 @@ export const SEGMENT_PLAN: Record<string, { pillar: string; lang: string; channe
 };
 const SEGMENTS = SEGMENT_DATA.map((g) => ({ ...g, ...SEGMENT_PLAN[g.id], context: g.notSized?.context, closes: g.notSized?.closesWith }));
 
-const FIG_4_3: FigureSpec = {
+export const FIG_4_3: FigureSpec = {
   id: "fig-4-3-segments",
   section: "3.4.3",
   title: "Six segments, three sized in voters from the census and three with context but no published voter count",
@@ -115,7 +115,7 @@ const FIG_4_3: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-4-4-message-region */
 
-const FIG_4_4: FigureSpec = {
+export const FIG_4_4: FigureSpec = {
   id: "fig-4-4-message-region",
   section: "3.5",
   title: "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
@@ -175,7 +175,7 @@ const WEEK: { day: string; pillar: 1 | 2 | 3 | 4 | null; after: string; now: str
   { day: "Sun", pillar: 1, after: "A twelve-week-old Thursday commitment, revisited: delivered, delayed or not done.", now: "Church photos." },
 ];
 
-const FIG_4_5: FigureSpec = {
+export const FIG_4_5: FigureSpec = {
   id: "fig-4-5-calendar",
   section: "3.7",
   title: `The same seven days become six briefed posts across ${countWord(CONTENT_TYPES.length)} content types, and Thursday's commitment returns as a Sunday check`,
@@ -193,12 +193,12 @@ const FIG_4_5: FigureSpec = {
 const CHANNELS = [["radio", "Vernacular radio"], ["sms", "SMS and USSD"], ["markets", "Caravans and barazas"], ["digital", "Digital and social"], ["church", "Church and community"]] as const;
 const POSTURE = RADIO_STATIONS.map((s) => ({ name: s.name, posture: /^Priority/.test(s.posture) ? "Place" : /^Secondary/.test(s.posture) ? "Secondary" : "Monitor" }));
 
-const FIG_4_6: FigureSpec = {
+export const FIG_4_6: FigureSpec = {
   id: "fig-4-6-channel-shift",
   section: "3.3.2",
   title: `Radio's share of effort nearly doubles and digital's falls to ${fmt("channel.digital.rebalanced")}%, because digital cannot reach the number`,
   question: "How does effort move between channels?",
-  takeaway: `${fmt("channel.offline.rebalanced")}% of effort goes offline; radio placement goes only to the stations marked for placement in How voters get news.`,
+  takeaway: `${fmt("channel.offline.rebalanced")}% of effort goes offline; radio placement goes only to the stations Section 4.2 marks for placement.`,
   sources: [T_FIREFLY, src("reach.smartphone")],
   chart: {
     type: "composite",
@@ -214,7 +214,7 @@ const FIG_4_6: FigureSpec = {
         },
       },
       {
-        heading: "Station posture",
+        heading: "Station posture, carried from Section 4.2",
         chart: { type: "matrix", header: ["Station", "Posture"], rows: POSTURE.map((p) => ({ head: p.name, cells: [p.posture] })) },
       },
     ],
@@ -235,7 +235,7 @@ const FIXES = [
   { order: 6, finding: 6, before: "Bio: “Incoming Governor Kitui County 2027”", after: "A deliberate messaging choice to review" },
 ];
 
-const FIG_4_7: FigureSpec = {
+export const FIG_4_7: FigureSpec = {
   id: "fig-4-7-profile-fixes",
   section: "4.2.3",
   title: `${CountWord(FIXES.length)} profile corrections, each minutes of work, and the missing PhD comes first`,
@@ -257,13 +257,13 @@ const RULES = [
   { if: "follower and reach geography concentrates in Kitui Central and Nairobi", then: "the recognition thesis is confirmed; output weight shifts to Mwingi and the arid belt, headline indicator R-02" },
   { if: "reach in Mwingi is material but engagement there is flat", then: "the problem is message, not reach: the weekly creative test cycle re-cuts the message rather than buying more geofenced reach; the Section 12.1 weighting is revised" },
   { if: "Kikamba posts out-engage English by a wide margin", then: "language becomes a rule in the weekly brief" },
-  { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the posting cadence is re-cut" },
+  { if: "video watch time collapses before ten seconds", then: "short vertical and Kikamba voice notes replace long video; the Section 21.2 cadence is re-cut" },
   { if: "most engagement comes from a few hundred repeat accounts", then: "priority moves from page growth to consented WhatsApp and SMS lists" },
   { if: "rivals run Meta ads while he does not", then: "part of the gap is bought reach; the ad-account question becomes urgent" },
   { if: "the presence is a personal profile, not a Page", then: "nothing can be directed against it until it migrates: settled in the first hour" },
 ];
 
-const FIG_4_8: FigureSpec = {
+export const FIG_4_8: FigureSpec = {
   id: "fig-4-8-decision-rules",
   section: "3.8",
   title: "Seven findings the Week 1 audit could return, each with the change it triggers, fixed in advance",

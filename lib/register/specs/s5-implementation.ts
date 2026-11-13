@@ -18,7 +18,7 @@ const PROPOSAL = { name: "This proposal, Sections 13.2–17", tier: null, state:
 /* ------------------------------------------------------------------ fig-5-1-workstreams */
 
 type Owner = "firefly" | "team" | "outside";
-const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: string }[] = [
+export const WS: { n: number; name: string; owner: Owner; ownerText: string; sec: string }[] = [
   { n: 1, name: "Service-delivery tracker; owned platform operation", owner: "team", ownerText: "Firefly built the tracker into the platform; your team runs it and the owned platforms", sec: "5.2.1.1" },
   { n: 2, name: "Content production and asset governance", owner: "team", ownerText: "Your team, to its own brief", sec: "5.2.1.2" },
   { n: 3, name: "Creative testing and AI assistance", owner: "team", ownerText: "Your team, in the test log", sec: "5.2.1.3" },
@@ -55,7 +55,7 @@ const groupOf = (n: number) => GROUPS[n <= 4 ? 0 : n <= 6 ? 1 : n <= 10 ? 2 : 3]
  * same fourteen with their owners in How it works, is collapsed into this figure: its cards are the
  * second part here, and its fence points to this one.
  */
-const FIG_5_2: FigureSpec = {
+export const FIG_5_2: FigureSpec = {
   id: "fig-5-2-workstream-panels",
   section: "4.5",
   title: `${CountWord(WS.length)} workstreams in ${countWord(GROUPS.length)} groups: your team runs them on Firefly's platform, and keeps publishing`,
@@ -86,7 +86,7 @@ const WEEKS = [
   { when: "Weeks 6–8", title: "Consolidation", body: "Red-team drill before the nomination decision; coalition roundtables; ward champions in the highest-priority wards." },
 ];
 
-const FIG_5_3: FigureSpec = {
+export const FIG_5_3: FigureSpec = {
   id: "fig-5-3-four-weeks",
   section: "4.2.1",
   title: "The first week measures, and nothing is committed against the diagnosis until it has",
@@ -120,7 +120,7 @@ const FIG_5_3: FigureSpec = {
 /** The five phases, read from lib/phases.ts; the decision window is drawn beside them, not as one. */
 const PHASE_EVENTS = PHASES.map((p) => ({ date: phaseSpan(p).start, end: phaseSpan(p).end, label: phaseTitle(p), whenText: phaseWhen(p) }));
 
-const FIG_5_4: FigureSpec = {
+export const FIG_5_4: FigureSpec = {
   id: "fig-5-4-phases",
   section: "4.3",
   title: `${CountWord(PHASES.length)} phases run to the election; the ${PHASES[0].label} runs ahead of the Wiper decision, not with it`,
@@ -175,7 +175,7 @@ const PHASE_TARGETS: [string, string, string, string][] = [
   ["Misinformation incidents answered within their severity target", "—", "—", "100%"],
 ];
 
-const FIG_5_4_LADDER: FigureSpec = {
+export const FIG_5_4_LADDER: FigureSpec = {
   id: "fig-5-4-ladder",
   section: "4.3.1",
   title: `${CountWord(CLIMB.length)} indicators climb through every phase, and every other target belongs to one phase`,
@@ -205,14 +205,47 @@ const FIG_5_4_LADDER: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-5-cadence */
 
+const CADENCE: [string, string[]][] = [
+  ["Daily", ["Multilingual social (your team)", "Ward field reports (ground team)"]],
+  ["Weekly", ["The weekly brief, Thursday (your strategy core)", "Content calendar, Friday (your team; the strategy core approves)", "Kikamba voice note", "Facebook Live", "Creative test cycle (your team reads)"]],
+  ["Fortnightly", ["SMS touch to the consented list (your team), rising to a GOTV surge"]],
+  ["Monthly", ["Presence audit refresh (your team)", "Performance report (your team)", "Sentiment report (your team)", "Competitive brief (your team)", "Kitui Economic Brief (your team)"]],
+  ["Quarterly", ["Red-team drill (your team and an external panel)"]],
+];
+const LEVELS: [string, string, string, string][] = [
+  ["Presence audit", "Once, at start", "Refreshed monthly", "Refreshed fortnightly"],
+  ["Wards with reach reporting", "12 decisive", "All 40", "All 40 + diaspora"],
+  ["Wards with active SMS/USSD", "Partial", "All 40", "All 40 + diaspora"],
+  ["Creative testing", "Monthly", "Weekly", "Weekly"],
+  ["Predictive scoring and attribution", "No", "Yes", "Yes"],
+  ["Phase 3 contact universe", `≈${fmt("target.contact-universe.lean")}`, `≈${fmt("target.contact-universe.standard")}`, `≈${fmt("target.contact-universe.premium")}`],
+];
 
+export const FIG_5_5: FigureSpec = {
+  id: "fig-5-5-cadence",
+  section: "1.5.2",
+  title: "He receives a brief every week and a read every month, and the level sets how deep each goes",
+  question: "What does he receive, and how often?",
+  takeaway: "Standard, the recommended level, is the one at which all 40 wards carry reach reporting and an active SMS and USSD layer.",
+  sources: [PROPOSAL],
+  chart: {
+    type: "composite",
+    parts: [
+      { heading: "The cadence, at Level 2", chart: { type: "matrix", header: ["Cadence", "What arrives"], rows: CADENCE.map(([c, items]) => ({ head: c, cells: [items.join(" · ")] })) } },
+      { heading: "Depth, by level", chart: { type: "matrix", header: ["Item", "Lean", "Standard (recommended)", "Premium"], rows: LEVELS.map(([h, ...c]) => ({ head: h, cells: c })) } },
+    ],
+  },
+  notes: ["Levels differ in the depth of the intelligence, not the volume of output. Commercial terms appear nowhere in this document."],
+  columns: [{ key: "item", label: "Item" }, { key: "lean", label: "Lean" }, { key: "standard", label: "Standard" }, { key: "premium", label: "Premium" }],
+  rows: LEVELS.map(([h, a, b, c]) => ({ cells: { item: h, lean: a, standard: b, premium: c }, state: h.startsWith("Phase 3") ? ("target" as const) : undefined })),
+};
 
 /* ------------------------------------------------------------------ fig-5-6-kpis */
 
 const KPIS = [...NOMINATION_KPIS, ...GENERAL_ELECTION_KPIS];
 const baselineText = (k: (typeof KPIS)[number]) => (k.baseline.kind === "measured" ? k.baseline.display : k.baseline.kind === "unmeasured" ? "set in Week 1" : k.baseline.note);
 
-const FIG_5_6: FigureSpec = {
+export const FIG_5_6: FigureSpec = {
   id: "fig-5-6-kpis",
   section: "5.1",
   title: `${CountWord(NOMINATION_KPIS.length + GENERAL_ELECTION_KPIS.length)} indicators judge the work, ${countWord(NOMINATION_KPIS.length)} for the nomination and ${countWord(GENERAL_ELECTION_KPIS.length)} for the election, each observable on his own channels or lists`,
@@ -235,7 +268,7 @@ const FIG_5_6: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-7-approval */
 
-const FIG_5_7: FigureSpec = {
+export const FIG_5_7: FigureSpec = {
   id: "fig-5-7-approval",
   section: "4.1.3",
   title: `Your team drafts and publishes, one named counterpart approves, and an attack is judged against ${countWord(SEVERITY_TIERS.length)} severity tiers`,
@@ -289,7 +322,7 @@ const FIG_5_7: FigureSpec = {
 const LEVEL = ["", "Low", "Medium", "High"];
 const IMPACT = ["", "Moderate", "High", "Severe"];
 
-const FIG_5_8: FigureSpec = {
+export const FIG_5_8: FigureSpec = {
   id: "fig-5-8-risk",
   section: "6.1",
   title: `Two of the ${countWord(RISKS.length)} risks would change the plan rather than damage it, and both are settled by measurement early`,
@@ -320,7 +353,7 @@ const FIG_5_8: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-5-9-team */
 
-const FIG_5_9: FigureSpec = {
+export const FIG_5_9: FigureSpec = {
   id: "fig-5-9-team",
   section: "4.6",
   title: "The campaign names three strategy roles and removes no one, with five surge roles each tied to a trigger; Firefly runs the platform",
@@ -372,4 +405,4 @@ const FIG_5_9: FigureSpec = {
   ],
 };
 
-export const S5: FigureSpec[] = [FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_6, FIG_5_7, FIG_5_8, FIG_5_9];
+export const S5: FigureSpec[] = [FIG_5_2, FIG_5_3, FIG_5_4, FIG_5_4_LADDER, FIG_5_5, FIG_5_6, FIG_5_7, FIG_5_8, FIG_5_9];

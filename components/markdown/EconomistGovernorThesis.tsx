@@ -1,0 +1,95 @@
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useInView } from "motion/react";
+
+import { DURATION, EASE_ENTRANCE, STAGGER, VIEWPORT } from "../../lib/motion";
+import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { useMotionPreset } from "../../hooks/useMotionPreset";
+import { Portrait } from "../Portrait";
+
+/**
+ * §6.1 — the campaign's core narrative, set as the section's opening statement.
+ *
+ * §6.1 opens the approach's argument rather than trailing the strategic context, and its
+ * thesis is a single sentence carrying the whole positioning. In running prose that reads as one
+ * more bolded clause; given room and a moment of motion it reads as the claim everything after
+ * it has to earn.
+ *
+ * The words are quoted verbatim from §6.1's own first paragraph — the same discipline
+ * KeyTakeawayBanner follows. No new copy is introduced here, and nothing is paraphrased.
+ */
+
+/** §6.1, paragraph 1, verbatim. Split only so the operative phrase can carry emphasis. */
+const SEGMENTS: { text: string; accent?: boolean }[] = [
+  { text: "Dr. Makali Mulu is the" },
+  { text: "Economist Governor", accent: true },
+  { text: "Kitui needs." },
+];
+
+export function EconomistGovernorThesis() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, VIEWPORT);
+  const reduce = useReducedMotionSafe();
+  const { enter } = useMotionPreset();
+
+  // One running index across all segments, so the stagger reads as a single line of type
+  // arriving rather than three phrases arriving in parallel.
+  let word = 0;
+
+  return (
+    <div
+      ref={ref}
+      className="not-prose my-6 sm:my-8 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.05] to-transparent p-5 sm:p-7 print-avoid-break"
+    >
+      <div className="flex items-center gap-4 sm:gap-6">
+        <div className="min-w-0 flex-1">
+      <p className="t-micro font-black text-accent mb-3">
+        The campaign&rsquo;s core narrative
+      </p>
+
+      <p className="font-serif text-lg sm:text-2xl font-bold text-ink leading-snug text-balance">
+        {SEGMENTS.map((seg) => (
+          <React.Fragment key={seg.text}>
+            {seg.text.split(" ").map((w) => {
+              const delay = reduce ? 0 : word++ * STAGGER.tight;
+              return (
+                <motion.span
+                  key={`${seg.text}-${w}-${word}`}
+                  className={`inline-block ${seg.accent ? "text-accent" : ""}`}
+                  initial={enter({ opacity: 0, y: 10 })}
+                  animate={inView || reduce ? { opacity: 1, y: 0 } : undefined}
+                  transition={{ duration: DURATION.base, ease: EASE_ENTRANCE, delay }}
+                >
+                  {w}
+                  {" "}
+                </motion.span>
+              );
+            })}
+          </React.Fragment>
+        ))}
+      </p>
+
+        </div>
+        {/* The statesman register, next to the claim it is making. */}
+        <div className="hidden sm:block w-[118px] lg:w-[136px] shrink-0 -my-3">
+          <Portrait
+            id="three-piece-formal"
+            sizes="(min-width: 1024px) 136px, 118px"
+            className="max-h-[178px] object-bottom"
+          />
+        </div>
+      </div>
+
+      {/* The rule lands after the last word, so the sentence finishes on a beat rather than
+          simply stopping. It carries no meaning of its own and is hidden from assistive tech. */}
+      <motion.span
+        className="block h-px bg-accent/40 mt-4 origin-left"
+        initial={enter({ scaleX: 0 })}
+        animate={inView || reduce ? { scaleX: 1 } : undefined}
+        transition={{ duration: DURATION.slow, ease: EASE_ENTRANCE, delay: reduce ? 0 : word * STAGGER.tight }}
+        aria-hidden="true"
+      />
+    </div>
+  );
+}

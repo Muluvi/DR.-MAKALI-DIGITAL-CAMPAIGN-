@@ -11,7 +11,7 @@ import { withTeamEdits } from "../lib/data/team-overlay.ts";
  * and fig-4-5 (the briefed week) read this file at build.
  */
 
-interface Pillar {
+export interface Pillar {
   /** Pillars carry no code: P1 to P4 name the content types. */
   title: string;
   /** How the pillar is argued, as content/message.md states it, shortened for a figure. */
@@ -38,7 +38,7 @@ export const PILLARS: Pillar[] = withTeamEdits<Pillar>("pillars", "title", [
   },
 ]);
 
-interface ContentType {
+export interface ContentType {
   /** P1 to P4: the weekly brief's slot. */
   code: "P1" | "P2" | "P3" | "P4";
   /** The short name a calendar cell prints. */

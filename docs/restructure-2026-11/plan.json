@@ -1,0 +1,5184 @@
+{
+ "plan": {
+  "C1": {
+   "loc": "Cover",
+   "t": "Corrected",
+   "note": "Counts corrected to the new six Parts and eight annexes."
+  },
+  "C2": {
+   "loc": "Cover",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C3": {
+   "loc": "Cover",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C4": {
+   "loc": "Cover",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C5": {
+   "loc": "Cover",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C6": {
+   "loc": "Cover",
+   "t": "Retained",
+   "note": "Date is the author's call; flagged in the defect list (D-28)."
+  },
+  "C7": {
+   "loc": "Cover",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C8": {
+   "loc": "13.2",
+   "t": "Merged with C52",
+   "note": "Cover keeps one line of terms; the credentials statement lives once, in 13.2."
+  },
+  "C9": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C10": {
+   "loc": "23",
+   "t": "Retained",
+   "note": "Becomes the chapter's lead."
+  },
+  "C11": {
+   "loc": "23",
+   "t": "Moved",
+   "note": ""
+  },
+  "C12": {
+   "loc": "In brief",
+   "t": "Moved",
+   "note": "The five headline numbers become the In brief visual."
+  },
+  "C13": {
+   "loc": "23.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C14": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": "Plain heading."
+  },
+  "C15": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": "'Outstanding' cut (no number behind it); the audit sentence cross-refers to 3.7."
+  },
+  "C16": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C17": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C18": {
+   "loc": "9.1",
+   "t": "Merged with C267",
+   "note": "The premise is the position; stated once in 9.1."
+  },
+  "C19": {
+   "loc": "23",
+   "t": "Merged with C10",
+   "note": ""
+  },
+  "C20": {
+   "loc": "23",
+   "t": "Merged with C14",
+   "note": "Two headings for one ask become one."
+  },
+  "C21": {
+   "loc": "23",
+   "t": "Merged with C10",
+   "note": ""
+  },
+  "C22": {
+   "loc": "23",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C23": {
+   "loc": "13.1",
+   "t": "Merged with C54",
+   "note": "The three steps live once, in the 13.1 stepper."
+  },
+  "C24": {
+   "loc": "13.2",
+   "t": "Merged with C52",
+   "note": ""
+  },
+  "C25": {
+   "loc": "5.3",
+   "t": "Merged with C160",
+   "note": "The rivals' 2022 results are stated once, in the 5.3 cards."
+  },
+  "C26": {
+   "loc": "22.1",
+   "t": "Merged with C97",
+   "note": ""
+  },
+  "C27": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C28": {
+   "loc": "8.1",
+   "t": "Retained",
+   "note": "Becomes the chapter lead."
+  },
+  "C29": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C30": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C31": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C32": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C33": {
+   "loc": "8.1",
+   "t": "Merged with C34",
+   "note": "Intro sentence folds into the list."
+  },
+  "C34": {
+   "loc": "8.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C35": {
+   "loc": "8.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C36": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C37": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C38": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C39": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C40": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C41": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C42": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C43": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C44": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C45": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C46": {
+   "loc": "8.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C47": {
+   "loc": "8.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C48": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C49": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": "Conflict C3 (7/6/2 v 6/6/2) stays marked until the author settles it."
+  },
+  "C50": {
+   "loc": "13.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C51": {
+   "loc": "13.2",
+   "t": "Merged with C52",
+   "note": "Lead repeated verbatim in the paragraph beneath it."
+  },
+  "C52": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": "Surviving passage for the 'publishes nothing' statement (cover, 1.1, 1.4.1, 4.1.1, 4.6.2)."
+  },
+  "C53": {
+   "loc": "13.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C54": {
+   "loc": "13.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C55": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C56": {
+   "loc": "13.2",
+   "t": "Merged with C65",
+   "note": ""
+  },
+  "C57": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C58": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C59": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C60": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C61": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C62": {
+   "loc": "13.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C63": {
+   "loc": "13.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C64": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C65": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C66": {
+   "loc": "13.1",
+   "t": "Reworded",
+   "note": "No credentials or past-client section, per house rules; the sentence already says so."
+  },
+  "C67": {
+   "loc": "13.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C68": {
+   "loc": "13.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C69": {
+   "loc": "13.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C70": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C71": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C72": {
+   "loc": "21.1",
+   "t": "Merged with C76",
+   "note": ""
+  },
+  "C73": {
+   "loc": "14.4",
+   "t": "Moved",
+   "note": "The four target quantities belong with the target ladder."
+  },
+  "C74": {
+   "loc": "14.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C75": {
+   "loc": "14.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C76": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": "Surviving passage; the lead above it is merged into it."
+  },
+  "C77": {
+   "loc": "21.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C78": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C79": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C80": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C81": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C82": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C83": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C84": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C85": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C86": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C87": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C88": {
+   "loc": "21.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C89": {
+   "loc": "21.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C90": {
+   "loc": "21.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C91": {
+   "loc": "21.2",
+   "t": "Merged with C92",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C92": {
+   "loc": "21.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C93": {
+   "loc": "21.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C94": {
+   "loc": "21.2",
+   "t": "Corrected",
+   "note": "Keep-marked table: wording retained; its last column gave October section numbers, renumbered to the current ones with a source-conflict note."
+  },
+  "C95": {
+   "loc": "22.2",
+   "t": "Moved",
+   "note": "Gated deliverables sit with the campaign's dependencies."
+  },
+  "C96": {
+   "loc": "22.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C97": {
+   "loc": "22.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C98": {
+   "loc": "22.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C99": {
+   "loc": "22.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C100": {
+   "loc": "22.2",
+   "t": "Merged with C101",
+   "note": ""
+  },
+  "C101": {
+   "loc": "22.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C102": {
+   "loc": "22.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C103": {
+   "loc": "22.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C104": {
+   "loc": "7.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C105": {
+   "loc": "7.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C106": {
+   "loc": "7.4",
+   "t": "Merged with C105",
+   "note": "Paragraph repeats the lead verbatim; the lead survives."
+  },
+  "C107": {
+   "loc": "7.4",
+   "t": "Corrected",
+   "note": "Assumption 2 is fused into card 1's body; split into its own card and renumber 1–11 without 4a–4d."
+  },
+  "C108": {
+   "loc": "18.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C109": {
+   "loc": "18.1",
+   "t": "Merged with C723",
+   "note": ""
+  },
+  "C110": {
+   "loc": "18.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C111": {
+   "loc": "18.1",
+   "t": "Reworded",
+   "note": "Cross-reference renumbered to 18.2."
+  },
+  "C112": {
+   "loc": "2.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C113": {
+   "loc": "2.5",
+   "t": "Moved",
+   "note": "The benchmark is the 2.5 lead; Chapter 2 opens on the electorate."
+  },
+  "C114": {
+   "loc": "2.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C115": {
+   "loc": "2.1",
+   "t": "Corrected",
+   "note": "Turnout card states its base: governor valid votes ÷ register (61.7%); presidential turnout ≈62% includes rejected ballots (Source conflict note)."
+  },
+  "C116": {
+   "loc": "2.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C117": {
+   "loc": "2.1",
+   "t": "Reworded",
+   "note": "Cross-reference renumbered to Annex B."
+  },
+  "C118": {
+   "loc": "2.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C119": {
+   "loc": "2.5",
+   "t": "Reworded",
+   "note": "C8 (328,760 v 328,712) stays marked."
+  },
+  "C120": {
+   "loc": "2.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C121": {
+   "loc": "2.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C122": {
+   "loc": "2.2",
+   "t": "Retained",
+   "note": "Chapter-section lead; the bullets below are its evidence. Presidential 2022 result added from verified data (new figure tokens)."
+  },
+  "C123": {
+   "loc": "2.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C124": {
+   "loc": "2.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C125": {
+   "loc": "2.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C126": {
+   "loc": "2.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C127": {
+   "loc": "2.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C128": {
+   "loc": "2.3",
+   "t": "Reworded",
+   "note": "Heading becomes 'Where the votes concentrate'."
+  },
+  "C129": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C130": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C131": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C132": {
+   "loc": "2.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C133": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C134": {
+   "loc": "2.4",
+   "t": "Merged with C130",
+   "note": "Lead and paragraph say the same thing; one passage survives."
+  },
+  "C135": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": "Heading becomes 'The four constituencies that decide it'."
+  },
+  "C136": {
+   "loc": "2.4",
+   "t": "Reworded",
+   "note": "'Decides the gubernatorial election' carries no number; reworded to the share."
+  },
+  "C137": {
+   "loc": "2.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C138": {
+   "loc": "2.5",
+   "t": "Retained",
+   "note": ""
+  },
+  "C139": {
+   "loc": "2.5",
+   "t": "Reworded",
+   "note": "Last two sentences repeat the lead; cut there, kept in the lead."
+  },
+  "C140": {
+   "loc": "2.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C141": {
+   "loc": "2.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C142": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C143": {
+   "loc": "5.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C144": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C145": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C146": {
+   "loc": "5.2",
+   "t": "Merged with C145",
+   "note": ""
+  },
+  "C147": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": "Stale cross-reference (1.2 does not state the claim); repointed to 7.4."
+  },
+  "C148": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C149": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C150": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C151": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C152": {
+   "loc": "5.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C153": {
+   "loc": "5.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C154": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C155": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C156": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C157": {
+   "loc": "5.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C158": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C159": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C160": {
+   "loc": "5.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C161": {
+   "loc": "10.1",
+   "t": "Moved",
+   "note": "Conflict C6 cluster: sits beside Message Pillar 3 so the policy call is made in one place."
+  },
+  "C162": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C163": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C164": {
+   "loc": "5.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C165": {
+   "loc": "5.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C166": {
+   "loc": "5.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C167": {
+   "loc": "5.1",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C168": {
+   "loc": "5.1",
+   "t": "Merged with C918",
+   "note": "Surviving passage is this one (5.1); B.5's Malombe line folds into it. Missing space after 'throughout.' fixed."
+  },
+  "C169": {
+   "loc": "5.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C170": {
+   "loc": "5.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C171": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C172": {
+   "loc": "5.5",
+   "t": "Merged with C173",
+   "note": ""
+  },
+  "C173": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C174": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C175": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C176": {
+   "loc": "6.2",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C177": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": "Name standardised (house style)."
+  },
+  "C178": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C179": {
+   "loc": "6.2",
+   "t": "Merged with C176",
+   "note": ""
+  },
+  "C180": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C181": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C182": {
+   "loc": "6.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C183": {
+   "loc": "6.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C184": {
+   "loc": "6.2",
+   "t": "Merged with C176",
+   "note": ""
+  },
+  "C185": {
+   "loc": "6.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C186": {
+   "loc": "6.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C187": {
+   "loc": "6.3",
+   "t": "Merged with C188",
+   "note": "Lead restates the two paragraphs under it."
+  },
+  "C188": {
+   "loc": "6.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C189": {
+   "loc": "6.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C190": {
+   "loc": "6.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C191": {
+   "loc": "1",
+   "t": "Reworded",
+   "note": "Becomes Chapter 1 'Kitui at a Glance'."
+  },
+  "C192": {
+   "loc": "1.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C193": {
+   "loc": "1",
+   "t": "Reworded",
+   "note": "Becomes Chapter 1's lead (answer first)."
+  },
+  "C194": {
+   "loc": "1.1",
+   "t": "Corrected",
+   "note": "Split: population/households → 1.1; area, density, rural/urban → 1.2; poverty and surface water → 1.3; livestock and poultry → 3.2. Rural/urban share: the site's 95.2%/4.8% (T1) conflicts with the verified-data note (urban share [VERIFY]; secondary sources ≈86% rural) — Source conflict note added; median age (17) added as new T2 token; age bands [VERIFY]."
+  },
+  "C195": {
+   "loc": "1.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C196": {
+   "loc": "3.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C197": {
+   "loc": "3.2",
+   "t": "Moved",
+   "note": "Merged in 3.2 with B.3's IPC passage (the IPC 2 / Alert facts repeat)."
+  },
+  "C198": {
+   "loc": "1.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C199": {
+   "loc": "1.5",
+   "t": "Merged with C203",
+   "note": ""
+  },
+  "C200": {
+   "loc": "1.4",
+   "t": "Moved",
+   "note": "What a governor runs belongs with how the county is run."
+  },
+  "C201": {
+   "loc": "1.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C202": {
+   "loc": "1.5",
+   "t": "Reworded",
+   "note": "Plain heading; labelled as the CFSP (not the ADP)."
+  },
+  "C203": {
+   "loc": "1.5",
+   "t": "Corrected",
+   "note": "Labels the document (CFSP 2026/27, T3); notes the FY2026/27 budget was unapproved after 30 June 2026 (The Star, 6 July 2026); the unconfirmed ADP figure (KSh 14.27bn) is not used — Source conflict note."
+  },
+  "C204": {
+   "loc": "1.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C205": {
+   "loc": "1.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C206": {
+   "loc": "1.5",
+   "t": "Reworded",
+   "note": "Its last sentence repeats the lead's Tier 3 caveat; kept once."
+  },
+  "C207": {
+   "loc": "1.5",
+   "t": "Reworded",
+   "note": "Plain label; the claim moves to 'what it means for the campaign'."
+  },
+  "C208": {
+   "loc": "1.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C209": {
+   "loc": "1.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C210": {
+   "loc": "1.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C211": {
+   "loc": "1.2",
+   "t": "Corrected",
+   "note": "Two [CHECK REF]s repointed: 'Section 4.3' → 15.3 (Workstream 9); '3.3.3' → Annex B."
+  },
+  "C212": {
+   "loc": "4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C213": {
+   "loc": "4.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C214": {
+   "loc": "4.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C215": {
+   "loc": "4.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C216": {
+   "loc": "4.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C217": {
+   "loc": "4.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C218": {
+   "loc": "4.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C219": {
+   "loc": "4.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C220": {
+   "loc": "4.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C221": {
+   "loc": "4.2",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C222": {
+   "loc": "4.2",
+   "t": "Merged with C221",
+   "note": "Repeats the lead."
+  },
+  "C223": {
+   "loc": "4.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C224": {
+   "loc": "4.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C225": {
+   "loc": "4.2",
+   "t": "Merged with C557",
+   "note": "The station table moves here from 4.5.6; this pointer is no longer needed."
+  },
+  "C226": {
+   "loc": "4.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C227": {
+   "loc": "4.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C228": {
+   "loc": "4.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C229": {
+   "loc": "4.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C230": {
+   "loc": "4.3",
+   "t": "Merged with C233",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C231": {
+   "loc": "4.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C232": {
+   "loc": "4.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C233": {
+   "loc": "4.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C234": {
+   "loc": "4.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C235": {
+   "loc": "4.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C236": {
+   "loc": "4.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C237": {
+   "loc": "4.4",
+   "t": "Merged with C238",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C238": {
+   "loc": "4.4",
+   "t": "Merged with C237",
+   "note": ""
+  },
+  "C239": {
+   "loc": "4.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C240": {
+   "loc": "4.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C241": {
+   "loc": "6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C242": {
+   "loc": "6.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C243": {
+   "loc": "6.1",
+   "t": "Reworded",
+   "note": "Lead; name per house style ('Dr. Makali Mulu' at first mention in the chapter)."
+  },
+  "C244": {
+   "loc": "6.1",
+   "t": "Reworded",
+   "note": "Surviving passage of the record merge (2.10.1 + 3.1 + 3.1.1); first two sentences cut as they repeat the lead."
+  },
+  "C245": {
+   "loc": "6.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C246": {
+   "loc": "6.1",
+   "t": "Reworded",
+   "note": "Column heads become 'The evidence' and 'How we would use it'; every fact from 3.1.1 folded in."
+  },
+  "C247": {
+   "loc": "6.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C248": {
+   "loc": "6.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C249": {
+   "loc": "6.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C250": {
+   "loc": "6.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C251": {
+   "loc": "6.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C252": {
+   "loc": "6.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C253": {
+   "loc": "6.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C254": {
+   "loc": "6.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C255": {
+   "loc": "6.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C256": {
+   "loc": "7.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C257": {
+   "loc": "7.3",
+   "t": "Reworded",
+   "note": "House style: plain opening."
+  },
+  "C258": {
+   "loc": "7.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C259": {
+   "loc": "7.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C260": {
+   "loc": "7.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C261": {
+   "loc": "7.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C262": {
+   "loc": "7.1",
+   "t": "Moved",
+   "note": "Split: hypothesis and 'for' → 7.1; 'against' and 'test' → 7.2."
+  },
+  "C263": {
+   "loc": "7.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C264": {
+   "loc": "9.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C265": {
+   "loc": "9.1",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C266": {
+   "loc": "9.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C267": {
+   "loc": "9.1",
+   "t": "Merged with C265",
+   "note": ""
+  },
+  "C268": {
+   "loc": "6.1",
+   "t": "Merged with C244",
+   "note": "Record merge."
+  },
+  "C269": {
+   "loc": "9.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C270": {
+   "loc": "6.1",
+   "t": "Merged with C242",
+   "note": "Heading id redirects to 6.1."
+  },
+  "C271": {
+   "loc": "6.1",
+   "t": "Merged with C244",
+   "note": "Record merge."
+  },
+  "C272": {
+   "loc": "6.1",
+   "t": "Merged with C244",
+   "note": "Record merge."
+  },
+  "C273": {
+   "loc": "6.1",
+   "t": "Merged with C246",
+   "note": "Every fact (bursaries, 71-constituency ranking, ESK, M&E Champion) folded into the 6.1 table."
+  },
+  "C274": {
+   "loc": "9.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C275": {
+   "loc": "9.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C276": {
+   "loc": "9.2",
+   "t": "Merged with C275",
+   "note": ""
+  },
+  "C277": {
+   "loc": "9.2",
+   "t": "Corrected",
+   "note": "Envelope tier corrected from Tier 1 to Tier 3 (as in figures.ts and 1.5)."
+  },
+  "C278": {
+   "loc": "3.7",
+   "t": "Merged with C898",
+   "note": "The four audit findings appear once, in 3.7 (as the bars visual: Replaced by visual for B.2's list)."
+  },
+  "C279": {
+   "loc": "9.2",
+   "t": "Reworded",
+   "note": "Pending-bills figure cross-refers to 3.7; the argument sentence stays in 9.2."
+  },
+  "C280": {
+   "loc": "9.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C281": {
+   "loc": "9.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C282": {
+   "loc": "9.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C283": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C284": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": "Lead rewritten to the layered architecture: claim → three pillars → six themes → content types."
+  },
+  "C285": {
+   "loc": "10.1",
+   "t": "Merged with C284",
+   "note": "Pillar merge (see Duplication list, D-3)."
+  },
+  "C286": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": "Redrawn as one layered diagram: one claim, three pillars, six themes, four content types."
+  },
+  "C287": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C288": {
+   "loc": "10.1",
+   "t": "Merged with C290",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C289": {
+   "loc": "10.1",
+   "t": "Merged with C284",
+   "note": ""
+  },
+  "C290": {
+   "loc": "10.1",
+   "t": "Merged with C288",
+   "note": ""
+  },
+  "C291": {
+   "loc": "10.1",
+   "t": "Merged with C294",
+   "note": ""
+  },
+  "C292": {
+   "loc": "10.1",
+   "t": "Merged with C295",
+   "note": "Four campaign pillars fold into the three message pillars (the crosswalk already maps 1+4 → MP1, 3 → MP2, 1+2 → MP3); every fact kept, the verification pillar becomes MP1's proof mechanism."
+  },
+  "C293": {
+   "loc": "10.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C294": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C295": {
+   "loc": "10.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C296": {
+   "loc": "10.1",
+   "t": "Retained",
+   "note": "Conflict C6 cluster."
+  },
+  "C297": {
+   "loc": "10.4",
+   "t": "Merged with C919",
+   "note": "Annex C now lives in 10.4."
+  },
+  "C298": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C299": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C300": {
+   "loc": "10.1",
+   "t": "Merged with C288",
+   "note": "Cover line quoted once."
+  },
+  "C301": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": "P1–P4 become the 'content types' layer of the architecture."
+  },
+  "C302": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C303": {
+   "loc": "10.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C304": {
+   "loc": "10.1",
+   "t": "Merged with C299",
+   "note": ""
+  },
+  "C305": {
+   "loc": "10.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C306": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C307": {
+   "loc": "10.1",
+   "t": "Merged with C301",
+   "note": "Content buckets A–D merge into the content-types layer."
+  },
+  "C308": {
+   "loc": "10.1",
+   "t": "Merged with C301",
+   "note": "Stale cross-reference (3.7 is the week calendar)."
+  },
+  "C309": {
+   "loc": "10.1",
+   "t": "Merged with C301",
+   "note": ""
+  },
+  "C310": {
+   "loc": "10.1",
+   "t": "Merged with C303",
+   "note": "Each bucket's formats, tone and Kikamba name join the matching P-row; every fact kept."
+  },
+  "C311": {
+   "loc": "10.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C312": {
+   "loc": "10.1",
+   "t": "Merged with C313",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C313": {
+   "loc": "10.1",
+   "t": "Merged with C312",
+   "note": ""
+  },
+  "C314": {
+   "loc": "3.1",
+   "t": "Moved",
+   "note": "Split: each theme's evidence → Chapter 3 (water → 3.1; economy, green grams, food share → 3.2/3.6; fiscal → 1.5 (the budget envelope) and 3.7; youth → 3.5; health → 3.3; education → 3.5); theme names and 'why it matters' → 10.1."
+  },
+  "C315": {
+   "loc": "3.2",
+   "t": "Moved",
+   "note": "Border and herder insecurity sits with drought and pasture."
+  },
+  "C316": {
+   "loc": "9.1",
+   "t": "Merged with C265",
+   "note": "Governing line stated once in 9.1."
+  },
+  "C317": {
+   "loc": "12",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C318": {
+   "loc": "12.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C319": {
+   "loc": "12.1",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C320": {
+   "loc": "12.1",
+   "t": "Merged with C318",
+   "note": ""
+  },
+  "C321": {
+   "loc": "12.1",
+   "t": "Reworded",
+   "note": "First clause repeats the lead."
+  },
+  "C322": {
+   "loc": "12.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C323": {
+   "loc": "12.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C324": {
+   "loc": "12.1",
+   "t": "Merged with C327",
+   "note": "Orphan line becomes the figure's caption."
+  },
+  "C325": {
+   "loc": "12.1",
+   "t": "Merged with C326",
+   "note": "Lead repeats the coverage note."
+  },
+  "C326": {
+   "loc": "12.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C327": {
+   "loc": "12.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C328": {
+   "loc": "12.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C329": {
+   "loc": "12.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C330": {
+   "loc": "12.2",
+   "t": "Retained",
+   "note": "Lead."
+  },
+  "C331": {
+   "loc": "12.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C332": {
+   "loc": "12.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C333": {
+   "loc": "12.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C334": {
+   "loc": "12.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C335": {
+   "loc": "12.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C336": {
+   "loc": "12.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C337": {
+   "loc": "12.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C338": {
+   "loc": "12.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C339": {
+   "loc": "12.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C340": {
+   "loc": "12.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C341": {
+   "loc": "11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C342": {
+   "loc": "11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C343": {
+   "loc": "11",
+   "t": "Moved",
+   "note": ""
+  },
+  "C344": {
+   "loc": "11.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C345": {
+   "loc": "11.1",
+   "t": "Merged with C346",
+   "note": ""
+  },
+  "C346": {
+   "loc": "11.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C347": {
+   "loc": "11.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C348": {
+   "loc": "11.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C349": {
+   "loc": "11.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C350": {
+   "loc": "11.2",
+   "t": "Merged with C351",
+   "note": ""
+  },
+  "C351": {
+   "loc": "11.2",
+   "t": "Reworded",
+   "note": "Stale cross-reference (3.7 → 10.1)."
+  },
+  "C352": {
+   "loc": "11.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C353": {
+   "loc": "11.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C354": {
+   "loc": "11.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C355": {
+   "loc": "11.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C356": {
+   "loc": "11.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C357": {
+   "loc": "11.3",
+   "t": "Merged with C358",
+   "note": ""
+  },
+  "C358": {
+   "loc": "11.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C359": {
+   "loc": "11.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C360": {
+   "loc": "11.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C361": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C362": {
+   "loc": "10.2",
+   "t": "Merged with C364",
+   "note": ""
+  },
+  "C363": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C364": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C365": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C366": {
+   "loc": "10.4",
+   "t": "Moved",
+   "note": "Message by region joins the sample messaging."
+  },
+  "C367": {
+   "loc": "10.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C368": {
+   "loc": "10.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C369": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C370": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C371": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C372": {
+   "loc": "10.2",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C373": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C374": {
+   "loc": "10.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C375": {
+   "loc": "10.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C376": {
+   "loc": "10.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C377": {
+   "loc": "10.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C378": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C379": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C380": {
+   "loc": "12.4",
+   "t": "Merged with C381",
+   "note": ""
+  },
+  "C381": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C382": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C383": {
+   "loc": "12.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C384": {
+   "loc": "12.4",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C385": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C386": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": "Dangling 'Working examples:' points at the proverb cards below."
+  },
+  "C387": {
+   "loc": "12.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C388": {
+   "loc": "12.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C389": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C390": {
+   "loc": "12.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C391": {
+   "loc": "12.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C392": {
+   "loc": "12.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C393": {
+   "loc": "12.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C394": {
+   "loc": "12.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C395": {
+   "loc": "12.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C396": {
+   "loc": "12.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C397": {
+   "loc": "12.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C398": {
+   "loc": "12.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C399": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C400": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C401": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C402": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C403": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C404": {
+   "loc": "12.6",
+   "t": "Moved",
+   "note": ""
+  },
+  "C405": {
+   "loc": "12.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C406": {
+   "loc": "12.6",
+   "t": "Moved",
+   "note": ""
+  },
+  "C407": {
+   "loc": "12.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C408": {
+   "loc": "12.7",
+   "t": "Reworded",
+   "note": "Cross-reference → 7.1."
+  },
+  "C409": {
+   "loc": "12.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C410": {
+   "loc": "12.7",
+   "t": "Moved",
+   "note": ""
+  },
+  "C411": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C412": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C413": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C414": {
+   "loc": "13.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C415": {
+   "loc": "13.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C416": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C417": {
+   "loc": "13.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C418": {
+   "loc": "13.2",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C419": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C420": {
+   "loc": "13.5",
+   "t": "Merged with C934",
+   "note": "Annex D now lives in 13.5."
+  },
+  "C421": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C422": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C423": {
+   "loc": "13.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C424": {
+   "loc": "13.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C425": {
+   "loc": "14",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C426": {
+   "loc": "14.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C427": {
+   "loc": "14.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C428": {
+   "loc": "14.1",
+   "t": "Merged with C262",
+   "note": "The hypothesis is stated once (7.1); 14.1 cross-refers."
+  },
+  "C429": {
+   "loc": "14.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C430": {
+   "loc": "14.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C431": {
+   "loc": "14.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C432": {
+   "loc": "14.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C433": {
+   "loc": "14.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C434": {
+   "loc": "14.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C435": {
+   "loc": "14.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C436": {
+   "loc": "14.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C437": {
+   "loc": "14.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C438": {
+   "loc": "14.3",
+   "t": "Merged with C441",
+   "note": ""
+  },
+  "C439": {
+   "loc": "14.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C440": {
+   "loc": "14.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C441": {
+   "loc": "14.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C442": {
+   "loc": "14.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C443": {
+   "loc": "14.3",
+   "t": "Merged with C107",
+   "note": "Page-or-profile stated in 7.4 (assumption) and 14.3 (the fix); 14.3 keeps the consequences, 7.4 the risk."
+  },
+  "C444": {
+   "loc": "14.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C445": {
+   "loc": "14",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C446": {
+   "loc": "14",
+   "t": "Reworded",
+   "note": "Becomes the chapter lead."
+  },
+  "C447": {
+   "loc": "14",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C448": {
+   "loc": "14",
+   "t": "Moved",
+   "note": "Opens Chapter 14."
+  },
+  "C449": {
+   "loc": "14.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C450": {
+   "loc": "14.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C451": {
+   "loc": "14.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C452": {
+   "loc": "14.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C453": {
+   "loc": "14.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C454": {
+   "loc": "14.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C455": {
+   "loc": "14.6",
+   "t": "Moved",
+   "note": ""
+  },
+  "C456": {
+   "loc": "14.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C457": {
+   "loc": "14.7",
+   "t": "Moved",
+   "note": ""
+  },
+  "C458": {
+   "loc": "14.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C459": {
+   "loc": "14.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C460": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C461": {
+   "loc": "16",
+   "t": "Merged with C463",
+   "note": ""
+  },
+  "C462": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C463": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C464": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C465": {
+   "loc": "16",
+   "t": "Moved",
+   "note": ""
+  },
+  "C466": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C467": {
+   "loc": "16",
+   "t": "Moved",
+   "note": ""
+  },
+  "C468": {
+   "loc": "16",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C469": {
+   "loc": "16",
+   "t": "Moved",
+   "note": ""
+  },
+  "C470": {
+   "loc": "15",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C471": {
+   "loc": "15",
+   "t": "Moved",
+   "note": ""
+  },
+  "C472": {
+   "loc": "15",
+   "t": "Moved",
+   "note": ""
+  },
+  "C473": {
+   "loc": "15",
+   "t": "Retained",
+   "note": "Kept together until C4 is settled (deliberate decision, docs/restructure-2026-10)."
+  },
+  "C474": {
+   "loc": "15",
+   "t": "Moved",
+   "note": ""
+  },
+  "C475": {
+   "loc": "15",
+   "t": "Moved",
+   "note": ""
+  },
+  "C476": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C477": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C478": {
+   "loc": "15.1",
+   "t": "Merged with C477",
+   "note": "Owner callouts repeat the leads in every workstream; one statement each."
+  },
+  "C479": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C480": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C481": {
+   "loc": "15.1",
+   "t": "Merged with C477",
+   "note": ""
+  },
+  "C482": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C483": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C484": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C485": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C486": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C487": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C488": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C489": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C490": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C491": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C492": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C493": {
+   "loc": "15.1",
+   "t": "Corrected",
+   "note": "[CHECK REF] 'Section 4.3' → 15.3 (Workstream 9)."
+  },
+  "C494": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C495": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C496": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C497": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C498": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C499": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C500": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C501": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C502": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C503": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C504": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C505": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C506": {
+   "loc": "15.1",
+   "t": "Merged with C507",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C507": {
+   "loc": "15.1",
+   "t": "Merged with C506",
+   "note": ""
+  },
+  "C508": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C509": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C510": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C511": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C512": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C513": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C514": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C515": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C516": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C517": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C518": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C519": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C520": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C521": {
+   "loc": "15.1",
+   "t": "Merged with C522",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C522": {
+   "loc": "15.1",
+   "t": "Merged with C521",
+   "note": ""
+  },
+  "C523": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C524": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C525": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C526": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C527": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C528": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C529": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C530": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C531": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C532": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C533": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C534": {
+   "loc": "15.1",
+   "t": "Merged with C533",
+   "note": ""
+  },
+  "C535": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C536": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C537": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C538": {
+   "loc": "15.1",
+   "t": "Merged with C533",
+   "note": ""
+  },
+  "C539": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C540": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C541": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C542": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C543": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C544": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C545": {
+   "loc": "15.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C546": {
+   "loc": "15.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C547": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C548": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C549": {
+   "loc": "15.2",
+   "t": "Merged with C548",
+   "note": "Also corrects 'marks it open' (4.1.3 says approved September 2026)."
+  },
+  "C550": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C551": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C552": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C553": {
+   "loc": "15.2",
+   "t": "Merged with C552",
+   "note": ""
+  },
+  "C554": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C555": {
+   "loc": "4.2",
+   "t": "Moved",
+   "note": "The ownership map lives once, in 4.2."
+  },
+  "C556": {
+   "loc": "4.2",
+   "t": "Merged with C221",
+   "note": ""
+  },
+  "C557": {
+   "loc": "4.2",
+   "t": "Moved",
+   "note": "The governing station table; C7 (Sang'u FM, Citizen, Mwatu) stays marked."
+  },
+  "C558": {
+   "loc": "4.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C559": {
+   "loc": "4.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C560": {
+   "loc": "4.2",
+   "t": "Merged with C228",
+   "note": ""
+  },
+  "C561": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C562": {
+   "loc": "15.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C563": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C564": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C565": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C566": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C567": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C568": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C569": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C570": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C571": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C572": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C573": {
+   "loc": "15.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C574": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C575": {
+   "loc": "F.3",
+   "t": "Merged with C947",
+   "note": "Rapid-response merge (D-2)."
+  },
+  "C576": {
+   "loc": "F.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C577": {
+   "loc": "F.3",
+   "t": "Merged with C949",
+   "note": "Eight lines join the four holding positions; every line kept."
+  },
+  "C578": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C579": {
+   "loc": "15.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C580": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C581": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C582": {
+   "loc": "15.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C583": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C584": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C585": {
+   "loc": "15.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C586": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C587": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C588": {
+   "loc": "15.3",
+   "t": "Merged with C587",
+   "note": ""
+  },
+  "C589": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C590": {
+   "loc": "15.3",
+   "t": "Merged with C587",
+   "note": "Its first sentence is the lead; jargon name dropped."
+  },
+  "C591": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C592": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C593": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C594": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C595": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C596": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C597": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C598": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C599": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C600": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C601": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C602": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C603": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C604": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C605": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C606": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C607": {
+   "loc": "15.3",
+   "t": "Merged with C608",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C608": {
+   "loc": "15.3",
+   "t": "Merged with C607",
+   "note": ""
+  },
+  "C609": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C610": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C611": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C612": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C613": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C614": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C615": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C616": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C617": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": "Keeps the controller point; the owner sentence is the lead."
+  },
+  "C618": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C619": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C620": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C621": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C622": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C623": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C624": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C625": {
+   "loc": "15.3",
+   "t": "Corrected",
+   "note": "[CHECK REF] 'Sections 4.4.11 and 5.7.4' → 19.2."
+  },
+  "C626": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C627": {
+   "loc": "15.3",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C628": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C629": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C630": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C631": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C632": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C633": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C634": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C635": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C636": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C637": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C638": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C639": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C640": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C641": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C642": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C643": {
+   "loc": "15.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C644": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C645": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C646": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C647": {
+   "loc": "15.3",
+   "t": "Merged with C646",
+   "note": ""
+  },
+  "C648": {
+   "loc": "15.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C649": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C650": {
+   "loc": "15.4",
+   "t": "Merged with C651",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C651": {
+   "loc": "15.4",
+   "t": "Merged with C650",
+   "note": ""
+  },
+  "C652": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C653": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C654": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C655": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C656": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C657": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C658": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C659": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C660": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C661": {
+   "loc": "15.4",
+   "t": "Merged with C662",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C662": {
+   "loc": "15.4",
+   "t": "Merged with C661",
+   "note": ""
+  },
+  "C663": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C664": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C665": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C666": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C667": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C668": {
+   "loc": "15.4",
+   "t": "Merged with C667",
+   "note": ""
+  },
+  "C669": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C670": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C671": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C672": {
+   "loc": "15.4",
+   "t": "Merged with C671",
+   "note": ""
+  },
+  "C673": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C674": {
+   "loc": "15.4",
+   "t": "Merged with C671",
+   "note": ""
+  },
+  "C675": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C676": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C677": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C678": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C679": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C680": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C681": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C682": {
+   "loc": "15.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C683": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C684": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C685": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C686": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C687": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C688": {
+   "loc": "15.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C689": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C690": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C691": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C692": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C693": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C694": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C695": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C696": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C697": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C698": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C699": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C700": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C701": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C702": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C703": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C704": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C705": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C706": {
+   "loc": "17",
+   "t": "Merged with C708",
+   "note": "Lead repeats the passage beneath it word for word; one survives."
+  },
+  "C707": {
+   "loc": "17",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C708": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C709": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C710": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C711": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C712": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C713": {
+   "loc": "17",
+   "t": "Merged with C714",
+   "note": ""
+  },
+  "C714": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C715": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C716": {
+   "loc": "17",
+   "t": "Merged with C714",
+   "note": ""
+  },
+  "C717": {
+   "loc": "17",
+   "t": "Merged with C698",
+   "note": "Single counterpart said twice in 4.6."
+  },
+  "C718": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C719": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C720": {
+   "loc": "17",
+   "t": "Moved",
+   "note": ""
+  },
+  "C721": {
+   "loc": "17",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C722": {
+   "loc": "18.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C723": {
+   "loc": "18.1",
+   "t": "Reworded",
+   "note": "Surviving passage of 1.9 + 5.1 intro."
+  },
+  "C724": {
+   "loc": "18.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C725": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C726": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C727": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C728": {
+   "loc": "18.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C729": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C730": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C731": {
+   "loc": "18.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C732": {
+   "loc": "18.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C733": {
+   "loc": "18.3",
+   "t": "Merged with C737",
+   "note": ""
+  },
+  "C734": {
+   "loc": "18.3",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C735": {
+   "loc": "18.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C736": {
+   "loc": "18.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C737": {
+   "loc": "18.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C738": {
+   "loc": "18.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C739": {
+   "loc": "18.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C740": {
+   "loc": "18.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C741": {
+   "loc": "18.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C742": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C743": {
+   "loc": "18.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C744": {
+   "loc": "18.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C745": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C746": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C747": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C748": {
+   "loc": "18.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C749": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C750": {
+   "loc": "18.5",
+   "t": "Merged with C751",
+   "note": "Window dates are stale (D-29); author to confirm."
+  },
+  "C751": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C752": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C753": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C754": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C755": {
+   "loc": "18.5",
+   "t": "Merged with C757",
+   "note": ""
+  },
+  "C756": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C757": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C758": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C759": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C760": {
+   "loc": "18.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C761": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C762": {
+   "loc": "18.5",
+   "t": "Merged with C763",
+   "note": ""
+  },
+  "C763": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C764": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C765": {
+   "loc": "18.5",
+   "t": "Merged with C767",
+   "note": ""
+  },
+  "C766": {
+   "loc": "18.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C767": {
+   "loc": "18.5",
+   "t": "Reworded",
+   "note": "7.2 cross-refers here for the test method. Name standardised."
+  },
+  "C768": {
+   "loc": "18.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C769": {
+   "loc": "19.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C770": {
+   "loc": "19.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C771": {
+   "loc": "19.1",
+   "t": "Merged with C772",
+   "note": ""
+  },
+  "C772": {
+   "loc": "19.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C773": {
+   "loc": "19.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C774": {
+   "loc": "19.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C775": {
+   "loc": "19.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C776": {
+   "loc": "19.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C777": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C778": {
+   "loc": "19.2",
+   "t": "Merged with C781",
+   "note": ""
+  },
+  "C779": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C780": {
+   "loc": "19.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C781": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C782": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C783": {
+   "loc": "19.2",
+   "t": "Corrected",
+   "note": "Compliance-measures list: [CHECK REF] '16.4' → 19.3 clause 5 (the deletion schedule)."
+  },
+  "C784": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C785": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C786": {
+   "loc": "19.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C787": {
+   "loc": "19.2",
+   "t": "Corrected",
+   "note": "[CHECK REF] 'Section 5.2.1.4 of the DPA 2019' → the lawful-processing and consent provisions of the Act; the exact section is for the reviewer to cite."
+  },
+  "C788": {
+   "loc": "19.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C789": {
+   "loc": "19.3",
+   "t": "Merged with C791",
+   "note": ""
+  },
+  "C790": {
+   "loc": "19.3",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C791": {
+   "loc": "19.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C792": {
+   "loc": "19.3",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C793": {
+   "loc": "19.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C794": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C795": {
+   "loc": "19.2",
+   "t": "Merged with C796",
+   "note": ""
+  },
+  "C796": {
+   "loc": "19.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C797": {
+   "loc": "19.2",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C798": {
+   "loc": "19.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C799": {
+   "loc": "19.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C800": {
+   "loc": "19.2",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C801": {
+   "loc": "19.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C802": {
+   "loc": "19.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C803": {
+   "loc": "19.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C804": {
+   "loc": "19.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C805": {
+   "loc": "19.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C806": {
+   "loc": "19.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C807": {
+   "loc": "19.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C808": {
+   "loc": "19.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C809": {
+   "loc": "19.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C810": {
+   "loc": "19.5",
+   "t": "Merged with C811",
+   "note": ""
+  },
+  "C811": {
+   "loc": "19.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C812": {
+   "loc": "19.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C813": {
+   "loc": "20.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C814": {
+   "loc": "20.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C815": {
+   "loc": "20.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C816": {
+   "loc": "20.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C817": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": "Renumbered to Annex F, E.11 gap removed."
+  },
+  "C818": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C819": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C820": {
+   "loc": "20.2",
+   "t": "Merged with C821",
+   "note": ""
+  },
+  "C821": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": "Surviving passage of the rapid-response merge (6.2.1 + E.5 + 4.5.6 lines); response tiers point to F.5, lines to F.3."
+  },
+  "C822": {
+   "loc": "20.2",
+   "t": "Corrected",
+   "note": "[CHECK REF] 'Section A.1.1' → 20.3 (the defamation safeguards)."
+  },
+  "C823": {
+   "loc": "20.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C824": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C825": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C826": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C827": {
+   "loc": "20.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C828": {
+   "loc": "20.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C829": {
+   "loc": "20.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C830": {
+   "loc": "20.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C831": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C832": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C833": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C834": {
+   "loc": "20.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C835": {
+   "loc": "20.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C836": {
+   "loc": "20.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C837": {
+   "loc": "20.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C838": {
+   "loc": "20.4",
+   "t": "Merged with C840",
+   "note": ""
+  },
+  "C839": {
+   "loc": "20.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C840": {
+   "loc": "20.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C841": {
+   "loc": "20.4",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C842": {
+   "loc": "20.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C843": {
+   "loc": "20.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C844": {
+   "loc": "20.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C845": {
+   "loc": "20.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C846": {
+   "loc": "20.4",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C847": {
+   "loc": "20.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C848": {
+   "loc": "20.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C849": {
+   "loc": "20.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C850": {
+   "loc": "20.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C851": {
+   "loc": "20.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C852": {
+   "loc": "5.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C853": {
+   "loc": "5.4",
+   "t": "Merged with C854",
+   "note": ""
+  },
+  "C854": {
+   "loc": "5.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C855": {
+   "loc": "5.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C856": {
+   "loc": "A",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C857": {
+   "loc": "A",
+   "t": "Reworded",
+   "note": "Annex A gains A.2, the full source table (data point, figure, source, year, tier, link), generated from lib/data/figures.ts."
+  },
+  "C858": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C859": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C860": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C861": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C862": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C863": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C864": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C865": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C866": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C867": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C868": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C869": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C870": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C871": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C872": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C873": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C874": {
+   "loc": "A.1",
+   "t": "Merged with C875",
+   "note": ""
+  },
+  "C875": {
+   "loc": "A.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C876": {
+   "loc": "A.1",
+   "t": "Retained",
+   "note": ""
+  },
+  "C877": {
+   "loc": "B",
+   "t": "Reworded",
+   "note": "Annex B now holds the register only; the rest moved to Chapters 3 and 5 (cross-references in the intro)."
+  },
+  "C878": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C879": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C880": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C881": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C882": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C883": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C884": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C885": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C886": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C887": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C888": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C889": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C890": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C891": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C892": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C893": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C894": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C895": {
+   "loc": "B",
+   "t": "Retained",
+   "note": ""
+  },
+  "C896": {
+   "loc": "3.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C897": {
+   "loc": "3.7",
+   "t": "Merged with C898",
+   "note": ""
+  },
+  "C898": {
+   "loc": "3.7",
+   "t": "Replaced by visual",
+   "note": "Replaced by visual: the 3.1.2 audit bars (moved to 3.7) carry all four figures with source and tier."
+  },
+  "C899": {
+   "loc": "3.7",
+   "t": "Replaced by visual",
+   "note": "Replaced by visual: the audit bars."
+  },
+  "C900": {
+   "loc": "3.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C901": {
+   "loc": "3.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C902": {
+   "loc": "3.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C903": {
+   "loc": "3.7",
+   "t": "Moved",
+   "note": ""
+  },
+  "C904": {
+   "loc": "3.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C905": {
+   "loc": "3.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C906": {
+   "loc": "3.2",
+   "t": "Merged with C907",
+   "note": ""
+  },
+  "C907": {
+   "loc": "3.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C908": {
+   "loc": "3.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C909": {
+   "loc": "3.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C910": {
+   "loc": "3.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C911": {
+   "loc": "3.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C912": {
+   "loc": "3.8",
+   "t": "Merged with C913",
+   "note": ""
+  },
+  "C913": {
+   "loc": "3.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C914": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C915": {
+   "loc": "5.5",
+   "t": "Merged with C916",
+   "note": ""
+  },
+  "C916": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C917": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": "Cross-reference → 5.3."
+  },
+  "C918": {
+   "loc": "5.5",
+   "t": "Reworded",
+   "note": "Kept in the 5.5 list (it carries the audit-record citation); the term-limit sentence folds into 5.1."
+  },
+  "C919": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": "Framed as a demonstration: 'what Firefly would hand the team'; nothing attributed to Dr. Mulu beyond his public record."
+  },
+  "C920": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C921": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C922": {
+   "loc": "10.4",
+   "t": "Corrected",
+   "note": "Stale cross-reference (3.7 → 10.1)."
+  },
+  "C923": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C924": {
+   "loc": "10.4",
+   "t": "Corrected",
+   "note": "'sum to about {{sub.kitui-west.density}}%' uses a population-density token as a percentage — wrong token; to be corrected or the sentence cut if no sourced sum exists."
+  },
+  "C925": {
+   "loc": "10.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C926": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C927": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C928": {
+   "loc": "10.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C929": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C930": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C931": {
+   "loc": "10.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C932": {
+   "loc": "10.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C933": {
+   "loc": "13.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C934": {
+   "loc": "13.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C935": {
+   "loc": "13.5",
+   "t": "Merged with C937",
+   "note": ""
+  },
+  "C936": {
+   "loc": "13.5",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C937": {
+   "loc": "13.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C938": {
+   "loc": "13.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C939": {
+   "loc": "13.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C940": {
+   "loc": "13.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C941": {
+   "loc": "F",
+   "t": "Reworded",
+   "note": "Renumbered E.1–E.10, E.12 → F.1–F.11, no gap."
+  },
+  "C942": {
+   "loc": "F.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C943": {
+   "loc": "F.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C944": {
+   "loc": "F.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C945": {
+   "loc": "F.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C946": {
+   "loc": "F.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C947": {
+   "loc": "F.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C948": {
+   "loc": "F.3",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C949": {
+   "loc": "F.3",
+   "t": "Moved",
+   "note": ""
+  },
+  "C950": {
+   "loc": "F.4",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C951": {
+   "loc": "F.4",
+   "t": "Moved",
+   "note": ""
+  },
+  "C952": {
+   "loc": "F.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C953": {
+   "loc": "F.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C954": {
+   "loc": "F.5",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C955": {
+   "loc": "F.5",
+   "t": "Moved",
+   "note": ""
+  },
+  "C956": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C957": {
+   "loc": "F.6",
+   "t": "Merged with C959",
+   "note": ""
+  },
+  "C958": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C959": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C960": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C961": {
+   "loc": "F.6",
+   "t": "Corrected",
+   "note": "Scenarios numbered 1–5, 7: renumbered 1–6."
+  },
+  "C962": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C963": {
+   "loc": "F.6",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C964": {
+   "loc": "F.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C965": {
+   "loc": "F.7",
+   "t": "Merged with C966",
+   "note": ""
+  },
+  "C966": {
+   "loc": "F.7",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C967": {
+   "loc": "F.7",
+   "t": "Moved",
+   "note": ""
+  },
+  "C968": {
+   "loc": "F.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C969": {
+   "loc": "F.8",
+   "t": "Merged with C971",
+   "note": ""
+  },
+  "C970": {
+   "loc": "F.8",
+   "t": "Moved",
+   "note": ""
+  },
+  "C971": {
+   "loc": "F.8",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C972": {
+   "loc": "F.9",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C973": {
+   "loc": "F.9",
+   "t": "Moved",
+   "note": ""
+  },
+  "C974": {
+   "loc": "F.10",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C975": {
+   "loc": "F.10",
+   "t": "Moved",
+   "note": ""
+  },
+  "C976": {
+   "loc": "F.10",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C977": {
+   "loc": "F.11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C978": {
+   "loc": "F.11",
+   "t": "Merged with C979",
+   "note": ""
+  },
+  "C979": {
+   "loc": "F.11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C980": {
+   "loc": "F.11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C981": {
+   "loc": "F.11",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C982": {
+   "loc": "F.11",
+   "t": "Merged with C951",
+   "note": "Tool list repeats F.4; one list."
+  },
+  "C983": {
+   "loc": "G.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C984": {
+   "loc": "G.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C985": {
+   "loc": "G.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C986": {
+   "loc": "G.1",
+   "t": "Retained",
+   "note": "Keep-marked text: wording retained verbatim."
+  },
+  "C987": {
+   "loc": "G",
+   "t": "Retained",
+   "note": ""
+  },
+  "C988": {
+   "loc": "C",
+   "t": "Reworded",
+   "note": "Split across Annexes C, D and E (each gets its own one-line intro)."
+  },
+  "C989": {
+   "loc": "C.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C990": {
+   "loc": "C.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C991": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C992": {
+   "loc": "C.2",
+   "t": "Merged with C1001",
+   "note": ""
+  },
+  "C993": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C994": {
+   "loc": "C.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C995": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C996": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C997": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C998": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C999": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1000": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1001": {
+   "loc": "C.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1002": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1003": {
+   "loc": "D",
+   "t": "Merged with C1008",
+   "note": ""
+  },
+  "C1004": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1005": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1006": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1007": {
+   "loc": "D",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1008": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1009": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1010": {
+   "loc": "D",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1011": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1012": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1013": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1014": {
+   "loc": "D",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1015": {
+   "loc": "D",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1016": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1017": {
+   "loc": "E.1",
+   "t": "Merged with C1018",
+   "note": ""
+  },
+  "C1018": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1019": {
+   "loc": "E.1",
+   "t": "Corrected",
+   "note": "'Six core components' lists five: count corrected to five."
+  },
+  "C1020": {
+   "loc": "E.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1021": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1022": {
+   "loc": "E.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1023": {
+   "loc": "E.1",
+   "t": "Corrected",
+   "note": "Inside the text version: two [CHECK REF]s 'Section 5.2.3.4' → 19.2; one 'Section 5.2.4' → 15.1 (the tracker)."
+  },
+  "C1024": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1025": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1026": {
+   "loc": "E.1",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1027": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1028": {
+   "loc": "E.1",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1029": {
+   "loc": "E.1",
+   "t": "Corrected",
+   "note": "'YubiKey or Google Authenticator' — an authenticator app is not a hardware key; aligned with F.8 (FIDO2 keys mandatory for admins, app 2FA as the floor)."
+  },
+  "C1030": {
+   "loc": "E.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1031": {
+   "loc": "E.2",
+   "t": "Merged with C1036",
+   "note": ""
+  },
+  "C1032": {
+   "loc": "E.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1033": {
+   "loc": "E.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1034": {
+   "loc": "E.2",
+   "t": "Reworded",
+   "note": ""
+  },
+  "C1035": {
+   "loc": "E.2",
+   "t": "Moved",
+   "note": ""
+  },
+  "C1036": {
+   "loc": "E.2",
+   "t": "Reworded",
+   "note": ""
+  }
+ }
+}

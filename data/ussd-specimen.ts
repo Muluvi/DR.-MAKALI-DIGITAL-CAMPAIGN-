@@ -1,3 +1,4 @@
+import { val } from "../lib/data/read.ts";
 // §5.2.3.3's USSD menu and §5.2.3.3's SMS layer, as data for the feature-phone specimen.
 //
 // Two rules govern this file, and they are the reason it is data rather than copy inside a
@@ -20,12 +21,18 @@
 // people has been appointed — §8.5 puts that in Phase −1 — so no Kikamba prose is presented here
 // as final, and none is invented to fill the gap.
 
+export type SpecimenLanguage = "kikamba" | "kiswahili" | "english";
 
+export const SPECIMEN_LANGUAGES: { id: SpecimenLanguage; label: string; note: string }[] = [
+  { id: "kikamba", label: "Kikamba", note: "Default. The county's first language." },
+  { id: "kiswahili", label: "Kiswahili", note: "National language." },
+  { id: "english", label: "English", note: "Master source for drafting." },
+];
 
 /** §5.2.3.3, verbatim. The header line and six options as the document prints them. */
 export const USSD_HEADER = "KITUI NA MULU";
 
-interface UssdOption {
+export interface UssdOption {
   key: string;
   /** As printed: Kikamba first, English after the slash, where the document gives both. */
   kikamba: string | null;
@@ -56,14 +63,21 @@ export const USSD_MENU: UssdOption[] = [
 /** Option 1's plan items: the policy proposals the menu reads out (proposals for the campaign to decide). */
 export const PLAN_ITEMS = [
   "Ward funds by a published, needs-weighted formula",
-  "KES 85/kg ndengu floor price & cold hubs",
+  "Ksh 85/kg ndengu floor price & cold hubs",
   "Free boda boda licenses & TVET bursaries",
 ];
 
+/** A menu line as the handset prints it: "1. Sisemo sya Mulu / Mulu's plan for my ward". */
+export const menuLine = (o: UssdOption): string => `${o.key}. ${o.kikamba ? `${o.kikamba} / ` : ""}${o.english}`;
 
 /** §5.2.3.3 prints the shortcode as an unresolved placeholder. It stays one. */
 export const USSD_SHORTCODE_PLACEHOLDER = "the campaign shortcode";
 
+/**
+ * A USSD session is a network round trip, and a menu that appears instantly is the one detail
+ * that gives a mockup away. §5.2.3.3's own framing is that this works on every phone over 2G.
+ */
+export const USSD_LATENCY_MS = 1400;
 
 // ---------------------------------------------------------------------------
 // The SMS layer — §5.2.3.3
@@ -72,9 +86,16 @@ export const USSD_SHORTCODE_PLACEHOLDER = "the campaign shortcode";
 /** §5.2.3.3: "Message architecture — 160 characters, three languages, ward-tagged". */
 export const SMS_LIMIT = 160;
 
+export type ApprovalStage = 1 | 2 | 3 | 4;
 
+export const APPROVAL_CHAIN: { stage: ApprovalStage; title: string; who: string }[] = [
+  { stage: 1, title: "English master source drafting", who: "Policy Team, verified by Legal & Economic Lead" },
+  { stage: 2, title: "Parallel adaptation (not literal translation)", who: "Lead Kikamba Writer · Swahili/Sheng Specialist" },
+  { stage: 3, title: "Reverse-translation integrity audit", who: "Independent reviewer" },
+  { stage: 4, title: "Kikamba cultural sign-off & executive clearance", who: "Lead Cultural & Vernacular Communications Advisor" },
+];
 
-interface SmsSpecimen {
+export interface SmsSpecimen {
   /** One of §5.2.3.3's six message types, named as the table names them. */
   type: string;
   /** §5.2.3.3's own description of what that type contains. */
@@ -118,3 +139,5 @@ export const SMS_SPECIMENS: SmsSpecimen[] = [
   } as SmsSpecimen,
 ];
 
+/** §5.2.3.3's consented-contact target at Phase 3. */
+export const CONSENTED_CONTACTS = val("target.sms");

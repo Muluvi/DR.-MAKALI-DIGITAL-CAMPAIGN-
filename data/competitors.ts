@@ -3,7 +3,7 @@ import { withTeamEdits } from "../lib/data/team-overlay.ts";
 // <legal_care> in the task brief): only material already established in this document's own
 // sourced content appears here; no adverse claims are added from outside knowledge; Malombe's
 // term-limit status is presented as an open question with both readings, not a conclusion.
-interface Contender {
+export interface Contender {
   name: string;
   position: string;
   stage: "Wiper ticket" | "General election field";
@@ -26,3 +26,5 @@ export const CONTENDERS: Contender[] = withTeamEdits<Contender>("contenders", "n
   },
 ]);
 
+export const MALOMBE_TERM_LIMIT_QUESTION =
+  "Malombe served as Kitui Governor 2013–2017, lost the seat to Ngilu for the 2017–2022 term (the court-confirmed 2017 result, §2.2), and won again in 2022. Article 180(7) limits a governor to two terms, and he is serving his second, so he cannot stand in 2027. This proposal plans for an open seat throughout.";

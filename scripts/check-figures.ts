@@ -1,0 +1,79 @@
+#!/usr/bin/env node
+/**
+ * The data layer's rules, enforced at build (brief §O). Fails on:
+ *
+ *   - a needed figure that has a value, or a figure with no value that is not needed
+ *   - a sourced figure with no source, or a sourced or modelled figure with no tier
+ *   - a modelled figure, or a target, with no note saying how or whose
+ *   - an alt value equal to the primary: a real dispute silently collapsed
+ *   - any bare numeric literal of three or more digits in content/*.md outside the allow-list and
+ *     outside the generated Annex A.2 source table
+ *
+ * The allow-list is for numbers that are not data: identifiers, specifications, citations and
+ * units of a rate. Each entry says why it is there.
+ *
+ *     node --experimental-strip-types scripts/check-figures.ts
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { FIGURES } from "../lib/data/figures.ts";
+import { ALLOW } from "../lib/data/allow.ts";
+import { figureProblems } from "../lib/data/rules.ts";
+
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+const SRC = path.join(ROOT, "content");
+
+/** The brief's literal test, /\b\d{3,}\b/, read so that "605,703" counts as one literal. */
+const LITERAL = /(?<![\w.,{|])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?![\d}])|(?<![\w.,{|])\d{3,}(?:\.\d+)?(?![\d}])/g;
+
+const errors: string[] = [];
+
+// The per-figure rules live in lib/data/rules.ts, shared with the in-site data editor, so the team
+// cannot save a figure this check would reject.
+for (const [id, f] of Object.entries(FIGURES)) {
+  for (const p of figureProblems(id, f)) errors.push(p.rule);
+}
+
+for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".md")).sort()) {
+  const lines = fs.readFileSync(path.join(SRC, file), "utf8").split("\n");
+  let fence = false;
+  // A ```textversion fence is prose a figure has taken over (brief §12): it is still content, and
+  // it is checked exactly as it was before it moved. Only real code and figure fences are skipped.
+  let proseFence = false;
+  // Annex A.2 is generated from this store by scripts/build-source-table.ts: its notes and sources
+  // are the store's own text, so they cannot drift from it, and they are not re-checked here.
+  let generated = false;
+  lines.forEach((line, i) => {
+    if (line.startsWith("<!-- source-table:start")) generated = true;
+    if (line.startsWith("<!-- source-table:end")) generated = false;
+    if (generated) return;
+    if (/^\s*```/.test(line)) {
+      if (!fence) proseFence = /^\s*```textversion\s*$/.test(line);
+      fence = !fence;
+      return;
+    }
+    if (fence && !proseFence) return;
+    for (const m of line.matchAll(LITERAL)) {
+      // Allowed only when an allow-list match covers this literal itself: a year elsewhere on the
+      // line must not excuse the count beside it.
+      const at = m.index ?? 0;
+      const end = at + m[0].length;
+      const covered = ALLOW.some((re) =>
+        [...line.matchAll(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g"))].some(
+          (a) => (a.index ?? 0) <= at && (a.index ?? 0) + a[0].length >= end,
+        ),
+      );
+      if (covered) continue;
+      errors.push(`content/${file}:${i + 1}: numeric literal "${m[0]}" — use a {{figure}} token`);
+    }
+  });
+}
+
+if (errors.length) {
+  console.error(`check-figures: ${errors.length} problem(s)`);
+  for (const e of errors.slice(0, 60)) console.error(`  - ${e}`);
+  if (errors.length > 60) console.error(`  … and ${errors.length - 60} more`);
+  process.exit(1);
+}
+console.log(`check-figures: ${Object.keys(FIGURES).length} figures valid, no numeric literal in content/`);

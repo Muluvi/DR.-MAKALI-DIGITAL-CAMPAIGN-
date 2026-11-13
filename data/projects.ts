@@ -51,7 +51,7 @@ export const PROJECTS: ProjectRow[] = PROJECTS_EXPORT.values.map((v) => {
   };
 });
 
-interface WardKey {
+export interface WardKey {
   slug: string;
   name: string;
   constituency: string;
