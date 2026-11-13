@@ -1,5 +1,0 @@
-Group,What it holds,Basis
-Ingestion & capture,Offline SMS / USSD · 400 ward captains · WhatsApp / webforms · Event registration,Sourced
-Processing & validation,Provenance tagger · DPA consent engine · Duplicate scrubber · Tier classifier (1–3),Sourced
-Output & channels,Target SMS / IVR · Geofenced ads · Ward reach reports · Field logistics,Sourced
-Encrypted core database,Row-level security · Audit provenance log,Sourced

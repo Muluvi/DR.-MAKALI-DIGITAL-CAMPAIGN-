@@ -12,7 +12,7 @@
 
 export type ContentCode = "P1" | "P2" | "P3" | "P4";
 export type PlanRow = { id: string; name: string; pillar: ContentCode; languages: string[]; channels: string[] };
-export type MixInputs = { shares: Record<ContentCode, number>; languages: string[]; channels: string[]; minShare: number };
+type MixInputs = { shares: Record<ContentCode, number>; languages: string[]; channels: string[]; minShare: number };
 export type Coverage = { row: PlanRow; covered: boolean; reasons: string[] };
 
 export const KNOWN_LANGUAGES = ["Kikamba", "Kiswahili", "English", "Sheng"] as const;
@@ -20,7 +20,7 @@ export const KNOWN_LANGUAGES = ["Kikamba", "Kiswahili", "English", "Sheng"] as c
 /** The languages a plan cell names ("Kikamba on voice; Kiswahili on SMS" → Kikamba, Kiswahili). */
 export const languagesIn = (text: string): string[] => KNOWN_LANGUAGES.filter((l) => new RegExp(`\\b${l}\\b`, "i").test(text));
 /** The channels a plan cell lists ("WhatsApp voice note, SMS" → two channels). */
-export const channelsIn = (text: string): string[] => text.split(",").map((c) => c.trim()).filter(Boolean);
+const channelsIn = (text: string): string[] => text.split(",").map((c) => c.trim()).filter(Boolean);
 
 export function toPlanRows(plan: Record<string, { pillar: string; lang: string; channel: string }>, names: Record<string, string>): PlanRow[] {
   return Object.entries(plan).map(([id, p]) => ({ id, name: names[id] ?? id, pillar: p.pillar as ContentCode, languages: languagesIn(p.lang), channels: channelsIn(p.channel) }));

@@ -8,7 +8,7 @@
 export type Cell = { turnout: number; share: number };
 export type Scenario = Record<string, Cell>;
 export type RegisterRow = { code: string; voters: number };
-export type Totals = { ballots: number; votes: number };
+type Totals = { ballots: number; votes: number };
 
 export const clampPct = (v: number): number => Math.min(100, Math.max(0, v));
 
@@ -41,5 +41,3 @@ export function scenarioTotals(rows: RegisterRow[], s: Scenario): Totals {
   );
 }
 
-/** Signed distance to the benchmark: positive above it, negative short of it. */
-export const gapToBenchmark = (t: Totals, benchmark: number): number => t.votes - benchmark;

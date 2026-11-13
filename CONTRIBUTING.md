@@ -1,44 +1,38 @@
-# Keeping the data current
+# Keeping the site current
 
-**The data is updated on the site, not in GitHub.** There is no sign-in: anyone with the link
-uses the data editor (`/edit-data`) for figures, the ward register, the strategy lists and the
-analysis values, and the workspace (`/workspace`) for the day-to-day records: the weekly brief, the
-content calendar, the dispatch log, the KPI tracker, saved model scenarios and the rest. Nobody needs
-the repository, a terminal or code. `docs/ownership-2026-11/TEAM-GUIDE.md` is the team's guide.
+The site is one page: the opening, then Data, Analysis, Objectives, Strategies and Implementation.
+There is no sign-in and nothing is saved from the site. Firefly makes every change in this
+repository; a push to `main` that passes the checks deploys to production on Vercel.
 
-**Firefly made the platform, owns it and runs it**: hosting, deployment, fixes, the automated data
-checks, new features, and watching the change history, where any unwanted change is put back.
-`docs/DEPLOY.md` lists every setting the live site needs.
+## Where things live
 
-## How a team edit reaches the site
+| What | Where |
+|---|---|
+| Chapter text | `content/<chapter>.md`. Numbers are written as `{{figure-id}}` tokens, never typed. |
+| Which chapters sit in which stage, and their titles | `lib/story/stages.ts` |
+| Which tool sits after which chapter | `AFTER` in `app/page.tsx` |
+| Every figure the text and charts print | `lib/data/figures.ts` (with corrections in `data/team/*.json`) |
+| Chart specs (the figures drawn in chapters) | `lib/register/specs/` |
+| The IEBC and Gazette data pack | `data/public-2026-11/*.csv`, built by `node scripts/build-public-data.mjs` |
+| Analysis exports (the dashboards) | `data/analysis/*.json`, written by the Python pipeline in `analysis/` |
+| Models (the scenario arithmetic) | `lib/models/` (tested in `lib/models/models.test.ts`) |
+| Tools and models on the page | `components/tools/` |
 
-1. The data editor checks the edit with the data pack's own rules (`lib/data/rules.ts`, the same code
-   `npm run verify` runs) and refuses it, in plain language, if it would break them.
-2. An accepted edit is committed to its own branch, `team-edit/<time>-<what>`.
-3. `.github/workflows/team-edit.yml` regenerates the derived files and runs `npm run verify`,
-   `npm run check:preservation`, the type check and the build. Only if all pass does it move the
-   edit onto `main`, which Vercel deploys. A failing edit never reaches the site.
-4. Every edit is in the change history (`/history`), attributed to "Anyone with the link", and can be reverted there.
+## Rules for content
 
-Working records (the workspace) are saved to the platform's database and show on the next page load.
+- Show figures plainly: no reliability tags, no "official", "estimated" or similar labels. Give each
+  chart or table one plain source line.
+- No document numbering in headings or text. Link to a heading by its id: `[The goal](#goal)` or
+  `[The twelve largest wards](#votes-the-twelve-largest-wards)`. A heading's id is its chapter id,
+  a hyphen, then its words.
+- Scenario inputs live only in the browser. Nothing a visitor sets is stored or sent.
 
-## Firefly's own changes
-
-Code and content changes by Firefly go through a pull request; `.github/workflows/verify.yml` runs
-lint, types, `npm run verify`, `npm run check:preservation` and the build.
+## Checks
 
 ```bash
-npm run verify
-npm run check:preservation
+npm ci
+npm run verify   # data pack check, unit tests, lint, type check
 npm run build
 ```
 
-A scheduled GitHub Action also collects public-source snapshots into `data/candidates/public-material.md`.
-Those entries are marked `verify`: leads for the team to check against the original source before
-updating a figure in the data editor. No automated job marks a value confirmed.
-
-## Data recency
-
-The small “last verified” indicator belongs in the persistent site shell, beside the existing source/data-status context rather than in the cover hero. Its value should come from reviewed repository metadata—ideally a generated file written during the verification workflow from the merge commit timestamp—not from a hardcoded date or an unreviewed fetch timestamp. A future implementation should expose that generated value through the server-rendered layout and render an accessible `<time dateTime="...">` element.
-
-The exact news feed or API remains a human decision. Until an approved source is selected, the scheduled workflow uses public snapshots only and must not be treated as a complete media-monitoring system.
+`.github/workflows/verify.yml` runs the same on every pull request and push to `main`.

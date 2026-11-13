@@ -12,10 +12,10 @@
 export type Parsed<T> = { next: T; understood: string[]; unclear: string[] };
 
 const NUM = String.raw`(\d+(?:[.,]\d+)?)`;
-export const toNumber = (s: string): number => Number(s.replace(/,(?=\d{3}\b)/g, "").replace(",", "."));
+const toNumber = (s: string): number => Number(s.replace(/,(?=\d{3}\b)/g, "").replace(",", "."));
 
 /** Lower-case, with "per cent" and "percent" as "%", and curly quotes made plain. */
-export function normal(text: string): string {
+function normal(text: string): string {
   return text
     .toLowerCase()
     .replace(/[‘’]/g, "'")
@@ -59,8 +59,6 @@ export function namesIn<T extends { name: string }>(clause: string, items: T[]):
   });
 }
 
-/** Whether a clause speaks of the whole county: "all", "every", "everywhere", "county-wide". */
-export const everywhere = (clause: string): boolean => has(clause, "all|every|everywhere|county|across|whole");
 
 const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 const DAY = 86_400_000;

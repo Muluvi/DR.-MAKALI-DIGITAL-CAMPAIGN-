@@ -21,7 +21,6 @@ import { rankWards, leadingCriterion } from "./ward-priority.ts";
 import { buildPriorityWards, POOL_CONSTITUENCIES } from "./join.ts";
 import { checkSend, LANGUAGE_OPTIONS, RAIL_OPTIONS, SMS_LIMIT } from "./send-check.ts";
 import { addDays, planRollout, validDay, weeksBetween } from "./rollout.ts";
-import { LIVE_MODELS, MODELS } from "./catalogue.ts";
 import { CHANNELS, layerReach, layerShares, reachByConstituency, type Mix } from "./reach.ts";
 import { allChannels, coverage, languagesIn, toPlanRows } from "./brief-mix.ts";
 import { classify, thresholds, type Incident } from "./response-tier.ts";
@@ -176,10 +175,13 @@ test("rollout: date helpers", () => {
 });
 
 /* ------------------------------------------------------------ catalogue */
-test("catalogue: nine models, all live, each with a page", () => {
-  assert.equal(MODELS.length, 9);
-  assert.equal(LIVE_MODELS.length, 9);
-  for (const m of LIVE_MODELS) assert.ok(fs.existsSync(path.join(ROOT, "app", "(platform)", "models", m.slug, "page.tsx")), `no page for ${m.slug}`);
+test("catalogue: all nine models load on the page", () => {
+  const islands = fs.readFileSync(path.join(ROOT, "components", "site", "Island.tsx"), "utf8");
+  const page = fs.readFileSync(path.join(ROOT, "app", "page.tsx"), "utf8");
+  for (const slug of ["winning-number", "polling-agents", "ward-priority", "send-check", "rollout-planner", "reach-by-channel", "brief-mix", "response-tier", "record-finder"]) {
+    assert.ok(islands.includes(`"${slug}":`), `no loader for ${slug}`);
+    assert.ok(page.includes(`name: "${slug}"`), `${slug} is not placed on the page`);
+  }
 });
 
 /* ------------------------------------------------------------ reach by channel */

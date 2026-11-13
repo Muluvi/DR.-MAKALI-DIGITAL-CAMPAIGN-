@@ -1,5 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "regions": ["cpt1"],
-  "ignoreCommand": "case \"$VERCEL_GIT_COMMIT_REF\" in team-edit/*) exit 0;; *) exit 1;; esac"
+  "regions": ["cpt1"]
 }

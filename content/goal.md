@@ -1,23 +1,16 @@
-```lead
-The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027.
-```
 
-The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027. Five objectives for the digital operation serve it, and every one traces to one of the two deadlines. This chapter opens Part III: the strategy that the evidence in Parts I and II justifies.
+The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027. Five objectives for the digital operation serve it, and every one traces to one of the two deadlines.
 
-## 8.1 The goal and its two deadlines
+## The goal and its two deadlines
 
-```lead
-The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election.
-```
-
-The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election. Each has its own clock, its own measure of success and its own targets. Every objective traces either to winning the Wiper Patriotic Front nomination or to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that trace to neither are left out (Section 18.4).
+The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election. Each has its own clock, its own measure of success and its own targets. Every objective traces either to winning the Wiper Patriotic Front nomination or to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that trace to neither are left out (see [Why vanity metrics are left out](#success-why-vanity-metrics-are-left-out)).
 
 *   **The clock:** from signature to the close of the party's evaluation window in late 2026, then to the 10 August 2027 general election.
-*   **Success:** the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach across all eight constituencies; then at least **{{benchmark}} votes** at the ballot box, the benchmark Section 2.5 sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.
+*   **Success:** the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach across all eight constituencies; then at least **{{benchmark}} votes** at the ballot box, the benchmark [The number it takes](#votes-the-number-it-takes) sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.
 
 **The two deadlines:**
 
-1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.
+1.  **The nomination window, Q4 2026:** <window-chip></window-chip> Success means showing organised reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis [What the evidence says](#diagnosis-what-the-evidence-says) states and Week 1 tests, not a measured fact.
 2.  **The general election, 10 August 2027:** turning out the {{benchmark}}-vote coalition a plurality win needs in a multi-candidate field.
 
 ```figure
@@ -27,7 +20,7 @@ id: fig-1-1-timeline
 <model-embed slug="winning-number">
 </model-embed>
 
-## 8.2 Five objectives
+## Five objectives
 
 Each objective names its target, its owner, the finding it answers, its baseline, the strategy that serves it and the indicator that measures it.
 
@@ -35,7 +28,7 @@ Each objective names its target, its owner, the finding it answers, its baseline
 id: fig-1-3-objectives
 ```
 
-### 8.2.1 Be known where he is not yet known
+### Be known where he is not yet known
 
 ```visual
 kind: cards
@@ -46,13 +39,13 @@ items:
     text: "**Named Owner:** Director of Communications; the delivery ledger is the dispatch log on Firefly's platform."
     fields:
       - { label: "Traceability", text: "Nomination viability: name recognition and visible activity in northern Mwingi and the southern wards, where Dr. Mulu has been known mainly as the member for Kitui Central." }
-      - { label: "Finding it answers", text: "{{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (Section 6.2)." }
-      - { label: "Baseline", text: "set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central (Section 7.1); Week 1 tests it." }
-      - { label: "Served by", text: "Section 12.1 (where the effort goes) and Section 12.6 (what gets published)." }
-      - { label: "Measured by", text: "NW-01 and R-02 (Section 18.1)." }
+      - { label: "Finding it answers", text: "{{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office (see [Where he is known, and where not](#record-where-he-is-known-and-where-not))." }
+      - { label: "Baseline", text: "set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central (see [What the evidence says](#diagnosis-what-the-evidence-says)); Week 1 tests it." }
+      - { label: "Served by", text: "[Where the effort goes](#channels-where-the-effort-goes) (where the effort goes) and [A week of publishing, before and after](#channels-a-week-of-publishing-before-and-after) (what gets published)." }
+      - { label: "Measured by", text: "NW-01 and R-02 (see [How success will be judged](#success-how-success-will-be-judged))." }
 ```
 
-### 8.2.2 Turn his record into visible proof
+### Turn his record into visible proof
 
 ```visual
 kind: cards
@@ -62,14 +55,14 @@ items:
     chips: ["R-03"]
     text: "**Named Owner:** Policy and Communications Research Lead."
     fields:
-      - { label: "Traceability", text: "Turns Dr. Mulu's 13-year parliamentary record (Section 6.1: {{record.bursary.recipients}} bursary recipients, KSh 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable case studies set to the priorities of the dryland pastoral and farming zones." }
-      - { label: "Finding it answers", text: "both Wiper rivals have already won countywide; his distinguishing proof is his record (Sections 6.1 and 5.3)." }
-      - { label: "Baseline", text: "His record is documented for Kitui Central, the only constituency he has represented (Section 6.1). Where content about it currently reaches is measured in Week 1." }
-      - { label: "Served by", text: "Section 9.1 (the position) and the content type \"Where the money went\" (Section 10.1)." }
-      - { label: "Measured by", text: "R-03, shares per 1,000 reached in the deficit wards (Section 18.1)." }
+      - { label: "Traceability", text: "Turns Dr. Mulu's 13-year parliamentary record ([The public record](#record-the-public-record): {{record.bursary.recipients}} bursary recipients, KES 47m allocated, Kitui Central certified the best-evaluated constituency in the Eastern region, FY2014/15) into verifiable, shareable case studies set to the priorities of the dryland pastoral and farming zones." }
+      - { label: "Finding it answers", text: "both Wiper rivals have already won countywide; his distinguishing proof is his record (see [The public record](#record-the-public-record); [The field in both stages](#race-the-field-in-both-stages))." }
+      - { label: "Baseline", text: "His record is documented for Kitui Central, the only constituency he has represented (see [The public record](#record-the-public-record)). Where content about it currently reaches is measured in Week 1." }
+      - { label: "Served by", text: "[The central claim](#position-the-central-claim) (the position) and the content type \"Where the money went\" (see [One claim, three pillars, six themes](#message-one-claim-three-pillars-six-themes))." }
+      - { label: "Measured by", text: "R-03, shares per 1,000 reached in the deficit wards (see [How success will be judged](#success-how-success-will-be-judged))." }
 ```
 
-### 8.2.3 Reach voters the internet does not
+### Reach voters the internet does not
 
 ```visual
 kind: cards
@@ -80,14 +73,14 @@ items:
     text: "**Named Owner:** Campaign Field Operations Lead, who operates the USSD/SMS dispatch and logs it on Firefly's platform."
     fields:
       - { label: "Traceability", text: "Answers the county's connectivity ceiling ({{ict.internet}}% internet use, {{ict.phone}}% mobile phone ownership, CA/KNBS 2023/24) with an offline channel the campaign owns." }
-      - { label: "Finding it answers", text: "digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (Section 4.3)." }
+      - { label: "Finding it answers", text: "digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark (see [What each channel can reach](#news-what-each-channel-can-reach))." }
       - { label: "Baseline", text: "No consented offline subscribers in a central campaign register today." }
       - { label: "Deadline", text: "30 June 2027." }
-      - { label: "Served by", text: "Section 12.2 (which channel does which job) and Workstream 9 (Section 15.3.3)." }
-      - { label: "Measured by", text: "NW-03 and R-04 (Section 18.1)." }
+      - { label: "Served by", text: "[Which channel does which job](#channels-which-channel-does-which-job) (which channel does which job) and Workstream 9 (see [Workstream 9 — What your team operates: SMS, USSD and voice](#workstreams-workstream-9-what-your-team-operates-sms-ussd-and-voice))." }
+      - { label: "Measured by", text: "NW-03 and R-04 (see [How success will be judged](#success-how-success-will-be-judged))." }
 ```
 
-### 8.2.4 Give every post a voter, ward and reason
+### Give every post a voter, ward and reason
 
 ```visual
 kind: cards
@@ -97,15 +90,15 @@ items:
     chips: ["R-05"]
     text: "**Named Owner:** Database and Ground Mobilization Coordinator."
     fields:
-      - { label: "Traceability", text: "Every post the weekly brief commissions names the voter segment it is for (Section 11.2), the ward it is aimed at (Section 2.3) and the content type that gives it a reason (Section 10.1)." }
-      - { label: "Finding it answers", text: "his current output is a record of where he was, with no ward named outside Kitui Central and no ask (Section 12.6)." }
+      - { label: "Traceability", text: "Every post the weekly brief commissions names the voter segment it is for (see [The six voter segments](#voters-the-six-voter-segments)), the ward it is aimed at (see [The twelve largest wards](#votes-the-twelve-largest-wards)) and the content type that gives it a reason (see [One claim, three pillars, six themes](#message-one-claim-three-pillars-six-themes))." }
+      - { label: "Finding it answers", text: "his current output is a record of where he was, with no ward named outside Kitui Central and no ask (see [A week of publishing, before and after](#channels-a-week-of-publishing-before-and-after))." }
       - { label: "Baseline", text: "set in Week 1, from the post coding." }
-      - { label: "Served by", text: "Chapters 10 to 12." }
-      - { label: "Measured by", text: "R-05 and the weekly post coding (Sections 18.5 and 18.1)." }
-      - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is the campaign's own, outside Firefly's platform, which holds only its counts (Section 15.4.1); the recruitment is the campaign's." }
+      - { label: "Served by", text: "[The message](#message) to 12." }
+      - { label: "Measured by", text: "R-05 and the weekly post coding (see [How the presence audit works](#success-how-the-presence-audit-works); [How success will be judged](#success-how-success-will-be-judged))." }
+      - { label: "Campaign build target it supports", text: "**{{target.supporters}} registered, verified supporters** in the central database mapped across all {{register.polling-stations}} polling stations by 31 May 2027. The database is the campaign's own, outside Firefly's platform, which holds only its counts (see [Workstream 11 — The data layer](#workstreams-workstream-11-the-data-layer)); the recruitment is the campaign's." }
 ```
 
-### 8.2.5 Hold the home base
+### Hold the home base
 
 ```visual
 kind: cards
@@ -114,9 +107,9 @@ items:
   - head: { label: "Target", text: "Reach and engagement in Kitui Central held at or above the Week 1 baseline while output weight moves to Mwingi and the arid belt." }
     text: "**Named Owner:** Kitui Central Constituency Campaign Committee."
     fields:
-      - { label: "Traceability", text: "Avoids the home-belt trap (Path D, Section 2.5) by holding Dr. Mulu's base in Kitui Central while its own MP succession plays out." }
-      - { label: "Finding it answers", text: "Kitui Central will have its own MP succession contest through the same window (Section 6.3)." }
-      - { label: "Baseline", text: "{{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes (Tier 1)." }
-      - { label: "Served by", text: "Section 12.1 (the anchor zone's weighting)." }
-      - { label: "Measured by", text: "reach by constituency in the monthly performance report (Section 21.2)." }
+      - { label: "Traceability", text: "Avoids the home-belt trap (Path D, [The number it takes](#votes-the-number-it-takes)) by holding Dr. Mulu's base in Kitui Central while its own MP succession plays out." }
+      - { label: "Finding it answers", text: "Kitui Central will have its own MP succession contest through the same window (see [Where party loyalty will not carry him](#record-where-party-loyalty-will-not-carry-him))." }
+      - { label: "Baseline", text: "{{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes." }
+      - { label: "Served by", text: "[Where the effort goes](#channels-where-the-effort-goes) (the anchor zone's weighting)." }
+      - { label: "Measured by", text: "reach by constituency in the monthly performance report." }
 ```

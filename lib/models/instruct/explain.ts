@@ -90,6 +90,6 @@ export function explainRecord(found: Found[], wardName: string): string[] {
   const biggest = [...found].sort((a, b) => b.project.value - a.project.value)[0];
   return [
     `${found.length} project${found.length === 1 ? "" : "s"} for ${wardName}, mostly ${top.map(([s, n]) => `${s} (${n})`).join(", ")}.`,
-    `The largest is ${biggest.project.label}, printed at KSh ${count(biggest.project.value)} (scorecard p. ${biggest.project.dims.page}). Each is the county's claim, not proof of delivery.`,
+    `The largest is ${biggest.project.label}, printed at KES ${count(biggest.project.value)} (scorecard p. ${biggest.project.dims.page}). Each is the county's claim, not proof of delivery.`,
   ];
 }

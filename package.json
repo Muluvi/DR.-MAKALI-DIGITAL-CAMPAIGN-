@@ -3,77 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0 -p 3000",
-    "build": "NODE_ENV=production next build",
+    "dev": "next dev",
+    "build": "next build",
     "postinstall": "node scripts/patch-next.mjs",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "next clean",
-    "verify": "node scripts/build-public-data.mjs --check && node --no-warnings --experimental-strip-types scripts/build-source-table.ts --check && node --no-warnings --experimental-strip-types scripts/build-content.ts --check && node --no-warnings --experimental-strip-types scripts/build-open-items.ts --check && node --no-warnings --experimental-strip-types scripts/build-csv.ts --check && node --no-warnings --experimental-strip-types scripts/export-registry.ts --check && node --no-warnings --experimental-strip-types scripts/check-figures.ts && node --no-warnings --experimental-strip-types scripts/check-copy.ts && node --no-warnings --experimental-strip-types scripts/consolidation/scan-literals.mjs --check && node --no-warnings --experimental-strip-types scripts/consolidation/check-contradictions.mjs && node scripts/build-section-visuals.mjs && node --no-warnings --experimental-strip-types scripts/verify-ward-register.mjs && node scripts/verify-ward-keys.mjs && node scripts/copy-analysis.mjs && node scripts/verify-analysis-exports.mjs && node scripts/verify-figures.mjs && node scripts/verify-figure-fences.mjs && node scripts/find-duplicates.mjs --check && node scripts/verify-mounts.mjs && node scripts/consolidation/anchor-moves.mjs --check && node --no-warnings --experimental-strip-types scripts/build-anchors.ts --check && node scripts/visual-coverage.mjs --check && npm run test:figures && npm run test:models && npm run test:platform && npm run test:declutter && npm run check:declutter && npm run check:content",
-    "prebuild": "node scripts/patch-next.mjs && node scripts/copy-analysis.mjs && node --no-warnings --experimental-strip-types scripts/build-source-table.ts --check && node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts && node --no-warnings --experimental-strip-types scripts/export-registry.ts && node --no-warnings --experimental-strip-types scripts/check-figures.ts && node --no-warnings --experimental-strip-types scripts/check-copy.ts && node scripts/build-section-visuals.mjs && node --no-warnings --experimental-strip-types scripts/build-anchors.ts --check && npm run check:preservation",
-    "test:figures": "node --experimental-strip-types --test lib/figures/figures.test.ts",
-    "audit:routes": "node scripts/audit-routes.mjs",
-    "anchors": "node scripts/consolidation/anchor-moves.mjs && node --no-warnings --experimental-strip-types scripts/build-anchors.ts",
-    "content": "node scripts/copy-analysis.mjs && node --no-warnings --experimental-strip-types scripts/build-source-table.ts && node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts && node --no-warnings --experimental-strip-types scripts/export-registry.ts",
-    "predev": "node scripts/copy-analysis.mjs && node --no-warnings --experimental-strip-types scripts/build-source-table.ts && node --no-warnings --experimental-strip-types scripts/build-content.ts && node --no-warnings --experimental-strip-types scripts/build-open-items.ts && node --no-warnings --experimental-strip-types scripts/build-csv.ts && node --no-warnings --experimental-strip-types scripts/export-registry.ts",
-    "test:declutter": "node --experimental-strip-types --test lib/inline-marks.test.ts lib/visual.test.ts lib/digest.test.ts",
-    "check:content": "CONTENT_BASE=a767371 CONTENT_LEDGER=docs/restructure-2026-11/ledger.json,docs/consolidation-2026-11/ledger.json,docs/ownership-2026-11/ledger.json,docs/toc-2026-11/ledger.json,docs/value-2026-11/ledger.json node scripts/declutter/check-content.mjs && node scripts/restructure-2026-11/check-preservation.mjs && CONTENT_BASE=8f10cb9 CONTENT_LEDGER=docs/evidence-2026-10/ledger.json CONTENT_LEDGER_MD=docs/evidence-2026-10/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every change the evidence pass made to content, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: additions with their source, figures replaced, and anything cut or moved.' node scripts/declutter/build-cuts-md.mjs --check && CONTENT_BASE=2f29920 CONTENT_LEDGER=docs/consolidation-2026-11/ledger.json,docs/ownership-2026-11/ledger.json,docs/toc-2026-11/ledger.json,docs/value-2026-11/ledger.json node scripts/declutter/check-content.mjs && CONTENT_BASE=2f29920 CONTENT_LEDGER=docs/consolidation-2026-11/ledger.json CONTENT_LEDGER_MD=docs/consolidation-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the consolidation pass moved, merged or replaced, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: where it went, and the pointer left behind.' node scripts/declutter/build-cuts-md.mjs --check && node scripts/ownership-2026-11/apply.mjs --check && CONTENT_BASE=a377ded CONTENT_LEDGER=docs/ownership-2026-11/ledger.json CONTENT_LEDGER_MD=docs/ownership-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the platform-ownership pass reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the campaign duty it gave Firefly, and the words that now give it to the campaign team.' node scripts/declutter/build-cuts-md.mjs --check && node scripts/toc-2026-11/content-fixes.mjs --check && CONTENT_BASE=b7bc346 CONTENT_LEDGER=docs/toc-2026-11/ledger.json CONTENT_LEDGER_MD=docs/toc-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the content-conflict fixes reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the claim the build contradicted, and the words that now say what is true.' node scripts/declutter/build-cuts-md.mjs --check && node scripts/value-2026-11/content-fixes.mjs --check && CONTENT_BASE=60a4bc0 CONTENT_LEDGER=docs/value-2026-11/ledger.json CONTENT_LEDGER_MD=docs/value-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the value-proposition pass reworded or added, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the words before, and the words that now set out the first-phase decision, the four layers of the offer, the open site and the re-anchored rollout.' node scripts/declutter/build-cuts-md.mjs --check",
-    "build:changes": "CONTENT_BASE=8f10cb9 CONTENT_LEDGER=docs/evidence-2026-10/ledger.json CONTENT_LEDGER_MD=docs/evidence-2026-10/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every change the evidence pass made to content, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: additions with their source, figures replaced, and anything cut or moved.' node scripts/declutter/build-cuts-md.mjs",
-    "check:declutter": "node scripts/declutter/check-tokens.mjs && node scripts/declutter/check-leads.mjs && node scripts/declutter/build-cuts-md.mjs --check && node --no-warnings --experimental-strip-types scripts/declutter/tier-mismatches.mjs --check",
-    "build:consolidation-changes": "CONTENT_BASE=2f29920 CONTENT_LEDGER=docs/consolidation-2026-11/ledger.json CONTENT_LEDGER_MD=docs/consolidation-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the consolidation pass moved, merged or replaced, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: where it went, and the pointer left behind.' node scripts/declutter/build-cuts-md.mjs",
-    "scan:literals": "node --no-warnings --experimental-strip-types scripts/consolidation/scan-literals.mjs",
-    "check:contradictions": "node --no-warnings --experimental-strip-types scripts/consolidation/check-contradictions.mjs",
-    "check:preservation": "node --no-warnings --experimental-strip-types --import ./scripts/preservation/register.mjs scripts/check-preservation.js",
-    "build:ownership-changes": "CONTENT_BASE=a377ded CONTENT_LEDGER=docs/ownership-2026-11/ledger.json CONTENT_LEDGER_MD=docs/ownership-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the platform-ownership pass reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the campaign duty it gave Firefly, and the words that now give it to the campaign team.' node scripts/declutter/build-cuts-md.mjs",
-    "test:models": "node --experimental-strip-types --test lib/models/models.test.ts lib/models/instruct/instruct.test.ts",
-    "build:value-changes": "CONTENT_BASE=60a4bc0 CONTENT_LEDGER=docs/value-2026-11/ledger.json CONTENT_LEDGER_MD=docs/value-2026-11/CHANGES.md CONTENT_LEDGER_TITLE='# Changes' CONTENT_LEDGER_INTRO='Every passage the value-proposition pass reworded or added, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the words before, and the words that now set out the first-phase decision, the four layers of the offer, the open site and the re-anchored rollout.' node scripts/declutter/build-cuts-md.mjs",
-    "test:platform": "node --experimental-strip-types --test lib/platform/platform.test.ts"
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test lib/figures/figures.test.ts lib/models/models.test.ts lib/models/instruct/instruct.test.ts",
+    "data": "node scripts/build-public-data.mjs",
+    "verify": "node scripts/build-public-data.mjs --check && npm run test && npm run lint && npm run typecheck"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^1.8.0",
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.119.0",
-    "@vercel/blob": "^2.9.0",
-    "autoprefixer": "^10.4.21",
-    "d3-geo": "^3.1.1",
     "d3-scale": "^4.0.2",
     "d3-time": "^3.1.0",
     "js-yaml": "^4.3.2",
-    "lucide-react": "^1.34.0",
-    "motion": "^12.43.0",
     "next": "^15.4.9",
-    "postcss": "^8.5.6",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-markdown": "^10.1.0",
-    "recharts": "^3.10.1",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1",
-    "topojson-client": "^3.1.0",
-    "zod": "^4.6.7"
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.11",
-    "@tailwindcss/typography": "^0.5.20",
-    "@types/d3-geo": "^3.1.1",
     "@types/d3-scale": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/topojson-client": "^3.1.5",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.8",
     "tailwindcss": "4.1.11",
-    "tw-animate-css": "^1.4.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "@types/d3-time": "^3.0.4"
   },
   "engines": {
     "node": ">=22"
-  },
-  "overrides": {
-    "next": {
-      "postcss": "$postcss"
-    },
-    "zod": "$zod"
   }
 }

@@ -17,7 +17,7 @@ const REPORTED_2026 = "Venas News, July 2026 (T3, unconfirmed)";
 
 const conBars = byValue(CONS.map((c) => bar(`con.${c.id}`, c.name)));
 
-export const FIG_2_1: FigureSpec = {
+const FIG_2_1: FigureSpec = {
   id: "fig-2-1-register",
   section: "2.1",
   title: `The register grew by ${fmt("register.2026.growth")} voters since 2022, most of them in one thirty-day drive`,
@@ -74,7 +74,7 @@ const PANELS = [
 ];
 const RESULT_ROWS = PANELS.flatMap((p) => p.bars.map((b) => ({ cells: { race: p.title.replace(/ \(.*\)$/, ""), candidate: b.label, votes: b.value }, state: b.state, closesWith: b.state === "needed" ? F("result.2022.mp.mulu").closesWith : undefined })));
 
-export const FIG_2_2: FigureSpec = {
+const FIG_2_2: FigureSpec = {
   id: "fig-2-2-results",
   section: "2.2",
   title: `Every countywide seat in 2022 was won with about ${fmt("benchmark")} votes, and one winner beat the governor's total`,
@@ -89,12 +89,12 @@ export const FIG_2_2: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-2-3-nomination */
 
-export const FIG_2_3: FigureSpec = {
+const FIG_2_3: FigureSpec = {
   id: "fig-2-3-nomination",
   section: "2.5",
   title: "The nomination method is reported, not confirmed, and two documents would settle it",
   question: "What is the nomination method, and how confident are we?",
-  takeaway: "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a Tier 3 report.",
+  takeaway: "Until the party's resolution or its 2027 nomination rules are in hand, every phase that leans on the reported selection method is a plan against a single-source report.",
   sources: [{ name: "Nomination method and window: single-source campaign report", tier: "T3" }, { name: "Party name change: Office of the Registrar of Political Parties (August 2025)", tier: "T1" }],
   chart: {
     type: "composite",
@@ -125,10 +125,10 @@ export const FIG_2_3: FigureSpec = {
       },
     ],
   },
-  columns: [{ key: "item", label: "Item" }, { key: "status", label: "Status" }, { key: "holder", label: "Holder" }],
+  columns: [{ key: "item", label: "Item" }, { key: "status", label: "Where it stands" }, { key: "holder", label: "Holder" }],
   rows: [
-    { cells: { item: "Nomination method: party-run countywide selection", status: "Reported, not confirmed (T3)", holder: "—" } },
-    { cells: { item: `Nomination window: ${inSentence(NOMINATION_WINDOW.whenText)}`, status: `Reported, not confirmed (${NOMINATION_WINDOW.tier})`, holder: "—" } },
+    { cells: { item: "Nomination method: party-run countywide selection", status: "One media report; the party has not stated it", holder: "—" } },
+    { cells: { item: `Nomination window: ${inSentence(NOMINATION_WINDOW.whenText)}`, status: "One media report; the party has not stated it", holder: "—" } },
     { cells: { item: "Wiper NEC signed resolution", status: "Not in hand", holder: "Wiper NEC" } },
     { cells: { item: "Party nomination rules and timetable, 2027", status: "Not in hand", holder: "Wiper, via the campaign" } },
   ],
@@ -138,7 +138,7 @@ export const FIG_2_3: FigureSpec = {
 
 const LIVESTOCK = byValue([bar("livestock.poultry", "Poultry"), bar("livestock.goats", "Goats"), bar("livestock.cattle", "Cattle"), bar("livestock.donkeys", "Donkeys")]);
 
-export const FIG_2_4: FigureSpec = {
+const FIG_2_4: FigureSpec = {
   id: "fig-2-4-people",
   section: "2.8.1",
   title: `Kitui is ${fmt("census.rural.share")}% rural, and more than half its residents are poor`,
@@ -186,15 +186,15 @@ export const FIG_2_4: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-2-5-budget */
 
-const bn = (id: string) => `KSh ${fmt(id, "bn")}bn`;
+const bn = (id: string) => `KES ${fmt(id, "bn")}bn`;
 const BUDGET = [
   bar("budget.equitable", "Equitable share", { display: bn("budget.equitable"), tone: "accent" }),
   bar("budget.osr", "Own-source revenue", { display: `${bn("budget.osr")} (Assembly: ${bn("budget.osr.revised")})` }),
   bar("budget.grants", "Conditional grants", { display: bn("budget.grants") }),
-  bar("budget.rounding", "Rounding in the source", { display: `KSh ${fmt("budget.rounding", "bn")}bn`, tone: "neg" }),
+  bar("budget.rounding", "Rounding in the source", { display: `KES ${fmt("budget.rounding", "bn")}bn`, tone: "neg" }),
 ];
 
-export const FIG_2_5: FigureSpec = {
+const FIG_2_5: FigureSpec = {
   id: "fig-2-5-budget",
   section: "2.8.2",
   title: `The next governor runs a ${bn("budget.total")} envelope, and ${fmt("budget.equitable.share")}% of it arrives from the national government`,
@@ -207,9 +207,9 @@ export const FIG_2_5: FigureSpec = {
   ],
   chart: { type: "stack", segments: BUDGET, total: num("budget.total"), totalLabel: `Total envelope, FY2026/27: ${bn("budget.total")} (T3, secondary reporting of the Paper)` },
   notes: [
-    "The three parts sum to KSh 0.01bn more than the published total; the difference is drawn as its own segment rather than absorbed.",
+    "The three parts sum to KES 0.01bn more than the published total; the difference is drawn as its own segment rather than absorbed.",
   ],
-  columns: [{ key: "part", label: "Part" }, { key: "ksh", label: "KSh", numeric: true }, { key: "share", label: "Share of envelope, %", numeric: true }, { key: "tier", label: "Tier" }],
+  columns: [{ key: "part", label: "Part" }, { key: "ksh", label: "KES", numeric: true }, { key: "share", label: "Share of envelope, %", numeric: true }, { key: "tier", label: "Tier" }],
   rows: [
     { cells: { part: "Equitable share", ksh: num("budget.equitable"), share: num("budget.equitable.share"), tier: "T1" } },
     { cells: { part: "Own-source revenue, Fiscal Strategy Paper", ksh: num("budget.osr"), share: num("budget.osr.share"), tier: "T3" } },
@@ -222,7 +222,7 @@ export const FIG_2_5: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-2-6-connectivity */
 
-export const FIG_2_6: FigureSpec = {
+const FIG_2_6: FigureSpec = {
   id: "fig-2-6-connectivity",
   section: "2.9.1",
   title: "Internet use nearly doubled since 2019, while phone ownership barely moved",
@@ -260,7 +260,7 @@ const postureOf = (p: string): "placement" | "secondary" | "monitoring" => (/^Pr
 const STATIONS = [...RADIO_STATIONS].sort((a, b) => OWNER_OF(a.alignment).id.localeCompare(OWNER_OF(b.alignment).id));
 const OWNERS = [...new Map(STATIONS.map((s) => [OWNER_OF(s.alignment).id, OWNER_OF(s.alignment)])).values()];
 
-export const FIG_2_7: FigureSpec = {
+const FIG_2_7: FigureSpec = {
   id: "fig-2-7-media",
   section: "2.9.2",
   title: "Three of the Kikamba stations are tied to political figures, so placement goes to the independents",
@@ -301,7 +301,7 @@ export const FIG_2_7: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-2-8-record */
 
-export const FIG_2_8: FigureSpec = {
+const FIG_2_8: FigureSpec = {
   id: "fig-2-8-record",
   section: "2.10.1",
   title: `Thirteen years as MP have left a checkable record: ${fmt("record.bursary.recipients")} bursaries and the best-evaluated constituency in the Eastern region`,
@@ -330,7 +330,7 @@ export const FIG_2_8: FigureSpec = {
         chart: {
           type: "stats",
           items: [
-            { value: fmt("record.bursary.recipients"), label: `bursary recipients, KSh ${fmt("record.bursary.ksh", "m")}m allocated (T1)`, state: "sourced" },
+            { value: fmt("record.bursary.recipients"), label: `bursary recipients, KES ${fmt("record.bursary.ksh", "m")}m allocated (T1)`, state: "sourced" },
             { value: "1st of 71", label: "best-evaluated constituency, Eastern region, FY2014/15 (T1)", state: "sourced" },
             { value: fmt("record.cdf.boreholes"), label: "boreholes in the NG-CDF project inventory (T3, awaiting verification)", state: "sourced" },
             { value: fmt("record.cdf.school-water"), label: "school water projects in the same inventory (T3)", state: "sourced" },
@@ -339,22 +339,22 @@ export const FIG_2_8: FigureSpec = {
       },
     ],
   },
-  notes: [`The NG-CDF record is drawn as counts; the FY2026/27 allocation is KSh ${fmt("ngcdf.allocation.2026")} (T1).`],
+  notes: [`The NG-CDF record is drawn as counts; the FY2026/27 allocation is KES ${fmt("ngcdf.allocation.2026")} (T1).`],
   columns: [{ key: "item", label: "Item" }, { key: "value", label: "Value" }, { key: "tier", label: "Tier" }],
   rows: [
     { cells: { item: "Elected MP, Kitui Central", value: "2013; re-elected 2017 and 2022", tier: "T1" } },
     { cells: { item: "Bursary recipients", value: num("record.bursary.recipients"), tier: "T1" } },
-    { cells: { item: "Bursaries allocated, KSh", value: num("record.bursary.ksh"), tier: "T1" } },
+    { cells: { item: "Bursaries allocated, KES", value: num("record.bursary.ksh"), tier: "T1" } },
     { cells: { item: "Constituency evaluation, FY2014/15", value: "Best in the Eastern region; first of 71 in its peer group", tier: "T1" } },
     { cells: { item: "Boreholes, NG-CDF inventory", value: num("record.cdf.boreholes"), tier: "T3" } },
     { cells: { item: "School water projects, NG-CDF inventory", value: num("record.cdf.school-water"), tier: "T3" } },
-    { cells: { item: "NG-CDF allocation, FY2026/27, KSh", value: num("ngcdf.allocation.2026"), tier: "T1" } },
+    { cells: { item: "NG-CDF allocation, FY2026/27, KES", value: num("ngcdf.allocation.2026"), tier: "T1" } },
   ],
 };
 
 /* ------------------------------------------------------------------ fig-2-9-channels */
 
-export const FIG_2_9: FigureSpec = {
+const FIG_2_9: FigureSpec = {
   id: "fig-2-9-channels",
   section: "2.10.2",
   title: "His presence is one Facebook page, a quiet X account and a constituency site that already holds his record",
@@ -363,22 +363,22 @@ export const FIG_2_9: FigureSpec = {
   sources: [src("channel.fb.followers"), src("channel.x.followers")],
   chart: {
     type: "matrix",
-    header: ["Channel", "Status", "Tier"],
+    header: ["Channel", "What is there"],
     rows: [
-      { head: "Facebook, verified", cells: [`About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts; page-or-profile status settled in Week 1`, "T3"] },
-      { head: "X, @MakaliMulu", cells: [`Live; bio still frames him as MP. About ${fmt("channel.x.followers")} followers, September 2026 snapshot`, "T3"] },
-      { head: "kituicentralcdf.co.ke", cells: ["Constituency-run, active in 2026: a ready proof-point library", "T1"] },
-      { head: "NG-CDF Board constituency page", cells: ["Official", "T1"] },
-      { head: "TikTok, Instagram, YouTube, WhatsApp Channel", cells: ["None verified publicly; recorded in the Week 1 audit where they exist", "—"] },
+      { head: "Facebook page", cells: [`About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts; page or profile settled in Week 1`] },
+      { head: "X, @MakaliMulu", cells: [`Live; bio still frames him as MP. About ${fmt("channel.x.followers")} followers, September 2026 snapshot`] },
+      { head: "kituicentralcdf.co.ke", cells: ["Constituency-run, active in 2026: a ready proof-point library"] },
+      { head: "NG-CDF Board constituency page", cells: ["The Board's own page for the constituency"] },
+      { head: "TikTok, Instagram, YouTube, WhatsApp Channel", cells: ["None found publicly; recorded in the Week 1 audit where they exist"] },
     ],
   },
-  columns: [{ key: "channel", label: "Channel" }, { key: "status", label: "Status" }, { key: "tier", label: "Tier" }],
+  columns: [{ key: "channel", label: "Channel" }, { key: "status", label: "What is there" }],
   rows: [
-    { cells: { channel: "Facebook, verified", status: `About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts`, tier: "T3" } },
-    { cells: { channel: "X, @MakaliMulu", status: `About ${fmt("channel.x.followers")} followers, September 2026`, tier: "T3" } },
-    { cells: { channel: "kituicentralcdf.co.ke", status: "Constituency-run, active in 2026", tier: "T1" } },
-    { cells: { channel: "NG-CDF Board constituency page", status: "Official", tier: "T1" } },
-    { cells: { channel: "TikTok, Instagram, YouTube, WhatsApp Channel", status: "None verified publicly", tier: "—" } },
+    { cells: { channel: "Facebook page", status: `About ${fmt("channel.fb.followers")} followers, ${fmt("channel.fb.posts")} posts` } },
+    { cells: { channel: "X, @MakaliMulu", status: `About ${fmt("channel.x.followers")} followers, September 2026` } },
+    { cells: { channel: "kituicentralcdf.co.ke", status: "Constituency-run, active in 2026" } },
+    { cells: { channel: "NG-CDF Board constituency page", status: "The Board's own page for the constituency" } },
+    { cells: { channel: "TikTok, Instagram, YouTube, WhatsApp Channel", status: "None found publicly" } },
   ],
 };
 

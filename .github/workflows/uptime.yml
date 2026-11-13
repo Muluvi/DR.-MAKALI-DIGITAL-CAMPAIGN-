@@ -18,15 +18,13 @@ jobs:
     env:
       SITE: https://dr-makali-digital-campaign.vercel.app
     steps:
-      - name: Load the status page and two working pages
+      - name: Load the site, one chapter and one dataset
         run: |
           set -u
           fail=0
-          for path in /status /models /workspace; do
+          for path in / /c/votes.html /datasets/index.json; do
             code=$(curl -s -o /tmp/page.html -w "%{http_code}" --max-time 30 --retry 2 --retry-delay 10 "$SITE$path")
             echo "$path -> $code"
             if [ "$code" != "200" ]; then fail=1; fi
           done
-          # The status page reports each part of the platform; "Not working" means a live check failed.
-          curl -s --max-time 30 "$SITE/status" | grep -q "Not working" && { echo "The status page reports a part that is not working."; fail=1; }
           exit $fail

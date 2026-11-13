@@ -1,6 +1,0 @@
-System component,Recommended vendor,DPA risk level,Decision status,Basis
-1. SMS/USSD gateway,Africa's Talking / Safaricom Enterprise,HIGH RISK (direct PII),Awaiting campaign decision,Sourced
-2. Supporter CRM database,PostgreSQL + Hasura (Cape Town region),CRITICAL (encrypted PII),Awaiting campaign decision,Sourced
-3. Social publishing & listening,Buffer / Hootsuite + Brand24 monitoring,LOW-MODERATE (public data),Awaiting campaign decision,Sourced
-4. BI analytics dashboard,Metabase open source (self-hosted cloud),MINIMAL (anonymised),Awaiting campaign decision,Sourced
-5. Public service tracker (19B),Next.js web platform + Cloudflare edge,LOW RISK (public policy),Awaiting campaign decision,Sourced

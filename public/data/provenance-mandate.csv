@@ -1,4 +1,0 @@
-Requirement,What it means,Example,Basis
-1. Primary source,Exact institutional publishing entity,"e.g. ""IEBC Certified Register"", ""KNBS 2019 Census""",Sourced
-2. Timestamp date,"Exact date or year of the census, statistical release or official gazettement","e.g. ""August 2022"", ""7 August 2026""",Sourced
-3. Geographic unit,Exact administrative boundary to which the data applies,"e.g. ""Countywide"", ""Mwingi North"", ""Kyuso Ward""",Sourced
