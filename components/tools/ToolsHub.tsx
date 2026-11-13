@@ -6,46 +6,52 @@ import { ArrowUpRight, BarChart3, Check, Clipboard, Filter, Map, MessageSquare, 
 import { ELECTORAL_ARITHMETIC } from "@/data/electoral-arithmetic";
 import { fmt, val } from "../../lib/data/read";
 
-type Family = "All" | "Data & targeting" | "Messaging & channels" | "Ground & field" | "Measurement & reach";
+type Family = "All" | "Where the votes come from" | "Reach and persuade" | "Deadlines and readiness" | "Daily content work" | "Deeper planning" | "Context and talking points" | "Supporting utilities";
 // Only these have a page. Everything else in the list is planned, and says so rather than linking to a 404.
 const BUILT = new Set(["ward-dossier", "winning-number", "sources", "service-delivery", "race-calendar", "polling-agents", "nomination-path"]);
 
 type Tool = { id: number; name: string; slug: string; family: Exclude<Family, "All">; description: string; icon: typeof Map; freshness: "Live" | "Ready" | "Data needed" };
 
 const tools: Tool[] = [
-  ["Ward Dossier", "ward-dossier", "Data & targeting", "One-page intelligence brief for every ward.", Map, "Ready"],
-  ["Kitui Map Studio", "map-studio", "Data & targeting", "Switch layers from register size to captain coverage.", Map, "Ready"],
-  ["Winning-Number Simulator", "winning-number", "Data & targeting", "Test turnout and regional share scenarios.", SlidersHorizontal, "Live"],
-  ["Coalition Path Builder", "coalition-path", "Data & targeting", "Build a transparent route to the benchmark.", BarChart3, "Ready"],
-  ["Ward Priority Scorer", "priority-scorer", "Data & targeting", "Rank focus wards with visible weights.", Filter, "Data needed"],
-  ["Presence Audit Loader", "presence-audit", "Data & targeting", "Load an aggregate social export locally.", Wifi, "Data needed"],
-  ["Published Margin Tracker", "published-margins", "Data & targeting", "Keep each published round separate by source.", BarChart3, "Ready"],
-  ["Assumptions Panel", "assumptions", "Data & targeting", "Inspect and locally test model constants.", SlidersHorizontal, "Live"],
-  ["Sources & Data Gaps", "sources", "Data & targeting", "Search conflicts, owners and resolution paths.", ShieldCheck, "Ready"],
-  ["Register Growth Tracker", "register-growth", "Data & targeting", "Track the 2022 to 2026 register change.", BarChart3, "Data needed"],
-  ["Message Studio", "message-studio", "Messaging & channels", "Write once and preview across channels.", MessageSquare, "Ready"],
-  ["USSD Flow Builder", "ussd", "Messaging & channels", "Prototype menus and export vendor-ready JSON.", Wifi, "Ready"],
-  ["WhatsApp Template Planner", "whatsapp", "Messaging & channels", "Plan opt-in templates without sending.", MessageSquare, "Data needed"],
-  ["Message Assignment Matrix", "message-matrix", "Messaging & channels", "Map message, segment, channel and language.", Filter, "Ready"],
-  ["Language & Compliance", "compliance", "Messaging & channels", "Check copy length, language and rule risks.", ShieldCheck, "Live"],
-  ["Weekly Content Calendar", "calendar", "Messaging & channels", "Turn pillars into a practical weekly brief.", BarChart3, "Ready"],
-  ["Radio Planner", "radio", "Messaging & channels", "Plan stations, slots and monitoring posture.", Radio, "Data needed"],
-  ["Field Network Tracker", "field-network", "Ground & field", "See assigned versus target counts by ward.", Users, "Data needed"],
-  ["Market-Day Planner", "markets", "Ground & field", "Plan the weekly caravan rotation.", Map, "Ready"],
-  ["Event Saturation Heatmap", "events", "Ground & field", "Find under-served and over-served wards.", BarChart3, "Data needed"],
-  ["Service-Delivery Tracker", "service-delivery", "Ground & field", "Make public projects easy to verify and share.", ShieldCheck, "Ready"],
-  ["Ward Allocation Simulator", "allocation", "Ground & field", "Compare equal and needs-weighted formulas.", SlidersHorizontal, "Ready"],
-  ["Data Update Wizard", "data-update", "Ground & field", "Validate files and download a clean diff.", Check, "Live"],
-  ["KPI Ladder Dashboard", "kpis", "Measurement & reach", "Connect weekly indicators to the threshold.", BarChart3, "Data needed"],
-  ["Ward Link & QR Builder", "links", "Measurement & reach", "Create traceable ward and channel links.", Wifi, "Ready"],
-  ["Offline Waterline", "offline-waterline", "Measurement & reach", "Measure the field layer against the digital layer.", Radio, "Ready"],
-  ["After-Action Review", "review", "Measurement & reach", "Capture learning without naming individuals.", Clipboard, "Ready"],
-  ["Governor Race Calendar", "race-calendar", "Data & targeting", "Track every Gazette deadline, passed and upcoming.", BarChart3, "Live"],
-  ["Polling Agent Planner", "polling-agents", "Ground & field", "Size agents and reserves from official station counts.", Users, "Live"],
-  ["Governor Nomination Path", "nomination-path", "Ground & field", "Tick off the open confirmations and dated filings.", ShieldCheck, "Live"],
+  ["Winning-Number Simulator", "winning-number", "Where the votes come from", "How many votes win, under different turnouts.", SlidersHorizontal, "Live"],
+  ["Coalition Path Builder", "coalition-path", "Where the votes come from", "Which regional shares add up to the winning number.", BarChart3, "Ready"],
+  ["Ward Priority Scorer", "priority-scorer", "Where the votes come from", "Rank the 40 wards with weights you adjust.", Filter, "Ready"],
+  ["Ward Dossier", "ward-dossier", "Where the votes come from", "Everything about one ward on one page.", Map, "Ready"],
+  ["Kitui Map Studio", "map-studio", "Where the votes come from", "See register, population and projects on the map.", Map, "Ready"],
+  ["Pareto Ward Planner", "pareto-wards", "Where the votes come from", "The fewest wards that cover most voters.", Filter, "Ready"],
+  ["Register Growth Tracker", "register-growth", "Where the votes come from", "The new voters since 2022 (reported, unconfirmed) and what they do to the winning number.", BarChart3, "Data needed"],
+  ["Youth & New Voter Calculator", "youth-voters", "Where the votes come from", "Youth and first-time voters under turnout scenarios (modelled from census age shares).", Users, "Data needed"],
+  ["Channel Mix by Sub-county", "channel-mix", "Reach and persuade", "Radio, SMS or in-person needs for each area.", Radio, "Ready"],
+  ["Offline Waterline", "offline-waterline", "Reach and persuade", "Voters online against voters reachable only offline.", Wifi, "Ready"],
+  ["Message Assignment Matrix", "message-matrix", "Reach and persuade", "Which message goes to which segment, channel and language.", Filter, "Ready"],
+  ["Issue-to-Message Matcher", "issue-matcher", "Reach and persuade", "The strongest-evidence issue to lead with for each segment.", MessageSquare, "Ready"],
+  ["Service-Delivery Tracker", "service-delivery", "Reach and persuade", "County projects to verify and turn into proof.", ShieldCheck, "Ready"],
+  ["Ward Equity Analyzer", "ward-equity", "Reach and persuade", "Project spend per 1,000 voters in each ward.", BarChart3, "Ready"],
+  ["Governor Race Calendar", "race-calendar", "Deadlines and readiness", "Every Gazette deadline, passed and upcoming.", BarChart3, "Live"],
+  ["Governor Nomination Path", "nomination-path", "Deadlines and readiness", "The remaining confirmations and filings.", ShieldCheck, "Live"],
+  ["Polling Agent Planner", "polling-agents", "Deadlines and readiness", "Agents and reserves needed for each station.", Users, "Live"],
+  ["Weekly Content Calendar", "calendar", "Daily content work", "The pillars laid out as a week of posts.", BarChart3, "Ready"],
+  ["Message Studio", "message-studio", "Daily content work", "Preview one message across every channel.", MessageSquare, "Ready"],
+  ["Fact Card Generator", "fact-cards", "Daily content work", "Any site figure as a ready-to-post line with its source.", Clipboard, "Ready"],
+  ["Radio Planner", "radio", "Daily content work", "The eight Kikamba stations, their ownership and how to approach each.", Radio, "Ready"],
+  ["Ward Comparison", "ward-compare", "Deeper planning", "Two to four wards side by side.", Map, "Ready"],
+  ["Constituency Scorecard", "constituency-scorecard", "Deeper planning", "One card per constituency.", Clipboard, "Ready"],
+  ["Zone Effort Planner", "zone-effort", "Deeper planning", "Split effort across the Anchor, Arid and Mwingi zones.", SlidersHorizontal, "Ready"],
+  ["Voter Density Finder", "voter-density", "Deeper planning", "Where a field day reaches the most voters.", Map, "Ready"],
+  ["Ward Allocation Simulator", "allocation", "Deeper planning", "Equal against needs-weighted splits between wards.", SlidersHorizontal, "Ready"],
+  ["County Money Explainer", "county-money", "Context and talking points", "The budget, audit queries and pending bills.", BarChart3, "Ready"],
+  ["Drought & Livelihood Watch", "drought-watch", "Context and talking points", "Drought, food, prices and livestock.", Radio, "Ready"],
+  ["2017 → 2022 Swing Viewer", "swing-viewer", "Context and talking points", "How the governor vote moved, countywide (ward results for 2017 are not yet in hand).", BarChart3, "Data needed"],
+  ["USSD Flow Builder", "ussd", "Supporting utilities", "Prototype the USSD menu.", Wifi, "Ready"],
+  ["Language & Compliance", "compliance", "Supporting utilities", "Check copy against the SMS guidelines.", ShieldCheck, "Ready"],
+  ["KPI Ladder", "kpis", "Supporting utilities", "Test indicator values against the targets.", BarChart3, "Ready"],
+  ["Polling Station Explorer", "polling-stations", "Supporting utilities", "Search every 2022 polling station.", Search, "Ready"],
+  ["Ward Link & QR Builder", "links", "Supporting utilities", "Trackable links for each ward.", Wifi, "Ready"],
+  ["Assumptions Panel", "assumptions", "Supporting utilities", "Test the model's figures.", SlidersHorizontal, "Ready"],
+  ["Sources & Data Gaps", "sources", "Supporting utilities", "Where every figure comes from.", ShieldCheck, "Ready"],
 ].map(([name, slug, family, description, icon, freshness], index) => ({ id: index + 1, name, slug, family, description, icon, freshness } as Tool));
 
-const families: Family[] = ["All", "Data & targeting", "Messaging & channels", "Ground & field", "Measurement & reach"];
+const families: Family[] = ["All", "Where the votes come from", "Reach and persuade", "Deadlines and readiness", "Daily content work", "Deeper planning", "Context and talking points", "Supporting utilities"];
 
 function formatNumber(value: number) { return new Intl.NumberFormat("en-KE").format(value); }
 

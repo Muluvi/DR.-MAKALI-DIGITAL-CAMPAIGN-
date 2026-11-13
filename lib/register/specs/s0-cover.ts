@@ -47,9 +47,9 @@ export const FIG_COVER_MAP: FigureSpec = {
         chart: {
           type: "stats",
           items: [
-            { value: fmt("register.2026"), label: "registered voters, July 2026 (reported)", state: "sourced", countTo: F("register.2026").value ?? undefined },
+            { value: fmt("register.2022"), label: `registered voters, 2022 (IEBC); ${fmt("register.2026")} reported for July 2026, unconfirmed`, state: "sourced", countTo: F("register.2022").value ?? undefined },
             { value: `≈${fmt("benchmark")}–${fmt("benchmark.2026-equivalent.rounded")}`, label: "votes to win: the 2022 winner's share, carried to the 2026 register", state: "modelled" },
-            { value: `${fmt("pool.share")}%`, label: "of the register in Mwingi and Kitui South, where he has never held office", state: "modelled" },
+            { value: `${fmt("pool.share")}%`, label: "of the register in Mwingi and Kitui South, furthest from his base", state: "modelled" },
             { value: fmt("register.polling-stations"), label: "polling stations across the 40 wards (IEBC 2022)", state: "sourced" },
           ],
         },
