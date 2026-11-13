@@ -1,13 +1,10 @@
-```lead
-Six risks decide whether this plan survives contact, and the attacks it will face are answered by a protocol rehearsed in advance, kept inside defamation law and built on public sources only.
-```
 
-Six risks decide whether this plan survives contact, and the attacks it will face are answered by a protocol rehearsed in advance, kept inside defamation law and built on public sources only. This chapter sets out the risks and responses to them, the war room and rapid-response protocol, the defamation safeguards, the protocol for manipulated media aimed at Dr. Makali Mulu, and the rules for monitoring competitors.
+Six risks decide whether this plan survives contact, and the attacks it will face are answered by a protocol rehearsed in advance, kept inside defamation law and built on public sources only. Makali Mulu, and the rules for monitoring competitors.
 
-## 20.1 Risks and responses
+## Risks and responses
 
 Six risks decide whether this plan survives contact. Everything after this section is how each
-is handled; Annex F carries the runbooks.
+is handled; [Runbooks](#annex-runbooks) carries the runbooks.
 
 ```figure
 id: fig-5-8-risk
@@ -19,13 +16,13 @@ measurement rather than by contingency: one by obtaining the party's 2027 nomina
 other by the Week 1 presence audit. Both resolve inside the first weeks, which is the argument for
 starting there.
 
-**R6 is the risk specific to this engagement's shape.** A direction model with no disagreement
+**R6 is the risk specific to this operating model.** A direction model with no disagreement
 protocol fails on its first collision — and it fails quietly, because a team that is overruled once
 stops raising the objection rather than stopping the behaviour. The override log exists so that
 friction surfaces as evidence instead of as attrition.
 ```
 
-## 20.2 The war room
+## The war room
 
 > **The protocol follows below; the runbooks hold the reference material.** The four-tier response
 > decision tree, the response times by channel and the pre-approved message library follow this
@@ -35,21 +32,17 @@ friction surfaces as evidence instead of as attrition.
 > awareness. They are operational detail: what a principal approves is that they exist
 > and are proportionate, which this section states.
 >
-> *Source conflict: an earlier version lettered these runbooks E.1–E.12; they sit in Annex F, and the letters above are the current ones.*
 
-```lead
-In Kitui County, ground rumours and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
-```
 
 In a governor's race, unchecked misinformation and coordinated political attacks can erode voter trust within hours. In Kitui County, ground rumours and hostile talking points travel primarily through two high-velocity vectors: **morning vernacular radio talk shows (06:00–09:00 EAT)** and **hyper-local ward WhatsApp groups**.
 
-The campaign enforces a disciplined **rapid-response and opposition-handling system**. This framework is governed by the **defamation safeguards in Section 20.3**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
+The campaign enforces a disciplined **rapid-response and opposition-handling system**. This framework is governed by the **defamation safeguards in [Staying inside defamation law](#response-staying-inside-defamation-law)**: all rebuttals focus exclusively on certified public records, legislative Hansard transcripts, and verifiable policy positions, completely eschewing personal invective or unsubstantiated allegations against political rivals.
 
 ```figure
 id: rapid-response-flow
 ```
 
-**Expect the scorecard's numbers.** The incumbent's *Delivering the Kitui Promise* scorecard is the main attack and defence document in this race. Its headline figures ({{scorecard.claimed}} projects, {{scorecard.boreholes.drilled}} boreholes, {{scorecard.roads.graded}} km of roads graded) will come up in debates and on air. The answers are prepared from its own itemised tables: {{scorecard.itemised}} projects worth KSh {{scorecard.itemised.ksh|bn}} billion, the itemised totals by constituency in Section 3.7, and the tracker's questions in Section 15.1.1. They are put as questions, never as accusations.
+**Expect the scorecard's numbers.** The incumbent's *Delivering the Kitui Promise* scorecard is the main attack and defence document in this race. Its headline figures ({{scorecard.claimed}} projects, {{scorecard.boreholes.drilled}} boreholes, {{scorecard.roads.graded}} km of roads graded) will come up in debates and on air. The answers are prepared from its own itemised tables: {{scorecard.itemised}} projects worth KES {{scorecard.itemised.ksh|bn}} billion, the itemised totals by constituency in [How county money is spent](#needs-how-county-money-is-spent), and the tracker's questions in [Workstream 1 — Owned platforms and the service-delivery tracker](#workstreams-workstream-1-owned-platforms-and-the-service-delivery-tracke). They are put as questions, never as accusations.
 
 #### What we monitor, and how threats reach us
 
@@ -59,13 +52,13 @@ The campaign monitors four complementary intelligence streams around the clock:
 kind: cards
 items:
   - title: "Vernacular radio triage (06:00–21:00 EAT)"
-    body: "Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Syokimau FM, County FM*, and *Athiani FM*, the stations in the Section 4.2 ownership map. Immediate audio clipping of candidate mentions or political challenger assertions."
+    body: "Dedicated audio recording monitors tracking morning and evening talk shows across *Musyi FM, Mbaitu FM, Syokimau FM, County FM*, and *Athiani FM*, the stations in the [Who owns the airwaves](#news-who-owns-the-airwaves) ownership map. Immediate audio clipping of candidate mentions or political challenger assertions."
   - title: "Ward WhatsApp network"
     body: "40 Constituency Monitoring Assistants monitoring ~{{target.whatsapp-groups}} major community, market, church, and clan WhatsApp groups across all eight sub-counties."
   - title: "Social listening keyword feeds"
     body: "Automated continuous tracking via Brand24 / Talkwalker of high-frequency keywords: *\"Dr. Makali Mulu\"*, *\"Kitui Governor 2027\"*, *\"Kitui Central CDF\"*, *\"Ndengu price\"*, and competitor candidate handles."
   - title: "Field captain rumour logs"
-    body: "Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, Section 13.3) logging prevalent market-day and baraza whispers."
+    body: "Twice-daily SMS pulse reports from the campaign's ward captains (campaign-owned, [What the operation does not cover](#engagement-what-the-operation-does-not-cover)) logging prevalent market-day and baraza whispers."
 ```
 
 #### War room operating model, shift coverage and dashboard view
@@ -83,7 +76,7 @@ During peak periods (January–August 2027), the war room operates on a three-sh
 
 The command console centralises real-time metrics: live sentiment score; trending hashtags; competitor activity alerts; misinformation tracking log; response status tracker; hourly engagement; and **SMS delivery and opt-out rates**.
 
-## F.1 Four tiers of response
+## Four tiers of response
 
 To avoid elevating fringe attacks or wasting campaign capital, the campaign judges every incident against a four-tier **response decision tree**:
 
@@ -94,13 +87,13 @@ id: response-matrix
 <model-embed slug="response-tier">
 </model-embed>
 
-## F.2 Response times by channel
+## Response times by channel
 
 ```figure
 id: response-sla
 ```
 
-## F.5 The protocol and message library
+## The protocol and message library
 
 The response levels are the four severity tiers of the decision tree in F.1: what puts an incident in each tier, what the campaign does, how fast, who drafts and who approves. Who approves what, in How it works, draws the same tiers from the same data.
 
@@ -113,10 +106,10 @@ items:
   - label: "Kikamba, Kiswahili and English versions of key messages"
   - label: "Template statements for policy positions issued in response to attack"
   - label: "Fact-check cards linking to verified sources"
-  - label: "**Deepfake first-response templates** (Section 20.4)"
+  - label: "**Deepfake first-response templates** (see [Manipulated media and cyber security](#response-manipulated-media-and-cyber-security))"
 ```
 
-## 20.3 Staying inside defamation law
+## Staying inside defamation law
 
 All campaign communicators, surrogates, and media buyers are bound by the following three defamation safeguards:
 
@@ -132,13 +125,10 @@ items:
     body: "Any advertising spot, leaflet, or press release naming an opposing candidate must receive written legal pre-clearance from the campaign's legal counsel before broadcast or circulation."
 ```
 
-## 20.4 Manipulated media and cyber security
+## Manipulated media and cyber security
 
 #### The deepfake and manipulated media protocol
 
-```lead
-AI-generated video of serving Kenyan public figures has already circulated widely.
-```
 
 *The threat that most warrants specific preparation.*
 
@@ -172,7 +162,7 @@ title: "Detection"
 items:
   - label: "Monitoring for candidate-name mentions attached to video and audio across platforms and, critically, in WhatsApp groups where ward champions can report what monitoring tools cannot see"
   - label: "Ward champions briefed to report suspicious media immediately through a dedicated channel — **the human network is the primary detection layer** for private-group circulation"
-  - label: "Detection tooling at premium tier, selected at contracting from a shortlist tested against a sample of real Kikamba and Kiswahili media: Deeptrack (Nairobi), Phan0s by CADMUS Cyber Solutions (built to the Data Protection Act 2019) and Sumsub's deepfake detector for Africa."
+  - label: "Detection tooling, selected from a shortlist tested against a sample of real Kikamba and Kiswahili media: Deeptrack (Nairobi), Phan0s by CADMUS Cyber Solutions (built to the Data Protection Act 2019) and Sumsub's deepfake detector for Africa."
 ```
 
 ```visual
@@ -187,9 +177,9 @@ items:
     label: "Candidate and senior leadership briefed; response approved"
   - when: "20–30"
     label: "Publish: plain statement of falsity, the verified original where one exists, and provenance evidence."
-    body: "Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (Section 15.3.3)"
+    body: "Simultaneously in Kikamba, Kiswahili and English, across all channels **except bulk SMS, which the 48-hour lodging rule rules out of rapid response entirely** (see [Workstream 9 — What your team operates: SMS, USSD and voice](#workstreams-workstream-9-what-your-team-operates-sms-ussd-and-voice))"
   - when: "30–120"
-    label: "Platform reports filed; journalists briefed directly (Section 15.2.2); ward champions supplied with a forwarding-friendly correction card for WhatsApp"
+    label: "Platform reports filed; journalists briefed directly (see [Workstream 6 — Earned media, journalists and debates](#workstreams-workstream-6-earned-media-journalists-and-debates)); ward champions supplied with a forwarding-friendly correction card for WhatsApp"
   - when: "Same day"
     label: "Legal options reviewed with counsel"
 ```
@@ -204,9 +194,9 @@ lie.
 This is stated in the charter, rehearsed in drills, and is the reason the
 campaign's own deepfake denials will be believed.
 
-## 20.5 Monitoring competitors from public sources
+## Monitoring competitors from public sources
 
-*Analysis of the rivals themselves is in Section 5.5; the tools are in Annex F.4 and the outputs in Annex F.11.*
+*Analysis of the rivals themselves is in [Each rival, and the legal limits](#race-each-rival-and-the-legal-limits); the tools are in [Monitoring tools](#annex-runbooks-monitoring-tools) and the outputs in [Competitor intelligence outputs and alerts](#annex-runbooks-competitor-intelligence-outputs-and-alerts).*
 
 #### Public sources only, and the line we do not cross
 
@@ -219,11 +209,7 @@ no infiltration of private groups, no purchase of private data, and no
 research into rivals' families or private lives.** Opposition research means
 knowing what opponents say publicly, not surveilling them.
 
-## 20.6 Platform risks and election-day fallbacks
-
-```lead
-The platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day.
-```
+## Platform risks and election-day fallbacks
 
 The platform carries risks of its own: an outage, a lost record, a wrong edit, a name typed where it should not be. Each has a fallback the team rehearses before polling day, and none of them depends on the platform being up.
 
@@ -232,8 +218,6 @@ The platform carries risks of its own: an outage, a lost record, a wrong edit, a
 | The site or the workspace is down | Monitoring and alerts; every change tried on a staging site first | Pages already opened stay readable offline; ward reports go to the constituency coordinator by phone and are entered once the site is back |
 | A record is lost or damaged | Daily backups, and a restore test each month | Restore from the last backup; the change history puts back any single edit exactly |
 | A wrong figure or record is saved | The data checks run before anything is saved | Revert it from the change history |
-| A name, phone or ID number is typed into a form | Forms refuse phone and ID numbers; training says why | Firefly removes it at once, and the data-protection lead decides whether it must be reported |
-| Someone alters or defaces the records | Every change is logged and nothing can be deleted; each visitor's saves are rate limited | Each change is put back from the change history; Firefly can pause saving for everyone while it is cleaned up |
 | A late change breaks something | A change freeze before polling day | Nothing ships in the freeze except a fix the on-call lead approves |
 
 ```visual

@@ -26,7 +26,7 @@ export type PriorityWard = {
 export const CRITERIA = [
   { key: "voters", label: "Register size", hint: "Registered voters, 2022" },
   { key: "pool", label: "Where he has not held office", hint: "Wards in Mwingi North, West, Central and Kitui South" },
-  { key: "stations", label: "Polling stations", hint: "Official station count, 2022" },
+  { key: "stations", label: "Polling stations", hint: "Polling-station count, 2022" },
   { key: "projects", label: "County projects to cite", hint: "Itemised scorecard projects placed in the ward" },
 ] as const;
 

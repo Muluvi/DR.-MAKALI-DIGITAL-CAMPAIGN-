@@ -19,7 +19,7 @@
  * proposal assumes it is signed, and the reader sees the weeks (`window`), not those dates.
  */
 
-export interface Phase {
+interface Phase {
   id: string;
   label: string;
   /** The window as a reader sees it. */
@@ -84,7 +84,3 @@ export function phaseWhen(p: Phase): string {
   return p.weeks ? `Weeks ${p.weeks.from}–${p.weeks.to} from signature` : p.window.split(" · ")[0];
 }
 
-export function phaseColor(id: string): string {
-  const phase = PHASES.find((p) => p.id === id);
-  return `var(${phase?.colorVar ?? "--color-accent"})`;
-}

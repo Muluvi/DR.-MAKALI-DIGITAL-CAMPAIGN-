@@ -10,11 +10,9 @@
 // time — so any build that imports this module (which app/page.tsx does, transitively,
 // through WardCartogram and every Phase 6 chart) fails immediately if the register and its
 // totals are ever edited out of sync.
-import type { Provenance } from "./types";
-import { IEBC_WARD_REGISTER } from "./sources";
 import raw from "./ward-register.json";
 
-export interface Ward {
+interface Ward {
   name: string;
   voters: number;
 }
@@ -26,14 +24,10 @@ export interface Constituency {
   wards: Ward[];
 }
 
-export const WARD_REGISTER_PROVENANCE: Provenance = {
-  source: IEBC_WARD_REGISTER,
-  granularity: "ward",
-};
 
-export const PRISON_VOTERS: number = raw.prisonVoters;
-export const COUNTY_TOTAL_WARDS: number = raw.countyTotalWards;
-export const COUNTY_TOTAL_WITH_PRISONS: number = raw.countyTotalWithPrisons;
+const PRISON_VOTERS: number = raw.prisonVoters;
+const COUNTY_TOTAL_WARDS: number = raw.countyTotalWards;
+const COUNTY_TOTAL_WITH_PRISONS: number = raw.countyTotalWithPrisons;
 export const CONSTITUENCIES: Constituency[] = raw.constituencies;
 
 function assertWardRegisterIntegrity(): void {
@@ -66,16 +60,6 @@ function assertWardRegisterIntegrity(): void {
 }
 assertWardRegisterIntegrity();
 
-export const TOTAL_WARDS = CONSTITUENCIES.reduce((sum, c) => sum + c.wards.length, 0);
 
-/** All 40 wards flattened, each tagged with its constituency — the shape the Phase 6 "Path to
- * 200,000" chart sorts and accumulates. */
-export const ALL_WARDS: { constituencyId: string; constituencyName: string; name: string; voters: number }[] =
-  CONSTITUENCIES.flatMap((c) => c.wards.map((w) => ({ constituencyId: c.id, constituencyName: c.name, name: w.name, voters: w.voters })));
 
-/** Constituencies sorted by register size, descending — Kitui Central (77,764) is largest. */
-export const CONSTITUENCIES_BY_SIZE = [...CONSTITUENCIES].sort((a, b) => b.voters - a.voters);
 
-/** The three Mwingi constituencies alone (§3.4.2 caption: they total 200,198 — the win
- * threshold is reachable from that bloc on its own). */
-export const MWINGI_BLOC_TOTAL = CONSTITUENCIES.filter((c) => c.id.startsWith("mwingi-")).reduce((sum, c) => sum + c.voters, 0);

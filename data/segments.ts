@@ -19,7 +19,7 @@ import { formatFigure } from "../lib/data/format.ts";
 import { figure } from "../lib/data/figures.ts";
 import { withTeamEdits } from "../lib/data/team-overlay.ts";
 
-export interface Segment {
+interface Segment {
   id: "agrarian" | "pastoralist" | "youth" | "msme" | "professionals" | "diaspora";
   name: string;
   shortName: string;
@@ -78,7 +78,7 @@ export const segment = (id: Segment["id"]): Segment => {
 /** A segment's size as a cell prints it: "≈507,000 registered voters (modelled)" or "Not sized". */
 export function sizeText(s: Segment): string {
   if (!s.size) return "Not sized";
-  return `≈${f(s.size)} registered voters (modelled)`;
+  return `≈${f(s.size)} registered voters`;
 }
 
 /** Its share, where it has one: "95.2% of county population". */

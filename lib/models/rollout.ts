@@ -40,7 +40,7 @@ export type RolloutPlan = {
 
 const DAY = 86_400_000;
 const parse = (iso: string): number => Date.parse(`${iso}T00:00:00Z`);
-export const isoDay = (t: number): string => new Date(t).toISOString().slice(0, 10);
+const isoDay = (t: number): string => new Date(t).toISOString().slice(0, 10);
 export const addDays = (iso: string, days: number): string => isoDay(parse(iso) + days * DAY);
 /** Whole and part weeks from a to b (b after a is positive). */
 export const weeksBetween = (a: string, b: string): number => (parse(b) - parse(a)) / (7 * DAY);

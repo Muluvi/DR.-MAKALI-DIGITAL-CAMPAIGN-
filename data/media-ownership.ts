@@ -17,7 +17,7 @@ const SDA_CHURCH: Source = { name: "Seventh-Day Adventist Church, Kitui (publicl
 const KBC_STATE: Source = { name: "Kenya Broadcasting Corporation, state ownership (public record)", publicationDate: "2026", tier: 2 };
 const INDEPENDENT_LAUNCH: Source = { name: "Reported independent ownership, launched 2023", publicationDate: "2023", tier: 2 };
 
-export interface RadioStation {
+interface RadioStation {
   name: string;
   /**
    * Frequency as publicly listed for the Kitui/Mwingi service area, or null where the Kitui

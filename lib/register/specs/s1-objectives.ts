@@ -12,7 +12,7 @@ export const TODAY = "2026-09";
 export const ELECTION = ELECTION_DAY;
 export const NOMINATION = { date: NOMINATION_WINDOW.date, end: NOMINATION_WINDOW.end, whenText: NOMINATION_WINDOW.whenText };
 
-export const FIG_1_1: FigureSpec = {
+const FIG_1_1: FigureSpec = {
   id: "fig-1-1-timeline",
   section: "1.2",
   title: "There are about eleven months to the election, and the nomination window comes first, within weeks",
@@ -73,12 +73,12 @@ const OBJECTIVES = [
   },
 ];
 
-export const FIG_1_3: FigureSpec = {
+const FIG_1_3: FigureSpec = {
   id: "fig-1-3-objectives",
   section: "1.3",
   title: "Each of the five objectives answers one finding and is judged by one observable measure",
   question: "What are the five objectives, and what does each serve?",
-  takeaway: "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 18.1.",
+  takeaway: "No objective stands on its own: each starts from a finding in the data and ends in an indicator in Measuring success.",
   sources: [{ name: "This proposal, Sections 2 and 5.1", tier: null, state: "target" }],
   chart: {
     type: "cards",
@@ -87,7 +87,7 @@ export const FIG_1_3: FigureSpec = {
       kicker: `Objective ${o.n}`,
       title: o.title,
       body: o.target,
-      meta: `Target, set by this proposal`,
+      meta: `Set by this plan`,
       links: [
         { label: `Finding ${o.finding}`, href: secHref(o.finding) },
         { label: `Strategy ${o.serves}`, href: secHref(o.serves) },
@@ -107,7 +107,7 @@ export const FIG_1_3: FigureSpec = {
 
 /* ------------------------------------------------------------------ how the engagement runs */
 
-export const FIG_1_4: FigureSpec = {
+const FIG_1_4: FigureSpec = {
   id: "fig-1-4-flow",
   section: "1.4.1",
   title: "His team analyses, sets the strategy and directs on the platform, and keeps publishing throughout",
@@ -141,7 +141,7 @@ export const FIG_1_4: FigureSpec = {
 
 /* ------------------------------------------------------------------ the scorecard */
 
-export const FIG_1_5: FigureSpec = {
+const FIG_1_5: FigureSpec = {
   id: "fig-1-5-scorecard",
   section: "1.9",
   title: "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",

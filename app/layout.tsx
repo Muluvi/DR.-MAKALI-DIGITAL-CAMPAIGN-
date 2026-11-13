@@ -1,191 +1,42 @@
-import type { Metadata, Viewport } from 'next';
-import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google';
-import './globals.css'; // Global styles
-import './register.css'; // The figure register's visual system
-import './premium.css'; // The 2026 premium layer
-import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
-import './motion-draw.css'; // How each visual arrives and how folds and tabs open (after the marks it moves)
-import './streamline.css'; // The summary layer: the route map and the chapter digests
-import './fx-suite.css'; // The site-wide effects layer (components/fx, lib/fx), last so it composes over the rest
-import { FxRoot } from '@/components/fx/FxRoot';
-
-// The variable axis, not a pair of static cuts.
-//
-// Bricolage Grotesque is the display and UI face (2026 premium pass, replacing Montserrat, which
-// is wide and tiring at small sizes over 47,000 words). Its optical-size axis lets one family set
-// both a 17rem act numeral and an 11px label; its width axis sets display type slightly
-// condensed. Newsreader carries the reading prose. Both are self-hosted and subset by next/font.
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  axes: ['opsz', 'wdth'],
-  variable: '--font-display',
-  display: 'swap',
-  adjustFontFallback: true,
-  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-});
-
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  variable: '--font-newsreader',
-  display: 'swap',
-  // Not preloaded (visual-first pass, mobile performance): its two files are 120 kB, and preloaded
-  // they competed with the render-blocking CSS for the first second on slow 4G. The adjusted
-  // Georgia fallback holds the same metrics, so the swap moves nothing.
-  preload: false,
-  style: ['normal', 'italic'],
-  fallback: ['Georgia', 'Charter', 'serif'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-  // Not preloaded: nothing on the first screen is set in mono, and on slow 4G its 40 kB competed
-  // with the hero portrait for the critical path (docs/optimisation-audit.md).
-  preload: false,
-  fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-});
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
-  viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f9f5ed' },
-    { media: '(prefers-color-scheme: dark)', color: '#060d1a' },
+    { media: "(prefers-color-scheme: light)", color: "#f9f6ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1322" },
   ],
 };
 
-const TITLE = 'Kitui 2027 — Analysis, Strategy and Direction';
-const DESCRIPTION =
-  'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026, revised November 2026.';
+const TITLE = "Kitui 2027 — Data, analysis and plan";
+const DESCRIPTION = "The data, analysis, objectives, strategies and implementation plan for Hon. Dr. Makali Mulu's 2027 Kitui gubernatorial campaign.";
 
-/**
- * The share card, and why there is one.
- *
- * `twitter:card` was already `summary_large_image` with no `og:image` behind it. A large-image
- * card with no image is the one preview shape that renders as broken rather than plain — and this
- * is a link-only document whose reader will almost certainly meet it as a WhatsApp message.
- *
- * It is typographic, not a photograph (DECISIONS.md D-8): a confidential proposal that paints the
- * candidate's face into every chat thread it is forwarded through has a different confidentiality
- * posture from the one §1.2 sets out, and that is Firefly's call to make, not a default to assume.
- *
- * Built by scripts/build-og-image.mjs and committed, so no image is generated at request time and
- * no third party is contacted to serve it. `noindex, nofollow` is untouched: a preview card is
- * shown to whoever was sent the link, which is not the same thing as being indexed.
- */
-const OG_IMAGE = {
-  url: '/og/kitui-2027.png',
-  width: 1200,
-  height: 630,
-  alt: 'Kitui 2027 — Analysis, strategy and direction. Prepared for Hon. Dr. Benson Makali Mulu. Firefly Management, September 2026, revised November 2026.',
-};
-
-/**
- * The origin relative metadata URLs resolve against.
- *
- * WhatsApp, Slack and Twitter fetch `og:image` as an absolute URL and ignore a relative one, so
- * without this the card would be declared and never fetched.
- *
- * THE ORDER MATTERS, and it was wrong. `VERCEL_URL` is the DEPLOYMENT hostname
- * (`…-a1b2c3.vercel.app`), not the production domain — so on a custom domain every share card
- * pointed at a per-deployment URL that is not the one the reader has, and that changes on every
- * push. `NEXT_PUBLIC_SITE_ORIGIN` is read first for that reason: set it to the canonical domain
- * in the Vercel project and the card is stable and correct. `VERCEL_URL` stays as the fallback so
- * a preview deployment still previews its own card, and the production hostname behind that so a
- * local build has something absolute to resolve against.
- *
- * Whatever you set, send the link to yourself on WhatsApp once and look at the card. It is a
- * thirty-second test that catches a class of bug nothing else does.
- */
 const SITE_ORIGIN =
   process.env.NEXT_PUBLIC_SITE_ORIGIN ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'https://dr-makali-digital-campaign.vercel.app');
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://dr-makali-digital-campaign.vercel.app");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: TITLE,
   description: DESCRIPTION,
-  robots: {
-    index: false,
-    follow: false,
-  },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: 'website',
-    images: [OG_IMAGE],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [OG_IMAGE],
-  },
+  robots: { index: false, follow: false },
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [{ url: "/og/kitui-2027.png", width: 1200, height: 630, alt: "Kitui 2027" }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og/kitui-2027.png"] },
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`dark ${bricolage.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-KE">
       <head>
-        {/* The 2.1 story pins its county only where motion is welcome. Deciding that here, before
-            the first paint, lets the story's CSS lay out the pinned steps from the start instead of
-            switching after hydration, which shifted the evidence page (CLS 0.48). */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.setAttribute("data-story-pin","");document.documentElement.classList.add("fx-on")}}catch(e){}`,
-          }}
-        />
-        {/* The theme, before first paint (visual-first pass). A stored choice wins; without one the
-            page follows the device's colour scheme. Setting the class here, not after hydration,
-            removes the flash of the dark ground a light-theme reader used to get. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=null;try{t=localStorage.getItem("theme")}catch(e){}var l=t==="light"||t==="sepia"||(t!=="dark"&&matchMedia("(prefers-color-scheme: light)").matches);document.documentElement.classList.toggle("dark",!l)}catch(e){}`,
-          }}
-        />
-        {/* Unregister any production service worker and clear stale chunk caches in development or sandbox preview environments */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if('serviceWorker' in navigator && (location.hostname.includes('run.app') || location.hostname === 'localhost')){navigator.serviceWorker.getRegistrations().then(function(regs){for(var i=0;i<regs.length;i++){regs[i].unregister()}});if('caches' in window){caches.keys().then(function(keys){for(var j=0;j<keys.length;j++){caches.delete(keys[j])}})}}`,
-          }}
-        />
-        {/* The branded intro plays once per visit, on the front door only. Decided before first
-            paint so a returning reader or a deep link never sees it; it is pure CSS, ends itself,
-            and never blocks a click (pointer-events: none), so nothing depends on script. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var s=sessionStorage.getItem("kitui2027:fx-splash");if(s||location.pathname!=="/"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-fx-nosplash","");else sessionStorage.setItem("kitui2027:fx-splash","1")}catch(e){document.documentElement.setAttribute("data-fx-nosplash","")}`,
-          }}
-        />
-        {/* With scripts off, no fold, accordion, card or tab can open, so every one ships open
-            and its control is hidden (brief §Q: JS-off; lib/fold.ts). */}
-        <noscript>
-          <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}[data-row-more]{display:revert!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-panel__btn,.pf-textver__summary,.vz-tabs__list,.fx-trigger{display:none!important}`}</style>
-        </noscript>
+        {/* Chart styles are needed only once a chapter loads below the first screen, so they are
+            requested after the page has loaded and never compete with the first paint. */}
+        <script dangerouslySetInnerHTML={{ __html: `addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/charts.css";document.head.appendChild(l)})` }} />
+        {/* eslint-disable-next-line @next/next/no-css-tags -- the same sheet for readers without JavaScript */}
+        <noscript><link rel="stylesheet" href="/charts.css" /></noscript>
       </head>
-      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">
-        <div className="fx-splash print:hidden" aria-hidden="true">
-          <span className="fx-splash__panel fx-splash__panel--l" />
-          <span className="fx-splash__panel fx-splash__panel--r" />
-          <span className="fx-splash__mark">
-            <svg viewBox="0 0 120 120" width="72" height="72" fill="none">
-              <path d="M60 20 C30 20 16 42 12 58 C24 53 42 53 60 58 Z" pathLength="1" className="fx-splash__l" />
-              <path d="M60 20 C90 20 104 42 108 58 C96 53 78 53 60 58 Z" pathLength="1" className="fx-splash__r" />
-              <path d="M60 58 V92 C60 99 51 99 51 92" pathLength="1" className="fx-splash__h" />
-            </svg>
-            <span className="fx-splash__word">Kitui 2027</span>
-            <span className="fx-splash__bar"><span /></span>
-          </span>
-        </div>
-        {children}
-        <FxRoot />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
-

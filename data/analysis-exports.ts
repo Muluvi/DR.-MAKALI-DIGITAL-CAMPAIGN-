@@ -75,11 +75,7 @@ export const ANALYSIS_EXPORTS = {
   "water-and-drought": waterAndDrought as ExportChart,
 } as const;
 
-export type ExportId = keyof typeof ANALYSIS_EXPORTS;
 
-export function analysisExport(id: ExportId): ExportChart {
-  return ANALYSIS_EXPORTS[id];
-}
 
 const METHODS: ReadonlySet<string> = new Set(["official", "calculated", "modelled"]);
 const STATUSES: ReadonlySet<string> = new Set(["confirmed", "verify", "placeholder"]);
@@ -129,17 +125,5 @@ export function assertExportIntegrity(exports: Record<string, ExportChart> = ANA
 }
 assertExportIntegrity();
 
-/** Numeric values only, for plotting. String-valued rows (drought phases) are skipped. */
-export function numericValues(chart: ExportChart): (ExportValue & { value: number })[] {
-  return chart.values.filter((v): v is ExportValue & { value: number } => typeof v.value === "number");
-}
 
-/** True when any value in the chart is unconfirmed — drives the block-level warning. */
-export function hasUnverified(chart: ExportChart): boolean {
-  return chart.values.some((v) => v.status === "verify");
-}
 
-/** True when any value is modelled — drives the "modelled, not measured" label. */
-export function isModelled(chart: ExportChart): boolean {
-  return chart.values.some((v) => v.method === "modelled");
-}

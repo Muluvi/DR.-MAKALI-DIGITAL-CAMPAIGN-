@@ -15,7 +15,7 @@ export type AgentSum = { base: number; reserves: number; supervisors: number; to
 /** The plan can be drawn only once agents per station is a positive number and the reserve is not negative. */
 export const agentInputsReady = (i: AgentInputs): boolean => i.perStation > 0 && i.reservePct >= 0;
 
-export function agentLine<W extends StationRow>(w: W, i: AgentInputs): AgentLine<W> {
+function agentLine<W extends StationRow>(w: W, i: AgentInputs): AgentLine<W> {
   const base = w.stations * i.perStation;
   const reserves = Math.ceil((base * i.reservePct) / 100);
   const supervisors = i.perSupervisor > 0 ? Math.ceil(w.stations / i.perSupervisor) : 0;

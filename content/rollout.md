@@ -1,14 +1,7 @@
-```lead
+
 **The platform reaches all 40 wards in six implementation phases: the centre first, then two pilot constituencies, then the rest.** Each phase is accepted before the next starts, and every coordinator is trained on their own phone.
-```
 
-**The platform reaches all 40 wards in six implementation phases: the centre first, then two pilot constituencies, then the rest.** Each phase is accepted before the next starts, and every coordinator is trained on their own phone. This chapter sets out the phases against the gazetted dates, the order in which the county comes onto the platform, how each role is trained, what each role can use and when, and what stays off the platform.
-
-## 24.1 Six implementation phases, against the gazetted dates
-
-```lead
-The six implementation phases start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar.
-```
+## Six implementation phases, against the gazetted dates
 
 The six implementation phases start the week the first phase is approved, not on an assumed signature date, and each is laid against the gazetted calendar. The campaign's own phases, in the Timeline chapter, are what the campaign does; these six are how the platform it works on becomes something a county-wide team can rely on.
 
@@ -29,11 +22,7 @@ The dates that do not move are the Gazette's: Governor nominations and the Gover
 <model-embed slug="rollout-planner">
 </model-embed>
 
-## 24.2 The centre first, then two pilot constituencies, then the rest
-
-```lead
-The central team starts entering once the live database is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves.
-```
+## The centre first, then two pilot constituencies, then the rest
 
 The central team starts entering once the live database is proven. Two contrasting constituencies then run the weekly cycle on the platform for an agreed run of weeks, and the rest follow in waves. Contrasting means one where Dr. Mulu is known and one where he has never held office, so the pilot meets both the easiest and the hardest conditions the county offers before anything is rolled out.
 
@@ -51,21 +40,13 @@ items:
 
 **It is finished when** the weekly cycle has run on the platform for the agreed run of weeks, no severity 1 defect is open, and the pilot's users say they can work on it. **The rollout is finished when** every ward has a trained, active account and the support targets have held for a month. Each wave is trained, then supported for a week before the next begins.
 
-## 24.3 Training by role, on the user's own phone
-
-```lead
-Every user is trained for the job their role does, on the phone they will use, and the training is complete only when they have done that job on the platform themselves.
-```
+## Training by role, on the user's own phone
 
 Every user is trained for the job their role does, on the phone they will use, and the training is complete only when they have done that job on the platform themselves. A ward coordinator learns the field report, not the dashboards; a communications officer learns the calendar, the dispatch log and the rapid-response desk. The guides for each role, in English and Kiswahili, are on the help page.
 
 **The usual failure is not the software.** It is a team that keeps working in chat groups beside the platform, so the platform holds half the record and nobody trusts it. The campaign director's mandate that the weekly cycle runs on the platform, not beside it, is the condition the whole rollout rests on.
 
-## 24.4 What each role can use, and when
-
-```lead
-Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; offline entry and roll-ups come with new development.
-```
+## What each role can use, and when
 
 Reference and planning are open today, without an account; the operating cycle opens once the workspace is proven live; offline entry and roll-ups come with new development.
 
@@ -80,11 +61,7 @@ Reference and planning are open today, without an account; the operating cycle o
 | Data and reporting | Explorer with CSV and shareable views | KPI tracker; channel audit; data editor with revert | An approval step for sensitive figures |
 | Finance and administration | Statutory dates, including filing dates | Meetings and decisions log | None proposed: there is no finance module |
 
-## 24.5 What stays off the platform
-
-```lead
-The platform is open to anyone with the link, so nothing that names a person goes on it: no supporter, no voter, no agent and no volunteer.
-```
+## What stays off the platform
 
 The platform is open to anyone with the link, so nothing that names a person goes on it: no supporter, no voter, no agent and no volunteer. Headcounts go on the platform; the people behind them stay in the campaign's own systems. Anyone with the link can also add and change records, with no account, so the change history is watched and an unwanted change is put back. The forms refuse a phone or ID number typed into a free-text field, and the training says why.
 

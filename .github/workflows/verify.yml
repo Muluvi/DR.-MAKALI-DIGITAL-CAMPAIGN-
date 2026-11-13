@@ -25,15 +25,10 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          # verify-content-integrity.mjs compares against a baseline commit, so it needs history
-          # rather than the default single-commit checkout.
-          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
-          # 22 is not a preference. `npm run test:figures` runs the TypeScript test file directly
-          # through `node --experimental-strip-types`, which needs it.
+          # The tests run TypeScript directly through `node --experimental-strip-types`, which needs 22.
           node-version: 22
           cache: npm
 

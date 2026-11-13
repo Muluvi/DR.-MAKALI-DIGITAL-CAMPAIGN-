@@ -26,7 +26,7 @@ function defaultDecimals(f: Figure): number {
 
 /**
  * The printed form of a figure. `bn`, `m` and `k` scale a shilling or head count for prose that
- * says "KSh 13.79 billion" or "KSh 670m"; `abs` drops a sign where the sentence carries it in words.
+ * says "KES 13.79 billion" or "KES 670m"; `abs` drops a sign where the sentence carries it in words.
  */
 export function formatFigure(f: Figure, mod: FormatMod = ""): string {
   if (mod === "tier") {
@@ -41,7 +41,7 @@ export function formatFigure(f: Figure, mod: FormatMod = ""): string {
   let d = f.unit === "ksh" ? 0 : defaultDecimals(f);
   if (mod === "bn") { v = v / 1e9; d = f.decimals ?? 2; }
   if (mod === "m") { v = v / 1e6; d = 0; }
-  // Millions to one decimal, as a source prints them ("KSh 254.9m"), where rounding would change the figure.
+  // Millions to one decimal, as a source prints them ("KES 254.9m"), where rounding would change the figure.
   if (mod === "m1") { v = v / 1e6; d = 1; }
   if (mod === "k") { v = v / 1e3; d = 0; }
   if (mod === "abs") v = Math.abs(v);

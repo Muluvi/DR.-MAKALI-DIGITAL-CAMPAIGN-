@@ -5,10 +5,9 @@
 import openItems from "../generated/open-items.json" with { type: "json" };
 import { WARD_TILES } from "../../geo/wards.ts";
 import type { Bar, FigureSpec } from "../types.ts";
-import { tileColumns, tileRows } from "./s0-cover.ts";
-import { bar, F, fmt, num, src, stateOf } from "./_util.ts";
+import { tileColumns, tileRows } from "./tiles.ts";
+import { bar, F, fmt, num, src } from "./_util.ts";
 import { WARD_ROWS } from "../../data/figures.ts";
-import register from "../../../data/ward-register.json" with { type: "json" };
 
 const BENCH = { value: num("benchmark"), label: `${fmt("benchmark")}, the working benchmark` };
 const TURNOUT = `${fmt("turnout.constant")}%`;
@@ -23,7 +22,7 @@ const funnel = (reg: "2022" | "2026") => [
   { label: "Votes to win: the benchmark", value: num("benchmark"), state: "target" as const, note: `${fmt("benchmark")} is ${fmt(reg === "2022" ? "benchmark.share-of-ballots" : "benchmark.share-of-ballots.2026")}% of those ballots. A constant here, not re-derived from the register.` },
 ];
 
-export const FIG_3_1: FigureSpec = {
+const FIG_3_1: FigureSpec = {
   id: "fig-3-1-funnel",
   section: "2.1",
   title: `To win, he needs about ${fmt("benchmark.share-of-ballots")}% of the ballots cast, on the 2022 register`,
@@ -47,7 +46,7 @@ const BIG4 = new Set(["kitui-central", "kitui-south", "mwingi-central", "mwingi-
 const RANKED = [...WARD_TILES].sort((a, b) => b.voters - a.voters);
 const TOTAL = num("register.2022");
 
-export const FIG_3_2: FigureSpec = {
+const FIG_3_2: FigureSpec = {
   id: "fig-3-2-register-map",
   section: "2.3",
   title: `The twelve largest wards hold ${fmt("pareto.top12.share")}% of the register, and half the wards hold ${fmt("pareto.top20.share")}%`,
@@ -119,7 +118,7 @@ const PATHS: { key: string; title: string; tag?: string; wards: number; reg: Bar
   },
 ];
 
-export const FIG_3_3: FigureSpec = {
+const FIG_3_3: FigureSpec = {
   id: "fig-3-3-paths",
   section: "2.4",
   title: `No route clears ${fmt("benchmark")} on its own ballots, and the home belt falls furthest short`,
@@ -168,7 +167,7 @@ export const FIG_3_3: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-3-4-footprint */
 
-export const FIG_3_4: FigureSpec = {
+const FIG_3_4: FigureSpec = {
   id: "fig-3-4-footprint",
   section: "2.7.1",
   title: `${fmt("pool.share")}% of the register lives in the four constituencies where he has never held office`,
@@ -208,7 +207,7 @@ const FIELD: Bar[] = [
   bar("result.2022.mp.mulu", "Dr. Mulu · Kitui Central MP 2022 · one constituency", { tone: "accent", note: `Won from an electorate of ${fmt("con.kitui-central")}: a constituency total, not a countywide one.` }),
 ];
 
-export const FIG_3_5: FigureSpec = {
+const FIG_3_5: FigureSpec = {
   id: "fig-3-5-field",
   section: "2.6",
   title: "Four of the field have already won a countywide race, and he has not yet stood for one",
@@ -223,7 +222,7 @@ export const FIG_3_5: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-3-6-party-flow */
 
-export const FIG_3_6: FigureSpec = {
+const FIG_3_6: FigureSpec = {
   id: "fig-3-6-party-flow",
   section: "2.7.2",
   title: `Two constituencies with ${fmt("east-south.share")}% of the register returned non-Wiper MPs, and his own seat has its own race`,
@@ -261,7 +260,7 @@ const ZONES = [
 ];
 const one = (id: string) => Math.round(num(id) * 10) / 10;
 
-export const FIG_3_7: FigureSpec = {
+const FIG_3_7: FigureSpec = {
   id: "fig-3-7-zones",
   section: "2.8.3",
   title: `The three zones hold ${fmt("zones.share")}% of residents, and Kitui Rural falls in none of them`,
@@ -285,7 +284,7 @@ export const FIG_3_7: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-3-8-ceiling */
 
-export const FIG_3_8: FigureSpec = {
+const FIG_3_8: FigureSpec = {
   id: "fig-3-8-ceiling",
   section: "2.9.3",
   title: `Digital reaches at most ${fmt("reach.smartphone")} voters, ${fmt("reach.smartphone.short")} short of the benchmark before a single one is persuaded`,
@@ -331,12 +330,12 @@ const AUDIT_FIGURES = [
   { title: "Him against the field", body: "Posts per week, median shares and ads live, for him and the two nomination rivals, from public data." },
 ];
 
-export const FIG_3_9: FigureSpec = {
+const FIG_3_9: FigureSpec = {
   id: "fig-3-9-audit",
   section: "2.10.3",
   title: "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
   question: "What does his current presence actually show?",
-  takeaway: "The six fixes are Section 14.3; the four audit figures are drawn from the Week 1 export, never from an estimate.",
+  takeaway: "The six fixes are set out in the timeline; the four audit figures are drawn from the Week 1 export.",
   sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `The four audit figures: ${EXPORT}`, tier: null, state: "target" }],
   chart: {
     type: "composite",
@@ -356,25 +355,25 @@ export const FIG_3_9: FigureSpec = {
 
 const DATA_GAPS = (openItems as { kind: string; gap: string; closes: string; holder: string; status: string; where: string[] }[]).filter((i) => i.kind === "data");
 
-export const FIG_3_10: FigureSpec = {
+const FIG_3_10: FigureSpec = {
   id: "fig-3-10-gaps",
   section: "2.11",
   title: `${DATA_GAPS.length} things no published source can tell the analysis, and none is estimated`,
   question: "What can't the data tell us yet, and what closes each gap?",
   takeaway: "The analysis works from where he has held office and from certified totals, not from ward-level preference or ward returns no one has published.",
-  sources: [{ name: "Generated from the named data gaps in Section 7.3 (scripts/build-open-items.ts)", tier: null }],
+  sources: [{ name: "The named data gaps in the diagnosis", tier: null }],
   chart: {
     type: "matrix",
     header: ["Gap", "Closing document", "Holder", "Where"],
     rows: DATA_GAPS.map((g) => ({ head: g.gap, cells: [g.closes, g.holder, g.where.join("; ")] })),
   },
-  columns: [{ key: "gap", label: "Gap" }, { key: "doc", label: "Closing document" }, { key: "holder", label: "Holder" }, { key: "status", label: "Status" }, { key: "where", label: "Where" }],
-  rows: DATA_GAPS.map((g) => ({ cells: { gap: g.gap, doc: g.closes, holder: g.holder, status: g.status, where: g.where.join("; ") } })),
+  columns: [{ key: "gap", label: "Gap" }, { key: "doc", label: "Closing document" }, { key: "holder", label: "Holder" }, { key: "where", label: "Where" }],
+  rows: DATA_GAPS.map((g) => ({ cells: { gap: g.gap, doc: g.closes, holder: g.holder, where: g.where.join("; ") } })),
 };
 
 /* ------------------------------------------------------------------ fig-3-11-evidence */
 
-export const FIG_3_11: FigureSpec = {
+const FIG_3_11: FigureSpec = {
   id: "fig-3-11-evidence",
   section: "2.12",
   title: "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
@@ -409,7 +408,7 @@ export const FIG_3_11: FigureSpec = {
           rules: [
             { if: "reach concentrates in Kitui Central", then: "the recognition diagnosis holds: Phase −1 runs as written" },
             { if: "reach already lands in Mwingi and Kitui South, but engagement there is low", then: "the problem is message, not reach: content changes, targeting holds" },
-            { if: "the export cannot be read by constituency", then: "the test waits on the method in Section 18.5; nothing is committed against the hypothesis" },
+            { if: "the export cannot be read by constituency", then: "the test waits on the method in Measuring success; nothing is committed against the hypothesis" },
           ],
         },
       },
@@ -429,98 +428,6 @@ export const FIG_3_11: FigureSpec = {
 
 /* ------------------------------------------------------------------ fig-3-12-projects */
 
-// The scorecard's itemised projects by ward (analysis Stage 14, data/analysis/projects-by-ward.json).
-const CONSTITUENCY_NAME: Record<string, string> = Object.fromEntries(register.constituencies.map((c) => [c.id, c.name]));
-const PROJECT_WARDS = WARD_ROWS.map((w) => {
-  const slug = w.id.slice("ward.".length);
-  const note = F(`projects.${slug}.ksh`).note ?? "";
-  return {
-    ...w,
-    constituency: CONSTITUENCY_NAME[w.constituency],
-    slug,
-    count: num(`projects.${slug}.count`),
-    ksh: num(`projects.${slug}.ksh`),
-    flag: note.includes("still to confirm") ? "Placed through a spelling of the ward still to confirm" : undefined,
-  };
-});
-const TOP_PROJECT_WARD = [...PROJECT_WARDS].sort((a, b) => b.ksh - a.ksh)[0];
-const UNPLACED: [string, string][] = [
-  ["county", "County-wide or headquarters"],
-  ["multi-ward", "Naming several wards"],
-  ["constituency", "Naming no single ward"],
-  ["conflict", "Naming a ward in another constituency"],
-];
-const PLACED_COUNT = PROJECT_WARDS.reduce((n, w) => n + w.count, 0);
-const UNPLACED_COUNT = UNPLACED.reduce((n, [k]) => n + num(`projects.${k}.count`), 0);
 
-export const FIG_3_12: FigureSpec = {
-  id: "fig-3-12-projects",
-  section: "3.7",
-  title: `${TOP_PROJECT_WARD.name} carries the most itemised spend placed on one ward, KSh ${fmt(`projects.${TOP_PROJECT_WARD.slug}.ksh`, "m1")}m across ${fmt(`projects.${TOP_PROJECT_WARD.slug}.count`)} projects`,
-  question: "Where does the scorecard place its itemised projects, ward by ward, against how many voters each ward holds?",
-  takeaway: `${PLACED_COUNT} of the ${fmt("scorecard.itemised")} itemised projects name one ward and are drawn on it; the other ${UNPLACED_COUNT} are totalled apart, never spread across wards.`,
-  sources: [src("projects.township.ksh"), src("register.2022")],
-  chart: {
-    type: "composite",
-    parts: [
-      {
-        heading: "Projects placed on one ward",
-        chart: {
-          type: "bubble",
-          points: PROJECT_WARDS.map((w) => ({
-            label: w.name,
-            group: w.constituency,
-            x: w.count,
-            y: w.ksh,
-            size: w.voters,
-            state: stateOf(`projects.${w.slug}.ksh`),
-            flag: w.flag,
-          })),
-          xLabel: "Itemised projects",
-          yLabel: "Itemised spend, KSh",
-          sizeLabel: "Registered voters, 2022",
-          flagLabel: "Placed through a spelling of the ward still to confirm",
-          labelTop: 2,
-        },
-      },
-      {
-        heading: "Projects not placed on one ward",
-        chart: {
-          type: "bars",
-          unit: "KSh",
-          bars: UNPLACED.map(([k, label]) =>
-            bar(`projects.${k}.ksh`, `${label} · ${fmt(`projects.${k}.count`)} ${num(`projects.${k}.count`) === 1 ? "project" : "projects"}`, { display: `KSh ${fmt(`projects.${k}.ksh`, "m1")}m` })),
-        },
-      },
-    ],
-  },
-  columns: [
-    { key: "ward", label: "Ward, or where the project sits" },
-    { key: "constituency", label: "Constituency" },
-    { key: "projects", label: "Itemised projects", numeric: true },
-    { key: "ksh", label: "Itemised spend, KSh", numeric: true },
-    { key: "voters", label: "Registered voters, 2022", numeric: true },
-  ],
-  rows: [
-    ...[...PROJECT_WARDS].sort((a, b) => b.ksh - a.ksh).map((w) => ({
-      cells: {
-        ward: w.flag ? `${w.name} (spelling to confirm)` : w.name,
-        constituency: w.constituency,
-        projects: fmt(`projects.${w.slug}.count`),
-        ksh: fmt(`projects.${w.slug}.ksh`),
-        voters: fmt(w.id),
-      },
-      state: stateOf(`projects.${w.slug}.ksh`),
-    })),
-    ...UNPLACED.map(([k, label]) => ({
-      cells: { ward: label, constituency: "—", projects: fmt(`projects.${k}.count`), ksh: fmt(`projects.${k}.ksh`), voters: "—" },
-      state: stateOf(`projects.${k}.ksh`),
-    })),
-  ],
-  notes: [
-    "Covers the itemised projects only, not the county budget and not every project the scorecard claims. A record of what the county says it built, not evidence that it did.",
-    "A project is placed on a ward only when its printed place names that one ward in its own constituency. Ward totals are not adjusted for projects that serve the whole county from a town ward.",
-  ],
-};
 
-export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_5, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11, FIG_3_12];
+export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_5, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11];

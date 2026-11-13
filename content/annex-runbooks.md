@@ -1,10 +1,7 @@
-```lead
-These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of.
-```
 
-These are the runbooks the war room in Section 20.2 works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the account security baseline, phishing awareness, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks and response.
+These are the runbooks the war room in [The war room](#response-the-war-room) works from: operational detail a campaign runs on and a principal approves the existence of. This annex holds the pre-drafted holding positions, the monitoring tools, the red-team drills, the threat model, the account security baseline, phishing awareness, incident response and the competitor-monitoring outputs. The rapid-response protocol itself is in Risks and response.
 
-## F.3 Holding positions, pre-drafted
+## Holding positions, pre-drafted
 
 #### Pre-drafted response lines
 
@@ -19,7 +16,7 @@ substance fixed, delivery natural.
 | **"NG-CDF questions"** | Lead with the documented record — bursary numbers, project list, the Eastern region evaluation certification — and invite scrutiny. **Never defensive; an evaluator welcomes audit.** |
 | **"Too technical / not close to ordinary people"** | Answer in Kikamba, with a household example. The best rebuttal to "too technical" is a demonstration, not a denial |
 | **"Wiper insider / party establishment"** | Point to the independence of his parliamentary record on budget matters |
-| **Manipulated media** | Section 20.4 protocol — 30-minute clock |
+| **Manipulated media** | [Manipulated media and cyber security](#response-manipulated-media-and-cyber-security) protocol — 30-minute clock |
 | **Unsolicited SMS allegation** | Produce the consent audit trail; cite the published charter; correct publicly within the hour |
 
 The campaign maintains ready-to-deploy holding positions, evidential citations, and Kikamba framing for the four primary lines of attack:
@@ -31,14 +28,14 @@ id: holding-positions
 <model-embed slug="response-tier">
 </model-embed>
 
-## F.4 Monitoring tools
+## Monitoring tools
 
 ```visual
 kind: checklist
 items:
   - label: "Social monitoring dashboards"
     text: "Real-time X and cross-platform keyword, hashtag and competitor tracking"
-  - label: "Social listening and sentiment (premium tier)"
+  - label: "Social listening and sentiment"
     text: "Cross-platform sentiment analysis: mentions, supporter sentiment, emerging narratives"
   - label: "Meta Business Suite"
     text: "Facebook and Instagram monitoring; competitor content"
@@ -53,27 +50,24 @@ items:
   - label: "Custom BI dashboard"
     text: "Centralised real-time metrics"
   - label: "**Radio monitoring**"
-    text: "Kamba-language station tracking, coverage and airtime share (Section 15.2.2) — critical, as most attacks on Dr. Mulu will originate on air, not online"
+    text: "Kamba-language station tracking, coverage and airtime share (see [Workstream 6 — Earned media, journalists and debates](#workstreams-workstream-6-earned-media-journalists-and-debates)) — critical, as most attacks on Dr. Mulu will originate on air, not online"
 ```
 
 The rapid-response protocol, its four severity tiers, its response times by channel and the pre-approved message library are in Risks & response, with the war room they serve. This annex keeps the reference material: holding lines, monitoring tools, drills, the threat model and incident response.
 
-## F.6 Red-team drills
+## Red-team drills
 
-```lead
-Quarterly at standard tier, monthly at premium, with a mandatory full-scale drill immediately before the nomination decision and again 60 days before the general election.
-```
 
 *Reactive protocols fail because they are first used under real pressure.*
 
-**Cadence:** quarterly at standard tier, monthly at premium, with a mandatory
+**Cadence:** quarterly, with a mandatory
 full-scale drill immediately before the nomination decision and again 60 days
 before the general election.
 
 **Method:** a small red-team panel — the campaign's crisis lead, one campaign
 representative, and an external participant with no stake in the outcome — is
 briefed to attack. The response team is **not** told which scenario is coming
-or when. The drill runs in real time against the Annex F.5 clock.
+or when. The drill runs in real time against the [The protocol and message library](#response-the-protocol-and-message-library) clock.
 
 ```visual
 kind: checklist
@@ -87,19 +81,18 @@ items:
       - { label: "Tests", text: "Fact-base readiness; rebuttal library" }
   - label: "3. Claim that the campaign sent unsolicited SMS"
     fields:
-      - { label: "Tests", text: "Consent audit trail retrieval (Section 19.3)" }
+      - { label: "Tests", text: "Consent audit trail retrieval (see [The Digital Ethics and Data Charter](#lawful-the-digital-ethics-and-data-charter))" }
   - label: "4. Hostile radio segment on a station associated with a rival"
     fields:
-      - { label: "Tests", text: "Radio response pathway (Section 15.2.2)" }
+      - { label: "Tests", text: "Radio response pathway (see [Workstream 6 — Earned media, journalists and debates](#workstreams-workstream-6-earned-media-journalists-and-debates))" }
   - label: "5. Ward champion's account compromised; false messages sent to a ward group"
     fields:
-      - { label: "Tests", text: "Incident response (Annex F.10)" }
+      - { label: "Tests", text: "Incident response (see [The incident response plan](#annex-runbooks-the-incident-response-plan))" }
   - label: "6. Manufactured \"grassroots\" campaign attacking a rival, falsely attributed to Dr. Mulu"
     fields:
       - { label: "Tests", text: "Charter defence; provenance evidence" }
 ```
 
-*Source conflict: an earlier version numbered the last scenario 7; there was no sixth, and the library holds six.*
 
 **Output:** every drill produces a written report — actual response times
 against target, decision bottlenecks, gaps in the message library — and the
@@ -110,17 +103,14 @@ matters.
 **KPI:** by Phase 2, **90% of drill responses meet their severity-level time
 target**.
 
-## F.7 The threat model
+## The threat model
 
-```lead
-Kenyan campaigns face account takeover, phishing of staff and volunteers, leaked internal material, and increasingly the fabrication of audio and video.
-```
 
 Kenyan campaigns face account takeover, phishing of staff and volunteers,
 leaked internal material, and increasingly the fabrication of audio and video.
 Kenya's Communications Authority attributed rising cyber threat volumes in part
 to **inadequate system patching, insufficient phishing awareness, and the
-growing use of AI tools by malicious actors**, issuing 21.8 million threat advisories (Communications Authority, Tier 1) in a single quarter.
+growing use of AI tools by malicious actors**, issuing 21.8 million threat advisories (Communications Authority) in a single quarter.
 
 ```visual
 kind: checklist
@@ -134,11 +124,9 @@ items:
 
 Account security and phishing awareness follow; the law and the charter they serve are in Lawful and ethical.
 
-## F.8 Account security baseline
+## Account security baseline
 
-```lead
 **Hardware keys for the candidate and admins are non-negotiable and take very little.**
-```
 
 ```visual
 kind: checklist
@@ -177,7 +165,7 @@ items:
 little.** The specification: **FIDO2 (WebAuthn) hardware security keys, two per critical account
 holder** so a lost key never locks an account, registered before any SMS or app code is removed.
 
-## F.9 Phishing awareness
+## Phishing awareness
 
 ```visual
 kind: checklist
@@ -196,9 +184,8 @@ To keep campaign systems running and protect them from infiltration or cyber dis
 2.  **Automated off-site backups:** The PostgreSQL Supporter CRM executes automated hourly WAL archiving and daily encrypted snapshots stored in geographically isolated cloud buckets.
 3.  **Data redaction by role:** ground staff and ward captains see only voter data relevant to their specific assigned ward. Exporting full countywide voter lists is programmatically blocked and restricted exclusively to the data protection officer and the campaign manager.
 
-*Source conflict: an earlier version listed Google Authenticator as a hardware key; it is an app, and the rule above separates the two.*
 
-## F.10 The incident response plan
+## The incident response plan
 
 ```visual
 kind: timeline
@@ -240,11 +227,8 @@ campaign confirms or denies authenticity accurately and quickly. It does not
 speculate about the source, and it does not deny the authenticity of genuine
 material — a denial later disproved is worse than the original leak.
 
-## F.11 Competitor intelligence outputs and alerts
+## Competitor intelligence outputs and alerts
 
-```lead
-The competitive intelligence workflow produces two operational outputs: the monthly competitive brief and the rapid alert system.
-```
 
 The competitive intelligence workflow produces two operational outputs:
 
@@ -258,4 +242,4 @@ The competitive intelligence workflow produces two operational outputs:
 
 #### Competitor monitoring tools
 
-The tools that feed both outputs are listed once, in Annex F.4.
+The tools that feed both outputs are listed once, in [Monitoring tools](#annex-runbooks-monitoring-tools).
