@@ -114,7 +114,7 @@ export default function Page() {
 
         <section id="opening" className="opening" aria-labelledby="opening-title">
           <p className="kicker">Hon. Dr. Makali Mulu · Kitui governor, 10 August 2027</p>
-          <h2 id="opening-title" className="h1" style={{ marginTop: 10 }}>Close the recognition gap outside Kitui Central</h2>
+          <h1 id="opening-title" className="h1" style={{ marginTop: 10 }}>Close the recognition gap outside Kitui Central</h1>
           <p className="lede" style={{ marginTop: 14 }}>The data, the analysis, the objectives, the strategies and the plan, in one story.</p>
           <div style={{ marginTop: 20 }}>
             <ChapterBody id="opening" source={compileChapter(read("brief"), "content/brief.md")} />

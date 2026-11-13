@@ -60,54 +60,12 @@ function chapterFor(hash: string): string | null {
   return best;
 }
 
-/** Chapters being fetched or inserted right now; a landing waits for them to finish. */
-let inFlight = 0;
-
-/**
- * Bring a target to the top and hold it there while the content around it settles. A smooth scroll
- * aims at where the target was when the link was pressed; chapters, tools and deferred blocks that
- * render on the way are taller than the space held for them, so the target moves away. Jumping
- * straight there and re-aligning each frame until nothing moves (or the reader takes over) lands it.
- */
-let landing = 0;
-function land(hash: string) {
-  const token = ++landing;
-  const el = document.getElementById(hash);
-  if (!el) return;
-  if (!el.matches("a, button, input, select, textarea, [tabindex]")) el.setAttribute("tabindex", "-1");
-  el.focus({ preventScroll: true });
-  const takeOver = () => {
-    if (token === landing) landing++;
-  };
-  const inputs = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
-  for (const ev of inputs) addEventListener(ev, takeOver, { passive: true, once: true });
-  const done = () => {
-    for (const ev of inputs) removeEventListener(ev, takeOver);
-  };
-  const start = performance.now();
-  let still = 0;
-  const step = () => {
-    const target = document.getElementById(hash);
-    if (token !== landing || !target) return done();
-    const before = target.getBoundingClientRect().top;
-    target.scrollIntoView({ block: "start", behavior: "instant" });
-    const moved = Math.abs(target.getBoundingClientRect().top - before) > 1;
-    still = moved || inFlight > 0 ? 0 : still + 1;
-    // Settled for half a second, or a ceiling so a slow connection never pins the page.
-    if (still >= 30 || performance.now() - start > 6000) return done();
-    requestAnimationFrame(step);
-  };
-  step();
-}
-
 async function reveal(hash: string) {
-  if (!hash) return;
-  if (!document.getElementById(hash)) {
-    const id = chapterFor(hash);
-    if (!id) return;
-    await loaders.get(id)!();
-  }
-  land(hash);
+  if (!hash || document.getElementById(hash)) return;
+  const id = chapterFor(hash);
+  if (!id) return;
+  await loaders.get(id)!();
+  document.getElementById(hash)?.scrollIntoView({ block: "start" });
 }
 
 let listening = false;
@@ -115,25 +73,20 @@ function listen() {
   if (listening) return;
   listening = true;
   document.addEventListener("click", (e) => {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const a = (e.target as Element | null)?.closest?.('a[href^="#"]');
     if (!a) return;
     const hash = decodeURIComponent(a.getAttribute("href")!.slice(1));
-    if (!hash || (!document.getElementById(hash) && !chapterFor(hash))) return;
+    if (!hash || document.getElementById(hash)) return;
     e.preventDefault();
-    if (location.hash !== `#${hash}`) history.pushState(null, "", `#${hash}`);
+    history.pushState(null, "", `#${hash}`);
     void reveal(hash);
   });
-  // Back and forward between in-page links.
-  window.addEventListener("popstate", () => void reveal(decodeURIComponent(location.hash.slice(1))));
-  // A shared link that lands inside a chapter, or on a section below chapters that are still loading.
+  window.addEventListener("hashchange", () => void reveal(decodeURIComponent(location.hash.slice(1))));
+  // A shared link that lands inside a chapter.
   setTimeout(() => void reveal(decodeURIComponent(location.hash.slice(1))), 0);
 }
 
-/** One empty list for every chapter without figures, so the effect below does not re-run on each render. */
-const NO_IDS: string[] = [];
-
-export function ChapterLoader({ id, est, ids = NO_IDS }: { id: string; est: number; ids?: string[] }) {
+export function ChapterLoader({ id, est, ids = [] }: { id: string; est: number; ids?: string[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"idle" | "loading" | "ready" | "error">("idle");
 
@@ -143,7 +96,6 @@ export function ChapterLoader({ id, est, ids = NO_IDS }: { id: string; est: numb
     const load = () =>
       (pending ??= (async () => {
         setState("loading");
-        inFlight++;
         try {
           const res = await fetch(`/c/${id}.html`);
           if (!res.ok) throw new Error(String(res.status));
@@ -152,8 +104,6 @@ export function ChapterLoader({ id, est, ids = NO_IDS }: { id: string; est: numb
         } catch {
           pending = null;
           setState("error");
-        } finally {
-          inFlight--;
         }
       })());
     loaders.set(id, load);
