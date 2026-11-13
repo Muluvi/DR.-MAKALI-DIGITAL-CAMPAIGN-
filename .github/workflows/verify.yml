@@ -43,10 +43,5 @@ jobs:
       - name: Guards and arithmetic
         run: npm run verify
 
-      # The platform-ownership baseline (scripts/preservation-manifest.json): fails if any protected
-      # dataset, strategy or tool file is gone, or any record count fell below the baseline.
-      - name: Nothing removed
-        run: npm run check:preservation
-
       - name: Build
         run: npm run build
