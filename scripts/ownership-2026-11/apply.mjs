@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { REWRITES } from "./roles.mjs";
+import { isRetiredFile, isRetiredText, isSupersededAtBase } from "../rivals-2026-11/retired.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const LEDGER = path.join(ROOT, "docs", "ownership-2026-11", "ledger.json");
@@ -47,10 +48,12 @@ const missing = [];
 
 for (const r of REWRITES) {
   const file = path.join(ROOT, r.f);
+  // A rewrite whose file or text the rivals pass removed (docs/rivals-2026-11) is retired, not lost.
+  if (!fs.existsSync(file) && isRetiredFile(r.f)) { skipped++; continue; }
   let text = fs.readFileSync(file, "utf8");
   const count = text.split(r.from).length - 1;
   if (count === 0) {
-    if (text.includes(r.to)) { skipped++; continue; }
+    if (text.includes(r.to) || isRetiredText(r.to) || isSupersededAtBase(r.f, r.to)) { skipped++; continue; }
     missing.push(`${r.f}: not found: ${r.from.slice(0, 80)}`);
     continue;
   }

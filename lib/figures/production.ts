@@ -235,7 +235,6 @@ export const ASSET_LIBRARY = {
       label: "04_SMS_USSD_COPY_VAULT/",
       children: [
         "40_Ward_Localized_SMS_Pledges/",
-        "Crisis_Rapid_Response_SMS_Templates/",
         "USSD_Interactive_Menu_Scripts/",
       ],
     },

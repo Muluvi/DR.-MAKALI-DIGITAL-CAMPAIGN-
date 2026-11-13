@@ -16,10 +16,7 @@ import { FIGURES } from "../data/figures";
 import type { Figure, Tier, Unit, FigureState } from "../data/schema";
 import { figureProblems, wardRegisterProblems, type WardRegister } from "../data/rules";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../data/kpis";
-import { RISKS } from "../../data/risks";
 import { SEGMENTS } from "../../data/segments";
-import { SEVERITY_TIERS } from "../../data/escalation";
-import { CONTENDERS } from "../../data/competitors";
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import { PILLARS, CONTENT_TYPES } from "../../data/message-architecture";
 import { PLOTTED_BENCHMARKS } from "../../data/benchmarks";
@@ -50,10 +47,7 @@ export interface EditableList {
 export const EDITABLE_LISTS: EditableList[] = [
   { id: "kpis.nomination", label: "Nomination indicators", key: "code", file: "data/kpis.ts", records: () => NOMINATION_KPIS as unknown as Record<string, unknown>[] },
   { id: "kpis.general-election", label: "General-election indicators", key: "code", file: "data/kpis.ts", records: () => GENERAL_ELECTION_KPIS as unknown as Record<string, unknown>[] },
-  { id: "risks", label: "Risk register", key: "code", file: "data/risks.ts", records: () => RISKS as unknown as Record<string, unknown>[], choices: { likelihood: [1, 2, 3], impact: [1, 2, 3] } },
   { id: "segments", label: "Voter segments", key: "id", file: "data/segments.ts", records: () => SEGMENTS as unknown as Record<string, unknown>[] },
-  { id: "escalation", label: "Response severity tiers", key: "name", file: "data/escalation.ts", records: () => SEVERITY_TIERS as unknown as Record<string, unknown>[] },
-  { id: "contenders", label: "The field", key: "name", file: "data/competitors.ts", records: () => CONTENDERS as unknown as Record<string, unknown>[] },
   { id: "radio-stations", label: "Radio stations", key: "name", file: "data/media-ownership.ts", records: () => RADIO_STATIONS as unknown as Record<string, unknown>[] },
   { id: "pillars", label: "Message pillars", key: "title", file: "data/message-architecture.ts", records: () => PILLARS as unknown as Record<string, unknown>[] },
   { id: "content-types", label: "Content types", key: "code", file: "data/message-architecture.ts", records: () => CONTENT_TYPES as unknown as Record<string, unknown>[] },

@@ -15,10 +15,7 @@ import { tierWord } from "../../data/types";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import { PROJECTS } from "../../data/projects";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS, RECOGNITION_INDICATORS } from "../../data/kpis";
-import { RISKS } from "../../data/risks";
 import { SEGMENTS } from "../../data/segments";
-import { SEVERITY_TIERS } from "../../data/escalation";
-import { CONTENDERS } from "../../data/competitors";
 import { RADIO_STATIONS } from "../../data/media-ownership";
 import { PILLARS, CONTENT_TYPES } from "../../data/message-architecture";
 import { PLOTTED_BENCHMARKS } from "../../data/benchmarks";
@@ -146,9 +143,6 @@ export function packDatasets(): Dataset[] {
     make("pillars", "Message pillars", "Strategy lists", "The three pillars the message is argued through.", PILLARS),
     make("content-types", "Content types", "Strategy lists", "The four content types the weekly brief allocates.", CONTENT_TYPES),
     make("segments", "Voter segments", "Strategy lists", "The six segments, each sized by a registry figure where one is published.", SEGMENTS),
-    make("risks", "Risk register", "Strategy lists", "Risks, their likelihood and impact, owner and mitigation.", RISKS),
-    make("severity", "Response severity tiers", "Strategy lists", "The four tiers of the rapid-response protocol.", SEVERITY_TIERS),
-    make("contenders", "The field", "Strategy lists", "Contenders for the governorship.", CONTENDERS),
     make("radio", "Radio stations", "Strategy lists", "Vernacular and national stations, ownership and reach.", RADIO_STATIONS),
     make("benchmarks", "Benchmarks and targets", "Strategy lists", "Global benchmarks beside the campaign's targets.", PLOTTED_BENCHMARKS),
     make("platform-audiences", "Platform audiences", "Strategy lists", "Published audience sizes by platform.", PLATFORM_AUDIENCES),

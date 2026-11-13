@@ -16,8 +16,8 @@ import type { Chart, Column, FigureSpec, Row, SourceRef } from "../types.ts";
 import type { FigureSeries } from "../../figures/types.ts";
 import {
   AUDIENCE_FACETS, AUDIENCE_SERIES, CHANNEL_MESSAGE_SERIES, CONFLICT_PROTOCOL, ESCALATION_LADDER, ESCALATION_SERIES,
-  HOLDING_POSITIONS, HOLDING_SERIES, MANDATE_SERIES, MATRIX_SERIES, MESSAGE_BY_CHANNEL, MESSAGE_BY_SEGMENT, PROTOCOL_SERIES,
-  PROVENANCE_MANDATE, RESPONSE_MATRIX, RESPONSE_SLA, SEGMENT_MESSAGE_SERIES, SLA_SERIES, TIERS_SERIES, TIER_CLASSIFICATION,
+  MANDATE_SERIES, MESSAGE_BY_CHANNEL, MESSAGE_BY_SEGMENT, PROTOCOL_SERIES,
+  PROVENANCE_MANDATE, SEGMENT_MESSAGE_SERIES, TIERS_SERIES, TIER_CLASSIFICATION,
   VISIT_LOOP, VISIT_SERIES,
 } from "../../figures/annex.ts";
 import {
@@ -29,12 +29,12 @@ import {
   APPROVAL_SERIES, APPROVAL_STEPS, ASSET_LIBRARY, FORMAT_SERIES, FORMAT_SPECS, LIBRARY_SERIES, PRODUCTION_SERIES,
   PRODUCTION_TIERS, WEEKLY_CYCLE, WEEKLY_SERIES,
 } from "../../figures/production.ts";
-import { CYCLE_SERIES, FIELD_LOOP, FIELD_LOOP_TIERS, FIELD_REPORTS, FIELD_REPORTS_SERIES, FOUR_HOUR_CYCLE, OPERATING_RHYTHM, RHYTHM_SERIES } from "../../figures/ground.ts";
+import { FIELD_LOOP, FIELD_LOOP_TIERS, FIELD_REPORTS, FIELD_REPORTS_SERIES, OPERATING_RHYTHM, RHYTHM_SERIES } from "../../figures/ground.ts";
 import {
   DATA_LAYER, DATA_LAYER_CORE, DATA_LAYER_TIERS, DPA_COMPLIANCE, DPA_SERIES, PROCUREMENT, PROCUREMENT_SERIES, STACK_SERIES,
   STACK_TIERS, SUPPORTER_SCHEMA, SUPPORTER_SCHEMA_SERIES,
 } from "../../figures/data-layer.ts";
-import { COUNTER_FIRE, COUNTER_FIRE_SERIES, CULTURAL_REGISTERS, QC_SERIES, QC_STAGES, REGISTERS_SERIES } from "../../figures/messaging.ts";
+import { CULTURAL_REGISTERS, QC_SERIES, QC_STAGES, REGISTERS_SERIES } from "../../figures/messaging.ts";
 import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../figures/language.ts";
 import { BYPASS_PILLARS } from "../../figures/media.ts";
 import { pageDeep } from "../../reader-text.ts";
@@ -186,9 +186,6 @@ const RAW: FigureSpec[] = [
   table("message-by-segment", SEGMENT_MESSAGE_SERIES, ["Target segment", "Tailored message & Kikamba framing", "Verifiable evidence & data source"], MESSAGE_BY_SEGMENT),
   table("message-by-channel", CHANNEL_MESSAGE_SERIES, ["Channel & reach", "Format, tone & linguistic style", "Evidential proof points"], MESSAGE_BY_CHANNEL),
   stepper("escalation-ladder", ESCALATION_SERIES, ESCALATION_LADDER),
-  table("response-matrix", MATRIX_SERIES, ["Severity tier", "Definition & impact threshold", "Strategic response protocol", "Turnaround target", "Approved by"], RESPONSE_MATRIX),
-  table("response-sla", SLA_SERIES, ["Channel & platform", "Response time target"], RESPONSE_SLA),
-  table("holding-positions", HOLDING_SERIES, ["Question", "Attack line", "Holding message", "Kikamba framing", "Primary source"], HOLDING_POSITIONS.map((p) => [p.question, p.attack, p.holding, p.kikamba, p.source])),
   grid("compliance-architecture", COMPLIANCE_SERIES, COMPLIANCE_TIERS, "Nomination clearance first, then the data-protection regime the voter database sits under, then the offences that govern what may be said and when.", 3),
   table("iebc-clearance", CLEARANCE_SERIES, ["Clearance dimension", "Statutory standard & issuing authority", "Current status & legal verification"], IEBC_CLEARANCES),
   table("liability-matrix", LIABILITY_SERIES, ["Legal dimension", "Statutory obligation / exposure risk", "Campaign risk mitigation protocol"], LIABILITY_MATRIX),
@@ -227,7 +224,6 @@ const RAW: FigureSpec[] = [
   ),
   grid("field-loop", FIELD_LOOP, FIELD_LOOP_TIERS, "Inbound feeds the war room; the war room feeds the outbound pipeline and the physical channels; what those produce comes back as field intelligence."),
   table("field-reports", FIELD_REPORTS_SERIES, ["Report type", "Frequency", "Channel", "Data captured"], FIELD_REPORTS),
-  stepper("four-hour-cycle", CYCLE_SERIES, FOUR_HOUR_CYCLE),
   table("operating-rhythm", RHYTHM_SERIES, ["Cadence & time (EAT)", "Forum", "Agenda", "Primary owner", "Participants"], OPERATING_RHYTHM),
   grid("data-layer", DATA_LAYER, [...DATA_LAYER_TIERS, DATA_LAYER_CORE], "Capture feeds validation; validation feeds the channels; everything passes through the encrypted core."),
   table("supporter-schema", SUPPORTER_SCHEMA_SERIES, ["Field name", "Data type", "Description & constraints"], SUPPORTER_SCHEMA),
@@ -235,7 +231,6 @@ const RAW: FigureSpec[] = [
   grid("tech-stack", STACK_SERIES, STACK_TIERS, "The gateway collects, the CRM holds it encrypted, and the analysis and publishing tiers work on public and anonymised data."),
   table("procurement-matrix", PROCUREMENT_SERIES, ["System component", "Recommended vendor", "DPA risk level", "Decision status"], PROCUREMENT),
   stepper("bypass-architecture", BYPASS_SERIES, BYPASS_PILLARS.map((p) => ({ title: p.label, steps: [p.detail] }))),
-  paired("counter-fire", COUNTER_FIRE_SERIES, "Competitor ground rumour", "Factual evidence-backed counter-fire", COUNTER_FIRE.map((r) => ({ left: r.rumour, right: r.answers, note: r.note }))),
   paired("cultural-registers", REGISTERS_SERIES, "Literal / bad translation", "Approved cultural Kikamba framing", CULTURAL_REGISTERS.map((r) => ({ left: `${r.literal} (${r.literalWhy}, for “${r.term}”)`, right: [r.approved, `“${r.gloss}”`] }))),
   stepper("qc-gateway", QC_SERIES, QC_STAGES),
   FIG_LANGUAGE_MAP,

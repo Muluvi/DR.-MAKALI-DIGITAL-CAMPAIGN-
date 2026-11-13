@@ -20,8 +20,6 @@ import { fileURLToPath } from "node:url";
 import { PHASES, NOMINATION_WINDOW } from "../../lib/phases.ts";
 import { PILLARS, CONTENT_TYPES } from "../../data/message-architecture.ts";
 import { SEGMENTS } from "../../data/segments.ts";
-import { RISKS } from "../../data/risks.ts";
-import { SEVERITY_TIERS } from "../../data/escalation.ts";
 import { NOMINATION_KPIS, GENERAL_ELECTION_KPIS, RECOGNITION_INDICATORS } from "../../data/kpis.ts";
 import { USSD_MENU } from "../../data/ussd-specimen.ts";
 import { WS } from "../../lib/register/specs/s5-implementation.ts";
@@ -38,8 +36,6 @@ const RULES = [
   { what: "pillars", re: new RegExp(`\\b${NUM} pillars\\b`, "gi"), allowed: [PILLARS.length], source: "data/message-architecture.ts" },
   { what: "content types", re: new RegExp(`\\b${NUM} content types\\b`, "gi"), allowed: [CONTENT_TYPES.length], source: "data/message-architecture.ts" },
   { what: "segments", re: new RegExp(`\\b${NUM} segments\\b`, "gi"), allowed: [SEGMENTS.length, SEGMENTS.filter((s) => s.size).length, SEGMENTS.filter((s) => !s.size).length], source: "data/segments.ts" },
-  { what: "risks", re: new RegExp(`\\b${NUM} risks\\b`, "gi"), allowed: [RISKS.length, 2], source: "data/risks.ts (and the two that change the plan, R1 and R2)" },
-  { what: "severity tiers", re: new RegExp(`\\b${NUM}(?: severity tiers|-tier response)\\b`, "gi"), allowed: [SEVERITY_TIERS.length], source: "data/escalation.ts" },
   { what: "indicators", re: new RegExp(`\\b${NUM} (?:recognition |scorecard )?indicators\\b`, "gi"), allowed: [NOMINATION_KPIS.length, GENERAL_ELECTION_KPIS.length, NOMINATION_KPIS.length + GENERAL_ELECTION_KPIS.length, RECOGNITION_INDICATORS.length, 3], source: "data/kpis.ts (and the three that climb every phase)" },
   { what: "workstreams", re: new RegExp(`\\b${NUM} workstreams\\b`, "gi"), allowed: [WS.length, ...groupSizes, WS.filter((w) => w.owner === "outside").length], source: "lib/register/specs/s5-implementation.ts WS" },
   { what: "USSD options", re: new RegExp(`\\b${NUM} (?:USSD |menu )?options(?= on any phone| in the menu|, and the third)`, "gi"), allowed: [USSD_MENU.length], source: "data/ussd-specimen.ts" },

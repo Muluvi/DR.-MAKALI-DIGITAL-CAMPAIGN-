@@ -28,7 +28,6 @@ export const FIELD_LOOP_TIERS = [
       "40 ward coordinators",
       "400 ward captains",
       "Market day pulse reports",
-      "Competitor tracking logs",
     ],
   },
   {
@@ -43,8 +42,6 @@ export const FIELD_LOOP_TIERS = [
   {
     label: "War room synchronisation hub",
     items: [
-      "Incident classification (tiers 1–3) and narrative response",
-      "Rapid-response message production and fact-checking",
       "Micro-geofenced ad deployment (under 4-hour turnaround)",
     ],
   },
@@ -77,7 +74,7 @@ export const FIELD_REPORTS: string[][] = [
     "1. Daily Ground Pulse (DGP)",
     "Daily by 18:00 EAT",
     "Encrypted SMS / USSD tree",
-    "Ward ID and polling station · dominant issue or rumour · competitor activity · opt-in supporter count",
+    "Ward ID and polling station · dominant issue raised · opt-in supporter count",
   ],
   [
     "2. Market Day Event Audit (MEA)",
@@ -89,7 +86,7 @@ export const FIELD_REPORTS: string[][] = [
     "3. Critical Threat Flash (CTF)",
     "Real-time, under 30 minutes",
     "Direct phone / red-alert SMS trigger",
-    "Opponent disinformation · security or clash alert · local defection risk",
+    "Security or clash alert · local defection risk",
   ],
   [
     "4. Weekly Ward Log & Supporter Roster",
@@ -110,60 +107,13 @@ export const FIELD_REPORTS_SERIES: FigureSeries = {
     "weekly, and every one names the fields it captures.",
 };
 
-/* ------------------------------------------------------------------ §4.5.7 the four-hour cycle */
-
-export const FOUR_HOUR_CYCLE = [
-  {
-    at: "T+00:00",
-    title: "Ground report ingested",
-    steps: ["A ward coordinator in Tseikuru logs a competitor rumour via USSD."],
-  },
-  {
-    at: "T+01:00",
-    title: "Rapid response war room triage",
-    steps: [
-      "The Comms Director assesses severity and verifies facts from parliamentary records — Tier 1 proof of CDF parity.",
-    ],
-  },
-  {
-    at: "T+02:30",
-    title: "Content asset creation",
-    steps: [
-      "30-second Kikamba video for TikTok and Facebook.",
-      "45-second audio note voiced by Dr. Mulu or a respected elder.",
-      "160-character localised Kiswahili SMS.",
-    ],
-  },
-  {
-    at: "T+04:00",
-    title: "Synchronised multi-channel deployment",
-    steps: [
-      "Meta and TikTok ads geofenced strictly to Mwingi North.",
-      "Bulk SMS, pre-lodged, pushed to the consented voters in Tseikuru / Kyuso.",
-      "Audio note pushed via WhatsApp to 40 ward captains for peer forwarding at local tea kiosks and bodaboda stages.",
-      "Talking point faxed or messaged to Musyi FM morning show panellists.",
-    ],
-  },
-];
-
-export const CYCLE_SERIES: FigureSeries = {
-  id: "four-hour-cycle",
-  headline: "A rumour logged by USSD is answered in three languages across four channels inside four hours",
-  measure: "§15.3.1's ground-to-digital cycle, on the clock",
-  points: [],
-  note:
-    "The clock is the claim, so it runs down the margin rather than sitting in a caption. The " +
-    "SMS step goes to the consented voters in Tseikuru and Kyuso, from a message lodged 48 hours " +
-    "ahead; how large that list is, is the target ladder's to answer, not this figure's.",
-};
-
 /* ------------------------------------------------------------------ §4.5.7 the operating rhythm */
 
 export const OPERATING_RHYTHM: string[][] = [
   [
     "Daily · 07:00–07:30",
-    "Morning radio & rapid response triage",
-    "Review morning radio bulletins and overnight social trends; assign rapid responses",
+    "Morning radio review",
+    "Review morning radio bulletins and overnight social trends",
     "Communications Lead",
     "Digital team, media monitor, legal advisor",
   ],

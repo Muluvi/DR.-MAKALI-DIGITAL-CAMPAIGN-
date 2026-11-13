@@ -172,7 +172,6 @@ modelled("benchmark.share-of-register", pct(v("benchmark"), v("register.2022")),
 // applied to the July 2026 register. The model used to retype it as ~225,300 from a rate rounded to
 // 37.2%; it now reads this value from data/registry.export.json (consolidation pass, D1.6).
 modelled("benchmark.like-for-like.2026", Math.round((v("result.2022.gov.malombe") / v("register.2022")) * v("register.2026")), "votes", "198,004 / 532,758 (the 2022 winner's share of the 2022 register) × 605,703 (the July 2026 register).", { tier: "T3" });
-modelled("gap.wambua-to-benchmark-2022", v("result.2022.gov.malombe") - v("result.2022.senate.wambua"), "votes", "198,004 less 191,317.");
 
 // ---- the four routes (Section 3.3): registered voters, ballots at the constant, and the margin
 // against 200,000 at 100% of ballots. Consistency fix 3: model output against 200,000.

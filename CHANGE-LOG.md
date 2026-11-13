@@ -1,3 +1,20 @@
+# Change log — the rivals pass: no 2027 rivals, no attack response (14 November 2026)
+
+**Firefly's decision** (`docs/rivals-2026-11/DECISION.md`): no current 2027 rival is named,
+profiled, compared or monitored on the site, and the attack-response material is removed. Results
+of past elections stay, with the candidates' names.
+
+| | |
+|---|---|
+| **Chapters removed** | The race for 2027, Risks and response, Runbooks. Links into them land on His record and reach, Lawful and ethical, and Technology |
+| **Sections removed** | 9.3 (answering the charge of coldness), 10.5 (countering disinformation), the four-hour response cycle in 15.3.1 |
+| **Rewritten** | 20 chapters: every rival line taken out; station labels now say "politically affiliated ownership"; the hero's fourth figure is the 1,578 polling stations |
+| **Platform** | Competitor watch and Rapid response leave the workspace; the contenders, risks and severity lists leave the data editor and explorer; three rival or response tools leave the Tools hub |
+| **Parts** | Part II is "His standing"; Part V is "Proof and safeguards" |
+| **Guards** | Logged in `docs/rivals-2026-11/` and read through `scripts/rivals-2026-11/retired.mjs`; lint, types, `npm run verify`, `npm run check:preservation` and the build pass |
+
+---
+
 # Change log — the summary layer: each chapter on one screen (10 November 2026)
 
 **No content changed.** `content/*.md` is untouched; every guard's baseline stands. The pass, its

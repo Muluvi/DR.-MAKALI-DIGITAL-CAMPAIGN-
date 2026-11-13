@@ -255,29 +255,6 @@ export function RadioAircoverDial() {
   );
 }
 
-// 3. Dynamic Counter-Messaging Table (Side-by-side)
-export function CounterMessagingGrid() {
-  return (
-    <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6 space-y-4">
-      <h4 className="font-serif text-sm font-bold text-ink">Opposition Counter-Narrative Matrix</h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="p-4 bg-red-500/[0.03] border border-red-500/20 rounded-xl">
-          <span className="t-micro font-black text-danger">Opposition Claim</span>
-          <p className="t-small text-muted mt-1.5 leading-relaxed">
-            &ldquo;Wiper&apos;s offline model fails to match digitized investment and high-tech corporate frameworks.&rdquo;
-          </p>
-        </div>
-        <div className="p-4 bg-accent/[0.03] border border-accent/20 rounded-xl">
-          <span className="t-micro font-black text-accent">Wiper Talking Point</span>
-          <p className="t-small text-muted mt-1.5 leading-relaxed">
-            &ldquo;We integrate offline SMS syncing with modern cloud systems, respecting Kitui&apos;s 86% offline population.&rdquo;
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // 5. Media Asset Playback (Campaign Audio Spot)
 export function MediaPlaybackMockup() {
   const [playing, setPlaying] = useState(false);

@@ -89,7 +89,7 @@ items:
 This annex holds the 40-ward register: background the argument rests on rather than part of the argument.
 ```
 
-This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in Section 3.7, drought and food security in Section 3.2, the Mui Basin in Section 3.8, and the legal ground to be careful on with each rival in Section 5.5.
+This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in Section 3.7, drought and food security in Section 3.2, and the Mui Basin in Section 3.8.
 
 The register of every ward, with its voters and polling stations, is at the end of Evidence and sources.
 

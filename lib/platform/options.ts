@@ -7,8 +7,6 @@ import { WARD_ROWS } from "../data/figures";
 import { CONSTITUENCIES } from "../../data/ward-register";
 import { PILLARS, CONTENT_TYPES } from "../../data/message-architecture";
 import { SEGMENTS } from "../../data/segments";
-import { CONTENDERS } from "../../data/competitors";
-import { SEVERITY_TIERS } from "../../data/escalation";
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS, RECOGNITION_INDICATORS } from "../../data/kpis";
 import { PHASES } from "../phases";
 import { strategyChoices } from "./library";
@@ -33,8 +31,6 @@ export function resolveOptions(): Options {
     pillars: PILLARS.map((p) => p.title),
     contentTypes: CONTENT_TYPES.map((c) => `${c.code} ${c.name}`),
     segments: SEGMENTS.map((s) => s.name),
-    contenders: CONTENDERS.map((c) => c.name),
-    severity: SEVERITY_TIERS.map((t) => t.name),
     kpis: [...NOMINATION_KPIS, ...GENERAL_ELECTION_KPIS].map((k) => `${k.code} ${k.title}`).concat(RECOGNITION_INDICATORS.map((k) => `${k.code} ${k.title}`)),
     strategies: strategyChoices(),
     phases: PHASES.map((p) => p.label),

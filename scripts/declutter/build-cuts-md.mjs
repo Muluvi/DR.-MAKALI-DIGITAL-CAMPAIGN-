@@ -18,6 +18,7 @@ const KIND = {
   moved: "Moved to its home",
   added: "Added (new, sourced)",
   replaced: "Replaced (a figure or source superseded)",
+  removed: "Removed (rivals pass: Firefly's decision)",
 };
 const esc = (s) => String(s).replace(/\|/g, "\\|").replace(/\n/g, " ");
 const OUT = process.env.CONTENT_LEDGER_MD ?? path.join("docs", "declutter", "CUTS.md");

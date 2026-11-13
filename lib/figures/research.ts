@@ -60,8 +60,8 @@ export const RESEARCH_SPLIT: FigureSeries = {
 export const RESEARCH_MODULES: string[][] = [
   [
     "1. The Week 1 channel audit",
-    "Ninety days of his own channels, exported and coded twice · reach by city mapped to sub-county · engagement on reach · language and format mix · the public comparison with the two nomination rivals",
-    "Every post in the window · his Meta Insights export · public posts of the two nomination rivals · no personal data",
+    "Ninety days of his own channels, exported and coded twice · reach by city mapped to sub-county · engagement on reach · language and format mix",
+    "Every post in the window · his Meta Insights export · no personal data",
     "Week 1",
     "If reach concentrates in Kitui Central, output weight shifts to Mwingi and the arid belt. If it lands in Mwingi but does not convert, the problem is message, not reach.",
   ],

@@ -8,7 +8,7 @@
  * register, datasets, strategy lists) is edited separately and goes through `npm run verify`.
  *
  * Every field is a dimension the proposal already names (a ward, a pillar, a content type, a
- * segment, a severity tier, a KPI, a workstream, a phase). Option lists are read from the data
+ * segment, a KPI, a workstream, a phase). Option lists are read from the data
  * pack, never typed here, so a pillar renamed in the data pack is renamed in every form.
  *
  * NOTHING PERSONAL. The site is open to anyone with the link, so no collection has a field for a
@@ -24,8 +24,6 @@ export type OptionSource =
   | "pillars"
   | "contentTypes"
   | "segments"
-  | "contenders"
-  | "severity"
   | "kpis"
   | "strategies"
   | "phases"
@@ -57,7 +55,7 @@ export interface Collection {
   purpose: string;
   /** The Firefly duty it replaces, as the task-to-function map numbers it. */
   replaces: string;
-  group: "Direct the team" | "Run the channels" | "Measure" | "Protect" | "Deliver";
+  group: "Direct the team" | "Run the channels" | "Measure" | "Deliver";
   fields: Field[];
   /** The field a record is titled by in lists and history. */
   titleField: string;
@@ -256,41 +254,6 @@ export const COLLECTIONS: Collection[] = [
     ],
   },
   {
-    id: "competitors",
-    label: "Competitor watch",
-    purpose: "Public activity by the other contenders, from public sources only.",
-    replaces: "T12: the monthly competitive brief",
-    group: "Measure",
-    titleField: "activity",
-    fields: [
-      { key: "date", label: "Date", type: "date", required: true, list: true },
-      { key: "contender", label: "Contender", type: "select", source: "contenders", required: true, list: true },
-      { key: "channel", label: "Channel", type: "select", options: CHANNELS, list: true },
-      { key: "activity", label: "What they did", type: "text", required: true, maxLength: 200, list: true },
-      { key: "sourceLink", label: "Public source", type: "url", required: true },
-      { key: "response", label: "Our response, if any", type: "longtext", maxLength: 800 },
-    ],
-  },
-  {
-    id: "incidents",
-    label: "Rapid response",
-    purpose: "Every attack or false claim: its severity, who drafted the response, who approved it.",
-    replaces: "T13, T14: drafting rapid responses and running the red-team drill",
-    group: "Protect",
-    titleField: "summary",
-    fields: [
-      { key: "opened", label: "Opened", type: "date", required: true, list: true },
-      { key: "severity", label: "Severity tier", type: "select", source: "severity", required: true, list: true },
-      { key: "summary", label: "What happened", type: "text", required: true, maxLength: 200, list: true },
-      { key: "draftedBy", label: "Response drafted by (role)", type: "text", maxLength: 80 },
-      { key: "approvedBy", label: "Approved by (role)", type: "text", maxLength: 80 },
-      { key: "status", label: "Status", type: "select", options: ["Open", "Responded", "Closed"], required: true, list: true },
-      { key: "drill", label: "This is a red-team drill", type: "boolean", list: true },
-      { key: "afterAction", label: "After-action note", type: "longtext", maxLength: 2000 },
-    ],
-    rules: [(r) => (r.status === "Responded" && !str(r.approvedBy) ? "A response is marked sent only once someone has approved it. Enter who approved it." : null)],
-  },
-  {
     id: "projects",
     label: "Service-delivery tracker",
     purpose: "Verification status for the county's itemised projects, ward by ward.",
@@ -323,4 +286,4 @@ export const COLLECTIONS: Collection[] = [
 
 export const COLLECTION_BY_ID: Record<string, Collection> = Object.fromEntries(COLLECTIONS.map((c) => [c.id, c]));
 
-export const GROUPS = ["Direct the team", "Run the channels", "Measure", "Protect", "Deliver"] as const;
+export const GROUPS = ["Direct the team", "Run the channels", "Measure", "Deliver"] as const;

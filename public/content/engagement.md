@@ -17,7 +17,7 @@ id: fig-1-4-flow
 ```
 
 ```visual
-{"kind":"stepper","items":[{"label":"Analyse (Week 1)","text":"Your team audits his channels against the race in the channel audit:","body":"ninety days of reach, engagement, language and geography, against the same window for the two nomination rivals named in Section 5.3 (Section 18.5)."},{"label":"Strategise (Weeks 2–3)","body":"From that audit, your team defines what to post, for whom, in which language, on which channel, and why (Part III)."},{"label":"Direct (Week 4 on)","text":"His team keeps publishing.","body":"Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."}]}
+{"kind":"stepper","items":[{"label":"Analyse (Week 1)","text":"Your team audits his channels against the race in the channel audit:","body":"ninety days of reach, engagement, language and geography (Section 18.5)."},{"label":"Strategise (Weeks 2–3)","body":"From that audit, your team defines what to post, for whom, in which language, on which channel, and why (Part III)."},{"label":"Direct (Week 4 on)","text":"His team keeps publishing.","body":"Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."}]}
 ```
 
 Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This proposal deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
@@ -75,7 +75,6 @@ R responsible · A accountable · C consulted · I informed.
 | SMS / USSD / WhatsApp dispatch | I | **R/A** | I | C | C |
 | Measurement and reporting | I | **R/A** | I | I | — |
 | Data-protection sign-off | C | I | I | **A** | **R** |
-| Crisis, critical tier | — | **R** | **A** | C | I |
 | The platform: hosting, upkeep, data checks, new features | **R/A** | C | I | I | — |
 
 ## 13.3 What is outside the scope
@@ -95,7 +94,7 @@ Stated as plainly as what is inside, because a boundary a proposal will not draw
 ```
 
 ```visual
-{"kind":"checklist","items":[{"label":"Asset centralisation","body":"A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata** to support the provenance requirement in Section 20.4 — a practice that is effortless now and invaluable under attack."},{"label":"Performance tracking","body":"Monthly analytics reports covering reach, engagement, sentiment and conversion, plus the competitive brief (Annex F.11) and progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person."},{"label":"Escalation","body":"The decision matrix below governs all approvals. The Annex F.5 severity matrix governs all crisis response. Both are rehearsed quarterly (Annex F.6) rather than read for the first time under pressure."}]}
+{"kind":"checklist","items":[{"label":"Asset centralisation","body":"A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata**, so the origin of every published image and clip can be shown."},{"label":"Performance tracking","body":"Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person."},{"label":"Escalation","body":"The decision matrix below governs all approvals."}]}
 ```
 
 #### Decision rights and content approval
@@ -124,15 +123,14 @@ The meeting rhythm and the escalation path are schedule material: what a reader 
 | **Weekly (60 min)** | Strategy sync | Strategy Director + Campaign Comms Director | Prior-week performance; next-week calendar approved; itinerary alignment |
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
-| **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report; competitive brief |
+| **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report |
 | **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target (Chapter 14); opt-out rate; ward coverage |
-| **Quarterly** | Red-team simulation | Full team + external panel | Crisis drill report and matrix revision (Annex F.6) |
 
 "Strategy Director" in this table is the campaign role of Section 17.2. Each meeting's decisions are logged in the workspace; Firefly attends none of them.
 
 #### The escalation path
 
-Three decision levels, so that operational decisions do not stall under pressure in the field. Attacks on the campaign are judged separately, by the four severity tiers in the runbooks' decision tree (Annex F.1):
+Three decision levels, so that operational decisions do not stall under pressure in the field:
 
 ```figure
 id: escalation-ladder
@@ -166,7 +164,7 @@ id: org-chart
 id: fig-5-9-team
 ```
 
-Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in the runbooks (Annex F) and in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
 
 *Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
 
@@ -202,7 +200,7 @@ engagement. Section 18.1's KPI owners are campaign-side roles, and they enter th
 **The data-governance owner** (Section 15.4.4) is one named role, accountable in writing. For the presence audit's scope it is the Analyst. Across the campaign's data it is the Digital Director at Lean, and the Data Analyst / Modeller from Standard (Section 17.3).
 
 ```visual
-{"kind":"cards","preset":"role","items":[{"title":"**Strategy Director** (campaign role)","text":"Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart; crisis drafting at the high and critical tiers","fields":[{"label":"Decision rights","text":"Approves new policy claims and Kikamba output before your team publishes; escalates a critical-tier attack to the candidate. **Does not publish, and holds no account credentials**"}]},{"title":"**Analyst**","text":"Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope","fields":[{"label":"Decision rights","text":"Sets the indicators and the reporting in the KPI tracker; flags a brief that the data does not support"}]},{"title":"**Offline-layer Operator**","text":"Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns**","fields":[{"label":"Decision rights","text":"Executes the approved weighting; logs every send in the dispatch log; dispatches nothing outside the consented list"}]}]}
+{"kind":"cards","preset":"role","items":[{"title":"**Strategy Director** (campaign role)","text":"Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart","fields":[{"label":"Decision rights","text":"Approves new policy claims and Kikamba output before your team publishes. **Does not publish, and holds no account credentials**"}]},{"title":"**Analyst**","text":"Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope","fields":[{"label":"Decision rights","text":"Sets the indicators and the reporting in the KPI tracker; flags a brief that the data does not support"}]},{"title":"**Offline-layer Operator**","text":"Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns**","fields":[{"label":"Decision rights","text":"Executes the approved weighting; logs every send in the dispatch log; dispatches nothing outside the consented list"}]}]}
 ```
 
 ## 17.3 Surge roles
@@ -219,7 +217,6 @@ Surge roles are activated by phase and scope level.
 | **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 15.4.4) |
 | **Kikamba Reviewer (native speaker)** | Week 1 onward — **mandatory at all levels** | Proverb and idiom verification, cultural register review. No Kikamba content publishes without this review. Your team produces; this role signs off |
 | **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 15.3.4); ward champion training and reporting |
-| **Crisis Communications Lead** | Phase 2 onward, or immediately on trigger | Rapid response, red-team drills, deepfake rebuttal protocol |
 | **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 15.2.2) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are

@@ -195,7 +195,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
    * that matters — whether these particular numbers may be added to one another — and so the site
    * shipped, among others:
    *
-   *     Combined 68.7%     Kasalu's poll shares from two different rounds, added together
+   *     Combined 68.7%     another candidate's poll shares from two different rounds, added together
    *     Combined 68.5%     Dr. Mulu's three poll shares, added together
    *     Avg WS 7           the workstream identifiers, averaged
    *     Combined 832,002   a zone table counting its own Total row a second time

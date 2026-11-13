@@ -32,7 +32,6 @@ STAGES: dict[int, tuple[str, str]] = {
     5: ("stage05_maps", "Maps"),
     6: ("stage06_content", "Content performance"),
     7: ("stage07_comments", "Comment themes and sentiment"),
-    8: ("stage08_competitors", "Competitor benchmark"),
     9: ("stage09_reach", "Channel reach estimate"),
     10: ("stage10_issues", "Issue salience matrix"),
     11: ("stage11_measurement", "Measurement design"),

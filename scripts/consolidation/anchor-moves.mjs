@@ -55,12 +55,17 @@ const live = new Set(now.map((x) => x.id));
 const bySlug = new Map();
 for (const x of now) bySlug.set(x.slug, [...(bySlug.get(x.slug) ?? []), x.id]);
 const overrides = fs.existsSync(OVERRIDES) ? JSON.parse(fs.readFileSync(OVERRIDES, "utf8")).overrides : {};
+// The rivals pass (docs/rivals-2026-11) removed headings by Firefly's decision; an id whose heading
+// it removed lands where lib/anchors/rivals-2026-11.json says, by id or by section number.
+const RIVALS_FILE = path.join(ROOT, "lib", "anchors", "rivals-2026-11.json");
+const rivals = fs.existsSync(RIVALS_FILE) ? JSON.parse(fs.readFileSync(RIVALS_FILE, "utf8")) : { moves: {}, slugs: {} };
+const landed = (t) => (t && !live.has(t) ? rivals.moves[t] ?? t : t);
 
 const moves = {};
 const lost = [];
 for (const { id, slug } of before) {
   if (live.has(id)) continue;
-  const target = overrides[id] ?? (bySlug.get(slug)?.length === 1 ? bySlug.get(slug)[0] : null);
+  const target = landed(overrides[id] ?? (bySlug.get(slug)?.length === 1 ? bySlug.get(slug)[0] : null) ?? rivals.moves[id] ?? rivals.slugs[slug] ?? null);
   if (target && live.has(target)) moves[id] = target;
   else lost.push(id);
 }

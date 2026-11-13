@@ -20,7 +20,7 @@ id: fig-3-11-evidence
 
 ## 7.2 What could overturn it
 
-**The case against.** Dr. Kasalu won the 2022 Woman Representative race with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year (Tier 2, Section 2.2). She has already shown she can win countywide votes above the benchmark. That is not the profile of a race decided by passive name recognition alone.
+**The case against.** The 2022 Woman Representative race was won with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year (Tier 2, Section 2.2). Countywide votes above the benchmark have already been won in Kitui. That is not the profile of a race decided by passive name recognition alone.
 
 **The test.** Week 1 reads ninety days of Dr. Mulu's own channels and measures how much of his reach lands in the pool (method: Section 18.5). If his reach is already landing in Mwingi and failing to convert, the problem is the message, not the reach, and the response changes. Section 12.7 sets out in advance what each finding changes, so the audit cannot be read backwards into whatever was already planned.
 
@@ -52,11 +52,11 @@ kind: cards
 preset: assumption
 items:
   - title: "1. The Wiper ticket is decided by a party-run countywide selection, not a delegates' contest."
-    head: { label: "If it fails", text: "If it becomes a delegate primary, the targeting model changes from countywide name recognition to delegate arithmetic, and Section 5.4 sets out what that would require." }
-    body: "This is reported and not confirmed by the party (Tier 3; Section 5.2 names the party documents that would confirm it)."
+    head: { label: "If it fails", text: "If it becomes a delegate primary, the targeting model changes from countywide name recognition to delegate arithmetic." }
+    body: "This is reported and not confirmed by the party (Tier 3); the party's own published rules would confirm it."
   - title: "2. The nomination window falls when it is reported to."
     head: { label: "If it fails", text: "A later date lengthens the sprint; an earlier one compresses it and forces the decision rules in Section 12.7 sooner." }
-    body: "<window-chip></window-chip> That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against Section 5.2's verification test before committing effort against it.**"
+    body: "<window-chip></window-chip> That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
   - title: "3. The register and connectivity figures hold."
     body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are the most recent published figures. The offline layer in Section 15.3.3 is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
   - title: "4. The campaign appoints the named roles."

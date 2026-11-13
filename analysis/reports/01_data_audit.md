@@ -97,7 +97,6 @@ That percentage overstates the problem and should not be quoted on its own. The 
 
 - `data/templates/posts.csv`
 - `data/templates/comments.csv`
-- `data/templates/competitors.csv`
 - `data/templates/register_2026_by_ward.csv`
 - `data/templates/register_2026_by_county.csv`
 - `data/templates/results_2022_by_ward.csv`
@@ -110,7 +109,6 @@ That percentage overstates the problem and should not be quoted on its own. The 
 
 - **[DATA NEEDED]** `posts.csv` is empty — Every public post from the candidate's channels, for the Existing Presence Audit.
 - **[DATA NEEDED]** `comments.csv` is empty — Public comments for theme and sentiment coding.
-- **[DATA NEEDED]** `competitors.csv` is empty — Rival channel benchmarks for Kasalu, Wambua and Ngilu.
 - **[DATA NEEDED]** `register_2026_by_ward.csv` is empty — The post-ECVR 2026 register, by ward — the IEBC annex figure.
 - **[DATA NEEDED]** `register_2026_by_county.csv` is empty — The post-ECVR 2026 register at COUNTY level — the IEBC annex row for Kitui.
 - **[DATA NEEDED]** `results_2022_by_ward.csv` is empty — 2022 governor and Woman Rep results by ward, from IEBC Forms 37A/37B.

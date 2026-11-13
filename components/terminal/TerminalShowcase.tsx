@@ -14,7 +14,6 @@ import { BODY_H, BODY_W } from "./device";
 import { TerminalFrame } from "./TerminalFrame";
 import { GroundPulseScreen } from "./screens/GroundPulseScreen";
 import { MarketAuditScreen } from "./screens/MarketAuditScreen";
-import { IncidentScreen } from "./screens/IncidentScreen";
 import { TurnoutScreen } from "./screens/TurnoutScreen";
 import { MapPin, Radio } from "lucide-react";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
@@ -22,7 +21,6 @@ import { IllustrativeTag } from "../premium/IllustrativeTag";
 const SCREENS: Record<TerminalModeId, React.ComponentType<{ data: (typeof WARD_DATA)[string] }>> = {
   dgp: GroundPulseScreen,
   mea: MarketAuditScreen,
-  iad: IncidentScreen,
   tpc: TurnoutScreen,
 };
 
@@ -230,7 +228,7 @@ export function TerminalShowcase() {
 
       {/* Bottom Architectural Caption */}
       <div className="mt-4 max-w-xl mx-auto text-center t-label text-muted leading-relaxed">
-        <span className="font-semibold text-ink">Field-to-War Room Protocol:</span> Field intelligence logged by ward coordinators updates county voter projections within 15 minutes, synchronizing radio rebuttal aircover and targeted micro-geofenced voter mobilization.
+        <span className="font-semibold text-ink">Field-to-War Room Protocol:</span> Field intelligence logged by ward coordinators updates county voter projections within 15 minutes, synchronizing radio aircover and targeted micro-geofenced voter mobilization.
       </div>
     </div>
   );

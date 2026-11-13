@@ -39,7 +39,7 @@ EVIDENCE = [
     },
     {
         "issue_id": "allocation", "issue": "How county money is split between wards",
-        "indicator": "CLIDP splits county resources equally across all 40 wards; the leading rival attacks it as entrenching inequality",
+        "indicator": "CLIDP splits county resources equally across all 40 wards; it is publicly criticised as entrenching inequality",
         "value": np.nan, "unit": "policy", "source_id": "S24", "tier": 2, "as_of": "2025-10",
         "reach": "county-wide",
         "supporting": "A live fault line where an economist's position differentiates — and where the proposal's own equal-ward guarantee conflicts with itself",
@@ -169,7 +169,7 @@ def run() -> dict:
         "to Wealth Creation\"; 55.2% in poverty and 72.5% of spending going on food give that "
         "line evidence instead of sentiment.",
         "**Allocation is the sharpest point of difference, and the campaign is not yet ready for "
-        "it.** The leading rival attacks equal-ward CLIDP as entrenching inequality. The site's "
+        "it.** Equal-ward CLIDP is publicly criticised as entrenching inequality. The site's "
         "own §7.1.1 proposes an equal-ward guarantee, which is the same policy. Those two "
         "positions cannot both be run, and this stage cannot resolve it — it is a policy "
         "decision, flagged here because the content plan depends on it.",

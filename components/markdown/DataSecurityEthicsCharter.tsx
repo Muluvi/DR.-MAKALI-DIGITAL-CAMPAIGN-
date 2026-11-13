@@ -46,7 +46,7 @@ const ETHICAL_COMMITMENTS: EthicalCommitment[] = [
     category: "AI & Synthetic Media",
     ruleName: "Zero Synthetic Impersonation & Deepfake Prohibition",
     statutoryBasis: "National Cohesion & Integration Act + NCIC Guidelines",
-    campaignStandard: "AI assists copy drafting and variation testing only. The campaign will never synthesize opponent voices, fabricate events, or generate deceptive visual deepfakes.",
+    campaignStandard: "AI assists copy drafting and variation testing only. The campaign will never synthesize anyone's voice, fabricate events, or generate deceptive visual deepfakes.",
     penaltyForBreach: "Zero tolerance; immediate contract termination for creative team members.",
     isComplianceGated: false
   },

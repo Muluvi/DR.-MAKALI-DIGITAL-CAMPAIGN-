@@ -45,9 +45,21 @@ const settlement = (() => {
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : { settled: [], fenceEdits: [] };
 })();
 const SETTLED_IDS = new Set(settlement.settled.map((d) => d.id));
+/*
+ * The rivals pass (docs/rivals-2026-11, November 2026), Firefly's decision: fences it removed with
+ * their sections, and the text-version fences it edited, are listed in its fences.json. An edit is
+ * applied to the base exactly as a settled dispute's fence edit is; a removed fence is weighed as
+ * absent, and its words are logged as removed in the pass's ledger. Nothing else may change a fence.
+ */
+const rivals = (() => {
+  const file = path.join(ROOT, "docs", "rivals-2026-11", "fences.json");
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : { edits: [], removed: [] };
+})();
+const RIVALS_REMOVED = new Set(rivals.removed.map((b) => b.trim()));
 const settle = (t) => {
   let out = t.replace(/ ?\[CONFLICT (C\d+): see open items\]/g, (m, id) => (SETTLED_IDS.has(id) ? "" : m));
   for (const e of settlement.fenceEdits ?? []) out = out.split(e.from).join(e.to);
+  for (const e of rivals.edits) out = out.split(e.from).join(e.to);
   return out;
 };
 const weighed = Object.fromEntries(Object.entries(before).map(([f, t]) => [f, settle(t)]));
@@ -67,7 +79,7 @@ const fenceBodies = (texts, kind) => {
   return out.sort();
 };
 for (const kind of ["figure", "textversion"]) {
-  const b = fenceBodies(weighed, kind);
+  const b = fenceBodies(weighed, kind).filter((x) => !RIVALS_REMOVED.has(x));
   const a = fenceBodies(after, kind);
   const missing = b.filter((x) => !a.includes(x));
   if (missing.length || a.length !== b.length) errors.push(`3: ${kind} fences ${b.length} before, ${a.length} after; missing or changed: ${missing.map((x) => x.slice(0, 40)).join(" | ")}`);
@@ -112,7 +124,9 @@ for (const s of secBefore) {
   // pass's chapter merges) is credited with its words as they stood at THIS base: the whole of it is
   // elsewhere now. Crediting the ledger's count instead would count words later passes added to it
   // as if they had been cut, when they moved with it.
-  const movedWhole = !a && cuts.some((c) => c.kind === "moved" && c.whole && `${c.file}:${c.section}` === s.key);
+  // The rivals pass removed some sections whole (a logged "removed" with `whole: true`); like a whole
+  // move, it is credited with the section's words as they stood at this base.
+  const movedWhole = !a && cuts.some((c) => (c.kind === "moved" || c.kind === "removed") && c.whole && `${c.file}:${c.section}` === s.key);
   const wc = movedWhole ? wb : cutWords[s.key] ?? 0;
   totalBefore += wb;
   totalAfter += wa;

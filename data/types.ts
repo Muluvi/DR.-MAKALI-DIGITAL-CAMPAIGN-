@@ -6,7 +6,7 @@
 // Scope note (read before adding a file here): this schema governs the NEW factual content
 // this pass adds — the ward register, the disputed figures, electoral history, fiscal/audit
 // record, drought and food security, Mui Basin, the nomination path, the spending ceiling,
-// the competitor field, media ownership, and the data-gaps register. It does not retrofit the
+// media ownership, and the data-gaps register. It does not retrofit the
 // pre-existing prose in public/content/*.md or the illustrative UI widgets in
 // components/StrategicAids.tsx — see the PR description for why that is out of scope for this
 // pass rather than silently incomplete.

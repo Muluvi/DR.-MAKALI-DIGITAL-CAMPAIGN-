@@ -49,22 +49,22 @@ const OBJECTIVES = [
   {
     n: "1", title: "Be known where he isn't yet",
     target: `At least ${fmt("pool.share")}% of his reach landing in the ${fmt("pool")}-voter pool`,
-    finding: "2.7", measure: "5.1.1", measureLabel: "NW-01, R-02", serves: "3.3.1",
+    finding: "2.7", measure: "18.1", measureLabel: "NW-01, R-02", serves: "3.3.1",
   },
   {
     n: "2", title: "Turn his record into visible proof",
     target: "Ward-specific achievement briefs for every ward, distributed where he is least known",
-    finding: "2.6", measure: "5.1.2", measureLabel: "R-03", serves: "3.1",
+    finding: "2.6", measure: "18.1", measureLabel: "R-03", serves: "3.1",
   },
   {
     n: "3", title: "A direct line to the voters the internet doesn't reach",
     target: `${fmt("target.sms")} consented SMS/USSD subscribers by 30 June 2027`,
-    finding: "2.9.3", measure: "5.1.1", measureLabel: "NW-03, R-04", serves: "3.3.2",
+    finding: "2.9.3", measure: "18.1", measureLabel: "NW-03, R-04", serves: "3.3.2",
   },
   {
     n: "4", title: "Give every post a voter, a ward and a reason",
     target: "Every briefed post coded with segment, ward and pillar",
-    finding: "2.3", measure: "5.1.2", measureLabel: "R-05", serves: "3.7",
+    finding: "2.3", measure: "18.1", measureLabel: "R-05", serves: "3.7",
   },
   {
     n: "5", title: "Hold the home base while Kitui Central runs its own race",
@@ -119,7 +119,7 @@ export const FIG_1_4: FigureSpec = {
     horizontal: true,
     lanes: ["Strategy core", "His team"],
     steps: [
-      { lane: "Strategy core", when: "Week 1", title: "Analyse", body: "Audits ninety days of his channels against the same window for the two nomination rivals." },
+      { lane: "Strategy core", when: "Week 1", title: "Analyse", body: "Audits ninety days of his channels." },
       { lane: "Strategy core", when: "Weeks 2–3", title: "Strategise", body: "Defines what to post, for whom, in which language, on which channel, and why." },
       { lane: "Strategy core", when: "Week 4 on", title: "Direct", body: "Issues the weekly brief, approves the calendar, reviews performance on the dashboards. Operates the WhatsApp and USSD line." },
       { lane: "His team", when: "Week 1", title: "Enters its analytics", body: "Insights exports, entered on the platform; no publishing credentials change hands." },
@@ -133,7 +133,7 @@ export const FIG_1_4: FigureSpec = {
     { key: "team", label: "His team" },
   ],
   rows: [
-    { cells: { phase: "Analyse (Week 1)", firefly: "Audits his channels against the two nomination rivals", team: "Enters its analytics on the platform" } },
+    { cells: { phase: "Analyse (Week 1)", firefly: "Audits ninety days of his channels", team: "Enters its analytics on the platform" } },
     { cells: { phase: "Strategise (Weeks 2–3)", firefly: "Defines what to post, for whom, where and why", team: "Keeps publishing" } },
     { cells: { phase: "Direct (Week 4 on)", firefly: "Weekly brief, calendar approval, performance review; operates WhatsApp and USSD", team: "Publishes to the brief" } },
   ],

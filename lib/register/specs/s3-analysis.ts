@@ -197,30 +197,6 @@ export const FIG_3_4: FigureSpec = {
   rows: tileRows(["footprint"]),
 };
 
-/* ------------------------------------------------------------------ fig-3-5-field */
-
-const FIELD: Bar[] = [
-  bar("result.2022.womanrep.kasalu", "Irene Kasalu · Woman Representative 2022 · countywide"),
-  bar("result.2022.gov.malombe", "Julius Malombe · Governor 2022 · countywide"),
-  bar("result.2022.senate.wambua", "Enoch Wambua · Senator 2022 · countywide"),
-  bar("result.2017.gov.ngilu", "Charity Ngilu · Governor 2017 · countywide"),
-  bar("result.2022.gov.musila", "David Musila · Governor 2022 · countywide", { note: `Certified; The Star's early total was ${fmt("result.2022.gov.musila.media")}.` }),
-  bar("result.2022.mp.mulu", "Dr. Mulu · Kitui Central MP 2022 · one constituency", { tone: "accent", note: `Won from an electorate of ${fmt("con.kitui-central")}: a constituency total, not a countywide one.` }),
-];
-
-export const FIG_3_5: FigureSpec = {
-  id: "fig-3-5-field",
-  section: "2.6",
-  title: "Four of the field have already won a countywide race, and he has not yet stood for one",
-  question: "What has each contender already proven at the ballot?",
-  takeaway: `Kasalu's ${fmt("result.2022.womanrep.kasalu")} beat the winning governor's total; his own proof at the ballot is constituency-bounded.`,
-  sources: [src("result.2022.womanrep.kasalu"), src("result.2017.gov.ngilu"), src("result.2022.mp.mulu")],
-  chart: { type: "bars", bars: FIELD, ref: { value: num("result.2022.gov.malombe"), label: `${fmt("result.2022.gov.malombe")}, the 2022 governor's winning total` } },
-  notes: ["Largest vote each has won in one race. Each bar names its scope: a countywide total and a constituency total are not the same test."],
-  columns: [{ key: "who", label: "Candidate, race and scope" }, { key: "votes", label: "Votes", numeric: true }],
-  rows: FIELD.map((b) => ({ cells: { who: b.label, votes: b.value }, state: b.state, closesWith: b.state === "needed" ? F("result.2022.mp.mulu").closesWith : undefined })),
-};
-
 /* ------------------------------------------------------------------ fig-3-6-party-flow */
 
 export const FIG_3_6: FigureSpec = {
@@ -320,7 +296,7 @@ const PROFILE = [
   { n: 1, label: "MP since", shown: "Aug 2012", issue: "The Parliament record shows 2013 (T1)." },
   { n: 2, label: "Work", shown: "Programmer Officer — CDTF", issue: "Typo: M&E Officer, CDTF, 1997–2004 (T1)." },
   { n: 3, label: "Work", shown: "Forms of government — Economist", issue: "Autofill error: Economist, Ministry of Planning & Finance, 1991–1997 (T1)." },
-  { n: 4, label: "Current city", shown: "Nairobi", issue: "A standing 'absentee' attack line for a county aspirant." },
+  { n: 4, label: "Current city", shown: "Nairobi", issue: "Reads as absent for a county aspirant." },
   { n: 5, label: "Education", shown: "Kenyatta University", issue: "The PhD in Economics, the credential the positioning rests on, is missing." },
   { n: 6, label: "Bio", shown: "Incoming Governor Kitui County 2027", issue: "Presumes a nomination that has not happened." },
 ];
@@ -328,7 +304,6 @@ const AUDIT_FIGURES = [
   { title: "Reach against the vote map", body: "His reach by constituency beside each constituency's share of the register, and the gap between them." },
   { title: "Ninety days, coded", body: "Every post in the window, by content pillar and reach." },
   { title: "Which language travels", body: "Engagement on reach for English, Kiswahili and Kikamba posts." },
-  { title: "Him against the field", body: "Posts per week, median shares and ads live, for him and the two nomination rivals, from public data." },
 ];
 
 export const FIG_3_9: FigureSpec = {
@@ -336,8 +311,8 @@ export const FIG_3_9: FigureSpec = {
   section: "2.10.3",
   title: "His profile carries six errors a researcher would find in an afternoon, and the Week 1 audit reads the rest",
   question: "What does his current presence actually show?",
-  takeaway: "The six fixes are Section 14.3; the four audit figures are drawn from the Week 1 export, never from an estimate.",
-  sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `The four audit figures: ${EXPORT}`, tier: null, state: "target" }],
+  takeaway: "The six fixes are Section 14.3; the three audit figures are drawn from the Week 1 export, never from an estimate.",
+  sources: [{ name: "His public profile, as displayed; Parliament of Kenya record", tier: "T1" }, { name: `The three audit figures: ${EXPORT}`, tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -377,7 +352,7 @@ export const FIG_3_10: FigureSpec = {
 export const FIG_3_11: FigureSpec = {
   id: "fig-3-11-evidence",
   section: "2.12",
-  title: "The diagnosis is a recognition gap outside Kitui Central, and one rival's result is the strongest evidence against it",
+  title: "The diagnosis is a recognition gap outside Kitui Central, and one 2022 result is the strongest evidence against it",
   question: "How strong is the diagnosis, and what would overturn it?",
   takeaway: "Week 1 tests it against his own channel data before anything is committed: if his reach already lands in Mwingi, the problem is message, not reach.",
   sources: [src("pool.share"), src("result.2022.womanrep.kasalu"), { name: "The Week 1 test: his own Insights export", tier: null, state: "target" }],
@@ -395,8 +370,7 @@ export const FIG_3_11: FigureSpec = {
             "Kitui East and Kitui South will not carry party flow.",
           ],
           counter: [
-            `Irene Kasalu won ${fmt("result.2022.womanrep.kasalu")} votes countywide in 2022, more than the ${fmt("result.2022.gov.malombe")} that won the governorship: countywide vote-getting capacity, not passive recognition.`,
-            `Enoch Wambua came within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor's total.`,
+            `The 2022 Woman Representative race was won with ${fmt("result.2022.womanrep.kasalu")} votes countywide, more than the ${fmt("result.2022.gov.malombe")} that won the governorship: countywide vote-getting capacity, not passive recognition.`,
           ],
           test: ["Week 1: his reach by constituency, from his own Insights export, against the register."],
         },
@@ -421,8 +395,7 @@ export const FIG_3_11: FigureSpec = {
     { cells: { side: "Supports", point: `${fmt("pool.share")}% of the register where he has never held office` } },
     { cells: { side: "Supports", point: `${fmt("pareto.top12.in-pool")} of the twelve largest wards in the pool` } },
     { cells: { side: "Supports", point: "Two constituencies will not carry party flow" } },
-    { cells: { side: "Counts against", point: `Kasalu, ${fmt("result.2022.womanrep.kasalu")} votes countywide, above the winning governor` } },
-    { cells: { side: "Counts against", point: `Wambua, within ${fmt("gap.wambua-to-benchmark-2022")} of the winning governor` } },
+    { cells: { side: "Counts against", point: `The 2022 Woman Representative race, ${fmt("result.2022.womanrep.kasalu")} votes countywide, above the winning governor` } },
     { cells: { side: "Test", point: "Week 1 reach by constituency" }, state: "target" },
   ],
 };
@@ -523,4 +496,4 @@ export const FIG_3_12: FigureSpec = {
   ],
 };
 
-export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_5, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11, FIG_3_12];
+export const S3: FigureSpec[] = [FIG_3_1, FIG_3_2, FIG_3_3, FIG_3_4, FIG_3_6, FIG_3_7, FIG_3_8, FIG_3_9, FIG_3_10, FIG_3_11, FIG_3_12];

@@ -242,7 +242,7 @@ def build_charts() -> list[Chart]:
             notes=[config.SCENARIO_LABEL,
                    "Governor races are won by plurality. There is no threshold and these are "
                    "not win probabilities.",
-                   "A win probability would require rival vote ranges, which have not been "
+                   "A win probability would require vote ranges for the other candidates, which have not been "
                    "supplied.",
                    "Every input is a stated modelling assumption, listed in Section 6.2.1; none is a measurement."],
         ))
@@ -410,17 +410,13 @@ def write_findings(charts: list[Chart]) -> str:
          "Export with names and handles already removed. Three columns only. A "
          "Kikamba-speaking reviewer is a staffing dependency, not a data one.",
          "Stages 7, 10"),
-        ("6", "competitors.csv",
-         "Any rival benchmark at all. Currently there is none.",
-         "Manual audit of public pages plus Meta Ad Library. Internal only — never published.",
-         "Stage 8"),
-        ("7", "The IEBC 2026 register: the county total, then by ward",
+        ("6", "The IEBC 2026 register: the county total, then by ward",
          "Moves the July 2026 total (605,703) from Tier 3 to Tier 1, and removes the last "
          "modelled distribution: ward figures currently scale that total on 2022 shares.",
          "IEBC's county register as at July 2026, with its document URL, as one row in "
          "data/templates/register_2026_by_county.csv; a ward-level annex if one exists.",
          "Stages 1, 3, 4, 9"),
-        ("8", "Kikamba radio audience by sub-county",
+        ("7", "Kikamba radio audience by sub-county",
          "Converts the 338,588 no-phone voters into an addressable radio audience. Until then "
          "that segment is a population count, not a reach estimate.",
          "Published audience measurement: the CA/KARF, GeoPoll or Ipsos releases that already "
@@ -482,8 +478,6 @@ def write_mapping(charts: list[Chart]) -> str:
     rep.table(pd.DataFrame([
         {"Excluded": "Holdout assignment (`holdout_assignment.csv`)",
          "Reason": "Publishing which wards are controls destroys the experiment."},
-        {"Excluded": "Competitor benchmark (Stage 8)",
-         "Reason": "Rival analysis on a public URL shows what the campaign is watching."},
         {"Excluded": "Reported vulnerabilities (pack §6.4)",
          "Reason": "Never appears in any output. It is opposition-research material about our "
                    "own candidate."},

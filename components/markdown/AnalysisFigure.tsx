@@ -169,7 +169,7 @@ export function AnalysisFigure({
         <p className="analysis-banner analysis-banner-scenario">
           <FlaskConical size={12} className="shrink-0 mt-0.5" aria-hidden="true" />
           <span>
-            <strong>{chart.scenario_label}</strong> Every input is a stated assumption, and no rival is
+            <strong>{chart.scenario_label}</strong> Every input is a stated assumption, and no other candidate&rsquo;s vote is
             modelled, so nothing here is a win probability.
           </span>
         </p>

@@ -48,19 +48,19 @@ export function secHref(num: string): string {
   // per workstream group: 15.1 platforms, 15.2 media, 15.3 ground, 15.4 data. The consolidation pass
   // merged chapters 16, 17 and 22 and annexes B and H into the routes that now hold them.
   const chapter: Record<string, string> = {
-    "1": "kitui", "2": "votes", "3": "needs", "4": "news", "5": "race", "6": "record", "7": "diagnosis",
+    "1": "kitui", "2": "votes", "3": "needs", "4": "news", "6": "record", "7": "diagnosis",
     "8": "goal", "9": "position", "10": "message", "11": "voters", "12": "channels", "13": "engagement",
-    "14": "timeline", "16": "timeline", "17": "engagement", "18": "success", "19": "lawful", "20": "response",
+    "14": "timeline", "16": "timeline", "17": "engagement", "18": "success", "19": "lawful",
     "21": "receives", "22": "receives", "23": "ask",
   };
   const annex: Record<string, string> = {
     A: "annex-evidence", B: "annex-evidence", C: "annex-playbooks", D: "annex-playbooks", E: "annex-technology",
-    F: "annex-runbooks", G: "annex-terms", H: "annex-terms",
+    G: "annex-terms", H: "annex-terms",
   };
   const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
   // Sections that live outside their number's chapter: living standards and the county's money sit in
-  // What voters need, and the response tiers, times and protocol sit in Risks and response.
-  const located: Record<string, string> = { "1.3": "needs", "1.5": "needs", "F.1": "response", "F.2": "response", "F.5": "response" };
+  // What voters need.
+  const located: Record<string, string> = { "1.3": "needs", "1.5": "needs" };
   const parts = num.split(".");
   const tab = located[num] ? located[num] : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);

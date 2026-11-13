@@ -86,7 +86,7 @@ const GEOGRAPHIC_ZONES: GeographicZone[] = [
     generalWeight: 25,
     connectivityProfile: "Low to medium. Kikamba radio and SMS carry the load; USSD reaches the rest.",
     primaryStrategicImperative:
-      "Nearly a quarter of the county, and where a Kitui Central MP is structurally least known. Messaging must assure northern voters that devolved funds will be distributed equitably per ward — a commitment Dr. Mulu can make more credibly than any rival, because he can publish the allocation methodology and then evaluate against it.",
+      "Nearly a quarter of the county, and where a Kitui Central MP is structurally least known. Messaging must assure northern voters that devolved funds will be distributed equitably per ward — a commitment Dr. Mulu can make credibly, because he can publish the allocation methodology and then evaluate against it.",
   },
   {
     id: "arid-belt",

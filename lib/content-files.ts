@@ -14,7 +14,6 @@ export const CONTENT_FILES: Record<TabId, string> = {
   votes: "votes.md",
   needs: "needs.md",
   news: "news.md",
-  race: "race.md",
   record: "record.md",
   diagnosis: "diagnosis.md",
   goal: "goal.md",
@@ -28,13 +27,11 @@ export const CONTENT_FILES: Record<TabId, string> = {
   workstreams: "workstreams.md",
   success: "success.md",
   lawful: "lawful.md",
-  response: "response.md",
   receives: "receives.md",
   ask: "ask.md",
   "annex-evidence": "annex-evidence.md",
   "annex-playbooks": "annex-playbooks.md",
   "annex-technology": "annex-technology.md",
-  "annex-runbooks": "annex-runbooks.md",
   "annex-terms": "annex-terms.md",
 };
 

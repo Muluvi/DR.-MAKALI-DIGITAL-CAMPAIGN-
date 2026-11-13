@@ -171,20 +171,13 @@ export function InlineMarks({ text }: { text: string }) {
 }
 
 /**
- * X7 (brief 2026-10 declutter): the nomination window, said once. Its home is 5.2, where the
- * timing, its tier and what would confirm it are set out; every other place it was restated now
- * carries this chip, which keeps the timing, the hedge and the tier in view and links home.
+ * X7 (brief 2026-10 declutter): the nomination window, said once, as a chip that keeps the
+ * timing, the hedge and the tier in view wherever the window is mentioned.
  */
 export function WindowChip() {
-  const map = useSectionNumberMap();
-  const titles = useSectionTitleMap();
-  const inert = useContext(InertMarks);
-  const id = map["5.2"] ?? "race-sec-5-2";
-  const title = titles["5.2"] ?? NOMINATION_WINDOW.label;
   return (
     <span className="wchip">
-      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span> ·{" "}
-      {inert ? <span>{title}</span> : <CrossSectionLink id={id}>{title}</CrossSectionLink>}
+      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span>
     </span>
   );
 }

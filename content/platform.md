@@ -37,7 +37,6 @@ items:
   - { title: "Direct the publishing team", text: "the weekly brief and the content calendar" }
   - { title: "Run the channels", text: "the SMS, USSD and WhatsApp dispatch log" }
   - { title: "Measure", text: "the KPI tracker, channel audit, tests and field reports" }
-  - { title: "Protect", text: "the rapid-response desk" }
   - { title: "Update the data", text: "the data editor, with the same checks the site runs" }
 ```
 

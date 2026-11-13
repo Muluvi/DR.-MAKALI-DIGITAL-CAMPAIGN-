@@ -43,7 +43,7 @@ id: fig-5-2-4-stack
 *   **Tooling Recommendation:** **Buffer / Hootsuite Enterprise** (Publishing) + **Brand24 / Talkwalker** (Social Listening & Media Monitoring).
 *   **Function & Purpose:** 
     *   *Publishing:* Multi-account scheduling across Facebook, X (Twitter), Instagram, TikTok, and YouTube.
-    *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags emerging viral rumours, competitor attacks, and trending local issues in real time.
+    *   *Listening:* 24/7 automated monitoring of Kamba and national political keywords (e.g., "Dr. Makali Mulu", "Kitui Governor 2027", "Kitui Central CDF", "Wiper Primaries", "Kalonzo Musyoka"). Flags trending local issues in real time.
 *   **Data Held & Processed:** Public social media posts, comments, engagement metrics, sentiment scores, influencer handles, and public reach metrics.
 *   **DPA 2019 Exposure & Compliance:** **LOW TO MODERATE RISK.** Processes only publicly accessible posts and aggregated sentiment metadata. Within the rules in Section 19.2 provided individual user profiles are not scraped or merged into private voter records without consent.
 *   **Procurement Status:** **Awaiting campaign decision** *(Approval of the software subscription)*.
@@ -73,7 +73,7 @@ id: fig-5-2-4-stack
 id: procurement-matrix
 ```
 
-The security protocols for these systems are in Runbooks, under the account security baseline; the data law they serve is in Lawful and ethical.
+The data law these systems serve is in Lawful and ethical.
 
 ## E.2 The voter model and its variables
 

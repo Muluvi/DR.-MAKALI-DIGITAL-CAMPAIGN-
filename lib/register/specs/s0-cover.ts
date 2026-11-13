@@ -50,7 +50,7 @@ export const FIG_COVER_MAP: FigureSpec = {
             { value: fmt("register.2026"), label: "registered voters, July 2026 (reported)", state: "sourced", countTo: F("register.2026").value ?? undefined },
             { value: `≈${fmt("benchmark")}–${fmt("benchmark.2026-equivalent.rounded")}`, label: "votes to win: the 2022 winner's share, carried to the 2026 register", state: "modelled" },
             { value: `${fmt("pool.share")}%`, label: "of the register in Mwingi and Kitui South, where he has never held office", state: "modelled" },
-            { value: "Both", label: "Wiper rivals for the ticket have already won a countywide election", state: "sourced" },
+            { value: fmt("register.polling-stations"), label: "polling stations across the 40 wards (IEBC 2022)", state: "sourced" },
           ],
         },
       },
@@ -65,7 +65,7 @@ export const FIG_COVER_MAP: FigureSpec = {
 // Each step is a part, and each row's job is the question that part answers.
 export const SPINE_STEPS = [
   { label: "Kitui today", href: "/kitui" },
-  { label: "The contest", href: "/race" },
+  { label: "His standing", href: "/record" },
   { label: "The strategy", href: "/goal" },
   { label: "The plan", href: "/engagement" },
   { label: "Proof", href: "/success" },
@@ -75,18 +75,18 @@ export const SPINE_STEPS = [
 export const FIG_COVER_SPINE: FigureSpec = {
   id: "fig-cover-spine",
   section: "Cover",
-  title: "The proposal runs evidence first: what Kitui is and needs, the contest, the strategy, the plan, how it is proven and kept lawful, and the decision",
+  title: "The proposal runs evidence first: what Kitui is and needs, where he stands, the strategy, the plan, how it is proven and kept lawful, and the decision",
   question: "What is the shape of the argument?",
-  takeaway: "Kitui today and The contest are the evidence; The strategy and The plan are built on it; Proof and protection shows how it is measured and kept safe; The decision closes with what Dr. Mulu is asked to decide. The evidence behind it follows, then the working platform.",
+  takeaway: "Kitui today and His standing are the evidence; The strategy and The plan are built on it; Proof and safeguards shows how it is measured and kept lawful; The decision closes with what Dr. Mulu is asked to decide. The evidence behind it follows, then the working platform.",
   sources: [{ name: "This proposal's structure", tier: null, state: "target" }],
   chart: { type: "spine", steps: SPINE_STEPS },
   columns: [{ key: "step", label: "Part" }, { key: "job", label: "The question it answers" }],
   rows: [
     { cells: { step: "Kitui today", job: "What is true about the county and its voters?" } },
-    { cells: { step: "The contest", job: "Who is running, and where does Dr. Mulu stand?" } },
+    { cells: { step: "His standing", job: "Where does Dr. Mulu stand today?" } },
     { cells: { step: "The strategy", job: "What should the campaign do, and why?" } },
     { cells: { step: "The plan", job: "Who does the work, in what order, and how?" } },
-    { cells: { step: "Proof and protection", job: "How would we know it worked, and stay safe?" } },
+    { cells: { step: "Proof and safeguards", job: "How would we know it worked, and that it stayed lawful?" } },
     { cells: { step: "The decision", job: "What is Dr. Mulu being asked to decide?" } },
   ],
 };

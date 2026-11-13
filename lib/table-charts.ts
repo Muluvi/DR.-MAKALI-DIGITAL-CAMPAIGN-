@@ -8,7 +8,7 @@
  * the cells looked like numbers, never whether they were the kind of number you may add together.
  * On the live site that produced, among others:
  *
- *   - "Combined 68.7%"  — Irene Kasalu's poll shares from two different rounds, added.
+ *   - "Combined 68.7%"  — another candidate's poll shares from two different rounds, added.
  *   - "Combined 68.5%"  — Dr. Mulu's three poll shares, added.
  *   - "Avg WS 7 / Max Peak 14 / Combined 106" — the workstream NUMBERS, averaged and totalled.
  *   - "Combined 447,940 / 511,590 / 832,002" — zone tables whose own Total row was counted again.

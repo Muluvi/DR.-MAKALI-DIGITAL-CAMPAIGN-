@@ -1,5 +1,4 @@
 import { PanelFold } from "../markdown/PanelFold";
-import { RapidResponseFlowDiagram } from "../markdown/RapidResponseFlowDiagram";
 import { RegisterFigure } from "../register/Figure";
 import { STORY_FIGURES } from "../../lib/premium/story";
 import { REGISTER } from "../../lib/register/specs";
@@ -16,7 +15,7 @@ import { REGISTER } from "../../lib/register/specs";
  * Every figure is a FigureSpec in the register (lib/register/specs), which draws the chart, the
  * table view and the CSV from one record. The legacy figures that used to be drawn here from
  * lib/figures/* are register specs now (lib/register/specs/s7-reference.ts, consolidation
- * follow-up). What is left below is the one bespoke diagram that is a component, not data.
+ * follow-up). No bespoke component figure remains.
  *
  * An id that is in neither renders a visible, honest placeholder rather than nothing. Silence
  * would mean a fence typo removes a figure and no one finds out until a reader does.
@@ -24,12 +23,7 @@ import { REGISTER } from "../../lib/register/specs";
 
 type FigureEntry = { render: () => React.ReactNode; note: string };
 
-export const FIGURES: Record<string, FigureEntry> = {
-  "rapid-response-flow": {
-    note: "Monitoring feeds through the decision tree and the legal gateway to the response channels.",
-    render: () => <RapidResponseFlowDiagram />,
-  },
-};
+export const FIGURES: Record<string, FigureEntry> = {};
 
 /**
  * Where §3.1–§3.4 would have drawn a figure the §3 story now carries: one line that names the

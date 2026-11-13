@@ -26,7 +26,6 @@ These exist in the pipeline and are **not** exported to the site:
 | Excluded | Reason |
 |---|---|
 | Holdout assignment (`holdout_assignment.csv`) | Publishing which wards are controls destroys the experiment. |
-| Competitor benchmark (Stage 8) | Rival analysis on a public URL shows what the campaign is watching. |
 | Reported vulnerabilities (pack §6.4) | Never appears in any output. It is opposition-research material about our own candidate. |
 | Ward-level priority scores | Targeting intelligence. The register ranking is already public; the prioritisation is not. |
 

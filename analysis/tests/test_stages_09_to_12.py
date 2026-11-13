@@ -213,7 +213,7 @@ def test_findings_and_mapping_exist_and_list_exclusions():
     assert "How to get it" in findings
     # And it must be honest about what research cannot supply.
     assert "only the party can confirm" in findings.lower()
-    for excluded in ("Holdout assignment", "Competitor benchmark"):
+    for excluded in ("Holdout assignment",):
         assert excluded in mapping, f"{excluded} must be listed as excluded"
 
 
