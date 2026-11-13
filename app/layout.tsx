@@ -10,8 +10,9 @@ export const viewport: Viewport = {
   ],
 };
 
-const TITLE = "Kitui 2027 — Data, analysis and plan";
-const DESCRIPTION = "The data, analysis, objectives, strategies and implementation plan for Hon. Dr. Makali Mulu's 2027 Kitui gubernatorial campaign.";
+const TITLE = "Dr. Makali Digital Campaign Platform | Kitui 2027";
+const DESCRIPTION =
+  "Explore the Dr. Makali Digital Campaign Platform: an integrated digital workspace for research, public information, data analysis, dashboards, strategic documentation and implementation planning for Kitui 2027.";
 
 const SITE_ORIGIN =
   process.env.NEXT_PUBLIC_SITE_ORIGIN ??
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   robots: { index: false, follow: false },
-  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [{ url: "/og/kitui-2027.png", width: 1200, height: 630, alt: "Kitui 2027" }] },
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [{ url: "/og/kitui-2027.png", width: 1200, height: 630, alt: "Dr. Makali Digital Campaign Platform — Kitui 2027" }] },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og/kitui-2027.png"] },
 };
 
