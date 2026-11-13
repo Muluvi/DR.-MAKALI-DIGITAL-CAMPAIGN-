@@ -23,7 +23,7 @@ import { withTeamEdits } from "../lib/data/team-overlay.ts";
  * Tiers are named, not numbered: "Tier 1" on this site means the strongest kind of evidence.
  */
 
-interface SeverityTier {
+export interface SeverityTier {
   name: "Negligible" | "Moderate" | "High" | "Critical";
   /** What puts an incident in this tier. */
   threshold: string;

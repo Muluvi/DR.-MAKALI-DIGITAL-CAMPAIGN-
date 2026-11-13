@@ -11,7 +11,7 @@ export default defineConfig([{
     // (matplotlib ships a web backend). Linting that is noise about third-party code nobody
     // here wrote or can fix, so the whole directory is out of scope for eslint. Its own
     // quality gate is pytest, run from /analysis.
-    ignores: ["analysis/**", ".next-dev/**", ".next/**"],
+    ignores: ["analysis/**"],
 }, {
     extends: [...next],
     rules: {

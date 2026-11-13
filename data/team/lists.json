@@ -1,4 +1,4 @@
 {
-  "$comment": "Corrections to the structured strategy lists (KPIs, risks, segments, escalation tiers, contenders, radio stations, pillars, content types, benchmarks), edited in the codebase. `patches` changes fields of a record by its key; `added` holds new records.",
+  "$comment": "Team edits to the structured strategy lists (KPIs, risks, segments, escalation tiers, contenders, radio stations, pillars, content types, benchmarks), written by the in-site data editor (/team/data). `patches` changes fields of an existing record by its key; `added` holds records the team created. Nothing here removes a record.",
   "lists": {}
 }

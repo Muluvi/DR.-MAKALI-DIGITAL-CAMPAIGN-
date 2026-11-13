@@ -10,19 +10,19 @@
  * here; keep the bindings there. A number that cannot be checked from a terminal is a number this
  * proposal should not be printing.
  */
-interface RegisterWard {
+export interface RegisterWard {
   name: string;
   voters: number;
 }
 
-interface RegisterConstituency {
+export interface RegisterConstituency {
   id?: string;
   name: string;
   voters: number;
   wards: RegisterWard[];
 }
 
-interface RankedWard {
+export interface RankedWard {
   rank: number;
   name: string;
   constituency: string;

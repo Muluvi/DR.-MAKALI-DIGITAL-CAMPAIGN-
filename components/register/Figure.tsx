@@ -1,0 +1,164 @@
+import { tierWord } from "../../data/types";
+import type { Cell, CellState, FigureSpec, SourceRef } from "../../lib/register/types";
+import { group } from "../../lib/data/format";
+import { Chart } from "./charts";
+import { FigDetail, FigureDetails, FigureDetailsToggle } from "./FigureDetails";
+
+/**
+ * The frame every figure in the register sits in (brief §E.8, §O). A server component: all of it
+ * is in the HTML, so it works with JavaScript off and prints complete.
+ *
+ *   title      the finding, as a sentence
+ *   question   one line: what the figure answers
+ *   chart      the marks
+ *   takeaway   one sentence beneath
+ *   source     each source with a tier pill that differs by SHAPE (T1 solid, T2 outlined, T3
+ *              dashed), and a hatched pill for modelled data, so it survives greyscale
+ *   table      inside a native <details>: keyboard-reachable, no script, opened for print
+ *   CSV        a real link to public/data/<id>.csv, written at build from the same rows
+ */
+/**
+ * The one lead figure of each section (brief G-5 "hero", G-1 "wide or bleed"): full shell width,
+ * a larger title and a soft inner glow. Every other figure is standard, and the text-shaped ones
+ * (cards, steps, matrices, decisions) open into a ruled block rather than a card (D-16).
+ */
+export const HERO_FIGURES = new Set([
+  "fig-cover-map",
+  "fig-1-1-timeline",
+  "fig-2-1-register",
+  "fig-3-1-funnel",
+  "fig-3-11-evidence",
+  "fig-4-1-message-house",
+  "fig-5-2-workstream-panels",
+  "fig-5-4-phases",
+  "fig-6-3-decision",
+]);
+const OPEN_KINDS = new Set(["cards", "steps", "matrix", "decision", "spine"]);
+
+function variantOf(spec: FigureSpec): string {
+  if (HERO_FIGURES.has(spec.id)) return "rf--hero";
+  const kind = spec.chart.type === "composite" ? spec.chart.parts[0]?.chart.type : spec.chart.type;
+  return kind && OPEN_KINDS.has(kind) ? "rf--open" : "";
+}
+
+export function RegisterFigure({ spec }: { spec: FigureSpec }) {
+  const titleId = `${spec.id}-title`;
+  const takeawayId = `${spec.id}-takeaway`;
+  return (
+    <figure id={spec.id} className={`rf not-prose ${variantOf(spec)}`} role="figure" aria-labelledby={titleId} aria-describedby={takeawayId} data-figure={spec.id}>
+      <FigureDetails>
+      <div className="rf-head">
+        <h4 id={titleId} className="rf-title">{spec.title}</h4>
+      </div>
+      <p id={takeawayId} className="rf-takeaway">{spec.takeaway}</p>
+      {/* The marks show on load (visual-first pass, October 2026): the chart carries the argument.
+          The question, the notes, each item's body text, the sources and the data stay behind the
+          control, in the DOM, so find in page, print and no-JS readers still reach them. */}
+      <div className="rf-body">
+        <Chart spec={spec} />
+      </div>
+      <FigureDetailsToggle badges={<TierBadges sources={spec.sources} />} />
+      <FigDetail notes className="rf-fold">
+        <div className="rf-method">
+          <p className="rf-question">{spec.question}</p>
+        </div>
+        {spec.notes?.length ? (
+          <div className="rf-body rf-body--notes">
+            {spec.notes.map((n) => (
+              <p key={n} className="rf-notes">{n}</p>
+            ))}
+          </div>
+        ) : null}
+        <div className="rf-foot rf-foot--data">
+        <details open className="rf-details print-open">
+          <summary>View the data table</summary>
+          <div className="rf-table-wrap" tabIndex={0} role="region" aria-label={`Data table: ${spec.title}`}>
+            <DataTable spec={spec} />
+          </div>
+        </details>
+        <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
+          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
+        </a>
+        </div>
+      </FigDetail>
+      <FigDetail className="rf-foot">
+        <p className="rf-source">
+          <span>Source:</span>
+          {spec.sources.map((s) => (
+            <span key={s.name} className="inline-flex items-center gap-1.5">
+              <TierPill source={s} />
+              <span>{s.name}</span>
+            </span>
+          ))}
+        </p>
+      </FigDetail>
+      </FigureDetails>
+    </figure>
+  );
+}
+
+const STATE_TEXT: Record<CellState, string> = {
+  sourced: "",
+  modelled: "Modelled",
+  needed: "Data needed",
+  target: "Target",
+};
+
+/** One badge per distinct tier or state among a figure's sources: what stays in view when it is closed. */
+function TierBadges({ sources }: { sources: SourceRef[] }) {
+  const seen = new Map<string, SourceRef>();
+  for (const s of sources) seen.set(`${s.state ?? ""}|${s.tier ?? ""}`, s);
+  return (
+    <>
+      {[...seen.values()].map((s) => (
+        <TierPill key={`${s.state ?? ""}|${s.tier ?? ""}`} source={s} />
+      ))}
+    </>
+  );
+}
+
+export function TierPill({ source }: { source: Pick<SourceRef, "tier" | "state"> }) {
+  if (source.state === "needed") return <span className="tp tp-needed">Data needed</span>;
+  if (source.state === "modelled") return <span className="tp tp-modelled">Modelled</span>;
+  if (source.state === "target") return <span className="tp tp-target">Target</span>;
+  if (!source.tier) return <span className="tp tp-needed">No tier</span>;
+  return <span className={`tp tp-${source.tier}`}>{tierWord(source.tier)}</span>;
+}
+
+export function cellText(v: Cell, closesWith?: string): string {
+  if (v === null) return `[DATA NEEDED — ${closesWith ?? "source"}]`;
+  if (typeof v === "number") return group(v, Number.isInteger(v) ? 0 : 1);
+  return v;
+}
+
+function DataTable({ spec }: { spec: FigureSpec }) {
+  const hasState = spec.rows.some((r) => r.state && r.state !== "sourced");
+  return (
+    <table className={`rf-table ${spec.rows.length > 12 ? "is-long" : ""}`}>
+      <caption className="sr-only">{spec.question}</caption>
+      <thead>
+        <tr>
+          {spec.columns.map((c) => (
+            <th key={c.key} scope="col" className={c.numeric ? "num" : undefined}>{c.label}</th>
+          ))}
+          {hasState && <th scope="col">Basis</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {spec.rows.map((r, i) => (
+          <tr key={i}>
+            {spec.columns.map((c, j) => {
+              const text = cellText(c.key in r.cells ? r.cells[c.key] : "", r.closesWith);
+              return j === 0 ? (
+                <th key={c.key} scope="row">{text}</th>
+              ) : (
+                <td key={c.key} data-col={c.label} className={c.numeric ? "num" : undefined}>{text}</td>
+              );
+            })}
+            {hasState && <td data-col="Basis">{STATE_TEXT[r.state ?? "sourced"] || "Sourced"}</td>}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}

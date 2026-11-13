@@ -1,0 +1,15 @@
+WS,Workstream,Owner,Section,Basis
+1,Service-delivery tracker; owned platform operation,"Firefly builds the tracker; your team runs the platforms, directed",5.2.1.1,Sourced
+2,Content production and asset governance,"Your team, directed",5.2.1.2,Sourced
+3,Creative testing and AI assistance,Firefly,5.2.1.3,Sourced
+4,Accessibility and inclusion,"Firefly standard, team-executed",5.2.1.4,Sourced
+5,Platform tactics and paid media,"Your team, directed",5.2.2.1,Sourced
+6,"Earned media, journalists and debates","Your team, directed",5.2.2.2,Sourced
+7,Ground-digital integration,Campaign-owned,5.2.3.1,Sourced
+8,The field-to-digital loop,Campaign-owned,5.2.3.2,Sourced
+9,"Offline reach: SMS, USSD and voice",Firefly operates directly,5.2.3.3,Sourced
+10,Digital organising and volunteers,Outside scope,5.2.3.4,Sourced
+11,The data layer,Firefly,5.2.4.1,Sourced
+12,Predictive voter modelling,"Firefly, gated on the compliance review",5.2.4.2,Sourced
+13,The technology stack,Outside scope: he already holds it,5.2.4.3,Sourced
+14,Analytics and attribution,Firefly,5.2.4.4,Sourced

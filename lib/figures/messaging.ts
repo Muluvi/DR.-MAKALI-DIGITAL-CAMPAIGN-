@@ -42,7 +42,7 @@ export const COUNTER_FIRE = [
   {
     rumour: "Economists only care about numbers, not the poor.",
     answers: [
-      `FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — ${regFmt("record.bursary.recipients")} recipients, KES ${regFmt("record.bursary.ksh", "m")}m (Tier 1) — and village boreholes.`,
+      `FACT: 13 years of Kitui Central CDF directed the majority of funds to needy student bursaries — ${regFmt("record.bursary.recipients")} recipients, KSh ${regFmt("record.bursary.ksh", "m")}m (Tier 1) — and village boreholes.`,
     ],
     note: "Share pending the ledger.",
   },

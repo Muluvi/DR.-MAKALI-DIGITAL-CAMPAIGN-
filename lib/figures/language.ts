@@ -21,12 +21,12 @@ import type { Source } from "../../data/types";
  * measurement — so they are Tier 3 and say so, rather than borrowing the register's authority.
  */
 const LANGUAGE_REACH: Source = {
-  name: "The campaign's language plan",
+  name: "Stated in §12.4 as an estimated primary reach — source needed",
   publicationDate: "2026",
   tier: 3,
 };
 
-type LanguageRow = {
+export type LanguageRow = {
   name: string;
   /** Estimated primary reach, as §3.6.1 states it. */
   share: number;
@@ -86,7 +86,7 @@ export const LANGUAGES: LanguageRow[] = [
 export const LANGUAGE_SPLIT: FigureSeries = {
   id: "language-map",
   headline: "Three languages, and three quarters of the county reachable in only one of them",
-  measure: "Primary reach per language, as the language plan states it",
+  measure: "Estimated primary reach per language, as §12.4 states it",
   points: LANGUAGES.map<FigurePoint>((l) => ({
     label: l.name,
     value: l.share,
@@ -106,7 +106,7 @@ export const LANGUAGE_SPLIT: FigureSeries = {
 };
 
 /** §3.6.1's channel-by-channel allocation, whose SMS row is the version C-21 points at. */
-type DeploymentRow = {
+export type DeploymentRow = {
   medium: string;
   primary: { language: string; share: number };
   secondary: { language: string; share: number }[];

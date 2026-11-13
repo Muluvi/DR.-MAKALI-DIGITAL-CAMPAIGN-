@@ -1,7 +1,10 @@
+```lead
+Each platform has one job in this campaign, and each has a sample of the copy that does it.
+```
 
 Each platform has one job in this campaign, and each has a sample of the copy that does it. This annex holds the platform playbooks, and the formats and copy samples, by channel. It is reference the main text points to, not argues from; the volunteer programme reference is at its end, and the technology is in Technology.
 
-## Platform playbooks
+## C.1 Platform playbooks
 
 ```visual
 kind: cards
@@ -9,10 +12,10 @@ preset: platform
 items:
   - title: "Facebook"
     text: "Daily posts in English, Kiswahili and Kikamba"
-    body: "* **Weekly Facebook Live town halls** where Dr. Mulu answers constituent questions — the highest-value recurring format, because unscripted competence is his strongest asset\n* Ward-specific groups moderated by trained local digital champions\n* Targeted ads across the 40 wards and diaspora hubs\n* **Sample ad copy:** *\"Kitui County will handle KES {{budget.total|bn}} billion this year. Dr. Makali Mulu is an economist and an evaluator — he knows how to allocate it and how to prove it was spent. #MuluForKitui\"*"
+    body: "* **Weekly Facebook Live town halls** where Dr. Mulu answers constituent questions — the highest-value recurring format, because unscripted competence is his strongest asset\n* Ward-specific groups moderated by trained local digital champions\n* Targeted ads across the 40 wards and diaspora hubs\n* **Sample ad copy:** *\"Kitui County will handle KSh {{budget.total|bn}} billion this year. Dr. Makali Mulu is an economist and an evaluator — he knows how to allocate it and how to prove it was spent. #MuluForKitui\"*"
   - title: "X"
     text: "Policy commentary on national and county budget matters"
-    body: "* Threads breaking down county issues into shareable explanations\n* Engagement with journalists, analysts and national conversations\n* **Sample thread starter:** *\"Kitui County's approved resource envelope for 2026/27 is KES {{budget.total|bn}} billion, of which KES {{budget.osr.revised|bn}} billion is own-source revenue. As an economist, here are three things I would change on day one…\"*"
+    body: "* Threads breaking down county issues into shareable explanations\n* Engagement with journalists, analysts and national conversations\n* **Sample thread starter:** *\"Kitui County's approved resource envelope for 2026/27 is KSh {{budget.total|bn}} billion, of which KSh {{budget.osr.revised|bn}} billion is own-source revenue. As an economist, here are three things I would change on day one…\"*"
   - title: "WhatsApp"
     text: "Broadcast lists segmented by ward and interest group — **opt-in only**"
     body: "* **Kikamba voice notes from Dr. Mulu** — the single highest-trust format available to this campaign\n* Shareable cards with key policy points, designed for forwarding\n* Ward-level group admins, trained to the team's written standard (kept on Firefly's platform) by your team, distributing content and reporting sentiment\n* Weekly \"Kitui Updates\" broadcast in Kikamba and Kiswahili\n* **Forwarding-friendly correction cards** during crisis response"
@@ -24,15 +27,17 @@ items:
     body: "* Reels and Stories for daily relevance\n* Infographics summarising budget priorities and development plans\n* Question and quiz stickers for younger voters"
   - title: "YouTube"
     text: "Long-form policy speeches, town halls and documentary-style Kitui stories"
-    body: "* Search-optimised videos answering \"What does the Kitui Governor do?\" and \"Kitui development 2027\"\n* **Monthly \"Kitui Economic Brief\"** reviewing county budget execution\n* **Home for full sign-language-interpreted versions** (see [Workstream 4 — Accessibility and inclusion](#workstreams-workstream-4-accessibility-and-inclusion))"
+    body: "* Search-optimised videos answering \"What does the Kitui Governor do?\" and \"Kitui development 2027\"\n* **Monthly \"Kitui Economic Brief\"** reviewing county budget execution\n* **Home for full sign-language-interpreted versions** (Section 15.1.4)"
   - title: "Google Ads"
     text: "Search ads on the candidate's name and related terms"
     body: "* Display on Kenyan news sites and local blogs\n* Location targeting to Kitui County and Nairobi diaspora areas\n* **Sample search ad:** *\"Dr. Makali Mulu for Kitui Governor | Economist. Evaluator. Reformer. | Read the plan for your ward.\"*"
 ```
 
-## Formats, copy samples and the USSD pointer
+## C.2 Formats, copy samples and the USSD pointer
 
+```lead
 The shortcode and sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.
+```
 
 #### Formats, by channel
 
@@ -46,7 +51,7 @@ id: format-specs
 
 > **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  
 > **Elder farmer (male, 50s):** *"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)"*  
-> **Candidate (Dr. Mulu, calm and authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (KES {{policy.ndengu-floor}}). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of KES {{policy.ndengu-floor}}/kg. Our priority is household wealth. Real money in your hands.)"*  
+> **Candidate (Dr. Mulu, calm and authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (KSh {{policy.ndengu-floor}}). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of KSh {{policy.ndengu-floor}}/kg. Our priority is household wealth. Real money in your hands.)"*  
 > **Voiceover (fast, punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
 
 #### B. Bulk SMS on 2G: a ward-specific sample
@@ -55,14 +60,16 @@ id: format-specs
 
 #### C. The USSD menu
 
-The menu is set out once, in [Workstream 9 — What your team operates: SMS, USSD and voice](#workstreams-workstream-9-what-your-team-operates-sms-ussd-and-voice), which governs the offline layer. The shortcode and
+The menu is set out once, in Section 15.3.3, which governs the offline layer. The shortcode and
 sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.
 
-## Volunteer programme reference
+## D.1 Volunteer programme reference
 
 *Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*
 
-**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (see [The Digital Ethics and Data Charter](#lawful-the-digital-ethics-and-data-charter)).
+```lead
+**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).
+```
 
 #### Turning online supporters into offline organisers
 
@@ -75,11 +82,11 @@ offline organisers, with gamification driving sustained engagement.
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (see [Workstream 8 — The field-to-digital loop](#workstreams-workstream-8-the-field-to-digital-loop))** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 15.3.2)** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (see [The Digital Ethics and Data Charter](#lawful-the-digital-ethics-and-data-charter)).
+personal data before completing it (Section 19.3).
 
 #### Gamification mechanics
 
@@ -94,16 +101,17 @@ personal data before completing it (see [The Digital Ethics and Data Charter](#l
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the [The Digital Ethics and Data Charter](#lawful-the-digital-ethics-and-data-charter) charter, and it is designed out from the start.
+policy and the Section 19.3 charter, and it is designed out from the start.
 
 #### Management tooling
 
 * **Custom WhatsApp bot** for lightweight volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
- (see [Workstream 9 — What your team operates: SMS, USSD and voice](#workstreams-workstream-9-what-your-team-operates-sms-ussd-and-voice)) — a genuine differentiator in the arid belt
+(Section 15.3.3) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
+* Purpose-built volunteer platforms only at the premium level
 
 #### Volunteer KPIs
 

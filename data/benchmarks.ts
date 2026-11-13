@@ -12,7 +12,7 @@ import { withTeamEdits } from "../lib/data/team-overlay.ts";
 // survey points do not share an axis and forcing them onto one would invent a comparison the
 // document does not make.
 
-interface Benchmark {
+export interface Benchmark {
   metric: string;
   definition: string;
   /** Global benchmark band, in percentage points on a 0-100 axis. */
@@ -59,3 +59,9 @@ export const PLOTTED_BENCHMARKS: Benchmark[] = withTeamEdits<Benchmark>("benchma
   },
 ]);
 
+/** Where a target sits relative to its benchmark band. Computed, never asserted. */
+export function targetPosition(b: Benchmark): "above" | "inside" | "below" {
+  if (b.target > b.benchmarkTo) return "above";
+  if (b.target < b.benchmarkFrom) return "below";
+  return "inside";
+}

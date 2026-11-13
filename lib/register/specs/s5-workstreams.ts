@@ -20,7 +20,7 @@ const REPORT = [
   ["Reporter notified", "By SMS."],
 ];
 
-const FIG_TRACKER_FLOW: FigureSpec = {
+export const FIG_TRACKER_FLOW: FigureSpec = {
   id: "fig-5-2-1-report-flow",
   section: "4.5.1",
   title: "Every report ends in a published outcome, and the reporter hears back twice",
@@ -40,7 +40,7 @@ const LOOP = [
   { lane: "Field", title: "Route the highest-value doors", body: "Warm leads go to the champion's phone as priority doors, with the issue each household engaged with." },
 ];
 
-const FIG_FIELD_LOOP: FigureSpec = {
+export const FIG_FIELD_LOOP: FigureSpec = {
   id: "fig-5-2-3-field-loop",
   section: "4.5.8",
   title: "The doorstep and the ad audience update each other within a day",
@@ -55,7 +55,7 @@ const FIG_FIELD_LOOP: FigureSpec = {
 /** The USSD menu: data/ussd-specimen.ts, the one definition. */
 const MENU = USSD_MENU.map((o) => ({ n: Number(o.key), label: o.kikamba ?? o.english, shown: o.kikamba ? o.english : "Language", issue: o.does }));
 
-const FIG_USSD_MENU: FigureSpec = {
+export const FIG_USSD_MENU: FigureSpec = {
   id: "fig-5-2-3-ussd-menu",
   section: "4.5.9",
   title: `${CountWord(USSD_MENU.length)} options on any phone, and the third puts the tracker in reach of a feature phone in Mutha`,
@@ -65,7 +65,7 @@ const FIG_USSD_MENU: FigureSpec = {
   chart: { type: "mock", header: "KITUI NA MULU · the campaign shortcode", fields: MENU },
   notes: [
     "Menu labels in Kikamba are pending the Kikamba reviewer's sign-off.",
-    "The data charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",
+    "The Section 19.3 charter requires a data opt-out the voter can reach from the menu; its position is set when the shortcode is provisioned.",
   ],
   columns: [{ key: "n", label: "Option", numeric: true }, { key: "kikamba", label: "Kikamba" }, { key: "english", label: "English" }, { key: "does", label: "What it does" }],
   rows: MENU.map((m) => ({ cells: { n: m.n, kikamba: m.label, english: m.shown, does: m.issue } })),
@@ -96,7 +96,7 @@ const STACK: [string, string, string, string, string, string][] = [
     "Buffer / Hootsuite Enterprise to publish; Brand24 / Talkwalker to listen",
     "Scheduling across Facebook, X, Instagram, TikTok and YouTube; 24/7 monitoring of Kamba and national political keywords (\"Dr. Makali Mulu\", \"Kitui Governor 2027\", \"Kitui Central CDF\", \"Wiper Primaries\", \"Kalonzo Musyoka\"), flagging rumours, attacks and local issues in real time",
     "Public posts, comments, engagement metrics, sentiment scores, influencer handles, public reach",
-    "LOW TO MODERATE: public posts and aggregated sentiment only; compliant with the data-protection rules provided no profile is scraped or merged into voter records without consent",
+    "LOW TO MODERATE: public posts and aggregated sentiment only; compliant with Section 15.3.4 provided no profile is scraped or merged into voter records without consent",
     "The software subscription",
   ],
   [
@@ -117,7 +117,7 @@ const STACK: [string, string, string, string, string, string][] = [
   ],
 ];
 
-const FIG_STACK: FigureSpec = {
+export const FIG_STACK: FigureSpec = {
   id: "fig-5-2-4-stack",
   section: "G.4",
   title: "Five components, and the personal data concentrates in the first two",

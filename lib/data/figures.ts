@@ -338,14 +338,14 @@ modelled("reach.smartphone.of-benchmark", pct(v("reach.smartphone"), v("benchmar
 
 // ---- the county budget (Section 2.5): CFSP FY2026/27
 const CFSP = FISCAL_STRATEGY_PAPER_FY2026_27.name;
-sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify. The Paper sets the envelope at KES 13.79bn (confirmed 25 September 2026); a KES 13.78bn reading is not used.", decimals: 2 });
+sourced("budget.total", 13.79e9, "ksh", "T3", CFSP, { note: "Cited through secondary reporting of the Paper; verify. The Paper sets the envelope at KSh 13.79bn (confirmed 25 September 2026); a KSh 13.78bn reading is not used.", decimals: 2 });
 sourced("budget.equitable", 11.64e9, "ksh", "T1", CFSP, { decimals: 2 });
 sourced("budget.osr", 1.12e9, "ksh", "T3", CFSP, {
   decimals: 2,
   alt: { value: 1.339e9, source: "County Assembly revision of the CFSP", tier: "T3", note: "Raised by the Assembly. The final approved FY2026/27 budget settles which applies; until it is in hand, both are shown." },
 });
 sourced("budget.osr.revised", 1.339e9, "ksh", "T3", "County Assembly revision of the CFSP", { decimals: 3 });
-sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, note: "Conditional and unconditional grants in the Paper (confirmed 25 September 2026); a KES 1.03bn reading is not used." });
+sourced("budget.grants", 1.04e9, "ksh", "T1", CFSP, { decimals: 2, note: "Conditional and unconditional grants in the Paper (confirmed 25 September 2026); a KSh 1.03bn reading is not used." });
 modelled("budget.rounding", 13.79e9 - (11.64e9 + 1.12e9 + 1.04e9), "ksh", "Published total less the three parts: rounding in the source, shown as its own segment.", { decimals: 2 });
 
 // ---- the county audit record (Annex B, Section 4.1.2)
@@ -502,8 +502,8 @@ for (const [id, value] of [["health.density.doctors", 0.7], ["health.density.cli
 target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
 sourced("policy.ndengu-output", 45_000, "count", "T3", "KNBS 2019 Census and ASTGS, as cited; page reference pending", { note: "Tonnes of ndengu output, not yet tiered to a page." });
 // The two flagship commitments against the envelope (restructure 2026-11: computed, not typed).
-modelled("policy.ward-fund.total", 40 * v("policy.ward-fund"), "ksh", "KES 100m per ward × 40 wards, a year.", { decimals: 1 });
-modelled("policy.ward-fund.share", pct(40 * v("policy.ward-fund"), v("budget.total")), "percent", "The ward fund / the KES 13.79bn envelope.", { decimals: 0 });
+modelled("policy.ward-fund.total", 40 * v("policy.ward-fund"), "ksh", "KSh 100m per ward × 40 wards, a year.", { decimals: 1 });
+modelled("policy.ward-fund.share", pct(40 * v("policy.ward-fund"), v("budget.total")), "percent", "The ward fund / the KSh 13.79bn envelope.", { decimals: 0 });
 modelled("policy.ndengu.bridge", (v("policy.ndengu-floor") - v("price.ndengu.farmgate")) * v("policy.ndengu-output") * 1000, "ksh", "(floor price − farm-gate price) × output in kg: the county bridges the gap.", { decimals: 1 });
 modelled("policy.ndengu.purchase", v("policy.ndengu-floor") * v("policy.ndengu-output") * 1000, "ksh", "Floor price × output in kg: the county buys the crop outright.", { decimals: 1 });
 modelled("policy.flagships.bridge", 40 * v("policy.ward-fund") + (v("policy.ndengu-floor") - v("price.ndengu.farmgate")) * v("policy.ndengu-output") * 1000, "ksh", "Ward fund + the ndengu bridge.", { decimals: 1 });
@@ -653,7 +653,7 @@ const SCORECARD_SPEND: [string, number, number][] = [
 ];
 for (const [id, n, m] of SCORECARD_SPEND) {
   sourced(`scorecard.${id}.projects`, n, "count", "T1", SCORECARD, { asOf: "2025-08", note: "Itemised projects attributed to the constituency." });
-  sourced(`scorecard.${id}.ksh`, m * 1e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the constituency, KES, summed from the scorecard's tables." });
+  sourced(`scorecard.${id}.ksh`, m * 1e6, "ksh", "T1", SCORECARD, { asOf: "2025-08", decimals: 1, note: "Itemised spend attributed to the constituency, KSh, summed from the scorecard's tables." });
   modelled(`scorecard.${id}.per-voter`, (m * 1e6) / v(`con.${id}`), "ksh", "Itemised spend / the constituency's 2022 register. Covers the 401 itemised projects only.", { source: SCORECARD });
 }
 // The same itemised projects by ward, from analysis Stage 14 (data/analysis/projects-by-ward.json):

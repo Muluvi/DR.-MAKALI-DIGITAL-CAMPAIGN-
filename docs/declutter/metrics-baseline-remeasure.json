@@ -1,0 +1,1109 @@
+{
+ "label": "baseline-remeasure",
+ "base": "http://localhost:3100",
+ "at": "2026-10-28T17:44:43.518Z",
+ "tabs": [
+  {
+   "mode": "brief",
+   "tab": "cover",
+   "height": 4370,
+   "words": 616,
+   "figureWords": 889,
+   "panelWords": 0,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 0,
+   "screens": 5.2
+  },
+  {
+   "mode": "brief",
+   "tab": "decision",
+   "height": 26958,
+   "words": 6187,
+   "figureWords": 2167,
+   "panelWords": 2634,
+   "figureCount": 10,
+   "conflictMarkersVisible": 3,
+   "checkRefVisible": 1,
+   "tierParentheticals": 5,
+   "foldedWords": 1880,
+   "longParagraphs": 10,
+   "screens": 31.9
+  },
+  {
+   "mode": "brief",
+   "tab": "evidence",
+   "height": 83598,
+   "words": 15486,
+   "figureWords": 6428,
+   "panelWords": 7331,
+   "figureCount": 21,
+   "conflictMarkersVisible": 4,
+   "checkRefVisible": 0,
+   "tierParentheticals": 97,
+   "foldedWords": 2709,
+   "longParagraphs": 13,
+   "screens": 99
+  },
+  {
+   "mode": "brief",
+   "tab": "strategy",
+   "height": 45655,
+   "words": 9390,
+   "figureWords": 3447,
+   "panelWords": 5766,
+   "figureCount": 16,
+   "conflictMarkersVisible": 7,
+   "checkRefVisible": 0,
+   "tierParentheticals": 32,
+   "foldedWords": 2247,
+   "longParagraphs": 8,
+   "screens": 54.1
+  },
+  {
+   "mode": "brief",
+   "tab": "delivery",
+   "height": 18638,
+   "words": 3761,
+   "figureWords": 1377,
+   "panelWords": 1782,
+   "figureCount": 7,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 1023,
+   "longParagraphs": 2,
+   "screens": 22.1
+  },
+  {
+   "mode": "brief",
+   "tab": "workstreams-platforms",
+   "height": 12978,
+   "words": 1943,
+   "figureWords": 1516,
+   "panelWords": 1210,
+   "figureCount": 8,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 15.4
+  },
+  {
+   "mode": "brief",
+   "tab": "workstreams-media",
+   "height": 9002,
+   "words": 958,
+   "figureWords": 262,
+   "panelWords": 283,
+   "figureCount": 1,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 10.7
+  },
+  {
+   "mode": "brief",
+   "tab": "workstreams-ground",
+   "height": 14693,
+   "words": 2318,
+   "figureWords": 1295,
+   "panelWords": 554,
+   "figureCount": 6,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 17.4
+  },
+  {
+   "mode": "brief",
+   "tab": "workstreams-data",
+   "height": 10644,
+   "words": 1614,
+   "figureWords": 434,
+   "panelWords": 1184,
+   "figureCount": 3,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 205,
+   "longParagraphs": 2,
+   "screens": 12.6
+  },
+  {
+   "mode": "brief",
+   "tab": "staffing",
+   "height": 7905,
+   "words": 1918,
+   "figureWords": 711,
+   "panelWords": 728,
+   "figureCount": 5,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 702,
+   "longParagraphs": 1,
+   "screens": 9.4
+  },
+  {
+   "mode": "brief",
+   "tab": "measurement",
+   "height": 23501,
+   "words": 6797,
+   "figureWords": 2229,
+   "panelWords": 3467,
+   "figureCount": 9,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 3,
+   "foldedWords": 2467,
+   "longParagraphs": 3,
+   "screens": 27.8
+  },
+  {
+   "mode": "brief",
+   "tab": "risks",
+   "height": 9008,
+   "words": 1942,
+   "figureWords": 706,
+   "panelWords": 739,
+   "figureCount": 3,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 715,
+   "longParagraphs": 1,
+   "screens": 10.7
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-evidence",
+   "height": 4535,
+   "words": 1017,
+   "figureWords": 490,
+   "panelWords": 294,
+   "figureCount": 4,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 281,
+   "longParagraphs": 0,
+   "screens": 5.4
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-county",
+   "height": 12741,
+   "words": 2113,
+   "figureWords": 0,
+   "panelWords": 872,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 24,
+   "foldedWords": 342,
+   "longParagraphs": 4,
+   "screens": 15.1
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-messages",
+   "height": 4118,
+   "words": 1636,
+   "figureWords": 681,
+   "panelWords": 756,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 747,
+   "longParagraphs": 1,
+   "screens": 4.9
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-cadence",
+   "height": 2320,
+   "words": 503,
+   "figureWords": 208,
+   "panelWords": 109,
+   "figureCount": 1,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 102,
+   "longParagraphs": 0,
+   "screens": 2.7
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-runbooks",
+   "height": 11217,
+   "words": 2462,
+   "figureWords": 1161,
+   "panelWords": 529,
+   "figureCount": 6,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 502,
+   "longParagraphs": 0,
+   "screens": 13.3
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-terms",
+   "height": 1489,
+   "words": 153,
+   "figureWords": 0,
+   "panelWords": 0,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 1.8
+  },
+  {
+   "mode": "brief",
+   "tab": "annex-spec",
+   "height": 9592,
+   "words": 1472,
+   "figureWords": 1540,
+   "panelWords": 1066,
+   "figureCount": 5,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 11.4
+  },
+  {
+   "mode": "full",
+   "tab": "cover",
+   "height": 4370,
+   "words": 616,
+   "figureWords": 889,
+   "panelWords": 0,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 0,
+   "screens": 5.2
+  },
+  {
+   "mode": "full",
+   "tab": "decision",
+   "height": 45042,
+   "words": 7252,
+   "figureWords": 2179,
+   "panelWords": 2620,
+   "figureCount": 11,
+   "conflictMarkersVisible": 3,
+   "checkRefVisible": 1,
+   "tierParentheticals": 6,
+   "foldedWords": 0,
+   "longParagraphs": 16,
+   "screens": 53.4
+  },
+  {
+   "mode": "full",
+   "tab": "evidence",
+   "height": 110183,
+   "words": 17370,
+   "figureWords": 6428,
+   "panelWords": 7309,
+   "figureCount": 21,
+   "conflictMarkersVisible": 5,
+   "checkRefVisible": 2,
+   "tierParentheticals": 100,
+   "foldedWords": 0,
+   "longParagraphs": 16,
+   "screens": 130.5
+  },
+  {
+   "mode": "full",
+   "tab": "strategy",
+   "height": 77485,
+   "words": 12438,
+   "figureWords": 3447,
+   "panelWords": 5752,
+   "figureCount": 16,
+   "conflictMarkersVisible": 9,
+   "checkRefVisible": 0,
+   "tierParentheticals": 33,
+   "foldedWords": 0,
+   "longParagraphs": 14,
+   "screens": 91.8
+  },
+  {
+   "mode": "full",
+   "tab": "delivery",
+   "height": 35974,
+   "words": 4335,
+   "figureWords": 1296,
+   "panelWords": 1776,
+   "figureCount": 5,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 42.6
+  },
+  {
+   "mode": "full",
+   "tab": "workstreams-platforms",
+   "height": 29162,
+   "words": 4103,
+   "figureWords": 1516,
+   "panelWords": 1210,
+   "figureCount": 8,
+   "conflictMarkersVisible": 3,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 34.6
+  },
+  {
+   "mode": "full",
+   "tab": "workstreams-media",
+   "height": 18180,
+   "words": 2158,
+   "figureWords": 262,
+   "panelWords": 283,
+   "figureCount": 1,
+   "conflictMarkersVisible": 2,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 21.5
+  },
+  {
+   "mode": "full",
+   "tab": "workstreams-ground",
+   "height": 29182,
+   "words": 4465,
+   "figureWords": 1295,
+   "panelWords": 554,
+   "figureCount": 6,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 3,
+   "tierParentheticals": 3,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 34.6
+  },
+  {
+   "mode": "full",
+   "tab": "workstreams-data",
+   "height": 18544,
+   "words": 2271,
+   "figureWords": 427,
+   "panelWords": 1182,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 22
+  },
+  {
+   "mode": "full",
+   "tab": "staffing",
+   "height": 12046,
+   "words": 1910,
+   "figureWords": 711,
+   "panelWords": 720,
+   "figureCount": 5,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 2,
+   "screens": 14.3
+  },
+  {
+   "mode": "full",
+   "tab": "measurement",
+   "height": 41646,
+   "words": 7195,
+   "figureWords": 2195,
+   "panelWords": 3453,
+   "figureCount": 8,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 2,
+   "tierParentheticals": 3,
+   "foldedWords": 0,
+   "longParagraphs": 11,
+   "screens": 49.3
+  },
+  {
+   "mode": "full",
+   "tab": "risks",
+   "height": 13458,
+   "words": 2000,
+   "figureWords": 668,
+   "panelWords": 735,
+   "figureCount": 2,
+   "conflictMarkersVisible": 1,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 15.9
+  },
+  {
+   "mode": "full",
+   "tab": "annex-evidence",
+   "height": 5706,
+   "words": 1013,
+   "figureWords": 490,
+   "panelWords": 290,
+   "figureCount": 4,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 0,
+   "screens": 6.8
+  },
+  {
+   "mode": "full",
+   "tab": "annex-county",
+   "height": 15515,
+   "words": 2238,
+   "figureWords": 0,
+   "panelWords": 853,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 24,
+   "foldedWords": 0,
+   "longParagraphs": 4,
+   "screens": 18.4
+  },
+  {
+   "mode": "full",
+   "tab": "annex-messages",
+   "height": 8506,
+   "words": 1636,
+   "figureWords": 681,
+   "panelWords": 756,
+   "figureCount": 2,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 3,
+   "screens": 10.1
+  },
+  {
+   "mode": "full",
+   "tab": "annex-cadence",
+   "height": 4549,
+   "words": 501,
+   "figureWords": 208,
+   "panelWords": 107,
+   "figureCount": 1,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 0,
+   "screens": 5.4
+  },
+  {
+   "mode": "full",
+   "tab": "annex-runbooks",
+   "height": 17632,
+   "words": 2480,
+   "figureWords": 1186,
+   "panelWords": 521,
+   "figureCount": 7,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 1,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 0,
+   "screens": 20.9
+  },
+  {
+   "mode": "full",
+   "tab": "annex-terms",
+   "height": 1489,
+   "words": 153,
+   "figureWords": 0,
+   "panelWords": 0,
+   "figureCount": 0,
+   "conflictMarkersVisible": 0,
+   "checkRefVisible": 0,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 1.8
+  },
+  {
+   "mode": "full",
+   "tab": "annex-spec",
+   "height": 23650,
+   "words": 3610,
+   "figureWords": 1540,
+   "panelWords": 1066,
+   "figureCount": 5,
+   "conflictMarkersVisible": 2,
+   "checkRefVisible": 4,
+   "tierParentheticals": 0,
+   "foldedWords": 0,
+   "longParagraphs": 1,
+   "screens": 28
+  }
+ ],
+ "figures": [
+  {
+   "tab": "annex-spec",
+   "id": "fig-5-2-4-stack",
+   "words": 934
+  },
+  {
+   "tab": "cover",
+   "id": "fig-cover-map",
+   "words": 728
+  },
+  {
+   "tab": "measurement",
+   "id": "fig-5-6-kpis",
+   "words": 698
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-2-register-map",
+   "words": 657
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "Four attack lines, four answers, and two sources that say th",
+   "words": 627
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-4-footprint",
+   "words": 562
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-6-party-flow",
+   "words": 530
+  },
+  {
+   "tab": "risks",
+   "id": "fig-5-8-risk",
+   "words": 519
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-7-zones",
+   "words": 497
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-3-paths",
+   "words": 487
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-2-effort",
+   "words": 471
+  },
+  {
+   "tab": "decision",
+   "id": "fig-6-1-dependencies",
+   "words": 403
+  },
+  {
+   "tab": "annex-messages",
+   "id": "Six segments, six messages, and a named evidence source behi",
+   "words": 388
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-8-decision-rules",
+   "words": 387
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-4-ladder",
+   "words": 381
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-9-audit",
+   "words": 377
+  },
+  {
+   "tab": "strategy",
+   "id": "Three languages, and three quarters of the county reachable ",
+   "words": 364
+  },
+  {
+   "tab": "measurement",
+   "id": "Seven clearances at five different stages, and one the campa",
+   "words": 342
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-7-media",
+   "words": 336
+  },
+  {
+   "tab": "measurement",
+   "id": "Three instruments, and each one names the decision it unlock",
+   "words": 328
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-11-evidence",
+   "words": 326
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-5-calendar",
+   "words": 317
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-3-objectives",
+   "words": 315
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-5-scorecard",
+   "words": 314
+  },
+  {
+   "tab": "evidence",
+   "id": "Four of the eight constituencies hold 296,196 voters — 55.60",
+   "words": 300
+  },
+  {
+   "tab": "workstreams-data",
+   "id": "Nineteen fields, four of them about consent and one that can",
+   "words": 299
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "Seven standing forums, and the candidate is named in three o",
+   "words": 296
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "fig-5-2-workstream-panels",
+   "words": 294
+  },
+  {
+   "tab": "annex-messages",
+   "id": "Five channels, each with its own register and its own proof§",
+   "words": 293
+  },
+  {
+   "tab": "decision",
+   "id": "fig-5-1-workstreams",
+   "words": 292
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Approval falls on Wednesday, which is what makes Friday's ma",
+   "words": 288
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Five channels, and only one of them may carry Kikamba text§4",
+   "words": 283
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "Four severities, and the first instruction is to do nothing§",
+   "words": 279
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-3-segments",
+   "words": 269
+  },
+  {
+   "tab": "staffing",
+   "id": "Four core roles, and every specialist in the campaign report",
+   "words": 265
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-1-register",
+   "words": 264
+  },
+  {
+   "tab": "workstreams-media",
+   "id": "Four ways to reach 532,758 voters without a commercial gatek",
+   "words": 262
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-4-message-region",
+   "words": 261
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-4-people",
+   "words": 255
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Four delivery dimensions, two of which are still waiting on ",
+   "words": 254
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-3-four-weeks",
+   "words": 252
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-3-nomination",
+   "words": 251
+  },
+  {
+   "tab": "measurement",
+   "id": "Three exposures, and two of them end in a custodial sentence",
+   "words": 237
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-7-approval",
+   "words": 236
+  },
+  {
+   "tab": "decision",
+   "id": "fig-5-5-cadence",
+   "words": 232
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-2-results",
+   "words": 231
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "fig-5-2-3-field-loop",
+   "words": 231
+  },
+  {
+   "tab": "measurement",
+   "id": "Three statutes, and the first one has a signature count the ",
+   "words": 226
+  },
+  {
+   "tab": "staffing",
+   "id": "fig-5-9-team",
+   "words": 224
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-1-message-house",
+   "words": 218
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-5-4-phases",
+   "words": 216
+  },
+  {
+   "tab": "strategy",
+   "id": "Every medium is allocated to the whole, and only one of them",
+   "words": 212
+  },
+  {
+   "tab": "delivery",
+   "id": "fig-4-7-profile-fixes",
+   "words": 211
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "fig-5-2-3-ussd-menu",
+   "words": 208
+  },
+  {
+   "tab": "annex-cadence",
+   "id": "Three levels, three authorities, and the candidate is only i",
+   "words": 208
+  },
+  {
+   "tab": "strategy",
+   "id": "Four terms where the literal translation loses the argument§",
+   "words": 207
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-1-funnel",
+   "words": 205
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-5-field",
+   "words": 203
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Seven vaults, and the second one holds the evidence every as",
+   "words": 203
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "Four report types, one of which has a thirty-minute clock on",
+   "words": 202
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-8-record",
+   "words": 201
+  },
+  {
+   "tab": "measurement",
+   "id": "Six sections of the Data Protection Act 2019, and what each ",
+   "words": 201
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "A rumour logged by USSD is answered in three languages acros",
+   "words": 195
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-5-budget",
+   "words": 192
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "Three tiers, and only one of them may move money§A.1.2's thr",
+   "words": 192
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "From fifteen minutes on air to twenty-four hours in print§E.",
+   "words": 188
+  },
+  {
+   "tab": "decision",
+   "id": "fig-6-3-decision",
+   "words": 187
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-4-flow",
+   "words": 187
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "fig-5-2-1-report-flow",
+   "words": 185
+  },
+  {
+   "tab": "strategy",
+   "id": "Three ground rumours, and the evidence the campaign answers ",
+   "words": 178
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "What to do when two sources disagree, in four steps the docu",
+   "words": 173
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Five components, rated for data-protection risk, and not one",
+   "words": 173
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-9-channels",
+   "words": 168
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Nothing reaches a voter without a citation at the front and ",
+   "words": 168
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-8-ceiling",
+   "words": 167
+  },
+  {
+   "tab": "workstreams-ground",
+   "id": "What a ward coordinator hears at 18:00 can be answered on ai",
+   "words": 163
+  },
+  {
+   "tab": "cover",
+   "id": "fig-cover-spine",
+   "words": 161
+  },
+  {
+   "tab": "strategy",
+   "id": "Four gates between an English draft and a Kikamba broadcast§",
+   "words": 161
+  },
+  {
+   "tab": "strategy",
+   "id": "fig-4-6-channel-shift",
+   "words": 158
+  },
+  {
+   "tab": "measurement",
+   "id": "One programme tests whether the deficit is real; the other i",
+   "words": 156
+  },
+  {
+   "tab": "decision",
+   "id": "fig-1-1-timeline",
+   "words": 151
+  },
+  {
+   "tab": "risks",
+   "id": "",
+   "words": 149
+  },
+  {
+   "tab": "annex-spec",
+   "id": "Four tiers, and the personal data lives in exactly one of th",
+   "words": 137
+  },
+  {
+   "tab": "workstreams-data",
+   "id": "Everything captured is tagged, consented and tiered before i",
+   "words": 128
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-3-10-gaps",
+   "words": 120
+  },
+  {
+   "tab": "strategy",
+   "id": "Six ways of cutting the same electorate, and two of them dec",
+   "words": 116
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "Three things every figure in this document has to carry§2.3.",
+   "words": 116
+  },
+  {
+   "tab": "strategy",
+   "id": "Every visit logs a commitment, and twelve weeks later the tr",
+   "words": 111
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "Four content pillars feed two engines, and everything leaves",
+   "words": 105
+  },
+  {
+   "tab": "evidence",
+   "id": "fig-2-6-connectivity",
+   "words": 99
+  },
+  {
+   "tab": "staffing",
+   "id": "A lean core of three leads, each directing subcontracted spe",
+   "words": 98
+  },
+  {
+   "tab": "staffing",
+   "id": "Two teams, one weekly brief, and a single named counterpart ",
+   "words": 93
+  },
+  {
+   "tab": "decision",
+   "id": "Choose a service levelWhat changes is scope — team, ward cov",
+   "words": 67
+  },
+  {
+   "tab": "staffing",
+   "id": "What this commits to",
+   "words": 31
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "In order",
+   "words": 26
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 25
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 25
+  },
+  {
+   "tab": "decision",
+   "id": "In order",
+   "words": 19
+  },
+  {
+   "tab": "workstreams-platforms",
+   "id": "In order",
+   "words": 19
+  },
+  {
+   "tab": "annex-runbooks",
+   "id": "What this commits to",
+   "words": 16
+  },
+  {
+   "tab": "strategy",
+   "id": "In order",
+   "words": 13
+  },
+  {
+   "tab": "annex-spec",
+   "id": "In order",
+   "words": 13
+  },
+  {
+   "tab": "decision",
+   "id": "In order",
+   "words": 12
+  },
+  {
+   "tab": "annex-evidence",
+   "id": "What this commits to",
+   "words": 9
+  },
+  {
+   "tab": "measurement",
+   "id": "In order",
+   "words": 7
+  },
+  {
+   "tab": "strategy",
+   "id": "In order",
+   "words": 4
+  }
+ ]
+}

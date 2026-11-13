@@ -1,12 +1,31 @@
+// The two scorecards, §5.6.1 and §5.6.2, as data.
+//
+// The one thing this file exists to encode is that a BASELINE IS NOT ALWAYS A NUMBER. The
+// document is scrupulous about it and the interface has to be too:
+//
+//   "unmeasured"  — nobody has taken this reading yet. NW-01 to NW-03 say "Not yet measured
+//                   (Week 1)": the Week 1 instrument is what will establish them. Drawing these
+//                   at zero would report an unmeasured quantity as measured at nil, which is a
+//                   different and false claim.
+//   "awaiting"    — a campaign decision, not a measurement. NW-04's baseline is "Confirm w/
+//                   party (Week 1)". Nobody is going to measure it; somebody has to decide it.
+//   "measured"    — a real prior reading, with the note the table carries about where it came
+//                   from. Only these five can be drawn as a starting position on a track.
+//
+// Note for review: the task brief lists all four nomination baselines as "Not yet measured".
+// §5.6.1 in this repository marks NW-04 as "Confirm w/ party" instead, which is the
+// awaiting-decision state rather than the unmeasured one. The repository is the source of truth,
+// so that is what is encoded here, and the difference is flagged rather than smoothed over.
+import type { ClaimStatus } from "../components/markdown/ClaimBadge";
 import { fmt, val } from "../lib/data/read.ts";
 import { withTeamEdits } from "../lib/data/team-overlay.ts";
 
-type Baseline =
+export type Baseline =
   | { kind: "unmeasured"; note: string }
   | { kind: "awaiting"; note: string }
   | { kind: "measured"; value: number; display: string; note: string };
 
-interface Kpi {
+export interface Kpi {
   /** The code, exactly as printed. Never renumbered. */
   code: string;
   title: string;
@@ -24,6 +43,12 @@ interface Kpi {
   cadence: string;
 }
 
+/** Which provenance badge a baseline earns. Keeps the mapping in one place. */
+export function baselineStatus(b: Baseline): ClaimStatus {
+  if (b.kind === "unmeasured") return "unmeasured";
+  if (b.kind === "awaiting") return "awaiting";
+  return "verified";
+}
 
 /**
  * The nomination-window scorecard, rebuilt for the 2026 rebuild brief (non-negotiable 1).

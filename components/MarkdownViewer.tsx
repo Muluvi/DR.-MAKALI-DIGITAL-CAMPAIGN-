@@ -1,0 +1,834 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import ReactMarkdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+
+import { InteractiveTable } from "./markdown/InteractiveTable";
+import { MarkdownParagraph, MarkdownListItem } from "./markdown/MarkdownTextComponents";
+import { SectionHeading } from "./markdown/SectionHeading";
+import { partVisual } from "../lib/part-visuals";
+import { ClaimBadge } from "./markdown/ClaimBadge";
+import { HighlightedText } from "./markdown/HighlightedText";
+import { hasHighlight } from "../lib/highlight-patterns";
+import { Figure } from "./figures/FigureBoundary";
+import { PullQuote } from "./markdown/PullQuote";
+import { DisputedFigure } from "./markdown/DisputedFigure";
+import { SectionPortrait } from "./markdown/SectionPortrait";
+import { commitmentFieldKey, isCommitmentFieldList, type CommitmentField } from "../lib/commitment-fields";
+import { PanelFold } from "./markdown/PanelFold";
+import { DISPUTED_FIGURES } from "../data/disputed-figures";
+import { displayTitle, headingSlug, sectionId, type TabId } from "../lib/heading-slug";
+import { crossRefFor, segmentContent } from "../lib/collapse-groups";
+
+/** Every markdown pass shares these: the working marks become chips (lib/inline-marks.ts). */
+
+/*
+ * Block components, loaded per section (visual-first pass, October 2026). Each one is used by one
+ * or two sections, and statically they were all in the first-load bundle (≈ 100 kB gzipped of the
+ * 480 kB the flow shipped). `next/dynamic` keeps server rendering, so the HTML of a server-rendered
+ * section is unchanged and hydrates in place; a section that streams in fetches only the chunks
+ * its own blocks need.
+ */
+const PartVisual = dynamic(() => import("./partviz/PartVisual").then((m) => m.PartVisual));
+const DataExplorer = dynamic(() => import("./tools/DataExplorer").then((m) => m.DataExplorer), { ssr: false });
+const ResourceEnvelopeBlock = dynamic(() => import("./markdown/ResourceEnvelopeBlock").then((m) => m.ResourceEnvelopeBlock));
+const ChannelReachBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ChannelReachBlock));
+const IssueEvidenceBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.IssueEvidenceBlock));
+const RegisterComparisonBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.RegisterComparisonBlock));
+const ScenarioBenchmarkBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ScenarioBenchmarkBlock));
+const PlatformSizingBlock = dynamic(() => import("./markdown/PlatformSizingBlock").then((m) => m.PlatformSizingBlock));
+const WardCartogramBlock = dynamic(() => import("./markdown/WardCartogramBlock").then((m) => m.WardCartogramBlock));
+const BenchmarkLadder = dynamic(() => import("./charts/BenchmarkLadder").then((m) => m.BenchmarkLadder));
+const TierComparisonCarousel = dynamic(() => import("./charts/TierComparisonCarousel").then((m) => m.TierComparisonCarousel));
+const FeaturePhoneSpecimen = dynamic(() => import("./charts/FeaturePhoneSpecimen").then((m) => m.FeaturePhoneSpecimen));
+const OfflineWaterline = dynamic(() => import("./charts/OfflineWaterline").then((m) => m.OfflineWaterline));
+const VoteFunnel = dynamic(() => import("./charts/VoteFunnel").then((m) => m.VoteFunnel));
+const AsciiDiagram = dynamic(() => import("./markdown/AsciiDiagram").then((m) => m.AsciiDiagram));
+const ReachSplit = dynamic(() => import("./ReachSplit").then((m) => m.ReachSplit));
+const FlywheelSchematic = dynamic(() => import("./StrategicAids").then((m) => m.FlywheelSchematic));
+const MessagingPlayground = dynamic(() => import("./StrategicAids").then((m) => m.MessagingPlayground));
+const CounterMessagingGrid = dynamic(() => import("./StrategicAids").then((m) => m.CounterMessagingGrid));
+const ToneVoiceSlider = dynamic(() => import("./StrategicAids").then((m) => m.ToneVoiceSlider));
+const SloganBuilder = dynamic(() => import("./StrategicAids").then((m) => m.SloganBuilder));
+const MediaPlaybackMockup = dynamic(() => import("./StrategicAids").then((m) => m.MediaPlaybackMockup));
+const RadioAircoverDial = dynamic(() => import("./StrategicAids").then((m) => m.RadioAircoverDial));
+const DirectionWeek = dynamic(() => import("./charts/DirectionModel").then((m) => m.DirectionWeek));
+const PhaseRail = dynamic(() => import("./PhaseRail").then((m) => m.PhaseRail));
+const ClaimCards = dynamic(() => import("./markdown/ClaimCards").then((m) => m.ClaimCards));
+const ElectoralHistoryPanel = dynamic(() => import("./markdown/ElectoralHistoryPanel").then((m) => m.ElectoralHistoryPanel));
+const FiscalAuditPanel = dynamic(() => import("./markdown/FiscalAuditPanel").then((m) => m.FiscalAuditPanel));
+const DroughtFoodSecurityPanel = dynamic(() => import("./markdown/DroughtFoodSecurityPanel").then((m) => m.DroughtFoodSecurityPanel));
+const MuiBasinPanel = dynamic(() => import("./markdown/MuiBasinPanel").then((m) => m.MuiBasinPanel));
+const CompetitorFieldPanel = dynamic(() => import("./markdown/CompetitorFieldPanel").then((m) => m.CompetitorFieldPanel));
+const NominationPathPanel = dynamic(() => import("./markdown/NominationPathPanel").then((m) => m.NominationPathPanel));
+const EconomistGovernorThesis = dynamic(() => import("./markdown/EconomistGovernorThesis").then((m) => m.EconomistGovernorThesis));
+const DecisionPanel = dynamic(() => import("./DecisionPanel").then((m) => m.DecisionPanel));
+const CommitmentFields = dynamic(() => import("./markdown/CommitmentFields").then((m) => m.CommitmentFields));
+const ServiceLevelSelector = dynamic(() => import("./markdown/ServiceLevelSelector").then((m) => m.ServiceLevelSelector));
+const PhoneShowcase = dynamic(() => import("./phone/PhoneShowcase").then((m) => m.PhoneShowcase));
+const TerminalShowcase = dynamic(() => import("./terminal/TerminalShowcase").then((m) => m.TerminalShowcase));
+const MediaOwnershipBlock = dynamic(() => import("./markdown/MediaOwnershipBlock").then((m) => m.MediaOwnershipBlock));
+const PathTo200kBlock = dynamic(() => import("./markdown/PathTo200kBlock").then((m) => m.PathTo200kBlock));
+const ConstituencyWeightBlock = dynamic(() => import("./markdown/ConstituencyWeightBlock").then((m) => m.ConstituencyWeightBlock));
+const ElectoralTimelineBlock = dynamic(() => import("./markdown/ElectoralTimelineBlock").then((m) => m.ElectoralTimelineBlock));
+const FiscalAuditChartBlock = dynamic(() => import("./markdown/FiscalAuditChartBlock").then((m) => m.FiscalAuditChartBlock));
+const PathTo200kCalculator = dynamic(() => import("./markdown/PathTo200kCalculator").then((m) => m.PathTo200kCalculator));
+const RecognitionDeficitOverlay = dynamic(() => import("./markdown/RecognitionDeficitOverlay").then((m) => m.RecognitionDeficitOverlay));
+const AudienceSegmentationMatrix = dynamic(() => import("./markdown/AudienceSegmentationMatrix").then((m) => m.AudienceSegmentationMatrix));
+const StrategicPillarsMatrix = dynamic(() => import("./markdown/StrategicPillarsMatrix").then((m) => m.StrategicPillarsMatrix));
+const GeographicZoneMatrix = dynamic(() => import("./markdown/GeographicZoneMatrix").then((m) => m.GeographicZoneMatrix));
+const PersuasionFramingMatrix = dynamic(() => import("./markdown/PersuasionFramingMatrix").then((m) => m.PersuasionFramingMatrix));
+const PublicServiceDeliveryTracker = dynamic(() => import("./markdown/PublicServiceDeliveryTracker").then((m) => m.PublicServiceDeliveryTracker));
+const MediaRadioLandscapeCard = dynamic(() => import("./markdown/MediaRadioLandscapeCard").then((m) => m.MediaRadioLandscapeCard));
+const DataSecurityEthicsCharter = dynamic(() => import("./markdown/DataSecurityEthicsCharter").then((m) => m.DataSecurityEthicsCharter));
+const ObjectivesIndex = dynamic(() => import("./markdown/ObjectivesIndex").then((m) => m.ObjectivesIndex));
+
+const REHYPE = [rehypeRaw, rehypeInlineMarks, rehypePlainLabels];
+import { CrossRef } from "./CrossRef";
+import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
+import { DisclosureGroup } from "./markdown/DisclosureGroup";
+import { TextVersion } from "./markdown/TextVersion";
+import { ReadMore } from "./markdown/ReadMore";
+import { VisualFence } from "./visual/VisualFence";
+import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark, counselNote } from "./markdown/InlineMarks";
+import { WorkstreamMark, WorkstreamTabBar } from "./markdown/WorkstreamTabs";
+import { GroupChip } from "./markdown/GroupChip";
+import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
+
+const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
+
+// §6.3's three operating conditions — matched by the start of each bolded lead
+// sentence so the list item gets pull-quote emphasis without touching the wording.
+const GOVERNING_REALITY_TRIGGERS = [
+  "Roughly 86% of Kitui residents are outside the internet-using population",
+  "The regulatory ground shifted on 7 August 2026",
+  "Kamba-language radio",
+];
+import { PHASES } from "../lib/phases";
+import { PHASE_ID_BY_NAME, rehypePlainLabels } from "../lib/plain-labels";
+
+// §4.1's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
+// with a digit, so they never pick up a heading id from headingSlug — but they should still get
+// the matching phase colour on their left border instead of the generic gold accent.
+const PHASE_HEADING_PATTERN = /^Phase\s+(−1|-1|0|1|2|3)\s*:/i;
+function phaseAccentFor(headingText: string): string | undefined {
+  const named = Object.keys(PHASE_ID_BY_NAME).find((n) => headingText.trim().startsWith(n));
+  const match = PHASE_HEADING_PATTERN.exec(headingText.trim());
+  if (!match && !named) return undefined;
+  const id = named ? PHASE_ID_BY_NAME[named] : match![1] === "−1" || match![1] === "-1" ? "neg1" : match![1];
+  const phase = PHASES.find((p) => p.id === id);
+  return phase ? `var(${phase.colorVar})` : undefined;
+}
+
+// Markdown hard-wraps around 80 columns, leaving a literal "\n" inside a text node wherever a
+// phrase happens to wrap — collapse all whitespace runs before substring-matching against a
+// trigger phrase, or matches silently fail whenever the wrap lands mid-phrase.
+function normalizeWhitespace(text: string): string {
+  return text.replace(/\s+/g, " ");
+}
+
+function getHeadingText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(getHeadingText).join("");
+  return "";
+}
+
+function flattenText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(flattenText).join("");
+  return "";
+}
+
+// Deep text extraction that also understands HighlightedText (props.text, not props.children) —
+// needed to read table headers, since a bolded header cell (e.g. "**Mulu**") is now rendered
+// through the strong -> HighlightedText path.
+function getDeepText(node: React.ReactNode): string {
+  if (node === null || node === undefined) return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getDeepText).join("");
+  if (typeof node === "object" && "props" in (node as object)) {
+    const props = (node as { props?: { children?: React.ReactNode; text?: string } }).props;
+    if (props?.children !== undefined) return getDeepText(props.children);
+    if (props?.text !== undefined) return String(props.text);
+  }
+  return "";
+}
+
+/**
+ * Read a list whose every item opens with a bolded field label ("**Named Owner:** …").
+ *
+ * The label is lifted out of the item's children and the REST is passed through untouched, so
+ * cross-references, claim badges and figure highlighting inside a value keep working exactly as
+ * they do in a bullet. Returns null the moment an item does not fit the shape, which leaves the
+ * list rendering as an ordinary list.
+ */
+function parseLabelledList(children: React.ReactNode): CommitmentField[] | null {
+  // Both `li` and `strong` are overridden in the components map below, so their rendered
+  // elements are custom functions rather than the DOM strings — identity checks against "li"
+  // or "strong" silently match nothing. Detect by shape instead: every item must open with a
+  // short inline run ending in a colon, which is what a bolded field label looks like.
+  const items = (React.Children.toArray(children) as React.ReactElement[]).filter((c) =>
+    React.isValidElement(c)
+  );
+  if (items.length < 4) return null;
+
+  const fields: CommitmentField[] = [];
+  for (const li of items) {
+    const parts = React.Children.toArray((li.props as { children?: React.ReactNode }).children);
+    // A loose list wraps the item body in a <p>; unwrap one level before looking for the label.
+    const body =
+      parts.length === 1 && React.isValidElement(parts[0])
+        ? React.Children.toArray((parts[0].props as { children?: React.ReactNode }).children)
+        : parts;
+
+    const first = body[0];
+    if (!React.isValidElement(first)) return null;
+    const raw = getDeepText(first).trim();
+    if (!/:$/.test(raw) || raw.length > 40) return null;
+    const label = raw.replace(/:$/, "").trim();
+    if (!label) return null;
+    fields.push({ key: commitmentFieldKey(label), label, value: body.slice(1) });
+  }
+  return fields;
+}
+
+/**
+ * The language tag on a fenced block — "figure" for ```figure, null for a bare fence.
+ *
+ * Matched on the tag rather than on the block's contents. An ASCII diagram that happened to
+ * contain a line reading "id: something" would otherwise be swallowed and replaced by a figure,
+ * which is a silent content change and exactly what hard rule 2 forbids.
+ */
+function fenceLanguage(children: React.ReactNode): string | null {
+  for (const child of React.Children.toArray(children)) {
+    if (!React.isValidElement(child)) continue;
+    const className = (child.props as { className?: string }).className ?? "";
+    const match = className.match(/language-([A-Za-z0-9_-]+)/);
+    if (match) return match[1].toLowerCase();
+  }
+  return null;
+}
+
+function getTableHeaderTexts(children: React.ReactNode): string[] {
+  const top = React.Children.toArray(children) as React.ReactElement[];
+  const thead = top.find((c) => c?.type === "thead");
+  if (!thead) return [];
+  const theadChildren = React.Children.toArray((thead.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  const headerRow = theadChildren.find((c) => c?.type === "tr");
+  if (!headerRow) return [];
+  const cells = React.Children.toArray((headerRow.props as { children?: React.ReactNode }).children) as React.ReactElement[];
+  return cells.filter((c) => c?.type === "th").map((c) => getDeepText((c.props as { children?: React.ReactNode }).children).trim());
+}
+
+// The source markdown already marks every open item consistently — either an inline
+// `[Insert …]` / `[Confirm …]` code span, or a `<span class="placeholder">OPEN/GATED</span>`
+// in the appendix checklist. Both are unambiguous, so they get the "Awaiting campaign
+// decision" badge mechanically rather than by guessing at status elsewhere.
+const PLACEHOLDER_PATTERN = /^\[(insert|confirm)/i;
+
+// Visualisations anchored to a specific heading rather than a table, keyed by the same
+// "<tab>-sec-<slug>" id SectionHeading assigns, so this stays correct even if the heading text is
+// edited later.
+//
+// ONE COMPONENT, ONE HOME. Several components used to be keyed at two or three ids at once —
+// defensively, because before the section index was generated nobody could be sure which heading
+// actually existed. That guesswork rendered the same chart up to three times in a single
+// section. Every key below now resolves to a heading that exists; a build-time check would be
+// the next step if this map grows again.
+// Every insert sits behind a PanelFold control except the objectives index: it is a short list of
+// links rather than a panel, and it renders nothing while no other part's heading matches it, so a
+// control there would open nothing.
+const OPEN_INSERTS = new Set(["success-sec-18-1", "annex-evidence-sec-a-2"]);
+// The control is named by the panel's own heading. These two have none that names them (the
+// carousel's first heading is its first card), so they carry their component's own description.
+// The carousel is phone only and never printed, so its control is too.
+const INSERT_PANELS: Record<string, { label: string; className?: string }> = {
+  "receives-sec-21-1-2": { label: "Lean, Standard and Premium, one card per tier", className: "sm:hidden print:hidden" },
+  "news-sec-4-3": { label: "Seven channels, one phone" },
+};
+
+function mountInsert(id: string | null, node: React.ReactNode) {
+  if (id && OPEN_INSERTS.has(id)) return node;
+  const panel = id ? INSERT_PANELS[id] : undefined;
+  return (
+    <PanelFold label={panel?.label} className={panel?.className}>
+      {node}
+    </PanelFold>
+  );
+}
+
+// Re-keyed in the November 2026 restructure: each component follows the text it illustrates to
+// its new chapter (docs/restructure-2026-11/reorganisation-map.md). Where two old homes now share
+// one heading, their components share the mount, in reading order.
+const HEADING_INSERTS: Record<string, React.ReactNode> = {
+  // ---- Part I: Kitui today ----------------------------------------------------------------
+  "kitui-sec-1-1": <DisputedFigure entry={kituiCentralPopulationDispute} />,
+  "kitui-sec-1-2": <GeographicZoneMatrix />,
+  "needs-sec-1-3": <OfflineWaterline />,
+  "needs-sec-1-5": <ResourceEnvelopeBlock />,
+  // Chapter 2 builds the number in order: the register, the results, where the votes are, the
+  // constituencies that decide it, then the threshold and the routes to it.
+  "votes-sec-2-1": <RegisterComparisonBlock />,
+  "votes-sec-2-2": (
+    <>
+      <ElectoralHistoryPanel />
+      <ElectoralTimelineBlock />
+    </>
+  ),
+  "votes-sec-2-3": (
+    <>
+      <WardCartogramBlock />
+      <ScenarioBenchmarkBlock />
+    </>
+  ),
+  "votes-sec-2-4": <ConstituencyWeightBlock />,
+  "votes-sec-2-5": (
+    <>
+      <VoteFunnel />
+      <PathTo200kBlock />
+      <PathTo200kCalculator />
+    </>
+  ),
+  // The issue evidence opens the chapter on what voters need.
+  "needs-sec-3-1": <IssueEvidenceBlock />,
+  "needs-sec-3-2": <DroughtFoodSecurityPanel />,
+  "needs-sec-3-7": (
+    <>
+      <FiscalAuditPanel />
+      <FiscalAuditChartBlock />
+      <Figure id="fig-3-12-projects" />
+    </>
+  ),
+  "needs-sec-3-8": <MuiBasinPanel />,
+  // The showcase makes the argument; the reach block puts the modelled numbers under it, including
+  // the one the showcase cannot show — that the largest addressable layer cannot carry Kikamba.
+  "news-sec-4-1": <ChannelReachBlock />,
+  "news-sec-4-2": <MediaOwnershipBlock />,
+  // One handset, the campaign on all seven channels, ending on the USSD dialog that reaches more
+  // voters than the six apps together.
+  "news-sec-4-3": <PhoneShowcase />,
+
+  // ---- Part II: the contest ----------------------------------------------------------------
+  "race-sec-5-2": <NominationPathPanel />,
+  "race-sec-5-5": <CompetitorFieldPanel />,
+  "record-sec-6-1": (
+    <SectionPortrait id="gesture-explaining" kicker="Candidate profile">
+      Member for Kitui Central since 2013, and a member of the National Assembly&rsquo;s Budget and
+      Appropriations Committee.
+    </SectionPortrait>
+  ),
+  "record-sec-6-2": <RecognitionDeficitOverlay />,
+
+  // ---- Part III: the strategy ---------------------------------------------------------------
+  // The governing claim opens Chapter 9, ahead of the pillars and themes that rest on it.
+  "position-sec-9-1": <EconomistGovernorThesis />,
+  "message-sec-10-1": <StrategicPillarsMatrix />,
+  "message-sec-10-2": (
+    <>
+      <MessagingPlayground />
+      <ToneVoiceSlider />
+      <PersuasionFramingMatrix />
+    </>
+  ),
+  "message-sec-10-3": <SloganBuilder />,
+  // O-6 (approved 24 September 2026): the "Upcoming" market-assembly scheduler is removed. Its
+  // two events were invented and already past.
+  "message-sec-10-5": <CounterMessagingGrid />,
+  "voters-sec-11-2": <AudienceSegmentationMatrix />,
+
+  // ---- Part IV: how the campaign runs --------------------------------------------------------
+  // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
+  "engagement-sec-13-4": (
+    <>
+      <SectionPortrait id="seated-grey-cropped" kicker="The engagement model" flip>
+        Your team reports to a single named campaign-side counterpart.
+      </SectionPortrait>
+      <DirectionWeek />
+    </>
+  ),
+  // The phase KPI chart that sat here is carried by the register's fig-5-4-ladder, which holds
+  // every phase target with its table and CSV (brief §12).
+  "timeline-sec-14-4": <PhaseRail />,
+  "workstreams-sec-15-1-1": <PublicServiceDeliveryTracker />,
+  "workstreams-sec-15-2-1": <MediaPlaybackMockup />,
+  "workstreams-sec-15-2-2": (
+    <>
+      <MediaRadioLandscapeCard />
+      <RadioAircoverDial />
+    </>
+  ),
+  "workstreams-sec-15-3-1": <TerminalShowcase />,
+  "workstreams-sec-15-3-2": <FlywheelSchematic />,
+  "workstreams-sec-15-3-3": (
+    <>
+      <FeaturePhoneSpecimen />
+      <ReachSplit />
+      {/* O-5 (approved): the "Verified Ingestion Feed" of invented voter messages is removed. It
+          presented illustration as evidence, against the proposal's own ethics commitments. */}
+    </>
+  ),
+  // The technology workstreams carried no anchored visualisation before this: the stretch
+  // describing the stack, which is the part this reader is most likely to test against the artifact.
+  "workstreams-sec-15-4-4": <BenchmarkLadder />,
+
+  // ---- Part V: proof and protection ---------------------------------------------------------
+  // The scorecards are the objectives. What they do not carry is the indicator sets that stayed
+  // with the work they measure — indexed beneath them rather than moved here.
+  "success-sec-18-1": <ObjectivesIndex />,
+  "lawful-sec-19-3": <DataSecurityEthicsCharter />,
+
+  // ---- Reference shelf -----------------------------------------------------------------------
+  // The data explorer sits above the generated source table, which stays as the print and
+  // JavaScript-off copy of the same figures (consolidation pass, Step 4N).
+  "annex-evidence-sec-a-2": <DataExplorer />,
+
+  // ---- Part VI: the decision ----------------------------------------------------------------
+  "receives-sec-21-1-1": <ServiceLevelSelector />,
+  // The four-column matrix below this heading stacks into nine attribute cards on a phone, which
+  // answers "what does row six say" rather than "which tier should we buy". One card per tier,
+  // swipeable, with the table left in place underneath as the accessible equivalent.
+  "receives-sec-21-1-2": <TierComparisonCarousel />,
+};
+
+// A handful of headings still carry no leading digit (unnumbered platform names, phase
+// labels), so headingSlug never assigns them an id — matched on exact heading text instead,
+// same mechanism as PLACEHOLDER_PATTERN and GOVERNING_REALITY_TRIGGERS above. Currently empty:
+// nothing in the document needs this fallback after the 2026 restructure.
+const HEADING_TEXT_INSERTS: Record<string, React.ReactNode> = {};
+
+// Markdown parsing runs here on the server at render time, so react-markdown
+// and its remark/rehype plugins never ship to the client bundle.
+// Every ReactMarkdown pass shares one components map — the document body, and each
+// disclosure panel split out of it — so a table, badge or cross-reference renders the
+// same wherever it happens to sit.
+// Three callouts, chosen by what the quote is for (brief G-9, D-15). Every word of the quote is
+// kept; only its frame changes.
+//   Rule     the owner/Firefly split lines ("Owner: the campaign.", "Outside this engagement."),
+//            headed by a two-part badge
+//   Aside    pointers and notes ("…is in Annex E", "Research Integrity Note")
+//   Finding  the one claim a section leans on: the first other quote in the section, once
+const RULE_PATTERN = /^(owner:|split ownership|mostly outside this engagement|outside this engagement|campaign-owned recommendations)/i;
+const ASIDE_PATTERN = /(is in annex|are in annex|research integrity note|^note\b|segments overlap|re-cut against|name changed|live version of this list|^sfx:|^"|^\[!)/i;
+
+function ruleOwner(text: string): string | null {
+  const m = /^owner:\s*([^.—]+)/i.exec(text);
+  if (m) return m[1].trim();
+  if (/outside this engagement|campaign-owned/i.test(text)) return "the campaign, outside this engagement";
+  if (/split ownership/i.test(text)) return "split";
+  return null;
+}
+
+function buildComponents(tabId: TabId): Components {
+  // The one "finding" callout per map, keyed by where the quote starts in the markdown: a render
+  // that runs twice (React's development checks do) gives the same answer both times.
+  let findingAt: number | null = null;
+  return {
+            table: ({ children }) => {
+              const headers = getTableHeaderTexts(children).map((h) => h.toLowerCase());
+              const has = (text: string) => headers.some((h) => h.includes(text));
+
+              // §2.6 "National platform sizing" — replaced by the sorted bar chart
+              // (item 13), not kept alongside it.
+              if (tabId === "news" && has("platform") && has("kenya audience")) {
+                return <PlatformSizingBlock />;
+              }
+
+              // §6.1 candidate-asset table — assertion/evidence/use becomes claim cards (item 21),
+              // replacing the table rather than sitting alongside it.
+              if (tabId === "record" && has("asset") && has("evidence") && has("how we would use it")) {
+                return <ClaimCards>{children}</ClaimCards>;
+              }
+
+              return <InteractiveTable>{children}</InteractiveTable>;
+            },
+            pre: ({ children }) => {
+              const source = getDeepText(children);
+
+              /**
+               * A ```figure fence places a built figure exactly where the prose reaches it.
+               *
+               * This is what lets rule 1a retire an ASCII diagram IN PLACE. The alternative —
+               * keying every figure to a heading id, as HEADING_INSERTS does — lifts the figure to
+               * the top of its subsection and leaves a hole where the diagram was, which reads as
+               * a deletion rather than a replacement. The fence body is `id: <figure-id>`; the
+               * registry resolves it, and an unknown id renders a visible gap rather than nothing.
+               */
+              /**
+               * A ```textversion fence holds prose a figure has taken over (brief §12), word for
+               * word. It renders directly under the figure as "Read the text version", through the
+               * same markdown components as the rest of the section, so nothing in it reads
+               * differently from where it stood.
+               */
+              /**
+               * A ```lead fence (brief 2026-10 declutter, 5.1) is a section's summary, drawn from its
+               * own sentences. It shows above the section's visuals, with the full text folded
+               * beneath; it is hidden in print, where the full text it was drawn from prints open.
+               */
+              if (fenceLanguage(children) === "lead") {
+                return (
+                  <div className="pf-lead not-prose" data-lead>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+                      {source}
+                    </ReactMarkdown>
+                  </div>
+                );
+              }
+
+              // A ```visual fence: prose laid out as the shape it already has (components/visual).
+              if (fenceLanguage(children) === "visual") {
+                return <VisualFence json={source} md={markdownFor(tabId)} />;
+              }
+
+              if (fenceLanguage(children) === "textversion") {
+                return (
+                  <TextVersion>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+                      {source}
+                    </ReactMarkdown>
+                  </TextVersion>
+                );
+              }
+
+              if (fenceLanguage(children) === "figure") {
+                const id = source.match(/^\s*id:\s*([a-z0-9-]+)\s*$/im)?.[1];
+                return id ? (
+                  <Figure id={id} />
+                ) : (
+                  <p className="not-prose my-4 rounded-lg border border-dashed border-gold/60 bg-gold/[0.06] px-3 py-2 t-micro text-ink">
+                    <strong className="font-bold text-gold">Malformed figure fence:</strong> expected a line reading
+                    {" "}<code>id: some-figure-id</code>.
+                  </p>
+                );
+              }
+
+              // FOUR BLOCKS USED TO BE MATCHED HERE, on their own banner text — §11's two
+              // scorecards, the architecture that anchors them, and §13.1's rapid-response flow.
+              // The markdown was under a content-integrity guard and could not be edited to carry
+              // a marker, so the substitution had to key on a banner nobody could rename, and the
+              // ASCII stayed in the markdown carrying the words anyway. Rule 1a now authorises
+              // retiring those blocks outright: all four are ```figure fences resolved by the
+              // registry and declared in scripts/figure-retirements.json, and this matching is
+              // gone with them.
+
+              // 102 of these are box-drawing diagrams, not code. AsciiDiagram parses them into
+              // real tables and summaries, gated on losslessness — anything it cannot read with
+              // confidence keeps exactly the treatment it had.
+              return <AsciiDiagram source={source}>{children}</AsciiDiagram>;
+            },
+            code: ({ children }) => {
+              const text = flattenText(children);
+              // X4: a counsel note typed as a code span renders as a "Counsel review" chip.
+              const counsel = counselNote(text);
+              if (counsel) return counsel;
+              if (PLACEHOLDER_PATTERN.test(text.trim())) {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle my-0.5">
+                    <ClaimBadge status="awaiting" compact />
+                    <code className="placeholder">{text}</code>
+                  </span>
+                );
+              }
+              return <code>{text}</code>;
+            },
+            span: ({ className, children }) => {
+              if (className === "placeholder") {
+                return (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+                    <ClaimBadge status="awaiting" compact />
+                    <span className="placeholder">{children}</span>
+                  </span>
+                );
+              }
+              return <span className={className}>{children}</span>;
+ },
+            p: ({ children, className }) => {
+              // The appendix's "section-kicker" lines are eyebrow labels, not body prose —
+              // render them as such instead of falling into the lead-paragraph drop-cap styling.
+              if (className === "section-kicker") {
+                return <p className="eyebrow-label not-prose">{children}</p>;
+              }
+              /**
+               * Rule 1b: a paragraph the reader has already read arrives as one line.
+               *
+               * Matched here rather than during segmentation because almost every paragraph in
+               * this document lives inside a Brief fold, and splitting the markdown segments
+               * found none of them. Nothing is deleted — the paragraph is the child, in full,
+               * and CrossRef forces itself open for print and with JavaScript off.
+               */
+              // X5: a workstream banner's "Group: …" line is a chip; its sentence sits behind it.
+              const first = React.Children.toArray(children)[0];
+              const flat = normalizeWhitespace(getDeepText(children)).trim();
+              if (React.isValidElement(first) && /^Group: /.test(flat)) {
+                const label = normalizeWhitespace(getDeepText(first)).replace(/^Group:\s*/, "").replace(/\.$/, "").trim();
+                const rest = flat.slice(normalizeWhitespace(getDeepText(first)).trim().length).trim();
+                return <GroupChip label={label} detail={rest} />;
+              }
+              const repeat = crossRefFor(tabId, getDeepText(children));
+              if (repeat) {
+                return (
+                  <CrossRef
+                    section={repeat.canonical.section}
+                    href={repeat.canonical.href}
+                    words={repeat.duplicate.words}
+                    verbatim={repeat.score >= 0.99}
+                  >
+                    <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>
+                  </CrossRef>
+                );
+              }
+              return <MarkdownParagraph tabId={tabId}>{children}</MarkdownParagraph>;
+            },
+            blockquote: ({ children, node }) => {
+              // The central narrative line (§5.2.4.1) gets the full pull-quote treatment;
+              // every other blockquote (the ethics charter, etc.) keeps the standard styling.
+              if (getDeepText(children).includes("Kitui has resources")) {
+                return <PullQuote>{children}</PullQuote>;
+              }
+              const text = normalizeWhitespace(getDeepText(children)).trim();
+              if (RULE_PATTERN.test(text)) {
+                const owner = ruleOwner(text);
+                return (
+                  <blockquote className="pf-callout pf-callout--rule">
+                    {owner && (
+                      <span className="pf-split" aria-hidden="true">
+                        <span>Owner</span>
+                        <span>{owner}</span>
+                      </span>
+                    )}
+                    {children}
+                  </blockquote>
+                );
+              }
+              const at = node?.position?.start.offset ?? -1;
+              if ((findingAt === null || findingAt === at) && !ASIDE_PATTERN.test(text)) {
+                findingAt = at;
+                return <blockquote className="pf-callout pf-callout--finding">{children}</blockquote>;
+              }
+              return <blockquote className="pf-callout pf-callout--aside">{children}</blockquote>;
+            },
+            ul: ({ children }) => {
+              // §4 writes each operational commitment as six bolded fields in a fixed order —
+              // a table written as prose. Where that exact shape appears, lay it out as one;
+              // every other list in the document is untouched.
+              const fields = parseLabelledList(children);
+              if (fields && isCommitmentFieldList(fields.map((f) => f.label))) {
+                return <CommitmentFields fields={fields} tabId={tabId} />;
+              }
+              return <ul>{children}</ul>;
+            },
+            li: ({ children }) => {
+              // The three operating conditions (§6.3) get a pull-quote-style emphasis
+              // treatment instead of a plain bullet — every other list item is unaffected.
+              const text = normalizeWhitespace(getDeepText(children));
+              const isGoverningReality = (tabId === "news" || tabId === "needs") && GOVERNING_REALITY_TRIGGERS.some((t) => text.includes(t));
+              if (isGoverningReality) {
+                return <MarkdownListItem tabId={tabId} emphasis>{children}</MarkdownListItem>;
+              }
+              return <MarkdownListItem tabId={tabId}>{children}</MarkdownListItem>;
+            },
+            // Bold runs carry some of the document's most load-bearing figures (the derived
+            // win threshold, the deficit) — route their text through the same highlighter so
+            // cross-refs, claim badges and "show the working" triggers work inside bold too.
+            strong: ({ children }) => (
+              <strong>
+                {React.Children.map(children, (child) =>
+                  typeof child === "string" && hasHighlight(child) ? (
+                    <HighlightedText text={child} tabId={tabId} />
+                  ) : (
+                    child
+                  )
+                )}
+              </strong>
+            ),
+            img: ({ src, alt }) => {
+              if (!src || typeof src !== "string") return null;
+              // The frame lifts; the picture scales inside it. Scaling the frame instead would
+              // push the paragraph after it, which is a layout change disguised as a hover.
+              return (
+                <span className="fx-zoom-frame fx-reveal-overlay fx-lift block my-4 rounded-xl border border-line/60">
+                  <Image
+                    src={src}
+                    alt={alt || "Illustration"}
+                    width={800}
+                    height={450}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    unoptimized={src.startsWith("data:") || src.startsWith("blob:")}
+                  />
+                  {alt && (
+                    <span className="fx-overlay-body block t-small font-semibold">{alt}</span>
+                  )}
+                </span>
+              );
+            },
+            h2: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              const insert = id ? HEADING_INSERTS[id] : HEADING_TEXT_INSERTS[text.trim()];
+              return (
+                <>
+                  <SectionHeading id={id} level={2}>{withoutNumber(children)}</SectionHeading>
+                  {/* The hand-built visualisation where one exists, and the figure derived from
+                      this heading's own content where one does not. Never both: 50 sub-sections
+                      were designed, and the other 222 are covered rather than decorated. */}
+                  {insert ? mountInsert(id, insert) : <PartVisual spec={partVisual(id)} />}
+                </>
+              );
+            },
+            // The working marks, as chips (lib/inline-marks.ts, lib/rehype-inline-marks.ts).
+            ...({
+              "tier-mark": (props: { tiers?: string; head?: string; rest?: string }) => <TierMark tiers={props.tiers} head={props.head} rest={props.rest} />,
+              "conflict-mark": (props: { conflict?: string }) => <ConflictMark conflict={props.conflict} />,
+              "checkref-mark": () => <CheckRefMark />,
+              "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
+              "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
+              "window-chip": () => <WindowChip />,
+              // Where each workstream group begins; the tab bar reads these (consolidation pass, Step 4H).
+              "ws-mark": (props: { tab?: string }) => <WorkstreamMark tab={props.tab} />,
+            } as unknown as Components),
+            h3: ({ children }) => {
+              const text = getHeadingText(children);
+              const slug = headingSlug(text);
+              const id = slug ? sectionId(tabId, slug) : null;
+              return (
+                <>
+                  <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{withoutNumber(children)}</SectionHeading>
+                  {id && HEADING_INSERTS[id] ? mountInsert(id, HEADING_INSERTS[id]) : <PartVisual spec={partVisual(id)} />}
+                </>
+              );
+            }
+  };
+}
+
+/**
+ * Markdown inside a visual: a field, a card's text, a tab's body. `inline` renders a single run of
+ * text without a paragraph box, for labels and one-line fields.
+ */
+function markdownFor(tabId: TabId) {
+  // Inside a visual a table is part of a card or tab, so it is drawn as a plain, compact table that
+  // scrolls sideways on a phone, not as the document's interactive table with its own controls.
+  const block: Components = {
+    ...buildComponents(tabId),
+    table: ({ children }) => (
+      <div className="vz-table-wrap" tabIndex={0} role="region" aria-label="Table">
+        <table className="vz-table">{children}</table>
+      </div>
+    ),
+  };
+  const inline: Components = {
+    ...block,
+    p: ({ children }) => <>{highlightInline(children, tabId)}</>,
+  };
+  return function renderVisualText(text: string, isInline = false) {
+    return (
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={isInline ? inline : block}>
+        {text}
+      </ReactMarkdown>
+    );
+  };
+}
+
+function highlightInline(children: React.ReactNode, tabId: TabId) {
+  return React.Children.map(children, (child) =>
+    typeof child === "string" && hasHighlight(child) ? <HighlightedText text={child} tabId={tabId} /> : child
+  );
+}
+
+/** Drop the printed number ("2.5", "15.3.2", "A.1") from the first text run of a heading. */
+function withoutNumber(children: React.ReactNode): React.ReactNode {
+  let done = false;
+  return React.Children.map(children, (child) => {
+    if (done || typeof child !== "string") return child;
+    done = true;
+    return displayTitle(child) === child.trim() ? child : displayTitle(child) + (child.endsWith(" ") ? " " : "");
+  });
+}
+
+/**
+ * A chapter's takeaway, on its digest (components/flow/ChapterDigest.tsx): the chapter's own lead,
+ * through the same components as the chapter, so a tier mark, a status chip and the nomination
+ * window read on the digest exactly as they do in the text they were drawn from.
+ */
+export function LeadMarkdown({ text, tabId }: { text: string; tabId: TabId }) {
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+      {text}
+    </ReactMarkdown>
+  );
+}
+
+export function MarkdownViewer({ content, tabId }: { content: string; tabId: TabId }) {
+  // segmentContent lays each section out: what shows on load, and what sits behind "Read the
+  // full text" (lib/collapse-groups.ts). Each segment gets its own components map, so the one
+  // "finding" callout a map allows is decided within the segment, in the same order on the server
+  // and in the browser: a map shared across segments counted callouts in render order, which
+  // hydration does not guarantee.
+  const segments = segmentContent(content);
+
+  const renderMarkdown = (text: string, key?: string) => (
+    <ReactMarkdown
+      key={key}
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={REHYPE}
+      components={buildComponents(tabId)}
+    >
+      {text}
+    </ReactMarkdown>
+  );
+
+  return (
+    <div className="relative bg-transparent overflow-hidden p-0">
+      {/* Editorial Content Container */}
+      {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
+          (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —
+          so chart footnotes, card ledes and diagram notes all picked up a 3xl gold drop cap.
+          A direct-child selector reaches the document's opening paragraph and nothing else. */}
+      <div className="prose max-w-none relative z-10 px-0
+ [&>p:first-of-type]:text-base [&>p:first-of-type]:sm:text-lg [&>p:first-of-type]:font-semibold [&>p:first-of-type]:text-ink [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:border-b [&>p:first-of-type]:border-line/40 [&>p:first-of-type]:pb-4 [&>p:first-of-type]:mb-6
+
+">
+        {/* The workstreams' four tabs, at the head of the chapter (consolidation pass, Step 4H). */}
+        {tabId === "workstreams" && <WorkstreamTabBar />}
+
+        {segments.map((segment, i) => {
+          if (segment.kind === "markdown") return renderMarkdown(segment.text, `md-${i}`);
+          if (segment.kind === "more")
+            return (
+              <ReadMore key={`more-${i}`} words={segment.words}>
+                {renderMarkdown(segment.text, `more-body-${i}`)}
+              </ReadMore>
+            );
+          return (
+            <DisclosureGroup
+              key={`group-${i}`}
+              labels={segment.panels.map((panel) => panel.label)}
+              unresolved={segment.panels.map((panel) => panel.unresolved)}
+            >
+              {segment.panels.map((panel) => renderMarkdown(panel.text, panel.label))}
+            </DisclosureGroup>
+          );
+        })}
+
+        {/* Every disclosure holding CONTENT ships open and is closed by script, so the printed
+            kit is complete whether or not scripts run. See PrintSafeDisclosures. */}
+        <PrintSafeDisclosures />
+
+        {/* What the campaign must provide closes Chapter 22, inside the prose flow. It used to sit
+            in the footer chrome below a rule, next to the print widget — which framed a vendor's
+            closing request as one more piece of page tooling. Since the November 2026 restructure
+            the decision is Part VI, and the panel sits with the campaign's commitments. */}
+        {tabId === "receives" && (
+          <PanelFold label="What Firefly needs from the campaign">
+            <DecisionPanel />
+          </PanelFold>
+        )}
+      </div>
+    </div>
+  );
+}

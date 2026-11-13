@@ -15,9 +15,9 @@ import { formatFigure } from "../../data/format.ts";
 import type { Chart, Column, FigureSpec, Row, SourceRef } from "../types.ts";
 import type { FigureSeries } from "../../figures/types.ts";
 import {
-  AUDIENCE_FACETS, AUDIENCE_SERIES, CHANNEL_MESSAGE_SERIES, ESCALATION_LADDER, ESCALATION_SERIES,
-  HOLDING_POSITIONS, HOLDING_SERIES, MATRIX_SERIES, MESSAGE_BY_CHANNEL, MESSAGE_BY_SEGMENT,
-  RESPONSE_MATRIX, RESPONSE_SLA, SEGMENT_MESSAGE_SERIES, SLA_SERIES,
+  AUDIENCE_FACETS, AUDIENCE_SERIES, CHANNEL_MESSAGE_SERIES, CONFLICT_PROTOCOL, ESCALATION_LADDER, ESCALATION_SERIES,
+  HOLDING_POSITIONS, HOLDING_SERIES, MANDATE_SERIES, MATRIX_SERIES, MESSAGE_BY_CHANNEL, MESSAGE_BY_SEGMENT, PROTOCOL_SERIES,
+  PROVENANCE_MANDATE, RESPONSE_MATRIX, RESPONSE_SLA, SEGMENT_MESSAGE_SERIES, SLA_SERIES, TIERS_SERIES, TIER_CLASSIFICATION,
   VISIT_LOOP, VISIT_SERIES,
 } from "../../figures/annex.ts";
 import {
@@ -159,11 +159,11 @@ const FIG_LANGUAGE_MAP: FigureSpec = {
     {
       type: "composite",
       parts: [
-        { heading: "Primary reach, by language", chart: { type: "bars", bars: LANGUAGES.map((l) => ({ label: l.name, value: l.share, state: "modelled" as const, display: `~${l.share}%` })), unit: "%" } },
+        { heading: "Estimated primary reach, by language", chart: { type: "bars", bars: LANGUAGES.map((l) => ({ label: l.name, value: l.share, state: "modelled" as const, display: `~${l.share}%` })), unit: "%" } },
         { heading: "Who each language reaches, and through which channels", chart: { type: "cards", columns: 3, cards: LANGUAGES.map((l) => ({ kicker: `~${l.share}%`, title: l.name, body: `Audiences: ${l.audiences.join(" · ")}. Channels: ${l.channels.join(" · ")}.`, meta: l.objective })) } },
       ],
     },
-    keys(["Language", "Primary reach, %", "Audiences", "Channels", "Objective"]),
+    keys(["Language", "Estimated primary reach, %", "Audiences", "Channels", "Objective"]),
     LANGUAGES.map((l) => ({ cells: cellsOf([l.name, String(l.share), l.audiences.join(" · "), l.channels.join(" · "), l.objective]) })),
     ["Political bulk SMS is English or Kiswahili only (Communications Authority); Kikamba travels by voice note and radio."],
   ),
@@ -180,6 +180,9 @@ const FIG_LANGUAGE_DEPLOYMENT = table(
 const RAW: FigureSpec[] = [
   grid("audience-overview", AUDIENCE_SERIES, AUDIENCE_FACETS, "Connectivity and language are the two facets the rest of the proposal turns on.", 3),
   stepper("visit-loop", VISIT_SERIES, VISIT_LOOP),
+  table("provenance-mandate", MANDATE_SERIES, ["Requirement", "What it means", "Example"], PROVENANCE_MANDATE),
+  table("tier-classification", TIERS_SERIES, ["Tier", "Source types", "Authorised strategic use"], TIER_CLASSIFICATION),
+  stepper("conflict-protocol", PROTOCOL_SERIES, CONFLICT_PROTOCOL),
   table("message-by-segment", SEGMENT_MESSAGE_SERIES, ["Target segment", "Tailored message & Kikamba framing", "Verifiable evidence & data source"], MESSAGE_BY_SEGMENT),
   table("message-by-channel", CHANNEL_MESSAGE_SERIES, ["Channel & reach", "Format, tone & linguistic style", "Evidential proof points"], MESSAGE_BY_CHANNEL),
   stepper("escalation-ladder", ESCALATION_SERIES, ESCALATION_LADDER),

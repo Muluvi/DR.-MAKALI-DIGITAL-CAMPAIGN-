@@ -1,0 +1,734 @@
+{
+ "cuts": [
+  {
+   "row": 112,
+   "oldRef": "5.1.4",
+   "oldTitle": "5.1.4 How the levels change what runs",
+   "reason": "5.1.4 repeats 5.5.1 and 5.5.2: the Level 2 recommendation is stated near-verbatim in 5.5.2 (D2); canonical home 1.5.1",
+   "words": 163,
+   "pointer": null,
+   "text": "\nThe three engagement levels in Section 5.5 change the **depth of the intelligence**, not the volume\nof Firefly's output: how often the presence audit is refreshed, how many wards carry reach reporting,\nhow often creative is tested, and how far the team upskilling goes. They do\nnot change the list above, they never move a workstream from one owner to another, and they never\nchange Workstream 4 — accessibility applies in full at every level and is not a line to trade away\n(Section 5.5.1).\n\n**Firefly recommends Level 2 (Standard).** Level 1 instruments only the twelve decisive wards and\nleaves the recognition deficit measured at county level, which is the one place this campaign cannot\nafford to be blind. Level 3 refreshes the analysis faster than a nomination sprint can act on it.\nStandard is the level at which all 40 wards carry both reach reporting and an active SMS and USSD\nlayer — and reaching the arid belt is the whole argument.\n\n"
+  },
+  {
+   "row": 294,
+   "oldRef": "6.3.1",
+   "oldTitle": "6.3.1 The ask",
+   "reason": "The closing sign-off block repeats the cover's 'Prepared by' block word for word; canonical home the cover",
+   "words": 23,
+   "pointer": null,
+   "text": "**Prepared by:**\nFirefly Management\nStrategic Communications & Digital Campaign Consultancy\n6th Floor, Next Gen Mall, Mombasa Road, Nairobi\nfireflymanagement.ke@gmail.com · 0726 766 800"
+  },
+  {
+   "row": 294,
+   "oldRef": "6.3.1",
+   "oldTitle": "6.3.1 The ask",
+   "reason": "rule line above the cut sign-off block",
+   "words": 1,
+   "pointer": null,
+   "text": "---"
+  },
+  {
+   "row": 332,
+   "oldRef": "F.2",
+   "oldTitle": "F.2 Who this is for, and on what terms",
+   "reason": "F.2 restates the cover: parties, status and confidentiality; canonical home the cover, full terms F.1",
+   "words": 78,
+   "pointer": null,
+   "text": "\n**Prepared for:** Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS — Member of Parliament, Kitui\nCentral; Gubernatorial Aspirant, Kitui County. Personally, and not for any party organ.\n\n**Prepared by:** Firefly Management, Strategic Communications & Digital Campaign Consultancy.\n\n**Status:** Proposal for discussion.\n\n**Confidential.** Submitted in confidence for the purpose of evaluating this engagement, and not to\nbe circulated beyond Dr. Mulu and those he authorises. Section F.1 states the full terms; Section\n1.4 explains how the document is organised.\n\n"
+  },
+  {
+   "row": 205,
+   "oldRef": null,
+   "oldTitle": "The compliance gate this depends on",
+   "reason": "Restates the fallback 5.7.9 (now 5.3.4) sets out: 'Until step 4 is complete, the campaign operates on first-party consented data and aggregate ward-level statistics only' (mapping: 'Last item reduces to a pointer to 5.3.4')",
+   "words": 54,
+   "pointer": "*The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4.*",
+   "text": "Model deployment is gated. If the Section 5.7.9 review does not clear\nvoter-file-based processing, the campaign operates the model on **first-party\nconsented data and aggregate ward-level statistics only** — a materially\nweaker but fully lawful fallback that is planned into all three engagement\nlevels. The campaign is not exposed if the answer is no."
+  }
+ ],
+ "droppedHeadings": [
+  {
+   "row": 117,
+   "title": "5.2.1 Platforms and content",
+   "why": "group heading dissolves; its purpose line moves into each workstream banner"
+  },
+  {
+   "row": 147,
+   "title": "5.2.2 Publishing and earned media",
+   "why": "group heading dissolves; its purpose line moves into each workstream banner"
+  },
+  {
+   "row": 165,
+   "title": "5.2.3 Ground and offline reach",
+   "why": "group heading dissolves; its purpose line moves into each workstream banner"
+  },
+  {
+   "row": 192,
+   "title": "5.2.4 Data and technology",
+   "why": "group heading dissolves; its purpose line moves into each workstream banner"
+  },
+  {
+   "row": 112,
+   "title": "5.1.4 How the levels change what runs",
+   "why": "Removed: Repeats 5.5.1 and 5.5.2 (the Level 2 recommendation appears three times); canonical home is 1.5.1"
+  },
+  {
+   "row": 24,
+   "title": "2.7.1 Who owns the Kamba-language stations, and who they favour",
+   "why": "Removed: Defers to the table in old 5.2.2.2 and restates the three structural facts; kept as one short paragraph plus the research-integrity note"
+  },
+  {
+   "row": 62,
+   "title": "3.10.1 Segment sizes the record does not publish",
+   "why": "Merged: Folded in as its closing paragraph"
+  },
+  {
+   "row": 88,
+   "title": "4.4.3 Persuasion principles and message discipline",
+   "why": "Removed: Empty heading directly above 4.4.4; the two merge"
+  },
+  {
+   "row": 92,
+   "title": "4.4.7 Language, register and dialect",
+   "why": "Merged: Language section starts here"
+  },
+  {
+   "row": 93,
+   "title": "4.4.8 Which language reaches which voters, on which channel",
+   "why": "Merged: Same language map as 4.4.11 at a different level of detail"
+  },
+  {
+   "row": 98,
+   "title": "4.5 What gets published",
+   "why": "Merged: Intro of production pillars moves to 3.2.3; weekly pattern stays here"
+  },
+  {
+   "row": 233,
+   "title": "5.4.5 Coalition and endorsement sequencing",
+   "why": "Removed: Empty heading directly above 5.4.6"
+  },
+  {
+   "row": 113,
+   "title": "5.1.5 Scope summary and workstream boundaries",
+   "why": "Removed: Empty heading"
+  },
+  {
+   "row": 249,
+   "title": "5.6.3 Indicators, and why these",
+   "why": "Removed: Empty heading; its orphan paragraph is moved to open 5.2.6"
+  },
+  {
+   "row": 223,
+   "title": "5.3.3 What is measured",
+   "why": "Removed: Thirty-word intro that sits out of order after 5.3.1; becomes the section purpose line"
+  },
+  {
+   "row": 261,
+   "title": "5.7.4 Data ethics, privacy and the data charter",
+   "why": "Removed: Empty heading; \"5.3 Data protection, ethics and compliance\" replaces it"
+  },
+  {
+   "row": 291,
+   "title": "6.2 Open items",
+   "why": "Split: ODPC action box to 5.3.6; assumptions to 1.8; heading itself removed"
+  },
+  {
+   "row": 271,
+   "title": "5.8.4 The digital war room",
+   "why": "Removed: Empty heading above 5.8.5"
+  },
+  {
+   "row": 273,
+   "title": "5.8.6 Cybersecurity and manipulated media",
+   "why": "Removed: Empty heading above 5.8.7"
+  },
+  {
+   "row": 275,
+   "title": "5.8.8 Competitor monitoring",
+   "why": "Removed: Empty heading above 5.8.9"
+  },
+  {
+   "row": 332,
+   "title": "F.2 Who this is for, and on what terms",
+   "why": "Merged: Restates the cover; reduced to a pointer"
+  }
+ ],
+ "markers": [
+  {
+   "conflict": "C1",
+   "row": 141,
+   "oldRef": "5.2.1.4",
+   "anchor": "| **Kikamba** | **50%** |"
+  },
+  {
+   "conflict": "C1",
+   "row": 93,
+   "oldRef": "4.4.8",
+   "anchor": "id: language-map"
+  },
+  {
+   "conflict": "C1",
+   "row": 97,
+   "oldRef": "4.4.11",
+   "anchor": "id: language-deployment"
+  },
+  {
+   "conflict": "C1",
+   "row": 103,
+   "oldRef": "4.5.5",
+   "anchor": "are checked in the Monday review."
+  },
+  {
+   "conflict": "C2",
+   "row": 93,
+   "oldRef": "4.4.8",
+   "anchor": "id: language-map"
+  },
+  {
+   "conflict": "C2",
+   "row": 181,
+   "oldRef": "The SMS layer",
+   "anchor": "`[VERIFY whether in force]`"
+  },
+  {
+   "conflict": "C3",
+   "row": 109,
+   "oldRef": "5.1.1",
+   "anchor": "Dr. Mulu already holds."
+  },
+  {
+   "conflict": "C3",
+   "row": 245,
+   "oldRef": "5.5.4",
+   "anchor": "and boundaries stated so that what is outside them"
+  },
+  {
+   "conflict": "C4",
+   "row": 111,
+   "oldRef": "5.1.3",
+   "anchor": "Firefly operates end to end."
+  },
+  {
+   "conflict": "C4",
+   "row": 114,
+   "oldRef": "5.1.6",
+   "anchor": "within **2 hours** during peak periods."
+  },
+  {
+   "conflict": "C4",
+   "row": 286,
+   "oldRef": "5.9.3",
+   "anchor": "campaign has."
+  },
+  {
+   "conflict": "C5",
+   "row": 120,
+   "oldRef": "What it is",
+   "anchor": "road, a market without sanitation, a stalled project."
+  },
+  {
+   "conflict": "C5",
+   "row": 212,
+   "oldRef": "5. Public Service-Delivery Tracker (Section 5.2.4 Digital Charter Platform)",
+   "anchor": "Displays verifiable records of 13 years"
+  },
+  {
+   "conflict": "C5",
+   "row": 252,
+   "oldRef": "5.6.6",
+   "anchor": "**Governor's Day-One Public Delivery Dashboard**."
+  },
+  {
+   "conflict": "C6",
+   "row": 43,
+   "oldRef": "Stage One: the Wiper nomination",
+   "anchor": "but it is the campaign's policy call.**"
+  },
+  {
+   "conflict": "C6",
+   "row": 86,
+   "oldRef": "Message Pillar 3: Devolution Equity, Universal Water Access & Healthcare *(carries campaign pillars 1 and 2, Section 4.1.5)*",
+   "anchor": "Million per ward annually"
+  },
+  {
+   "conflict": "C6",
+   "row": 127,
+   "oldRef": "The four content pillars",
+   "anchor": "Ward Equalization Fund, solar water within 1 km"
+  },
+  {
+   "conflict": "C6",
+   "row": 131,
+   "oldRef": "B. Direct 2G Bulk SMS Copy Sample (Ward-Specific)",
+   "anchor": "Reply STOP to opt out."
+  },
+  {
+   "conflict": "C6",
+   "row": 161,
+   "oldRef": "Pre-drafted response lines",
+   "anchor": "methodology-first allocation formula"
+  },
+  {
+   "conflict": "C7",
+   "row": 24,
+   "oldRef": "2.7.1",
+   "anchor": "These are the placement targets."
+  },
+  {
+   "conflict": "C7",
+   "row": 54,
+   "oldRef": "Kikamba Vernacular Radio (The Decisive Broadcast Medium)",
+   "anchor": "so it ranks the stations rather than sizing Kitui's audience."
+  },
+  {
+   "conflict": "C7",
+   "row": 75,
+   "oldRef": "4.3.2",
+   "anchor": "**Primary:** Kamba Vernacular Radio"
+  },
+  {
+   "conflict": "C7",
+   "row": 157,
+   "oldRef": "The radio problem, stated plainly",
+   "anchor": "| **KBC Mwatu FM** |"
+  },
+  {
+   "conflict": "C7",
+   "row": 269,
+   "oldRef": "5.8.2",
+   "anchor": "**Broadcast Vernacular Radio Triage"
+  },
+  {
+   "conflict": "C8",
+   "row": 11,
+   "oldRef": "2.1",
+   "anchor": "**Turnout, 2022:**"
+  },
+  {
+   "conflict": "C8",
+   "row": 27,
+   "oldRef": "3.1",
+   "anchor": "total ballots cast equal approximately"
+  },
+  {
+   "conflict": "C8",
+   "row": 73,
+   "oldRef": "4.3",
+   "anchor": "| Expected turnout universe |"
+  }
+ ],
+ "pointers": [
+  {
+   "where": "4.5.12",
+   "text": "The compliance gate, and the fallback the model runs on until it clears, are set out in 5.3.4."
+  },
+  {
+   "where": "decision.md opening",
+   "text": "The decision first: what is being asked, what Dr. Mulu receives and at which level, who does what, and what the campaign must decide or provide."
+  },
+  {
+   "where": "1.4.3 (pointer for removed 5.1.4)",
+   "text": "How the three engagement levels change what runs, and the Level 2 recommendation, are set out once, in 1.5.1."
+  },
+  {
+   "where": "1.9",
+   "text": "The indicators themselves are set out in 5.1."
+  },
+  {
+   "where": "delivery.md opening",
+   "text": "How the engagement is run, when and by whom: the weekly operating rhythm, the first weeks, the phases to August 2027 and the coalition calendar."
+  },
+  {
+   "where": "4.5 (old 5.1.6 and 5.1.7)",
+   "text": "The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled."
+  },
+  {
+   "where": "4.5.2",
+   "text": "The four content pillars are now in 3.2.3, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex G.2."
+  },
+  {
+   "where": "4.5.4",
+   "text": "The languages this standard works in, and the content mix for locally facing platforms, are set out in 3.6.1."
+  },
+  {
+   "where": "4.5.5",
+   "text": "The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex G.1."
+  },
+  {
+   "where": "4.5.10",
+   "text": "The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex G.3."
+  },
+  {
+   "where": "4.5.11",
+   "text": "The Data Protection Act obligations this layer works under, and its mandatory compliance safeguards, are set out with the rest of compliance in 5.3.2."
+  },
+  {
+   "where": "4.5.12",
+   "text": "The data sources the model draws on are listed in Annex G.5."
+  },
+  {
+   "where": "4.5.12",
+   "text": "The model's variable dictionary is in Annex G.5."
+  },
+  {
+   "where": "4.5.13",
+   "text": "The reference architecture the campaign owns (component by component, the procurement matrix and the technical security protocols) is in Annex G.4."
+  },
+  {
+   "where": "staffing.md opening",
+   "text": "Who does the work: the Firefly core, the surge roles activated by phase and level, and how the existing team is assessed and upskilled."
+  },
+  {
+   "where": "measurement.md opening",
+   "text": "How progress is measured, how the Week 1 presence audit is run, and how the work is kept lawful."
+  },
+  {
+   "where": "6.4",
+   "text": "Analysis of the rivals themselves is in 2.6.4; the tools and outputs are in Annex E.4 and E.12."
+  },
+  {
+   "where": "B.5",
+   "text": "The field itself is analysed in 2.6; each line below records the documents a rival's attributes rest on."
+  },
+  {
+   "where": "Annex F (pointer for F.2)",
+   "text": "Who this proposal is for, who prepared it, and its status are stated once, on the cover."
+  },
+  {
+   "where": "annex-spec.md opening",
+   "text": "ANNEX G. Channel and technical specifications: the platform playbooks, formats and copy samples, the volunteer programme reference, the technology reference architecture, and the voter model's data sources and variables. Reference the main text points to, not argues from."
+  }
+ ],
+ "moves": [
+  {
+   "row": 49,
+   "from": "3.7.3",
+   "fragment": "lead-in-3.8",
+   "words": 24,
+   "firstLine": "What digital reach can and cannot deliver against the winning number, the infrastructure t"
+  },
+  {
+   "row": 68,
+   "from": "4.1.4",
+   "fragment": "pillar-cross-list",
+   "words": 78,
+   "firstLine": "Four pillars, extended from the original three. **These four are the campaign's pillars.**"
+  },
+  {
+   "row": 73,
+   "from": "4.3",
+   "fragment": "universe-table",
+   "words": 344,
+   "firstLine": "The six segments below describe **who** the voters are. This table describes **what the ca"
+  },
+  {
+   "row": 98,
+   "from": "4.5",
+   "fragment": "production-pillar-intro",
+   "words": 127,
+   "firstLine": "*\"The mission is for Kitui to prosper. From Poverty to Wealth Creation.\"* That line is alr"
+  },
+  {
+   "row": 141,
+   "from": "5.2.1.4",
+   "fragment": "ws4-language-block",
+   "words": 199,
+   "firstLine": "Language is central to trust in Kitui."
+  },
+  {
+   "row": 206,
+   "from": "5.2.4.3",
+   "fragment": "ws13-reference-intro",
+   "words": 83,
+   "firstLine": "A data-driven political campaign requires robust, reliable, and compliant technical infras"
+  },
+  {
+   "row": 228,
+   "from": "5.4",
+   "fragment": "target-ladder",
+   "words": 403,
+   "firstLine": "```figure"
+  },
+  {
+   "row": 250,
+   "from": "5.6.4",
+   "fragment": "audit-two-part-intro",
+   "words": 53,
+   "firstLine": "Political strategy without empirical measurement risks misallocating scarce campaign effor"
+  },
+  {
+   "row": 259,
+   "from": "The Firefly proposition",
+   "fragment": "annex-d-pointer",
+   "words": 38,
+   "firstLine": "---"
+  },
+  {
+   "row": 266,
+   "from": "5.7.9",
+   "fragment": "risks-intro",
+   "words": 37,
+   "firstLine": "What can go wrong and what happens when it does: rapid response, the war room that runs it"
+  },
+  {
+   "row": 281,
+   "from": "5.8.14",
+   "fragment": "staffing-opening",
+   "words": 97,
+   "firstLine": "Dr. Mulu already has a team that publishes every day. This section is about how three more"
+  },
+  {
+   "row": 291,
+   "from": "6.2",
+   "fragment": "odpc-action-box",
+   "words": 264,
+   "firstLine": "> [!WARNING]"
+  }
+ ],
+ "notes": [
+  "preamble of old objectives.md placed with the content of its first heading",
+  "preamble of old implementation.md placed at the head of 1.4, with the content of its first heading",
+  "preamble of old nextsteps.md placed with the content of its first heading",
+  "preamble of old data.md is the opening line of evidence.md, ahead of its first heading as before",
+  "preamble of old analysis.md placed with the content of its first heading",
+  "preamble of old delivery.md placed with the content of its first heading",
+  "the 5.8 intro stranded at the end of old 5.7.9 opens risks.md, immediately ahead of 6.1"
+ ],
+ "added": [
+  {
+   "where": "banner of 5.2.1.1 Workstream 1 — Owned platforms and the service-delivery tracker",
+   "words": 10
+  },
+  {
+   "where": "banner of 5.2.1.2 Workstream 2 — The content brief and asset governance",
+   "words": 10
+  },
+  {
+   "where": "banner of 5.2.1.3 Workstream 3 — Creative testing and AI assistance",
+   "words": 10
+  },
+  {
+   "where": "banner of 5.2.1.4 Workstream 4 — Accessibility and inclusion",
+   "words": 10
+  },
+  {
+   "where": "banner of 5.2.2.1 Workstream 5 — Platform tactics and paid media",
+   "words": 33
+  },
+  {
+   "where": "banner of 5.2.2.2 Workstream 6 — Earned media, journalists and debates",
+   "words": 33
+  },
+  {
+   "where": "banner of 5.2.3.1 Workstream 7 — Ground-digital integration",
+   "words": 32
+  },
+  {
+   "where": "banner of 5.2.3.2 Workstream 8 — The field-to-digital loop",
+   "words": 32
+  },
+  {
+   "where": "banner of 5.2.3.3 Workstream 9 — What Firefly operates: SMS, USSD and voice",
+   "words": 32
+  },
+  {
+   "where": "banner of 5.2.3.4 Workstream 10 — Digital organising and volunteers",
+   "words": 32
+  },
+  {
+   "where": "banner of 5.2.4.1 Workstream 11 — The data layer",
+   "words": 39
+  },
+  {
+   "where": "banner of 5.2.4.2 Workstream 12 — Predictive voter modelling",
+   "words": 39
+  },
+  {
+   "where": "banner of 5.2.4.3 Workstream 13 — The technology stack",
+   "words": 39
+  },
+  {
+   "where": "banner of 5.2.4.4 Workstream 14 — Analytics and attribution",
+   "words": 39
+  },
+  {
+   "where": "new heading 1.2",
+   "words": 8
+  },
+  {
+   "where": "new heading 1.4.2",
+   "words": 7
+  },
+  {
+   "where": "new heading 1.7",
+   "words": 8
+  },
+  {
+   "where": "new heading 2.1",
+   "words": 9
+  },
+  {
+   "where": "new heading 2.6",
+   "words": 9
+  },
+  {
+   "where": "new heading 2.8",
+   "words": 9
+  },
+  {
+   "where": "new heading 2.9",
+   "words": 12
+  },
+  {
+   "where": "new heading 2.9.3",
+   "words": 8
+  },
+  {
+   "where": "new heading 2.10",
+   "words": 8
+  },
+  {
+   "where": "new heading 3.2",
+   "words": 5
+  },
+  {
+   "where": "new heading 3.2.1",
+   "words": 4
+  },
+  {
+   "where": "new heading 3.2.3",
+   "words": 8
+  },
+  {
+   "where": "new heading 3.3",
+   "words": 12
+  },
+  {
+   "where": "new heading 3.4.1",
+   "words": 10
+  },
+  {
+   "where": "new heading 3.5.2",
+   "words": 7
+  },
+  {
+   "where": "new heading 3.6",
+   "words": 6
+  },
+  {
+   "where": "new heading 3.6.1",
+   "words": 10
+  },
+  {
+   "where": "new heading 3.7",
+   "words": 9
+  },
+  {
+   "where": "new heading 4.2",
+   "words": 8
+  },
+  {
+   "where": "new heading 4.2.1",
+   "words": 6
+  },
+  {
+   "where": "new heading 4.3",
+   "words": 7
+  },
+  {
+   "where": "text",
+   "words": 10
+  },
+  {
+   "where": "new heading 4.3.1",
+   "words": 5
+  },
+  {
+   "where": "new heading 4.4",
+   "words": 5
+  },
+  {
+   "where": "new heading 5.1.1",
+   "words": 9
+  },
+  {
+   "where": "new heading 5.2",
+   "words": 6
+  },
+  {
+   "where": "new heading 5.2.6",
+   "words": 8
+  },
+  {
+   "where": "new heading 5.3",
+   "words": 7
+  },
+  {
+   "where": "new heading 5.3.2",
+   "words": 8
+  },
+  {
+   "where": "new heading 5.3.5",
+   "words": 8
+  },
+  {
+   "where": "new heading 5.3.6",
+   "words": 6
+  },
+  {
+   "where": "new heading 6.2",
+   "words": 8
+  },
+  {
+   "where": "new heading 6.3",
+   "words": 6
+  },
+  {
+   "where": "new heading 6.4",
+   "words": 4
+  },
+  {
+   "where": "new heading G.1",
+   "words": 4
+  },
+  {
+   "where": "new heading G.2",
+   "words": 8
+  },
+  {
+   "where": "new heading G.3",
+   "words": 5
+  },
+  {
+   "where": "new heading G.4",
+   "words": 5
+  },
+  {
+   "where": "new heading G.5",
+   "words": 9
+  }
+ ],
+ "headingDelta": -77,
+ "relocated": [
+  {
+   "row": 117,
+   "words": 0,
+   "to": "the banner of each workstream in the group"
+  },
+  {
+   "row": 147,
+   "words": 26,
+   "to": "the banner of each workstream in the group"
+  },
+  {
+   "row": 165,
+   "words": 25,
+   "to": "the banner of each workstream in the group"
+  },
+  {
+   "row": 192,
+   "words": 33,
+   "to": "the banner of each workstream in the group"
+  }
+ ]
+}

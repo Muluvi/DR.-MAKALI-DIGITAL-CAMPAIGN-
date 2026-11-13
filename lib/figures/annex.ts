@@ -18,7 +18,7 @@
  *
  * TWO OF THE SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept: §E.3's first position
  * says the classroom and bursary counts are pending the inventory and that only §2.10.1's 12,573
- * and KES 47m should be used until reconciled, and its second says the ward allocation methodology
+ * and KSh 47m should be used until reconciled, and its second says the ward allocation methodology
  * does not exist yet and the line should not go on air before it does.
  */
 import { SEVERITY_TIERS } from "../../data/escalation.ts";
@@ -56,6 +56,50 @@ export const AUDIENCE_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §4.5 the segments */
 
+export const AUDIENCE_SEGMENTS: string[][] = [
+  [
+    "1. Rural smallholders (agrarian core)",
+    `${sizeText(segment("agrarian"))} — ${shareText(segment("agrarian"))}`,
+    "Tier 1 KNBS/IEBC",
+    "Kamba radio & offline SMS",
+    "Guaranteed minimum returns & sand dams",
+  ],
+  [
+    "2. Agro-pastoralists (arid borderlands)",
+    `Not sized: ${segment("pastoralist").notSized?.context()}`,
+    "No published count",
+    "Vernacular radio & market days",
+    "Livestock off-take & border security support",
+  ],
+  [
+    "3. Youth cohort (ages 18–35)",
+    `${sizeText(segment("youth"))} — ${shareText(segment("youth"))}`,
+    "Tier 1 KNBS/IEBC",
+    "TikTok, Meta, WhatsApp & sports",
+    "Youth enterprise fund, TVET grants, no harassment",
+  ],
+  [
+    "4. Urban MSMEs & informal traders",
+    `${sizeText(segment("msme"))} — ${shareText(segment("msme"))}`,
+    "Tier 1 KNBS 2019",
+    "Geofenced digital & trader barazas",
+    "Single business permit, 24-hour lit market stalls",
+  ],
+  [
+    "5. Formal professionals & civil servants",
+    `Not sized: ${segment("professionals").notSized?.context()}`,
+    "No published count",
+    "X, TV, LinkedIn, union synods",
+    "Meritocracy, reliable medicine & pension flow",
+  ],
+  [
+    "6. Out-of-county Kamba diaspora",
+    `Not sized: ${segment("diaspora").notSized?.context()}`,
+    "No published count",
+    "Nairobi/coast ads & town halls",
+    "Remittance relief & audited fiscal prudence",
+  ],
+];
 
 /* ------------------------------------------------------------------ §3.2.3 the visit loop */
 
@@ -86,22 +130,114 @@ export const VISIT_SERIES: FigureSeries = {
 
 /* ------------------------------------------------------------------ §2.3.1 the provenance mandate */
 
+export const PROVENANCE_MANDATE: string[][] = [
+  [
+    "1. Primary source",
+    "Exact institutional publishing entity",
+    'e.g. "IEBC Certified Register", "KNBS 2019 Census"',
+  ],
+  [
+    "2. Timestamp date",
+    "Exact date or year of the census, statistical release or official gazettement",
+    'e.g. "August 2022", "7 August 2026"',
+  ],
+  [
+    "3. Geographic unit",
+    "Exact administrative boundary to which the data applies",
+    'e.g. "Countywide", "Mwingi North", "Kyuso Ward"',
+  ],
+];
 
+export const MANDATE_SERIES: FigureSeries = {
+  id: "provenance-mandate",
+  headline: "Three things every figure in this document has to carry",
+  measure: "§2.4's tri-partite provenance mandate",
+  points: [],
+  note:
+    "Source, date and geographic unit. Every figure in this pass carries all three in its " +
+    "“View the data” disclosure, which is the document's own rule applied to the document's own " +
+    "charts.",
+};
 
 /* ------------------------------------------------------------------ §A.1.2 the three tiers */
 
+export const TIER_CLASSIFICATION: string[][] = [
+  [
+    "Tier 1",
+    "Certified official records: IEBC gazetted registers · KNBS census bulletins · Auditor-General reports",
+    "Unconditional baseline for all target mathematics, ward quotas, budgets and statutory compliance. Absolute authority.",
+  ],
+  [
+    "Tier 2",
+    "Reported records: published media reproductions of official figures · academic demographic data · industry audience measurement",
+    "Used with its source named, pending the certified record; where two published values disagree, both are shown. Never used to measure candidate popularity.",
+  ],
+  [
+    "Tier 3",
+    "Internal / unverified intel: single-source field notes · campaign hearsay and rumours · self-reported crowd counts",
+    "Hypothesis generation and field lead tracking ONLY. Strictly prohibited from driving financial or resource reallocation without escalation.",
+  ],
+];
 
+export const TIERS_SERIES: FigureSeries = {
+  id: "tier-classification",
+  headline: "Three tiers, and only one of them may move money",
+  measure: "§A.1.2's three-tier evidential classification — tier, source types, authorised strategic use",
+  points: [],
+  note:
+    "The authorised-use column is what makes the tiers operational rather than descriptive: Tier 3 " +
+    "is strictly prohibited from driving financial or resource reallocation without escalation. " +
+    "Every figure in this pass carries the tier the section states, and flags disagreement rather " +
+    "than resolving it — which is C-8 and C-9.",
+};
 
 /* ------------------------------------------------------------------ §A.1.3 conflict resolution */
 
+export const CONFLICT_PROTOCOL = [
+  {
+    title: "Tier hierarchy test",
+    steps: ["Tier 1 always overrides Tier 2; Tier 2 always overrides Tier 3."],
+  },
+  {
+    title: "Methodological audit, for tier-equivalent conflicts",
+    steps: [
+      "Audit sample sizes, sampling frame (IEBC register vs. random dial), fieldwork dates and non-response bias.",
+    ],
+  },
+  {
+    title: "Conservative baseline selection",
+    steps: [
+      "In electoral modelling, adopt the lower, more demanding performance assumption to prevent operational complacency.",
+    ],
+  },
+  {
+    title: "Explicit dual-labelling",
+    steps: [
+      "If unreconciled, report both numbers explicitly side-by-side with their respective sources rather than calculating an artificial average.",
+    ],
+    emphasis:
+      "This is the rule CONFLICTS.md follows for all twenty-two entries, and the reason no figure in this pass averages a disputed number.",
+  },
+];
 
+export const PROTOCOL_SERIES: FigureSeries = {
+  id: "conflict-protocol",
+  headline: "What to do when two sources disagree, in four steps the document wrote for itself",
+  measure: "§A.1.3's conflict resolution protocol, in order",
+  points: [],
+  note:
+    "Step 4 is the one this audit has been applying throughout: where the document disagrees with " +
+    "itself, both numbers are shown with their sources and neither is averaged away. The steps are " +
+    "numbered because they are tried in order — the methodological audit only applies once the " +
+    "tier test comes back equal.",
+};
 
 /* ------------------------------------------------------------------ §C.1 message by segment */
 
 export const MESSAGE_BY_SEGMENT: string[][] = [
   [
     "1. Smallholder crop farmers — not sized: voters by livelihood are not published",
-    '"Never sell Ndengu at KES 40 again." · County guaranteed aggregation minimum floor price (KES 85/kg) plus local storage · Kikamba: "Uithio wa Ndengu na Mbemba"',
+    '"Never sell Ndengu at Ksh 40 again." · County guaranteed aggregation minimum floor price (Ksh 85/kg) plus local storage · Kikamba: "Uithio wa Ndengu na Mbemba"',
     "KNBS agrarian data: Kitui farmers lose ~68% of value to middlemen during peak harvest · pilot Kitui Central Farmers SACCO",
   ],
   [
@@ -116,8 +252,8 @@ export const MESSAGE_BY_SEGMENT: string[][] = [
   ],
   [
     `4. Rural women, caregivers & chamas — women are ${regFmt("census.female.share")}% of residents (2019 Census); voters by sex are not published`,
-    '"Clean water within 1 km and stocked maternity dispensaries in every sub-location." · KES 50,000 table-banking seed capital · Kikamba: "Mumo kwa Aka na Syana"',
-    "Kitui Central project log: 84 functional solar boreholes built with clean water tariffs · KES 120M disbursed to women CBOs",
+    '"Clean water within 1 km and stocked maternity dispensaries in every sub-location." · Ksh 50,000 table-banking seed capital · Kikamba: "Mumo kwa Aka na Syana"',
+    "Kitui Central project log: 84 functional solar boreholes built with clean water tariffs · Ksh 120M disbursed to women CBOs",
   ],
   [
     `5. Urban MSMEs, traders & market stall keepers — ${shareText(segment("msme"))}, ${sizeText(segment("msme"))}`,
@@ -284,14 +420,14 @@ export const HOLDING_POSITIONS = [
     kikamba:
       "Kũthũkũma nĩ wĩtĩkĩlo na wathi mũseo. Nĩ mũthũkũmi mũmanya meko, ũte na kambĩ sya kũya mbesa sya mwananchi.",
     source:
-      `National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in Record and reach is ${regFmt("record.bursary.recipients")} bursary recipients and KES ${regFmt("record.bursary.ksh", "m")}m, and only that figure should be used until it is reconciled).`,
+      `National Assembly Hansard; Kitui Central NG-CDF project inventory (84 solar boreholes; classroom and bursary counts pending the inventory — the Tier 1 figure in Record and reach is ${regFmt("record.bursary.recipients")} bursary recipients and KSh ${regFmt("record.bursary.ksh", "m")}m, and only that figure should be used until it is reconciled).`,
   },
   {
     question: '2. The "northern & southern recognition deficit" question',
     attack:
       '"He is a Kitui Central leader who does not understand the challenges of Mwingi North, Mwingi Central, or Kitui South."',
     holding:
-      "\"Kitui's economic challenges—water scarcity, unpaved feeder roads, and broker cartels—do not carry a sub-county boundary. As an economist, Dr. Mulu's 2027 Blueprint establishes a statutory KES 100 Million/Ward Annual Equalization Fund ensuring every single ward in Mwingi North and Kitui South receives guaranteed, direct capital investment.\"",
+      "\"Kitui's economic challenges—water scarcity, unpaved feeder roads, and broker cartels—do not carry a sub-county boundary. As an economist, Dr. Mulu's 2027 Blueprint establishes a statutory Ksh 100 Million/Ward Annual Equalization Fund ensuring every single ward in Mwingi North and Kitui South receives guaranteed, direct capital investment.\"",
     kikamba:
       "Mwanya wa maendeeo nĩ wa kĩla mũndũ. Mbesa sya Ward Fund syĩithiwa kwa kĩla kĩtheka kũtetheesya mĩsyĩ yonthe ya Kitui ta ĩmwe.",
     source:
@@ -312,7 +448,7 @@ export const HOLDING_POSITIONS = [
     question: '4. The "county government debt & pending bills collapse" comparison',
     attack: '"All politicians make promises, but once in office, public funds disappear."',
     holding:
-      '"Look at the record, not the rhetoric. In 13 years managing public funds in Kitui Central, Dr. Makali Mulu achieved 13 consecutive unqualified clean audit certificates from the Auditor-General. By contrast, Kitui County executive accounts accumulated over KES 2.4 Billion in pending bills and audit queries under previous administrations."',
+      '"Look at the record, not the rhetoric. In 13 years managing public funds in Kitui Central, Dr. Makali Mulu achieved 13 consecutive unqualified clean audit certificates from the Auditor-General. By contrast, Kitui County executive accounts accumulated over Ksh 2.4 Billion in pending bills and audit queries under previous administrations."',
     kikamba:
       "Tala meko, ndũkatale ndeto. Kĩtĩo kya Kũthũkũma nĩ kĩũ kĩtheu kĩte na ũkĩlyo wa ũkũli.",
     source:
@@ -328,7 +464,7 @@ export const HOLDING_SERIES: FigureSeries = {
   note:
     "TWO OF THE FOUR SOURCE CELLS DECLINE TO CLAIM SOMETHING, and both are kept exactly. Position 1 " +
     `says the classroom and bursary counts are pending the inventory and that only the record's ${regFmt("record.bursary.recipients")} ` +
-    `recipients and KES ${regFmt("record.bursary.ksh", "m")}m should be used until reconciled. ` + "Position 2 says the ward allocation " +
+    `recipients and KSh ${regFmt("record.bursary.ksh", "m")}m should be used until reconciled. ` + "Position 2 says the ward allocation " +
     "methodology does not exist yet and the line should not go on air before it does. A runbook " +
     "that hid either would be a runbook that sends a spokesperson on air with an unverified figure.",
 };

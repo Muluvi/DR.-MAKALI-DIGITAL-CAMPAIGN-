@@ -1,326 +1,2095 @@
 @import "tailwindcss";
 
-/*
- * One design system for the whole site: these tokens, one type scale, one card, one control set.
- * The story, the figures (public/charts.css reads the same tokens) and every tool use them.
- * Light by default; dark follows the phone's own setting. No theme is stored.
- */
-@theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --color-paper: var(--paper);
-  --color-card: var(--card);
-  --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-accent-solid: var(--accent-solid);
-  --color-on-accent: var(--on-accent);
+/* Mobile viewport guardrails: keep the reading shell inside the device width while preserving
+   intentional scrolling only inside data visualisations and chip rails. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
-:root {
-  color-scheme: light dark;
-  --paper: oklch(0.975 0.01 85);
-  --card: oklch(1 0 0);
-  --sunk: oklch(0.955 0.012 85);
-  --ink: oklch(0.25 0.06 268);
-  --muted: oklch(0.45 0.035 262);
-  --line: oklch(0.88 0.015 85);
-  --accent: oklch(0.43 0.2 265);
-  --accent-solid: oklch(0.47 0.21 265);
-  --on-accent: oklch(1 0 0);
-  --rival: oklch(0.49 0.045 205);
-  --rival-solid: oklch(0.5 0.04 205);
-  --gold: oklch(0.5 0.13 55);
-  --gold-solid: oklch(0.58 0.15 55);
-  --danger: oklch(0.52 0.2 27);
-  --good: oklch(0.48 0.12 150);
-  --c1: var(--accent-solid);
-  --c2: oklch(0.6 0.14 55);
-  --c3: oklch(0.55 0.08 205);
-  --c4: oklch(0.55 0.12 150);
-  --c5: oklch(0.65 0.03 85);
-  --c6: oklch(0.5 0.15 330);
-  --radius: 14px;
-  --shadow: 0 1px 2px oklch(0.25 0.06 268 / 0.06), 0 8px 24px -16px oklch(0.25 0.06 268 / 0.25);
-  --header-h: 56px;
-
-  /* The names the figure styles read, mapped onto the tokens above. */
-  --pf-display: var(--font-sans);
-  --pf-serif: var(--font-sans);
-  --pf-display-stretch: 100%;
-  --pf-ground: var(--paper);
-  --pf-raised: var(--card);
-  --pf-raised-2: var(--sunk);
-  --pf-ink: var(--ink);
-  --pf-muted: var(--muted);
-  --pf-line: var(--line);
-  --pf-grid: oklch(0.86 0.015 85);
-  --pf-accent: var(--accent);
-  --pf-accent-solid: var(--accent-solid);
-  --pf-accent-glow: transparent;
-  --pf-earth: var(--gold);
-  --pf-earth-glow: transparent;
-  --pf-sisal: oklch(0.6 0.06 80);
-  --pf-on-solid: oklch(1 0 0);
-  --pf-bar: oklch(0.45 0.04 262);
-  --pf-shadow: none;
-  --pf-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --pf-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --pf-dur-fast: 150ms;
-  --pf-dur-entrance: 200ms;
-  --pf-dur-settle: 200ms;
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (max-width: 640px) {
   :root {
-    --paper: oklch(0.17 0.03 262);
-    --card: oklch(0.215 0.032 262);
-    --sunk: oklch(0.19 0.03 262);
-    --ink: oklch(0.96 0.008 250);
-    --muted: oklch(0.78 0.025 255);
-    --line: oklch(0.33 0.03 262);
-    --accent: oklch(0.76 0.13 262);
-    --accent-solid: oklch(0.52 0.2 265);
-    --rival: oklch(0.76 0.04 200);
-    --gold: oklch(0.78 0.12 70);
-    --danger: oklch(0.74 0.16 28);
-    --good: oklch(0.78 0.13 150);
-    --pf-grid: oklch(0.34 0.03 262 / 0.7);
-    --pf-sisal: oklch(0.82 0.05 85);
-    --pf-bar: oklch(0.78 0.03 255);
-    --shadow: none;
+    --gutter: max(0.875rem, env(safe-area-inset-left));
+    --section-gap: clamp(1.5rem, 7vw, 2.5rem);
+  }
+
+  .prose {
+    font-size: var(--fs-body);
+    line-height: 1.68;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    text-wrap: balance;
+  }
+
+  .prose > table,
+  .prose > figure,
+  .prose > .not-prose {
+    max-width: 100%;
+  }
+
+  .prose pre,
+  .prose code {
+    max-width: 100%;
+  }
+
+  .prose pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .visual-overview {
+    margin-inline: 0;
+    padding: 0.875rem;
+  }
+
+  .visual-overview__grid {
+    gap: 0.5rem;
+  }
+
+  .visual-overview__card {
+    min-height: 7.75rem;
+    padding: 0.75rem;
+  }
+
+  .visual-overview__card strong {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
   }
 }
 
-/* ------------------------------------------------------------------ base */
-html { scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--font-sans); text-rendering: optimizeLegibility; }
-a { color: var(--accent); text-underline-offset: 2px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-.skip { position: absolute; left: -999px; top: 8px; z-index: 60; background: var(--card); padding: 8px 12px; border-radius: 8px; }
-.skip:focus { left: 8px; }
-.wrap { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 16px; }
-@media (min-width: 640px) { .wrap { padding-inline: 24px; } }
-.measure { max-width: 46rem; }
-.num, .tabular { font-variant-numeric: tabular-nums lining-nums; }
+@media (max-width: 380px) {
+  .visual-overview__grid {
+    grid-template-columns: 1fr;
+  }
 
-/* ------------------------------------------------------------------ type scale */
-.kicker { margin: 0; font: 700 0.75rem/1.2 var(--font-sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
-.h1 { margin: 0; font: 700 clamp(2rem, 7vw, 3.5rem)/1.04 var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
-.h2 { margin: 0; font: 700 clamp(1.6rem, 5vw, 2.4rem)/1.1 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
-.h3 { margin: 0; font: 700 clamp(1.25rem, 3.6vw, 1.6rem)/1.2 var(--font-display); text-wrap: balance; }
-.lede { margin: 0; font-size: 1.125rem; line-height: 1.55; color: var(--muted); max-width: 42rem; }
-.small { font-size: 0.875rem; }
-.muted { color: var(--muted); }
-.source { margin: 0.5rem 0 0; font-size: 0.75rem; line-height: 1.45; color: var(--muted); }
-
-/* ------------------------------------------------------------------ header and navigation */
-.site-head { position: sticky; top: 0; z-index: 50; height: var(--header-h); background: color-mix(in oklab, var(--paper) 92%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.4) blur(8px); }
-.site-head .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.brand { display: inline-flex; align-items: center; min-height: 44px; font: 700 1.05rem/1 var(--font-display); color: var(--ink); text-decoration: none; white-space: nowrap; }
-.nav-list { display: none; margin: 0; padding: 0; list-style: none; gap: 4px; }
-.nav-list a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
-.nav-list a:hover { background: var(--sunk); }
-.nav-list a[aria-current="true"] { background: var(--accent-solid); color: var(--on-accent); }
-@media (min-width: 860px) { .nav-list { display: flex; } .nav-menu { display: none; } }
-.nav-menu { position: relative; }
-.nav-menu > button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); font: 600 0.9rem/1 var(--font-sans); cursor: pointer; }
-.nav-menu ul { position: absolute; right: 0; top: calc(100% + 8px); min-width: 14rem; margin: 0; padding: 6px; list-style: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-.nav-menu li a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: var(--ink); text-decoration: none; font-weight: 600; }
-.nav-menu li a[aria-current="true"] { background: var(--accent-solid); color: var(--on-accent); }
-
-/* ------------------------------------------------------------------ stages and chapters */
-.opening { padding: 40px 0 32px; border-bottom: 1px solid var(--line); }
-.stage { padding: 56px 0 8px; scroll-margin-top: var(--header-h); }
-.stage + .stage { border-top: 1px solid var(--line); }
-.stage-head { display: grid; gap: 10px; margin-bottom: 28px; }
-.chapter { padding-top: 28px; scroll-margin-top: var(--header-h); }
-.chapter-head { display: grid; gap: 6px; margin-bottom: 8px; }
-/* Each block of a loaded chapter skips layout and paint until it nears the screen. */
-.chapter-body > .prose > * { content-visibility: auto; contain-intrinsic-size: auto 240px; }
-.chapter-body[data-state="idle"], .chapter-body[data-state="loading"] { min-height: var(--est, 2400px); }
-.placeholder { padding: 16px; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); font-size: 0.875rem; }
-
-/* ------------------------------------------------------------------ prose */
-.prose { max-width: 46rem; font-size: 1.0625rem; line-height: 1.65; }
-.prose > * + * { margin-top: 1em; }
-.prose h4 { margin: 2.2em 0 0.4em; font: 700 1.4rem/1.25 var(--font-display); scroll-margin-top: calc(var(--header-h) + 12px); text-wrap: balance; }
-.prose h5 { margin: 1.8em 0 0.3em; font: 700 1.15rem/1.3 var(--font-display); scroll-margin-top: calc(var(--header-h) + 12px); }
-.prose h6 { margin: 1.4em 0 0.2em; font: 700 1rem/1.35 var(--font-sans); scroll-margin-top: calc(var(--header-h) + 12px); }
-.prose h4 + p { font-size: 1.125rem; }
-.prose ul, .prose ol { padding-left: 1.25rem; }
-.prose li + li { margin-top: 0.35em; }
-.prose strong { font-weight: 700; }
-.prose code { font-size: 0.9em; padding: 0.1em 0.3em; border-radius: 4px; background: var(--sunk); }
-.prose hr { border: 0; border-top: 1px solid var(--line); }
-.prose .rf, .prose .v, .prose .table-wrap, .prose figure { max-width: none; }
-@media (min-width: 1024px) { .prose .rf, .prose .v { width: min(68rem, calc(100vw - 48px)); } }
-.callout { margin: 1.2em 0; padding: 14px 16px; border-left: 4px solid var(--accent-solid); border-radius: 0 var(--radius) var(--radius) 0; background: var(--sunk); }
-.callout > :first-child { margin-top: 0; }
-.callout > :last-child { margin-bottom: 0; }
-.table-wrap { overflow-x: auto; margin: 1em 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); -webkit-overflow-scrolling: touch; }
-.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.875rem; line-height: 1.45; }
-.table-wrap th, .table-wrap td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); min-width: 7rem; }
-.table-wrap thead th { position: sticky; top: 0; background: var(--sunk); font-weight: 700; color: var(--ink); }
-.table-wrap tbody tr:last-child > * { border-bottom: 0; }
-.table-wrap .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lead { font-size: 1.125rem; }
-
-/* ------------------------------------------------------------------ cards, figures, visual blocks */
-.card, .rf, .v, .tool { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
-.card { padding: 16px; }
-.rf, .v { margin: 1.5rem 0; padding: 16px; }
-@media (min-width: 640px) { .card, .rf, .v { padding: 20px; } }
-.rf-title, .v-title { margin: 0; font: 700 1.1rem/1.3 var(--font-display); text-wrap: balance; }
-.rf-takeaway, .v-note { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
-.rf-body { margin-top: 14px; }
-.rf-question, .rf-note { font-size: 0.85rem; color: var(--muted); }
-.rf-csv { display: inline-flex; min-height: 44px; align-items: center; font-weight: 600; }
-.kx-detail { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-.v figcaption { margin-bottom: 14px; }
-.v-more { margin-top: 10px; }
-.v-more > summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--accent); font-size: 0.9rem; }
-.v-prose { font-size: 0.95rem; }
-.v-prose > * + * { margin-top: 0.8em; }
-.v-label { margin: 0; font-weight: 700; line-height: 1.35; }
-.v-when { font-weight: 500; color: var(--muted); }
-.v-head, .v-text, .v-caption { margin: 4px 0 0; font-size: 0.95rem; }
-.v-caption { color: var(--muted); font-size: 0.85rem; }
-.v-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
-.v-chips li { padding: 2px 10px; border-radius: 999px; background: var(--sunk); font-size: 0.78rem; font-weight: 600; color: var(--muted); }
-.v-fields { margin: 8px 0 0; display: grid; gap: 6px; font-size: 0.9rem; }
-.v-fields dt { font-weight: 700; }
-.v-fields dd { margin: 0; }
-.v-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-@media (min-width: 720px) { .v-stats { grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); } }
-.v-stats > li { padding: 12px; border-radius: 12px; background: var(--sunk); }
-.v-stat { margin: 0; font: 800 clamp(1.4rem, 5vw, 1.9rem)/1.05 var(--font-display); color: var(--accent); font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.01em; }
-.v-stat-label { margin: 6px 0 0; font-size: 0.85rem; font-weight: 600; line-height: 1.35; }
-.v-cards, .v-tabs, .v-panels, .v-week { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-@media (min-width: 720px) { .v-cards, .v-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v-week { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); } }
-.v-card { padding: 14px; border-radius: 12px; background: var(--sunk); }
-.v-tab-title, .v-col-title { margin: 0 0 6px; font: 700 1rem/1.3 var(--font-display); }
-.v-seq { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.v-seq > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; }
-.v-seq-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-solid); color: var(--on-accent); font-weight: 700; font-size: 0.85rem; }
-.v-seq--timeline .v-seq-mark, .v-seq--checklist .v-seq-mark { width: 12px; height: 12px; margin: 6px 8px; }
-.v-cols { display: grid; gap: 12px; }
-@media (min-width: 720px) { .v-cols { grid-template-columns: 1fr 1fr; } }
-.v-col { padding: 14px; border-radius: 12px; background: var(--sunk); }
-.v-col--out { background: transparent; border: 1px dashed var(--line); }
-.v-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.v-nested { margin: 8px 0 0; padding-left: 14px; border-left: 2px solid var(--line); list-style: none; display: grid; gap: 10px; }
-.v-week-items { margin: 6px 0 0; padding-left: 1rem; font-size: 0.9rem; }
-.v-bars { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-.v-bars > li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; }
-.v-bars-value { font-weight: 700; font-variant-numeric: tabular-nums; }
-.v-bars-track { grid-column: 1 / -1; height: 10px; border-radius: 999px; background: var(--sunk); overflow: hidden; }
-.v-bars-track > span { display: block; height: 100%; border-radius: inherit; background: var(--accent-solid); }
-.v-bars .v-caption, .v-bars .v-more { grid-column: 1 / -1; }
-.v-donut { display: grid; gap: 16px; align-items: center; }
-@media (min-width: 560px) { .v-donut { grid-template-columns: 10rem minmax(0, 1fr); } }
-.v-donut svg { width: 10rem; height: 10rem; transform: rotate(0deg); }
-.v-donut ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.v-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
-
-/* ------------------------------------------------------------------ tools and controls */
-.tool { margin: 2rem 0; padding: 16px; scroll-margin-top: var(--header-h); }
-@media (min-width: 640px) { .tool { padding: 24px; } }
-.tool-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
-.tool-head .h3 { margin-top: 4px; }
-.tool-q { margin: 6px 0 0; color: var(--muted); max-width: 40rem; }
-.panel { padding: 14px; border-radius: 12px; background: var(--sunk); }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); font: 600 0.9rem/1 var(--font-sans); cursor: pointer; text-decoration: none; touch-action: manipulation; }
-.btn:hover { border-color: var(--accent); }
-.btn[aria-pressed="true"], .btn[aria-selected="true"], .btn-solid { background: var(--accent-solid); border-color: var(--accent-solid); color: var(--on-accent); }
-.btn-sm { min-height: 40px; padding: 0 12px; font-size: 0.85rem; }
-.btn-reset { border-color: var(--accent); color: var(--accent); }
-.field { display: grid; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--ink); }
-.field .hint { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
-.input { width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); font: 400 1rem/1.3 var(--font-sans); }
-textarea.input { min-height: 88px; }
-select.input { appearance: auto; }
-input[type="range"] { width: 100%; height: 32px; accent-color: var(--accent-solid); touch-action: pan-y; }
-input[type="checkbox"], input[type="radio"] { width: 20px; height: 20px; accent-color: var(--accent-solid); }
-.check { display: flex; align-items: center; gap: 10px; min-height: 40px; font-weight: 500; }
-.range-head { display: flex; justify-content: space-between; gap: 8px; }
-.range-head output { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
-.compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.compare > div { padding: 12px; border-radius: 12px; background: var(--sunk); }
-.compare > div.is-scenario { background: color-mix(in oklab, var(--accent-solid) 12%, var(--card)); }
-.compare dt { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-.compare dd { margin: 4px 0 0; font: 800 clamp(1.3rem, 5vw, 1.8rem)/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
-.compare .delta { display: block; margin-top: 2px; font: 600 0.85rem/1.3 var(--font-sans); color: var(--muted); }
-.result { margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; border-left: 4px solid var(--accent-solid); background: var(--sunk); }
-.result p { margin: 0; }
-.result p + p { margin-top: 6px; }
-.is-bad { color: var(--danger); }
-.is-good { color: var(--good); }
-.bar { height: 10px; border-radius: 999px; background: var(--sunk); overflow: hidden; }
-.bar > span { display: block; height: 100%; background: var(--accent-solid); border-radius: inherit; }
-.bar.is-base > span { background: var(--pf-bar); }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.island { min-height: var(--reserve, 600px); }
-.island[data-ready="true"] { min-height: 0; }
-
-@media print {
-  .site-head, .no-print, .btn { display: none !important; }
-  .chapter-body > .prose > * { content-visibility: visible; }
-  .v-more[open] > summary, details > summary { display: none; }
+  .visual-overview__card {
+    min-height: auto;
+  }
 }
 
-/* Grid and flex children may shrink below their content, so long words and tables wrap or scroll inside their own frame. */
-.v-cards > *, .v-tabs > *, .v-panels > *, .v-week > *, .v-cols > *, .v-stats > *, .v-seq > li > div, .compare > *, .prose > * { min-width: 0; }
-.prose, .v-prose, .v-text { overflow-wrap: anywhere; }
+/* Small-screen layout contract: every page-level surface stays within the viewport. */
+@media (max-width: 640px) {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { min-width: 0; width: 100%; }
+  main, header, footer, section, article, .pf-page { max-width: 100%; min-width: 0; }
+  .prose { overflow-wrap: anywhere; word-break: normal; }
+  .prose table { display: block; overflow-x: auto; width: 100%; }
+  .prose img, .prose video, .prose iframe { height: auto; }
+}
 
-/* ------------------------------------------------------------------ platform introduction */
-.platform-intro { padding: 32px 0 8px; scroll-margin-top: var(--header-h); }
-.platform-hero { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
-.platform-lead { margin: 16px 0 0; max-width: 46rem; font-size: 1.05rem; line-height: 1.6; }
-.platform-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.platform-block { padding: 36px 0 8px; scroll-margin-top: var(--header-h); }
-.platform-block + .platform-block { border-top: 1px solid var(--line); }
-.platform-block > .h2 { margin-bottom: 8px; }
-.platform-block > .lede { margin-bottom: 18px; }
-.platform-block > p { max-width: 46rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
 
-.stage-cards { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
-@media (min-width: 720px) { .stage-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1024px) { .stage-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.stage-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); display: grid; gap: 6px; align-content: start; }
-.stage-card-num { margin: 0; font: 700 0.75rem/1 var(--font-sans); letter-spacing: 0.08em; color: var(--accent); }
-.stage-card .h3 a { color: var(--ink); text-decoration: none; }
-.stage-card .h3 a:hover { color: var(--accent); }
-.stage-card-purpose { margin: 0; font-weight: 600; font-size: 0.95rem; }
-.stage-card-links { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 12px; }
-.stage-card-links a { font-size: 0.85rem; font-weight: 600; }
 
-.feature-groups { display: grid; gap: 28px; }
-@media (min-width: 900px) { .feature-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 28px; } }
-.feature-group .h3 { margin-bottom: 10px; }
-.feature-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-.feature-list > li { padding: 12px 14px; border-radius: 12px; background: var(--sunk); }
-.feature-name { font-weight: 700; text-decoration: none; color: var(--ink); }
-.feature-name:hover { color: var(--accent); }
-.feature-list .small { margin: 4px 0 0; }
+@import "tw-animate-css";
+@import "./visual-fx.css";
+@import "./part-visuals.css";
+@import "./flow.css";
+@import "./declutter.css";
+@plugin "@tailwindcss/typography";
 
-.audience-cards { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-@media (min-width: 640px) { .audience-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 960px) { .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.audience-card { padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
-.audience-card .h3 { font-size: 1.05rem; margin-bottom: 6px; }
+/*
+ * Bind `dark:` to this application's own theme class, not to the operating system's setting.
+ *
+ * Tailwind v4's default `dark:` variant is `prefers-color-scheme: dark`. This site does not work
+ * that way: it puts `class="dark"` on <html> and swaps its tokens under `.dark`, so a reader on
+ * a light-mode OS was being served the dark palette with every `dark:` utility switched off.
+ *
+ * That is not cosmetic. The polling simulator's verdict pill resolved to `text-amber-700`
+ * (#bb4d00) on the dark ground instead of `dark:text-amber-400`, which measured 3.57:1 against
+ * the 4.5:1 floor — an accessibility failure that survived several passes because the colour
+ * could not be found in the DOM under a dark-mode OS, which is what the audit tooling used.
+ * Nine components carry `dark:` utilities and every one of them was affected.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
 
-.nav-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; max-width: 46rem; }
-.nav-steps > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start; }
-.nav-step-n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-solid); color: var(--on-accent); font-weight: 700; font-size: 0.85rem; }
+@theme {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-gold: var(--gold);
+  --color-dark: var(--dark);
+  --color-danger: var(--danger);
+  --color-glow: var(--glow);
+  --color-phase-neg1: var(--phase-neg1);
+  --color-phase-0: var(--phase-0);
+  --color-phase-1: var(--phase-1);
+  --color-phase-2: var(--phase-2);
+  --color-phase-3: var(--phase-3);
 
-.limits-grid { display: grid; gap: 18px; margin-top: 8px; }
-@media (min-width: 720px) { .limits-grid { grid-template-columns: 1fr 1fr; } }
-.limits-grid ul { margin: 8px 0 0; padding-left: 1.2rem; }
-.limits-grid li + li { margin-top: 0.35em; }
-.platform-limits { background: color-mix(in oklab, var(--sunk) 70%, transparent); margin-inline: -16px; padding-inline: 16px; border-radius: var(--radius); }
-@media (min-width: 640px) { .platform-limits { margin-inline: -24px; padding-inline: 24px; } }
+  /* The campaign's own position, and the field it is running against.
+     `accent` and `rival` are TEXT and STROKE colours, kept light enough to read on a dark
+     ground. `-solid` is the FILL that white text sits on, kept dark enough to clear 4.5:1.
+     Using one token for both is what put white-on-#348ff9 at 3.25:1 in the audit. */
+  --color-accent-solid: var(--accent-solid);
+  --color-on-accent: var(--on-accent);
+  /* The same split for the party's second colour. `gold` is TEXT and STROKE; `gold-solid` is the
+     FILL that `on-gold` sits on. The dark theme's --gold is a vivid crimson chosen to read on
+     black, and white on it measures 3.19:1 — so a badge, a pill or a calendar cell filled with
+     it needs its own token, exactly as accent did. */
+  --color-gold-solid: var(--gold-solid);
+  --color-on-gold: var(--on-gold);
 
-.platform-continue { margin: 28px 0 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+  /* Reported owner alignment, as used by the media-ownership figure. Three categories, each
+     readable AS TEXT on this theme's card: the labels were hard-coded light-theme party hexes,
+     and #0056a8 on the dark ground measured 2.63:1. Hue is preserved per theme, lightness is
+     not — a category colour has to be legible before it can mean anything. */
+  --color-align-a: var(--align-a);
+  --color-align-b: var(--align-b);
+  --color-align-c: var(--align-c);
+  --color-rival: var(--rival);
+  --color-rival-solid: var(--rival-solid);
+  --color-unmeasured: var(--unmeasured-color);
+
+  --font-serif: var(--font-newsreader, 'Newsreader', 'Charter', 'Bitstream Charter', 'Sitka Text', 'Cambria', Georgia, serif);
+  --font-sans: var(--font-display), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Domain A - Reading Token Ramp */
+  --text-micro: var(--fs-micro);
+  --text-label: var(--fs-label);
+  --text-small: var(--fs-small);
+  --text-body: var(--fs-body);
+  --text-lead: var(--fs-lead);
+
+  /* Display end of the reading scale — hero statistics only, never body copy. */
+  --text-figure: var(--fs-figure);
+  --text-headline: var(--fs-headline);
+  --text-display: var(--fs-display);
+
+  /* Domain B - Chart Scale Tokens */
+  --text-chart-micro: var(--fs-chart-micro);
+  --text-chart-tick: var(--fs-chart-tick);
+  --text-chart-axis: var(--fs-chart-axis);
+  --text-chart-label: var(--fs-chart-label);
+  --text-chart-title: var(--fs-chart-title);
+}
+
+:root {
+  /* OKLCH wide-gamut compatible palette */
+  --ink: oklch(0.25 0.06 268); /* deep indigo */
+  --muted: oklch(0.46 0.035 262); /* 6.6:1 on paper */
+  --paper: oklch(0.972 0.012 85); /* warm paper, a faint sisal tint */
+  --card: oklch(1 0 0);
+  --line: oklch(0.88 0.015 85);
+  --accent: oklch(0.43 0.20 265); /* Wiper royal blue, deep: text and stroke, 7.9:1 on paper */
+  --accent-solid: oklch(0.47 0.21 265); /* as a fill: 7.3:1 against --on-accent */
+  --on-accent: oklch(1 0 0);
+  /* The field. Cooler hue, a third of the chroma: a rival's 37.4% must never look more
+     energetic than the campaign's own 22.1%. Distinct from accent for a deuteranope too,
+     because the separation is lightness and chroma, not just hue. */
+  --rival: oklch(0.49 0.045 205);
+  --rival-solid: oklch(0.50 0.04 205); /* 5.9:1 against white */
+  --gold: oklch(0.50 0.15 40);    /* laterite, darker: the pool, the gap. 5.9:1 on paper */
+  --gold-solid: oklch(0.53 0.15 40); /* as a fill: white sits on it at 5.7:1 */
+  --on-gold: oklch(1 0 0);
+  --align-a: #b3121e;   /* alignment category A — 7.1:1 on white */
+  --align-b: #8a4a06;   /* alignment category B — 7.0:1 on white */
+  --align-c: #0056a8;   /* alignment category C — 7.1:1 on white */
+  --dark: oklch(0.22 0.05 266);
+  --danger: oklch(0.55 0.22 27);
+  --glow: oklch(0.47 0.21 265 / 0.12);
+
+  --prose-body: oklch(0.32 0.05 266);
+  --prose-strong: oklch(0.22 0.06 268);
+  --prose-bg-nested: oklch(1 0 0);
+  --code-bg: oklch(0.94 0.014 85);
+  --th-bg: oklch(0.95 0.014 85);
+  --placeholder-bg: oklch(0.95 0.04 25);
+  --placeholder-border: oklch(0.82 0.09 25);
+  --placeholder-color: oklch(0.44 0.18 27);
+
+  /* Claim-status badges (Verified / Estimate / Awaiting campaign decision) */
+  --verified-bg: oklch(0.96 0.03 155);
+  --verified-border: oklch(0.86 0.07 155);
+  --verified-color: oklch(0.46 0.12 155);
+  --estimate-bg: oklch(0.96 0.04 85);
+  --estimate-border: oklch(0.85 0.09 85);
+  --estimate-color: oklch(0.50 0.14 85);
+  /* The fourth provenance state: a named data gap.
+     Not "zero", and not "awaiting a decision" either — the four nomination KPI baselines are
+     quantities nobody has measured yet, and the Week 1 instrument is what will establish them.
+     Deliberately colourless, because it is the absence of a reading rather than a status. */
+  --unmeasured-bg: oklch(0.95 0.004 250);
+  --unmeasured-border: oklch(0.80 0.01 250);
+  --unmeasured-color: oklch(0.44 0.015 250);
+
+  /* Source-tier badges */
+  --tier1-bg: var(--verified-bg);
+  --tier1-border: var(--verified-border);
+  --tier1-color: var(--verified-color);
+  --tier2-bg: var(--estimate-bg);
+  --tier2-border: var(--estimate-border);
+  --tier2-color: var(--estimate-color);
+  --tier3-bg: var(--placeholder-bg);
+  --tier3-border: var(--placeholder-border);
+  --tier3-color: var(--placeholder-color);
+
+  /* Phase colour palette */
+  --phase-neg1: oklch(0.45 0.22 295);  /* Phase -1: Nomination Sprint */
+  --phase-0: oklch(0.47 0.11 210);     /* Phase 0: Audit & Infrastructure. Darkened in 2026: 3.1:1 as text on its own tint */
+  --phase-1: oklch(0.45 0.18 255);     /* Phase 1: Awareness & Community */
+  --phase-2: oklch(0.50 0.15 60);      /* Phase 2: Engagement & Persuasion. Darkened in 2026: 4.3:1 as text on its own tint */
+  --phase-3: oklch(0.46 0.14 145);     /* Phase 3: Mobilisation & GOTV. Darkened in 2026: 4.4:1 as text on its own tint */
+
+  /* Domain B — Chart Scale (fixed coordinate space / SVG geometry) */
+  --fs-chart-micro: 8px;
+  --fs-chart-tick: 9px;
+  --fs-chart-axis: 10px;
+  --fs-chart-label: 10.5px;
+  --fs-chart-title: 11px;
+}
+
+.dark {
+  --ink: oklch(0.965 0.008 250); /* near-white, cool: 17.6:1 on paper */
+  --muted: oklch(0.78 0.025 255); /* 9.7:1 on paper, 9.0:1 on card */
+  --paper: oklch(0.16 0.03 262); /* deep indigo-black, not pure black */
+  --card: oklch(0.205 0.032 262); /* one step lighter than the ground */
+  --line: oklch(0.31 0.03 262);
+  --accent: oklch(0.74 0.14 262); /* Wiper royal blue, bright enough for text: 7.7:1 on card */
+  --accent-solid: oklch(0.50 0.20 265); /* the fill stays dark in both themes; white sits on it at 6.3:1 */
+  --on-accent: oklch(1 0 0);
+  --rival: oklch(0.74 0.04 200);
+  --rival-solid: oklch(0.50 0.04 205);
+  --gold: oklch(0.74 0.13 45);    /* laterite: text and stroke, 7.4:1 on card */
+  --gold-solid: oklch(0.53 0.15 40); /* the fill stays dark in both themes; white sits on it at 5.7:1 */
+  --on-gold: oklch(1 0 0);
+  --align-a: #ff6b73;   /* the same three categories, lifted to read on the dark ground */
+  --align-b: #f0a742;
+  --align-c: #7bb3ff;
+  --dark: oklch(1 0 0);
+  --danger: oklch(0.72 0.17 28);
+  --glow: oklch(0.50 0.20 265 / 0.22);
+
+  --prose-body: oklch(0.87 0.015 255);
+  --prose-strong: oklch(0.965 0.008 250);
+  --prose-bg-nested: oklch(0.205 0.032 262);
+  --code-bg: oklch(0.25 0.035 262);
+  --th-bg: oklch(0.25 0.035 262);
+  --placeholder-bg: oklch(0.20 0.08 25);
+  --placeholder-border: oklch(0.35 0.12 25);
+  --placeholder-color: oklch(0.70 0.20 22);
+
+  --verified-bg: oklch(0.22 0.06 155);
+  --verified-border: oklch(0.40 0.10 155);
+  --verified-color: oklch(0.80 0.16 150);
+  --estimate-bg: oklch(0.24 0.07 85);
+  --estimate-border: oklch(0.44 0.12 85);
+  --estimate-color: oklch(0.82 0.15 85);
+  --unmeasured-bg: oklch(0.20 0.005 250);
+  --unmeasured-border: oklch(0.36 0.01 250);
+  --unmeasured-color: oklch(0.74 0.015 250);
+
+  --phase-neg1: oklch(0.72 0.16 295);
+  --phase-0: oklch(0.78 0.12 210);
+  --phase-1: oklch(0.68 0.18 255);
+  --phase-2: oklch(0.74 0.15 60);
+  --phase-3: oklch(0.78 0.17 145);
+}
+
+/* Archival / Warm Sandstone Theme */
+.sepia {
+  --ink: oklch(0.24 0.035 55);
+  --muted: oklch(0.48 0.045 60);
+  --paper: oklch(0.95 0.022 80); /* Warm archival parchment */
+  --card: oklch(0.97 0.015 80);
+  --line: oklch(0.87 0.03 75);
+  --accent: oklch(0.36 0.18 262);
+  --accent-solid: oklch(0.46 0.19 262);
+  --on-accent: oklch(1 0 0);
+  --rival: oklch(0.48 0.08 220);
+  --rival-solid: oklch(0.48 0.08 220);
+  --gold: oklch(0.44 0.16 42);
+  --gold-solid: oklch(0.44 0.16 42);
+  --on-gold: oklch(1 0 0);
+  --align-a: #a3131f;
+  --align-b: #7d4407;
+  --align-c: #0b4f95;
+  --dark: oklch(0.22 0.035 55);
+  --danger: oklch(0.55 0.20 27);
+  --glow: oklch(0.36 0.18 262 / 0.12);
+
+  --prose-body: oklch(0.32 0.035 60);
+  --prose-strong: oklch(0.18 0.035 55);
+  --prose-bg-nested: oklch(0.97 0.015 80);
+  --code-bg: oklch(0.91 0.025 80);
+  --th-bg: oklch(0.93 0.02 80);
+  --placeholder-bg: oklch(0.93 0.04 40);
+  --placeholder-border: oklch(0.82 0.08 40);
+  --placeholder-color: oklch(0.44 0.16 35);
+
+  --verified-bg: oklch(0.94 0.03 155);
+  --verified-border: oklch(0.84 0.07 155);
+  --verified-color: oklch(0.42 0.12 155);
+  --estimate-bg: oklch(0.94 0.04 85);
+  --estimate-border: oklch(0.83 0.09 85);
+  --estimate-color: oklch(0.48 0.14 85);
+  --unmeasured-bg: oklch(0.93 0.005 80);
+  --unmeasured-border: oklch(0.78 0.01 80);
+  --unmeasured-color: oklch(0.42 0.015 80);
+
+  --phase-neg1: oklch(0.45 0.20 295);
+  --phase-0: oklch(0.55 0.14 210);
+  --phase-1: oklch(0.45 0.18 255);
+  --phase-2: oklch(0.52 0.16 60);
+  --phase-3: oklch(0.48 0.16 145);
+}
+
+/* Wide-gamut display P3 layer: retired in the 2026 premium pass. Every accent and laterite
+   value above was chosen by contrast measurement, and a P3 override would move the colour off
+   the ratio it was measured at. */
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Fast tap response & touch optimization for mobile phone users */
+button, a, input, select, textarea, [role="button"], .cursor-pointer {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The scrollbar is branded in visual-fx.css §19, which supersedes the flat grey
+   rule that used to live here. */
+
+/* ---------------------------------------------------------------------------
+   UI type scale
+   ---------------------------------------------------------------------------
+   The interface layer had thirteen ad-hoc sizes between 8px and 15.5px, chosen
+   file by file, and its floor was 8px — below the point most people can read a
+   label on a phone held at arm's length. These five tokens replace all of them.
+
+   Each is a shade larger below 640px. That is deliberate: a phone is the only
+   device this proposal is likely to be opened on, and it is the one where the
+   old floor hurt most. Document prose is NOT set from these tokens — it keeps
+   its own fluid scale under .prose, and the reading-density control below.
+
+   Sizes are in rem so they honour the reader's browser text-size setting.
+   --------------------------------------------------------------------------- */
+:root {
+  /* Vertical rhythm. Every margin under .prose is a multiple of this, so spacing is one
+     decision rather than a per-element guess — and the reading-density control below moves the
+     whole document by changing the multiplier, not by restating each rule. */
+  --rhythm: 0.5rem;
+  --rhythm-scale: 1;
+
+  /* Fluid type. Rebased to 16px at 360px viewport, interpolating to 1280px desktop.
+     The three steps below body were each a notch lower than this document can carry. Its
+     reader is sixty-plus, on a phone, often in a moving car, and the text that had landed
+     down here is not decoration: source lines, tier notes, the sentence introducing each
+     chart. A caption floor of 14px and a supporting-copy floor of 15px is the smallest this
+     document has any business setting. Running prose is unchanged at 16px and is set by
+     --fs-body, which no rule in this stylesheet is now allowed to override downwards. */
+  --fs-micro: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);  /* 12 → 13px */
+  --fs-label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem); /* 13 → 14px */
+  --fs-small: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem); /* 14 → 15px */
+  --fs-body:  clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /* 16px phone → 18px laptop (visual-first pass: the brief sets 16–17 / 18–19) */
+  --fs-lead:  clamp(1.0625rem, 1.02rem + 0.28vw, 1.25rem);   /* 17px mobile → 20px desktop */
+
+  /* The display end. Hero statistics only — the deficit, the ceiling, the vote threshold —
+     never body copy. Weight 800, tabular figures, and a viewport coefficient steep enough
+     that a 15.3-point gap fills a 390px phone without a media query. */
+  --fs-figure:   clamp(1.75rem, 1.35rem + 2.0vw,  2.5rem);   /* 28 → 40px */
+  --fs-headline: clamp(1.85rem, 1.40rem + 2.5vw,  3.0rem);   /* 30 → 48px */
+  --fs-display:  clamp(2.25rem, 1.50rem + 4.5vw,  4.5rem);   /* 36 → 72px */
+
+  /* Page gutter and the gap between sections, both fluid on the same interval. */
+  --gutter: clamp(0.875rem, 0.55rem + 1.5vw, 2.5rem);
+  --section-gap: clamp(1.75rem, 1.1rem + 2.6vw, 3.5rem);
+
+  /* Comfortable line length for running prose. Wide elements (tables, ASCII figures, charts)
+     opt out via .prose-wide so they still use the full shell width. */
+  --measure: 72ch;
+}
+
+/* Galaxy Fold folded (280px) and small Android. Below this width the gutter and the badge
+   chrome have to give way or the ASCII figures have nothing left to scroll inside. */
+@media (max-width: 380px) {
+  :root {
+    --gutter: 0.75rem;
+    --fs-micro: 0.8125rem;
+    --fs-label: 0.875rem;
+  }
+}
+
+/* Fold unfolded and tablets read at arm's length, so the measure can widen a little without
+   the line becoming hard to track back. */
+@media (min-width: 900px) {
+  :root { --measure: 74ch; }
+}
+
+/* Domain A — Reading Token Classes.
+   Declared with @utility rather than as plain rules so the responsive variants work. They were
+   plain rules, and the twelve `sm:t-label` / `sm:t-small` / `sm:t-micro` uses already in the
+   codebase were generating no CSS at all — a silent no-op that left those elements at whatever
+   the unprefixed class set, which is why several of them read a step small on a tablet. */
+@utility t-micro { font-size: var(--fs-micro); }
+@utility t-label { font-size: var(--fs-label); }
+@utility t-small { font-size: var(--fs-small); }
+@utility t-body  { font-size: var(--fs-body); }
+@utility t-lead  { font-size: var(--fs-lead); }
+
+/* The display end. Hero statistics and section-opening figures only — never body copy.
+   Tabular figures and a tight measure, because these are numbers being compared, not read. */
+.t-figure   { font-size: var(--fs-figure);   line-height: 1; font-variant-numeric: tabular-nums; }
+.t-headline { font-size: var(--fs-headline); line-height: 1.05; letter-spacing: -0.02em; }
+.t-display  { font-size: var(--fs-display);  line-height: 0.95; letter-spacing: -0.03em;
+              font-variant-numeric: tabular-nums; }
+
+/* Domain B — Chart Scale Utilities (SVG Geometry & Fixed Coordinate Space) */
+.t-chart-micro { font-size: var(--fs-chart-micro); }
+.t-chart-tick  { font-size: var(--fs-chart-tick); }
+.t-chart-axis  { font-size: var(--fs-chart-axis); }
+.t-chart-label { font-size: var(--fs-chart-label); }
+.t-chart-title { font-size: var(--fs-chart-title); }
+
+/* Recharts and SVG Chart Typography Hierarchy */
+.recharts-cartesian-axis-tick text {
+  font-size: var(--fs-chart-tick) !important;
+  font-family: var(--font-display), sans-serif;
+}
+.recharts-legend-item-text {
+  font-size: var(--fs-chart-axis) !important;
+  font-family: var(--font-display), sans-serif;
+}
+.recharts-label text,
+.recharts-cartesian-axis text.recharts-label {
+  font-size: var(--fs-chart-axis) !important;
+  font-family: var(--font-display), sans-serif;
+}
+
+/* Scoped Tabular Figures for Financial, Electoral, and Telemetry Data */
+.tabular-nums,
+table,
+.prose table,
+.t-numeric,
+.metric-value,
+.stat-figure,
+.vote-count,
+[data-tabular="true"] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial Serif styling with optical negative tracking */
+.font-serif {
+  letter-spacing: -0.018em;
+}
+
+/* Reading Density Scales */
+/* Reading density moves one multiplier and one type step. It used to restate a margin on every
+   element with !important, which meant the base rules and the density rules quietly fought over
+   the same properties — the single largest source of the uneven spacing this pass fixes. */
+/* Density moves one multiplier and one type step. The three steps are expressed against the
+   fluid --fs-body above rather than as fixed pixel sizes, so density and viewport compose
+   instead of overriding each other — compact on a Fold and compact on a desktop are both
+   one step down from that device's own comfortable size. */
+.density-compact { --rhythm-scale: 0.8; --prose-fs: calc(var(--fs-body) * 0.94); --prose-lh: 1.62; }
+.density-balanced { --rhythm-scale: 1; --prose-fs: var(--fs-body); --prose-lh: 1.7; }
+.density-generous { --rhythm-scale: 1.3; --prose-fs: calc(var(--fs-body) * 1.1); --prose-lh: 1.8; }
+
+/* Dynamic Reading Measure Scales (Refinement 17) */
+.measure-narrow { --measure: 60ch !important; }
+.measure-balanced { --measure: 68ch !important; }
+.measure-wide { --measure: 76ch !important; }
+
+/* Contextual Tabular Number Utility (Refinement 2) */
+.tnum, [data-tabular="true"] {
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Wide screen asymmetric marginalia (Refinement 5) */
+@media (min-width: 1440px) {
+  .marginalia-container {
+    position: relative;
+  }
+  .prose-sidenote {
+    position: absolute;
+    right: calc(-1 * (var(--measure-margin, 240px) + 2rem));
+    width: var(--measure-margin, 240px);
+    font-size: var(--fs-micro);
+    line-height: 1.5;
+    color: var(--color-muted);
+    border-left: 1px solid var(--color-line);
+    padding-left: 0.75rem;
+  }
+}
+
+.density-compact .prose p:not(.not-prose *),
+.density-compact .prose li:not(.not-prose *),
+.density-balanced .prose p:not(.not-prose *),
+.density-balanced .prose li:not(.not-prose *),
+.density-generous .prose p:not(.not-prose *),
+.density-generous .prose li:not(.not-prose *) {
+  font-size: var(--prose-fs);
+  line-height: var(--prose-lh);
+  text-wrap: pretty;
+}
+
+.prose {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Running prose is held to a readable measure; anything that needs the full shell width
+   (tables, ASCII figures, charts, component cards) is marked .prose-wide or is .not-prose
+   and keeps it. Without this the document set 1200px-wide lines on a desktop. */
+.prose > p:not(.not-prose *),
+.prose > ul:not(.not-prose *),
+.prose > ol:not(.not-prose *),
+.prose > blockquote:not(.not-prose *) {
+  max-width: var(--measure);
+  overflow-wrap: anywhere;
+}
+.prose > h1:not(.not-prose *),
+.prose > h2:not(.not-prose *),
+.prose > h3:not(.not-prose *),
+.prose > h4:not(.not-prose *) {
+  max-width: calc(var(--measure) + 6ch);
+  overflow-wrap: anywhere;
+}
+.prose .prose-wide,
+.prose > figure,
+.prose > table,
+.prose > .not-prose {
+  max-width: none;
+}
+
+/* Minimalist Clean Section Styling - eliminates excessive card nesting */
+.clean-editorial-section {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding-block: calc(var(--section-gap) * 0.55);
+  margin-bottom: calc(var(--section-gap) * 0.7);
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Theme-switch transition. This used to be an unscoped `*` rule, which put four animatable
+   properties on every node in a very large DOM — the single biggest scripted-style cost on a
+   mid-range Android, paid on every scroll and every repaint, not just at theme switch. It is
+   now applied only while a theme change is actually in flight (useTheme adds .theme-switching
+   for the duration), so the steady state carries no transition at all. */
+.theme-switching,
+.theme-switching *:not(svg *) {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Bind the typography plugin's own variables to the theme.
+   Every rule below guards itself with `:not(.not-prose *)` so that components opting out keep
+   their own type. But a component that opts out and then re-enters prose for its body copy —
+   a panel wrapping `.not-prose` around a nested `.prose` — puts its headings inside a
+   `.not-prose` ancestor, so the guard skips them and the plugin's defaults win. Those defaults
+   are fixed light-mode greys: in dark mode the eight constituency headings in §2 rendered at
+   1.97:1 against the page, which is not a contrast miss so much as invisible text.
+
+   Setting the variables rather than adding another selector fixes the whole class of it —
+   every element the guard skips, not just the headings that were noticed. */
+.prose {
+  --tw-prose-body: var(--prose-body);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--prose-body);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-line);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-ink);
+  --tw-prose-pre-bg: var(--color-paper);
+  --tw-prose-th-borders: var(--color-line);
+  --tw-prose-td-borders: var(--color-line);
+}
+
+.prose h1:not(.not-prose *), .prose h2:not(.not-prose *), .prose h3:not(.not-prose *), .prose h4:not(.not-prose *), .prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
+  font-family: var(--font-display), sans-serif;
+  color: var(--color-ink);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* `not-prose` opt-out.
+   The document body is styled by element selectors under `.prose`, and the density controls
+   restate them with `!important`. Both reach every nested paragraph, list and table — including
+   the ones inside chart cards and panels, whose own type sizes were being overridden. Components
+   across this codebase already declare `not-prose` to opt out; these guards are what make that
+   declaration do anything. */
+
+/* Fluid typography scale across 320px to 1280px viewports */
+.prose h1:not(.not-prose *) {
+  font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.prose h2:not(.not-prose *) {
+  font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.75rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  margin-top: calc(var(--rhythm) * 5 * var(--rhythm-scale));
+  margin-bottom: calc(var(--rhythm) * 1.75 * var(--rhythm-scale));
+  border-bottom: none;
+  padding-bottom: 0;
+}
+/* The first sub-section of a section sits directly under the orientation line, so it does not
+   need the full separation a mid-document sub-section does. */
+.prose > h2:not(.not-prose *):first-child {
+  margin-top: calc(var(--rhythm) * 2 * var(--rhythm-scale));
+}
+.prose h3:not(.not-prose *) {
+  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  line-height: 1.32;
+  letter-spacing: -0.008em;
+  font-weight: 600;
+  margin-top: calc(var(--rhythm) * 3.5 * var(--rhythm-scale));
+  margin-bottom: calc(var(--rhythm) * 1.25 * var(--rhythm-scale));
+}
+.prose h4:not(.not-prose *) {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  line-height: 1.38;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.375rem;
+}
+.prose h5:not(.not-prose *), .prose h6:not(.not-prose *) {
+  font-size: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.prose p:not(.not-prose *) {
+  margin-bottom: 0.75rem;
+  color: var(--prose-body);
+  line-height: 1.68;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: var(--fs-body);
+  /* Body measure. This was capped only above 1024px, which left tablets and small laptops
+     running past 100 characters a line — the width at which prose stops being readable. */
+  max-width: 72ch;
+  text-wrap: pretty;
+  margin-bottom: calc(var(--rhythm) * 1.5 * var(--rhythm-scale));
+}
+.prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
+  padding-left: 1.25rem;
+  margin-bottom: calc(var(--rhythm) * 1.5 * var(--rhythm-scale));
+  font-weight: 400;
+  letter-spacing: 0;
+  max-width: 74ch;
+}
+.prose li:not(.not-prose *) {
+  margin-bottom: 0.25rem;
+  color: var(--prose-body);
+  line-height: 1.65;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: var(--fs-body);
+}
+.prose blockquote:not(.not-prose *) {
+  border-left: 2px solid var(--color-gold);
+  background: transparent;
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--prose-body);
+  font-style: italic;
+  hanging-punctuation: first last;
+  line-height: 1.68;
+  font-size: clamp(0.92rem, 0.88rem + 0.2vw, 1.05rem);
+}
+.prose table:not(.not-prose *) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: transparent;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  border-left: none;
+  border-right: none;
+  font-feature-settings: "tnum" 1;
+}
+.prose th:not(.not-prose *), .prose td:not(.not-prose *) {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--color-line);
+  text-align: left;
+  min-width: 90px;
+  font-size: clamp(0.76rem, 0.72rem + 0.18vw, 0.88rem);
+  font-variant-numeric: tabular-nums;
+}
+.prose th:not(.not-prose *) {
+  background: transparent;
+  font-size: clamp(0.68rem, 0.66rem + 0.08vw, 0.74rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-line);
+}
+.prose tr:last-child td:not(.not-prose *) {
+  border-bottom: 0;
+}
+.prose code:not(.not-prose *) {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  color: var(--color-ink);
+}
+/* Raw-HTML blocks in the Firefly internal audit appendix.
+   The appendix authors its own structure in HTML — section kicker, callouts, and two- and
+   three-up card grids — against class names that had NO rules anywhere in the stylesheet. Every
+   one of those blocks was rendering as flat stacked prose, which is most of why that appendix
+   reads denser than the rest of the document. These are the styles that markup was written for;
+   the content is untouched. Selectors are qualified with .prose so they outrank the document
+   element rules for the type inside a card. */
+.section-kicker {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.callout {
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-accent);
+  background: var(--prose-bg-nested);
+  border-radius: 0 12px 12px 0;
+  padding: 0.875rem 1rem;
+  margin: 1.25rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--prose-body);
+}
+.callout strong {
+  color: var(--color-ink);
+}
+.callout.warning {
+  border-left-color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 5%, transparent);
+}
+.callout.warning strong {
+  color: var(--color-danger);
+}
+
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card {
+  border: 1px solid var(--color-line);
+  background: var(--prose-bg-nested);
+  border-radius: 14px;
+  padding: 0.875rem 1rem;
+  break-inside: avoid;
+}
+.prose .card h4 {
+  font-size: 0.8125rem !important;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 0.5rem 0 !important;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-line);
+  line-height: 1.35;
+}
+.prose .card ul,
+.prose .card ol {
+  margin: 0;
+  padding-left: 0;
+}
+.prose .card li {
+  font-size: 0.78125rem !important;
+  line-height: 1.55 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+/* Accessible table equivalents inside component cards. Those cards are `not-prose`, so a
+   table there carries its own chrome instead of borrowing the document table styling by
+   accident — which is what it had been doing. */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--prose-bg-nested);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.data-table th,
+.data-table td {
+  padding: 0.4rem 0.625rem;
+  text-align: left;
+}
+.data-table thead th {
+  background: var(--th-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+.data-table tbody tr + tr td {
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 55%, transparent);
+}
+
+.prose .placeholder {
+  display: inline-block;
+  background: var(--placeholder-bg);
+  border: 1px solid var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-weight: 650;
+  font-size: 0.85em;
+}
+
+/* Claim-status badges */
+.claim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+/* The three provenance states differ by BORDER STYLE as well as by colour and icon, so the
+   distinction survives greyscale, a monochrome printer and every form of colour blindness:
+   solid = Verified, dashed = Awaiting campaign decision, dotted = Not yet measured. */
+.claim-badge-verified {
+  background: var(--verified-bg);
+  border-color: var(--verified-border);
+  color: var(--verified-color);
+  border-style: solid;
+}
+.claim-badge-estimate {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+.claim-badge-awaiting {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-style: dashed;
+}
+
+/* Source-tier badges — same shape as claim-badge, second semantic axis (source reliability). */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.tier-badge-1 {
+  background: var(--tier1-bg);
+  border-color: var(--tier1-border);
+  color: var(--tier1-color);
+}
+.tier-badge-2 {
+  background: var(--tier2-bg);
+  border-color: var(--tier2-border);
+  color: var(--tier2-color);
+}
+.tier-badge-3 {
+  background: var(--tier3-bg);
+  border-color: var(--tier3-border);
+  color: var(--tier3-color);
+}
+
+/* Analysis-pipeline figures — a third semantic axis alongside claim-badge (what kind of
+   claim) and tier-badge (how reliable the source): how much confidence the figure itself
+   carries. Deliberately built from the existing verified/estimate/placeholder tokens rather
+   than new colours, so it inherits the document's dark mode and reads as the same system.
+
+   "verify" reuses the placeholder treatment, dashed border and all, because an unconfirmed
+   figure and an unfilled one warrant the same visual caution. */
+.analysis-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border-width: 1px;
+  padding: 1px 0.5em;
+  font-size: var(--fs-micro);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.analysis-chip-confirmed {
+  background: var(--verified-bg);
+  border-color: var(--verified-border);
+  color: var(--verified-color);
+}
+.analysis-chip-verify {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-style: dashed;
+}
+.analysis-chip-placeholder {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+
+/* Block-level warnings. These are never dismissible and never hover-only: a simulation shown
+   without its label reads as a forecast, and an unconfirmed figure shown without a marker
+   reads as a fact. */
+.analysis-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  margin: 0 0 0.75rem 0;
+  padding: 0.5em 0.7em;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  font-size: var(--fs-label);
+  line-height: 1.45;
+}
+.analysis-banner-scenario {
+  background: var(--estimate-bg);
+  border-color: var(--estimate-border);
+  color: var(--estimate-color);
+}
+.analysis-banner-verify {
+  background: var(--placeholder-bg);
+  border-color: var(--placeholder-border);
+  color: var(--placeholder-color);
+  border-style: dashed;
+}
+
+/* Eyebrow label — a short kicker line above a major heading. It keeps an explicit reset of
+   the drop-cap properties: the lede treatment is now scoped to the document's own first
+   paragraph, but an eyebrow that opens the document would still land on it. */
+.eyebrow-label {
+  display: block;
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-accent);
+  margin: 0 0 0.375rem 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  line-height: 1.4;
+}
+.eyebrow-label::first-letter {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-right: 0;
+  float: none;
+  line-height: inherit;
+}
+
+.prose strong:not(.not-prose *) {
+  color: var(--prose-strong);
+  font-weight: 600;
+}
+
+/* Mobile spacing (below 640px).
+   A phone is the device this proposal is most likely to be opened on, and it wants a tighter
+   rhythm — but tightening it here means moving the same token the rest of the document uses,
+   not restating a margin per element and re-opening the specificity fight. */
+@media (max-width: 639.98px) {
+  .prose {
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    --rhythm: 0.375rem;
+  }
+  .prose h1:not(.not-prose *) {
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose h2:not(.not-prose *) {
+    padding-bottom: 0;
+  }
+  .prose p:not(.not-prose *) {
+    font-size: var(--fs-body);
+    line-height: 1.65;
+  }
+  .prose ul:not(.not-prose *), .prose ol:not(.not-prose *) {
+    padding-left: 1rem;
+  }
+  .prose li:not(.not-prose *) {
+    font-size: var(--fs-body);
+    margin-bottom: 0.25rem;
+    line-height: 1.62;
+  }
+  .prose blockquote:not(.not-prose *) {
+    padding: 0.5rem 0.625rem;
+    margin: 0.75rem 0;
+    border-left-width: 3px;
+  }
+  .prose table:not(.not-prose *) {
+    margin: 0.75rem 0;
+  }
+  .prose th:not(.not-prose *), .prose td:not(.not-prose *) {
+    padding: 0.375rem 0.5rem;
+    min-width: 85px;
+  }
+
+  /* Compact content block packing utilities */
+  .mobile-compact {
+    padding: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  .mobile-tight-stack {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Ultra-Crisp 4K OLED Rendering Optimizations */
+@layer utilities {
+  /* Sub-pixel hairline borders instead of thick standard borders */
+  .hairline-border {
+    border-width: 0.5px !important;
+    border-color: var(--color-line) !important;
+  }
+  
+  /* High-frequency sub-pixel shadows for OLED screens to avoid fuzzy blurs */
+  .oled-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 0.5px var(--color-line) !important;
+  }
+  
+  /* Hardware accelerated layer rendering for butter-smooth high refresh rate (120Hz/240Hz) panels */
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+  
+  /* Deep pure OLED black text contrast enhancements */
+  .text-oled-glow {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Force hairline precision borders inside the interactive components in dark mode */
+.dark .border {
+  border-width: 0.5px !important;
+  border-color: var(--line) !important;
+}
+
+.dark .border-line {
+  border-width: 0.5px !important;
+  border-color: var(--line) !important;
+}
+
+/* Hardware accelerate marquee and heavy SVG transitions on high DPI screens */
+.marquee, svg, .motion-div {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* content-visibility: auto skips layout/paint work for off-screen top-level
+   sections; contain-intrinsic-size reserves a placeholder size so the
+   scrollbar and scroll position don't jump before a section is first measured. */
+.cv-auto-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1000px;
+}
+.cv-auto-hero {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
+.cv-auto-strip {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Focus                                                                  */
+/* ---------------------------------------------------------------------- */
+/* There were no focus styles anywhere in this stylesheet or in any component, against roughly
+   ninety interactive elements. A keyboard user got the user-agent default over custom
+   backgrounds, or nothing at all. This is the single highest-value interaction fix on the site.
+
+   :focus-visible only, so a mouse click doesn't leave a ring behind, and a double outline
+   (accent inside, paper outside) so the ring stays legible on both the card and paper grounds
+   and in both themes. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-paper);
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+/* A focus ring on a control sitting on the accent itself needs the inverse treatment. */
+.bg-accent:focus-visible,
+[aria-selected="true"]:focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/* Skip link — first tab stop, hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  /* accent-solid, not accent: this is white text on a fill, and those are different tokens
+     for a measured reason — see the palette block. */
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  /* The first control a keyboard user meets should clear the 44px floor like every other. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+/* Reduced motion.
+
+   This block is the CSS half only. It cannot reach a `motion.div`, so on its own it left every
+   JavaScript entrance and all 22 ambient loops running for a reader who had asked for none. The
+   other half is hooks/use-reduced-motion-safe.ts, threaded through lib/motion.ts, which is what
+   actually honours the preference for animated components.
+
+   Interaction feedback is deliberately exempt: a focus ring or press state that never appears is
+   a bug, not a preference. Those keep a short transition rather than none. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  button,
+  a,
+  [role="button"],
+  [role="tab"],
+  input,
+  select,
+  textarea,
+  .skip-link {
+    transition-duration: 0.08s !important;
+  }
+}
+
+/* content-visibility can otherwise cause skipped sections to be omitted from
+   print output; force full rendering when printing. */
+@media print {
+  .cv-auto-section,
+  .cv-auto-hero,
+  .cv-auto-strip {
+    content-visibility: visible;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Scroll progress bar — CSS scroll-driven animation, JS only as fallback  */
+/* ---------------------------------------------------------------------- */
+.scroll-progress-track {
+  background: color-mix(in srgb, var(--color-line) 40%, transparent);
+}
+.scroll-progress-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-fill {
+    animation: scroll-progress-grow auto linear;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes scroll-progress-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* :target highlight — arriving at a deep-linked section flashes it       */
+/* ---------------------------------------------------------------------- */
+:target {
+  animation: target-flash 2.2s ease-out;
+  scroll-margin-top: 7rem;
+}
+@keyframes target-flash {
+  0% { background-color: color-mix(in srgb, var(--color-accent) 16%, transparent); border-radius: 8px; }
+  100% { background-color: transparent; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Editorial text-wrap: balanced headings, no orphan words in body copy   */
+/* ---------------------------------------------------------------------- */
+h1, h2, h3, .text-balance-heading {
+  text-wrap: balance;
+}
+p, li, blockquote {
+  text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Confidentiality marker                                                 */
+/* ---------------------------------------------------------------------- */
+/* The one line on the page that has to be read and obeyed, and it was set at 9px in tracked
+   caps — the least legible treatment in the stylesheet, on the most important sentence. */
+.confidentiality-marker {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-muted);
+}
+.confidentiality-marker strong {
+  color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Multi-Device Spacing, Typography & Performance Optimization           */
+/* (Galaxy Fold, Android, iPhone, Tablet, Desktop)                       */
+/* ---------------------------------------------------------------------- */
+
+/* Global touch manipulation for zero 300ms tap latency */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1. Ultra-Narrow Devices: Samsung Galaxy Fold Cover Screen (<= 320px) */
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+  h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+  }
+  h3 {
+    font-size: 1.05rem !important;
+  }
+  .clean-editorial-section {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* 2. Standard Smartphones: Android & iPhone (321px - 640px) */
+@media (min-width: 321px) and (max-width: 640px) {
+  .clean-editorial-section h1 {
+    font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2.25rem);
+    line-height: 1.2;
+  }
+  .clean-editorial-section h2 {
+    font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.75rem);
+    line-height: 1.28;
+  }
+  .clean-editorial-section p {
+    font-size: var(--fs-body);
+    line-height: 1.65;
+  }
+  /* The tap-target floor, and the reason it is 44 rather than 42.
+     This rule is unlayered, and unlayered styles beat Tailwind's utilities whatever their
+     specificity — so at 42px it silently capped EVERY button on the site's primary device,
+     defeating every `min-h-[44px]` in the codebase and putting the whole interface under the
+     44x44 minimum the brief sets and WCAG 2.2 measures. One number, every tap target. */
+  button, input, select {
+    min-height: 44px;
+  }
+}
+
+/* 3. Tablets & Galaxy Fold Inner Display (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .clean-editorial-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .clean-editorial-section p {
+    font-size: 16px;
+    line-height: 1.68;
+    max-width: 72ch;
+  }
+}
+
+/* 4. Desktop & High-Resolution Workstations (>= 1025px) */
+@media (min-width: 1025px) {
+  .clean-editorial-section p {
+    font-size: 16.5px;
+    line-height: 1.72;
+    max-width: 74ch;
+  }
+  .claim-card, .cv-auto-section {
+    contain: layout style;
+  }
+}
+
+/* Performance: Offscreen content rendering containment */
+@supports (content-visibility: auto) {
+  .cv-auto-section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 360px;
+  }
+}
+
+/* Reading view: mobile full-screen transitions */
+.zero-chrome-active {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Print stylesheet                                                       */
+/* ---------------------------------------------------------------------- */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  /* The briefing kit is read linearly, off the screen, by someone auditing the proposal — so it
+     carries everything the screen puts behind a control. The disclosure panels and prose folds
+     render their bodies in the DOM and hide them with `hidden`; this brings them back, and drops
+     the toggles that would print as dead buttons. */
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0b1a30 !important;
+  }
+
+  /* Force the light palette regardless of the active theme toggle. */
+  :root, .dark {
+    --ink: #0b1a30;
+    --muted: #4e6178;
+    --paper: #ffffff;
+    --card: #ffffff;
+    --line: #c9d5e2;
+    --accent: #0056a8;
+    --gold: #a9151f;
+    --gold-solid: #a9151f;
+    --on-gold: #ffffff;
+    --align-a: #b3121e;
+    --align-b: #8a4a06;
+    --align-c: #0056a8;
+    --prose-body: #263241;
+    --prose-strong: #0a172c;
+    --prose-bg-nested: #ffffff;
+    --code-bg: #eef2f7;
+    --th-bg: #eef2f7;
+  }
+
+  /* Chrome, sticky bars, toggles and anything explicitly print-hidden. */
+  .print\:hidden,
+  .section-anchor-btn,
+  nav,
+  .scroll-progress-track,
+  .section-sticky-bar,
+  .toc-rail,
+  button {
+    display: none !important;
+  }
+
+  a[href^="http"]::after,
+  a[href^="https"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #4e6178;
+    word-break: break-all;
+  }
+
+  /* Section collapse only exists as a client-side view mode; print always
+     shows every section regardless of which tab was active on screen. */
+  .cv-auto-section,
+  .cv-auto-hero,
+  .cv-auto-strip {
+    display: block !important;
+  }
+
+  table, figure, .print-avoid-break, .claim-card, .pull-quote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .confidentiality-marker {
+    color: #4e6178 !important;
+  }
+  .confidentiality-marker strong {
+    color: #a9151f !important;
+  }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Responsive layout pass                                                  */
+/*                                                                         */
+/* The document was built at two widths — phone and "not phone" — with a   */
+/* single 640px step. That reads as crowded at both ends: a folded Galaxy  */
+/* Fold gets desktop gutters it cannot spare, and a 1440px desktop gets    */
+/* 1200px-wide lines of 13px type. Everything below is tier work.          */
+/* ---------------------------------------------------------------------- */
+
+/* One shell width and one gutter, both fluid, so every band on the page lines up. */
+.shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  max-width: 90rem;
+}
+
+/* Figures, ASCII diagrams and wide tables are the worst offenders on a narrow screen: the
+   page gutter steals ~28px from a 280px viewport before the scroll window even starts. On
+   phones they break out to the full viewport width and drop their corner radius, which buys
+   back roughly a fifth of the readable area on a Fold. */
+@media (max-width: 767px) {
+  .bleed-narrow {
+    margin-inline: calc(var(--gutter) * -1);
+    border-radius: 0;
+    border-inline: none;
+  }
+  .bleed-narrow > .overflow-x-auto {
+    padding-inline: var(--gutter);
+  }
+}
+
+/* A horizontally scrollable figure should say so. The shadow appears only while there is
+   something to scroll to, so it never fires on a diagram that already fits. */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  background:
+    linear-gradient(to right, var(--color-card) 30%, transparent) left / 2.5rem 100% no-repeat,
+    linear-gradient(to left, var(--color-card) 30%, transparent) right / 2.5rem 100% no-repeat,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.14), transparent) left / 0.75rem 100% no-repeat,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.14), transparent) right / 0.75rem 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+
+/* Monospace figures shrink a step on narrow screens so more of the drawing lands inside the
+   scroll window. Below the Fold's folded width they take one step more. The grid is never
+   reflowed — that would destroy the diagram — only scaled. */
+.ascii-pre { font-size: clamp(0.625rem, 0.55rem + 0.34vw, 0.8125rem); }
+@media (max-width: 380px) {
+  .ascii-pre { font-size: 0.5625rem; }
+}
+
+/* Touch targets. iOS and Android both want ~44px; the toolbar rows were 40px. */
+@media (pointer: coarse) {
+  .tap,
+  .tap button,
+  button.tap {
+    min-height: 44px;
+  }
+}
+
+/* Tablet and Fold-unfolded: two columns become genuinely useful here, and this is the tier
+   the document never had — it was inheriting phone spacing up to 1024px. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .prose > * { margin-block: calc(var(--rhythm) * var(--rhythm-scale) * 2.2); }
+}
+
+/* Desktop: the shell can be wide for figures while running text stays at --measure. */
+@media (min-width: 1280px) {
+  .shell { padding-inline: clamp(2.5rem, 1rem + 3vw, 4rem); }
+}
+
+/* The two decorative watermark words are ~8rem of rotated text painted behind every section.
+   They cost real paint time on a mid-range phone and contribute nothing at a width where
+   they are mostly clipped. Desktop keeps them. */
+@media (max-width: 1023px) {
+  .decor-watermark { display: none; }
+}
+
+/* Document tables get the same treatment as the ASCII figures: on a phone the gutter is worth
+   more than the card edge, and a table that scrolls should look like one. */
+.prose table:not(.not-prose *) { display: block; overflow-x: auto; width: 100%; }
+@media (max-width: 767px) {
+  .prose table:not(.not-prose *) {
+    margin-inline: calc(var(--gutter) * -1);
+    width: calc(100% + var(--gutter) * 2);
+    padding-inline: var(--gutter);
+  }
+}
+
+/* Touch target floor. iOS HIG and Android Material both put the minimum at ~44px; several
+   controls here sit at 28-30px, which on a phone means a mis-tap rather than a scroll.
+   Icon-only buttons expand their *hit area* with a pseudo-element instead of their box, so
+   the visual density of the anchor rail and the chart toggles is unchanged. */
+@media (pointer: coarse) {
+  /* The section anchor is no longer here. It used to be enlarged by this rule, which meant its
+     target was 44px only on a device reporting a coarse pointer — and a desktop browser with a
+     touchscreen, or any audit run without touch emulation, got 28px. It now carries its own
+     padding and an equal negative margin in the component, so the target is 44px everywhere
+     and the layout is unchanged either way. */
+  .tap-expand {
+    width: 44px;
+    height: 44px;
+    border-color: transparent;
+    background-color: transparent;
+    margin-inline: -0.5rem;
+  }
+
+  /* Rows of text chips can afford the real height. */
+  .tap-chip { min-height: 44px; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Depth and dimensional illustration                                      */
+/*                                                                         */
+/* Real 3D, done with compositor-only transforms rather than WebGL. A      */
+/* three.js scene would add well over 150KB to a first load that is read   */
+/* on a mid-range Android over a slow connection, for a document whose     */
+/* argument is that the audience cannot be reached that way. Perspective,  */
+/* layered planes and scroll-linked parallax give the depth at no bundle   */
+/* cost and composite on the GPU, so a folded Fold renders them as         */
+/* smoothly as a desktop.                                                  */
+/* ---------------------------------------------------------------------- */
+
+.stage-3d {
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
+  transform-style: preserve-3d;
+}
+@media (max-width: 480px) {
+  /* Shallower on a small screen: a strong perspective at 280px reads as distortion. */
+  .stage-3d { perspective: 900px; }
+}
+
+.plane-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* A card that sits slightly proud of the page and lifts toward the pointer. The lift is
+   driven by CSS custom properties the component sets, so the animation stays on the
+   compositor and no layout is read during the gesture. */
+.depth-card {
+  --lift: 0;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+    translateZ(calc(var(--lift) * 14px));
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 1px 2px rgba(8, 20, 40, calc(0.05 + var(--lift) * 0.04)),
+    0 calc(6px + var(--lift) * 10px) calc(18px + var(--lift) * 24px)
+      rgba(8, 20, 40, calc(0.06 + var(--lift) * 0.10));
+}
+.dark .depth-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 calc(6px + var(--lift) * 10px) calc(18px + var(--lift) * 24px) rgba(0, 0, 0, 0.55);
+}
+
+/* The illustration's own light: a soft directional sheen that moves with the tilt. */
+.sheen-3d {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--color-card) 92%, white) 0%,
+    transparent 42%,
+    transparent 62%,
+    color-mix(in srgb, var(--color-accent) 8%, transparent) 100%
+  );
+  opacity: calc(0.35 + var(--lift) * 0.4);
+  mix-blend-mode: soft-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The depth stays; the motion does not. A reader who has asked for less movement still
+     gets the layered drawing, just without parallax or tilt. */
+  .depth-card,
+  .plane-3d {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Phase 1 — depth, numerics, and the fourth provenance state
+   ========================================================================== */
+
+:root {
+  /* Depth as three layered shadows rather than one blur.
+     A single large-radius shadow reads as a drop shadow; three stacked at increasing radius
+     and decreasing alpha read as a surface lifted off a ground, which is the difference
+     between "a card" and "considered". Never animated — box-shadow is not a compositor
+     property, so surfaces that need to lift do it with transform instead. */
+  --shadow-1: 0 1px 2px oklch(0.2 0.04 250 / 0.05);
+  --shadow-2: 0 1px 2px oklch(0.2 0.04 250 / 0.04), 0 3px 8px oklch(0.2 0.04 250 / 0.05);
+  --shadow-3: 0 1px 2px oklch(0.2 0.04 250 / 0.04), 0 4px 12px oklch(0.2 0.04 250 / 0.06),
+              0 12px 32px oklch(0.2 0.04 250 / 0.07);
+  --shadow-lift: 0 2px 4px oklch(0.2 0.04 250 / 0.05), 0 8px 20px oklch(0.2 0.04 250 / 0.08),
+              0 20px 48px oklch(0.2 0.04 250 / 0.10);
+
+  /* Grain. 2% over a flat fill is the difference between a gradient and a printed surface. */
+  --grain-opacity: 0.022;
+
+  /* The offline waterline's submerged mass.
+     Fixed stops rather than theme tokens: an earlier pass built this from --ink and --dark,
+     both of which invert between themes, so in dark mode the mass rendered as a pale slab with
+     white text vanishing into it. Depth has to mean depth in both themes. Defined here, in the
+     palette, so no colour channel sits in a component where the figure guard has to read it as
+     a possible campaign statistic. */
+  --waterline-fill: linear-gradient(
+    to bottom,
+    var(--accent-solid) 0%,
+    oklch(0.32 0.16 265) 55%,
+    oklch(0.20 0.10 265) 100%
+  );
+}
+
+.dark {
+  /* On an OLED black ground a shadow cannot darken anything, so depth inverts: the lift is a
+     hairline of light along the top edge plus a deeper spread beneath. */
+  --shadow-1: 0 1px 0 oklch(1 0 0 / 0.04);
+  --shadow-2: 0 1px 0 oklch(1 0 0 / 0.05), 0 3px 10px oklch(0 0 0 / 0.5);
+  --shadow-3: 0 1px 0 oklch(1 0 0 / 0.06), 0 4px 14px oklch(0 0 0 / 0.55),
+              0 12px 36px oklch(0 0 0 / 0.45);
+  --shadow-lift: 0 1px 0 oklch(1 0 0 / 0.08), 0 8px 24px oklch(0 0 0 / 0.6),
+              0 24px 56px oklch(0 0 0 / 0.5);
+  --grain-opacity: 0.03;
+}
+
+/* --------------------------------------------------------------------------
+   Counting figures — see hooks/useAnimatedNumber.ts
+   -------------------------------------------------------------------------- */
+
+/* Width is reserved against the final string's length in `ch`, not by rendering a second hidden
+   copy of the figure. The hidden copy was real text: aria-hidden kept it out of the
+   accessibility tree and out of nothing else, so copy-paste, reader mode and find-in-page all
+   met every number twice. Without SOME reservation each figure nudges its neighbours for the
+   length of its own count, and CLS is measured on exactly that — so the box is still reserved,
+   just without putting the number into the document a second time. `tabular-nums` then keeps
+   each digit the same width so the text does not shimmer as it climbs.
+
+   `ch` is the width of "0" in the current font, and every digit is that width under tabular
+   figures, so the reservation is exact for the digits and slightly generous for the separators
+   and units. Generous is the safe direction: it reserves at least what the final string needs. */
+.anim-num {
+  display: inline-block;
+  min-width: calc(var(--anim-num-ch, 0) * 1ch);
+  text-align: left;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* --------------------------------------------------------------------------
+   Provenance state four: a named data gap
+   -------------------------------------------------------------------------- */
+
+/* The four nomination KPIs have no baseline. The document is scrupulous about this and so is
+   the interface: an unmeasured track is HATCHED, never filled, so it cannot be read as a
+   measurement of zero. The hatch is a texture, not a colour, which is also what keeps the
+   three provenance states distinguishable without relying on colour alone —
+   solid fill (Verified) / dashed outline (Awaiting) / diagonal hatch (Not yet measured). */
+.claim-badge-unmeasured {
+  background: var(--unmeasured-bg);
+  border-color: var(--unmeasured-border);
+  color: var(--unmeasured-color);
+  border-style: dotted;
+}
+
+.track-unmeasured {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--unmeasured-border) 0 2px,
+    transparent 2px 8px
+  );
+  background-color: var(--unmeasured-bg);
+  background-size: 11.32px 11.32px; /* one hatch period on the 45° diagonal */
+  border: 1px dashed var(--unmeasured-border);
+}
+
+/* The hatch drifts once on entry to show the surface is live and deliberately empty. It never
+   acquires a fill, and under reduced motion it does not move at all — a still hatch already
+   says everything the drift does. */
+@media (prefers-reduced-motion: no-preference) {
+  .track-unmeasured[data-animate="true"] {
+    animation: track-hatch-drift 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes track-hatch-drift {
+  from { background-position-x: -16px; }
+  to   { background-position-x: 0; }
+}
+
+/* ==========================================================================
+   Print — nothing animated may print invisible
+   ========================================================================== */
+
+/*
+ * The audit measured 28 elements carrying real text at `opacity: 0` in a print preview: the nine
+ * section titles, and the §9 Objectives cards with their baseline figures, deadlines and named
+ * owners. They are scroll-triggered reveals whose entrance had not fired, because a print job
+ * does not scroll — and several sit inside `hidden print:block` containers, so the print
+ * stylesheet revealed the container while an inline style kept the contents invisible.
+ *
+ * Inline styles are what Motion writes, so overriding them takes `!important`. This is the one
+ * place in the stylesheet where that is the correct tool rather than a shortcut: the rule has to
+ * beat an inline style, and a printed document of record silently losing a named owner and a
+ * deadline is a worse failure than any specificity argument.
+ *
+ * Scoped to print only, so it cannot affect anything on screen.
+ */
+@media print {
+  *,
+  *::before,
+  *::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    mask-image: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Two exceptions, both deliberate: things whose whole purpose is to be absent from paper. */
+  [hidden],
+  .print\:hidden,
+  .sr-only {
+    display: none !important;
+  }
+
+  /* THIS RULE CANNOT DO WHAT IT SAYS, and is kept only so nobody writes it again.
+     Chrome hides a closed `details`'s contents through content-visibility on a UA slot that
+     author CSS does not reach, so reverting `display` on the children reveals nothing. Measured:
+     /reach rendered to PDF with the disclosures shut is 21 pages; with every `details` opened
+     first it is 24. Every disclosure in this document that holds CONTENT rather than controls now
+     ships with the `open` attribute and is closed by PrintSafeDisclosures, which reopens it on
+     `beforeprint` — the only arrangement that survives a printing path with no script at all. */
+  details:not([open]) > *:not(summary) {
+    display: revert !important;
+  }
+}
+
+/* ==========================================================================
+   Diagram tables that stack instead of duplicating
+   ========================================================================== */
+
+/*
+ * The 30 parsed ASCII tables used to ship a card stack AND a table, both in the DOM, so a phone
+ * downloaded and painted markup for a desktop layout it would never show and a desktop did the
+ * reverse. Branching in JavaScript would have made the whole parser output a client component.
+ *
+ * Instead the same <table> takes two shapes. Below the md breakpoint every row becomes a card
+ * and every cell prints its own column header from `data-label`. The element is still a table,
+ * so a screen reader still gets headers and row associations at every width.
+ */
+@media (max-width: 767px) {
+  .diagram-table,
+  .diagram-table tbody,
+  .diagram-table tr,
+  .diagram-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* The header row is redundant once each cell carries its own label, and reading it aloud
+     twice is worse than not having it — but it must stay in the accessibility tree, so it is
+     positioned away rather than removed. */
+  .diagram-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .diagram-table tr {
+    border: 1px solid color-mix(in srgb, var(--color-line) 50%, transparent);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--color-paper) 70%, transparent);
+    padding: 0.25rem 0;
+    margin-bottom: 0.625rem;
+  }
+
+  /* A full-width banner row is a heading inside the table, not a card. */
+  .diagram-table tr[data-banner="true"] {
+    border: 0;
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+    border-radius: 0.5rem;
+    margin: 0.375rem 0;
+    padding: 0;
+  }
+
+  .diagram-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--fs-micro);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    margin-bottom: 0.125rem;
+  }
+
+  .diagram-table td {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-line) 18%, transparent);
+  }
+  .diagram-table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   The bottom dock is chrome, not a pane of glass over the document
+   ========================================================================== */
+
+/*
+ * .fx-glass is tuned for panels that sit inside the reading column, where seeing a little of what
+ * is behind them reads as depth. The bottom navigation dock is a different thing: it carries the
+ * three figures the whole document turns on, and at 62% opacity the prose behind it came through
+ * far enough that "KSh97.56m" was competing with a heading for the same pixels.
+ *
+ * Chrome that overlays content is opaque enough to read against anything. The blur stays, so it
+ * still reads as a surface above the page rather than a slab cut out of it.
+ */
+/* The mobile dock's measured height, published by MobileBottomNav's ResizeObserver and read by
+   the quick-nav capsule so it floats clear of the dock instead of guessing at its height. The
+   default here is the height the dock actually renders at on a phone, so the capsule's first
+   paint is already in the right place and the measurement only corrects for the safe-area inset
+   and for a tooling row that wraps. Without it the capsule paints 5rem up, then moves. */
+:root {
+  --dock-h: 11.875rem;
+}
+
+.bottom-dock.fx-glass,
+.dark .bottom-dock.fx-glass {
+  background: color-mix(in srgb, var(--color-card) 96%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+/* Publication-Grade Print Stylesheet - Executive Briefing Mode (Refinement 20) */
+@media print {
+  @page {
+    margin: 2cm 1.8cm;
+    size: A4 portrait;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10pt !important;
+    line-height: 1.55 !important;
+  }
+
+  .print\:hidden,
+  .bottom-dock,
+  aside,
+  header {
+    display: none !important;
+  }
+
+  .prose h1, .prose h2, .prose h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .prose table, figure, .clean-editorial-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .prose a {
+    text-decoration: underline;
+    color: inherit !important;
+  }
+}
+
+/* ==========================================================================
+   Figures — the marks built for the visual compaction pass
+   ==========================================================================
+
+   THE RULE THIS SECTION EXISTS TO ENFORCE: the final value is in the HTML, and the animation is
+   a transform laid over it. Every bar is server-rendered at its true width. `fx-figure-bar`
+   scales it from nothing to that width, so the animation can only ever be ABSENT — it can never
+   show a figure that is not the figure. A reader with JavaScript off, a reader who asked for
+   reduced motion, and a printed page all get the chart drawn correctly on the first frame.
+
+   Compare the counters this pass fixed, which seeded their state with zero and therefore
+   server-rendered KSh0.00bn. The difference is that these start from the truth. */
+
+.fx-figure-bar {
+  transform-origin: left center;
+}
+
+.fx-figure-line {
+  /* Drawn by dash offset rather than by width, so the slope's end points never move. */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Hatching marks a value that is modelled or illustrative. It is a TEXTURE, not a colour, so it
+   survives greyscale printing and reaches a reader who cannot use the colour difference. The
+   figure's caption says the same thing in words — this is the redundant second channel, never
+   the only one. */
+.fx-figure-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 3px,
+    color-mix(in oklch, var(--color-paper) 55%, transparent) 3px 6px
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fx-figure-bar {
+    animation: fx-figure-grow 520ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 45ms);
+  }
+
+  .fx-figure-line {
+    animation: fx-figure-draw 620ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--fx-i, 0) * 70ms);
+  }
+}
+
+@keyframes fx-figure-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes fx-figure-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* A figure's data table is open when printing, because a PDF cannot be tapped — opened by
+   PrintSafeDisclosures, not by CSS, for the reason recorded above. The summary is dropped here
+   because a printed "View the data" is a dead control above a table that is already visible. */
+@media print {
+  figure details { display: block; }
+  figure details > summary { display: none; }
+  details.print-open > summary .crossref-toggle { display: none !important; }
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Typography floor (visual-first pass, October 2026). One rule each, so no component has to
+ * remember them:
+ *   - every number in a figure, a table, a visual block or a KPI lines up in columns;
+ *   - headings balance their lines, paragraphs avoid a lone last word;
+ *   - long ward and place names in table cells break at a hyphenation point, not mid-glyph.
+ * ------------------------------------------------------------------------------------------- */
+:is(.rf, .vz, table, .pf-num, .pf-bn, .anim-num) { font-variant-numeric: tabular-nums lining-nums; }
+:is(h1, h2, h3, h4) { text-wrap: balance; }
+:where(p, li, figcaption) { text-wrap: pretty; }
+:is(td, th) { hyphens: auto; overflow-wrap: break-word; }

@@ -1,0 +1,295 @@
+{
+ "summary": {
+  "filesScanned": 285,
+  "registryValues": 295,
+  "exact": 0,
+  "rounded": 0,
+  "allowed": 16,
+  "filesWithHits": 12,
+  "distinctValues": 0
+ },
+ "byFile": {
+  "app/layout.tsx": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "components/markdown/PublicServiceDeliveryTracker.tsx": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "components/phone/screens/YouTubeScreen.tsx": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "components/register/charts.tsx": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "content/workstreams.md": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "data/terminal-showcase.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "lib/data/allow.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "lib/figures/annex.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "lib/figures/governance.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 2
+  },
+  "lib/register/tilemap.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 4
+  },
+  "lib/scroll-to-section.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  },
+  "lib/section-heights.ts": {
+   "exact": 0,
+   "rounded": 0,
+   "allowed": 1
+  }
+ },
+ "hits": [
+  {
+   "file": "app/layout.tsx",
+   "line": 77,
+   "literal": "1200",
+   "value": 1200,
+   "grade": "exact",
+   "ids": [
+    "target.stage-champions"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "components/markdown/PublicServiceDeliveryTracker.tsx",
+   "line": 81,
+   "literal": "5000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "components/phone/screens/YouTubeScreen.tsx",
+   "line": 52,
+   "literal": "12000",
+   "value": 12000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kiomo-kyethani",
+    "ward.kivou",
+    "ward.mbitini",
+    "ward.miambani",
+    "ward.nzambani",
+    "ward.ikutha",
+    "sub.katulani.households",
+    "sub.mutitu.households"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "components/register/charts.tsx",
+   "line": 138,
+   "literal": "2_000_000",
+   "value": 2000000,
+   "grade": "exact",
+   "ids": [
+    "livestock.goats"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "content/workstreams.md",
+   "line": 297,
+   "literal": "5,000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "data/terminal-showcase.ts",
+   "line": 276,
+   "literal": "5,100",
+   "value": 5100,
+   "grade": "exact",
+   "ids": [
+    "channel.x.followers"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/data/allow.ts",
+   "line": 18,
+   "literal": "5,000",
+   "value": 5000,
+   "grade": "exact",
+   "ids": [
+    "target.ussd.phase-1",
+    "target.subscribers.phase-1",
+    "target.volunteers.phase-2"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/figures/annex.ts",
+   "line": 255,
+   "literal": "50,000",
+   "value": 50000,
+   "grade": "exact",
+   "ids": [
+    "target.followers.phase-1"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "line": 122,
+   "literal": "5,000,000",
+   "value": 5000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-3"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/figures/governance.ts",
+   "line": 143,
+   "literal": "5,000,000",
+   "value": 5000000,
+   "grade": "exact",
+   "ids": [
+    "target.reach.phase-3"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 40,
+   "literal": "11_000",
+   "value": 11000,
+   "grade": "rounded",
+   "ids": [
+    "ward.mui",
+    "ward.kwa-mutonga-kithumula",
+    "ward.kanyangi",
+    "ward.mutha",
+    "register.2026.continuous",
+    "result.2022.gov.mueke",
+    "boda.unlicensed"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 40,
+   "literal": "13_000",
+   "value": 13000,
+   "grade": "rounded",
+   "ids": [
+    "ward.nguni",
+    "ward.nuu",
+    "ward.zombe-mwitika",
+    "ward.chuluni",
+    "ward.mutomo",
+    "register.2022.ward-mean",
+    "record.bursary.recipients"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 70,
+   "literal": "11,000",
+   "value": 11000,
+   "grade": "rounded",
+   "ids": [
+    "ward.mui",
+    "ward.kwa-mutonga-kithumula",
+    "ward.kanyangi",
+    "ward.mutha",
+    "register.2026.continuous",
+    "result.2022.gov.mueke",
+    "boda.unlicensed"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/register/tilemap.ts",
+   "line": 71,
+   "literal": "13,000",
+   "value": 13000,
+   "grade": "rounded",
+   "ids": [
+    "ward.nguni",
+    "ward.nuu",
+    "ward.zombe-mwitika",
+    "ward.chuluni",
+    "ward.mutomo",
+    "register.2022.ward-mean",
+    "record.bursary.recipients"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/scroll-to-section.ts",
+   "line": 66,
+   "literal": "12000",
+   "value": 12000,
+   "grade": "rounded",
+   "ids": [
+    "ward.kiomo-kyethani",
+    "ward.kivou",
+    "ward.mbitini",
+    "ward.miambani",
+    "ward.nzambani",
+    "ward.ikutha",
+    "sub.katulani.households",
+    "sub.mutitu.households"
+   ],
+   "allowed": true
+  },
+  {
+   "file": "lib/section-heights.ts",
+   "line": 25,
+   "literal": "40000",
+   "value": 40000,
+   "grade": "exact",
+   "ids": [
+    "target.sms.phase-1b"
+   ],
+   "allowed": true
+  }
+ ]
+}

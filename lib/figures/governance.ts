@@ -119,7 +119,7 @@ export const CLEARANCE_SERIES: FigureSeries = {
 export const LIABILITY_MATRIX: string[][] = [
   [
     "1. Data Protection Act (DPA 2019) compliance",
-    "Unlawful processing of personal voter phone numbers carries fines up to KES 5,000,000 or 2 years jail.",
+    "Unlawful processing of personal voter phone numbers carries fines up to Ksh 5,000,000 or 2 years jail.",
     'Campaign registered with the ODPC as a Data Controller; all voter phone numbers sourced via opt-in barazas; mandatory "STOP" SMS opt-out.',
   ],
   [
@@ -140,7 +140,7 @@ export const LIABILITY_SERIES: FigureSeries = {
   measure: "§19.4's DPA 2019 and Election Offences statutory matrix — obligation, exposure, mitigation",
   points: [],
   note:
-    "The exposure column carries the penalty as the document states it — KES 5,000,000 or two " +
+    "The exposure column carries the penalty as the document states it — Ksh 5,000,000 or two " +
     "years, and disqualification plus five years — because a mitigation protocol read without its " +
     "exposure is a procedure rather than a reason.",
 };

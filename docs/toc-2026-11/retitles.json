@@ -1,0 +1,374 @@
+[
+ {
+  "file": "kitui",
+  "section": "1.1",
+  "from": "The people: population, gender, age, households",
+  "to": "Who lives here"
+ },
+ {
+  "file": "kitui",
+  "section": "1.2",
+  "from": "The land: area, density, rural and urban, the three regions",
+  "to": "The land and its three regions"
+ },
+ {
+  "file": "kitui",
+  "section": "1.4",
+  "from": "How the county is run: 8 constituencies, 40 wards, sub-counties and villages",
+  "to": "How the county is run"
+ },
+ {
+  "file": "needs",
+  "section": "1.3",
+  "from": "Living standards: poverty, water, electricity, phones and internet",
+  "to": "How households live"
+ },
+ {
+  "file": "needs",
+  "section": "1.5",
+  "from": "The county's money: the budget envelope, the development plan, the audit record",
+  "to": "The county's budget and plan"
+ },
+ {
+  "file": "needs",
+  "section": "3.7",
+  "from": "How county money is spent: the audit record and the incumbent's scorecard",
+  "to": "How county money is spent"
+ },
+ {
+  "file": "needs",
+  "section": "3.8",
+  "from": "Mui Basin coal and the displaced communities",
+  "to": "Mui Basin coal and displaced communities"
+ },
+ {
+  "file": "news",
+  "section": "4.3",
+  "from": "What each channel can physically reach",
+  "to": "What each channel can reach"
+ },
+ {
+  "file": "news",
+  "section": "4.4",
+  "from": "The offline majority, and the infrastructure that reaches it",
+  "to": "Reaching the offline majority"
+ },
+ {
+  "file": "votes",
+  "section": "2.1",
+  "from": "The electorate: registered voters in 2022 and 2026, polling stations, turnout",
+  "to": "The electorate and polling stations"
+ },
+ {
+  "file": "votes",
+  "section": "2.2",
+  "from": "Results, 2013 to 2022",
+  "to": "Results from 2013 to 2022"
+ },
+ {
+  "file": "votes",
+  "section": "2.3",
+  "from": "Where the votes are: the twelve largest wards",
+  "to": "The twelve largest wards"
+ },
+ {
+  "file": "votes",
+  "section": "2.4",
+  "from": "The constituencies that decide it: the Mwingi bloc and the Big Four",
+  "to": "The constituencies that decide it"
+ },
+ {
+  "file": "votes",
+  "section": "2.5",
+  "from": "The number it takes: the winning benchmark and four routes to it",
+  "to": "The number it takes"
+ },
+ {
+  "file": "race",
+  "section": "5.1",
+  "from": "An open seat: the incumbent is term-limited",
+  "to": "An open seat"
+ },
+ {
+  "file": "race",
+  "section": "5.2",
+  "from": "How Wiper chooses its candidate, and when",
+  "to": "How Wiper chooses its candidate"
+ },
+ {
+  "file": "race",
+  "section": "5.3",
+  "from": "The field: the nomination contest and the general election",
+  "to": "The field in both stages"
+ },
+ {
+  "file": "race",
+  "section": "5.5",
+  "from": "Each rival, and the legal ground to be careful on",
+  "to": "Each rival, and the legal limits"
+ },
+ {
+  "file": "record",
+  "section": "6.2",
+  "from": "Where he is known, and where he is not",
+  "to": "Where he is known, and where not"
+ },
+ {
+  "file": "record",
+  "section": "6.4",
+  "from": "His channels today, and his rivals'",
+  "to": "His channels and his rivals'"
+ },
+ {
+  "file": "record",
+  "section": "6.5",
+  "from": "What his current online presence shows",
+  "to": "What his online presence shows"
+ },
+ {
+  "file": "diagnosis",
+  "section": "7.3",
+  "from": "What the data cannot yet tell us",
+  "to": "What the data cannot yet show"
+ },
+ {
+  "file": "diagnosis",
+  "section": "7.4",
+  "from": "The assumptions this plan rests on",
+  "to": "The assumptions the plan rests on"
+ },
+ {
+  "file": "goal",
+  "section": "8.1",
+  "from": "The goal and the two deadlines",
+  "to": "The goal and its two deadlines"
+ },
+ {
+  "file": "goal",
+  "section": "8.2",
+  "from": "Five objectives for the digital operation",
+  "to": "Five objectives"
+ },
+ {
+  "file": "goal",
+  "section": "8.2.1",
+  "from": "Be known where he isn't yet",
+  "to": "Be known where he is not yet known"
+ },
+ {
+  "file": "goal",
+  "section": "8.2.3",
+  "from": "Build a direct line to the voters the internet doesn't reach",
+  "to": "Reach voters the internet does not"
+ },
+ {
+  "file": "goal",
+  "section": "8.2.4",
+  "from": "Give every post a voter, a ward and a reason",
+  "to": "Give every post a voter, ward and reason"
+ },
+ {
+  "file": "goal",
+  "section": "8.2.5",
+  "from": "Hold the home base while Kitui Central runs its own race",
+  "to": "Hold the home base"
+ },
+ {
+  "file": "position",
+  "section": "9.3",
+  "from": "Answering the charge that discipline is cold",
+  "to": "Answering the charge of coldness"
+ },
+ {
+  "file": "message",
+  "section": "10.2",
+  "from": "Message discipline and persuasion principles",
+  "to": "Discipline and persuasion principles"
+ },
+ {
+  "file": "message",
+  "section": "10.3",
+  "from": "Framing, worked through in examples",
+  "to": "Framing, in worked examples"
+ },
+ {
+  "file": "message",
+  "section": "10.4",
+  "from": "Sample messaging: what the weekly brief hands the team",
+  "to": "Sample messages from the weekly brief"
+ },
+ {
+  "file": "voters",
+  "section": "11.1",
+  "from": "The universes: base, persuasion, turnout",
+  "to": "The base, persuasion and turnout universes"
+ },
+ {
+  "file": "voters",
+  "section": "11.3",
+  "from": "How large each segment is, and the evidence",
+  "to": "How large each segment is"
+ },
+ {
+  "file": "channels",
+  "section": "12.3",
+  "from": "The gatekeeper bottleneck",
+  "to": "The radio gatekeepers"
+ },
+ {
+  "file": "engagement",
+  "section": "13.1",
+  "from": "How this proposal is built",
+  "to": "How the work is built"
+ },
+ {
+  "file": "engagement",
+  "section": "13.2",
+  "from": "Who owns what: your team, the campaign, and Firefly's platform",
+  "to": "Who owns what"
+ },
+ {
+  "file": "engagement",
+  "section": "13.3",
+  "from": "What is outside this scope",
+  "to": "What is outside the scope"
+ },
+ {
+  "file": "engagement",
+  "section": "13.4",
+  "from": "The weekly rhythm, decision rights and approvals",
+  "to": "The weekly rhythm and approvals"
+ },
+ {
+  "file": "engagement",
+  "section": "13.5",
+  "from": "Meetings and the escalation path",
+  "to": "Meetings and escalation"
+ },
+ {
+  "file": "engagement",
+  "section": "17",
+  "from": "The team",
+  "to": "The campaign team"
+ },
+ {
+  "file": "engagement",
+  "section": "17.5",
+  "from": "How the existing team is assessed and upskilled",
+  "to": "Assessing and upskilling the team"
+ },
+ {
+  "file": "timeline",
+  "section": "14.3",
+  "from": "Fix first: six profile corrections",
+  "to": "Six profile corrections"
+ },
+ {
+  "file": "timeline",
+  "section": "16",
+  "from": "Coalitions and endorsements, in sequence",
+  "to": "Coalitions and endorsements, in order"
+ },
+ {
+  "file": "timeline",
+  "section": "16.1",
+  "from": "The principle behind the sequence",
+  "to": "The principle behind the order"
+ },
+ {
+  "file": "timeline",
+  "section": "16.3",
+  "from": "Managing endorsements, and how coalitions are measured",
+  "to": "Managing endorsements and measuring coalitions"
+ },
+ {
+  "file": "success",
+  "section": "18.2",
+  "from": "The scorecards for each stage",
+  "to": "Scorecards for each stage"
+ },
+ {
+  "file": "success",
+  "section": "18.4",
+  "from": "Why vanity metrics are excluded",
+  "to": "Why vanity metrics are left out"
+ },
+ {
+  "file": "success",
+  "section": "18.5",
+  "from": "The presence audit: method",
+  "to": "How the presence audit works"
+ },
+ {
+  "file": "response",
+  "section": "20.2",
+  "from": "The war room and rapid-response protocol",
+  "to": "The war room"
+ },
+ {
+  "file": "response",
+  "section": "F.1",
+  "from": "The four-tier response decision tree",
+  "to": "Four tiers of response"
+ },
+ {
+  "file": "response",
+  "section": "F.2",
+  "from": "Response times, by channel",
+  "to": "Response times by channel"
+ },
+ {
+  "file": "response",
+  "section": "F.5",
+  "from": "Rapid-response protocol and pre-approved message library",
+  "to": "The protocol and message library"
+ },
+ {
+  "file": "response",
+  "section": "20.5",
+  "from": "Monitoring competitors: public sources only",
+  "to": "Monitoring competitors from public sources"
+ },
+ {
+  "file": "receives",
+  "section": "22",
+  "from": "What Firefly commits to, and what the campaign provides",
+  "to": "Commitments on both sides"
+ },
+ {
+  "file": "ask",
+  "section": "23.1",
+  "from": "The window, not the deadline",
+  "to": "The window that sets the pace"
+ },
+ {
+  "file": "annex-evidence",
+  "section": "A.1",
+  "from": "Evidence standard: provenance and source tiers",
+  "to": "The evidence standard"
+ },
+ {
+  "file": "annex-evidence",
+  "section": "A.2",
+  "from": "Source table",
+  "to": "Every source, in one table"
+ },
+ {
+  "file": "annex-runbooks",
+  "section": "F.11",
+  "from": "Competitive intelligence outputs and rapid alerts",
+  "to": "Competitor intelligence outputs and alerts"
+ },
+ {
+  "file": "annex-technology",
+  "section": "E.1",
+  "from": "Technology reference architecture",
+  "to": "The reference architecture"
+ },
+ {
+  "file": "annex-technology",
+  "section": "E.2",
+  "from": "Voter model: data sources and variable dictionary",
+  "to": "The voter model and its variables"
+ }
+]

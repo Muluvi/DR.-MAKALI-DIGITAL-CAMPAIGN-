@@ -2,7 +2,7 @@
   {
     "kind": "data",
     "gap": "literacy.county",
-    "closes": "KNBS county literacy table (2019 Census or KDHS 2022 county report)",
+    "closes": "KNBS county literacy table (2019 Census or KDHS 2022 county report); the draft's 56.3% and 87.4% have no confirmed source",
     "holder": "KNBS",
     "status": "Open",
     "where": [
