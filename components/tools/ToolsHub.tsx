@@ -7,8 +7,8 @@ import { ELECTORAL_ARITHMETIC } from "@/data/electoral-arithmetic";
 import { fmt, val } from "../../lib/data/read";
 
 type Family = "All" | "Where the votes come from" | "Reach and persuade" | "Deadlines and readiness" | "Daily content work" | "Deeper planning" | "Context and talking points" | "Supporting utilities";
-// Only these have a page. Everything else in the list is planned, and says so rather than linking to a 404.
-const BUILT = new Set(["ward-dossier", "winning-number", "sources", "service-delivery", "race-calendar", "polling-agents", "nomination-path"]);
+// Every tool in the list has a page (the 29 added in November 2026 are served by app/(platform)/tools/[tool]).
+const BUILT = new Set(["ward-dossier", "winning-number", "sources", "service-delivery", "race-calendar", "polling-agents", "nomination-path", "coalition-path", "priority-scorer", "map-studio", "pareto-wards", "register-growth", "youth-voters", "channel-mix", "offline-waterline", "message-matrix", "issue-matcher", "ward-equity", "calendar", "message-studio", "fact-cards", "radio", "ward-compare", "constituency-scorecard", "zone-effort", "voter-density", "allocation", "county-money", "drought-watch", "swing-viewer", "ussd", "compliance", "kpis", "polling-stations", "links", "assumptions"]);
 
 type Tool = { id: number; name: string; slug: string; family: Exclude<Family, "All">; description: string; icon: typeof Map; freshness: "Live" | "Ready" | "Data needed" };
 
