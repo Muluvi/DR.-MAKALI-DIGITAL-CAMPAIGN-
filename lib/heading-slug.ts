@@ -44,6 +44,7 @@ export function headingSlug(text: string): string | null {
 // Labels are the navigation, so they are sized for the narrowest place they appear. Blurbs are the
 // question or contents each chapter answers.
 export const SECTIONS = [
+  { id: "welcome", part: 0, number: "", label: "A welcome from Firefly", blurb: "What Firefly built for the campaign, what is inside, and how to start" },
   { id: "cover", part: 0, number: "", label: "Who this is for", blurb: "Prepared for Dr. Makali Mulu by Firefly Management, and on what terms" },
   { id: "brief", part: 0, number: "", label: "The case on one screen", blurb: "The gap, why it can close, and what Firefly offers" },
   { id: "kitui", part: 1, number: "1", label: "The county in numbers", blurb: "Who lives in Kitui, on what land, and how it is run" },

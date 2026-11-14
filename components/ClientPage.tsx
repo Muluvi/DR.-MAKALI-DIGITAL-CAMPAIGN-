@@ -80,11 +80,12 @@ interface ClientPageProps {
 }
 
 /**
- * The chapters "/" shows opened: the case on one screen and the ask. They are the pitch and the
- * decision, and each is already a single screen; every other chapter opens as its digest
+ * The chapters "/" shows opened: the welcome, the case on one screen and the ask. They are the
+ * introduction, the pitch and the
+ * decision, and each is short; every other chapter opens as its digest
  * (components/flow/ChapterDigest.tsx).
  */
-const ALWAYS_OPEN: ReadonlySet<string> = new Set(["brief", "ask"]);
+const ALWAYS_OPEN: ReadonlySet<string> = new Set(["welcome", "brief", "ask"]);
 
 const WiperUmbrellaLogo = () => (
   <svg width="38" height="38" viewBox="0 0 120 120" fill="none" className="shrink-0 select-none">

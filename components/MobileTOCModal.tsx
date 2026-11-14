@@ -12,6 +12,7 @@ import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
   cover: BookLock,
+  welcome: Handshake,
   brief: FileText,
   kitui: Database,
   votes: Gauge,

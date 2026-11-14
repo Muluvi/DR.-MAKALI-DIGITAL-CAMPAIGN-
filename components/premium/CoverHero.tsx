@@ -27,7 +27,7 @@ const STATS = (FIG_COVER_MAP.chart.type === "composite" ? FIG_COVER_MAP.chart.pa
   .find((c) => c.type === "stats");
 
 const STAT_PROVENANCE = [
-  provenanceOf(FIGURES["register.2026"]),
+  provenanceOf(FIGURES["register.2022"]),
   provenanceOf(FIGURES["benchmark.2026-equivalent.rounded"]),
   provenanceOf(FIGURES["pool.share"]),
   provenanceOf(FIGURES["register.polling-stations"]),
@@ -55,10 +55,10 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
             </p>
             <h1 id="pf-hero-title" className="pf-hero__title">
               <span className="pf-line"><span>Kitui 2027:</span></span>
-              <span className="pf-line"><span>Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Digital Operation</span></span>
+              <span className="pf-line"><span>Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Campaign</span></span>
             </h1>
             <p className="pf-hero__sub">
-              Campaign strategy and digital architecture for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County.
+              Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team.
             </p>
             {children && <div className="pf-hero__controls">{children}</div>}
           </div>
