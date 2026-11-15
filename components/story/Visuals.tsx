@@ -71,7 +71,7 @@ function Shell({ kicker, title, icon: Icon, children, tone = "accent", className
 const PROOF: { step: string; text: string; to: string; where: string }[] = [
   { step: "The premise", text: "Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.", to: "position-sec-9-1", where: "9.1" },
   { step: "What makes it his", text: "A specialist in verifying whether public expenditure delivers what it promised.", to: "record-sec-6-1", where: "6.1" },
-  { step: "The gap it answers", text: "Unconfirmed balances, pending bills and low development absorption, in the county's own audit record.", to: "needs-sec-3-7", where: "3.7" },
+  { step: "The gap it answers", text: "Unconfirmed balances, pending bills and low development absorption, in the county's own audit record.", to: "spend-sec-3-7", where: "3.7" },
   { step: "Made visible every day", text: "A public service-delivery tracker: a line on a CV becomes a daily, public demonstration of accountability.", to: "workstreams-sec-15-1-1", where: "15.1.1" },
 ];
 

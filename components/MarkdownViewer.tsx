@@ -288,7 +288,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
     </>
   ),
   "votes-sec-2-4": <ConstituencyWeightBlock />,
-  "votes-sec-2-5": (
+  "winning-sec-2-5": (
     <>
       <VoteFunnel />
       <PathTo200kBlock />
@@ -298,7 +298,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // The issue evidence opens the chapter on what voters need.
   "needs-sec-3-1": <IssueEvidenceBlock />,
   "needs-sec-3-2": <DroughtFoodSecurityPanel />,
-  "needs-sec-3-7": (
+  "spend-sec-3-7": (
     <>
       <FiscalAuditPanel />
       <FiscalAuditChartBlock />
@@ -321,7 +321,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
       Appropriations Committee.
     </SectionPortrait>
   ),
-  "record-sec-6-2": <RecognitionDeficitOverlay />,
+  "known-sec-6-2": <RecognitionDeficitOverlay />,
 
   // ---- Part III: the strategy ---------------------------------------------------------------
   // The governing claim opens Chapter 9, ahead of the pillars and themes that rest on it.

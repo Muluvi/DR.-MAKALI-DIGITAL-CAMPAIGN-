@@ -167,7 +167,9 @@ function homeText(home) {
         const m = new RegExp(`id: "${tab}"[\\s\\S]*?blurb:\\s*"([^"]*)"`).exec(src);
         return m ? m[1] : "";
       }
-      const sec = byKeyAfter[h] ?? byNumberAfter[h];
+      // A home whose section later moved chapter by a logged move keeps its number (section numbers
+      // are unique across the document), so it is followed there by number.
+      const sec = byKeyAfter[h] ?? byNumberAfter[h] ?? (h.includes(":") ? byNumberAfter[h.split(":")[1]] : undefined);
       return sec ? [reachableText(sec.lines), ...partsOf(sec.lines).leads].join("\n") : "";
     })
     .join("\n");

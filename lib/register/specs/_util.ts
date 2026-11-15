@@ -59,10 +59,15 @@ export function secHref(num: string): string {
   };
   const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
   // Sections that live outside their number's chapter: living standards and the county's money sit in
-  // What voters need.
-  const located: Record<string, string> = { "1.3": "needs", "1.5": "needs" };
+  // What voters need; the flow pass (November 2026, docs/flow-2026-11) moved the Analysis sections
+  // into chapters of their own. A sub-section follows its section ("6.2.1" lives where "6.2" does).
+  const located: Record<string, string> = {
+    "1.3": "needs", "1.5": "needs",
+    "2.5": "winning", "6.2": "known", "6.3": "known", "6.5": "known", "3.7": "spend",
+  };
   const parts = num.split(".");
-  const tab = located[num] ? located[num] : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
+  const home = located[num] ?? located[parts.slice(0, 2).join(".")];
+  const tab = home ? home : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);
   return `/${tab}#${tab}-sec-${parts.join("-").toLowerCase()}`;
 }

@@ -26,7 +26,7 @@ export interface FlowAct {
  */
 export const FLOW_ACTS: FlowAct[] = [
   { id: "data", label: "Data", blurb: "What is true about Kitui, its voters and Dr. Mulu?", opensOn: "kitui" },
-  { id: "analysis", label: "Analysis", blurb: "What does the data mean for the race?", opensOn: "diagnosis" },
+  { id: "analysis", label: "Analysis", blurb: "What does the data mean for the race?", opensOn: "winning" },
   { id: "objectives", label: "Objectives", blurb: "What must the campaign achieve?", opensOn: "goal" },
   { id: "strategies", label: "Strategies", blurb: "How will it achieve it?", opensOn: "position" },
   { id: "implementation", label: "Implementation", blurb: "Who does what, when, and how it is measured", opensOn: "engagement" },

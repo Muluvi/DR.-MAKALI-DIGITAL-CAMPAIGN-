@@ -14,7 +14,7 @@ export type PackChart = "voters" | "sectors";
 
 /** The ten working records, each where the work it records is described. */
 export const RECORD_HOMES: Record<string, string[]> = {
-  "needs-sec-3-7": ["projects"],
+  "spend-sec-3-7": ["projects"],
   "news-sec-4-4": ["dispatch"],
   "message-sec-10-4": ["tests"],
   "channels-sec-12-6": ["calendar"],
@@ -29,7 +29,7 @@ export const RECORD_HOMES: Record<string, string[]> = {
 /** The seven team charts. */
 export const CHART_HOMES: Record<string, string[]> = {
   "news-sec-4-4": ["offline"],
-  "record-sec-6-5": ["reach"],
+  "known-sec-6-5": ["reach"],
   "diagnosis-sec-7-2": ["sentiment"],
   "channels-sec-12-6": ["calendar"],
   "workstreams-sec-15-1": ["implementation"],
@@ -40,7 +40,7 @@ export const CHART_HOMES: Record<string, string[]> = {
 /** The two data-pack charts from the dashboards page. */
 export const PACK_HOMES: Record<string, PackChart[]> = {
   "votes-sec-2-4": ["voters"],
-  "needs-sec-3-7": ["sectors"],
+  "spend-sec-3-7": ["sectors"],
 };
 
 /** The visuals for the chapters that were mostly text (components/story/Visuals.tsx). */

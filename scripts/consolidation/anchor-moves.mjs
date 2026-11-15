@@ -49,8 +49,14 @@ const before = [...new Map(BASES.flatMap((BASE) =>
     .flatMap((f) => idsOf(path.basename(f, ".md"), execFileSync("git", ["show", `${BASE}:${f}`], { cwd: ROOT, encoding: "utf8" })))
 ).map((x) => [x.id, x])).values()];
 
-const nowDir = path.join(ROOT, "public", "content");
-const now = fs.readdirSync(nowDir).filter((f) => f.endsWith(".md")).flatMap((f) => idsOf(path.basename(f, ".md"), fs.readFileSync(path.join(nowDir, f), "utf8")));
+// The headings as the pass and the later ones left them: public/content at 333afa8 (PR #87), before
+// the flow pass (docs/flow-2026-11) moved sections between chapters. The flow pass's own moves are in
+// lib/anchors/flow-2026-11.json, and scripts/build-anchors.ts follows a target here through them.
+const FROZEN = "333afa8";
+const frozen = (args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
+const now = frozen(["ls-tree", "--name-only", FROZEN, "public/content/"])
+  .split("\n").filter((f) => f.endsWith(".md"))
+  .flatMap((f) => idsOf(path.basename(f, ".md"), frozen(["show", `${FROZEN}:${f}`])));
 const live = new Set(now.map((x) => x.id));
 const bySlug = new Map();
 for (const x of now) bySlug.set(x.slug, [...(bySlug.get(x.slug) ?? []), x.id]);

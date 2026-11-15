@@ -2,7 +2,7 @@
 
 Every passage the flow pass moved or reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the six-stage story (Welcome, Data, Analysis, Objectives, Strategies, Implementation), each move word for word, and each rewording Firefly approved (docs/flow-2026-11/FLOW-PLAN.md, section 10).
 
-48 cuts, 23 words; 0 passages moved to their homes.
+48 cuts, 23 words; 5 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -54,3 +54,8 @@ Every passage the flow pass moved or reworded, generated from `ledger.json` by `
 | votes | 2.5 | so every ward figure in this proposal is the 2022 register | 0 | Replaced (a figure or source superseded) | — | Flow pass, Firefly's decision Q1 (docs/flow-2026-11/FLOW-PLAN.md section 10): the site speaks in the Welcome's voice; Firefly built the platform and runs it, so 'proposal' becomes 'plan' or 'the site', whichever reads true. Left in place: `so every ward figure in this plan is the 2022 register`. |
 | workstreams | 15.4.1 | that grades every figure in this proposal | 0 | Replaced (a figure or source superseded) | — | Flow pass, Firefly's decision Q1 (docs/flow-2026-11/FLOW-PLAN.md section 10): the site speaks in the Welcome's voice; Firefly built the platform and runs it, so 'proposal' becomes 'plan' or 'the site', whichever reads true. Left in place: `that grades every figure in this plan`. |
 | brief | (intro) | Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not | 0 | Replaced (a figure or source superseded) | — | Flow pass (docs/flow-2026-11, WP1): the approved offer sentence (Q1) is three words longer, so the lead's second sentence drops three words to stay within the 45-word lead limit. The body keeps the sentence in full. Left in place: `His gap is one of recognition outside Kitui Central, not of credibility: that is the working hypothesis, and Week 1 tests it against his channel data before anything is committed. ````. |
+| votes | 2.5 | ```lead Governor Julius Malombe's certified 2022 winning total was {{result.2022.gov.malombe}} votes; this | 848 | Moved to its home | winning:2.5 | Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: votes 2.5 moved into winning, word for word, heading and all. |
+| record | 6.2 | ```lead **Five of the twelve largest wards lie where he has never | 368 | Moved to its home | known:6.2 | Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: record 6.2 moved into known, word for word, heading and all. |
+| record | 6.3 | ```lead **Kitui Central will be fighting its own contest.** **Two constituencies will | 216 | Moved to its home | known:6.3 | Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: record 6.3 moved into known, word for word, heading and all. |
+| record | 6.5 | The findings below come from the profile as displayed, and finding them | 138 | Moved to its home | known:6.5 | Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: record 6.5 moved into known, word for word, heading and all. |
+| needs | 3.7 | ```lead According to the Office of the Auditor-General's FY2023/24 audit report, four | 455 | Moved to its home | spend:3.7 | Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: needs 3.7 moved into spend, word for word, heading and all. |

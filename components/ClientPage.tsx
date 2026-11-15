@@ -12,7 +12,6 @@ import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress"
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { HeadingOutline } from "./HeadingOutline";
-import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
@@ -481,27 +480,29 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
               const act = expanded ? opensAct(item.id) : null;
               const digest = digestMode && !ALWAYS_OPEN.has(item.id) ? digests?.[item.id] : undefined;
               const isOpen = !digest || opened.has(item.id);
+              // The analysis in four steps (the winning number, where the votes are, the routes, and
+              // where he has held office), told once over a pinned county. It opens the Analysis
+              // stage, unfolded (flow pass, WP3): in the summary layer it sits under the digest, like
+              // the workstream map, not behind the chapter's fold. On the streamed flow it (≈ 2,300
+              // nodes, four figures) mounts as the reader approaches it, not in the first hydration;
+              // /full and the section routes render it on the server, for print and for readers
+              // without JavaScript.
+              const analysis =
+                item.id === "winning" ? (
+                  streamed ? (
+                    <LazyMount minHeight="100svh" rootMargin="150% 0px">
+                      <Story />
+                    </LazyMount>
+                  ) : (
+                    <Story />
+                  )
+                ) : null;
               // What the chapter holds below its marker. In the summary layer it mounts when the
               // chapter is opened or a link lands inside it; the first chapter is already in the
               // server HTML and simply sits in the closed fold.
               const body = (
                 <>
-                  {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
-                  {item.id === "votes" && (
-                    <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
-                      {/* On the streamed flow the story (≈ 2,300 nodes, four figures) mounts as the
-                          reader approaches §2, not in the first hydration, where it was most of the
-                          blocking time on a throttled phone. /full and the section routes still
-                          render it on the server, for print and for readers without JavaScript. */}
-                      {streamed ? (
-                        <LazyMount minHeight="100svh" rootMargin="150% 0px">
-                          <Story />
-                        </LazyMount>
-                      ) : (
-                        <Story />
-                      )}
-                    </PanelFold>
-                  )}
+                  {!digest && analysis}
                   {!digest && item.id === "workstreams" && <WorkstreamMap />}
                   {item.content ?? (
                     <StreamedSection tabId={item.id} words={item.wordCount} force={!!digest || forced.has(item.id)} />
@@ -561,6 +562,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                         }}
                       />
                       {/* What a reader can use without opening the chapter (story integration, November 2026). */}
+                      {analysis}
                       {item.id === "workstreams" ? <WorkstreamMap /> : <ChapterExtras id={item.id} />}
                       <FoldBody id={`body-${item.id}`} open={isOpen} onReveal={() => openChapter(item.id)} className="cd-body">
                         {isOpen || forced.has(item.id) || item.content ? body : null}
