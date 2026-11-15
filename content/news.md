@@ -121,7 +121,7 @@ left:
   title: "What digital can do"
   items:
     - label: "Set the agenda"
-      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so what is posted there can shape what radio goes on to discuss. No source in this proposal measures that link or its timing; the channel audit (Section 18.5) records it from the first month rather than assuming it."
+      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so what is posted there can shape what radio goes on to discuss. No source in this plan measures that link or its timing; the channel audit (Section 18.5) records it from the first month rather than assuming it."
     - label: "Recruit young volunteers"
       body: "Reaching the ~{{segment.youth.voters}} young voters on TikTok and WhatsApp recruits field volunteers who run ground logistics and serve as polling agents."
     - label: "Target urban traders"

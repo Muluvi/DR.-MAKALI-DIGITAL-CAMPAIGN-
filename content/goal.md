@@ -1,24 +1,16 @@
 ```lead
-The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027.
+The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**.
 ```
 
-The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027. Five objectives for the digital operation serve it, and every one traces to one of the two deadlines. This chapter opens Part III: the strategy that the evidence in Parts I and II justifies.
+The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**. Five objectives for the digital operation serve it, and every one traces to that result.
 
-## 8.1 The goal and its two deadlines
+## 8.1 The goal and its deadline
 
 ```lead
-The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election.
+The campaign works to one deadline: the general election on 10 August 2027. Being on the ballot comes first, and the Timeline tracks it as a milestone.
 ```
 
-The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election. Each has its own clock, its own measure of success and its own targets. Every objective traces either to winning the Wiper Patriotic Front nomination or to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that trace to neither are left out (Section 18.4).
-
-*   **The clock:** from signature to the close of the party's evaluation window in late 2026, then to the 10 August 2027 general election.
-*   **Success:** the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach across all eight constituencies; then at least **{{benchmark}} votes** at the ballot box, the benchmark Section 2.5 sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.
-
-**The two deadlines:**
-
-1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.
-2.  **The general election, 10 August 2027:** turning out the {{benchmark}}-vote coalition a plurality win needs in a multi-candidate field.
+The campaign works to one deadline: the general election on 10 August 2027. Being on the ballot comes first, and the Timeline tracks it as a milestone. Every objective traces to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that do not are left out (Section 18.4).
 
 ```figure
 id: fig-1-1-timeline

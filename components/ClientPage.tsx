@@ -5,14 +5,13 @@ import { useRouter } from "next/navigation";
 
 import { Toaster } from "./Toaster";
 import { LazyMount } from "./LazyMount";
-import { Printer, Search } from "lucide-react";
+import { Printer } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
 import { Figure } from "./figures/FigureBoundary";
 import { RegisterMotion } from "./register/RegisterMotion";
 import { HeadingOutline } from "./HeadingOutline";
-import { PanelFold } from "./markdown/PanelFold";
 import { MicroFX } from "./premium/MicroFX";
 import { scrollToSectionWhenReady } from "../lib/scroll-to-section";
 import { MobileTOCModal } from "./MobileTOCModal";
@@ -36,9 +35,8 @@ import { LiveFooterLine, StoryBar } from "./story/StoryBar";
 import { Tour } from "./story/Tour";
 import { ContactCard, PlatformMap, WorkstreamMap } from "./story/Visuals";
 
-/** The cover's contact card and the platform's map, at the foot of their sections. */
+/** The platform's map, at the foot of its section. The cover's contact card is in the footer. */
 function ChapterExtras({ id }: { id: string }) {
-  if (id === "cover") return <ContactCard />;
   if (id === "platform") return <PlatformMap />;
   return null;
 }
@@ -87,6 +85,11 @@ interface ClientPageProps {
   streamed?: boolean;
   /** Each chapter's takeaway and numbers, read from its own markdown (lib/digest.ts). */
   digests?: Partial<Record<TabId, Digest>>;
+  /**
+   * Who the site is for, who built it, and on what terms: content/cover.md, rendered on the server.
+   * It left the flow in the flow pass (docs/flow-2026-11, WP1) and is the footer's front matter.
+   */
+  cover?: React.ReactNode;
 }
 
 /**
@@ -109,12 +112,24 @@ const WiperUmbrellaLogo = () => (
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
+/**
+ * "/#tools" opens the Tools panel (every tool and record, each opening in its chapter) instead of
+ * scrolling: the Welcome's "Every tool" link (flow pass, WP4). The fragment is cleared so the link
+ * works again, and so a reload does not reopen the panel.
+ */
+const TOOLS_HASH = "tools";
+function openToolsFromHash() {
+  window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  // After the panel's listener is attached (StoryBar mounts in the same commit).
+  requestAnimationFrame(() => window.dispatchEvent(new Event("story:open-tools")));
+}
+
 /** What a closed chapter reserves before it has been laid out: a digest on a 390 px phone. */
 const DIGEST_HEIGHT = 620;
 
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, cover }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -272,6 +287,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   useEffect(() => {
     const raw = window.location.hash.replace(/^#/, "");
     if (!raw) return;
+    if (raw === TOOLS_HASH) {
+      openToolsFromHash();
+      return;
+    }
     // After the first paint, deliberately. The server never saw the fragment, so forcing a
     // section to mount during hydration would make the client's first render disagree with the
     // HTML it is hydrating.
@@ -298,6 +317,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     const onHashChange = async () => {
       const raw = window.location.hash.replace(/^#/, "");
       if (!raw) return;
+      if (raw === TOOLS_HASH) {
+        openToolsFromHash();
+        return;
+      }
       const id = raw.startsWith("section-") ? raw : await resolveLegacySectionId(raw, validSectionIds);
       forceFor(id);
       scrollToSectionWhenReady(id, "smooth");
@@ -396,7 +419,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <PlainTextPass rootId="pf-root" />
         <a href="#content-area" className="skip-link">Skip to the document</a>
         <StoryBar
-          onOpenIndex={() => setIsTOCModalOpen(true)}
           onJump={(id) => {
             openChapter(id.split("-sec-")[0]);
             navigateToSection(id);
@@ -408,7 +430,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         {streamed && (
           <noscript
             dangerouslySetInnerHTML={{
-              __html: '<p style="padding: 1rem; text-align: center;"><a href="/full">Open the complete proposal on one page</a></p>',
+              __html: '<p style="padding: 1rem; text-align: center;"><a href="/full">Open the whole site on one page</a></p>',
             }}
           />
         )}
@@ -443,18 +465,14 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             {/* One reading time, measured from what the page shows on load (app/[[...slug]]/page.tsx),
                 so it cannot drift from what the page does. */}
             {digestMode ? (
-              // The route, then the one map the argument turns on. The spine figure repeated the
-              // four figures the hero has just shown and the six parts the route now carries, so
-              // it opens the cover chapter instead (below), where /full and print still have it.
-              <>
-                <RouteMap onSelect={goToSection} />
-                <Figure id="fig-cover-map" />
-              </>
+              // The six-stage route. The cover map and the spine repeated the four figures the
+              // hero has just shown (flow pass, WP1), so "/" leaves them to /full and print.
+              <RouteMap onSelect={goToSection} />
             ) : (
               <>
                 <div className="pf-reading">
                   <p className="pf-reading__time">~{readingMinutes(Object.values(visibleWordCounts).reduce((a, b) => a + b, 0))} min read</p>
-                  <p className="pf-reading__hint">Scroll. The whole proposal is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
+                  <p className="pf-reading__hint">Scroll. The whole story is on this page, in order — {navItems.length} sections. Every section&rsquo;s full text is one tap away.</p>
                 </div>
                 {/* The cover figures (brief §F.1), with their tables and CSVs: the tile map shaded for
                     the pool and the spine of the argument. The hero above tells the same map's story. */}
@@ -481,36 +499,29 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
               const act = expanded ? opensAct(item.id) : null;
               const digest = digestMode && !ALWAYS_OPEN.has(item.id) ? digests?.[item.id] : undefined;
               const isOpen = !digest || opened.has(item.id);
+              // The analysis in four steps (the winning number, where the votes are, the routes, and
+              // where he has held office), told once over a pinned county. It opens the Analysis
+              // stage, unfolded (flow pass, WP3): in the summary layer it sits under the digest, like
+              // the workstream map, not behind the chapter's fold. On the streamed flow it (≈ 2,300
+              // nodes, four figures) mounts as the reader approaches it, not in the first hydration;
+              // /full and the section routes render it on the server, for print and for readers
+              // without JavaScript.
+              const analysis =
+                item.id === "winning" ? (
+                  streamed ? (
+                    <LazyMount minHeight="100svh" rootMargin="150% 0px">
+                      <Story />
+                    </LazyMount>
+                  ) : (
+                    <Story />
+                  )
+                ) : null;
               // What the chapter holds below its marker. In the summary layer it mounts when the
               // chapter is opened or a link lands inside it; the first chapter is already in the
               // server HTML and simply sits in the closed fold.
               const body = (
                 <>
-                  {/* Chapter 2's argument, told once over a pinned county before the chapter's detail. */}
-                  {item.id === "votes" && (
-                    <PanelFold label="The analysis in four steps: the winning number, where the votes are, the routes, and where he has held office">
-                      {/* On the streamed flow the story (≈ 2,300 nodes, four figures) mounts as the
-                          reader approaches §2, not in the first hydration, where it was most of the
-                          blocking time on a throttled phone. /full and the section routes still
-                          render it on the server, for print and for readers without JavaScript. */}
-                      {streamed ? (
-                        <LazyMount minHeight="100svh" rootMargin="150% 0px">
-                          <Story />
-                        </LazyMount>
-                      ) : (
-                        <Story />
-                      )}
-                    </PanelFold>
-                  )}
-                  {/* On the /cover route there is no hero, so the cover figures open the section. */}
-                  {!expanded && item.id === "cover" && (
-                    <>
-                      <Figure id="fig-cover-map" />
-                      <Figure id="fig-cover-spine" />
-                    </>
-                  )}
-                  {/* In the summary layer the spine of the argument opens the cover chapter. */}
-                  {digestMode && item.id === "cover" && <Figure id="fig-cover-spine" />}
+                  {!digest && analysis}
                   {!digest && item.id === "workstreams" && <WorkstreamMap />}
                   {item.content ?? (
                     <StreamedSection tabId={item.id} words={item.wordCount} force={!!digest || forced.has(item.id)} />
@@ -570,6 +581,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                         }}
                       />
                       {/* What a reader can use without opening the chapter (story integration, November 2026). */}
+                      {analysis}
                       {item.id === "workstreams" ? <WorkstreamMap /> : <ChapterExtras id={item.id} />}
                       <FoldBody id={`body-${item.id}`} open={isOpen} onReveal={() => openChapter(item.id)} className="cd-body">
                         {isOpen || forced.has(item.id) || item.content ? body : null}
@@ -596,8 +608,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <footer className="pf-shell pf-footer relative mt-10 pt-8">
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
           <div className="confidentiality-marker mb-3">
-            <strong>Prepared for Hon. Dr. Benson Makali Mulu personally</strong>
-            <span className="opacity-85"> — open to anyone with the link. Please do not circulate it further.</span>
+            <strong>Built for Hon. Dr. Benson Makali Mulu and his campaign team.</strong>
+            <span className="opacity-85"> Open to view; the team signs in to edit.</span>
           </div>
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button
@@ -607,22 +619,11 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
               <Printer size={14} />
               <span>Print, or save as PDF</span>
             </button>
-            <button
-              onClick={() => setIsTOCModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-muted hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
-            >
-              <Search size={14} />
-              <span>Search the document</span>
-            </button>
           </div>
-          <dl className="t-micro text-muted grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 max-w-md">
-            <dt className="font-semibold text-ink">Prepared by</dt>
-            <dd>Firefly Management</dd>
-            <dt className="font-semibold text-ink">Date</dt>
-            <dd>September 2026, revised November 2026</dd>
-            <dt className="font-semibold text-ink">Status</dt>
-            <dd>Proposal for discussion</dd>
-          </dl>
+          {/* Who the site is for, who built it, the date and the status: content/cover.md, once,
+              in place of the list that repeated it (flow pass, WP1). */}
+          {cover && <div className="pf-footer__cover t-small text-muted max-w-2xl">{cover}</div>}
+          <ContactCard />
           <LiveFooterLine />
         </footer>
 
@@ -633,9 +634,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           number={partOf(activeItem.id) === 0 ? "" : actOf(activeItem.id).label}
           tab={activeItem.id}
           onOpenIndex={() => setIsTOCModalOpen(true)}
-          onToggleTheme={toggleTheme}
-          theme={theme}
-          themeReady={mounted}
         />
 
         <MobileTOCModal
@@ -646,6 +644,9 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           isOpen={isTOCModalOpen}
           onClose={() => setIsTOCModalOpen(false)}
           activeTab={activeItem.id}
+          onToggleTheme={toggleTheme}
+          theme={theme}
+          themeReady={mounted}
           onSelectSection={(secId) => {
             setIsTOCModalOpen(false);
             navigateToSection(secId);

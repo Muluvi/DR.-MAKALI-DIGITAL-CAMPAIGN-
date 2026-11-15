@@ -67,7 +67,7 @@ export function ActOpener({ act, portrait, id }: { act: FlowAct; index?: number;
       </div>
       <div className="pf-act__copy">
         <p className="pf-act__count">
-          {act.id === "reference" ? "After the proposal" : act.id === "working" ? "For the campaign team" : <PartDots actId={act.id} />}
+          {act.id === "reference" ? "After the story" : <PartDots actId={act.id} />}
         </p>
         {/* Text, not a heading: the chapter marker beneath carries the section's heading. */}
         <p id={`${id}-title`} className="pf-act__title">

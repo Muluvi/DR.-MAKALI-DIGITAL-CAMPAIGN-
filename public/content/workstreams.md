@@ -582,9 +582,71 @@ a vanity one.
 
 **Outside this engagement.** Volunteer recruitment, tiers, gamification and ward-champion management belong to the ground campaign, which already runs them. The team's contribution is the metric definitions the leaderboard reports against, kept on the platform. The material below is retained as reference for the campaign's own coordinator, not as a platform deliverable.
 
-*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex D.1.*
+*The volunteer programme reference (tiers, gamification, tooling and KPIs) follows.*
 
-The volunteer programme reference is in Platform playbooks, in the working platform that follows the proposal.
+## D.1 Volunteer programme reference
+
+*Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*
+
+```lead
+**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).
+```
+
+#### Turning online supporters into offline organisers
+
+A tiered volunteer programme converting passive online supporters into active
+offline organisers, with gamification driving sustained engagement.
+
+#### Volunteer tiers
+
+| Tier | Name | Entry requirement | Activities |
+|---|---|---|---|
+| **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
+| **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 15.3.2)** |
+| **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
+
+**Data-handling training is a gate, not an option.** No volunteer collects
+personal data before completing it (Section 19.3).
+
+#### Gamification mechanics
+
+| Mechanic | Implementation | Reward |
+|---|---|---|
+| Points | Awarded for shares, sign-ups, training completion, verified registration drives, canvass returns | Merchandise, recognition |
+| Leaderboards | Ward and county rankings published weekly in WhatsApp groups | Public recognition, tier advancement |
+| Badges | Milestones — "10 Voters Registered," "Content Creator," "Ward Champion" | Profile display, sharing |
+| Streaks | Daily engagement tracked via WhatsApp bot | Bonus points, spotlight features |
+
+**Integrity rule.** Points reward **verified real-world action** — a registered
+voter, a canvassed household, a completed training — not raw posting volume.
+Reward systems that pay for volume produce spam and, at scale, look
+indistinguishable from inauthentic activity. That would breach both platform
+policy and the Section 19.3 charter, and it is designed out from the start.
+
+#### Management tooling
+
+* **Custom WhatsApp bot** for lightweight volunteer management: registration,
+point tracking, content distribution, leaderboards
+* **USSD registration path** so volunteers without smartphones can join
+(Section 15.3.3) — a genuine differentiator in the arid belt
+* Forms and spreadsheets for baseline collection
+* Task management via a shared board
+* Purpose-built volunteer platforms only at the premium level
+
+#### Volunteer KPIs
+
+| Metric | Target |
+|---|---|
+| Sign-up conversion from social traffic | ≥ 5% |
+| Active rate (engaged in last 30 days) | ≥ 40% |
+| Tier 2 advancement | ≥ 20% of Tier 1 |
+| Offline action completion | ≥ 60% |
+| Average points per volunteer per month | ≥ 100 |
+| 90-day retention | ≥ 50% |
+| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |
+
+<ws-mark tab="data"></ws-mark>
 
 ## 15.4 Data and technology (workstreams 11–14)
 
@@ -600,7 +662,7 @@ Four workstreams under the rest: the data layer, the voter model built on it, th
 
 A precise campaign needs a data layer it can trust. No loose spreadsheets, unverified voter claims or ad-hoc phone lists: one structured database, with provenance and audit trails on every record, run within Kenyan privacy law.
 
-This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this plan (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
 
 ```figure
 id: data-layer

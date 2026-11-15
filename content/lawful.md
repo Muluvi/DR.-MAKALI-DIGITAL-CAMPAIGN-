@@ -238,7 +238,7 @@ data-protection or electoral-law specialist must review and sign off the
 specific proposed processing in writing.**
 
 <!-- keep -->
-**This proposal does not assert that the micro-targeting programme described in
+**This plan does not assert that the micro-targeting programme described in
 Section 15.4.2 is legally clear. It may not be.** The questions below are genuinely
 open, are questions of Kenyan law and regulatory interpretation, and are for
 the campaign's counsel to answer — not for a communications consultancy to

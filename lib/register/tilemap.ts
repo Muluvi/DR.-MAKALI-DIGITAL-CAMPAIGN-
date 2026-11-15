@@ -118,7 +118,7 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
     id: "zones",
     name: "The three regions",
     description: `The three zones cover ${formatFigure(FIGURES["zones.share"])}% of residents. Kitui Rural falls in none of them, and needs adding to a zone or a stated reason it is out.`,
-    source: "KNBS 2019 Census, by sub-county; this proposal's zoning",
+    source: "KNBS 2019 Census, by sub-county; this plan's zoning",
     tier: "T1",
     state: "sourced",
     legend: [
@@ -136,7 +136,7 @@ export const LAYERS: Record<TileLayerId, TileLayer> = {
     id: "effort",
     name: "Where the effort goes in Phase −1",
     description: "Share of Phase −1 communications effort by zone: Firefly's weighting, not a measurement. The remainder rotates across wards as testing effort, and Kitui Rural is covered only by it.",
-    source: "This proposal, Section 3.3.1",
+    source: "This plan, Section 3.3.1",
     tier: null,
     state: "target",
     legend: [

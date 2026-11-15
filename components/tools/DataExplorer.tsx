@@ -116,7 +116,7 @@ export function DataExplorer() {
             <Download size={14} aria-hidden="true" /> Download all ({all.length}) as CSV
           </button>
         </div>
-        <p className="t-small text-muted">Every figure the proposal prints, read from the same registry as the prose. Search by name, source or value; filter by topic, reliability and state.</p>
+        <p className="t-small text-muted">Every figure the site prints, read from the same registry as the prose. Search by name, source or value; filter by topic, reliability and state.</p>
         <label className="relative block">
           <span className="sr-only">Search figures</span>
           <Search size={15} aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />

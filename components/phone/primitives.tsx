@@ -116,7 +116,7 @@ export function SlotGap({ label, dark = false }: { label: string; dark?: boolean
         border: `1px solid ${dark ? "rgba(227,29,43,0.42)" : "#f8b4b4"}`,
       }}
     >
-      [{label} — not in proposal]
+      [{label} — not in the plan]
     </span>
   );
 }

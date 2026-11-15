@@ -14,7 +14,7 @@ Kitui has **532,758** registered voters on the 2022 register, and Governor Malom
 id: fig-2-1-register
 ```
 
-**Which turnout.** Two turnout figures are in circulation, on different bases, and this proposal says which it uses. **61.7%** is governor valid votes (328,760) divided by the register (Tier 1, IEBC Form 37C). The presidential turnout in Kitui was about **62%**, and it includes 3,306 rejected ballots (Tier 2, Equal Politics aggregation of IEBC results). Every calculation in this proposal uses 61.7%.
+**Which turnout.** Two turnout figures are in circulation, on different bases, and this plan says which it uses. **61.7%** is governor valid votes (328,760) divided by the register (Tier 1, IEBC Form 37C). The presidential turnout in Kitui was about **62%**, and it includes 3,306 rejected ballots (Tier 2, Equal Politics aggregation of IEBC results). Every calculation in this plan uses 61.7%.
 
 The full 40-ward register, by constituency, is in Annex B.
 
@@ -24,11 +24,11 @@ The full 40-ward register, by constituency, is in Annex B.
 Julius Malombe won 2022 with **198,004 votes** on a certified turnout of **61.7%** (Tier 1, IEBC Form 37C); Charity Ngilu won 2017 with **169,990 votes** (Tier 1).
 ```
 
-*   **Governor, 2013:** a **named data gap** (Tier 1 gap). No certified result is in hand, and the proposal does not use recollection in its place. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
+*   **Governor, 2013:** a **named data gap** (Tier 1 gap). No certified result is in hand, and the plan does not use recollection in its place. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
 *   **Governor, 2017:** Charity Ngilu (NARC) won with **169,990 votes** (Tier 1), in an election the Court of Appeal confirmed (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). David Musila was the certified runner-up with **114,827 votes** (Tier 1), and the incumbent, Julius Malombe, came third with **74,681 votes** (Tier 1).
 *   **Governor, 2022:** Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) won with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%, calculated) matches 117,606. Jonathan Mueke (UDA) came third with **10,639 votes** (Tier 2).
 *   **President, 2022 (Kitui):** Raila Odinga won **235,400** votes (**70.82%**) and William Ruto **89,419** (**26.90%**); George Wajackoyah won 2,838 and David Mwaure 1,446, with 3,306 ballots rejected (Tier 2, Equal Politics aggregation of IEBC results). The Tier 1 record is IEBC Forms 34B and 34C, not yet in hand.
-*   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
+*   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this plan through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
 *   **Senator and Woman Representative, 2022:** Senator Enoch Wambua (Wiper) won with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) with **201,899 votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
 *   **Ward and polling-station results:** the constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records, not yet in hand. Section 6.2 needs them to test where each candidate's vote came from, ward by ward.
 
@@ -80,73 +80,70 @@ id: constituency-power
 2.  **Mwingi North (68,829 voters, Tier 1):** fourth by voters, but it holds the county's largest ward (**Kyuso, 19,921 voters**), the political home of the Wiper Patriotic Front leader, Hon. Kalonzo Musyoka (**Tseikuru, 16,471 voters**), and **Mumoni (15,877 voters)**, all Tier 1 (IEBC). It is both a large electorate and the party's heartland.
 3.  **Kitui South (75,372 voters):** the second-largest constituency, anchored by the dense wards of Athi (15,843) and Ikanga/Kyatune (15,384).
 
-## 2.5 The number it takes
+## B.1 The 40-ward register
 
-```lead
-Governor Julius Malombe's certified 2022 winning total was 198,004 votes; this document rounds it to **200,000**. [CALC, not a forecast] Held against the July 2026 register, the number to win is ≈200,000–225,000.
-```
+Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 register is not yet published by ward.
 
-*   **The electorate (July 2026, Tier 3, unconfirmed):** **605,703 voters** (Section 2.1). IEBC has not yet published the 2026 register by ward, so every ward figure in this proposal is the 2022 register.
-*   **The benchmark: 200,000 votes.** Governor Julius Malombe's certified 2022 winning total was **198,004 votes** (Section 2.2). This document rounds it to **200,000** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in Section 4.3 and the objectives in Chapter 8 are measured against it.
-*   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **37.2%** of the register (calculated). Held against the July 2026 register of 605,703, the equivalent tally is **≈225,000 votes** (calculated). Treat 200,000 as the floor and ≈225,000 as the equivalent on today's register: the number to win is ≈200,000–225,000 (calculated).
-*   **The turnout rate: 61.7%.** The certified 2022 county turnout was **61.7%**: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Every calculation here carries that rate forward to 2027. The rate is measured; carrying it forward is an assumption, and the scenario model brackets it at 55–72%.
-    *   At 61.7% of the 2022 register, total ballots cast were **328,760 votes**: the certified count of valid votes for governor (Tier 1, IEBC Form 37C).
-    *   To reach **200,000**, a winning candidate needs about **60.8% of ballots cast**, which is **37.5% of the registered electorate** (calculated).
+#### 1. Mwingi North Constituency (68,829 total registered voters, Tier 1)
 
-```figure
-id: fig-3-1-funnel
-```
+*   **Kyuso Ward:** 19,921 voters
+*   **Tseikuru Ward:** 16,471 voters
+*   **Mumoni Ward:** 15,877 voters
+*   **Ngomeni Ward:** 9,131 voters
+*   **Tharaka Ward:** 7,429 voters
 
-#### Four routes to the number
+#### 2. Mwingi West Constituency (57,138 total registered voters, Tier 1)
 
-```lead
-**No route clears 200,000 on its own ballots.** A route is where the margin is built, not where the whole number lives.
-```
+*   **Nguutani Ward:** 15,121 voters
+*   **Kyome/Thaana Ward:** 14,979 voters
+*   **Migwani Ward:** 14,678 voters
+*   **Kiomo/Kyethani Ward:** 12,360 voters
 
-Each route below is a group of constituencies or wards, measured the same way: registered voters, then the ballots they would cast at the 61.7% turnout rate, then those ballots against the 200,000 benchmark. The ballot count is a ceiling, because it assumes every ballot in the route goes to one candidate. **No route clears 200,000 on its own ballots.** A route is where the margin is built, not where the whole number lives.
+#### 3. Mwingi Central Constituency (74,231 total registered voters, Tier 1)
 
-```figure
-id: fig-3-3-paths
-```
+*   **Central Ward:** 14,525 voters
+*   **Nguni Ward:** 13,165 voters
+*   **Nuu Ward:** 12,729 voters
+*   **Kivou Ward:** 12,301 voters
+*   **Mui Ward:** 11,039 voters
+*   **Waita Ward:** 10,472 voters
 
-```textversion
-#### Path A: The Northern Mwingi Triad (The "Mwingi Bloc")
-*   **Constituency Composition:** Mwingi Central (74,231) + Mwingi North (68,829) + Mwingi West (57,138).
-*   **Total Registered Voters:** **200,198 voters** across **15 wards** (**37.58%** of county total).
-*   **Mathematical Proof:**
-    *   `Total (Mwingi) = 74,231 + 68,829 + 57,138 = 200,198 registered voters`
-    *   `Ballots at 61.7% turnout = 200,198 × 0.617 = 123,522`
-    *   `Against the benchmark = 123,522 − 200,000 = −76,478 votes, even at 100% of ballots`
-*   **Turnout Reality:** Even an unprecedented 80% share of those ballots (98,818 votes) leaves the campaign **101,182 votes short** of 200,000.
-*   **Strategic Implication:** The Mwingi bloc is the largest single reservoir of votes in the county and the campaign cannot win without a decisive margin in it — but it cannot win on it alone either. Mwingi is the necessary foundation, paired with Kitui South and the home belt.
+#### 4. Kitui West Constituency (59,047 total registered voters, Tier 1)
 
-#### Path B: The Central-South-West Urban/Rural Axis
-*   **Constituency Composition:** Kitui Central (77,764) + Kitui South (75,372) + Kitui West (59,047).
-*   **Total Registered Voters:** **212,183 voters** across **15 wards** (**39.83%** of county total).
-*   **Mathematical Proof:**
-    *   `Total (Central-South-West) = 77,764 + 75,372 + 59,047 = 212,183 registered voters`
-    *   `Ballots at 61.7% turnout = 212,183 × 0.617 = 130,917`
-    *   `Against the benchmark = 130,917 − 200,000 = −69,083 votes, even at 100% of ballots`
-*   **Strategic Implication:** Combining the candidate's home base (Kitui Central) with the county's largest southern constituency (Kitui South) and the peri-urban west (Kitui West) forms a contiguous southern/central coalition with more *registered voters* than the benchmark, but its ballots fall **69,083 short** of 200,000 even if every one of them were his. It is the largest route, and it still needs Mwingi.
+*   **Mutonguni Ward:** 17,979 voters
+*   **Kauwi Ward:** 15,767 voters
+*   **Matinyani Ward:** 14,279 voters
+*   **Kwa Mutonga/Kithumula Ward:** 11,022 voters
 
-#### Path C: The "Top 12 Megawards" Coalition
-*   **Ward Composition (12 Wards):** Kyuso (19,921) + Township (19,538) + Kwa Vonza/Yatta (18,020) + Mutonguni (17,979) + Tseikuru (16,471) + Kyangwithya West (15,931) + Mumoni (15,877) + Athi (15,843) + Kauwi (15,767) + Kyangwithya East (15,401) + Ikanga/Kyatune (15,384) + Mulango (15,135).
-*   **Total Registered Voters:** **201,267 voters** across **12 wards** (**37.78%** of county total).
-*   **Mathematical Proof:**
-    *   `∑ (12 Wards) = 19,921 + 19,538 + 18,020 + … + 15,135 = 201,267 registered voters`
-    *   `Ballots at 61.7% turnout = 201,267 × 0.617 = 124,182`
-    *   `Against the benchmark = 124,182 − 200,000 = −75,818 votes, even at 100% of ballots`
-*   **Strategic Implication:** The campaign does not need to contest all 40 wards with equal intensity. Concentrated effort across these 12 high-yield wards reaches 201,267 registered voters, which is where the margin is cheapest to build.
+#### 5. Kitui Rural Constituency (55,000 total registered voters, Tier 1)
 
-#### Path D: The Home-Belt Ceiling (the trap)
-*   **Constituency Composition:** Kitui Central (77,764) + Kitui West (59,047) + Kitui Rural (55,000).
-*   **Total Registered Voters:** **191,811 voters** across **13 wards** (**36.00%** of county total).
-*   **Mathematical Proof:**
-    *   `Total (Home-Belt) = 77,764 + 59,047 + 55,000 = 191,811 registered voters`
-    *   `Ballots at 61.7% turnout = 191,811 × 0.617 = 118,347`
-    *   `Against the benchmark = 118,347 − 200,000 = −81,653 votes, even at 100% of ballots`
-*   **Turnout Reality:** These 191,811 registered voters cast only **118,347 ballots**. Even if Dr. Mulu captured an unprecedented 80% of all votes cast across this entire home belt (94,678 votes), he would still fall **105,322 votes short** of the 200,000 victory threshold.
-*   **Strategic Conclusion:** **A home-constituency strategy cannot reach the number.** Dr. Mulu cannot win by maximising margins in Kitui Central, Kitui West and Kitui Rural alone. Expansion into Mwingi and Kitui South is an arithmetic necessity, not a choice.
-```
+*   **Kwa Vonza/Yatta Ward:** 18,020 voters
+*   **Kisasi Ward:** 13,840 voters
+*   **Mbitini Ward:** 12,048 voters
+*   **Kanyangi Ward:** 11,092 voters
 
-**What it means for the campaign.** The margin is built in Mwingi and Kitui South, where Dr. Mulu has never held office (Section 6.2), and the home belt is held, not relied on.
+#### 6. Kitui Central Constituency (77,764 total registered voters, Tier 1)
+
+*   **Township Ward:** 19,538 voters
+*   **Kyangwithya West Ward:** 15,931 voters
+*   **Kyangwithya East Ward:** 15,401 voters
+*   **Mulango Ward:** 15,135 voters
+*   **Miambani Ward:** 11,759 voters
+
+#### 7. Kitui East Constituency (65,377 total registered voters, Tier 1)
+
+*   **Zombe/Mwitika Ward:** 13,152 voters
+*   **Chuluni Ward:** 12,622 voters
+*   **Nzambani Ward:** 11,723 voters
+*   **Voo/Kyamatu Ward:** 10,003 voters
+*   **Mutito/Kaliku Ward:** 9,980 voters
+*   **Endau/Malalani Ward:** 7,897 voters
+
+#### 8. Kitui South Constituency (75,372 total registered voters, Tier 1)
+
+*   **Athi Ward:** 15,843 voters
+*   **Ikanga/Kyatune Ward:** 15,384 voters
+*   **Mutomo Ward:** 12,637 voters
+*   **Ikutha Ward:** 12,066 voters
+*   **Mutha Ward:** 11,039 voters
+*   **Kanziko Ward:** 8,403 voters

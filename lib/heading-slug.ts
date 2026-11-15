@@ -28,65 +28,60 @@ export function headingSlug(text: string): string | null {
   return num.replace(/\./g, "-").toLowerCase();
 }
 
-// The proposal's parts, in reading order: the November 2026 restructure
-// (docs/restructure-2026-11/reorganisation-map.md), re-sequenced by the table-of-contents pass
-// (docs/toc-2026-11/RESTRUCTURED-TOC.md). Seven parts argue the case; the evidence shelf follows the
-// decision, and the working platform (playbooks, runbooks, technology) comes last, after the
-// argument, for the team that runs the campaign.
+// The chapters, in reading order: the flow pass (November 2026, docs/flow-2026-11/FLOW-PLAN.md).
+// One continuous story: the Welcome (part 0, no act opener), then Data, Analysis, Objectives,
+// Strategies and Implementation, then the evidence shelf (part 6). `part` groups chapters by stage
+// and must match PARTS and lib/flow.ts FLOW_ACTS.
 //
-// Six Parts, following the campaign-planning sequence: research, then the contest, then the
-// strategy the evidence justifies, then delivery, then proof and protection, then the decision.
-// One route per chapter, so a chapter is a unit of argument and a link target. The consolidation
-// pass (November 2026) folded the four workstream routes into one, "The workstreams", with four
-// tabs, and merged commitments, the team, coalitions, the ward register and the glossary into the
-// chapters that now hold them.
+// One route per chapter, so a chapter is a unit of the story and a link target. `number` feeds the
+// in-prose "Section N" references (components/markdown/SectionNumberMap.tsx) and is never shown.
 //
 // Labels are the navigation, so they are sized for the narrowest place they appear. Blurbs are the
 // question or contents each chapter answers.
 export const SECTIONS = [
   { id: "welcome", part: 0, number: "", label: "A welcome from Firefly", blurb: "What Firefly built for the campaign, what is inside, and how to start" },
-  { id: "cover", part: 0, number: "", label: "Who this is for", blurb: "Prepared for Dr. Makali Mulu by Firefly Management, and on what terms" },
+  { id: "platform", part: 0, number: "", label: "The platform in one view", blurb: "Who sees what, who edits what, and what Firefly runs" },
   { id: "brief", part: 0, number: "", label: "The case on one screen", blurb: "The gap, why it can close, and what Firefly offers" },
   { id: "kitui", part: 1, number: "1", label: "The county in numbers", blurb: "Who lives in Kitui, on what land, and how it is run" },
   { id: "needs", part: 1, number: "3", label: "What voters need", blurb: "Water first, then food, health, roads, jobs, prices and public money" },
   { id: "news", part: 1, number: "4", label: "How voters get news", blurb: "Most of Kitui is offline, so phone, radio and people carry the race" },
-  { id: "votes", part: 1, number: "2", label: "How Kitui voted", blurb: "The register, the results since 2013, and the number it takes" },
-  { id: "record", part: 2, number: "6", label: "His record and reach", blurb: "A documented record, known mainly in Kitui Central" },
+  { id: "votes", part: 1, number: "2", label: "How Kitui voted", blurb: "The register and the results since 2013" },
+  { id: "record", part: 1, number: "6", label: "His public record", blurb: "What he has done, and where he publishes" },
+  { id: "winning", part: 2, number: "", label: "The number it takes", blurb: "The benchmark vote count, and where it can come from" },
+  { id: "known", part: 2, number: "", label: "Where he is known, and where not", blurb: "Known in Kitui Central, not yet beyond it" },
+  { id: "spend", part: 2, number: "", label: "Where county money goes", blurb: "County spending against need, ward by ward" },
   { id: "diagnosis", part: 2, number: "7", label: "The diagnosis", blurb: "A recognition gap outside Kitui Central, stated as a hypothesis to test" },
-  { id: "goal", part: 3, number: "8", label: "The goal", blurb: "The Wiper ticket first, then the county, with five objectives" },
-  { id: "position", part: 3, number: "9", label: "The position", blurb: "The Economist Governor, who can show where public money went" },
-  { id: "message", part: 3, number: "10", label: "The message", blurb: "One claim, three pillars, six themes, four content types" },
-  { id: "voters", part: 3, number: "11", label: "The voters to win", blurb: "Three universes and six segments, by interest, place and life stage" },
-  { id: "channels", part: 3, number: "12", label: "Channels and language", blurb: "Where the effort goes, on which channel, in which language" },
-  { id: "engagement", part: 4, number: "13", label: "Who does what", blurb: "His team publishes, Firefly runs the platform, one brief a week" },
-  { id: "timeline", part: 4, number: "14", label: "Timeline to August 2027", blurb: "Five phases, dated by the electoral calendar" },
-  { id: "workstreams", part: 4, number: "15", label: "The fourteen workstreams", blurb: "What each produces, who owns it, and how often it reports" },
+  { id: "goal", part: 3, number: "8", label: "The goal and five objectives", blurb: "One general-election target, and five objectives that serve it" },
+  { id: "position", part: 4, number: "9", label: "The position", blurb: "The Economist Governor, who can show where public money went" },
+  { id: "message", part: 4, number: "10", label: "The message", blurb: "One claim, three pillars, six themes, four content types" },
+  { id: "voters", part: 4, number: "11", label: "The voters to win", blurb: "Three universes and six segments, by interest, place and life stage" },
+  { id: "channels", part: 4, number: "12", label: "Channels and language", blurb: "Where the effort goes, on which channel, in which language" },
+  { id: "engagement", part: 5, number: "13", label: "Who does what", blurb: "His team publishes, Firefly runs the platform, one brief a week" },
+  { id: "week", part: 5, number: "", label: "This week", blurb: "The weekly rhythm, a week of publishing, the meetings, and what to do when the plan changes" },
+  { id: "timeline", part: 5, number: "14", label: "Timeline to August 2027", blurb: "Five phases, dated by the electoral calendar" },
+  { id: "workstreams", part: 5, number: "15", label: "The fourteen workstreams", blurb: "What each produces, who owns it, and how often it reports" },
   { id: "success", part: 5, number: "18", label: "Measuring success", blurb: "Votes and recognition count; followers and likes do not" },
   { id: "lawful", part: 5, number: "19", label: "Lawful and ethical", blurb: "A data-protection gate, a published charter and IEBC clearance" },
-  { id: "platform", part: 6, number: "", label: "The platform in one view", blurb: "Who sees what, who edits what, and what Firefly runs" },
-  { id: "receives", part: 6, number: "21", label: "What you get and what you provide", blurb: "Three scope levels, the deliverables, and both sides' commitments" },
-  { id: "ask", part: 6, number: "23", label: "The ask", blurb: "The decision in front of him, and the window that sets the pace" },
-  { id: "annex-evidence", part: 7, number: "A", label: "Evidence and sources", blurb: "The standard every figure meets, where each comes from, and every ward in one table" },
-  { id: "annex-terms", part: 7, number: "G", label: "Fine print", blurb: "Who it is for, how it may be used, and the terms used throughout" },
-  { id: "annex-playbooks", part: 8, number: "C", label: "Platform playbooks", blurb: "One job per platform, its formats, copy samples and volunteers" },
-  { id: "annex-technology", part: 8, number: "E", label: "Technology", blurb: "The reference architecture and the voter-model dictionary" },
+  { id: "receives", part: 5, number: "21", label: "What you get and what you provide", blurb: "Three scope levels, the deliverables, and both sides' commitments" },
+  { id: "ask", part: 5, number: "23", label: "The ask", blurb: "The decision in front of him, and the clock that sets the pace" },
+  { id: "annex-evidence", part: 6, number: "A", label: "Evidence and sources", blurb: "The standard every figure meets, where each comes from, and every ward in one table" },
+  { id: "annex-terms", part: 6, number: "G", label: "Fine print", blurb: "Who it is for, how it may be used, and the terms used throughout" },
+  { id: "annex-technology", part: 6, number: "E", label: "Technology", blurb: "The reference architecture and the voter-model dictionary" },
 ] as const;
 
 
 
 export type TabId = (typeof SECTIONS)[number]["id"];
 
-/** The parts, for navigation that groups each Part's chapters under one choice. */
+/** The stages, for navigation that groups each stage's chapters under one choice. */
 export const PARTS = [
-  { part: 0, label: "The case in brief", blurb: "Who this is for, and the argument on one screen" },
-  { part: 1, label: "Kitui today", blurb: "What is true about the county and its voters?" },
-  { part: 2, label: "His standing", blurb: "Where does Dr. Mulu stand today?" },
-  { part: 3, label: "The strategy", blurb: "What should the campaign do, and why?" },
-  { part: 4, label: "The plan", blurb: "Who does the work, in what order, and how?" },
-  { part: 5, label: "Proof and safeguards", blurb: "How would we know it worked, and that it stayed lawful?" },
-  { part: 6, label: "The decision", blurb: "What is Dr. Mulu being asked to decide?" },
-  { part: 7, label: "The evidence behind it", blurb: "Where does every figure come from, and on what terms?" },
-  { part: 8, label: "The working platform", blurb: "Where the team reads the data, keeps its records and plans the work" },
+  { part: 0, label: "Welcome", blurb: "What Firefly built for the campaign, what is inside, and how to start" },
+  { part: 1, label: "Data", blurb: "What is true about Kitui, its voters and Dr. Mulu?" },
+  { part: 2, label: "Analysis", blurb: "What does the data mean for the race?" },
+  { part: 3, label: "Objectives", blurb: "What must the campaign achieve?" },
+  { part: 4, label: "Strategies", blurb: "How will it achieve it?" },
+  { part: 5, label: "Implementation", blurb: "Who does what, when, and how it is measured" },
+  { part: 6, label: "The evidence behind it", blurb: "Where every figure comes from, and the terms" },
 ] as const;
 
 export type PartId = (typeof PARTS)[number]["part"];

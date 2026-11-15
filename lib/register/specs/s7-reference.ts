@@ -39,7 +39,7 @@ import { LANGUAGES, LANGUAGE_DEPLOYMENT, LANGUAGE_SPLIT } from "../../figures/la
 import { BYPASS_PILLARS } from "../../figures/media.ts";
 import { pageDeep } from "../../reader-text.ts";
 
-const PROPOSAL: SourceRef = { name: "This proposal", tier: null, state: "target" };
+const PROPOSAL: SourceRef = { name: "This plan", tier: null, state: "target" };
 const TIER_CODE = { 1: "T1", 2: "T2", 3: "T3" } as const;
 
 /** The sources a series' points carry, named once each; the proposal itself when it has none. */

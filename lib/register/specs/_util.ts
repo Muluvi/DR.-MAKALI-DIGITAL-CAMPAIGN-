@@ -54,15 +54,22 @@ export function secHref(num: string): string {
     "21": "receives", "22": "receives", "23": "ask",
   };
   const annex: Record<string, string> = {
-    A: "annex-evidence", B: "annex-evidence", C: "annex-playbooks", D: "annex-playbooks", E: "annex-technology",
+    A: "annex-evidence", B: "votes", C: "channels", D: "workstreams", E: "annex-technology",
     G: "annex-terms", H: "annex-terms",
   };
   const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
   // Sections that live outside their number's chapter: living standards and the county's money sit in
-  // What voters need.
-  const located: Record<string, string> = { "1.3": "needs", "1.5": "needs" };
+  // What voters need; the flow pass (November 2026, docs/flow-2026-11) moved the Analysis sections
+  // into chapters of their own. A sub-section follows its section ("6.2.1" lives where "6.2" does).
+  const located: Record<string, string> = {
+    "1.3": "needs", "1.5": "needs",
+    "2.5": "winning", "6.2": "known", "6.3": "known", "6.5": "known", "3.7": "spend",
+    "12.6": "week", "12.7": "week", "13.4": "week", "13.5": "week", "B.1": "votes",
+    "C.1": "channels", "C.2": "message", "D.1": "workstreams",
+  };
   const parts = num.split(".");
-  const tab = located[num] ? located[num] : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
+  const home = located[num] ?? located[parts.slice(0, 2).join(".")];
+  const tab = home ? home : parts[0] === "15" ? workstreams[parts[1] ?? "1"] : chapter[parts[0]] ?? annex[parts[0]];
   if (!tab) throw new Error(`secHref: no route for ${num}`);
   return `/${tab}#${tab}-sec-${parts.join("-").toLowerCase()}`;
 }

@@ -5,13 +5,13 @@
 import { GENERAL_ELECTION_KPIS, NOMINATION_KPIS } from "../../../data/kpis.ts";
 import type { FigureSpec } from "../types.ts";
 import { ELECTION, NOMINATION, TODAY } from "./s1-objectives.ts";
-import { NOMINATION_WINDOW, PHASES, PLANNING_SIGNATURE, inSentence, phaseSpan, phaseTitle, phaseWhen } from "../../phases.ts";
+import { NOMINATION_WINDOW, PHASES, inSentence, phaseSpan, phaseTitle, phaseWhen } from "../../phases.ts";
 import { CountWord, countWord } from "../../count-word.ts";
 
 const ELECTION_TEXT = "10 August 2027";
 import { bar, fmt } from "./_util.ts";
 
-const PROPOSAL = { name: "This proposal, Sections 13.2–17", tier: null, state: "target" as const };
+const PROPOSAL = { name: "This plan, Sections 13.2–17", tier: null, state: "target" as const };
 
 /* ------------------------------------------------------------------ fig-5-1-workstreams */
 
@@ -101,7 +101,7 @@ export const FIG_5_3: FigureSpec = {
           type: "cards",
           columns: 2,
           cards: [
-            { title: "The window", body: "The ninety days before signature, on every channel he runs." },
+            { title: "The window", body: "The ninety days before the go-ahead, on every channel he runs." },
             { title: "What is measured", body: "Reach by ward, engagement on reach, language mix, format mix, cadence." },
           ],
         },
@@ -135,7 +135,7 @@ export const FIG_5_4: FigureSpec = {
       { date: ELECTION, label: "General election", state: "sourced" as const },
     ],
   },
-  notes: [`Same date axis as Figure fig-1-1-timeline. The two phases counted from signature are placed from a ${PLANNING_SIGNATURE.slice(0, 7)} signature, the month this proposal assumes.`],
+  notes: ["Same date axis as Figure fig-1-1-timeline. The two phases counted from the go-ahead are drawn from an assumed start; read them in weeks from the go-ahead, not as dates."],
   columns: [{ key: "phase", label: "Phase" }, { key: "when", label: "When" }],
   rows: [
     ...PHASES.map((p) => ({ cells: { phase: phaseTitle(p), when: phaseWhen(p) }, state: "target" as const })),

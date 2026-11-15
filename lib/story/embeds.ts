@@ -14,33 +14,30 @@ export type PackChart = "voters" | "sectors";
 
 /** The ten working records, each where the work it records is described. */
 export const RECORD_HOMES: Record<string, string[]> = {
-  "needs-sec-3-7": ["projects"],
-  "news-sec-4-4": ["dispatch"],
-  "message-sec-10-4": ["tests"],
-  "channels-sec-12-6": ["calendar"],
-  "engagement-sec-13-4": ["briefs"],
-  "engagement-sec-13-5": ["cadence"],
-  "workstreams-sec-15-1": ["implementation"],
-  "workstreams-sec-15-3": ["field"],
+  "spend-sec-3-7": ["projects"],
+  "week-sec-13-4": ["briefs"],
+  "week-sec-12-6": ["calendar"],
+  "week-sec-13-5": ["cadence"],
+  "workstreams-sec-15-1": ["implementation", "tests"],
+  "workstreams-sec-15-3": ["field", "dispatch"],
   "success-sec-18-2": ["kpi-actuals"],
   "success-sec-18-5": ["channel-audit"],
 };
 
 /** The seven team charts. */
 export const CHART_HOMES: Record<string, string[]> = {
-  "news-sec-4-4": ["offline"],
-  "record-sec-6-5": ["reach"],
+  "known-sec-6-5": ["reach"],
   "diagnosis-sec-7-2": ["sentiment"],
-  "channels-sec-12-6": ["calendar"],
+  "week-sec-12-6": ["calendar"],
   "workstreams-sec-15-1": ["implementation"],
-  "workstreams-sec-15-3": ["field"],
+  "workstreams-sec-15-3": ["field", "offline"],
   "success-sec-18-2": ["kpis"],
 };
 
 /** The two data-pack charts from the dashboards page. */
 export const PACK_HOMES: Record<string, PackChart[]> = {
   "votes-sec-2-4": ["voters"],
-  "needs-sec-3-7": ["sectors"],
+  "spend-sec-3-7": ["sectors"],
 };
 
 /** The visuals for the chapters that were mostly text (components/story/Visuals.tsx). */
@@ -58,8 +55,8 @@ export const VISUAL_HOMES: Record<string, StoryVisual[]> = {
 /** The next Gazette deadline, counted down. */
 export const COUNTDOWN_HOMES = ["goal-sec-8-1", "timeline-sec-14-1"];
 
-/** The change history, the data editor and the explorer. */
-export const FEED_HOME = "annex-evidence-sec-a-2";
+/** The change history, the data editor and the explorer: in the Welcome, under What changed (flow pass, WP4). */
+export const FEED_HOME = "welcome-sec-0-1";
 
 export interface Embeds { tools: ToolMeta[]; records: string[]; charts: string[]; pack: PackChart[]; feed: boolean; countdown: boolean; visuals: StoryVisual[] }
 

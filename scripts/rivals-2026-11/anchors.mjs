@@ -48,8 +48,15 @@ const git = (args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8" })
 const base = git(["ls-tree", "--name-only", RIVALS_BASE, "public/content/"])
   .split("\n").filter((f) => f.endsWith(".md"))
   .map((f) => ({ route: path.basename(f, ".md"), ids: idsOf(path.basename(f, ".md"), git(["show", `${RIVALS_BASE}:${f}`])) }));
-const nowDir = path.join(ROOT, "public", "content");
-const live = new Set(fs.readdirSync(nowDir).filter((f) => f.endsWith(".md")).flatMap((f) => idsOf(path.basename(f, ".md"), fs.readFileSync(path.join(nowDir, f), "utf8")).map((x) => x.id)));
+// The headings as the pass left them: public/content at 333afa8 (PR #87), before the flow pass
+// (docs/flow-2026-11) moved sections between chapters. The flow pass's own moves are mapped in
+// lib/anchors/flow-2026-11.json, and scripts/build-anchors.ts follows a target here through them.
+const RIVALS_AFTER = "333afa8";
+const live = new Set(
+  git(["ls-tree", "--name-only", RIVALS_AFTER, "public/content/"])
+    .split("\n").filter((f) => f.endsWith(".md"))
+    .flatMap((f) => idsOf(path.basename(f, ".md"), git(["show", `${RIVALS_AFTER}:${f}`])).map((x) => x.id)),
+);
 
 const moves = {};
 const slugs = {};

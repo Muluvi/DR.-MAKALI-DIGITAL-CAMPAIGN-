@@ -35,7 +35,7 @@ const STATIONS: Src = PUBLIC_SOURCES.stations;
 const SCORECARD: Src = { label: "County Government of Kitui, Delivering the Kitui Promise: Three-Year Scorecard (itemised projects)" };
 const CENSUS: Src = { label: "KNBS, 2019 Kenya Population and Housing Census (by sub-county)" };
 const ICT: Src = { label: "Communications Authority / KNBS, ICT Analytical Report, 2023/24 Kenya Housing Survey" };
-const PROPOSAL: Src = { label: "This proposal: its benchmark, targets and plans" };
+const PROPOSAL: Src = { label: "This plan: its benchmark, targets and plans" };
 const total = TOOL_WARDS.reduce((s, w) => s + w.voters, 0);
 const zoneShare = (z: string) => (TOOL_CONSTITUENCIES.filter((c) => c.zone === z).reduce((s, c) => s + c.voters, 0) / total) * 100;
 const RADIO_SHARE: Record<string, string> = { "Musyi FM": "radio.musyi", "Athiani FM": "radio.athiani", "Mbaitu FM": "radio.mbaitu", "County FM": "radio.county", "KBC Mwatu FM": "radio.mwatu" };
@@ -117,7 +117,7 @@ export const TOOLS: Record<string, Tool> = {
     render: () => <MessageMatrix segments={MESSAGE_BY_SEGMENT} channels={MESSAGE_BY_CHANNEL} />,
     does: "Pairs the site's message-by-segment table with its message-by-channel table, and adds the channel's language rule.",
     doesNot: ["It does not write new claims: every message and proof point is the site's own.", "Claims the playbooks mark as awaiting documents stay unpublished until they are in hand."],
-    sources: [{ label: "This proposal, Platform playbooks: message by segment and by channel" }],
+    sources: [{ label: "This plan, Platform playbooks: message by segment and by channel" }],
   },
   "issue-matcher": {
     title: "Issue-to-Message Matcher", lead: "The strongest-evidence issue to lead with, for each segment.",
@@ -138,7 +138,7 @@ export const TOOLS: Record<string, Tool> = {
     render: () => <ContentCalendar pillars={PILLARS.map((p) => p.title)} types={CONTENT_TYPES.map((c) => ({ code: c.code, short: c.short }))} wards={TOOL_WARDS} />,
     does: "Posts are split across the three pillars by your weights (largest remainder), the four content types rotate, the first posts are Kikamba-first, and two originate in pool wards, largest first.",
     doesNot: ["It plans; it does not publish. The calendar the team works from is in the Workspace."],
-    sources: [{ label: "This proposal, The message: pillars, content types and the weekly brief's rules" }],
+    sources: [{ label: "This plan, The message: pillars, content types and the weekly brief's rules" }],
   },
   "message-studio": {
     title: "Message Studio", lead: "Write a message once and see it on SMS, USSD, WhatsApp and radio.",
@@ -226,7 +226,7 @@ export const TOOLS: Record<string, Tool> = {
     render: () => <UssdBuilder header={USSD_HEADER} menu={USSD_MENU.map((o) => ({ key: o.key, kikamba: o.kikamba ?? "", english: o.english, does: o.does }))} />,
     does: "Starts from the site's USSD menu, lets you edit it, previews it on a handset screen with a 182-character count, and exports it as JSON.",
     doesNot: ["It does not connect to a shortcode or a network.", "Kikamba wording still needs the Kikamba reviewer."],
-    sources: [{ label: "This proposal, the USSD menu specimen" }],
+    sources: [{ label: "This plan, the USSD menu specimen" }],
   },
   compliance: {
     title: "Language and Compliance", lead: "Check a bulk SMS against the sending rules before it goes for approval.",
@@ -240,7 +240,7 @@ export const TOOLS: Record<string, Tool> = {
     render: () => <KpiLadder kpis={[...NOMINATION_KPIS.map((k) => ({ ...k, scorecard: "Nomination" })), ...GENERAL_ELECTION_KPIS.map((k) => ({ ...k, scorecard: "General election" }))].map((k) => ({ code: k.code, title: k.title, target: k.target, targetValue: k.targetValue, unit: k.unit, owner: k.owner, cadence: k.cadence, scorecard: k.scorecard }))} />,
     does: "Compares the value you enter with each indicator's numeric target.",
     doesNot: ["Readings typed here are not saved; the KPI tracker in the Workspace keeps the record.", "Indicators whose target depends on the Week 1 baseline cannot be scored yet."],
-    sources: [{ label: "This proposal, Measuring success: the scorecards" }],
+    sources: [{ label: "This plan, Measuring success: the scorecards" }],
   },
   "polling-stations": {
     title: "Polling Station Explorer", lead: "Search every 2022 polling station in Kitui.",

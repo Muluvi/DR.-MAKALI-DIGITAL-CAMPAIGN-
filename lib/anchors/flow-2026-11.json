@@ -1,0 +1,18 @@
+{
+ "$comment": "The flow pass (docs/flow-2026-11): every heading id live at 333afa8 that moved chapter, mapped to the heading that now holds its text.",
+ "moves": {
+  "votes-sec-2-5": "winning-sec-2-5",
+  "record-sec-6-2": "known-sec-6-2",
+  "record-sec-6-3": "known-sec-6-3",
+  "record-sec-6-5": "known-sec-6-5",
+  "needs-sec-3-7": "spend-sec-3-7",
+  "engagement-sec-13-4": "week-sec-13-4",
+  "engagement-sec-13-5": "week-sec-13-5",
+  "channels-sec-12-6": "week-sec-12-6",
+  "channels-sec-12-7": "week-sec-12-7",
+  "annex-evidence-sec-b-1": "votes-sec-b-1",
+  "annex-playbooks-sec-c-1": "channels-sec-c-1",
+  "annex-playbooks-sec-c-2": "message-sec-c-2",
+  "annex-playbooks-sec-d-1": "workstreams-sec-d-1"
+ }
+}

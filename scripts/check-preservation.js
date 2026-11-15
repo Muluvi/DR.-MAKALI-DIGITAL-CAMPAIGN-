@@ -159,6 +159,10 @@ async function main() {
   const { isRetiredFile } = await import(pathToFileURL(path.join(ROOT, "scripts", "rivals-2026-11", "retired.mjs")).href);
   const dropsFile = path.join(ROOT, "docs", "rivals-2026-11", "count-drops.json");
   const drops = new Map((fs.existsSync(dropsFile) ? JSON.parse(fs.readFileSync(dropsFile, "utf8")).drops : []).map((d) => [`${d.file}|${d.key}`, d]));
+  // The flow pass (docs/flow-2026-11) removed one developer test page; it is listed, with why, in
+  // its removed-files.json, and reported as retired. A file not listed there still fails.
+  const flowRemovedFile = path.join(ROOT, "docs", "flow-2026-11", "removed-files.json");
+  const flowRemoved = new Map((fs.existsSync(flowRemovedFile) ? JSON.parse(fs.readFileSync(flowRemovedFile, "utf8")).files : []).map((f) => [f.path, f.why]));
   const retired = [];
   const failures = [];
   const changed = [];
@@ -170,7 +174,7 @@ async function main() {
   let skipped = 0;
   for (const [f, h] of Object.entries(base.files)) {
     if (notUploaded.some((p) => f.startsWith(p))) { skipped++; continue; }
-    if (!fs.existsSync(path.join(ROOT, f))) (isRetiredFile(f) ? retired.push(`removed: ${f}`) : failures.push(`missing: ${f}`));
+    if (!fs.existsSync(path.join(ROOT, f))) (isRetiredFile(f) ? retired.push(`removed: ${f}`) : flowRemoved.has(f) ? retired.push(`removed by the flow pass: ${f} (${flowRemoved.get(f)})`) : failures.push(`missing: ${f}`));
     else if (sha(f) !== h) changed.push(f);
   }
   // A chapter may hand a whole section to another chapter by a logged move (scripts/consolidation/
@@ -179,8 +183,10 @@ async function main() {
   // a logged move out AND the total of that count across every chapter is still at or above the
   // baseline, so content can move between chapters but never leave the site.
   const moveLedger = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+  // The flow pass (docs/flow-2026-11/ledger.json) logs its moves between chapters the same way.
+  const flowLedger = path.join(ROOT, "docs", "flow-2026-11", "ledger.json");
   const movedOut = new Set(
-    (fs.existsSync(moveLedger) ? JSON.parse(fs.readFileSync(moveLedger, "utf8")) : [])
+    [moveLedger, flowLedger].flatMap((f) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : []))
       .filter((e) => e.kind === "moved" && e.to && e.to.split(":")[0] !== e.file)
       .map((e) => `content/${e.file}.md`)
   );
@@ -203,7 +209,26 @@ async function main() {
   } catch {
     /* no history (a shallow checkout): the moves are weighed against today's totals, as before */
   }
-  const movesTotal = (k) => Math.max(contentTotal(now.counts, k), contentTotal(rivalsBaseCounts, k));
+  // A shallow checkout (Vercel clones without history) cannot read RIVALS_BASE, so the totals it
+  // gives are also committed in docs/rivals-2026-11/base-totals.json. Where history is available the
+  // two must agree; where it is not, the file stands in for it.
+  const TOTALS_FILE = path.join(ROOT, "docs", "rivals-2026-11", "base-totals.json");
+  const KEYS = ["headings", "workstreams", "figureFences", "visualFences", "leadFences", "textversionFences", "tableRows"];
+  const haveHistory = Object.keys(rivalsBaseCounts).length > 0;
+  const fromHistory = Object.fromEntries(KEYS.map((k) => [k, contentTotal(rivalsBaseCounts, k)]));
+  if (process.argv.includes("--write-base-totals")) {
+    if (!haveHistory) { console.error("check-preservation: --write-base-totals needs the git history of " + RIVALS_BASE); process.exit(1); }
+    fs.writeFileSync(TOTALS_FILE, JSON.stringify({ $comment: `Content counts summed over every chapter at ${RIVALS_BASE} (the rivals pass's base), for checkouts without history. Written by scripts/check-preservation.js --write-base-totals.`, base: RIVALS_BASE, totals: fromHistory }, null, 2) + "\n");
+    console.log(`check-preservation: wrote ${path.relative(ROOT, TOTALS_FILE)}`);
+    return;
+  }
+  const committed = fs.existsSync(TOTALS_FILE) ? JSON.parse(fs.readFileSync(TOTALS_FILE, "utf8")).totals : null;
+  if (haveHistory && committed && KEYS.some((k) => committed[k] !== fromHistory[k])) {
+    console.error(`check-preservation: FAILED\n   ${path.relative(ROOT, TOTALS_FILE)} disagrees with ${RIVALS_BASE}; run with --write-base-totals`);
+    process.exit(1);
+  }
+  const baseTotal = (k) => (haveHistory ? fromHistory[k] : committed?.[k] ?? 0);
+  const movesTotal = (k) => Math.max(contentTotal(now.counts, k), baseTotal(k));
   const moves = [];
   for (const [f, set] of Object.entries(base.counts)) {
     const cur = now.counts[f];
@@ -221,7 +246,7 @@ async function main() {
     }
   }
   if (retired.length) {
-    console.log(`check-preservation: ${retired.length} item(s) retired by the rivals pass (docs/rivals-2026-11):`);
+    console.log(`check-preservation: ${retired.length} item(s) retired by the rivals pass (docs/rivals-2026-11) or the flow pass (docs/flow-2026-11):`);
     for (const r of retired) console.log(`   ${r}`);
   }
   if (moves.length) {

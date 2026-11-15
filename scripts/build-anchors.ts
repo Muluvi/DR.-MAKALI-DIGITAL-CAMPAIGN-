@@ -92,8 +92,21 @@ const rivalsFile = path.join(ROOT, "lib", "anchors", "rivals-2026-11.json");
 const rivals = fs.existsSync(rivalsFile)
   ? (JSON.parse(fs.readFileSync(rivalsFile, "utf8")) as { moves: Record<string, string> }).moves
   : {};
+// The flow pass (docs/flow-2026-11) moved sections into the six-stage story: an id whose heading it
+// moved lands where lib/anchors/flow-2026-11.json says, and each entry must land exactly there.
+const flowFile = path.join(ROOT, "lib", "anchors", "flow-2026-11.json");
+const flow = fs.existsSync(flowFile)
+  ? (JSON.parse(fs.readFileSync(flowFile, "utf8")) as { moves: Record<string, string> }).moves
+  : {};
 /** A target the rivals pass removed, followed to where it now lands. */
-const land = (id: string): string => (live.has(id) ? id : rivals[id] ?? id);
+const land = (id: string): string => {
+  if (live.has(id)) return id;
+  if (flow[id]) return flow[id];
+  const r = rivals[id];
+  if (!r) return id;
+  // A rivals target the flow pass then moved lands where the flow pass sent it.
+  return live.has(r) ? r : flow[r] ?? r;
+};
 /** Where an id lives today: itself if live, else where the consolidation pass moved it. */
 const today = (id: string): string => land(live.has(id) ? id : consolidation[id] ?? id);
 
@@ -116,7 +129,7 @@ function resolve(start: string): string | null {
   while (!seen.has(id)) {
     if (live.has(id)) return id;
     seen.add(id);
-    const next = rivals[id] ?? consolidation[id] ?? november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
+    const next = flow[id] ?? rivals[id] ?? consolidation[id] ?? november[id] ?? restructure[id] ?? moves[id] ?? pre.edges[id];
     if (next) { id = next; continue; }
     const parent = climb(id);
     if (parent) return parent;
@@ -133,7 +146,7 @@ function resolve(start: string): string | null {
 
 const redirects: Record<string, string> = {};
 const orphans: string[] = [];
-const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november), ...Object.keys(consolidation), ...Object.keys(rivals)]);
+const everyOld = new Set([...pre.ids, ...Object.keys(pre.edges), ...Object.keys(moves), ...Object.keys(restructure), ...Object.keys(november), ...Object.keys(consolidation), ...Object.keys(rivals), ...Object.keys(flow)]);
 for (const id of [...everyOld].sort()) {
   if (live.has(id)) continue;
   const target = resolve(id);
@@ -155,7 +168,12 @@ const body =
 // The October moves now land through the November ones: an October target that the November
 // restructure moved is expected where November sends it.
 const misdirected: string[] = [];
-for (const [id, target] of Object.entries(consolidation)) {
+for (const [id, target] of Object.entries(flow)) {
+  if (!live.has(target)) misdirected.push(`${id} -> ${target} (flow target is not a live heading)`);
+  else if (!live.has(id) && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
+}
+for (const [id, moved] of Object.entries(consolidation)) {
+  const target = land(moved);
   if (!live.has(target)) misdirected.push(`${id} -> ${target} (consolidation target is not a live heading)`);
   else if (!live.has(id) && redirects[id] !== target) misdirected.push(`${id} -> ${redirects[id]} (expected ${target})`);
 }

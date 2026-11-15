@@ -16,7 +16,8 @@ import {
 import mirrors from "@/lib/story/mirrors.generated.json";
 import { FIGURES } from "@/lib/data/figures";
 import { formatFigure } from "@/lib/data/format";
-import { NOMINATION_WINDOW, PHASES, PLANNING_SIGNATURE, ELECTION_DAY } from "@/lib/phases";
+import { PHASES, PLANNING_SIGNATURE, ELECTION_DAY } from "@/lib/phases";
+import { RACE_CALENDAR } from "@/lib/public-data";
 import { TOOL_META } from "@/lib/tools/meta";
 import { COLLECTIONS } from "@/lib/platform/collections";
 import { SECTIONS } from "@/lib/heading-slug";
@@ -71,7 +72,7 @@ function Shell({ kicker, title, icon: Icon, children, tone = "accent", className
 const PROOF: { step: string; text: string; to: string; where: string }[] = [
   { step: "The premise", text: "Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.", to: "position-sec-9-1", where: "9.1" },
   { step: "What makes it his", text: "A specialist in verifying whether public expenditure delivers what it promised.", to: "record-sec-6-1", where: "6.1" },
-  { step: "The gap it answers", text: "Unconfirmed balances, pending bills and low development absorption, in the county's own audit record.", to: "needs-sec-3-7", where: "3.7" },
+  { step: "The gap it answers", text: "Unconfirmed balances, pending bills and low development absorption, in the county's own audit record.", to: "spend-sec-3-7", where: "3.7" },
   { step: "Made visible every day", text: "A public service-delivery tracker: a line on a CV becomes a daily, public demonstration of accountability.", to: "workstreams-sec-15-1-1", where: "15.1.1" },
 ];
 
@@ -145,36 +146,40 @@ const WHATSAPP = mirrors.contact.intl;
 
 export function AskWindow() {
   const today = useToday();
-  const start = t(NOMINATION_WINDOW.date), end = t(NOMINATION_WINDOW.end);
-  const now = today ? t(today) : null;
-  const span = Math.round((end - start) / DAY);
-  const state = now === null ? null : now < start ? "before" : now > end ? "after" : "open";
-  const at = now === null ? 0 : Math.min(1, Math.max(0, (now - start) / (end - start)));
-  const left = now === null ? 0 : Math.round((end - now) / DAY);
-  const toOpen = now === null ? 0 : Math.round((start - now) / DAY);
+  // The clock that sets the pace (Firefly's decision Q5): the next IEBC Gazette deadline and election
+  // day, from the same deadline data the Governor Race Calendar reads, counted from today in Nairobi.
+  const upcoming = today ? RACE_CALENDAR.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date)) : [];
+  const next = upcoming.find((e) => e.date !== ELECTION_DAY) ?? upcoming[0];
+  const daysTo = (iso: string) => (today ? Math.round((t(iso) - t(today)) / DAY) : 0);
+  const toElection = today ? daysTo(ELECTION_DAY) : null;
+  // How far the reader is along the road from the first Gazette deadline to election day.
+  const first = RACE_CALENDAR.map((e) => e.date).sort()[0];
+  const at = today && first ? Math.min(1, Math.max(0, (t(today) - t(first)) / (t(ELECTION_DAY) - t(first)))) : 0;
   const [ref, inView] = useReveal<HTMLElement>();
   return (
-    <section ref={ref} className="sx-ask" data-in={inView ? "true" : "false"} aria-label="The window and the decision">
+    <section ref={ref} className="sx-ask" data-in={inView ? "true" : "false"} aria-label="The clock and the decision">
       <div className="sx-ask__window">
-        <p className="sx-vis__kicker">The window that sets the pace · {NOMINATION_WINDOW.label}</p>
+        <p className="sx-vis__kicker">The clock that sets the pace · IEBC Gazette deadlines</p>
         <p className="sx-ask__big">
-          {state === "open" && <><b>{left}</b> {left === 1 ? "day" : "days"} left in the reported window</>}
-          {state === "before" && <><b>{toOpen}</b> days until the reported window opens</>}
-          {state === "after" && <>The reported window closed on {longDate(NOMINATION_WINDOW.end)}</>}
-          {state === null && <>{NOMINATION_WINDOW.whenText}</>}
+          {next && today ? (
+            <><b>{daysTo(next.date)}</b> {daysTo(next.date) === 1 ? "day" : "days"} to the next Gazette deadline</>
+          ) : (
+            <>Election day, {longDate(ELECTION_DAY)}</>
+          )}
         </p>
+        {next && today && <p className="sx-muted">{next.event} · {longDate(next.date)}</p>}
         <div className="sx-ask__track" aria-hidden="true">
           <span className="sx-ask__fill" style={{ "--at": at } as React.CSSProperties} />
-          {state === "open" && <span className="sx-ask__now" style={{ "--at": at } as React.CSSProperties}><i />Today</span>}
+          {today && <span className="sx-ask__now" style={{ "--at": at } as React.CSSProperties}><i />Today</span>}
         </div>
-        <p className="sx-ask__ends"><span>{longDate(NOMINATION_WINDOW.date)}</span><span>{span} days</span><span>{longDate(NOMINATION_WINDOW.end)}</span></p>
-        <p className="sx-vis__foot"><span className="wchip__t">Unconfirmed</span> {NOMINATION_WINDOW.source}.</p>
+        <p className="sx-ask__ends">{first && <span>{longDate(first)}</span>}<span>{toElection !== null && toElection > 0 ? `${toElection} days to election day` : ""}</span><span>{longDate(ELECTION_DAY)}</span></p>
+        {next && <p className="sx-vis__foot">{next.source}.</p>}
       </div>
       <div className="sx-ask__decision">
         <p className="sx-vis__kicker"><ShieldCheck size={13} aria-hidden="true" /> One decision</p>
-        <p className="sx-ask__claim">Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.</p>
+        <p className="sx-ask__claim">The platform is built. One decision puts it to work: choose the scope, and his team runs the campaign through it.</p>
         <ol className="sx-ask__steps">
-          <li style={{ "--i": 0 } as React.CSSProperties}><button type="button" onClick={() => jumpTo("receives-sec-21-1")}><span><b>Approve the platform</b> at the recommended Standard level</span> <ArrowRight size={13} aria-hidden="true" /></button></li>
+          <li style={{ "--i": 0 } as React.CSSProperties}><button type="button" onClick={() => jumpTo("receives-sec-21-1")}><span><b>Choose the scope:</b> Firefly recommends the Standard level</span> <ArrowRight size={13} aria-hidden="true" /></button></li>
           <li style={{ "--i": 1 } as React.CSSProperties}><button type="button" onClick={() => jumpTo("timeline-sec-14-1")}><span><b>His team enters its own ninety-day export</b></span> <ArrowRight size={13} aria-hidden="true" /></button></li>
           <li style={{ "--i": 2 } as React.CSSProperties}><button type="button" onClick={() => jumpTo("timeline-sec-14-1")}><span><b>Everything after that is evidence</b> for the team to act on</span> <ArrowRight size={13} aria-hidden="true" /></button></li>
         </ol>
@@ -346,25 +351,26 @@ export function PhaseNow() {
   const [ref, inView] = useReveal<HTMLElement>();
   if (!today) return null;
   const sig = t(PLANNING_SIGNATURE), now = t(today), end = t(ELECTION_DAY);
-  const week = Math.floor((now - sig) / (7 * DAY)) + 1;
   const range = (p: (typeof PHASES)[number]) => p.dates ? [t(p.dates.start), t(p.dates.end)] : [sig + (p.weeks!.from - 1) * 7 * DAY, sig + p.weeks!.to * 7 * DAY];
-  const live = PHASES.filter((p) => { const [a, b] = range(p); return now >= a && now <= b; });
+  // A phase counted from the go-ahead has no known dates until the go-ahead is given, so only the
+  // phases the electoral calendar dates can be live or done (Firefly's decision Q5).
+  const live = PHASES.filter((p) => { if (!p.dates) return false; const [a, b] = range(p); return now >= a && now <= b; });
   const at = Math.min(1, Math.max(0, (now - sig) / (end - sig)));
   const days = Math.round((end - now) / DAY);
   return (
     <section ref={ref} className="sx-now" data-in={inView ? "true" : "false"} aria-label="Where the campaign is today">
       <p className="sx-vis__kicker"><Compass size={13} aria-hidden="true" /> You are here · {longDate(today)}</p>
-      <p className="sx-now__big">{live.length ? live.map((p) => p.label).join(" and ") : week < 1 ? "Before the plan starts" : "Between phases"}</p>
-      <p className="sx-muted">Week {Math.max(week, 0)} counted from the planning date, {longDate(PLANNING_SIGNATURE)} · {days} days to election day</p>
+      <p className="sx-now__big">{live.length ? live.map((p) => p.label).join(" and ") : "Between phases"}</p>
+      <p className="sx-muted">{days} days to election day · the first two phases count in weeks from the go-ahead</p>
       <div className="sx-now__rail" aria-hidden="true">
         {PHASES.map((p) => {
           const [a, b] = range(p);
-          return <span key={p.id} className="sx-now__seg" data-live={live.includes(p) ? "true" : "false"} data-done={b < now ? "true" : "false"} data-row={p.weeks ? "weeks" : "dates"} style={{ "--a": (a - sig) / (end - sig), "--b": (b - sig) / (end - sig), background: `var(${p.colorVar}, var(--accent))` } as React.CSSProperties} title={p.label} />;
+          return <span key={p.id} className="sx-now__seg" data-live={live.includes(p) ? "true" : "false"} data-done={p.dates && b < now ? "true" : "false"} data-row={p.weeks ? "weeks" : "dates"} style={{ "--a": (a - sig) / (end - sig), "--b": (b - sig) / (end - sig), background: `var(${p.colorVar}, var(--accent))` } as React.CSSProperties} title={p.label} />;
         })}
         <span className="sx-now__pin" style={{ "--at": at } as React.CSSProperties}><i /></span>
       </div>
       <ul className="sx-now__legend">
-        {PHASES.map((p) => { const [, b] = range(p); return <li key={p.id} data-live={live.includes(p) ? "true" : "false"} data-done={b < now ? "true" : "false"}><i style={{ background: `var(${p.colorVar}, var(--accent))` }} />{p.label}<small>{p.window.split(" · ")[0]}</small>{b < now && <Check size={12} aria-label="done" />}</li>; })}
+        {PHASES.map((p) => { const [, b] = range(p); return <li key={p.id} data-live={live.includes(p) ? "true" : "false"} data-done={p.dates && b < now ? "true" : "false"}><i style={{ background: `var(${p.colorVar}, var(--accent))` }} />{p.label}<small>{p.window.split(" · ")[0]}</small>{p.dates && b < now && <Check size={12} aria-label="done" />}</li>; })}
       </ul>
     </section>
   );
@@ -372,8 +378,12 @@ export function PhaseNow() {
 
 /* ------------------------------------------------------------------ the fourteen workstreams, at a glance */
 
+/**
+ * The way into the chapter (flow pass, WP10): open from the start, each card jumps to its
+ * workstream's heading, and every workstream's full text stays behind its own fold.
+ */
 export function WorkstreamMap() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <section className="sx-wsmap print:hidden" aria-label="The fourteen workstreams">
       <button type="button" className="sx-wsmap__toggle" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
@@ -405,10 +415,10 @@ const CHAPTER_LABEL: Record<string, string> = Object.fromEntries(SECTIONS.map((s
 const chapterOf = (home: string) => home.split("-sec-")[0];
 type Job = { id: string; label: string; icon: typeof Check; chapters?: string[]; group?: string; extra?: { label: string; to: string }[] };
 const JOBS: Job[] = [
-  { id: "analyse", label: "Analyse", icon: BarChart3, chapters: ["kitui", "needs", "news", "votes", "annex-evidence"] },
+  { id: "analyse", label: "Analyse", icon: BarChart3, chapters: ["kitui", "needs", "news", "votes", "winning", "known", "spend", "annex-evidence"] },
   { id: "decide", label: "Decide", icon: Compass, chapters: ["diagnosis", "goal", "message", "voters", "channels"] },
   { id: "direct", label: "Direct the team", icon: Users, group: "Direct the team" },
-  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["lawful", "annex-playbooks", "annex-technology"] },
+  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["week", "lawful", "annex-technology"] },
   { id: "measure", label: "Measure", icon: Gauge, group: "Measure", chapters: ["success"] },
   { id: "deliver", label: "Deliver", icon: Wrench, group: "Deliver", chapters: ["timeline", "workstreams"] },
 ];

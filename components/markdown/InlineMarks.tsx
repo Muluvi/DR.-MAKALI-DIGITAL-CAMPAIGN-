@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useContext, useId, useState, type ReactNode } from "react";
-import { NOMINATION_WINDOW } from "../../lib/phases";
+import { useCallback, useContext, useId, useState, useSyncExternalStore, type ReactNode } from "react";
+import { NOMINATION_WINDOW, isPassed } from "../../lib/phases";
 
 import { TIER_META, type Tier } from "../../data/types";
 import { hasHighlight } from "../../lib/highlight-patterns";
@@ -98,9 +98,9 @@ export function ConflictMark({ conflict }: { conflict?: string }) {
     <Chip
       className="ichip--conflict"
       label="Two versions in this document — under review"
-      inertText={`Open item ${conflict}: the proposal states this point two ways`}
+      inertText={`Open item ${conflict}: the plan states this point two ways`}
     >
-      Open item {conflict}: the proposal states this point two ways. Both versions are kept, unchanged,
+      Open item {conflict}: the plan states this point two ways. Both versions are kept, unchanged,
       until the campaign decides between them.
     </Chip>
   );
@@ -170,11 +170,25 @@ export function InlineMarks({ text }: { text: string }) {
   );
 }
 
+const noSubscribe = () => () => {};
+const nairobiToday = () => new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Nairobi" });
+
 /**
  * X7 (brief 2026-10 declutter): the nomination window, said once, as a chip that keeps the
- * timing, the hedge and the tier in view wherever the window is mentioned.
+ * timing, the hedge and the tier in view. Since the flow pass it appears only in the Timeline's
+ * milestone (Securing the ballot line). Once the reported window has ended it reads as passed, by
+ * the rule the Governor Race Calendar uses; the server, which cannot know today, renders it as
+ * reported and the browser settles it (Firefly's decision Q5, docs/flow-2026-11/FLOW-PLAN.md).
  */
 export function WindowChip() {
+  const today = useSyncExternalStore(noSubscribe, nairobiToday, () => null);
+  if (isPassed(NOMINATION_WINDOW.end, today)) {
+    return (
+      <span className="wchip">
+        <span className="wchip__k">Wiper decision:</span> Reported for {NOMINATION_WINDOW.short} · passed
+      </span>
+    );
+  }
   return (
     <span className="wchip">
       <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span>

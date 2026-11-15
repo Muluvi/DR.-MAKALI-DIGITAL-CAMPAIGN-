@@ -2,16 +2,15 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, BookLock, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, Users, FileCog } from "lucide-react";
+import { X, Search, Sun, Moon, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, Users, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
-import { FLOW_ACTS, FLOW_SECTIONS, actOf } from "../lib/flow";
+import { FLOW_ACTS, FLOW_SECTIONS, actOf, isAfterAct } from "../lib/flow";
 import { ACT_PORTRAITS } from "../lib/premium/acts";
 import { Portrait } from "./Portrait";
 import { readingMinutes } from "../hooks/useReadingProgress";
 import type { SectionItem } from "../lib/section-index";
 
 const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: string }>> = {
-  cover: BookLock,
   welcome: Handshake,
   brief: FileText,
   kitui: Database,
@@ -19,6 +18,9 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   needs: ClipboardList,
   news: Radio,
   record: FileText,
+  winning: Gauge,
+  known: Compass,
+  spend: ListChecks,
   diagnosis: Compass,
   goal: Compass,
   position: Compass,
@@ -26,6 +28,7 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   voters: Users,
   channels: Megaphone,
   engagement: Handshake,
+  week: CalendarClock,
   platform: Database,
   timeline: CalendarClock,
   workstreams: Layers,
@@ -34,7 +37,6 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   receives: ListChecks,
   ask: Handshake,
   "annex-evidence": ClipboardList,
-  "annex-playbooks": MessageSquare,
   "annex-technology": FileCog,
   "annex-terms": Shield,
 };
@@ -58,6 +60,10 @@ interface MobileTOCModalProps {
   visited: ReadonlySet<TabId>;
   /** Jump to a top-level section rather than to one of its 262 headings. */
   onSelectTab: (tabId: TabId, during?: () => void) => void;
+  /** Light and dark: the switch lives here, with the chapters and search (flow pass, WP7). */
+  onToggleTheme: () => void;
+  theme: string;
+  themeReady: boolean;
 }
 
 export function MobileTOCModal({
@@ -69,6 +75,9 @@ export function MobileTOCModal({
   wordCounts,
   visited,
   onSelectTab,
+  onToggleTheme,
+  theme,
+  themeReady,
 }: MobileTOCModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
   // Filtering is by PART, not by tab. Nine tabs is more choices than a first filter should
@@ -151,8 +160,8 @@ export function MobileTOCModal({
   if (!isOpen) return null;
 
   const hereAct = actOf(activeTab as TabId).id;
-  /** The six-part argument (the cover spine), in miniature: acts I to VI. */
-  const argument = FLOW_ACTS.slice(0, 6);
+  /** The story's stages after the Welcome, in miniature; the evidence shelf is not one of them. */
+  const argument = FLOW_ACTS.filter((a) => !isAfterAct(a.id));
 
   return (
     <AnimatePresence>
@@ -175,20 +184,25 @@ export function MobileTOCModal({
             <div>
               <h2 id={titleId} className="pf-idx__title">The index</h2>
               <p className="pf-idx__meta">
-                Six parts, then the evidence and the working platform
+                Six stages, then the evidence behind them
               </p>
             </div>
-            <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
-              <X size={20} />
-            </button>
+            <div className="pf-idx__tools">
+              <button type="button" onClick={onToggleTheme} className="pf-idx__close" aria-label={theme === "dark" ? "Switch to light" : "Switch to dark"}>
+                {!themeReady ? null : theme === "dark" ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+              </button>
+              <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
+                <X size={20} />
+              </button>
+            </div>
           </header>
 
           <div className="pf-idx__body">
             <div className="pf-idx__col">
-              {/* The seven acts (brief G-7): each with its numeral, its portrait, what it answers
-                  and how long it takes; one tap to its opener, and the act's title carries across
-                  to the chapter it lands on (lib/premium/transition.ts). */}
-              <ol className="pf-idx__acts" aria-label="The six parts, the evidence and the working platform">
+              {/* The stages after the Welcome, and the evidence shelf: each with its portrait, what it
+                  answers and how long it takes; one tap to its opener, and the stage's title carries
+                  across to the chapter it lands on (lib/premium/transition.ts). */}
+              <ol className="pf-idx__acts" aria-label="The stages and the evidence">
                 {FLOW_ACTS.map((a, i) => {
                   const mins = readingMinutes(
                     FLOW_SECTIONS.filter((s) => actOf(s.id as TabId).id === a.id).reduce((n, s) => n + (wordCounts[s.id as TabId] ?? 0), 0)
@@ -220,14 +234,13 @@ export function MobileTOCModal({
               </ol>
 
               {/* The argument rail from the cover, in miniature. */}
-              <nav className="pf-idx__rail" aria-label="The shape of the argument">
+              <nav className="pf-idx__rail" aria-label="The shape of the story">
                 <ol data-steps={argument.length}>
                   {argument.map((a, i) => (
                     <li key={a.id}>
                       <button type="button" data-vt-source="" onClick={() => onSelectTab(a.opensOn, onClose)} aria-current={hereAct === a.id ? "step" : undefined}>
                         <span className="pf-idx__railnode" aria-hidden="true">{i + 1}</span>
-                        {/* The cover spine's short form: "The decision" reads "Decision", and
-                            "Measurement and governance" reads "Measurement", so six fit one row. */}
+                        {/* The short form: a leading "The" and anything after " and " drop, so the stages fit one row. */}
                         <span data-vt-title="">{railLabel(a.label)}</span>
                       </button>
                     </li>
@@ -276,13 +289,16 @@ export function MobileTOCModal({
                     <span className="tabular-nums">{visited.size}/{SECTIONS.length} opened</span>
                   </div>
                   <ul className="pf-idx__flow">
-                    {FLOW_SECTIONS.map((s) => {
+                    {FLOW_SECTIONS.map((s, i) => {
                       const Icon = TAB_ICONS[s.id] ?? Compass;
                       const isRead = visited.has(s.id);
                       const isHere = activeTab === s.id;
                       const mins = readingMinutes(wordCounts[s.id] ?? 0);
+                      // Chapters sit under their stage (flow pass): a stage's name heads its first chapter.
+                      const stage = i === 0 || partOf(FLOW_SECTIONS[i - 1].id as TabId) !== partOf(s.id as TabId) ? PARTS.find((p) => p.part === partOf(s.id as TabId)) : undefined;
                       return (
                         <li key={s.id}>
+                          {stage && <p className="pf-idx__stage">{stage.label}</p>}
                           <button
                             type="button"
                             data-vt-source=""

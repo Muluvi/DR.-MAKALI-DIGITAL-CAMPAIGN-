@@ -243,7 +243,7 @@ export const FIG_3_7: FigureSpec = {
   title: `The three zones hold ${fmt("zones.share")}% of residents, and Kitui Rural falls in none of them`,
   question: "How do the three zones differ, and who is left out?",
   takeaway: `About ${fmt("zones.excluded")} residents and ${fmt("con.kitui-rural.share")}% of the register sit outside the zoning; Kitui Rural needs a zone or a stated reason it is out.`,
-  sources: [src("census.population"), src("register.2022"), { name: "This proposal's zoning; shares derived", tier: "T1", state: "modelled" }],
+  sources: [src("census.population"), src("register.2022"), { name: "This plan's zoning; shares derived", tier: "T1", state: "modelled" }],
   chart: {
     type: "composite",
     parts: [

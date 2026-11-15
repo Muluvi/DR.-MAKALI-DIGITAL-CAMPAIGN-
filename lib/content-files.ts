@@ -9,13 +9,15 @@ import type { TabId } from "./heading-slug";
  */
 export const CONTENT_FILES: Record<TabId, string> = {
   welcome: "welcome.md",
-  cover: "cover.md",
   brief: "brief.md",
   kitui: "kitui.md",
   votes: "votes.md",
   needs: "needs.md",
   news: "news.md",
   record: "record.md",
+  winning: "winning.md",
+  known: "known.md",
+  spend: "spend.md",
   diagnosis: "diagnosis.md",
   goal: "goal.md",
   position: "position.md",
@@ -23,6 +25,7 @@ export const CONTENT_FILES: Record<TabId, string> = {
   voters: "voters.md",
   channels: "channels.md",
   engagement: "engagement.md",
+  week: "week.md",
   platform: "platform.md",
   timeline: "timeline.md",
   workstreams: "workstreams.md",
@@ -31,7 +34,6 @@ export const CONTENT_FILES: Record<TabId, string> = {
   receives: "receives.md",
   ask: "ask.md",
   "annex-evidence": "annex-evidence.md",
-  "annex-playbooks": "annex-playbooks.md",
   "annex-technology": "annex-technology.md",
   "annex-terms": "annex-terms.md",
 };

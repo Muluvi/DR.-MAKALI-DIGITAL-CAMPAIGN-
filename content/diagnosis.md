@@ -26,9 +26,9 @@ id: fig-3-11-evidence
 
 ## 7.3 What the data cannot yet show
 
-Where data is missing, this proposal names the gap rather than filling it:
+Where data is missing, this plan names the gap rather than filling it:
 
-1.  **Ward-level voter preference:** **not measured, and not sought.** This proposal forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 (Section 2.2), which the analysis uses as soon as they are in hand. Until then it works from where he has held office.
+1.  **Ward-level voter preference:** **not measured, and not sought.** This plan forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 (Section 2.2), which the analysis uses as soon as they are in hand. Until then it works from where he has held office.
 2.  **Ward-by-ward results for the 2013 governor's race:** a **named data gap (Tier 1 gap).** The IEBC's certified ward returns for 2013 are not in the campaign's records.
 3.  **Ward-by-ward tallies for the 2017 governor's race:** a **named data gap (Tier 1 gap).** The countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}}, Musila {{result.2017.gov.musila}}, Malombe {{result.2017.gov.malombe}}, Tier 1); the ward breakdown sheets are treated as unverified until they are retrieved from the IEBC.
 4.  **Three segment sizes:** the agro-pastoral, the formal-sector and the diaspora voter counts are not published by any official source. Chapter 11 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
@@ -45,7 +45,10 @@ The figure above lists every open data item, with the document that would close 
 Each assumption is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
 ```
 
-This proposal rests on eleven assumptions. Each is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
+This plan rests on eleven assumptions. Each is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
+
+<!-- keep -->
+The variables the voter model uses are defined in [the voter model and its variables](/#annex-technology-sec-e-2).
 
 ```visual
 kind: cards
@@ -56,7 +59,7 @@ items:
     body: "This is reported and not confirmed by the party (Tier 3); the party's own published rules would confirm it."
   - title: "2. The nomination window falls when it is reported to."
     head: { label: "If it fails", text: "A later date lengthens the sprint; an earlier one compresses it and forces the decision rules in Section 12.7 sooner." }
-    body: "<window-chip></window-chip> That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
+    body: "That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
   - title: "3. The register and connectivity figures hold."
     body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are the most recent published figures. The offline layer in Section 15.3.3 is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
   - title: "4. The campaign appoints the named roles."

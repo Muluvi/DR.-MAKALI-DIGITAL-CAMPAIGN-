@@ -1,0 +1,9 @@
+{
+  "$comment": "Protected files the flow pass removed (docs/flow-2026-11/FLOW-PLAN.md). scripts/check-preservation.js reports each as retired, not missing. Nothing else may be removed.",
+  "files": [
+    {
+      "path": "app/tools/visual-kinds/page.tsx",
+      "why": "WP8: a developer test page, not indexed and linked from nowhere. Its fixture, docs/declutter/fixture-visual-kinds.md, stays: lib/visual.test.ts reads it."
+    }
+  ]
+}

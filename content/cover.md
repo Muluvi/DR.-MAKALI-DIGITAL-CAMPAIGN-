@@ -1,8 +1,8 @@
-Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the parts that follow.
+Who the site is for, who built it, and the terms it is offered on.
 
 #### Prepared for, prepared by, and on what terms
 
-**Prepared for Hon. Dr. Benson Makali Mulu personally.** It is open to anyone with the link and kept out of search engines. The terms of use are in the fine print.
+**Built for Hon. Dr. Benson Makali Mulu and his campaign team.** It is open to anyone with the link and kept out of search engines. The terms of use are in the fine print.
 
 **Prepared for:**
 Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS
@@ -17,4 +17,4 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 **Date:** September 2026, revised November 2026
 
-**Status:** Proposal for discussion.
+**Status:** Live. Updated by the campaign team; run by Firefly Management.

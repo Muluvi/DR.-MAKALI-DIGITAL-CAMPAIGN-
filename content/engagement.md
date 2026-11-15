@@ -29,7 +29,7 @@ items:
     body: "Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."
 ```
 
-Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This proposal deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
+Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This plan deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
 
 ## 13.2 Who owns what
 
@@ -93,7 +93,7 @@ R responsible · A accountable · C consulted · I informed.
 
 ## 13.3 What is outside the scope
 
-Stated as plainly as what is inside, because a boundary a proposal will not draw is a boundary the campaign discovers later:
+Stated as plainly as what is inside, because a boundary a plan will not draw is a boundary the campaign discovers later:
 
 ```visual
 kind: inout
@@ -126,83 +126,6 @@ out:
     body: "The ward-captain network ({{target.captains.pool}} of {{target.captains}} captains recommended for the pool's wards, Section 12.1), the {{target.ambassadors}} M-Pesa \"Economic Ambassadors\", the {{target.stage-champions}} boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."
 ```
 
-## 13.4 The weekly rhythm and approvals
-
-**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.**
-
-```visual
-kind: week
-items:
-  - day: "Thursday, 16:00"
-    items:
-      - { label: "the brief", body: "One page from your team's strategy lead, written in the workspace: last week's reach in the pool's wards against the week before; this week's content-type weights; the three posts that must happen and the ward each is for; the language rule; one thing to stop doing." }
-  - day: "Friday"
-    items:
-      - { label: "the calendar", body: "Your team returns the week's calendar in the platform's content calendar, mapped to the brief. The strategy lead comments; it does not rewrite." }
-  - day: "Monday, 09:00"
-    items:
-      - { label: "thirty minutes", body: "Approve, amend, flag. The only standing meeting in the engagement." }
-  - day: "Tuesday to Sunday"
-    items:
-      - { label: "publishing", body: "Your team, on your accounts, with your credentials, and on the SMS, USSD and WhatsApp layer it operates (Section 15.3.3). Firefly publishes on no channel." }
-  - day: "Wednesday"
-    items:
-      - { label: "one number", body: "A mid-week reach check against the pool's wards, and at most one adjustment. If nothing needs adjusting, nothing is sent." }
-  - day: "Last Friday of the month"
-    items:
-      - { label: "the review", body: "Recognition indicators (Section 18.3), the overrides log, and the brief re-based on what the month proved." }
-```
-
-```visual
-kind: checklist
-items:
-  - label: "Asset centralisation"
-    body: "A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata**, so the origin of every published image and clip can be shown."
-  - label: "Performance tracking"
-    body: "Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person."
-  - label: "Escalation"
-    body: "The decision matrix below governs all approvals."
-```
-
-#### Decision rights and content approval
-
-Three parties, not two. The column that matters is the last one.
-
-```figure
-id: fig-5-7-approval
-```
-
-**Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop.
-
-## 13.5 Meetings and escalation
-
-```lead
-This annex now carries only the rhythm the engagement itself creates.
-```
-
-The meeting rhythm and the escalation path are schedule material: what a reader approves is that they exist and are proportionate. What matters to a decision is who decides what, which is Section 13.4. This annex now carries only the rhythm the engagement itself creates; the campaign's own internal forums — the candidate's Monday war room, the Wednesday vendor review, the monthly board — are not the platform's to schedule. The table is the engagement's rhythm in full.
-
-<!-- keep -->
-| Cadence | Meeting | Participants | Output |
-|---|---|---|---|
-| **Daily (15 min)** | Stand-up | Strategy core | Priorities, escalations, live issues |
-| **Daily (async)** | Ground asset upload | Ground team → shared repository | Raw photo/video edited and published within hours |
-| **Weekly (60 min)** | Strategy sync | Strategy Director + Campaign Comms Director | Prior-week performance; next-week calendar approved; itinerary alignment |
-| **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
-| **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
-| **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report |
-| **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target (Chapter 14); opt-out rate; ward coverage |
-
-"Strategy Director" in this table is the campaign role of Section 17.2. Each meeting's decisions are logged in the workspace; Firefly attends none of them.
-
-#### The escalation path
-
-Three decision levels, so that operational decisions do not stall under pressure in the field:
-
-```figure
-id: escalation-ladder
-```
-
 ## 17 The campaign team
 
 ```lead
@@ -231,7 +154,7 @@ id: org-chart
 id: fig-5-9-team
 ```
 
-Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
 
 *Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
 
@@ -251,7 +174,7 @@ What the arrangement buys, stated without the usual claims about bloat:
 **A lean core with a defined surge.** The campaign runs this operation through a small senior core team supplemented
 by named surge roles activated at specific phases and engagement levels. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
-work. A proposal claiming a large standing department it does not have will
+work. A plan claiming a large standing department it does not have will
 fail on the first question about it.
 
 The structure below scales with the service level selected in Section 21.1.
@@ -301,7 +224,7 @@ Surge roles are activated by phase and scope level.
 | **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 15.2.2) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
-roles your team already fills. Adding them here would have been the proposal selling back capability the
+roles your team already fills. Adding them here would have been the plan selling back capability the
 campaign has, which Firefly will not do.
 
 **Surge triggers are explicit.** Each remaining surge role has a named activation condition — a

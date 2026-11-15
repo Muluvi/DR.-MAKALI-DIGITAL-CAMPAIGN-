@@ -1,18 +1,28 @@
 ```lead
-Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout.
+Five phases run from the go-ahead to the 10 August 2027 general election: securing the ballot line, then setting up the campaign's measurement, then awareness, persuasion and turnout.
 ```
 
-Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.
+Five phases run from the go-ahead to the 10 August 2027 general election: securing the ballot line, then setting up the campaign's measurement, then awareness, persuasion and turnout. Phases −1 and 0 are counted from the go-ahead; Phases 1 to 3 keep their calendar dates, because the electoral calendar sets them, not the start of this engagement.
 
 ```figure
 id: fig-5-4-phases
 ```
 
+## 14.0 Securing the ballot line
+
+*   **The clock:** from the go-ahead to the close of the party's evaluation window in late 2026, then to the 10 August 2027 general election.
+*   **Success:** the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach across all eight constituencies; then at least **{{benchmark}} votes** at the ballot box, the benchmark Section 2.5 sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.
+
+**The two deadlines:**
+
+1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.
+2.  **The general election, 10 August 2027:** turning out the {{benchmark}}-vote coalition a plurality win needs in a multi-candidate field.
+
 ## 14.1 The first four weeks
 
-**Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's flagbearer decision <window-chip></window-chip>.
+**Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's flagbearer decision.
 
-**What the first weeks test.** The working diagnosis (Section 7.1) is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed (Section 12.7). This is the discipline the rest of the proposal claims, applied to its own first assumption.
+**What the first weeks test.** The working diagnosis (Section 7.1) is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed (Section 12.7). This is the discipline the rest of the plan claims, applied to its own first assumption.
 
 ```figure
 id: fig-5-3-four-weeks
@@ -52,7 +62,7 @@ The directed cycles that start in Weeks 2–4 run on to Week 6; the consolidatio
 
 ## 14.2 Phase 0: instrumentation
 
-**Weeks 4–10 from signature**, running alongside the tail of Phase −1. Its activities are counted in weeks from signature, so the first item overlaps the Week 1 audit.
+**Weeks 4–10 from the go-ahead**, running alongside the tail of Phase −1. Its activities are counted in weeks from the go-ahead, so the first item overlaps the Week 1 audit.
 
 ```visual
 kind: timeline
@@ -99,7 +109,7 @@ Six entries on his own profile contradict the parliamentary record or the positi
 id: fig-4-7-profile-fixes
 ```
 
-**The PhD is the one to fix first.** The proposal argues that his economics doctorate and his evaluation record are his differentiators. Neither appears on the profile where a voter would look for them.
+**The PhD is the one to fix first.** The plan argues that his economics doctorate and his evaluation record are his differentiators. Neither appears on the profile where a voter would look for them.
 
 **Is the Facebook presence a Page, or a personal profile in professional mode?** A visible friends list suggests the latter (assumption 5, Section 7.4). The distinction is not cosmetic. A personal profile has no Page Insights, no Business Suite export, no delegated admin roles and no ad account — which means most of what follows does not exist, and the strategy has a migration question attached to it before anything else is decided. One screenshot of Meta Business Suite, or of the Professional dashboard, settles this in the first hour of Week 1, and it gates the rest of the audit.
 
@@ -269,12 +279,12 @@ Each group is engaged in the phase where it matters most, with the digital outpu
 ```visual
 kind: timeline
 items:
-  - when: "Phase −1 (signature to the nomination decision, reported for late Oct–Nov 2026)"
+  - when: "Phase −1 (the go-ahead to the nomination decision, reported for late Oct–Nov 2026)"
     label: "Professional associations (economists, accountants, evaluators); Kitui teachers' networks; SEKU and MUT alumni"
     text: "Roundtables on county fiscal management, drawing on his Evaluation Society of Kenya membership"
     fields:
       - { label: "Digital output", text: "Thought-leadership content; LinkedIn and X threads; earned media" }
-  - when: "Phase 0 (Weeks 4–10 from signature, Section 14.2)"
+  - when: "Phase 0 (Weeks 4–10 from the go-ahead, Section 14.2)"
     label: "Ward-level women's cooperatives and table-banking groups"
     text: "Listening sessions; identify chairladies as community organisers (volunteer Tier 3, Annex D)"
     fields:

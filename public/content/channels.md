@@ -18,7 +18,7 @@ Because **51.7% of the county register sits where he has never held office** (Se
 
 **What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Dr. Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
 
-**Where the voters are, and where the need is worst.** NDMA ranks Mwingi North first and Kitui South second of the eight sub-counties for food-insecurity severity, and Kitui Central eighth (July 2025, Tier 1; Section 3.2). Its hotspot wards in the three most severe sub-counties include Kyuso, Tseikuru and Athi, three of the twelve largest wards (Section 2.3). The county's own scorecard supplies part of the ward-level expenditure data this weighting needs: on its 401 itemised projects the pool's four constituencies receive 53.3% of constituency-attributed expenditure against 51.7% of the register, so the pool as a whole was not passed over and the proposal does not claim it was. The gap is Mwingi West, at KSh 884 per registered voter against KSh 3,278 in Kitui Central (Section 3.7).
+**Where the voters are, and where the need is worst.** NDMA ranks Mwingi North first and Kitui South second of the eight sub-counties for food-insecurity severity, and Kitui Central eighth (July 2025, Tier 1; Section 3.2). Its hotspot wards in the three most severe sub-counties include Kyuso, Tseikuru and Athi, three of the twelve largest wards (Section 2.3). The county's own scorecard supplies part of the ward-level expenditure data this weighting needs: on its 401 itemised projects the pool's four constituencies receive 53.3% of constituency-attributed expenditure against 51.7% of the register, so the pool as a whole was not passed over and the plan does not claim it was. The gap is Mwingi West, at KSh 884 per registered voter against KSh 3,278 in Kitui Central (Section 3.7).
 
 ```lead
 **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead.
@@ -123,28 +123,8 @@ Every Kikamba and Kiswahili item passes four gates between an English draft and 
 id: qc-gateway
 ```
 
-## 12.6 A week of publishing, before and after
-
-51.7% of the register lives where he has never held office (Section 6.2), and nothing published so far argues his case there.
-
-**Same week. Same events. Same team. Different structure.**
-
-The current pattern, as observed from the public page, is a daily record of where Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached and no ask. Week 1 checks it against his actual week before it is put in front of him.
-
-```figure
-id: fig-4-5-calendar
-```
-
-**Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both are checked in the Monday review.
+## C.1 Platform playbooks
 
 ```visual
-{"kind":"contrast","left":{"title":"What changed","items":[{"label":"two fields on a Thursday post, and a language rule."}]},"right":{"title":"What did not change","items":[{"label":"who takes the photograph, who writes the caption, and who presses publish."}]}}
-```
-
-## 12.7 When the plan changes
-
-The diagnosis is a hypothesis, and Week 1 tests it (Section 7.2). The decision rules below are stated in advance, so the audit cannot be read backwards into whatever was already planned.
-
-```figure
-id: fig-4-8-decision-rules
+{"kind":"cards","preset":"platform","items":[{"title":"Facebook","text":"Daily posts in English, Kiswahili and Kikamba","body":"* **Weekly Facebook Live town halls** where Dr. Mulu answers constituent questions — the highest-value recurring format, because unscripted competence is his strongest asset\n* Ward-specific groups moderated by trained local digital champions\n* Targeted ads across the 40 wards and diaspora hubs\n* **Sample ad copy:** *\"Kitui County will handle KSh 13.79 billion this year. Dr. Makali Mulu is an economist and an evaluator — he knows how to allocate it and how to prove it was spent. #MuluForKitui\"*"},{"title":"X","text":"Policy commentary on national and county budget matters","body":"* Threads breaking down county issues into shareable explanations\n* Engagement with journalists, analysts and national conversations\n* **Sample thread starter:** *\"Kitui County's approved resource envelope for 2026/27 is KSh 13.79 billion, of which KSh 1.339 billion is own-source revenue. As an economist, here are three things I would change on day one…\"*"},{"title":"WhatsApp","text":"Broadcast lists segmented by ward and interest group — **opt-in only**","body":"* **Kikamba voice notes from Dr. Mulu** — the single highest-trust format available to this campaign\n* Shareable cards with key policy points, designed for forwarding\n* Ward-level group admins, trained to the team's written standard (kept on Firefly's platform) by your team, distributing content and reporting sentiment\n* Weekly \"Kitui Updates\" broadcast in Kikamba and Kiswahili\n* **Forwarding-friendly correction cards** during crisis response"},{"title":"TikTok","text":"Short, energetic videos on youth issues, campaign moments and Kikamba cultural content","body":"* Explainer format: county money made visual and concrete\n* Paid ads targeting Kitui-based users aged 18–35\n* **Sample content:** a 30-second video explaining county revenue allocation using common objects — *\"Hii pesa ya county inatumika aje? Mchukue mwana uchumi aeleze.\"*"},{"title":"Instagram","text":"Visual storytelling: events, community projects, aspirational imagery","body":"* Reels and Stories for daily relevance\n* Infographics summarising budget priorities and development plans\n* Question and quiz stickers for younger voters"},{"title":"YouTube","text":"Long-form policy speeches, town halls and documentary-style Kitui stories","body":"* Search-optimised videos answering \"What does the Kitui Governor do?\" and \"Kitui development 2027\"\n* **Monthly \"Kitui Economic Brief\"** reviewing county budget execution\n* **Home for full sign-language-interpreted versions** (Section 15.1.4)"},{"title":"Google Ads","text":"Search ads on the candidate's name and related terms","body":"* Display on Kenyan news sites and local blogs\n* Location targeting to Kitui County and Nairobi diaspora areas\n* **Sample search ad:** *\"Dr. Makali Mulu for Kitui Governor | Economist. Evaluator. Reformer. | Read the plan for your ward.\"*"}]}
 ```

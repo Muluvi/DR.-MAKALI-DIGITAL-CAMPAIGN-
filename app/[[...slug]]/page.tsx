@@ -167,6 +167,12 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
 
   // The summary layer of "/": each chapter's takeaway and numbers, read from the chapter itself
   // (lib/digest.ts). A few hundred bytes a chapter, in place of the chapter.
+  // Who the site is for, who built it and on what terms (content/cover.md): the footer's front
+  // matter since the flow pass took it out of the flow (docs/flow-2026-11, WP1). It has no numbered
+  // heading, so the id it is rendered under names no section.
+  const coverText = await fs.readFile(path.join(process.cwd(), "public", "content", "cover.md"), "utf-8").catch(() => "");
+  const cover = coverText ? <MarkdownViewer content={coverText} tabId={"cover" as TabId} /> : null;
+
   const digests = streamed
     ? (Object.fromEntries(SECTIONS.map((s) => [s.id, chapterDigest(documents[s.id])])) as Record<TabId, ReturnType<typeof chapterDigest>>)
     : undefined;
@@ -174,6 +180,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   return (
     <ClientPage
       digests={digests}
+      cover={cover}
       sections={sections}
       documents={rendered}
       wordCounts={wordCounts}

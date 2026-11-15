@@ -12,6 +12,7 @@ import type { Tool } from "@/lib/tools/catalog";
 import type { Bar } from "@/components/platform/Bars";
 import { WorkspaceCollection } from "@/components/platform/WorkspaceCollection";
 import { ago, useLive } from "./useLive";
+import { isUsed, markUsed } from "@/lib/tools/used";
 import { useReveal } from "./useReveal";
 import { Countdown } from "./Countdown";
 import { AskWindow, DeliverablesMap, LanguagePicker, Paradox, PhaseNow, ProofStack, RoleLens } from "./Visuals";
@@ -89,7 +90,7 @@ function ToolBody({ slug }: { slug: string }) {
 /** Which tools this reader has opened before, on this device: the card shows a tick. */
 const usedListeners = new Set<() => void>();
 const subscribeUsed = (l: () => void) => { usedListeners.add(l); return () => { usedListeners.delete(l); }; };
-const readUsed = (slug: string) => { try { return localStorage.getItem(`sx-used-${slug}`) === "1"; } catch { return false; } };
+const readUsed = (slug: string) => isUsed(slug);
 
 function TryCard({ t, index }: { t: ToolMeta; index: number }) {
   const [open, setOpen] = useState(false);
@@ -99,7 +100,7 @@ function TryCard({ t, index }: { t: ToolMeta; index: number }) {
   const toggle = () => {
     setOpen((o) => !o);
     if (!open) {
-      try { localStorage.setItem(`sx-used-${t.slug}`, "1"); } catch { /* storage can be unavailable */ }
+      markUsed(t.slug);
       usedListeners.forEach((l) => l());
       requestAnimationFrame(() => panel.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }));
     }
@@ -218,14 +219,21 @@ function LiveChart({ id }: { id: string }) {
   const chart = live?.charts[id];
   if (!ready) return <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the team&rsquo;s numbers…</em></div>;
   if (!chart) return null;
+  // A viewer who is not signed in never meets an empty chart; a signed-in team member still does,
+  // because it prompts the first entry (flow pass, WP6).
+  if (live && !live.signedIn && chart.bars.length === 0) return null;
   return (
-    <GrowBars
-      title={chart.title}
-      caption={chart.caption}
-      bars={chart.bars}
-      mark={<LiveDot on={chart.bars.length > 0} />}
-      empty={<><p>{chart.empty}</p><p className="sx-muted">This chart draws itself the moment the team saves a record.</p></>}
-    />
+    <>
+      <GrowBars
+        title={chart.title}
+        caption={chart.caption}
+        bars={chart.bars}
+        mark={<LiveDot on={chart.bars.length > 0} />}
+        empty={<><p>{chart.empty}</p><p className="sx-muted">This chart draws itself the moment the team saves a record.</p></>}
+      />
+      {/* The dashboards page is reached from here only: every team chart on one page (flow pass, WP8). */}
+      <p className="sx-live-foot"><Link className="sx-link" href="/dashboards">See every chart</Link></p>
+    </>
   );
 }
 
@@ -244,6 +252,9 @@ function LiveRecord({ id }: { id: string }) {
   const c = live?.collections[id];
   if (!ready) return <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the team&rsquo;s records…</em></div>;
   if (!c || !live) return null;
+  // A viewer who is not signed in never meets an empty record or "not connected"; a signed-in team
+  // member still does, because it prompts the first entry (flow pass, WP6).
+  if (!live.signedIn && (c.count === 0 || !live.editable)) return null;
   const titleKey = c.titleKey ?? c.columns.find((k) => k.key !== "_id")?.key;
   const recent = c.rows.slice(0, 3);
   const canEdit = live.signedIn;
@@ -301,6 +312,8 @@ function ChangeFeed() {
   const { live, ready } = useLive();
   const [ref, inView] = useReveal<HTMLElement>();
   const changes = live?.changes.slice(0, 8) ?? [];
+  // Nothing to show is shown as nothing: a first reader never meets an empty history (flow pass, WP4).
+  if (ready && changes.length === 0) return null;
   return (
     <section ref={ref} className="sx-feed" data-in={inView ? "true" : "false"} aria-label="The latest changes">
       <header className="sx-record__head">
@@ -312,8 +325,6 @@ function ChangeFeed() {
       </header>
       {!ready ? (
         <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the history…</em></div>
-      ) : changes.length === 0 ? (
-        <p className="sx-muted">No change has been recorded yet. The first edit the team makes appears here.</p>
       ) : (
         <ol className="sx-feed__list">
           {changes.map((e, i) => (

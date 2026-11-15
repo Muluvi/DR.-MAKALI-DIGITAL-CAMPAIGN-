@@ -48,7 +48,11 @@ const consolidationLedger = path.join(ROOT, "docs", "consolidation-2026-11", "le
 // looked for where its facts now live.
 const movedTo = new Map();
 const dupTo = new Map();
-for (const c of fs.existsSync(consolidationLedger) ? JSON.parse(fs.readFileSync(consolidationLedger, "utf8")) : []) {
+// The flow pass (docs/flow-2026-11/ledger.json) moves sections between chapters the same way, and
+// its moves are followed the same way.
+const flowLedger = path.join(ROOT, "docs", "flow-2026-11", "ledger.json");
+const ledgerEntries = [consolidationLedger, flowLedger].flatMap((f) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : []));
+for (const c of ledgerEntries) {
   const target = c.kind === "moved" ? c.to : c.kind === "duplicate" ? c.home : null;
   if (!target) continue;
   const from = `content/${c.file}.md`;

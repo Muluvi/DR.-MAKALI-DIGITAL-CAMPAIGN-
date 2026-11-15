@@ -12,7 +12,7 @@ Kitui voters are ready for a leader who understands economics, respects public m
 
 **Why this claim.** What distinguishes Dr. Mulu is not a vote tally but his record (Section 6.1). So the campaign's core narrative is that **Dr. Makali Mulu is the Economist Governor Kitui needs**: an economist who can show his working and hold others to account. It rests on one premise: Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
 
-**What makes it his.** Dr. Mulu is not only an economist. He is a specialist in **verifying whether public expenditure delivers what it promised**, and the county's own audit record documents the gap: unconfirmed balances, pending bills and low development absorption (Section 3.7). This proposal turns that qualification into a public service-delivery tracker (Section 15.1.1): a line on a CV becomes a daily, public demonstration of accountability.
+**What makes it his.** Dr. Mulu is not only an economist. He is a specialist in **verifying whether public expenditure delivers what it promised**, and the county's own audit record documents the gap: unconfirmed balances, pending bills and low development absorption (Section 3.7). This plan turns that qualification into a public service-delivery tracker (Section 15.1.1): a line on a CV becomes a daily, public demonstration of accountability.
 
 **The governing line:** *"Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did."* During the nomination contest the campaign uses its second half only (Section 10.2).
 

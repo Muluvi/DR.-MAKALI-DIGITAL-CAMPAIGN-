@@ -9,7 +9,7 @@ import { CountWord, countWord } from "../../count-word.ts";
 import type { FigureSpec } from "../types.ts";
 import { fmt, num, src } from "./_util.ts";
 
-const T_FIREFLY = { name: "Firefly's weighting, this proposal", tier: null, state: "target" as const };
+const T_FIREFLY = { name: "Firefly's weighting, this plan", tier: null, state: "target" as const };
 
 /* ------------------------------------------------------------------ fig-4-1-message-house */
 
@@ -121,7 +121,7 @@ export const FIG_4_4: FigureSpec = {
   title: "Each region hears a different case for the same candidate, and Kikamba travels by voice, never by bulk SMS",
   question: "What do we say where, and in which language?",
   takeaway: "The anchor hears his record, Mwingi hears a published allocation method, the arid belt hears infrastructure; the language follows the channel.",
-  sources: [{ name: "This proposal, Sections 1.2 and 10.2; political-messaging rules", tier: null, state: "target" }],
+  sources: [{ name: "This plan, Sections 1.2 and 10.2; political-messaging rules", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [
@@ -181,7 +181,7 @@ export const FIG_4_5: FigureSpec = {
   title: `The same seven days become six briefed posts across ${countWord(CONTENT_TYPES.length)} content types, and Thursday's commitment returns as a Sunday check`,
   question: "What gets published, and when?",
   takeaway: "Two fields on a Thursday post and a language rule change the week; who takes the photograph and who presses publish do not.",
-  sources: [{ name: "His public page, as observed; checked against his actual week in Week 1", tier: "T3" }, { name: "The briefed week: this proposal", tier: null, state: "target" }],
+  sources: [{ name: "His public page, as observed; checked against his actual week in Week 1", tier: "T3" }, { name: "The briefed week: this plan", tier: null, state: "target" }],
   chart: { type: "calendar", days: WEEK, pillars: TYPES },
   notes: ["Two rules on top: at least two of the seven originate in a pool ward, and at least four are Kikamba-first."],
   columns: [{ key: "day", label: "Day" }, { key: "pillar", label: "Content type" }, { key: "after", label: "After" }, { key: "now", label: "Now" }],
@@ -268,7 +268,7 @@ export const FIG_4_8: FigureSpec = {
   title: "Six findings the Week 1 audit could return, each with the change it triggers, fixed in advance",
   question: "When does the plan change?",
   takeaway: "Stating the rules before the audit means the data cannot be read backwards into whatever was already planned.",
-  sources: [{ name: "This proposal; the test runs on the Week 1 export", tier: null, state: "target" }],
+  sources: [{ name: "This plan; the test runs on the Week 1 export", tier: null, state: "target" }],
   chart: { type: "decision", question: "If the Week 1 audit finds…", rules: RULES },
   columns: [{ key: "if", label: "If the audit finds" }, { key: "then", label: "The strategy changes to" }],
   rows: RULES.map((r) => ({ cells: { if: r.if, then: r.then } })),

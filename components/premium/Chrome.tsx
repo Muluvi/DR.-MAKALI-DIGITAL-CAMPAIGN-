@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import measured from "../../data/section-heights.json";
 
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
-import { FLOW_ACTS, FLOW_ORDER, actOf, isAfterAct } from "../../lib/flow";
-import { partOf, type TabId } from "../../lib/heading-slug";
-import { PartDots } from "../flow/PartDots";
+import { FLOW_ACTS, FLOW_ORDER, actOf } from "../../lib/flow";
+import { type TabId } from "../../lib/heading-slug";
+import { StageBar } from "../flow/PartDots";
 
 /**
  * The navigation chrome (brief G-7): the dock and the kiondo progress spine.
@@ -17,10 +17,11 @@ import { PartDots } from "../flow/PartDots";
  * and it steps away on the way down and returns on the way up, so the middle never is either
  * (D-07). What it names is decided by ClientPage's probe, not by an observer's last event (D-08).
  *
- * SPINE. Eight act segments on the right edge of a wide screen, each as long as that act is on
- * the page, measured from the act openers themselves on every scroll frame, filling with the weave
- * as the reader moves through them. Every segment is a labelled button (hover and focus). Phones
- * get the same eight targets in the index instead.
+ * SPINE. One segment per act (the five stages after the Welcome, and the evidence shelf) on the
+ * right edge of a wide screen, each as long as that act is on the page, measured from the act
+ * openers themselves on every scroll frame, filling with the weave as the reader moves through
+ * them. Every segment is a labelled button (hover and focus). Phones get the same targets in the
+ * index instead.
  */
 export const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
@@ -28,22 +29,20 @@ export function actNumeral(tab: TabId): string {
   return ROMAN[FLOW_ACTS.indexOf(actOf(tab))] ?? "";
 }
 
+/**
+ * One control per job (flow pass, WP7): the stage bar and the chapter's name open the index and
+ * search; the chart icon opens every tool and record. The theme switch lives in the index sheet.
+ */
 export function Dock({
   label,
   number,
   tab,
   onOpenIndex,
-  onToggleTheme,
-  theme,
-  themeReady,
 }: {
   label: string;
   number: string;
   tab: TabId;
   onOpenIndex: () => void;
-  onToggleTheme: () => void;
-  theme: string;
-  themeReady: boolean;
 }) {
   const visible = useChromeVisible();
 
@@ -53,36 +52,17 @@ export function Dock({
         {/* Named by its visible text plus a hidden clause, so the name a voice user speaks is the one
             they see (WCAG 2.5.3; Lighthouse "label-content-name-mismatch"). */}
         <button type="button" className="pf-dock__where" onClick={onOpenIndex}>
-          <span className="pf-dock__numeral" aria-hidden="true">{partOf(tab) === 0 || isAfterAct(actOf(tab).id) ? "·" : <PartDots actId={actOf(tab).id} />}</span>
+          <span className="pf-dock__numeral" aria-hidden="true"><StageBar tab={tab} /></span>
           <span className="pf-dock__label">
             {number && <b className="pf-dock__num">{number} ·</b>} {label}
           </span>
-          <span className="sr-only">. Open the index.</span>
-        </button>
-        <button type="button" className="pf-dock__icon" onClick={onOpenIndex} aria-label="Open the index">
-          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-            <path d="M2 4h12M2 8h12M2 12h7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-          </svg>
+          <span className="sr-only">. Open the chapters and search.</span>
         </button>
         {/* Every tool and live record, each in its chapter (story integration, November 2026). */}
-        <button type="button" className="pf-dock__icon" onClick={() => window.dispatchEvent(new Event("story:open-tools"))} aria-label="Open every tool and record">
+        <button type="button" className="pf-dock__icon" data-tour="tools" onClick={() => window.dispatchEvent(new Event("story:open-tools"))} aria-label="Open every tool and record">
           <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
             <path d="M2.5 13.5V8.5M6.2 13.5V4.5M9.8 13.5V7M13.5 13.5V2.5" />
           </svg>
-        </button>
-        <button type="button" className="pf-dock__icon" onClick={onToggleTheme} aria-label="Switch between light and dark">
-          {!themeReady ? (
-            <span className="pf-dock__hold" aria-hidden="true" />
-          ) : theme === "dark" ? (
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
-              <circle cx="8" cy="8" r="3.1" />
-              <path d="M8 1v1.6M8 13.4V15M15 8h-1.6M2.6 8H1M12.9 3.1l-1.1 1.1M4.2 11.8l-1.1 1.1M12.9 12.9l-1.1-1.1M4.2 4.2L3.1 3.1" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
-              <path d="M13.3 9.6A5.6 5.6 0 0 1 6.4 2.7a5.8 5.8 0 1 0 6.9 6.9z" />
-            </svg>
-          )}
         </button>
       </div>
     </nav>

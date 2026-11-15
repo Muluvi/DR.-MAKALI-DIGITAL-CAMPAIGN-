@@ -1,0 +1,13 @@
+{
+  "$comment": "Content counts summed over every chapter at d034eb1 (the rivals pass's base), for checkouts without history. Written by scripts/check-preservation.js --write-base-totals.",
+  "base": "d034eb1",
+  "totals": {
+    "headings": 278,
+    "workstreams": 14,
+    "figureFences": 92,
+    "visualFences": 123,
+    "leadFences": 108,
+    "textversionFences": 5,
+    "tableRows": 544
+  }
+}

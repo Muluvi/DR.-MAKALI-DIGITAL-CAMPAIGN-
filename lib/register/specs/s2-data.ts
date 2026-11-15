@@ -124,7 +124,7 @@ export const FIG_2_4: FigureSpec = {
       },
     ],
   },
-  notes: ["The two poverty rates disagree and both are shown. The KNBS Poverty Report is the later primary source and is the one this proposal uses."],
+  notes: ["The two poverty rates disagree and both are shown. The KNBS Poverty Report is the later primary source and is the one this plan uses."],
   columns: [{ key: "measure", label: "Measure" }, { key: "value", label: "Value", numeric: true }, { key: "unit", label: "Unit" }, { key: "source", label: "Source" }],
   rows: [
     { cells: { measure: "Population (2019)", value: num("census.population"), unit: "people", source: "KNBS 2019 Census (T1)" } },

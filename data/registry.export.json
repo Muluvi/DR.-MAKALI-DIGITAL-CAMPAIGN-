@@ -108,7 +108,7 @@
    "unit": "votes",
    "tier": null,
    "state": "target",
-   "source": "This proposal",
+   "source": "This plan",
    "asOf": null,
    "note": "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3)."
   },
@@ -588,7 +588,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Church and community outreach: share of effort in the conventional pitch, as Firefly characterises it."
   },
@@ -598,7 +598,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Church and community outreach: share of effort, rebalanced."
   },
@@ -608,7 +608,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Digital and social media: share of effort in the conventional pitch, as Firefly characterises it."
   },
@@ -618,7 +618,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Digital and social media: share of effort, rebalanced."
   },
@@ -648,7 +648,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Market caravans and barazas: share of effort in the conventional pitch, as Firefly characterises it."
   },
@@ -658,7 +658,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Market caravans and barazas: share of effort, rebalanced."
   },
@@ -668,7 +668,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of effort offline, rebalanced: radio, SMS, caravans and church."
   },
@@ -678,7 +678,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Vernacular radio (Musyi, County, Wikwatyo): share of effort in the conventional pitch, as Firefly characterises it."
   },
@@ -688,7 +688,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Vernacular radio (Musyi, County, Wikwatyo): share of effort, rebalanced."
   },
@@ -698,7 +698,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Direct SMS and the USSD tree: share of effort in the conventional pitch, as Firefly characterises it."
   },
@@ -708,7 +708,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Direct SMS and the USSD tree: share of effort, rebalanced."
   },
@@ -978,7 +978,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of Phase −1 digital reach effort geofenced to the pool."
   },
@@ -988,7 +988,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the anchor zone."
   },
@@ -998,7 +998,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the arid and resource belt."
   },
@@ -1008,7 +1008,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the Mwingi block."
   },
@@ -1018,7 +1018,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort rotating across wards as testing."
   },
@@ -1028,7 +1028,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the anchor zone."
   },
@@ -1038,7 +1038,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the arid and resource belt."
   },
@@ -1048,7 +1048,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the Mwingi block."
   },
@@ -1058,7 +1058,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort rotating across wards as testing."
   },
@@ -1068,7 +1068,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the anchor zone."
   },
@@ -1078,7 +1078,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the arid and resource belt."
   },
@@ -1088,7 +1088,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort to the Mwingi block."
   },
@@ -1098,7 +1098,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of communications effort rotating across wards as testing."
   },
@@ -1108,7 +1108,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Share of SMS/USSD onboarding effort to the pool's 21 wards."
   },
@@ -2468,7 +2468,7 @@
    "unit": "ksh",
    "tier": null,
    "state": "target",
-   "source": "Campaign policy proposal, this proposal",
+   "source": "Campaign policy proposal, this plan",
    "asOf": null,
    "note": "A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized."
   },
@@ -2508,7 +2508,7 @@
    "unit": "ksh",
    "tier": null,
    "state": "target",
-   "source": "Campaign policy proposal, this proposal",
+   "source": "Campaign policy proposal, this plan",
    "asOf": null,
    "note": "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized."
   },
@@ -5058,7 +5058,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "M-Pesa 'Economic Ambassadors': a campaign-owned recommendation."
   },
@@ -5068,7 +5068,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Ward captains, 10 per ward: a campaign-owned recommendation."
   },
@@ -5078,7 +5078,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Of the 400 captains, those recommended for the pool's wards: campaign-owned."
   },
@@ -5088,7 +5088,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Realistic Phase 3 contact universe at Level 1."
   },
@@ -5098,7 +5098,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Realistic Phase 3 contact universe at Level 3."
   },
@@ -5108,7 +5108,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Realistic Phase 3 contact universe at Level 2."
   },
@@ -5118,7 +5118,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Pieces of content approved and scheduled in Phase 0."
   },
@@ -5128,7 +5128,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Engaged followers, Phase 1: diagnostic."
   },
@@ -5138,7 +5138,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Engaged followers, Phase 2: diagnostic."
   },
@@ -5148,7 +5148,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Engaged followers, Phase 3: diagnostic."
   },
@@ -5158,7 +5158,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Pledged voters in the CRM (GE-01)."
   },
@@ -5168,7 +5168,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Digital pledges to vote, Phase 3."
   },
@@ -5178,7 +5178,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Combined social reach, Phase 1: an operational diagnostic, not a performance indicator."
   },
@@ -5188,7 +5188,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Cumulative reach, Phase 2: diagnostic."
   },
@@ -5198,7 +5198,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Cumulative reach, Phase 3: diagnostic."
   },
@@ -5208,7 +5208,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Consented SMS/USSD contacts by Phase 3 (objective 1.3.3)."
   },
@@ -5218,7 +5218,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Consented SMS contacts by the end of Phase −1."
   },
@@ -5228,7 +5228,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Consented SMS contacts, Phase 1."
   },
@@ -5238,7 +5238,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Consented SMS contacts, Phase 2."
   },
@@ -5248,7 +5248,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Boda-boda Stage Champions, 30 per ward: a campaign-owned recommendation."
   },
@@ -5258,7 +5258,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Email/SMS subscribers, Phase 1."
   },
@@ -5268,7 +5268,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Email/SMS subscribers, Phase 2."
   },
@@ -5278,7 +5278,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Verified supporters mapped to polling stations by 31 May 2027 (objective 1.3.4)."
   },
@@ -5288,7 +5288,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Tracker reports, Phase 1."
   },
@@ -5298,7 +5298,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Tracker reports, Phase 2."
   },
@@ -5308,7 +5308,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Tracker reports, Phase 3."
   },
@@ -5318,7 +5318,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "USSD unique sessions, Phase 1."
   },
@@ -5328,7 +5328,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "USSD unique sessions, Phase 2."
   },
@@ -5338,7 +5338,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "USSD unique sessions, Phase 3."
   },
@@ -5348,7 +5348,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Average points per volunteer per month: the campaign-owned volunteer programme's target."
   },
@@ -5358,7 +5358,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Digital volunteer sign-ups, Phase 1 (campaign-owned programme)."
   },
@@ -5368,7 +5368,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "The campaign's build target, this proposal",
+   "source": "The campaign's build target, this plan",
    "asOf": null,
    "note": "Digital volunteer sign-ups, Phase 2 (campaign-owned programme)."
   },
@@ -5378,7 +5378,7 @@
    "unit": "count",
    "tier": null,
    "state": "target",
-   "source": "Firefly's target, this proposal",
+   "source": "Firefly's target, this plan",
    "asOf": null,
    "note": "Community WhatsApp groups monitored by the 40 constituency monitoring assistants."
   },
@@ -5398,7 +5398,7 @@
    "unit": "percent",
    "tier": null,
    "state": "target",
-   "source": "This proposal",
+   "source": "This plan",
    "asOf": null,
    "note": "The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%."
   },
