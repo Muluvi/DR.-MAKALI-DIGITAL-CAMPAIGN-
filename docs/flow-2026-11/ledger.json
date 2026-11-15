@@ -586,5 +586,152 @@
   "home": "spend:3.7",
   "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: needs 3.7 moved into spend, word for word, heading and all.",
   "text": "```lead\nAccording to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1).\n```\n\n**The audit record.** According to the Office of the Auditor-General's FY2023/24 audit report, four critical financial queries must be addressed by the county administration (Tier 1):\n\n```visual\nkind: bars\nsource: \"Office of the Auditor-General, Kitui County FY2023/24 audit report (Tier 1)\"\nitems:\n  - label: \"unconfirmed cash balances\"\n    value: \"KSh {{audit.cash}}\"\n    tier: 1\n  - label: \"uncollected county rates, rents and local revenues\"\n    value: \"KSh {{audit.uncollected}}\"\n    tier: 1\n  - label: \"unexplained variances between the county's financial statements and the Integrated Financial Management Information System (IFMIS)\"\n    value: \"KSh {{audit.ifmis}}\"\n    tier: 1\n  - label: \"unexplained inter-account transfers\"\n    value: \"KSh {{audit.transfers}}\"\n    tier: 1\n```\n\n*   **Pending bills.** The Controller of Budget records outstanding pending bills of about **KSh {{budget.pending-bills.2021|bn}} billion as of FY2020/21** (Tier 1).\n*   **Development absorption.** The Controller of Budget's County Budget Implementation Review Report records **{{budget.absorption.q1}}%** in the first quarter of FY2025/26 (Tier 1). Media reports of a 5% rate are not used.\n*   **The envelope and the county's own frame.** The county runs a KSh {{budget.total|bn}} billion envelope (Tier 3, Section 1.5). Its development theme for the year is **KESTA — Accelerating Kitui Economic and Social Transformation Agenda**, with a stated priority on raising household income (Tier 1). The incumbent administration names the same goal Dr. Mulu does, so the argument is about *execution*, not direction.\n\n#### The incumbent's scorecard: where the itemised money went\n\nThe county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all (Tier 1). Summed from its own tables:\n\n| Constituency | Projects | KSh, itemised (Tier 1) | KSh per registered voter (2022, calculated) |\n|---|---:|---:|---:|\n| Kitui Central | {{scorecard.kitui-central.projects}} | {{scorecard.kitui-central.ksh|m1}}m | {{scorecard.kitui-central.per-voter}} |\n| Mwingi North | {{scorecard.mwingi-north.projects}} | {{scorecard.mwingi-north.ksh|m1}}m | {{scorecard.mwingi-north.per-voter}} |\n| Kitui South | {{scorecard.kitui-south.projects}} | {{scorecard.kitui-south.ksh|m1}}m | {{scorecard.kitui-south.per-voter}} |\n| Mwingi Central | {{scorecard.mwingi-central.projects}} | {{scorecard.mwingi-central.ksh|m1}}m | {{scorecard.mwingi-central.per-voter}} |\n| Kitui East | {{scorecard.kitui-east.projects}} | {{scorecard.kitui-east.ksh|m1}}m | {{scorecard.kitui-east.per-voter}} |\n| Kitui Rural | {{scorecard.kitui-rural.projects}} | {{scorecard.kitui-rural.ksh|m1}}m | {{scorecard.kitui-rural.per-voter}} |\n| Kitui West | {{scorecard.kitui-west.projects}} | {{scorecard.kitui-west.ksh|m1}}m | {{scorecard.kitui-west.per-voter}} |\n| Mwingi West | {{scorecard.mwingi-west.projects}} | {{scorecard.mwingi-west.ksh|m1}}m | {{scorecard.mwingi-west.per-voter}} |\n| Countywide or headquarters | — | {{scorecard.countywide.ksh|m1}}m | — |\n\n**How to read it, and how not to.** It covers only the {{scorecard.itemised}} itemised projects, not the county budget and not all {{scorecard.claimed}} projects (Tier 1 as a record of what the county claims, not evidence that the claims are true). Kitui Central's figure includes the county referral hospital and town works that serve the whole county: its health spending alone is KSh {{scorecard.kitui-central.health.ksh|m1}}m of the KSh {{scorecard.health.attributed.ksh|m1}}m attributed to constituencies (Tier 1, county scorecard). The pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed spending against {{pool.share}}% of the register, so the plan does not claim the pool was neglected. The specific gap is Mwingi West, with less than a third of Kitui Central's spending per voter and KSh {{scorecard.mwingi-west.water.ksh|m1}}m for water (Tier 1). The full list is [kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv), and the tracker's questions are in Section 15.1.1.\n\n**What it means for the campaign.** The audit record is the evidence for Dr. Mulu's position (Chapter 9): the county's problem is not a lack of money but how it is managed, which is the discipline he has practised."
+ },
+ {
+  "file": "engagement",
+  "section": "13.4",
+  "first12": "**Your team steers and publishes. Firefly runs the platform. One brief a",
+  "words": 324,
+  "kind": "moved",
+  "whole": true,
+  "to": "week:13.4",
+  "home": "week:13.4",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: engagement 13.4 moved into week, word for word, heading and all.",
+  "text": "**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.**\n\n```visual\nkind: week\nitems:\n  - day: \"Thursday, 16:00\"\n    items:\n      - { label: \"the brief\", body: \"One page from your team's strategy lead, written in the workspace: last week's reach in the pool's wards against the week before; this week's content-type weights; the three posts that must happen and the ward each is for; the language rule; one thing to stop doing.\" }\n  - day: \"Friday\"\n    items:\n      - { label: \"the calendar\", body: \"Your team returns the week's calendar in the platform's content calendar, mapped to the brief. The strategy lead comments; it does not rewrite.\" }\n  - day: \"Monday, 09:00\"\n    items:\n      - { label: \"thirty minutes\", body: \"Approve, amend, flag. The only standing meeting in the engagement.\" }\n  - day: \"Tuesday to Sunday\"\n    items:\n      - { label: \"publishing\", body: \"Your team, on your accounts, with your credentials, and on the SMS, USSD and WhatsApp layer it operates (Section 15.3.3). Firefly publishes on no channel.\" }\n  - day: \"Wednesday\"\n    items:\n      - { label: \"one number\", body: \"A mid-week reach check against the pool's wards, and at most one adjustment. If nothing needs adjusting, nothing is sent.\" }\n  - day: \"Last Friday of the month\"\n    items:\n      - { label: \"the review\", body: \"Recognition indicators (Section 18.3), the overrides log, and the brief re-based on what the month proved.\" }\n```\n\n```visual\nkind: checklist\nitems:\n  - label: \"Asset centralisation\"\n    body: \"A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata**, so the origin of every published image and clip can be shown.\"\n  - label: \"Performance tracking\"\n    body: \"Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person.\"\n  - label: \"Escalation\"\n    body: \"The decision matrix below governs all approvals.\"\n```\n\n#### Decision rights and content approval\n\nThree parties, not two. The column that matters is the last one.\n\n```figure\nid: fig-5-7-approval\n```\n\n**Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop."
+ },
+ {
+  "file": "channels",
+  "section": "12.6",
+  "first12": "{{pool.share}}% of the register lives where he has never held office (Section",
+  "words": 154,
+  "kind": "moved",
+  "whole": true,
+  "to": "week:12.6",
+  "home": "week:12.6",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: channels 12.6 moved into week, word for word, heading and all.",
+  "text": "{{pool.share}}% of the register lives where he has never held office (Section 6.2), and nothing published so far argues his case there.\n\n**Same week. Same events. Same team. Different structure.**\n\nThe current pattern, as observed from the public page, is a daily record of where Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached and no ask. Week 1 checks it against his actual week before it is put in front of him.\n\n```figure\nid: fig-4-5-calendar\n```\n\n**Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both are checked in the Monday review.\n\n```visual\nkind: contrast\nleft:\n  title: \"What changed\"\n  items:\n    - { label: \"two fields on a Thursday post, and a language rule.\" }\nright:\n  title: \"What did not change\"\n  items:\n    - { label: \"who takes the photograph, who writes the caption, and who presses publish.\" }\n```"
+ },
+ {
+  "file": "engagement",
+  "section": "13.5",
+  "first12": "```lead This annex now carries only the rhythm the engagement itself creates.",
+  "words": 229,
+  "kind": "moved",
+  "whole": true,
+  "to": "week:13.5",
+  "home": "week:13.5",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: engagement 13.5 moved into week, word for word, heading and all.",
+  "text": "```lead\nThis annex now carries only the rhythm the engagement itself creates.\n```\n\nThe meeting rhythm and the escalation path are schedule material: what a reader approves is that they exist and are proportionate. What matters to a decision is who decides what, which is Section 13.4. This annex now carries only the rhythm the engagement itself creates; the campaign's own internal forums — the candidate's Monday war room, the Wednesday vendor review, the monthly board — are not the platform's to schedule. The table is the engagement's rhythm in full.\n\n<!-- keep -->\n| Cadence | Meeting | Participants | Output |\n|---|---|---|---|\n| **Daily (15 min)** | Stand-up | Strategy core | Priorities, escalations, live issues |\n| **Daily (async)** | Ground asset upload | Ground team → shared repository | Raw photo/video edited and published within hours |\n| **Weekly (60 min)** | Strategy sync | Strategy Director + Campaign Comms Director | Prior-week performance; next-week calendar approved; itinerary alignment |\n| **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |\n| **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |\n| **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report |\n| **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target (Chapter 14); opt-out rate; ward coverage |\n\n\"Strategy Director\" in this table is the campaign role of Section 17.2. Each meeting's decisions are logged in the workspace; Firefly attends none of them.\n\n#### The escalation path\n\nThree decision levels, so that operational decisions do not stall under pressure in the field:\n\n```figure\nid: escalation-ladder\n```"
+ },
+ {
+  "file": "channels",
+  "section": "12.7",
+  "first12": "The diagnosis is a hypothesis, and Week 1 tests it (Section 7.2).",
+  "words": 34,
+  "kind": "moved",
+  "whole": true,
+  "to": "week:12.7",
+  "home": "week:12.7",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: channels 12.7 moved into week, word for word, heading and all.",
+  "text": "The diagnosis is a hypothesis, and Week 1 tests it (Section 7.2). The decision rules below are stated in advance, so the audit cannot be read backwards into whatever was already planned.\n\n```figure\nid: fig-4-8-decision-rules\n```"
+ },
+ {
+  "file": "annex-evidence",
+  "section": "B.1",
+  "first12": "Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026",
+  "words": 255,
+  "kind": "moved",
+  "whole": true,
+  "to": "votes:B.1",
+  "home": "votes:B.1",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: annex-evidence B.1 moved into votes, word for word, heading and all.",
+  "text": "Registered voters per county assembly ward, 2022 (IEBC, Tier 1). The 2026 register is not yet published by ward.\n\n#### 1. Mwingi North Constituency ({{con.mwingi-north}} total registered voters, Tier 1)\n\n*   **Kyuso Ward:** {{ward.kyuso}} voters\n*   **Tseikuru Ward:** {{ward.tseikuru}} voters\n*   **Mumoni Ward:** {{ward.mumoni}} voters\n*   **Ngomeni Ward:** {{ward.ngomeni}} voters\n*   **Tharaka Ward:** {{ward.tharaka}} voters\n\n#### 2. Mwingi West Constituency ({{con.mwingi-west}} total registered voters, Tier 1)\n\n*   **Nguutani Ward:** {{ward.nguutani}} voters\n*   **Kyome/Thaana Ward:** {{ward.kyome-thaana}} voters\n*   **Migwani Ward:** {{ward.migwani}} voters\n*   **Kiomo/Kyethani Ward:** {{ward.kiomo-kyethani}} voters\n\n#### 3. Mwingi Central Constituency ({{con.mwingi-central}} total registered voters, Tier 1)\n\n*   **Central Ward:** {{ward.central}} voters\n*   **Nguni Ward:** {{ward.nguni}} voters\n*   **Nuu Ward:** {{ward.nuu}} voters\n*   **Kivou Ward:** {{ward.kivou}} voters\n*   **Mui Ward:** {{ward.mui}} voters\n*   **Waita Ward:** {{ward.waita}} voters\n\n#### 4. Kitui West Constituency ({{con.kitui-west}} total registered voters, Tier 1)\n\n*   **Mutonguni Ward:** {{ward.mutonguni}} voters\n*   **Kauwi Ward:** {{ward.kauwi}} voters\n*   **Matinyani Ward:** {{ward.matinyani}} voters\n*   **Kwa Mutonga/Kithumula Ward:** {{ward.kwa-mutonga-kithumula}} voters\n\n#### 5. Kitui Rural Constituency ({{con.kitui-rural}} total registered voters, Tier 1)\n\n*   **Kwa Vonza/Yatta Ward:** {{ward.kwa-vonza-yatta}} voters\n*   **Kisasi Ward:** {{ward.kisasi}} voters\n*   **Mbitini Ward:** {{ward.mbitini}} voters\n*   **Kanyangi Ward:** {{ward.kanyangi}} voters\n\n#### 6. Kitui Central Constituency ({{con.kitui-central}} total registered voters, Tier 1)\n\n*   **Township Ward:** {{ward.township}} voters\n*   **Kyangwithya West Ward:** {{ward.kyangwithya-west}} voters\n*   **Kyangwithya East Ward:** {{ward.kyangwithya-east}} voters\n*   **Mulango Ward:** {{ward.mulango}} voters\n*   **Miambani Ward:** {{ward.miambani}} voters\n\n#### 7. Kitui East Constituency ({{con.kitui-east}} total registered voters, Tier 1)\n\n*   **Zombe/Mwitika Ward:** {{ward.zombe-mwitika}} voters\n*   **Chuluni Ward:** {{ward.chuluni}} voters\n*   **Nzambani Ward:** {{ward.nzambani}} voters\n*   **Voo/Kyamatu Ward:** {{ward.voo-kyamatu}} voters\n*   **Mutito/Kaliku Ward:** {{ward.mutito-kaliku}} voters\n*   **Endau/Malalani Ward:** {{ward.endau-malalani}} voters\n\n#### 8. Kitui South Constituency ({{con.kitui-south}} total registered voters, Tier 1)\n\n*   **Athi Ward:** {{ward.athi}} voters\n*   **Ikanga/Kyatune Ward:** {{ward.ikanga-kyatune}} voters\n*   **Mutomo Ward:** {{ward.mutomo}} voters\n*   **Ikutha Ward:** {{ward.ikutha}} voters\n*   **Mutha Ward:** {{ward.mutha}} voters\n*   **Kanziko Ward:** {{ward.kanziko}} voters"
+ },
+ {
+  "file": "welcome",
+  "section": "(intro)",
+  "first12": "[The number it takes](/#votes-sec-2-5) · [This week's content](/#channels-sec-12-6) · [Implementation](/#workstreams-sec-15-1) · [Scorecards](/#success-sec-18-2)",
+  "words": -1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4 and WP1 step 6): the Welcome's links and steps point to the new homes (This week, the Ward Dossier under How Kitui voted, What changed), and say where things are now.",
+  "text": "[The number it takes](/#votes-sec-2-5) · [This week's content](/#channels-sec-12-6) · [Implementation](/#workstreams-sec-15-1) · [Scorecards](/#success-sec-18-2) · [Every change](/#annex-evidence-sec-a-2) · [Explore every dataset](/explore)",
+  "replacement": "[The number it takes](/#winning-sec-2-5) · [This week](/#section-week) · [Implementation](/#workstreams-sec-15-1) · [Scorecards](/#success-sec-18-2) · [What changed](/#welcome-sec-0-1) · [Every tool](/#tools) · [Explore every dataset](/explore)"
+ },
+ {
+  "file": "welcome",
+  "section": "(intro)",
+  "first12": "```visual kind: tabs title: \"36 tools, sorted by the job they do.",
+  "words": 570,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md section 6, Welcome; WP11 step 4): the 36-tool table becomes the 'Every tool' link in the row above, which opens the Tools panel. The panel lists every tool with its one-line description and opens each in its chapter, so a component takes over the table's job (D7).",
+  "text": "\n```visual\nkind: tabs\ntitle: \"36 tools, sorted by the job they do. Each opens inside the chapter it works on: tap the chapter, then Open it here.\"\nitems:\n  - title: \"Where the votes come from\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **Winning-Number Simulator** | how many votes win, under different turnouts | [How Kitui voted](/#votes-sec-2-5) |\\n| **Coalition Path Builder** | which regional shares add up to the winning number | [How Kitui voted](/#votes-sec-2-4) |\\n| **Ward Priority Scorer** | rank the 40 wards with weights you adjust | [Channels and language](/#channels-sec-12-1) |\\n| **Ward Dossier** | everything about one ward on one page | [Evidence and sources](/#annex-evidence-sec-b-1) |\\n| **Kitui Map Studio** | see register, population and projects on the map | [The county in numbers](/#kitui-sec-1-2) |\\n| **Pareto Ward Planner** | the fewest wards that cover most voters | [How Kitui voted](/#votes-sec-2-3) |\\n| **Register Growth Tracker** | the new voters since 2022 (reported, unconfirmed) and what they do to the winning number | [How Kitui voted](/#votes-sec-2-1) |\\n| **Youth & New Voter Calculator** | youth and first-time voters under turnout scenarios (modelled from census age shares) | [The voters to win](/#voters-sec-11-3) |\"\n  - title: \"Reach and persuade\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **Channel Mix by Sub-county** | radio, SMS or in-person needs for each area | [How voters get news](/#news-sec-4-3) |\\n| **Offline Waterline** | voters online against voters reachable only offline | [How voters get news](/#news-sec-4-4) |\\n| **Message Assignment Matrix** | which message goes to which segment, channel and language | [The voters to win](/#voters-sec-11-2) |\\n| **Issue-to-Message Matcher** | the strongest-evidence issue to lead with for each segment | [The message](/#message-sec-10-1) |\\n| **Service-Delivery Tracker** | county projects to verify and turn into proof | [What voters need](/#needs-sec-3-7) |\\n| **Ward Equity Analyzer** | project spend per 1,000 voters in each ward | [What voters need](/#needs-sec-3-7) |\"\n  - title: \"Deadlines and readiness\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **Governor Race Calendar** | every Gazette deadline, passed and upcoming | [Timeline to August 2027](/#timeline-sec-14-1) |\\n| **Governor Nomination Path** | the remaining confirmations and filings | [The goal](/#goal-sec-8-1) |\\n| **Polling Agent Planner** | agents and reserves needed for each station | [The fourteen workstreams](/#workstreams-sec-15-3) |\"\n  - title: \"Daily content work\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **Weekly Content Calendar** | the pillars laid out as a week of posts | [Channels and language](/#channels-sec-12-6) |\\n| **Message Studio** | preview one message across every channel | [The message](/#message-sec-10-4) |\\n| **Fact Card Generator** | any site figure as a ready-to-post line with its source | [The message](/#message-sec-10-2) |\\n| **Radio Planner** | the eight Kikamba stations, their ownership and how to approach each | [Channels and language](/#channels-sec-12-3) |\"\n  - title: \"Deeper planning\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **Ward Comparison** | two to four wards side by side | [Evidence and sources](/#annex-evidence-sec-b-1) |\\n| **Constituency Scorecard** | one card per constituency | [How Kitui voted](/#votes-sec-2-4) |\\n| **Zone Effort Planner** | split effort across the Anchor, Arid and Mwingi zones | [Channels and language](/#channels-sec-12-1) |\\n| **Voter Density Finder** | where a field day reaches the most voters | [The fourteen workstreams](/#workstreams-sec-15-3) |\\n| **Ward Allocation Simulator** | equal against needs-weighted splits between wards | [The message](/#message-sec-10-1) |\"\n  - title: \"Context and talking points\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **County Money Explainer** | the budget, audit queries and pending bills | [What voters need](/#needs-sec-1-5) |\\n| **Drought & Livelihood Watch** | drought, food, prices and livestock | [What voters need](/#needs-sec-3-2) |\\n| **2017 → 2022 Swing Viewer** | how the governor vote moved, countywide (ward results for 2017 are not yet in hand) | [How Kitui voted](/#votes-sec-2-2) |\"\n  - title: \"Supporting utilities\"\n    body: \"| Tool | What it does | Where it opens |\\n|---|---|---|\\n| **USSD Flow Builder** | prototype the USSD menu | [Platform playbooks](/#annex-playbooks-sec-c-2) |\\n| **Language & Compliance** | check copy against the SMS guidelines | [Lawful and ethical](/#lawful-sec-19-2) |\\n| **KPI Ladder** | test indicator values against the targets | [Measuring success](/#success-sec-18-2) |\\n| **Polling Station Explorer** | search every 2022 polling station | [How Kitui voted](/#votes-sec-2-1) |\\n| **Ward Link & QR Builder** | trackable links for each ward | [Technology](/#annex-technology-sec-e-1) |\\n| **Assumptions Panel** | test the model's figures | [The diagnosis](/#diagnosis-sec-7-4) |\\n| **Sources & Data Gaps** | where every figure comes from | [Evidence and sources](/#annex-evidence-sec-a-1) |\"\n```\n",
+  "replacement": ""
+ },
+ {
+  "file": "welcome",
+  "section": "(intro)",
+  "first12": "text: \"the gap, why it can close, and what is offered, just",
+  "words": -4,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4 and WP1 step 6): the Welcome's links and steps point to the new homes (This week, the Ward Dossier under How Kitui voted, What changed), and say where things are now.",
+  "text": "text: \"the gap, why it can close, and what is offered, just below\" }",
+  "replacement": "text: \"the gap, why it can close, and what is offered, after the platform in one view\" }"
+ },
+ {
+  "file": "welcome",
+  "section": "(intro)",
+  "first12": "text: \"voters, polling stations and projects in the Ward Dossier, under Evidence",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4 and WP1 step 6): the Welcome's links and steps point to the new homes (This week, the Ward Dossier under How Kitui voted, What changed), and say where things are now.",
+  "text": "text: \"voters, polling stations and projects in the Ward Dossier, under Evidence and sources\" }",
+  "replacement": "text: \"voters, polling stations and projects in the Ward Dossier, under How Kitui voted\" }"
+ },
+ {
+  "file": "welcome",
+  "section": "(intro)",
+  "first12": "text: \"Search, filter and download any table behind the story, from Evidence",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4 and WP1 step 6): the Welcome's links and steps point to the new homes (This week, the Ward Dossier under How Kitui voted, What changed), and say where things are now.",
+  "text": "text: \"Search, filter and download any table behind the story, from Evidence and sources\" }",
+  "replacement": "text: \"Search, filter and download any table behind the story, from the links below\" }"
+ },
+ {
+  "file": "welcome",
+  "section": "0.1",
+  "first12": "## 0.1 What changed The team's latest edits appear here, newest first, each",
+  "words": 0,
+  "kind": "added",
+  "home": "welcome:0.1",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4 step 4): a heading for the change feed, which moves from Evidence and sources into the Welcome, so it has a deep link (welcome-sec-0-1). The sentence says what the feed shows; the feed is hidden while nothing has changed.",
+  "text": "## 0.1 What changed\n\nThe team's latest edits appear here, newest first, each with who made it and when."
+ },
+ {
+  "file": "platform",
+  "section": "(intro)",
+  "first12": "[Content calendar](/#channels-sec-12-6)",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4, Appendix C): the site's own links point at the live ids; the content calendar is in This week.",
+  "text": "[Content calendar](/#channels-sec-12-6)",
+  "replacement": "[Content calendar](/#week-sec-12-6)"
+ },
+ {
+  "file": "platform",
+  "section": "(intro)",
+  "first12": "[Every change](/#annex-evidence-sec-a-2)",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4, Appendix C): the change feed is in the Welcome, under What changed.",
+  "text": "[Every change](/#annex-evidence-sec-a-2)",
+  "replacement": "[Every change](/#welcome-sec-0-1)"
  }
 ]

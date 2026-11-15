@@ -178,36 +178,3 @@ Every Kikamba and Kiswahili item passes four gates between an English draft and 
 id: qc-gateway
 ```
 
-## 12.6 A week of publishing, before and after
-
-{{pool.share}}% of the register lives where he has never held office (Section 6.2), and nothing published so far argues his case there.
-
-**Same week. Same events. Same team. Different structure.**
-
-The current pattern, as observed from the public page, is a daily record of where Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached and no ask. Week 1 checks it against his actual week before it is put in front of him.
-
-```figure
-id: fig-4-5-calendar
-```
-
-**Two rules on top.** At least two of the seven originate in a ward inside the deficit pool. At least four are Kikamba-first. Both rules are set by the Week 1 audit rather than by preference, and both are checked in the Monday review.
-
-```visual
-kind: contrast
-left:
-  title: "What changed"
-  items:
-    - { label: "two fields on a Thursday post, and a language rule." }
-right:
-  title: "What did not change"
-  items:
-    - { label: "who takes the photograph, who writes the caption, and who presses publish." }
-```
-
-## 12.7 When the plan changes
-
-The diagnosis is a hypothesis, and Week 1 tests it (Section 7.2). The decision rules below are stated in advance, so the audit cannot be read backwards into whatever was already planned.
-
-```figure
-id: fig-4-8-decision-rules
-```

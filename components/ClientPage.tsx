@@ -112,6 +112,18 @@ const WiperUmbrellaLogo = () => (
 
 const TAB_IDS: string[] = SECTIONS.map((s) => s.id);
 
+/**
+ * "/#tools" opens the Tools panel (every tool and record, each opening in its chapter) instead of
+ * scrolling: the Welcome's "Every tool" link (flow pass, WP4). The fragment is cleared so the link
+ * works again, and so a reload does not reopen the panel.
+ */
+const TOOLS_HASH = "tools";
+function openToolsFromHash() {
+  window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  // After the panel's listener is attached (StoryBar mounts in the same commit).
+  requestAnimationFrame(() => window.dispatchEvent(new Event("story:open-tools")));
+}
+
 /** What a closed chapter reserves before it has been laid out: a digest on a 390 px phone. */
 const DIGEST_HEIGHT = 620;
 
@@ -275,6 +287,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   useEffect(() => {
     const raw = window.location.hash.replace(/^#/, "");
     if (!raw) return;
+    if (raw === TOOLS_HASH) {
+      openToolsFromHash();
+      return;
+    }
     // After the first paint, deliberately. The server never saw the fragment, so forcing a
     // section to mount during hydration would make the client's first render disagree with the
     // HTML it is hydrating.
@@ -301,6 +317,10 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
     const onHashChange = async () => {
       const raw = window.location.hash.replace(/^#/, "");
       if (!raw) return;
+      if (raw === TOOLS_HASH) {
+        openToolsFromHash();
+        return;
+      }
       const id = raw.startsWith("section-") ? raw : await resolveLegacySectionId(raw, validSectionIds);
       forceFor(id);
       scrollToSectionWhenReady(id, "smooth");

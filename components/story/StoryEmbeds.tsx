@@ -301,6 +301,8 @@ function ChangeFeed() {
   const { live, ready } = useLive();
   const [ref, inView] = useReveal<HTMLElement>();
   const changes = live?.changes.slice(0, 8) ?? [];
+  // Nothing to show is shown as nothing: a first reader never meets an empty history (flow pass, WP4).
+  if (ready && changes.length === 0) return null;
   return (
     <section ref={ref} className="sx-feed" data-in={inView ? "true" : "false"} aria-label="The latest changes">
       <header className="sx-record__head">
@@ -312,8 +314,6 @@ function ChangeFeed() {
       </header>
       {!ready ? (
         <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the history…</em></div>
-      ) : changes.length === 0 ? (
-        <p className="sx-muted">No change has been recorded yet. The first edit the team makes appears here.</p>
       ) : (
         <ol className="sx-feed__list">
           {changes.map((e, i) => (

@@ -341,7 +341,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
 
   // ---- Part IV: how the campaign runs --------------------------------------------------------
   // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
-  "engagement-sec-13-4": (
+  "week-sec-13-4": (
     <>
       <SectionPortrait id="seated-grey-cropped" kicker="The engagement model" flip>
         Your team reports to a single named campaign-side counterpart.

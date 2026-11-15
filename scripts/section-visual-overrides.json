@@ -3,7 +3,7 @@
     "kind": "none",
     "note": "Was an override to `statement`, which was the only way to say 'no figure here' before a heading was allowed to carry none. It is now saying that directly."
   },
-  "channels-sec-12-7": {
+  "week-sec-12-7": {
     "kind": "none",
     "note": "The decision table this drew is now fig-4-8-decision-rules, placed in the section; a second drawing of the same rules would repeat it."
   },

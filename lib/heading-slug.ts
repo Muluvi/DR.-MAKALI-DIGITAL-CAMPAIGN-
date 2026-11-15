@@ -57,6 +57,7 @@ export const SECTIONS = [
   { id: "voters", part: 4, number: "11", label: "The voters to win", blurb: "Three universes and six segments, by interest, place and life stage" },
   { id: "channels", part: 4, number: "12", label: "Channels and language", blurb: "Where the effort goes, on which channel, in which language" },
   { id: "engagement", part: 5, number: "13", label: "Who does what", blurb: "His team publishes, Firefly runs the platform, one brief a week" },
+  { id: "week", part: 5, number: "", label: "This week", blurb: "The weekly rhythm, a week of publishing, the meetings, and what to do when the plan changes" },
   { id: "timeline", part: 5, number: "14", label: "Timeline to August 2027", blurb: "Five phases, dated by the electoral calendar" },
   { id: "workstreams", part: 5, number: "15", label: "The fourteen workstreams", blurb: "What each produces, who owns it, and how often it reports" },
   { id: "success", part: 5, number: "18", label: "Measuring success", blurb: "Votes and recognition count; followers and likes do not" },

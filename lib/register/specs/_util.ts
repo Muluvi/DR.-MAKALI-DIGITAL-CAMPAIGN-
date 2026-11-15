@@ -64,6 +64,7 @@ export function secHref(num: string): string {
   const located: Record<string, string> = {
     "1.3": "needs", "1.5": "needs",
     "2.5": "winning", "6.2": "known", "6.3": "known", "6.5": "known", "3.7": "spend",
+    "12.6": "week", "12.7": "week", "13.4": "week", "13.5": "week", "B.1": "votes",
   };
   const parts = num.split(".");
   const home = located[num] ?? located[parts.slice(0, 2).join(".")];

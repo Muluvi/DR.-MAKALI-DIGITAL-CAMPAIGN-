@@ -85,57 +85,6 @@ Stated as plainly as what is inside, because a boundary a plan will not draw is 
 {"kind":"inout","out":[{"label":"Publishing to Dr. Mulu's owned accounts","text":"Firefly runs the platform; your team briefs, approves and measures on it.","body":"Firefly does not post, and does not hold credentials. The offline layer in §15.3.3 is your team's to operate end to end."},{"label":"Replacing or restaffing the existing team","text":"Section 17.5 sets out how the team assesses and upskills itself on the platform.","body":"Where a capability gap cannot be closed by upskilling, the team names the gap and the campaign decides — Firefly does not propose itself for the role."},{"label":"Volunteer organising","text":"recruitment, tiers, gamification and ward-champion management (Workstream 10).","body":"The team defines the metrics the leaderboard reports, in the platform's indicator list."},{"label":"The existing technology estate","body":"accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."},{"label":"Physical event logistics","text":"staging, PA systems, tents, transport and fuel.","body":"Section 17.1 names these as subcontracted vendor classes managed by the campaign."},{"label":"Legal representation","text":"election petitions, litigation, and the data-protection and electoral-law review itself.","body":"Section 19.2 has the campaign appoint that reviewer; the team and Firefly's platform work to their sign-off rather than substituting for it."},{"label":"Candidate scheduling","text":"tour management, diary and constituency office operations."},{"label":"Party-level negotiation","text":"with Wiper Patriotic Front organs, branch committees and the national executive."},{"label":"Polling agent recruitment, accreditation and payment","text":"The team tracks indicator GE-03 on the platform's KPI tracker;","body":"the campaign supplies and accredits the agents."},{"label":"Campaign-owned field recommendations","body":"The ward-captain network (240 of 400 captains recommended for the pool's wards, Section 12.1), the 800 M-Pesa \"Economic Ambassadors\", the 1,200 boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."}]}
 ```
 
-## 13.4 The weekly rhythm and approvals
-
-**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.**
-
-```visual
-{"kind":"week","items":[{"day":"Thursday, 16:00","items":[{"label":"the brief","body":"One page from your team's strategy lead, written in the workspace: last week's reach in the pool's wards against the week before; this week's content-type weights; the three posts that must happen and the ward each is for; the language rule; one thing to stop doing."}]},{"day":"Friday","items":[{"label":"the calendar","body":"Your team returns the week's calendar in the platform's content calendar, mapped to the brief. The strategy lead comments; it does not rewrite."}]},{"day":"Monday, 09:00","items":[{"label":"thirty minutes","body":"Approve, amend, flag. The only standing meeting in the engagement."}]},{"day":"Tuesday to Sunday","items":[{"label":"publishing","body":"Your team, on your accounts, with your credentials, and on the SMS, USSD and WhatsApp layer it operates (Section 15.3.3). Firefly publishes on no channel."}]},{"day":"Wednesday","items":[{"label":"one number","body":"A mid-week reach check against the pool's wards, and at most one adjustment. If nothing needs adjusting, nothing is sent."}]},{"day":"Last Friday of the month","items":[{"label":"the review","body":"Recognition indicators (Section 18.3), the overrides log, and the brief re-based on what the month proved."}]}]}
-```
-
-```visual
-{"kind":"checklist","items":[{"label":"Asset centralisation","body":"A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata**, so the origin of every published image and clip can be shown."},{"label":"Performance tracking","body":"Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person."},{"label":"Escalation","body":"The decision matrix below governs all approvals."}]}
-```
-
-#### Decision rights and content approval
-
-Three parties, not two. The column that matters is the last one.
-
-```figure
-id: fig-5-7-approval
-```
-
-**Who holds the ad account: the campaign.** Firefly's recommendation, approved in September 2026: the campaign holds the ad account, the team's analyst plans and reads, and your team places; Firefly takes no access. That keeps the credential where the accountability is and still closes the loop.
-
-## 13.5 Meetings and escalation
-
-```lead
-This annex now carries only the rhythm the engagement itself creates.
-```
-
-The meeting rhythm and the escalation path are schedule material: what a reader approves is that they exist and are proportionate. What matters to a decision is who decides what, which is Section 13.4. This annex now carries only the rhythm the engagement itself creates; the campaign's own internal forums — the candidate's Monday war room, the Wednesday vendor review, the monthly board — are not the platform's to schedule. The table is the engagement's rhythm in full.
-
-<!-- keep -->
-| Cadence | Meeting | Participants | Output |
-|---|---|---|---|
-| **Daily (15 min)** | Stand-up | Strategy core | Priorities, escalations, live issues |
-| **Daily (async)** | Ground asset upload | Ground team → shared repository | Raw photo/video edited and published within hours |
-| **Weekly (60 min)** | Strategy sync | Strategy Director + Campaign Comms Director | Prior-week performance; next-week calendar approved; itinerary alignment |
-| **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
-| **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
-| **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report |
-| **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target (Chapter 14); opt-out rate; ward coverage |
-
-"Strategy Director" in this table is the campaign role of Section 17.2. Each meeting's decisions are logged in the workspace; Firefly attends none of them.
-
-#### The escalation path
-
-Three decision levels, so that operational decisions do not stall under pressure in the field:
-
-```figure
-id: escalation-ladder
-```
-
 ## 17 The campaign team
 
 ```lead
