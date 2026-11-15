@@ -98,9 +98,9 @@ export function ConflictMark({ conflict }: { conflict?: string }) {
     <Chip
       className="ichip--conflict"
       label="Two versions in this document — under review"
-      inertText={`Open item ${conflict}: the proposal states this point two ways`}
+      inertText={`Open item ${conflict}: the plan states this point two ways`}
     >
-      Open item {conflict}: the proposal states this point two ways. Both versions are kept, unchanged,
+      Open item {conflict}: the plan states this point two ways. Both versions are kept, unchanged,
       until the campaign decides between them.
     </Chip>
   );

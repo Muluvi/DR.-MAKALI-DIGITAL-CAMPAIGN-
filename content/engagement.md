@@ -29,7 +29,7 @@ items:
     body: "Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."
 ```
 
-Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This proposal deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
+Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This plan deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
 
 ## 13.2 Who owns what
 
@@ -93,7 +93,7 @@ R responsible · A accountable · C consulted · I informed.
 
 ## 13.3 What is outside the scope
 
-Stated as plainly as what is inside, because a boundary a proposal will not draw is a boundary the campaign discovers later:
+Stated as plainly as what is inside, because a boundary a plan will not draw is a boundary the campaign discovers later:
 
 ```visual
 kind: inout
@@ -231,7 +231,7 @@ id: org-chart
 id: fig-5-9-team
 ```
 
-Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
 
 *Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
 
@@ -251,7 +251,7 @@ What the arrangement buys, stated without the usual claims about bloat:
 **A lean core with a defined surge.** The campaign runs this operation through a small senior core team supplemented
 by named surge roles activated at specific phases and engagement levels. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
-work. A proposal claiming a large standing department it does not have will
+work. A plan claiming a large standing department it does not have will
 fail on the first question about it.
 
 The structure below scales with the service level selected in Section 21.1.
@@ -301,7 +301,7 @@ Surge roles are activated by phase and scope level.
 | **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 15.2.2) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
-roles your team already fills. Adding them here would have been the proposal selling back capability the
+roles your team already fills. Adding them here would have been the plan selling back capability the
 campaign has, which Firefly will not do.
 
 **Surge triggers are explicit.** Each remaining surge role has a named activation condition — a

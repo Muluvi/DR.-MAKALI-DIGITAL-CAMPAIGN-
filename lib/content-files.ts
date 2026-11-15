@@ -9,7 +9,6 @@ import type { TabId } from "./heading-slug";
  */
 export const CONTENT_FILES: Record<TabId, string> = {
   welcome: "welcome.md",
-  cover: "cover.md",
   brief: "brief.md",
   kitui: "kitui.md",
   votes: "votes.md",

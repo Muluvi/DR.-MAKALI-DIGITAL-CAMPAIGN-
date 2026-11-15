@@ -26,7 +26,7 @@ export const FIG_1_1: FigureSpec = {
     to: "2027-08-31",
     today: TODAY,
     events: [
-      { date: TODAY, label: "This proposal", state: "sourced", whenText: "September 2026" },
+      { date: TODAY, label: "This plan", state: "sourced", whenText: "September 2026" },
       { ...NOMINATION, label: "Wiper nomination window", state: "sourced", reported: true, note: "Reported, not confirmed by the party." },
       { date: ELECTION, label: "General election", state: "sourced", note: "The second Tuesday of August, fixed by the Constitution." },
     ],
@@ -37,7 +37,7 @@ export const FIG_1_1: FigureSpec = {
     { key: "tier", label: "Tier" },
   ],
   rows: [
-    { cells: { event: "This proposal", when: "September 2026", tier: "—" } },
+    { cells: { event: "This plan", when: "September 2026", tier: "—" } },
     { cells: { event: "Wiper nomination window (reported)", when: NOMINATION.whenText, tier: NOMINATION_WINDOW.tier } },
     { cells: { event: "General election", when: "10 August 2027", tier: "T1" } },
   ],
@@ -79,7 +79,7 @@ export const FIG_1_3: FigureSpec = {
   title: "Each of the five objectives answers one finding and is judged by one observable measure",
   question: "What are the five objectives, and what does each serve?",
   takeaway: "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 18.1.",
-  sources: [{ name: "This proposal, Sections 2 and 5.1", tier: null, state: "target" }],
+  sources: [{ name: "This plan, Sections 2 and 5.1", tier: null, state: "target" }],
   chart: {
     type: "cards",
     columns: 3,
@@ -87,7 +87,7 @@ export const FIG_1_3: FigureSpec = {
       kicker: `Objective ${o.n}`,
       title: o.title,
       body: o.target,
-      meta: `Target, set by this proposal`,
+      meta: `Target, set by this plan`,
       links: [
         { label: `Finding ${o.finding}`, href: secHref(o.finding) },
         { label: `Strategy ${o.serves}`, href: secHref(o.serves) },
@@ -113,7 +113,7 @@ export const FIG_1_4: FigureSpec = {
   title: "His team analyses, sets the strategy and directs on the platform, and keeps publishing throughout",
   question: "How does the work run?",
   takeaway: "Firefly publishes nothing on his accounts and operates no channel: it runs the platform the team works on.",
-  sources: [{ name: "This proposal, Sections 14.1 and 13.4", tier: null, state: "target" }],
+  sources: [{ name: "This plan, Sections 14.1 and 13.4", tier: null, state: "target" }],
   chart: {
     type: "steps",
     horizontal: true,
@@ -147,7 +147,7 @@ export const FIG_1_5: FigureSpec = {
   title: "Every measure of success is observable on his channels or the SMS list, and each baseline is set in Week 1",
   question: "How will success be judged?",
   takeaway: "The scorecard starts empty by design: the Week 1 export sets each baseline from his own channels and the SMS list.",
-  sources: [{ name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }, { name: "Targets: this proposal", tier: null, state: "target" }],
+  sources: [{ name: "Baselines: set in Week 1 from his Insights export", tier: null, state: "target" }, { name: "Targets: this plan", tier: null, state: "target" }],
   chart: {
     type: "gauges",
     items: OBJECTIVES.map((o) => ({ code: `Objective ${o.n} · ${o.measureLabel}`, title: o.title, target: o.target, baseline: "set in Week 1", share: null })),

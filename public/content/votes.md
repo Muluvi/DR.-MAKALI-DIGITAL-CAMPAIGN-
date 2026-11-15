@@ -14,7 +14,7 @@ Kitui has **532,758** registered voters on the 2022 register, and Governor Malom
 id: fig-2-1-register
 ```
 
-**Which turnout.** Two turnout figures are in circulation, on different bases, and this proposal says which it uses. **61.7%** is governor valid votes (328,760) divided by the register (Tier 1, IEBC Form 37C). The presidential turnout in Kitui was about **62%**, and it includes 3,306 rejected ballots (Tier 2, Equal Politics aggregation of IEBC results). Every calculation in this proposal uses 61.7%.
+**Which turnout.** Two turnout figures are in circulation, on different bases, and this plan says which it uses. **61.7%** is governor valid votes (328,760) divided by the register (Tier 1, IEBC Form 37C). The presidential turnout in Kitui was about **62%**, and it includes 3,306 rejected ballots (Tier 2, Equal Politics aggregation of IEBC results). Every calculation in this plan uses 61.7%.
 
 The full 40-ward register, by constituency, is in Annex B.
 
@@ -24,11 +24,11 @@ The full 40-ward register, by constituency, is in Annex B.
 Julius Malombe won 2022 with **198,004 votes** on a certified turnout of **61.7%** (Tier 1, IEBC Form 37C); Charity Ngilu won 2017 with **169,990 votes** (Tier 1).
 ```
 
-*   **Governor, 2013:** a **named data gap** (Tier 1 gap). No certified result is in hand, and the proposal does not use recollection in its place. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
+*   **Governor, 2013:** a **named data gap** (Tier 1 gap). No certified result is in hand, and the plan does not use recollection in its place. The record that closes it is the IEBC's 2013 declaration and its Kenya Gazette notice.
 *   **Governor, 2017:** Charity Ngilu (NARC) won with **169,990 votes** (Tier 1), in an election the Court of Appeal confirmed (*Malombe v Ngilu* [2018] KECA 460) (Tier 1). David Musila was the certified runner-up with **114,827 votes** (Tier 1), and the incumbent, Julius Malombe, came third with **74,681 votes** (Tier 1).
 *   **Governor, 2022:** Julius Malombe (Wiper Democratic Movement, renamed the Wiper Patriotic Front in 2025) won with **198,004 votes** on a certified turnout of **61.7%**, 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). David Musila (Jubilee) was runner-up with **117,606 votes** (Tier 1); The Star's early total of 114,606 is a media variant, and the certified share (35.77%, calculated) matches 117,606. Jonathan Mueke (UDA) came third with **10,639 votes** (Tier 2).
 *   **President, 2022 (Kitui):** Raila Odinga won **235,400** votes (**70.82%**) and William Ruto **89,419** (**26.90%**); George Wajackoyah won 2,838 and David Mwaure 1,446, with 3,306 ballots rejected (Tier 2, Equal Politics aggregation of IEBC results). The Tier 1 record is IEBC Forms 34B and 34C, not yet in hand.
-*   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this proposal through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
+*   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **30,954 votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with 9,866. Early media totals differ from the gazetted figure and are not used. The figure reached this plan through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
 *   **Senator and Woman Representative, 2022:** Senator Enoch Wambua (Wiper) won with **191,317 votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) with **201,899 votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
 *   **Ward and polling-station results:** the constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records, not yet in hand. Section 6.2 needs them to test where each candidate's vote came from, ward by ward.
 
@@ -86,7 +86,7 @@ id: constituency-power
 Governor Julius Malombe's certified 2022 winning total was 198,004 votes; this document rounds it to **200,000**. [CALC, not a forecast] Held against the July 2026 register, the number to win is ≈200,000–225,000.
 ```
 
-*   **The electorate (July 2026, Tier 3, unconfirmed):** **605,703 voters** (Section 2.1). IEBC has not yet published the 2026 register by ward, so every ward figure in this proposal is the 2022 register.
+*   **The electorate (July 2026, Tier 3, unconfirmed):** **605,703 voters** (Section 2.1). IEBC has not yet published the 2026 register by ward, so every ward figure in this plan is the 2022 register.
 *   **The benchmark: 200,000 votes.** Governor Julius Malombe's certified 2022 winning total was **198,004 votes** (Section 2.2). This document rounds it to **200,000** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in Section 4.3 and the objectives in Chapter 8 are measured against it.
 *   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **37.2%** of the register (calculated). Held against the July 2026 register of 605,703, the equivalent tally is **≈225,000 votes** (calculated). Treat 200,000 as the floor and ≈225,000 as the equivalent on today's register: the number to win is ≈200,000–225,000 (calculated).
 *   **The turnout rate: 61.7%.** The certified 2022 county turnout was **61.7%**: 328,760 valid votes of 532,758 registered (Tier 1, IEBC Form 37C). Every calculation here carries that rate forward to 2027. The rate is measured; carrying it forward is an assumption, and the scenario model brackets it at 55–72%.

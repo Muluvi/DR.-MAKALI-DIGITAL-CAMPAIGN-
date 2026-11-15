@@ -51,11 +51,11 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
             {byline}
             <p className="pf-seal">
               <span className="pf-seal__mark" aria-hidden="true" />
-              <strong>Prepared for Dr. Mulu</strong> — open to anyone with the link.
+              <strong>Built for Dr. Mulu and his team.</strong> Open to view; the team signs in to edit.
             </p>
             <h1 id="pf-hero-title" className="pf-hero__title">
               <span className="pf-line"><span>Kitui 2027:</span></span>
-              <span className="pf-line"><span>Analysis, Strategy and Direction for Dr. Mulu&rsquo;s Campaign</span></span>
+              <span className="pf-line"><span>The campaign&rsquo;s data, analysis and plan, in one place</span></span>
             </h1>
             <p className="pf-hero__sub">
               Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team.

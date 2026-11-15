@@ -1,5 +1,5 @@
 ```lead
-**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.** Everything after that is evidence.
+**The platform is built. One decision puts it to work: choose the scope, and his team runs the campaign through it.** Everything after that is evidence.
 ```
 
 ```figure
@@ -18,7 +18,7 @@ constituencies where he has never held office. The working hypothesis is that th
 of recognition rather than credibility (Section 7.1). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
 
-This proposal sets out the platform that lets his own team turn an active channel into a directed one: an audit of
+This plan sets out the platform that lets his own team turn an active channel into a directed one: an audit of
 what the existing accounts are actually doing (Section 14.1), a strategy derived from it, a weekly
 brief the team writes and carries to the people already publishing, an SMS and USSD layer built for the
 {{ict.offline}}% of Kitui residents who are offline, a published ethics charter that turns
@@ -27,11 +27,9 @@ the candidate from the legal exposure others in this cycle will walk into (Secti
 public service-delivery tracker that puts his strongest credential to work before a single vote is
 cast.
 
-Firefly asks him to approve the platform at the recommended Standard level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.
+Firefly recommends the Standard scope level. His team then enters its own ninety-day export, and everything after that is evidence for the team to act on.
 
 #### What the record does not yet show
-
-> **Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**
 
 Dr. Mulu is already in the conversation. A verified page, {{channel.fb.posts}} posts, a team that publishes every
 day in three languages. What the record does not yet show is a reason behind any single post: which

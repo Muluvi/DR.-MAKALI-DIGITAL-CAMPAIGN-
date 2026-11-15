@@ -75,10 +75,10 @@ export const SPINE_STEPS = [
 export const FIG_COVER_SPINE: FigureSpec = {
   id: "fig-cover-spine",
   section: "Cover",
-  title: "The proposal runs evidence first: what Kitui is and needs, where he stands, the strategy, the plan, how it is proven and kept lawful, and the decision",
+  title: "The plan runs evidence first: what Kitui is and needs, where he stands, the strategy, the plan, how it is proven and kept lawful, and the decision",
   question: "What is the shape of the argument?",
   takeaway: "Kitui today and His standing are the evidence; The strategy and The plan are built on it; Proof and safeguards shows how it is measured and kept lawful; The decision closes with what Dr. Mulu is asked to decide. The evidence behind it follows, then the working platform.",
-  sources: [{ name: "This proposal's structure", tier: null, state: "target" }],
+  sources: [{ name: "This plan's structure", tier: null, state: "target" }],
   chart: { type: "spine", steps: SPINE_STEPS },
   columns: [{ key: "step", label: "Part" }, { key: "job", label: "The question it answers" }],
   rows: [

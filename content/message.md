@@ -88,7 +88,7 @@ body: "Against the KSh {{budget.total|bn}} billion envelope in Section 1.5: a Wa
 
 #### The six themes
 
-Each theme is an issue the pillars are evidenced on. The evidence is in Chapter 3, with its tier and source; three supporting figures are not yet established anywhere in this proposal and say so, rather than borrowing authority from those beside them.
+Each theme is an issue the pillars are evidenced on. The evidence is in Chapter 3, with its tier and source; three supporting figures are not yet established anywhere in this plan and say so, rather than borrowing authority from those beside them.
 
 ```visual
 kind: cards

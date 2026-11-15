@@ -8,7 +8,7 @@ import { fmt } from "./_util.ts";
 import { USSD_MENU } from "../../../data/ussd-specimen.ts";
 import { CountWord } from "../../count-word.ts";
 
-const PROPOSAL = { name: "This proposal, Chapter 15", tier: null, state: "target" as const };
+const PROPOSAL = { name: "This plan, Chapter 15", tier: null, state: "target" as const };
 
 const REPORT = [
   ["Report submitted", "By USSD, SMS, WhatsApp, the web form, or in person through a ward champion."],
@@ -123,7 +123,7 @@ export const FIG_STACK: FigureSpec = {
   title: "Five components, and the personal data concentrates in the first two",
   question: "What does each component of the stack do, hold and risk?",
   takeaway: "The gateway and the CRM carry the high and critical data-protection exposure; the other three work on public or anonymised data, and every one awaits a campaign decision.",
-  sources: [{ name: "This proposal, Section 15.4.3", tier: null, state: "target" }],
+  sources: [{ name: "This plan, Section 15.4.3", tier: null, state: "target" }],
   chart: {
     type: "cards",
     columns: 2,

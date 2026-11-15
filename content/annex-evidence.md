@@ -1,8 +1,8 @@
 ```lead
-Every figure in this proposal carries its source, its tier and its date, and where no source exists the gap is named rather than filled.
+Every figure on this site carries its source, its tier and its date, and where no source exists the gap is named rather than filled.
 ```
 
-Every figure in this proposal carries its source, its tier and its date, and where no source exists the gap is named rather than filled. This annex sets out the provenance rules every figure is held to, the three source tiers it is graded against and the protocol for when two sources disagree, and then lists every figure with its source. It is referenced throughout and collected here so the method can be checked without interrupting the argument.
+Every figure on this site carries its source, its tier and its date, and where no source exists the gap is named rather than filled. This annex sets out the provenance rules every figure is held to, the three source tiers it is graded against and the protocol for when two sources disagree, and then lists every figure with its source. It is referenced throughout and collected here so the method can be checked without interrupting the argument.
 
 ## A.1 The evidence standard
 

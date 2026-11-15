@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { FigureView } from "@/lib/tools/dataset";
 import { Badge, Bar, Card, ksh, n0, Note, pct, Select, Stat, Stats, Table, tierText } from "./ui";
 
-const prov = (f: FigureView) => `${f.source ?? "this proposal"}${f.asOf ? `, ${f.asOf}` : ""} · ${f.state === "target" ? "target" : tierText(f.tier)}${f.state === "modelled" ? ", calculated" : ""}`;
+const prov = (f: FigureView) => `${f.source ?? "this plan"}${f.asOf ? `, ${f.asOf}` : ""} · ${f.state === "target" ? "target" : tierText(f.tier)}${f.state === "modelled" ? ", calculated" : ""}`;
 
 /* ------------------------------------------------------------------ County Money Explainer */
 

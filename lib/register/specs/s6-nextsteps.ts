@@ -23,7 +23,7 @@ export const FIG_6_1: FigureSpec = {
   title: `The campaign provides ${DEPS.length} things, and three of them gate everything else`,
   question: "What does the campaign provide?",
   takeaway: "A counterpart, the team's analytics exports and the data-protection reviewer come first; the rest follow once the engagement is running.",
-  sources: [{ name: "This proposal, Section 22.2", tier: null, state: "target" }],
+  sources: [{ name: "This plan, Section 22.2", tier: null, state: "target" }],
   chart: { type: "steps", steps: DEPS.map((d, i) => ({ when: d.gating ? `${i + 1} · gating` : `${i + 1}`, title: d.item, body: d.why, current: d.gating })) },
   columns: [{ key: "n", label: "#", numeric: true }, { key: "item", label: "Dependency" }, { key: "gating", label: "Gates the rest" }, { key: "why", label: "Why" }],
   rows: DEPS.map((d, i) => ({ cells: { n: i + 1, item: d.item, gating: d.gating ? "Yes" : "No", why: d.why } })),
@@ -35,7 +35,7 @@ export const FIG_6_3: FigureSpec = {
   title: "The ask is one decision, to approve the platform, because the nomination window sets the clock",
   question: "What is being asked?",
   takeaway: `Each week of delay is a week less of directed output before a window reported for late October; the ${fmt("pool")}-voter pool is where that output goes.`,
-  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This proposal", tier: null, state: "target" }],
+  sources: [{ name: NOMINATION_WINDOW.source, tier: NOMINATION_WINDOW.tier }, { name: "This plan", tier: null, state: "target" }],
   chart: {
     type: "composite",
     parts: [

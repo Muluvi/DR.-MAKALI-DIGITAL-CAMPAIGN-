@@ -26,9 +26,9 @@ id: fig-3-11-evidence
 
 ## 7.3 What the data cannot yet show
 
-Where data is missing, this proposal names the gap rather than filling it:
+Where data is missing, this plan names the gap rather than filling it:
 
-1.  **Ward-level voter preference:** **not measured, and not sought.** This proposal forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 (Section 2.2), which the analysis uses as soon as they are in hand. Until then it works from where he has held office.
+1.  **Ward-level voter preference:** **not measured, and not sought.** This plan forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 (Section 2.2), which the analysis uses as soon as they are in hand. Until then it works from where he has held office.
 2.  **Ward-by-ward results for the 2013 governor's race:** a **named data gap (Tier 1 gap).** The IEBC's certified ward returns for 2013 are not in the campaign's records.
 3.  **Ward-by-ward tallies for the 2017 governor's race:** a **named data gap (Tier 1 gap).** The countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}}, Musila {{result.2017.gov.musila}}, Malombe {{result.2017.gov.malombe}}, Tier 1); the ward breakdown sheets are treated as unverified until they are retrieved from the IEBC.
 4.  **Three segment sizes:** the agro-pastoral, the formal-sector and the diaspora voter counts are not published by any official source. Chapter 11 gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
@@ -45,7 +45,7 @@ The figure above lists every open data item, with the document that would close 
 Each assumption is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
 ```
 
-This proposal rests on eleven assumptions. Each is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
+This plan rests on eleven assumptions. Each is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
 
 ```visual
 kind: cards

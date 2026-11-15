@@ -80,10 +80,10 @@ and USSD layer, and reaching the arid belt is the whole argument.
 ## 21.2 The deliverables schedule
 
 ```lead
-Every row below is set somewhere else in this proposal, in the workstream that produces it. Most of this schedule is your team's existing output, now directed.
+Every row below is set somewhere else in this plan, in the workstream that produces it. Most of this schedule is your team's existing output, now directed.
 ```
 
-Every row below is set somewhere else in this proposal, in the workstream that produces it. This
+Every row below is set somewhere else in this plan, in the workstream that produces it. This
 section consolidates them so the campaign can see the whole commitment on one page rather than
 assembling it from nine sections. The last column gives the section that sets each row. Where a cadence varies by level, Section 21.1 governs; the cadence
 shown here is the one Level 2 carries.
@@ -129,7 +129,7 @@ Firefly commits to a platform, its upkeep and its data checks; the team to a met
 what the ballot returns.
 
 ```visual
-{"kind":"checklist","items":[{"label":"The scope","body":"is the fourteen workstreams in Section 13.2, with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."},{"label":"The cadence","text":"is in Section 13.4:","body":"the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."},{"label":"The standard","text":"is in Sections 18.1 and 13.5:","body":"indicators that trace to either the nomination objectives in Section 8.2 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."},{"label":"The conditions","text":"are in Section 22.2.","body":"This proposal depends on decisions and appointments that only the campaign can make, and it names them rather than assuming them."}]}
+{"kind":"checklist","items":[{"label":"The scope","body":"is the fourteen workstreams in Section 13.2, with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."},{"label":"The cadence","text":"is in Section 13.4:","body":"the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."},{"label":"The standard","text":"is in Sections 18.1 and 13.5:","body":"indicators that trace to either the nomination objectives in Section 8.2 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."},{"label":"The conditions","text":"are in Section 22.2.","body":"This plan depends on decisions and appointments that only the campaign can make, and it names them rather than assuming them."}]}
 ```
 
 *Source conflict: an earlier version pointed the cadence to Section 13.2, the standard to Sections 18.1 and 13.4 and the conditions to Section 6; the references above are the current ones.*
@@ -140,7 +140,7 @@ what the ballot returns.
 Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer.
 ```
 
-This section lists what the proposal needs from the campaign; Chapter 23 states the decision requested. Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer. Stated plainly:
+This section lists what the plan needs from the campaign; Chapter 23 states the decision requested. Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer. Stated plainly:
 
 ```figure
 id: fig-6-1-dependencies

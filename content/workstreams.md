@@ -833,7 +833,7 @@ Four workstreams under the rest: the data layer, the voter model built on it, th
 
 A precise campaign needs a data layer it can trust. No loose spreadsheets, unverified voter claims or ad-hoc phone lists: one structured database, with provenance and audit trails on every record, run within Kenyan privacy law.
 
-This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this proposal (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this plan (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
 
 ```figure
 id: data-layer

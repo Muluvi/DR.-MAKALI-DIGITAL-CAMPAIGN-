@@ -91,7 +91,11 @@ const nextConfig: NextConfig = {
       'workstreams-ground': 'workstreams',
       'workstreams-data': 'workstreams',
     };
+    // The flow pass (November 2026) took the cover out of the flow: its text is the footer of every
+    // page, so its route goes to the top of the story. /content/cover.md is still served.
+    const footerOnly = ['cover'];
     return [
+      ...footerOnly.map((from) => ({ source: `/${from}`, destination: '/', permanent: false })),
       ...Object.entries(moved).map(([from, to]) => ({
         source: `/content/${from}.md`,
         destination: `/content/${to}.md`,

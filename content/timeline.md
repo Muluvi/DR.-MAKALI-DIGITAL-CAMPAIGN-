@@ -12,7 +12,7 @@ id: fig-5-4-phases
 
 **Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's flagbearer decision <window-chip></window-chip>.
 
-**What the first weeks test.** The working diagnosis (Section 7.1) is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed (Section 12.7). This is the discipline the rest of the proposal claims, applied to its own first assumption.
+**What the first weeks test.** The working diagnosis (Section 7.1) is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed (Section 12.7). This is the discipline the rest of the plan claims, applied to its own first assumption.
 
 ```figure
 id: fig-5-3-four-weeks
@@ -99,7 +99,7 @@ Six entries on his own profile contradict the parliamentary record or the positi
 id: fig-4-7-profile-fixes
 ```
 
-**The PhD is the one to fix first.** The proposal argues that his economics doctorate and his evaluation record are his differentiators. Neither appears on the profile where a voter would look for them.
+**The PhD is the one to fix first.** The plan argues that his economics doctorate and his evaluation record are his differentiators. Neither appears on the profile where a voter would look for them.
 
 **Is the Facebook presence a Page, or a personal profile in professional mode?** A visible friends list suggests the latter (assumption 5, Section 7.4). The distinction is not cosmetic. A personal profile has no Page Insights, no Business Suite export, no delegated admin roles and no ad account — which means most of what follows does not exist, and the strategy has a migration question attached to it before anything else is decided. One screenshot of Meta Business Suite, or of the Professional dashboard, settles this in the first hour of Week 1, and it gates the rest of the audit.
 

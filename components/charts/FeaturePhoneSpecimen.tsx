@@ -302,7 +302,7 @@ export function FeaturePhoneSpecimen() {
                   ))}
                 </ol>
                 <p className="t-micro text-muted mt-2.5 leading-snug">
-                  <InlineMarks text="§8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here would be the claim-versus-delivery gap this proposal argues against." />
+                  <InlineMarks text="§8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here would be the claim-versus-delivery gap this plan argues against." />
                 </p>
               </div>
             ) : (

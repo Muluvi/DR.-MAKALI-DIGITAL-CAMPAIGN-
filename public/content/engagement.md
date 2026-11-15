@@ -20,7 +20,7 @@ id: fig-1-4-flow
 {"kind":"stepper","items":[{"label":"Analyse (Week 1)","text":"Your team audits his channels against the race in the channel audit:","body":"ninety days of reach, engagement, language and geography (Section 18.5)."},{"label":"Strategise (Weeks 2–3)","body":"From that audit, your team defines what to post, for whom, in which language, on which channel, and why (Part III)."},{"label":"Direct (Week 4 on)","text":"His team keeps publishing.","body":"Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."}]}
 ```
 
-Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This proposal deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
+Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This plan deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
 
 ## 13.2 Who owns what
 
@@ -79,7 +79,7 @@ R responsible · A accountable · C consulted · I informed.
 
 ## 13.3 What is outside the scope
 
-Stated as plainly as what is inside, because a boundary a proposal will not draw is a boundary the campaign discovers later:
+Stated as plainly as what is inside, because a boundary a plan will not draw is a boundary the campaign discovers later:
 
 ```visual
 {"kind":"inout","out":[{"label":"Publishing to Dr. Mulu's owned accounts","text":"Firefly runs the platform; your team briefs, approves and measures on it.","body":"Firefly does not post, and does not hold credentials. The offline layer in §15.3.3 is your team's to operate end to end."},{"label":"Replacing or restaffing the existing team","text":"Section 17.5 sets out how the team assesses and upskills itself on the platform.","body":"Where a capability gap cannot be closed by upskilling, the team names the gap and the campaign decides — Firefly does not propose itself for the role."},{"label":"Volunteer organising","text":"recruitment, tiers, gamification and ward-champion management (Workstream 10).","body":"The team defines the metrics the leaderboard reports, in the platform's indicator list."},{"label":"The existing technology estate","body":"accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."},{"label":"Physical event logistics","text":"staging, PA systems, tents, transport and fuel.","body":"Section 17.1 names these as subcontracted vendor classes managed by the campaign."},{"label":"Legal representation","text":"election petitions, litigation, and the data-protection and electoral-law review itself.","body":"Section 19.2 has the campaign appoint that reviewer; the team and Firefly's platform work to their sign-off rather than substituting for it."},{"label":"Candidate scheduling","text":"tour management, diary and constituency office operations."},{"label":"Party-level negotiation","text":"with Wiper Patriotic Front organs, branch committees and the national executive."},{"label":"Polling agent recruitment, accreditation and payment","text":"The team tracks indicator GE-03 on the platform's KPI tracker;","body":"the campaign supplies and accredits the agents."},{"label":"Campaign-owned field recommendations","body":"The ward-captain network (240 of 400 captains recommended for the pool's wards, Section 12.1), the 800 M-Pesa \"Economic Ambassadors\", the 1,200 boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."}]}
@@ -164,7 +164,7 @@ id: org-chart
 id: fig-5-9-team
 ```
 
-Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this proposal (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
 
 *Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
 
@@ -184,7 +184,7 @@ What the arrangement buys, stated without the usual claims about bloat:
 **A lean core with a defined surge.** The campaign runs this operation through a small senior core team supplemented
 by named surge roles activated at specific phases and engagement levels. This is
 stated plainly because a campaign is entitled to know exactly who is doing the
-work. A proposal claiming a large standing department it does not have will
+work. A plan claiming a large standing department it does not have will
 fail on the first question about it.
 
 The structure below scales with the service level selected in Section 21.1.
@@ -220,7 +220,7 @@ Surge roles are activated by phase and scope level.
 | **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 15.2.2) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
-roles your team already fills. Adding them here would have been the proposal selling back capability the
+roles your team already fills. Adding them here would have been the plan selling back capability the
 campaign has, which Firefly will not do.
 
 **Surge triggers are explicit.** Each remaining surge role has a named activation condition — a

@@ -17,6 +17,17 @@ const HEDGES = [
   "CALC", "not a forecast", "to be cited", "to be confirmed", "pending", "awaiting", "Tier 2", "Tier 3",
   "not yet tiered", "media report", "single-source",
 ];
+/**
+ * Hedges a lead may leave out, each by a logged decision. The word belongs to a clause the lead does
+ * not restate, so dropping it hides no uncertainty.
+ *
+ *   ask:(intro) "derived": the flow pass (docs/flow-2026-11, FLOW-PLAN.md section 10, Q1) gave the
+ *   ask its approved lead, "The platform is built. One decision puts it to work…", and removed the
+ *   blockquote that repeated it. The nearest body sentence is then the one listing what the platform
+ *   carries, where "a strategy derived from it" says where the strategy comes from; it qualifies no
+ *   figure and no claim the lead makes.
+ */
+const EXCUSED = new Set(["ask:(intro)|derived"]);
 const errors = [];
 const review = [];
 let leads = 0;
@@ -66,7 +77,7 @@ for (const f of nowFiles()) {
       for (const src of sources) {
         for (const h of HEDGES) {
           const re = new RegExp(`\\b${h.replace(/[-]/g, "[- ]")}\\b`, "i");
-          if (re.test(src) && !re.test(lead)) errors.push(`7: ${where}: the lead drops the hedge "${h}" from: "${src.slice(0, 110)}…"`);
+          if (re.test(src) && !re.test(lead) && !EXCUSED.has(`${where}|${h}`)) errors.push(`7: ${where}: the lead drops the hedge "${h}" from: "${src.slice(0, 110)}…"`);
         }
       }
     }

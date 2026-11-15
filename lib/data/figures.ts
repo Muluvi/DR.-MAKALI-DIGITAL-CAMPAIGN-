@@ -43,7 +43,7 @@ function modelled(id: string, value: number, unit: Unit, note: string, extra: Pa
 }
 
 function target(id: string, value: number, unit: Unit, note: string, extra: Partial<Figure> = {}) {
-  return add({ id, value, unit, tier: null, state: "target", source: extra.source ?? "This proposal", note, ...extra });
+  return add({ id, value, unit, tier: null, state: "target", source: extra.source ?? "This plan", note, ...extra });
 }
 
 /** Stable slug for a ward or constituency name: "Kwa Vonza/Yatta" -> "kwa-vonza-yatta". */
@@ -368,7 +368,7 @@ sourced("water.basic.kdhs", 21, "percent", "T1", "KNBS, Kenya Demographic and He
 sourced("water.basic.nairobi", 99, "percent", "T1", "KNBS, Kenya Demographic and Health Survey 2022", { asOf: "2022", decimals: 0 });
 sourced("water.trek.2026-02", 7.2, "count", "T1", "NDMA National Drought Early Warning Bulletin, February 2026", { asOf: "2026-02", decimals: 1, note: "Average water trekking distance in kilometres; the longest of Kenya's semi-arid counties." });
 sourced("food.share", 72.5, "percent", "T2", "KNBS Kenya Poverty Report, via national reporting", { note: "Share of household spending that goes on food." });
-target("policy.ndengu-floor", 85, "ksh", "A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
+target("policy.ndengu-floor", 85, "ksh", "A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this plan" });
 sourced("price.ndengu.farmgate", 40, "ksh", "T3", "Farm-gate price as quoted in the message matrix; source pending", { note: "Per kilogram." });
 
 // ---- his channels (Section 2.9), read off the public page
@@ -392,8 +392,8 @@ modelled("con.mwingi-north.share", pct(v("con.mwingi-north"), v("register.2022")
 
 /* =============================================================== 4. targets */
 
-const T_FIREFLY = "Firefly's target, this proposal";
-const T_CAMPAIGN = "The campaign's build target, this proposal";
+const T_FIREFLY = "Firefly's target, this plan";
+const T_CAMPAIGN = "The campaign's build target, this plan";
 target("target.sms.phase-1", 15_000, "count", "Consented SMS contacts by the end of Phase −1.", { source: T_FIREFLY });
 target("target.sms.phase-1b", 40_000, "count", "Consented SMS contacts, Phase 1.", { source: T_FIREFLY });
 target("target.sms.phase-2", 80_000, "count", "Consented SMS contacts, Phase 2.", { source: T_FIREFLY });
@@ -498,7 +498,7 @@ for (const [id, value] of [["health.density.doctors", 0.7], ["health.density.cli
   sourced(id, value, "count", "T2", `Countdown 2030, Kitui health workforce, per ${AUDIT}`, { note: "Per 10,000 population." });
 
 // ---- county-policy parameters the campaign is still to size (Section 4.4)
-target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this proposal" });
+target("policy.ward-fund", 100_000_000, "ksh", "The proposed Ward Development Equalization Fund, per ward per year: a campaign policy proposal, not yet sized.", { source: "Campaign policy proposal, this plan" });
 sourced("policy.ndengu-output", 45_000, "count", "T3", "KNBS 2019 Census and ASTGS, as cited; page reference pending", { note: "Tonnes of ndengu output, not yet tiered to a page." });
 // The two flagship commitments against the envelope (restructure 2026-11: computed, not typed).
 modelled("policy.ward-fund.total", 40 * v("policy.ward-fund"), "ksh", "KSh 100m per ward × 40 wards, a year.", { decimals: 1 });

@@ -863,6 +863,11 @@
 /* D-07: the dock's band is reserved at the end of the document. */
 .pf-main { padding-bottom: calc(var(--pf-dock-h) + 40px + env(safe-area-inset-bottom)); }
 .pf-footer { padding-bottom: calc(var(--pf-dock-h) + 48px + env(safe-area-inset-bottom)); }
+/* The cover's front matter, in the footer since the flow pass (docs/flow-2026-11, WP1): footer-sized, not prose-sized. */
+.pf-footer__cover { margin: 0 0 20px; }
+.pf-footer__cover .prose :is(p, li) { font-size: 0.875rem; line-height: 1.55; margin: 0 0 0.6em; color: var(--color-muted, inherit); }
+.pf-footer__cover .prose :is(h2, h3, h4) { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 1em 0 0.5em; }
+.pf-footer__cover .prose strong { color: var(--color-ink, inherit); }
 html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 
 /* Non-text blocks cap at a comfortable figure width; the hero figure and bleed blocks run full. */

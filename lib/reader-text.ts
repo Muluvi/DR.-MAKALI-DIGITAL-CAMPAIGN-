@@ -88,12 +88,12 @@ export function pageText(input: string): string {
   s = s.replace(FIGURE_REF, "$1");
   s = s.replace(TRAILING_REF, "");
   s = s.replace(LEADING_REF, "");
-  s = s.replace(IN_REF, "$1 this proposal");
-  s = s.replace(START_REF, "This proposal ");
-  s = s.replace(POSS_OWN, "this proposal's own");
-  s = s.replace(POSS_PAIR, "this proposal's");
+  s = s.replace(IN_REF, "$1 this plan");
+  s = s.replace(START_REF, "This plan ");
+  s = s.replace(POSS_OWN, "this plan's own");
+  s = s.replace(POSS_PAIR, "this plan's");
   s = s.replace(POSS, (_, at: number) => (at === 0 || /[.!?]\s*$/.test(s.slice(0, at)) ? "The " : "the "));
-  s = s.replace(ANY_REF, (_, at: number, whole: string) => (at === 0 || /[.!?]\s*$/.test(whole.slice(0, at)) ? "This proposal" : "this proposal"));
+  s = s.replace(ANY_REF, (_, at: number, whole: string) => (at === 0 || /[.!?]\s*$/.test(whole.slice(0, at)) ? "This plan" : "this plan"));
   return s;
 }
 

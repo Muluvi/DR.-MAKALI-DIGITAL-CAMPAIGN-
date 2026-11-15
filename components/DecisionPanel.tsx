@@ -83,7 +83,7 @@ export function DecisionPanel() {
 
           <p className="text-sm text-muted leading-relaxed mt-5">
             Firefly is proposed as the owner and operator of the campaign&apos;s platform, not as its
-            outsourced digital function: the team runs the campaign on it. The proposal deliberately claims no named clients or case studies;
+            outsourced digital function: the team runs the campaign on it. The plan deliberately claims no named clients or case studies;
             its proof is the specificity of the operating model and the deliverables set out above.
           </p>
 

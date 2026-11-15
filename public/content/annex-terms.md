@@ -1,9 +1,9 @@
-*Who this proposal is for, who prepared it, and its status are stated once, on the cover.*
+*Who the site is for, who built it, and its status are stated once, at the foot of the page.*
 
 ## G.1 Who it is for, and how it may be used
 
 <!-- keep -->
-This proposal is for Dr. Makali Mulu. It is not addressed to any party organ, and it should not be
+This site is for Dr. Makali Mulu. It is not addressed to any party organ, and it should not be
 shared with one. It is submitted to him and to those he authorises to review it. It sets out Firefly Management's analysis, method and proposed scope of
 work for the Kitui gubernatorial campaign, and is provided for the purpose of evaluating this
 engagement.
@@ -17,13 +17,13 @@ Management's written consent.
 Nothing in this document constitutes a binding commitment by either party. Commercial terms are
 settled separately and in person, and appear nowhere in these pages.
 
-## H.1 Terms used in this proposal
+## H.1 Terms used on this site
 
 ```lead
-The abbreviations and terms of art this proposal uses, each defined once in plain words.
+The abbreviations and terms of art this site uses, each defined once in plain words.
 ```
 
-The abbreviations and terms of art this proposal uses, each defined once in plain words. Where a term names a document, the definition says who issues it.
+The abbreviations and terms of art this site uses, each defined once in plain words. Where a term names a document, the definition says who issues it.
 
 <!-- keep -->
 | Term | What it means |

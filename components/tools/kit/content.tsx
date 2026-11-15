@@ -113,7 +113,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
   const list = facts.filter((x) => x.label.toLowerCase().includes(q.toLowerCase()));
   const cur = list[sel] ?? list[0];
   const caution = cur && (cur.f.tier === "T3" || cur.f.state === "modelled" || cur.f.state === "target");
-  const line = cur ? `${cur.label}: ${cur.f.display}${cur.f.unit === "percent" ? "%" : ""}. Source: ${cur.f.source ?? "this proposal"}${cur.f.asOf ? `, ${cur.f.asOf}` : ""}.${cur.f.state === "modelled" ? " (Calculated.)" : ""}` : "";
+  const line = cur ? `${cur.label}: ${cur.f.display}${cur.f.unit === "percent" ? "%" : ""}. Source: ${cur.f.source ?? "this plan"}${cur.f.asOf ? `, ${cur.f.asOf}` : ""}.${cur.f.state === "modelled" ? " (Calculated.)" : ""}` : "";
   return (
     <div className="space-y-4">
       <Card>
@@ -126,7 +126,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
           <p className="mt-2 font-serif text-[1.4rem] leading-snug text-ink">{cur.f.display}{cur.f.unit === "percent" ? "%" : ""}</p>
           <p className="text-ink">{cur.label}</p>
           <p className="mt-2 text-[0.85rem] text-muted">{cur.f.source}{cur.f.asOf ? ` · ${cur.f.asOf}` : ""} · <Badge tone={caution ? "gold" : "accent"}>{cur.f.state === "target" ? "target" : `${tierText(cur.f.tier)}${cur.f.state === "modelled" ? ", calculated" : ""}`}</Badge></p>
-          {caution && <p className="mt-2 text-[0.85rem] text-gold">Check before posting: {cur.f.tier === "T3" ? "a Tier 3 figure, reported but not confirmed." : cur.f.state === "target" ? "a target set by this proposal, not a measurement." : "calculated by the site from sourced figures; say so."}</p>}
+          {caution && <p className="mt-2 text-[0.85rem] text-gold">Check before posting: {cur.f.tier === "T3" ? "a Tier 3 figure, reported but not confirmed." : cur.f.state === "target" ? "a target set by this plan, not a measurement." : "calculated by the site from sourced figures; say so."}</p>}
           <p className="mt-3 rounded-xl bg-paper p-3 text-[0.9rem] text-ink ring-1 ring-line">{line}</p>
           <button type="button" className="plat-btn plat-btn-sm mt-3" onClick={async () => { await navigator.clipboard?.writeText(line); setCopied(true); setTimeout(() => setCopied(false), 1600); }}>{copied ? "Copied" : "Copy the line"}</button>
         </Card>

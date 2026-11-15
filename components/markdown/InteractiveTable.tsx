@@ -136,7 +136,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
     // one place that rule matters most — once it is a spreadsheet on someone's laptop,
     // the page's own source line is gone.
     const preamble = [
-      ["# Dr. Makali campaign proposal — table export"],
+      ["# Dr. Makali campaign platform — table export"],
       [`# Retrieved: ${new Date().toISOString().slice(0, 10)}`],
       [`# Source page: ${typeof window !== "undefined" ? window.location.href : ""}`],
       ...(tableSources.length > 0 ? [[`# Source: ${tableSources.join(" | ")}`]] : []),
