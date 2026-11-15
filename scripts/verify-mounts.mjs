@@ -72,13 +72,27 @@ function mountKeys() {
   return [...src.slice(start, end).matchAll(/^\s*"([a-z][a-z-]*-sec-[\da-z-]+)":/gm)].map((m) => m[1]);
 }
 
+/** Where the story draws its tools, live records and charts (lib/tools/meta.ts, lib/story/embeds.ts). */
+function embedHomes() {
+  const meta = fs.readFileSync(path.join(ROOT, "lib", "tools", "meta.ts"), "utf8");
+  const embeds = fs.readFileSync(path.join(ROOT, "lib", "story", "embeds.ts"), "utf8");
+  return [
+    ...[...meta.matchAll(/home: "([^"]+)"/g)].map((m) => m[1]),
+    ...[...embeds.matchAll(/^\s*"([a-z][a-z-]*-sec-[\da-z-]+)":/gm)].map((m) => m[1]),
+    ...[...embeds.matchAll(/FEED_HOME = "([^"]+)"/g)].map((m) => m[1]),
+    ...[...(embeds.match(/COUNTDOWN_HOMES = \[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((m) => m[1]),
+  ];
+}
+
 const ids = liveIds();
 const keys = mountKeys();
+const homes = embedHomes();
 const orphans = keys.filter((k) => !ids.has(k));
 const duplicates = keys.filter((k, i) => keys.indexOf(k) !== i);
 
 const errors = [];
 for (const k of orphans) errors.push(`HEADING_INSERTS key "${k}" names no heading in public/content.`);
+for (const k of new Set(homes.filter((h) => !ids.has(h)))) errors.push(`Story embed home "${k}" names no heading in public/content.`);
 for (const k of new Set(duplicates)) errors.push(`HEADING_INSERTS key "${k}" is declared more than once.`);
 
 if (errors.length) {
@@ -88,4 +102,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`verify-mounts: ${keys.length} mount points all resolve (${ids.size} headings indexed).`);
+console.log(`verify-mounts: ${keys.length} mount points and ${homes.length} story embeds all resolve (${ids.size} headings indexed).`);

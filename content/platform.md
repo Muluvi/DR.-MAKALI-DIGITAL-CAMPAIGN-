@@ -52,4 +52,4 @@ items:
 
 The campaign owns its content and its data. Firefly made the platform, owns it and runs it.
 
-[Explore the data](/explore) · [Dashboards](/dashboards) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)
+[Implementation](/#workstreams-sec-15-1) · [Content calendar](/#channels-sec-12-6) · [Scorecards](/#success-sec-18-2) · [Every change](/#annex-evidence-sec-a-2) · [Explore the data](/explore) · [Strategies](/strategies)

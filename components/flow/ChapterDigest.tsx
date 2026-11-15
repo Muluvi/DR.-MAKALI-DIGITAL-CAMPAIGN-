@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Hand, Sparkles, Table2 } from "lucide-react";
+import { chapterHands } from "../../lib/story/embeds";
 
 import { useInView } from "../../hooks/use-in-view";
 import { tierWord } from "../../data/types";
@@ -63,6 +64,7 @@ export function ChapterDigest({
   const [ref, inView] = useInView<HTMLDivElement>({ amount: 0.25, margin: "-6% 0px" });
   const shown = steps.slice(0, MAX_STEPS);
   const more = steps.length - shown.length;
+  const hands = chapterHands(tabId);
 
   return (
     <div ref={ref} className="cd not-prose" data-in-view={inView ? "true" : "false"} data-open={open ? "true" : "false"}>
@@ -103,6 +105,22 @@ export function ChapterDigest({
             ))}
           </ol>
           {more > 0 && <p className="cd__more">and {more} more inside</p>}
+        </div>
+      )}
+
+      {hands.length > 0 && (
+        <div className="sx-hands print:hidden">
+          <p className="sx-hands__kicker"><Hand size={13} aria-hidden="true" /> Try it in this chapter</p>
+          <ul>
+            {hands.map((h, i) => (
+              <li key={`${h.kind}-${h.label}`}>
+                <button type="button" data-kind={h.kind} style={{ "--i": i } as React.CSSProperties} onClick={() => onStep(h.id)}>
+                  {h.kind === "record" ? <Table2 size={14} aria-hidden="true" /> : <Sparkles size={14} aria-hidden="true" />}
+                  {h.label}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 

@@ -41,6 +41,7 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
       if (!r.ok) { setErrors(r.errors); return; }
       setMessage(r.message);
       router.refresh();
+      window.dispatchEvent(new CustomEvent("live:changed", { detail: c.id }));
       if (!recordId) setValues({});
       setTouched(false);
       onDone?.(r.message);

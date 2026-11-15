@@ -1,5 +1,4 @@
 import Link from "next/link";
-import "../platform.css";
 import { getSession } from "@/lib/platform/auth";
 import { teamLoginEnabled } from "@/lib/platform/config";
 import { PlatformNav } from "@/components/platform/PlatformNav";

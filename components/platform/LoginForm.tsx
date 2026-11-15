@@ -17,7 +17,7 @@ export function LoginForm({ passwordFirst }: { passwordFirst: boolean }) {
       const r = await signIn({ email, password: usePassword ? password : undefined, magic: !usePassword });
       if (!r.ok) { setMsg({ ok: false, text: Object.values(r.errors)[0] }); return; }
       setMsg({ ok: true, text: r.message });
-      if (usePassword) { router.push("/workspace"); router.refresh(); }
+      if (usePassword) { router.push("/"); router.refresh(); }
     });
   };
   return (

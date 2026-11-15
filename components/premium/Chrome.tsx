@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import measured from "../../data/section-heights.json";
@@ -65,12 +64,12 @@ export function Dock({
             <path d="M2 4h12M2 8h12M2 12h7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
         </button>
-        {/* The campaign platform: the data explorer, dashboards, strategies and the team's workspace. */}
-        <Link className="pf-dock__icon" href="/dashboards" aria-label="Open the campaign platform">
+        {/* Every tool and live record, each in its chapter (story integration, November 2026). */}
+        <button type="button" className="pf-dock__icon" onClick={() => window.dispatchEvent(new Event("story:open-tools"))} aria-label="Open every tool and record">
           <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
             <path d="M2.5 13.5V8.5M6.2 13.5V4.5M9.8 13.5V7M13.5 13.5V2.5" />
           </svg>
-        </Link>
+        </button>
         <button type="button" className="pf-dock__icon" onClick={onToggleTheme} aria-label="Switch between light and dark">
           {!themeReady ? (
             <span className="pf-dock__hold" aria-hidden="true" />
