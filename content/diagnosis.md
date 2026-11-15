@@ -56,7 +56,7 @@ items:
     body: "This is reported and not confirmed by the party (Tier 3); the party's own published rules would confirm it."
   - title: "2. The nomination window falls when it is reported to."
     head: { label: "If it fails", text: "A later date lengthens the sprint; an earlier one compresses it and forces the decision rules in Section 12.7 sooner." }
-    body: "<window-chip></window-chip> That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
+    body: "That is the window Section 23.1 states and the one Section 8.1's timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in Section 8.1 and the Phase −1 sprint in Section 14.1 are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
   - title: "3. The register and connectivity figures hold."
     body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in Section 2.3 are the most recent published figures. The offline layer in Section 15.3.3 is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
   - title: "4. The campaign appoints the named roles."

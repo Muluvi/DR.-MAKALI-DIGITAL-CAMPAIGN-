@@ -13,7 +13,7 @@ delivered what it promised. Unconfirmed balances, pending bills and low developm
 Auditor-General and the Controller of Budget report for the county (Section 3.7), and that qualification is currently the campaign's most under-used
 asset.
 
-**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Just over half the register, {{pool.share}}%, lives in the four
+**But the timeline is not the one the planning cycle assumes.** Just over half the register, {{pool.share}}%, lives in the four
 constituencies where he has never held office. The working hypothesis is that the gap there is one
 of recognition rather than credibility (Section 7.1). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
@@ -36,15 +36,11 @@ day in three languages. What the record does not yet show is a reason behind any
 voter it was for, which of the **{{pool}}** registered voters in the pool wards, where he has never held office, it
 reached, and whether it moved anything.
 
-## 23.1 The window that sets the pace
+## 23.1 The clock that sets the pace
 
-> **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this
-> document is derived from it rather than chosen.
+> **What sets the pace.** The IEBC's Gazette deadlines and election day, 10 August 2027. Those dates are not in the campaign's gift, and every other date in this plan is derived from them rather than chosen.
 >
-> **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the
-> first of those six for the presence audit that sets its targets. Counting back from a window
-> that opens in late October is the arithmetic that matters; a fixed decision date printed in a
-> proposal only ages.
+> **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the first of those six for the presence audit that sets its targets.
 >
 > **What is lost by waiting.** Each week of delay is a week less of directed output in front of the
 > window, and a week of the audit's ninety-day window filling with output nobody briefed.

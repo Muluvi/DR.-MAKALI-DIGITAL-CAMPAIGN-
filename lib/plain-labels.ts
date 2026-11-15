@@ -6,8 +6,8 @@
  * phases next to numbered parts, sections and tiers were one more numbering system to decode.
  */
 export const PHASE_NAMES: Record<string, string> = {
-  "−1": "Nomination sprint",
-  "-1": "Nomination sprint",
+  "−1": "Ballot line",
+  "-1": "Ballot line",
   "0": "Set-up",
   "1": "Awareness",
   "2": "Persuasion",
@@ -16,6 +16,8 @@ export const PHASE_NAMES: Record<string, string> = {
 
 /** Phase id (lib/phases.ts) for a plain phase name, so a renamed heading keeps its colour. */
 export const PHASE_ID_BY_NAME: Record<string, string> = {
+  "Ballot line": "neg1",
+  // The phase's earlier name (lib/phases.ts relabelled it in the flow pass, Q3), so an old heading keeps its colour.
   "Nomination sprint": "neg1",
   "Set-up": "0",
   Awareness: "1",
@@ -47,8 +49,8 @@ export function plainLabels(input: string): string {
     const before = whole.slice(0, offset);
     const article = LEAD_IN.test(before) ? "the " : "";
     const atStart = /(^|[.!?:]\s+|\n\s*)$/.test(before);
-    // "the Nomination sprint" already names a stretch of time; the others read as "the Awareness phase".
-    const suffix = names.length > 1 ? " phases" : names[0] === "Nomination sprint" ? "" : " phase";
+    // Each reads as a phase: "the Ballot line phase", "the Awareness phase".
+    const suffix = names.length > 1 ? " phases" : " phase";
     const phrase = `${article}${joined}${suffix}`;
     return atStart ? phrase.charAt(0).toUpperCase() + phrase.slice(1) : phrase;
   });

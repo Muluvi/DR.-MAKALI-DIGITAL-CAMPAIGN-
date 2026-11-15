@@ -30,9 +30,9 @@ export const TOOL_META: ToolMeta[] = [
   // How voters get news
   { slug: "channel-mix", title: "Channel Mix by Sub-county", line: "Where the message must travel by radio and in person.", home: "news-sec-4-3", gesture: "tap", preview: "bars", prompt: "Find the sub-county where most adults have no phone." },
   { slug: "offline-waterline", title: "Offline Waterline", line: "How much of a win must come from voters reached offline.", home: "news-sec-4-4", gesture: "drag", preview: "sliders", prompt: "Raise internet use to 40%: is digital alone enough yet?" },
-  // The diagnosis and the goal
+  // The diagnosis
   { slug: "assumptions", title: "Assumptions Panel", line: "Test the site's core arithmetic, and every calculated figure.", home: "diagnosis-sec-7-4", gesture: "drag", preview: "sliders", prompt: "Challenge an assumption: change the winner's share and see the bar move." },
-  { slug: "nomination-path", title: "Governor Nomination Path", line: "What must be confirmed and filed on the road to the nomination.", home: "goal-sec-8-1", gesture: "tap", preview: "rows", prompt: "Tick off what is already done; the list remembers on this phone." },
+  { slug: "nomination-path", title: "Governor Nomination Path", line: "What must be confirmed and filed on the road to the nomination.", home: "timeline-sec-14-0", gesture: "tap", preview: "rows", prompt: "Tick off what is already done; the list remembers on this phone." },
   // The message and the voters
   { slug: "allocation", title: "Ward Allocation Simulator", line: "An equal split against a needs-weighted split between 40 wards.", home: "message-sec-10-1", gesture: "drag", preview: "bars", prompt: "Weight area more heavily: which wards gain the most?" },
   { slug: "issue-matcher", title: "Issue-to-Message Matcher", line: "The strongest-evidence issue to lead with, for each segment.", home: "message-sec-10-1", gesture: "tap", preview: "bars", prompt: "See which issue each segment's message should open with." },

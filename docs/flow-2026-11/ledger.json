@@ -733,5 +733,202 @@
   "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP4, Appendix C): the change feed is in the Welcome, under What changed.",
   "text": "[Every change](/#annex-evidence-sec-a-2)",
   "replacement": "[Every change](/#welcome-sec-0-1)"
+ },
+ {
+  "file": "goal",
+  "section": "(intro)",
+  "first12": "The goal is the Wiper ticket first and the county second: the",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline.",
+  "text": "The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027.\n```",
+  "replacement": "The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**.\n```"
+ },
+ {
+  "file": "goal",
+  "section": "(intro)",
+  "first12": "The goal is the Wiper ticket first and the county second: the",
+  "words": 24,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. The 'Part III' document numbering goes too (D4).",
+  "text": "The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027. Five objectives for the digital operation serve it, and every one traces to one of the two deadlines. This chapter opens Part III: the strategy that the evidence in Parts I and II justifies.",
+  "replacement": "The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**. Five objectives for the digital operation serve it, and every one traces to that result."
+ },
+ {
+  "file": "goal",
+  "section": "8.1",
+  "first12": "## 8.1 The goal and its two deadlines",
+  "words": 1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. The number stays, so the id goal-sec-8-1 is unchanged.",
+  "text": "## 8.1 The goal and its two deadlines",
+  "replacement": "## 8.1 The goal and its deadline"
+ },
+ {
+  "file": "goal",
+  "section": "8.1",
+  "first12": "The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline.",
+  "text": "The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election.\n```",
+  "replacement": "The campaign works to one deadline: the general election on 10 August 2027. Being on the ballot comes first, and the Timeline tracks it as a milestone.\n```"
+ },
+ {
+  "file": "goal",
+  "section": "8.1",
+  "first12": "The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the",
+  "words": 15,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. The section's body opens with its lead's words, as every section does.",
+  "text": "The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election. Each has its own clock, its own measure of success and its own targets. Every objective traces either to winning the Wiper Patriotic Front nomination or to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that trace to neither are left out (Section 18.4).",
+  "replacement": "The campaign works to one deadline: the general election on 10 August 2027. Being on the ballot comes first, and the Timeline tracks it as a milestone. Every objective traces to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that do not are left out (Section 18.4)."
+ },
+ {
+  "file": "timeline",
+  "section": "14.0",
+  "first12": "## 14.0 Securing the ballot line",
+  "words": 0,
+  "kind": "added",
+  "home": "timeline:14.0",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. The milestone's heading, Firefly's approved wording; the nomination paragraphs move under it from the goal, word for word.",
+  "text": "## 14.0 Securing the ballot line"
+ },
+ {
+  "file": "goal",
+  "section": "8.1",
+  "first12": "* **The clock:** from signature to the close of the party's evaluation",
+  "words": 142,
+  "kind": "moved",
+  "to": "timeline:14.0",
+  "home": "timeline:14.0",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. The nomination paragraphs move, word for word, from the goal to the Timeline milestone 'Securing the ballot line'.",
+  "text": "*   **The clock:** from signature to the close of the party's evaluation window in late 2026, then to the 10 August 2027 general election.\n*   **Success:** the Wiper Patriotic Front gubernatorial nomination, won by establishing verifiable name recognition and organised ground reach across all eight constituencies; then at least **{{benchmark}} votes** at the ballot box, the benchmark Section 2.5 sets from Governor Malombe's 2022 winning total of {{result.2022.gov.malombe}}.\n\n**The two deadlines:**\n\n1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the {{pool}}-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis Section 7.1 states and Week 1 tests, not a measured fact.\n2.  **The general election, 10 August 2027:** turning out the {{benchmark}}-vote coalition a plurality win needs in a multi-candidate field."
+ },
+ {
+  "file": "timeline",
+  "section": "14.0",
+  "first12": "* **The clock:** from signature to the close",
+  "words": -1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace.",
+  "text": "*   **The clock:** from signature to the close",
+  "replacement": "*   **The clock:** from the go-ahead to the close"
+ },
+ {
+  "file": "timeline",
+  "section": "(intro)",
+  "first12": "Five phases run from signature to the 10 August 2027 general election:",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline.",
+  "text": "Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout.\n```",
+  "replacement": "Five phases run from the go-ahead to the 10 August 2027 general election: securing the ballot line, then setting up the campaign's measurement, then awareness, persuasion and turnout.\n```"
+ },
+ {
+  "file": "timeline",
+  "section": "(intro)",
+  "first12": "Five phases run from signature to the 10 August 2027 general election:",
+  "words": 1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q3 (docs/flow-2026-11/FLOW-PLAN.md section 10): a single general-election lens; the nomination becomes a dated milestone in the Timeline. Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace.",
+  "text": "Five phases run from signature to the 10 August 2027 general election: a Phase −1 for the nomination contest, Phase 0 to instrument the campaign, then awareness, persuasion and turnout. Phases −1 and 0 are counted from signature;",
+  "replacement": "Five phases run from the go-ahead to the 10 August 2027 general election: securing the ballot line, then setting up the campaign's measurement, then awareness, persuasion and turnout. Phases −1 and 0 are counted from the go-ahead;"
+ },
+ {
+  "file": "timeline",
+  "section": "14.2",
+  "first12": "**Weeks 4–10 from signature**, running alongside the tail of Phase −1. Its",
+  "words": -2,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace.",
+  "text": "**Weeks 4–10 from signature**, running alongside the tail of Phase −1. Its activities are counted in weeks from signature,",
+  "replacement": "**Weeks 4–10 from the go-ahead**, running alongside the tail of Phase −1. Its activities are counted in weeks from the go-ahead,"
+ },
+ {
+  "file": "timeline",
+  "section": "16.2",
+  "first12": "when: \"Phase −1 (signature to the nomination decision,",
+  "words": -1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace.",
+  "text": "when: \"Phase −1 (signature to the nomination decision,",
+  "replacement": "when: \"Phase −1 (the go-ahead to the nomination decision,"
+ },
+ {
+  "file": "timeline",
+  "section": "16.2",
+  "first12": "when: \"Phase 0 (Weeks 4–10 from signature, Section 14.2)\"",
+  "words": -1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace.",
+  "text": "when: \"Phase 0 (Weeks 4–10 from signature, Section 14.2)\"",
+  "replacement": "when: \"Phase 0 (Weeks 4–10 from the go-ahead, Section 14.2)\""
+ },
+ {
+  "file": "timeline",
+  "section": "14.1",
+  "first12": "flagbearer decision <window-chip></window-chip>.",
+  "words": 1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the nomination-window chip is shown only in the Timeline milestone (Securing the ballot line). Markup only; no words change.",
+  "text": "flagbearer decision <window-chip></window-chip>.",
+  "replacement": "flagbearer decision."
+ },
+ {
+  "file": "ask",
+  "section": "(intro)",
+  "first12": "**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip>",
+  "words": 1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the nomination-window chip is shown only in the Timeline milestone (Securing the ballot line). Markup only; no words change.",
+  "text": "**But the timeline is not the one the planning cycle assumes.** <window-chip></window-chip> Just over",
+  "replacement": "**But the timeline is not the one the planning cycle assumes.** Just over"
+ },
+ {
+  "file": "diagnosis",
+  "section": "7.4",
+  "first12": "body: \"<window-chip></window-chip> That is the window",
+  "words": 1,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the nomination-window chip is shown only in the Timeline milestone (Securing the ballot line). Markup only; no words change.",
+  "text": "body: \"<window-chip></window-chip> That is the window",
+  "replacement": "body: \"That is the window"
+ },
+ {
+  "file": "ask",
+  "section": "23.1",
+  "first12": "## 23.1 The window that sets the pace",
+  "words": 0,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace. The number stays, so the id ask-sec-23-1 is unchanged.",
+  "text": "## 23.1 The window that sets the pace",
+  "replacement": "## 23.1 The clock that sets the pace"
+ },
+ {
+  "file": "ask",
+  "section": "23.1",
+  "first12": "> **What sets the pace.** <window-chip></window-chip> That date is not in the",
+  "words": 17,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace. The late-October sentence is dropped.",
+  "text": "> **What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift, and every other date in this\n> document is derived from it rather than chosen.\n>\n> **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the\n> first of those six for the presence audit that sets its targets. Counting back from a window\n> that opens in late October is the arithmetic that matters; a fixed decision date printed in a\n> proposal only ages.",
+  "replacement": "> **What sets the pace.** The IEBC's Gazette deadlines and election day, 10 August 2027. Those dates are not in the campaign's gift, and every other date in this plan is derived from them rather than chosen.\n>\n> **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the first of those six for the presence audit that sets its targets."
  }
 ]
