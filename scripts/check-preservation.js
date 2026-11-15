@@ -209,7 +209,26 @@ async function main() {
   } catch {
     /* no history (a shallow checkout): the moves are weighed against today's totals, as before */
   }
-  const movesTotal = (k) => Math.max(contentTotal(now.counts, k), contentTotal(rivalsBaseCounts, k));
+  // A shallow checkout (Vercel clones without history) cannot read RIVALS_BASE, so the totals it
+  // gives are also committed in docs/rivals-2026-11/base-totals.json. Where history is available the
+  // two must agree; where it is not, the file stands in for it.
+  const TOTALS_FILE = path.join(ROOT, "docs", "rivals-2026-11", "base-totals.json");
+  const KEYS = ["headings", "workstreams", "figureFences", "visualFences", "leadFences", "textversionFences", "tableRows"];
+  const haveHistory = Object.keys(rivalsBaseCounts).length > 0;
+  const fromHistory = Object.fromEntries(KEYS.map((k) => [k, contentTotal(rivalsBaseCounts, k)]));
+  if (process.argv.includes("--write-base-totals")) {
+    if (!haveHistory) { console.error("check-preservation: --write-base-totals needs the git history of " + RIVALS_BASE); process.exit(1); }
+    fs.writeFileSync(TOTALS_FILE, JSON.stringify({ $comment: `Content counts summed over every chapter at ${RIVALS_BASE} (the rivals pass's base), for checkouts without history. Written by scripts/check-preservation.js --write-base-totals.`, base: RIVALS_BASE, totals: fromHistory }, null, 2) + "\n");
+    console.log(`check-preservation: wrote ${path.relative(ROOT, TOTALS_FILE)}`);
+    return;
+  }
+  const committed = fs.existsSync(TOTALS_FILE) ? JSON.parse(fs.readFileSync(TOTALS_FILE, "utf8")).totals : null;
+  if (haveHistory && committed && KEYS.some((k) => committed[k] !== fromHistory[k])) {
+    console.error(`check-preservation: FAILED\n   ${path.relative(ROOT, TOTALS_FILE)} disagrees with ${RIVALS_BASE}; run with --write-base-totals`);
+    process.exit(1);
+  }
+  const baseTotal = (k) => (haveHistory ? fromHistory[k] : committed?.[k] ?? 0);
+  const movesTotal = (k) => Math.max(contentTotal(now.counts, k), baseTotal(k));
   const moves = [];
   for (const [f, set] of Object.entries(base.counts)) {
     const cur = now.counts[f];
