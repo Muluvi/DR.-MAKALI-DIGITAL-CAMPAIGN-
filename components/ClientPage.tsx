@@ -32,6 +32,8 @@ import { ACT_PORTRAITS } from "../lib/premium/acts";
 import { CoverHero } from "./premium/CoverHero";
 import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
+import { LiveFooterLine, StoryBar } from "./story/StoryBar";
+import { Tour } from "./story/Tour";
 import { Story } from "./premium/Story";
 import { ChapterDigest } from "./flow/ChapterDigest";
 import { RouteMap } from "./flow/RouteMap";
@@ -379,6 +381,13 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
       <div id="pf-root" className="pf-page min-h-screen bg-paper text-ink font-sans selection:bg-accent/20">
         <PlainTextPass rootId="pf-root" />
         <a href="#content-area" className="skip-link">Skip to the document</a>
+        <StoryBar
+          onOpenIndex={() => setIsTOCModalOpen(true)}
+          onJump={(id) => {
+            openChapter(id.split("-sec-")[0]);
+            navigateToSection(id);
+          }}
+        />
 
         {/* The flow streams its later sections, so the complete server-rendered document lives at
             /full. That is what print leads to, and it is what a reader without JavaScript gets. */}
@@ -596,6 +605,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             <dt className="font-semibold text-ink">Status</dt>
             <dd>Proposal for discussion</dd>
           </dl>
+          <LiveFooterLine />
         </footer>
 
         {expanded && <Spine onSelect={goToSection} />}
@@ -623,6 +633,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             navigateToSection(secId);
           }}
         />
+        <Tour />
         <Toaster current={activeItem.id} labelOf={labelOf} goTo={goToSection} resumable={streamed} />
       </div>
     </SectionNumberMapProvider>

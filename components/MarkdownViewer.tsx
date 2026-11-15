@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { StoryEmbeds } from "./story/StoryEmbeds";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -672,6 +673,7 @@ function buildComponents(tabId: TabId): Components {
                       this heading's own content where one does not. Never both: 50 sub-sections
                       were designed, and the other 222 are covered rather than decorated. */}
                   {insert ? mountInsert(id, insert) : <PartVisual spec={partVisual(id)} />}
+                  <StoryEmbeds id={id} />
                 </>
               );
             },
@@ -694,6 +696,7 @@ function buildComponents(tabId: TabId): Components {
                 <>
                   <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{withoutNumber(children)}</SectionHeading>
                   {id && HEADING_INSERTS[id] ? mountInsert(id, HEADING_INSERTS[id]) : <PartVisual spec={partVisual(id)} />}
+                  <StoryEmbeds id={id} />
                 </>
               );
             }

@@ -9,7 +9,7 @@ export const metadata = { title: "Team sign-in | Kitui 2027", robots: { index: f
 export default async function Login() {
   // Sign-in is switched off: the site is open to view, and the team pages are not served.
   if (!teamLoginEnabled()) notFound();
-  if (await getSession().catch(() => null)) redirect("/workspace");
+  if (await getSession().catch(() => null)) redirect("/");
   const mode = platformMode();
   return (
     <div className="mx-auto max-w-md">

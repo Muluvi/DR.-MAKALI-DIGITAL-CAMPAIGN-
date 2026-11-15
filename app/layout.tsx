@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google';
 import './globals.css'; // Global styles
+import { RangeFill } from '@/components/story/RangeFill';
 import './register.css'; // The figure register's visual system
 import './premium.css'; // The 2026 premium layer
 import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
 import './motion-draw.css'; // How each visual arrives and how folds and tabs open (after the marks it moves)
 import './streamline.css'; // The summary layer: the route map and the chapter digests
+import './platform.css'; // The platform's controls, used by the tools and records the chapters now hold
+import './story-live.css'; // The working layer in the story: tools, live records, charts and their cues
 
 // The variable axis, not a pair of static cuts.
 //
@@ -152,7 +155,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <style>{`[data-fold-body]{display:block!important}span[data-fold-body]{display:inline!important}[data-row-more]{display:revert!important}.pf-more__btn,.vz-more__btn,.rf-more,.pf-panel__btn,.pf-textver__summary,.vz-tabs__list{display:none!important}`}</style>
         </noscript>
       </head>
-      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}</body>
+      <body suppressHydrationWarning className="font-sans antialiased bg-paper text-ink">{children}<RangeFill /></body>
     </html>
   );
 }

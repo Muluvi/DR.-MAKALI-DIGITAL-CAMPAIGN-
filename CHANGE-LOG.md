@@ -1,3 +1,22 @@
+# Change log — one site: the platform inside the story (15 November 2026)
+
+**The tools, the team's records, the charts and the change history now live inside the chapters
+they belong to**, with moving cues that show what can be used. The platform pages stay as
+full-page views of the same things.
+
+| | |
+|---|---|
+| **Header** | One bar on the story: Kitui 2027, a live dot with the team's last update, Search, Tools (all 36 tools and 10 records, grouped by chapter, searchable), sign-in, Edit data and Team |
+| **Tools** | All 36 open in place under the heading they work on (`lib/tools/meta.ts`), loaded only when opened; `/tools/<slug>` still works |
+| **Live records** | The ten working records sit where their work is described (`lib/story/embeds.ts`), with count, last update and who made it, the latest entries, and Add for the signed-in team |
+| **Charts** | The seven team charts and two data-pack charts draw in their chapters and redraw the moment a record is saved |
+| **Cues** | Try-it cards with an animated preview and a moving hand per gesture, a Your turn prompt, swipe rails with dots, Used ticks, Try it in this chapter strips on every chapter summary, live dots, a pulsing Add, tap-a-bar notes, a five-stop Show me around tour, rotating search hints, and a countdown to the next Gazette deadline. All of it stops under reduced motion |
+| **Welcome** | The toolkit tables point to the chapter each tool opens in; the cards describe the one-site layout |
+| **Fixes** | Every slider now draws its track and filled part (they showed only the thumb); sign-in and sign-out return to the story |
+| **Guards** | `verify-mounts` checks every embed's heading; lint, types, `npm run verify`, `npm run check:preservation` and the build pass |
+
+---
+
 # Change log — the rivals pass: no 2027 rivals, no attack response (14 November 2026)
 
 **Firefly's decision** (`docs/rivals-2026-11/DECISION.md`): no current 2027 rival is named,

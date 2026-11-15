@@ -408,12 +408,13 @@
  {
   "file": "platform",
   "section": "(intro)",
-  "first12": "- { title: \"Protect\", text: \"the rapid-response desk\" }",
+  "first12": "- { title: \"Protect\", text: \"the rapid-response desk\" } [Explore the data](/explore)",
   "words": 4,
   "kind": "removed",
   "whole": false,
   "note": "Rivals pass (November 2026): no 2027 rival is named, profiled, compared or monitored, and the attack-response material is removed, by Firefly's decision (docs/rivals-2026-11/DECISION.md). Past election results stay.",
-  "text": "- { title: \"Protect\", text: \"the rapid-response desk\" }",
+  "text": "- { title: \"Protect\", text: \"the rapid-response desk\" }\n[Explore the data](/explore) · [Dashboards](/dashboards) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)",
+  "replacement": "[Implementation](/#workstreams-sec-15-1) · [Content calendar](/#channels-sec-12-6) · [Scorecards](/#success-sec-18-2) · [Every change](/#annex-evidence-sec-a-2) · [Explore the data](/explore) · [Strategies](/strategies)",
   "at": 0
  },
  {

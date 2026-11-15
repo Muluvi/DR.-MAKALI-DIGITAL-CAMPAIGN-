@@ -164,5 +164,5 @@ export async function signIn(input: { email: string; password?: string; magic?: 
 export async function signOut() {
   if (platformMode() === "supabase") await (await supabaseUserClient()).auth.signOut();
   (await cookies()).delete(LOCAL_COOKIE);
-  redirect("/workspace");
+  redirect("/");
 }
