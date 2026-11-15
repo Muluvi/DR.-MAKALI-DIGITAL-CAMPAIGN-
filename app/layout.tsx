@@ -58,9 +58,9 @@ export const viewport: Viewport = {
   ],
 };
 
-const TITLE = 'Kitui 2027 — Analysis, Strategy and Direction';
+const TITLE = 'Kitui 2027 — The campaign’s data, analysis and plan';
 const DESCRIPTION =
-  'Analysis, strategy and direction for the existing digital operation of Hon. Dr. Benson Makali Mulu, Kitui County. Prepared by Firefly Management, September 2026, revised November 2026.';
+  'Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team. Open to view; the team signs in to edit.';
 
 /**
  * The share card, and why there is one.
@@ -81,7 +81,7 @@ const OG_IMAGE = {
   url: '/og/kitui-2027.png',
   width: 1200,
   height: 630,
-  alt: 'Kitui 2027 — Analysis, strategy and direction. Prepared for Hon. Dr. Benson Makali Mulu. Firefly Management, September 2026, revised November 2026.',
+  alt: 'Kitui 2027 — The campaign’s data, analysis and plan. Built for Dr. Mulu and his team. Firefly Management, September 2026, revised November 2026. Open to view.',
 };
 
 /**
