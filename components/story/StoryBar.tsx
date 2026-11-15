@@ -7,7 +7,8 @@ import { useChromeVisible } from "../../hooks/use-chrome-visible";
 import { TOOL_META } from "@/lib/tools/meta";
 import { FEED_HOME, RECORD_HOMES } from "@/lib/story/embeds";
 import { COLLECTION_BY_ID } from "@/lib/platform/collections";
-import { SECTIONS } from "@/lib/heading-slug";
+import { PARTS, SECTIONS, partOf, type TabId } from "@/lib/heading-slug";
+import { recentlyUsed } from "@/lib/tools/used";
 import { PUBLIC_RETRIEVED } from "@/lib/public-data";
 import { ago, useLive } from "./useLive";
 
@@ -71,15 +72,29 @@ function ToolsSheet({ onClose, onJump, signedIn, name }: { onClose: () => void; 
     document.body.style.overflow = "hidden";
     return () => { window.removeEventListener("keydown", key); document.body.style.overflow = prev; };
   }, [onClose]);
+  // This week first (the team's weekly tools and records), then the tools this reader used most
+  // recently, then everything else by stage of the story (flow pass, WP11). Read when the panel
+  // opens, so "Recently used" reflects the tool just opened.
   const groups = useMemo(() => {
     const needle = q.trim().toLowerCase();
     const items = [
       ...TOOL_META.map((t) => ({ key: t.slug, home: t.home, title: t.title, line: t.line, kind: "tool" as const })),
       ...Object.entries(RECORD_HOMES).flatMap(([home, ids]) => ids.map((id) => ({ key: id, home, title: COLLECTION_BY_ID[id]?.label ?? id, line: COLLECTION_BY_ID[id]?.purpose ?? "", kind: "record" as const }))),
-    ].filter((i) => !needle || `${i.title} ${i.line}`.toLowerCase().includes(needle));
-    const by = new Map<string, typeof items>();
-    for (const i of items) { const c = chapterOf(i.home); by.set(c, [...(by.get(c) ?? []), i]); }
-    return [...by].sort((a, b) => ORDER.indexOf(a[0]) - ORDER.indexOf(b[0]));
+    ]
+      .filter((i) => !needle || `${i.title} ${i.line}`.toLowerCase().includes(needle))
+      .sort((a, b) => ORDER.indexOf(chapterOf(a.home)) - ORDER.indexOf(chapterOf(b.home)));
+    type Item = (typeof items)[number];
+    const out: { id: string; title: string; items: Item[] }[] = [];
+    const week = items.filter((i) => chapterOf(i.home) === "week");
+    if (week.length) out.push({ id: "week", title: "This week", items: week });
+    const tools = new Map(items.filter((i) => i.kind === "tool").map((i) => [i.key, i]));
+    const recent = recentlyUsed([...tools.keys()]).slice(0, 5).map((s) => tools.get(s)!);
+    if (recent.length) out.push({ id: "recent", title: "Recently used", items: recent });
+    for (const p of PARTS) {
+      const inStage = items.filter((i) => chapterOf(i.home) !== "week" && partOf(chapterOf(i.home) as TabId) === p.part);
+      if (inStage.length) out.push({ id: `stage-${p.part}`, title: p.label, items: inStage });
+    }
+    return out;
   }, [q]);
   let n = 0;
   return (
@@ -90,21 +105,21 @@ function ToolsSheet({ onClose, onJump, signedIn, name }: { onClose: () => void; 
         <div style={{ display: "flex", alignItems: "start", justifyContent: "space-between", gap: "0.5rem" }}>
           <div>
             <h2 id="sx-sheet-title">Every tool and live record</h2>
-            <p className="sx-sheet__lead">{TOOL_META.length} tools and 10 team records, each inside the chapter it works on. Tap one to go straight there.{signedIn && name ? ` Signed in as ${name}.` : ""}</p>
+            <p className="sx-sheet__lead">{TOOL_META.length} tools and 10 team records, by stage of the story, each inside the chapter it works on. Tap one to go straight there.{signedIn && name ? ` Signed in as ${name}.` : ""}</p>
           </div>
           <button type="button" className="sx-top-btn" onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
         </div>
         <input ref={input} className="sx-sheet__search" type="search" placeholder="Find a tool: water, radio, wards…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find a tool or record" />
         {groups.length === 0 && <p className="sx-muted">Nothing matches. Try a shorter word.</p>}
-        {groups.map(([chapter, items]) => (
-          <section key={chapter}>
-            <h3><BookOpen size={11} aria-hidden="true" style={{ display: "inline", verticalAlign: "-0.1em" }} /> {CHAPTER_LABEL[chapter] ?? chapter}</h3>
+        {groups.map((g) => (
+          <section key={g.id}>
+            <h3><BookOpen size={11} aria-hidden="true" style={{ display: "inline", verticalAlign: "-0.1em" }} /> {g.title}</h3>
             <ul>
-              {items.map((i) => (
+              {g.items.map((i) => (
                 <li key={`${i.kind}-${i.key}`}>
                   <button type="button" style={{ "--i": n++ } as React.CSSProperties} onClick={() => onJump(i.home)}>
                     {i.kind === "tool" ? <Sparkles size={16} aria-hidden="true" /> : <Table2 size={16} aria-hidden="true" style={{ color: "#1f7a45" }} />}
-                    <span>{i.title}<small>{i.kind === "record" ? "Live record · " : ""}{i.line}</small></span>
+                    <span>{i.title}<small>{CHAPTER_LABEL[chapterOf(i.home)] ?? ""} · {i.kind === "record" ? "Live record · " : ""}{i.line}</small></span>
                     <ChevronRight size={16} aria-hidden="true" />
                   </button>
                 </li>

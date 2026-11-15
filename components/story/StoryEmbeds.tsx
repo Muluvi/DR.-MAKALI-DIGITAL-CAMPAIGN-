@@ -12,6 +12,7 @@ import type { Tool } from "@/lib/tools/catalog";
 import type { Bar } from "@/components/platform/Bars";
 import { WorkspaceCollection } from "@/components/platform/WorkspaceCollection";
 import { ago, useLive } from "./useLive";
+import { isUsed, markUsed } from "@/lib/tools/used";
 import { useReveal } from "./useReveal";
 import { Countdown } from "./Countdown";
 import { AskWindow, DeliverablesMap, LanguagePicker, Paradox, PhaseNow, ProofStack, RoleLens } from "./Visuals";
@@ -89,7 +90,7 @@ function ToolBody({ slug }: { slug: string }) {
 /** Which tools this reader has opened before, on this device: the card shows a tick. */
 const usedListeners = new Set<() => void>();
 const subscribeUsed = (l: () => void) => { usedListeners.add(l); return () => { usedListeners.delete(l); }; };
-const readUsed = (slug: string) => { try { return localStorage.getItem(`sx-used-${slug}`) === "1"; } catch { return false; } };
+const readUsed = (slug: string) => isUsed(slug);
 
 function TryCard({ t, index }: { t: ToolMeta; index: number }) {
   const [open, setOpen] = useState(false);
@@ -99,7 +100,7 @@ function TryCard({ t, index }: { t: ToolMeta; index: number }) {
   const toggle = () => {
     setOpen((o) => !o);
     if (!open) {
-      try { localStorage.setItem(`sx-used-${t.slug}`, "1"); } catch { /* storage can be unavailable */ }
+      markUsed(t.slug);
       usedListeners.forEach((l) => l());
       requestAnimationFrame(() => panel.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }));
     }
