@@ -30,14 +30,14 @@ items:
 
 ```visual
 kind: cards
-title: "The work, and where the team does it"
+title: "The work, and the chapter where the team does it"
 items:
-  - { title: "Analyse", text: "Explore data and Dashboards" }
-  - { title: "Decide", text: "Strategies, linked to the data behind each" }
-  - { title: "Direct the publishing team", text: "the weekly brief and the content calendar" }
-  - { title: "Run the channels", text: "the SMS, USSD and WhatsApp dispatch log" }
-  - { title: "Measure", text: "the KPI tracker, channel audit, tests and field reports" }
-  - { title: "Update the data", text: "the data editor, with the same checks the site runs" }
+  - { title: "Analyse", text: "the tools and charts in How Kitui voted, What voters need and How voters get news" }
+  - { title: "Decide", text: "the message, segment and channel tools in The message, The voters and Channels and language" }
+  - { title: "Direct the publishing team", text: "the weekly brief beside the weekly rhythm, and the content calendar beside a week of publishing" }
+  - { title: "Run the channels", text: "the SMS, USSD and WhatsApp dispatch log, beside reaching the offline majority" }
+  - { title: "Measure", text: "the KPI tracker and channel audit in Measuring success; creative tests and field reports where that work is set" }
+  - { title: "Update the data", text: "the data editor and the change history, in Evidence and sources" }
 ```
 
 ```visual

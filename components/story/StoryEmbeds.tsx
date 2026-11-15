@@ -14,6 +14,13 @@ import { WorkspaceCollection } from "@/components/platform/WorkspaceCollection";
 import { ago, useLive } from "./useLive";
 import { useReveal } from "./useReveal";
 import { Countdown } from "./Countdown";
+import { AskWindow, DeliverablesMap, LanguagePicker, Paradox, PhaseNow, ProofStack, RoleLens } from "./Visuals";
+import type { StoryVisual } from "@/lib/story/embeds";
+
+const VISUAL: Record<StoryVisual, () => React.ReactNode> = {
+  proof: () => <ProofStack />, paradox: () => <Paradox />, ask: () => <AskWindow />, roles: () => <RoleLens />,
+  languages: () => <LanguagePicker />, deliverables: () => <DeliverablesMap />, "phase-now": () => <PhaseNow />,
+};
 
 /* ------------------------------------------------------------------ shared pieces */
 
@@ -338,6 +345,7 @@ export function StoryEmbeds({ id }: { id: string | null }) {
   if (!e) return null;
   return (
     <div className="sx-embeds not-prose print:hidden" data-embeds-for={id ?? undefined}>
+      {e.visuals.map((v) => <React.Fragment key={v}>{VISUAL[v]()}</React.Fragment>)}
       {e.countdown && <Countdown />}
       {e.tools.length > 0 && <ToolRail tools={e.tools} />}
       {e.pack.map((p) => <PackChartView key={p} which={p} />)}

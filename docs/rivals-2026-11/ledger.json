@@ -408,13 +408,13 @@
  {
   "file": "platform",
   "section": "(intro)",
-  "first12": "- { title: \"Protect\", text: \"the rapid-response desk\" } [Explore the data](/explore)",
-  "words": 4,
+  "first12": "title: \"The work, and where the team does it\" - { title:",
+  "words": 17,
   "kind": "removed",
   "whole": false,
-  "note": "Rivals pass (November 2026): no 2027 rival is named, profiled, compared or monitored, and the attack-response material is removed, by Firefly's decision (docs/rivals-2026-11/DECISION.md). Past election results stay.",
-  "text": "- { title: \"Protect\", text: \"the rapid-response desk\" }\n[Explore the data](/explore) · [Dashboards](/dashboards) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)",
-  "replacement": "[Implementation](/#workstreams-sec-15-1) · [Content calendar](/#channels-sec-12-6) · [Scorecards](/#success-sec-18-2) · [Every change](/#annex-evidence-sec-a-2) · [Explore the data](/explore) · [Strategies](/strategies)",
+  "note": "Rivals pass (November 2026): no 2027 rival is named, profiled, compared or monitored, and the attack-response material is removed, by Firefly's decision (docs/rivals-2026-11/DECISION.md). Past election results stay. Later edited by the story integration (November 2026, CHANGE-LOG.md): the cards and the link row now point to the chapters where the team does the work.",
+  "text": "title: \"The work, and where the team does it\"\n  - { title: \"Analyse\", text: \"Explore data and Dashboards\" }\n  - { title: \"Decide\", text: \"Strategies, linked to the data behind each\" }\n  - { title: \"Direct the publishing team\", text: \"the weekly brief and the content calendar\" }\n  - { title: \"Run the channels\", text: \"the SMS, USSD and WhatsApp dispatch log\" }\n  - { title: \"Measure\", text: \"the KPI tracker, channel audit, tests and field reports\" }\n  - { title: \"Protect\", text: \"the rapid-response desk\" }\n  - { title: \"Update the data\", text: \"the data editor, with the same checks the site runs\" }\n[Explore the data](/explore) · [Dashboards](/dashboards) · [Strategies](/strategies) · [Implementation](/progress) · [Workspace](/workspace) · [Changes](/history)",
+  "replacement": "title: \"The work, and the chapter where the team does it\"\n  - { title: \"Analyse\", text: \"the tools and charts in How Kitui voted, What voters need and How voters get news\" }\n  - { title: \"Decide\", text: \"the message, segment and channel tools in The message, The voters and Channels and language\" }\n  - { title: \"Direct the publishing team\", text: \"the weekly brief beside the weekly rhythm, and the content calendar beside a week of publishing\" }\n  - { title: \"Run the channels\", text: \"the SMS, USSD and WhatsApp dispatch log, beside reaching the offline majority\" }\n  - { title: \"Measure\", text: \"the KPI tracker and channel audit in Measuring success; creative tests and field reports where that work is set\" }\n  - { title: \"Update the data\", text: \"the data editor and the change history, in Evidence and sources\" }\n[Implementation](/#workstreams-sec-15-1) · [Content calendar](/#channels-sec-12-6) · [Scorecards](/#success-sec-18-2) · [Every change](/#annex-evidence-sec-a-2) · [Explore the data](/explore) · [Strategies](/strategies)",
   "at": 0
  },
  {

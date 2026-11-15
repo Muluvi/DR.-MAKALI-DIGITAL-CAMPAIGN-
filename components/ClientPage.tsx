@@ -34,6 +34,14 @@ import { ActOpener } from "./premium/ActOpener";
 import { Dock, Spine } from "./premium/Chrome";
 import { LiveFooterLine, StoryBar } from "./story/StoryBar";
 import { Tour } from "./story/Tour";
+import { ContactCard, PlatformMap, WorkstreamMap } from "./story/Visuals";
+
+/** The cover's contact card and the platform's map, at the foot of their sections. */
+function ChapterExtras({ id }: { id: string }) {
+  if (id === "cover") return <ContactCard />;
+  if (id === "platform") return <PlatformMap />;
+  return null;
+}
 import { Story } from "./premium/Story";
 import { ChapterDigest } from "./flow/ChapterDigest";
 import { RouteMap } from "./flow/RouteMap";
@@ -245,10 +253,16 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
 
   useEffect(() => {
     window.__navigateToSection = navigateToSection;
+    // The story's own visuals jump with this: it unfolds a chapter shown as its summary first.
+    window.__jumpTo = (id: string) => {
+      openChapter(id.split("-sec-")[0]);
+      navigateToSection(id);
+    };
     return () => {
       delete window.__navigateToSection;
+      delete window.__jumpTo;
     };
-  }, [navigateToSection]);
+  }, [navigateToSection, openChapter]);
 
   /* ----------------------------------------------------------- deep linking */
 
@@ -497,9 +511,11 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                   )}
                   {/* In the summary layer the spine of the argument opens the cover chapter. */}
                   {digestMode && item.id === "cover" && <Figure id="fig-cover-spine" />}
+                  {!digest && item.id === "workstreams" && <WorkstreamMap />}
                   {item.content ?? (
                     <StreamedSection tabId={item.id} words={item.wordCount} force={!!digest || forced.has(item.id)} />
                   )}
+                  {!digest && <ChapterExtras id={item.id} />}
                 </>
               );
               return (
@@ -553,6 +569,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                           navigateToSection(id);
                         }}
                       />
+                      {/* What a reader can use without opening the chapter (story integration, November 2026). */}
+                      {item.id === "workstreams" ? <WorkstreamMap /> : <ChapterExtras id={item.id} />}
                       <FoldBody id={`body-${item.id}`} open={isOpen} onReveal={() => openChapter(item.id)} className="cd-body">
                         {isOpen || forced.has(item.id) || item.content ? body : null}
                         {isOpen && (

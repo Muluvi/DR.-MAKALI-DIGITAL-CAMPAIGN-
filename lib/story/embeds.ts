@@ -43,21 +43,33 @@ export const PACK_HOMES: Record<string, PackChart[]> = {
   "needs-sec-3-7": ["sectors"],
 };
 
+/** The visuals for the chapters that were mostly text (components/story/Visuals.tsx). */
+export type StoryVisual = "proof" | "paradox" | "ask" | "roles" | "languages" | "deliverables" | "phase-now";
+export const VISUAL_HOMES: Record<string, StoryVisual[]> = {
+  "position-sec-9-1": ["proof"],
+  "position-sec-9-2": ["paradox"],
+  "ask-sec-23-1": ["ask"],
+  "engagement-sec-13-2": ["roles"],
+  "channels-sec-12-4": ["languages"],
+  "receives-sec-21-2": ["deliverables"],
+  "timeline-sec-14-4": ["phase-now"],
+};
+
 /** The next Gazette deadline, counted down. */
 export const COUNTDOWN_HOMES = ["goal-sec-8-1", "timeline-sec-14-1"];
 
 /** The change history, the data editor and the explorer. */
 export const FEED_HOME = "annex-evidence-sec-a-2";
 
-export interface Embeds { tools: ToolMeta[]; records: string[]; charts: string[]; pack: PackChart[]; feed: boolean; countdown: boolean }
+export interface Embeds { tools: ToolMeta[]; records: string[]; charts: string[]; pack: PackChart[]; feed: boolean; countdown: boolean; visuals: StoryVisual[] }
 
 const TOOLS_AT: Record<string, ToolMeta[]> = {};
 for (const t of TOOL_META) (TOOLS_AT[t.home] ??= []).push(t);
 
 export function embedsAt(id: string | null): Embeds | null {
   if (!id) return null;
-  const e: Embeds = { tools: TOOLS_AT[id] ?? [], records: RECORD_HOMES[id] ?? [], charts: CHART_HOMES[id] ?? [], pack: PACK_HOMES[id] ?? [], feed: id === FEED_HOME, countdown: COUNTDOWN_HOMES.includes(id) };
-  return e.tools.length || e.records.length || e.charts.length || e.pack.length || e.feed || e.countdown ? e : null;
+  const e: Embeds = { tools: TOOLS_AT[id] ?? [], records: RECORD_HOMES[id] ?? [], charts: CHART_HOMES[id] ?? [], pack: PACK_HOMES[id] ?? [], feed: id === FEED_HOME, countdown: COUNTDOWN_HOMES.includes(id), visuals: VISUAL_HOMES[id] ?? [] };
+  return e.tools.length || e.records.length || e.charts.length || e.pack.length || e.feed || e.countdown || e.visuals.length ? e : null;
 }
 
 /** Everything a chapter holds that can be used, not just read: the digest's "Try it here" strip. */
@@ -68,4 +80,4 @@ export function chapterHands(tab: string): { id: string; label: string; kind: "t
   return out;
 }
 
-export const ALL_EMBED_HOMES = [...new Set([...TOOL_META.map((t) => t.home), ...Object.keys(RECORD_HOMES), ...Object.keys(CHART_HOMES), ...Object.keys(PACK_HOMES), ...COUNTDOWN_HOMES, FEED_HOME])];
+export const ALL_EMBED_HOMES = [...new Set([...TOOL_META.map((t) => t.home), ...Object.keys(RECORD_HOMES), ...Object.keys(CHART_HOMES), ...Object.keys(PACK_HOMES), ...COUNTDOWN_HOMES, ...Object.keys(VISUAL_HOMES), FEED_HOME])];

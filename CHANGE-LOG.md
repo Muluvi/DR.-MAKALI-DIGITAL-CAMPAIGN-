@@ -1,3 +1,26 @@
+# Change log — visuals for the chapters that were mostly text (15 November 2026)
+
+**Every new visual draws only what its chapter already says**: lines are quoted from the chapter,
+figures come from the figure registry, and the tables are read from the text by
+`scripts/build-story-mirrors.mjs` (checked in `npm run verify`, so they cannot drift).
+
+| | |
+|---|---|
+| **The claim (9.1)** | The claim and its four proofs as a chain that draws itself, each a jump to the section that proves it, ending on the governing line |
+| **The paradox (9.2)** | The budget envelope and three gaps on one scale, each tappable for its source and date |
+| **The ask (23.1)** | A live count of the days left in the reported nomination window, with today on the track, and the one decision as three steps with WhatsApp and call buttons |
+| **Who owns what (13.2)** | Pick a role and see its R, A, C and I, over a heat map of the whole table |
+| **Language (12.4)** | Tap a channel to see which languages it carries and the content-mix target; bulk SMS shows the Kikamba rule |
+| **Deliverables (21.2)** | The schedule by rhythm (daily to once), filterable by who produces it; tap for cadence, form and where it is set |
+| **Phases (14.4)** | You are here: today's phase, week and days to election day on the five-phase rail |
+| **Workstreams** | All fourteen at a glance, grouped, each a jump |
+| **The platform** | The six jobs as a hub; tap one for the tools and records that do it, each a jump |
+| **The cover** | WhatsApp, call, email and the terms of use, one tap each |
+| **Fine print** | The first use of each glossary term in a passage is tappable for its definition |
+| **Ledger** | The rivals ledger's note for content/platform.md now says that file was later edited by the story integration |
+
+---
+
 # Change log — one site: the platform inside the story (15 November 2026)
 
 **The tools, the team's records, the charts and the change history now live inside the chapters
