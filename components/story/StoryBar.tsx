@@ -2,10 +2,10 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { BookOpen, ChevronRight, Compass, Database, LogIn, PenLine, Search, Sparkles, Table2, Users, Wrench, X } from "lucide-react";
+import { BookOpen, ChevronRight, Compass, Database, LogIn, PenLine, Sparkles, Table2, Users, X } from "lucide-react";
 import { useChromeVisible } from "../../hooks/use-chrome-visible";
 import { TOOL_META } from "@/lib/tools/meta";
-import { RECORD_HOMES } from "@/lib/story/embeds";
+import { FEED_HOME, RECORD_HOMES } from "@/lib/story/embeds";
 import { COLLECTION_BY_ID } from "@/lib/platform/collections";
 import { SECTIONS } from "@/lib/heading-slug";
 import { PUBLIC_RETRIEVED } from "@/lib/public-data";
@@ -16,11 +16,12 @@ const ORDER: string[] = SECTIONS.map((s) => s.id);
 const chapterOf = (home: string) => home.split("-sec-")[0];
 
 /**
- * The one header the site has: the brand, the chapter index, search, every tool and record, and
- * the team's sign-in and live status. It replaces the platform's separate header for a reader on
- * the story; the platform pages keep theirs as full-page views.
+ * The one header the site has: the brand, the team's live status and its sign-in (flow pass, WP7).
+ * Search and every tool live in the dock at the foot of the screen, one entry point each; the live
+ * status, when the team has changed something, jumps to What changed in the Welcome. The Tools panel
+ * still opens from here, on the "story:open-tools" event the dock and the Welcome send.
  */
-export function StoryBar({ onOpenIndex, onJump }: { onOpenIndex: () => void; onJump: (sectionId: string) => void }) {
+export function StoryBar({ onJump }: { onJump: (sectionId: string) => void }) {
   const visible = useChromeVisible();
   const { live } = useLive();
   const [sheet, setSheet] = useState(false);
@@ -32,16 +33,19 @@ export function StoryBar({ onOpenIndex, onJump }: { onOpenIndex: () => void; onJ
   return (
     <>
       <header className="sx-bar-top print:hidden" data-hidden={visible || sheet ? "false" : "true"}>
-        <a href="#section-welcome" className="sx-brand" data-tour="live" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-          <b>Kitui 2027</b>
-          <span><span className="sx-live-dot" data-on={live?.lastChange ? "true" : "false"} aria-hidden="true" />{live?.lastChange ? `Team update ${ago(live.lastChange.at)}` : "Strategy and the campaign’s tools"}</span>
-        </a>
-        <button type="button" className="sx-top-btn" data-tour="search" onClick={onOpenIndex} aria-label="Chapters and search">
-          <Search size={16} aria-hidden="true" /><span className="sx-top-label">Search <SearchHint /></span>
-        </button>
-        <button type="button" className="sx-top-btn sx-top-btn--accent" data-tour="tools" data-nudge="true" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-expanded={sheet}>
-          <Wrench size={16} aria-hidden="true" /><span>Tools</span>
-        </button>
+        <div className="sx-brand">
+          <a href="#section-welcome" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+            <b>Kitui 2027</b>
+          </a>
+          {live?.lastChange ? (
+            <button type="button" className="sx-brand__live" data-tour="live" onClick={() => onJump(FEED_HOME)}>
+              <span className="sx-live-dot" data-on="true" aria-hidden="true" />Team update {ago(live.lastChange.at)}
+              <span className="sr-only">: see what changed</span>
+            </button>
+          ) : (
+            <span data-tour="live"><span className="sx-live-dot" data-on="false" aria-hidden="true" />Strategy and the campaign’s tools</span>
+          )}
+        </div>
         {live?.signedIn ? (
           <>
             {live.role === "firefly" && <Link className="sx-top-btn sx-top-btn--wide-only" href="/team/admin" aria-label="Team members"><Users size={16} aria-hidden="true" /><span className="sx-top-label">Team</span></Link>}
@@ -116,18 +120,6 @@ function ToolsSheet({ onClose, onJump, signedIn, name }: { onClose: () => void; 
       </div>
     </>
   );
-}
-
-const HINTS = ["chapters, figures", "try \u201cwater\u201d", "try \u201cMui\u201d", "try \u201cradio\u201d", "chapters, figures"];
-/** On a wide screen, the search button suggests what to search for, a few times, then settles. */
-function SearchHint() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setI((n) => { if (n >= HINTS.length - 1) { window.clearInterval(id); return n; } return n + 1; }), 2600);
-    return () => window.clearInterval(id);
-  }, []);
-  return <span className="sx-search-hint"><span key={i} className="sx-hint-cycle">{HINTS[i]}</span></span>;
 }
 
 /** The footer's live line: when the official data was last verified, and the team's last update. */

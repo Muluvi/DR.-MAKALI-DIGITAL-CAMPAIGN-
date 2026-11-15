@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Search, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, Users, FileCog } from "lucide-react";
+import { X, Search, Sun, Moon, ChevronRight, Layers, Compass, MessageSquare, Megaphone, Shield, Database, Gauge, FileText, ClipboardList, CalendarClock, ListChecks, Handshake, Radio, Users, FileCog } from "lucide-react";
 import { SECTIONS, PARTS, partOf, type PartId, type TabId } from "../lib/heading-slug";
 import { FLOW_ACTS, FLOW_SECTIONS, actOf, isAfterAct } from "../lib/flow";
 import { ACT_PORTRAITS } from "../lib/premium/acts";
@@ -61,6 +61,10 @@ interface MobileTOCModalProps {
   visited: ReadonlySet<TabId>;
   /** Jump to a top-level section rather than to one of its 262 headings. */
   onSelectTab: (tabId: TabId, during?: () => void) => void;
+  /** Light and dark: the switch lives here, with the chapters and search (flow pass, WP7). */
+  onToggleTheme: () => void;
+  theme: string;
+  themeReady: boolean;
 }
 
 export function MobileTOCModal({
@@ -72,6 +76,9 @@ export function MobileTOCModal({
   wordCounts,
   visited,
   onSelectTab,
+  onToggleTheme,
+  theme,
+  themeReady,
 }: MobileTOCModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
   // Filtering is by PART, not by tab. Nine tabs is more choices than a first filter should
@@ -181,9 +188,14 @@ export function MobileTOCModal({
                 Six stages, then the evidence behind them
               </p>
             </div>
-            <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
-              <X size={20} />
-            </button>
+            <div className="pf-idx__tools">
+              <button type="button" onClick={onToggleTheme} className="pf-idx__close" aria-label={theme === "dark" ? "Switch to light" : "Switch to dark"}>
+                {!themeReady ? null : theme === "dark" ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+              </button>
+              <button type="button" onClick={onClose} className="pf-idx__close" aria-label="Close the index">
+                <X size={20} />
+              </button>
+            </div>
           </header>
 
           <div className="pf-idx__body">

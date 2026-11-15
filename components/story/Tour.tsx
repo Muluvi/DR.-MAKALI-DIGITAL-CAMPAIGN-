@@ -1,27 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
-import { Compass, X } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 const KEY = "sx-tour-seen";
 const STOPS: { sel: string; title: string; text: string }[] = [
-  { sel: '[data-tour="search"]', title: "Search everything", text: "Find any chapter, heading or figure. The index also lists every chapter and how long each takes to read." },
-  { sel: '[data-tour="tools"]', title: "Every tool, one tap away", text: "36 tools and the team's 10 live records, grouped by chapter. Tap one and the story opens right where it lives." },
-  { sel: '[data-tour="live"]', title: "Live from the team", text: "A green dot means the team has updated something. Records and charts change inside the chapters the moment a record is saved." },
-  { sel: ".pf-dock__pill", title: "Where you are", text: "The bar at the bottom shows the chapter you are in. Tap it for the index; the chart icon opens every tool." },
-  { sel: "#section-votes .sx-hands", title: "Try it in this chapter", text: "Each chapter lists the tools inside it. In the chapter, look for the cards with a moving hand: something you can use, not just read." },
+  { sel: ".pf-dock__where", title: "Where you are, and search", text: "The bar at the bottom shows the stage and the chapter you are in. Tap it for every chapter, by stage, and to search any heading or figure." },
+  { sel: '[data-tour="tools"]', title: "Every tool, one tap away", text: "36 tools and the team's 10 live records. Tap one and the story opens right where it lives." },
+  { sel: '[data-tour="live"]', title: "Live from the team", text: "A green dot means the team has updated something; tap it to see what changed. Records and charts change inside the chapters the moment a record is saved." },
+  { sel: "#section-winning .sx-hands", title: "Try it in this chapter", text: "Each chapter lists the tools inside it. In the chapter, look for the cards with a moving hand: something you can use, not just read." },
 ];
 
-const subscribe = (l: () => void) => { window.addEventListener("storage", l); window.addEventListener("sx-tour", l); return () => { window.removeEventListener("storage", l); window.removeEventListener("sx-tour", l); }; };
-const seen = () => { try { return localStorage.getItem(KEY) === "1"; } catch { return true; } };
 const markSeen = () => { try { localStorage.setItem(KEY, "1"); } catch { /* ignore */ } window.dispatchEvent(new Event("sx-tour")); };
 
 /**
- * "Show me around": a five-stop tour of the controls that are easy to miss. Offered once, as a pill
- * above the dock; it can be run again from the welcome's Tools sheet at any time.
+ * "Show me around": a four-stop tour of the controls that are easy to miss, for the team. It starts
+ * only from "Show me around" in the Tools panel: no pill greets a first reader (flow pass, WP7).
  */
 export function Tour() {
-  const done = useSyncExternalStore(subscribe, seen, () => true);
   const [step, setStep] = useState<number | null>(null);
   const [rect, setRect] = useState<DOMRect | null>(null);
 
@@ -63,16 +58,7 @@ export function Tour() {
   const close = () => { setStep(null); markSeen(); };
   const next = () => { if (step === null) return; if (step < STOPS.length - 1) setStep(step + 1); else close(); };
 
-  if (step === null) {
-    if (done) return null;
-    return (
-      <div className="sx-tour-pill print:hidden" role="region" aria-label="A short tour">
-        <Compass size={16} aria-hidden="true" /> New here?
-        <button type="button" className="sx-tour-pill__go" onClick={() => setStep(0)}>Show me around</button>
-        <button type="button" className="sx-tour-pill__no" onClick={markSeen} aria-label="No thanks"><X size={16} aria-hidden="true" /></button>
-      </div>
-    );
-  }
+  if (step === null) return null;
   const pad = 6;
   const below = !rect || rect.top < window.innerHeight / 2;
   const s = STOPS[step];

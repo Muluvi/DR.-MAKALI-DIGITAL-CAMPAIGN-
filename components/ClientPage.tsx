@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { Toaster } from "./Toaster";
 import { LazyMount } from "./LazyMount";
-import { Printer, Search } from "lucide-react";
+import { Printer } from "lucide-react";
 
 import { useTheme } from "../lib/useTheme";
 import { readingMinutes, useReadingProgress } from "../hooks/useReadingProgress";
@@ -419,7 +419,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
         <PlainTextPass rootId="pf-root" />
         <a href="#content-area" className="skip-link">Skip to the document</a>
         <StoryBar
-          onOpenIndex={() => setIsTOCModalOpen(true)}
           onJump={(id) => {
             openChapter(id.split("-sec-")[0]);
             navigateToSection(id);
@@ -620,13 +619,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
               <Printer size={14} />
               <span>Print, or save as PDF</span>
             </button>
-            <button
-              onClick={() => setIsTOCModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-muted hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
-            >
-              <Search size={14} />
-              <span>Search the document</span>
-            </button>
           </div>
           {/* Who the site is for, who built it, the date and the status: content/cover.md, once,
               in place of the list that repeated it (flow pass, WP1). */}
@@ -642,9 +634,6 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           number={partOf(activeItem.id) === 0 ? "" : actOf(activeItem.id).label}
           tab={activeItem.id}
           onOpenIndex={() => setIsTOCModalOpen(true)}
-          onToggleTheme={toggleTheme}
-          theme={theme}
-          themeReady={mounted}
         />
 
         <MobileTOCModal
@@ -655,6 +644,9 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           isOpen={isTOCModalOpen}
           onClose={() => setIsTOCModalOpen(false)}
           activeTab={activeItem.id}
+          onToggleTheme={toggleTheme}
+          theme={theme}
+          themeReady={mounted}
           onSelectSection={(secId) => {
             setIsTOCModalOpen(false);
             navigateToSection(secId);

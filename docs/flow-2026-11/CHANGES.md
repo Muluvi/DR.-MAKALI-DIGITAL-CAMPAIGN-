@@ -2,7 +2,7 @@
 
 Every passage the flow pass moved or reworded, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: the six-stage story (Welcome, Data, Analysis, Objectives, Strategies, Implementation), each move word for word, and each rewording Firefly approved (docs/flow-2026-11/FLOW-PLAN.md, section 10).
 
-73 cuts, 644 words; 11 passages moved to their homes.
+74 cuts, 641 words; 11 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -90,3 +90,4 @@ Every passage the flow pass moved or reworded, generated from `ledger.json` by `
 | diagnosis | 7.4 | body: "<window-chip></window-chip> That is the window | 1 | Replaced (a figure or source superseded) | — | Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the nomination-window chip is shown only in the Timeline milestone (Securing the ballot line). Markup only; no words change. Left in place: `body: "That is the window`. |
 | ask | 23.1 | ## 23.1 The window that sets the pace | 0 | Replaced (a figure or source superseded) | — | Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace. The number stays, so the id ask-sec-23-1 is unchanged. Left in place: `## 23.1 The clock that sets the pace`. |
 | ask | 23.1 | > **What sets the pace.** <window-chip></window-chip> That date is not in the | 17 | Replaced (a figure or source superseded) | — | Flow pass, Firefly's decision Q5 (docs/flow-2026-11/FLOW-PLAN.md section 10): the early phases count from the go-ahead, not from a fixed signature date; the Gazette deadlines and election day set the pace. The late-October sentence is dropped. Left in place: `> **What sets the pace.** The IEBC's Gazette deadlines and election day, 10 August 2027. Those dates are not in the campaign's gift, and every other date in this plan is derived from them rather than chosen. > > **What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the first of those six for the presence audit that sets its targets.`. |
+| welcome | (intro) | { title: "Search and Tools", text: "The bar at the top searches | -3 | Replaced (a figure or source superseded) | — | Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP7): search and every tool now open from the dock at the foot of the screen, one entry point each; the card says where they are. Left in place: `{ title: "Search and Tools", text: "The bar at the foot of the screen searches every chapter and lists every tool and record" }`. |

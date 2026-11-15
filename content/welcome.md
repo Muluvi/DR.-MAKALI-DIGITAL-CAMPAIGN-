@@ -12,7 +12,7 @@ items:
   - { title: "36 tools, in their chapters", text: "Each opens where it is needed: look for the moving Try it cards under the headings" }
   - { title: "Live team records", text: "The weekly brief, content calendar, dispatch log and seven more, inside the chapters they run" }
   - { title: "Live charts", text: "The team's numbers drawn in the chapter they measure, the moment a record is saved" }
-  - { title: "Search and Tools", text: "The bar at the top searches every chapter and lists every tool and record" }
+  - { title: "Search and Tools", text: "The bar at the foot of the screen searches every chapter and lists every tool and record" }
   - { title: "Every dataset", text: "Search, filter and download any table behind the story, from the links below" }
   - { title: "Every change", text: "Every edit logged with who made it, and any edit can be put back" }
   - { title: "Sign in to edit", text: "The team adds and updates records without leaving the story" }
