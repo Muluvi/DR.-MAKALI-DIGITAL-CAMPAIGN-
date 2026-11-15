@@ -218,6 +218,9 @@ function LiveChart({ id }: { id: string }) {
   const chart = live?.charts[id];
   if (!ready) return <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the team&rsquo;s numbers…</em></div>;
   if (!chart) return null;
+  // A viewer who is not signed in never meets an empty chart; a signed-in team member still does,
+  // because it prompts the first entry (flow pass, WP6).
+  if (live && !live.signedIn && chart.bars.length === 0) return null;
   return (
     <GrowBars
       title={chart.title}
@@ -244,6 +247,9 @@ function LiveRecord({ id }: { id: string }) {
   const c = live?.collections[id];
   if (!ready) return <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the team&rsquo;s records…</em></div>;
   if (!c || !live) return null;
+  // A viewer who is not signed in never meets an empty record or "not connected"; a signed-in team
+  // member still does, because it prompts the first entry (flow pass, WP6).
+  if (!live.signedIn && (c.count === 0 || !live.editable)) return null;
   const titleKey = c.titleKey ?? c.columns.find((k) => k.key !== "_id")?.key;
   const recent = c.rows.slice(0, 3);
   const canEdit = live.signedIn;
