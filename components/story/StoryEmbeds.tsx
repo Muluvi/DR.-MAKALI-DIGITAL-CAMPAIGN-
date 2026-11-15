@@ -222,13 +222,17 @@ function LiveChart({ id }: { id: string }) {
   // because it prompts the first entry (flow pass, WP6).
   if (live && !live.signedIn && chart.bars.length === 0) return null;
   return (
-    <GrowBars
-      title={chart.title}
-      caption={chart.caption}
-      bars={chart.bars}
-      mark={<LiveDot on={chart.bars.length > 0} />}
-      empty={<><p>{chart.empty}</p><p className="sx-muted">This chart draws itself the moment the team saves a record.</p></>}
-    />
+    <>
+      <GrowBars
+        title={chart.title}
+        caption={chart.caption}
+        bars={chart.bars}
+        mark={<LiveDot on={chart.bars.length > 0} />}
+        empty={<><p>{chart.empty}</p><p className="sx-muted">This chart draws itself the moment the team saves a record.</p></>}
+      />
+      {/* The dashboards page is reached from here only: every team chart on one page (flow pass, WP8). */}
+      <p className="sx-live-foot"><Link className="sx-link" href="/dashboards">See every chart</Link></p>
+    </>
   );
 }
 

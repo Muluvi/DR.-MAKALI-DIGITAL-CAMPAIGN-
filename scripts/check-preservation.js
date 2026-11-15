@@ -159,6 +159,10 @@ async function main() {
   const { isRetiredFile } = await import(pathToFileURL(path.join(ROOT, "scripts", "rivals-2026-11", "retired.mjs")).href);
   const dropsFile = path.join(ROOT, "docs", "rivals-2026-11", "count-drops.json");
   const drops = new Map((fs.existsSync(dropsFile) ? JSON.parse(fs.readFileSync(dropsFile, "utf8")).drops : []).map((d) => [`${d.file}|${d.key}`, d]));
+  // The flow pass (docs/flow-2026-11) removed one developer test page; it is listed, with why, in
+  // its removed-files.json, and reported as retired. A file not listed there still fails.
+  const flowRemovedFile = path.join(ROOT, "docs", "flow-2026-11", "removed-files.json");
+  const flowRemoved = new Map((fs.existsSync(flowRemovedFile) ? JSON.parse(fs.readFileSync(flowRemovedFile, "utf8")).files : []).map((f) => [f.path, f.why]));
   const retired = [];
   const failures = [];
   const changed = [];
@@ -170,7 +174,7 @@ async function main() {
   let skipped = 0;
   for (const [f, h] of Object.entries(base.files)) {
     if (notUploaded.some((p) => f.startsWith(p))) { skipped++; continue; }
-    if (!fs.existsSync(path.join(ROOT, f))) (isRetiredFile(f) ? retired.push(`removed: ${f}`) : failures.push(`missing: ${f}`));
+    if (!fs.existsSync(path.join(ROOT, f))) (isRetiredFile(f) ? retired.push(`removed: ${f}`) : flowRemoved.has(f) ? retired.push(`removed by the flow pass: ${f} (${flowRemoved.get(f)})`) : failures.push(`missing: ${f}`));
     else if (sha(f) !== h) changed.push(f);
   }
   // A chapter may hand a whole section to another chapter by a logged move (scripts/consolidation/
@@ -223,7 +227,7 @@ async function main() {
     }
   }
   if (retired.length) {
-    console.log(`check-preservation: ${retired.length} item(s) retired by the rivals pass (docs/rivals-2026-11):`);
+    console.log(`check-preservation: ${retired.length} item(s) retired by the rivals pass (docs/rivals-2026-11) or the flow pass (docs/flow-2026-11):`);
     for (const r of retired) console.log(`   ${r}`);
   }
   if (moves.length) {
