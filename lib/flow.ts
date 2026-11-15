@@ -1,20 +1,17 @@
 import { SECTIONS, type TabId } from "./heading-slug";
 
 /**
- * The document as one continuous scroll, evidence first (the November 2026 restructure).
+ * The site as one continuous story (the flow pass, November 2026, docs/flow-2026-11/FLOW-PLAN.md):
+ * the Welcome, then Data, Analysis, Objectives, Strategies and Implementation, in that order. The
+ * evidence shelf follows the story.
  *
- * The cover and the one-screen summary, then six Parts in the campaign-planning order: what Kitui
- * is and needs, the contest and where Dr. Mulu stands, the strategy the evidence justifies, the
- * plan, how it is measured and kept lawful, and the decision. The evidence shelf follows, and then
- * the working platform the team uses (docs/toc-2026-11/RESTRUCTURED-TOC.md).
- *
- * Section numbers are the document's addressing system. Every id live before this restructure has
- * a generated redirect (lib/anchors/restructure-2026-11.json), so a link already shared still lands
- * on the heading that holds the text it named.
+ * Section numbers are the document's addressing system and stay in the ids, never on screen. Every
+ * id that moved chapter has a generated redirect (lib/anchors/flow-2026-11.json), so a link already
+ * shared still lands on the heading that holds the text it named.
  */
 export const FLOW_ORDER: TabId[] = SECTIONS.map((s) => s.id);
 
-/** The six Parts, then the evidence shelf and the working platform, so the reader can feel where they are without a menu. */
+/** The five stages after the Welcome, then the evidence shelf, so the reader can feel where they are without a menu. */
 export interface FlowAct {
   id: string;
   label: string;
@@ -23,22 +20,24 @@ export interface FlowAct {
   opensOn: TabId;
 }
 
+/**
+ * The Welcome has no act: its chapters are part 0 and render without an opener. Act ids are internal
+ * (not heading ids). The blurbs are Firefly's approved wording (FLOW-PLAN.md section 10, Q6).
+ */
 export const FLOW_ACTS: FlowAct[] = [
-  { id: "kitui", label: "Kitui today", blurb: "What is true about the county and its voters?", opensOn: "kitui" },
-  { id: "contest", label: "His standing", blurb: "Where does Dr. Mulu stand today?", opensOn: "record" },
-  { id: "strategy", label: "The strategy", blurb: "What should the campaign do, and why?", opensOn: "goal" },
-  { id: "delivery", label: "The plan", blurb: "Who does the work, in what order, and how?", opensOn: "engagement" },
-  { id: "proof", label: "Proof and safeguards", blurb: "How would we know it worked, and that it stayed lawful?", opensOn: "success" },
-  { id: "decision", label: "The decision", blurb: "What is Dr. Mulu being asked to decide?", opensOn: "platform" },
-  { id: "reference", label: "The evidence behind it", blurb: "Where every figure comes from, and the terms it is offered on", opensOn: "annex-evidence" },
-  { id: "working", label: "The working platform", blurb: "The playbooks and technology the team works from", opensOn: "annex-playbooks" },
+  { id: "data", label: "Data", blurb: "What is true about Kitui, its voters and Dr. Mulu?", opensOn: "kitui" },
+  { id: "analysis", label: "Analysis", blurb: "What does the data mean for the race?", opensOn: "diagnosis" },
+  { id: "objectives", label: "Objectives", blurb: "What must the campaign achieve?", opensOn: "goal" },
+  { id: "strategies", label: "Strategies", blurb: "How will it achieve it?", opensOn: "position" },
+  { id: "implementation", label: "Implementation", blurb: "Who does what, when, and how it is measured", opensOn: "engagement" },
+  { id: "reference", label: "The evidence behind it", blurb: "Where every figure comes from, and the terms", opensOn: "annex-evidence" },
 ];
 
 /**
- * The acts that follow the argument: the evidence shelf, then the working platform. They carry no
- * part dots, because the six-part argument has ended before them.
+ * The act that follows the story: the evidence shelf. It carries no stage dots, because the story
+ * has ended before it.
  */
-export const AFTER_ACTS: ReadonlySet<string> = new Set(["reference", "working"]);
+export const AFTER_ACTS: ReadonlySet<string> = new Set(["reference"]);
 export const isAfterAct = (actId: string | null | undefined): boolean => !!actId && AFTER_ACTS.has(actId);
 
 const ACT_BY_OPENER = new Map(FLOW_ACTS.map((a) => [a.opensOn as string, a]));

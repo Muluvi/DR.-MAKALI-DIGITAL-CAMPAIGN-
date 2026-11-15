@@ -1,9 +1,9 @@
 import type { PortraitId } from "../../components/Portrait";
 
 /**
- * One portrait per act, rotating the four supplied portraits across the six Parts, the evidence shelf and the working platform. The
- * hero keeps 01; Part VI (the decision) carries 03, as the brief assigns. Approved at the Phase 0 checkpoint
- * (docs/visual-premium/PHASE-0.md §7.2). The act openers and the index both read this.
+ * One portrait per act, rotating the four supplied portraits across the five stages after the
+ * Welcome and the evidence shelf (flow pass, November 2026). The hero keeps the clasped-hands
+ * portrait. The act openers and the index both read this, by the act's position in FLOW_ACTS.
  */
 export const ACT_PORTRAITS: PortraitId[] = [
   "seated-grey-cropped",
@@ -12,8 +12,7 @@ export const ACT_PORTRAITS: PortraitId[] = [
   "hero-clasped-hands",
   "seated-grey-cropped",
   "three-piece-formal",
-  "gesture-explaining",
-  "hero-clasped-hands",
 ];
 
-export const ACT_ROMAN = ["I", "II", "III", "IV", "V", "VI", "A", "B"];
+/** One numeral per act, for code that keys on act order. Never shown on screen (D4: no visible numbering). */
+export const ACT_ROMAN = ["I", "II", "III", "IV", "V", "VI"];
