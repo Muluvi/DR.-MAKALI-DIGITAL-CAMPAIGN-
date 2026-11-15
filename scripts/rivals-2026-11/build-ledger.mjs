@@ -18,6 +18,13 @@ import { execFileSync } from "node:child_process";
 import { ROOT, sectionsOf, conservedWords, partsOf } from "../declutter/sections.mjs";
 
 export const RIVALS_BASE = "d034eb1";
+/**
+ * Where the pass's record ends: the content as it stood at 333afa8 (PR #87), after the pass and the
+ * later edits named in LATER. The flow pass (docs/flow-2026-11) moves sections between chapters and
+ * logs every move in its own ledger, so this ledger is weighed against that frozen state and does not
+ * absorb later, unrelated changes as removals.
+ */
+export const RIVALS_AFTER = "333afa8";
 const OUT = path.join(ROOT, "docs", "rivals-2026-11", "ledger.json");
 const FENCES_OUT = path.join(ROOT, "docs", "rivals-2026-11", "fences.json");
 const NOTE = "Rivals pass (November 2026): no 2027 rival is named, profiled, compared or monitored, and the attack-response material is removed, by Firefly's decision (docs/rivals-2026-11/DECISION.md). Past election results stay.";
@@ -32,7 +39,13 @@ const CHECK = process.argv.includes("--check");
 
 const git = (args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"] });
 const baseNames = git(["ls-tree", "--name-only", RIVALS_BASE, "content/"]).split("\n").filter((f) => f.endsWith(".md")).map((f) => path.basename(f, ".md"));
-const nowPath = (n) => path.join(ROOT, "content", `${n}.md`);
+const afterText = (n) => {
+  try {
+    return git(["show", `${RIVALS_AFTER}:content/${n}.md`]);
+  } catch {
+    return null;
+  }
+};
 
 /**
  * Figure and text-version fences may not change (check:content, check 3). The pass changed some:
@@ -56,7 +69,7 @@ const fenceEdits = [];
 const fenceRemoved = [];
 for (const name of baseNames) {
   const raw = git(["show", `${RIVALS_BASE}:content/${name}.md`]);
-  const after = fs.existsSync(nowPath(name)) ? fs.readFileSync(nowPath(name), "utf8") : null;
+  const after = afterText(name);
   if (after === raw) continue;
   // Fence edits first, so the words below are weighed on the same settled base check:content uses.
   const fc = fenceChanges(raw.split("\n"), after === null ? [] : after.split("\n"));

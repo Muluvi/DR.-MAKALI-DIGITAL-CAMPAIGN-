@@ -20,10 +20,12 @@ if (!from || !number || !to || !where) {
   console.error('usage: move-section.mjs <from> <number> <to> "BEFORE:<text>|END" "<pointer>"');
   process.exit(1);
 }
-const LEDGER = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+// A later pass logs to its own ledger with PASS_LEDGER (the flow pass: docs/flow-2026-11/ledger.json).
+const LEDGER = process.env.PASS_LEDGER ? path.join(ROOT, process.env.PASS_LEDGER) : path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+const NOTE_PREFIX = process.env.PASS_NOTE;
 const file = (f) => path.join(ROOT, "content", `${f}.md`);
 let src = fs.readFileSync(file(from), "utf8");
-let dst = from === to ? null : fs.readFileSync(file(to), "utf8");
+let dst = from === to ? null : fs.existsSync(file(to)) ? fs.readFileSync(file(to), "utf8") : "";
 
 // The block: from the section's heading to the next heading at its own level or above.
 const lines = src.split("\n");
@@ -60,7 +62,7 @@ src = `${before}${pointer ? `\n\n${pointer}` : ""}\n\n${after}`.replace(/\n{3,}/
 
 // Put it in.
 const insert = (text) => {
-  if (where === "END") return `${text.replace(/\s+$/, "")}\n\n${block}\n`;
+  if (where === "END") return text.trim() ? `${text.replace(/\s+$/, "")}\n\n${block}\n` : `${block}\n`;
   if (!where.startsWith("BEFORE:")) throw new Error("move-section: where must be BEFORE:<text> or END");
   const marker = where.slice("BEFORE:".length);
   const at = text.indexOf(marker);
@@ -73,13 +75,13 @@ fs.writeFileSync(file(from), src.replace(/\n{3,}/g, "\n\n"));
 if (dst !== null) fs.writeFileSync(file(to), dst.replace(/\n{3,}/g, "\n\n"));
 
 const first12 = (t) => t.replace(/\s+/g, " ").trim().split(" ").slice(0, 12).join(" ");
-const ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8"));
+const ledger = fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, "utf8")) : [];
 for (const s of movedSections) {
   const text = s.lines.join("\n").trim();
   ledger.push({
     file: from, section: s.number, first12: first12(text || s.title), words: conservedWords(s.lines), kind: "moved", whole: true,
     to: `${to}:${s.number}`, home: `${to}:${s.number}`,
-    note: `Section move (consolidation, passage-level merges): ${from} ${s.number} moved into ${to}, word for word, heading and all.`,
+    note: NOTE_PREFIX ? `${NOTE_PREFIX} ${from} ${s.number} moved into ${to}, word for word, heading and all.` : `Section move (consolidation, passage-level merges): ${from} ${s.number} moved into ${to}, word for word, heading and all.`,
     text,
   });
 }

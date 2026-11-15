@@ -1,0 +1,4 @@
+{
+ "$comment": "The flow pass (docs/flow-2026-11): every heading id live at 333afa8 that moved chapter, mapped to the heading that now holds its text.",
+ "moves": {}
+}

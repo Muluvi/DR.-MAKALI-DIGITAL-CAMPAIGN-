@@ -19,7 +19,8 @@ import { ROOT, conservedWords, sectionsOf, words } from "../declutter/sections.m
 /** Words as check-content counts them: a whole ```visual fence counts its strings, not its YAML keys. */
 const count = (t) => (/^\s*```/m.test(t) ? conservedWords(t.split("\n")) : words(t));
 
-const LEDGER = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+// A later pass logs to its own ledger with PASS_LEDGER (the flow pass: docs/flow-2026-11/ledger.json).
+const LEDGER = process.env.PASS_LEDGER ? path.join(ROOT, process.env.PASS_LEDGER) : path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
 const read = (f) => fs.readFileSync(path.join(ROOT, "content", `${f}.md`), "utf8");
 const write = (f, t) => fs.writeFileSync(path.join(ROOT, "content", `${f}.md`), t);
 
@@ -37,7 +38,7 @@ function sectionOf(file, text, needle) {
 }
 
 const first12 = (t) => t.replace(/\s+/g, " ").trim().split(" ").slice(0, 12).join(" ");
-const ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8"));
+const ledger = fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, "utf8")) : [];
 const [cmd, ...args] = process.argv.slice(2);
 
 if (cmd === "replace") {

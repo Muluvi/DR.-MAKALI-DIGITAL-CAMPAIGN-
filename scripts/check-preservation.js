@@ -179,8 +179,10 @@ async function main() {
   // a logged move out AND the total of that count across every chapter is still at or above the
   // baseline, so content can move between chapters but never leave the site.
   const moveLedger = path.join(ROOT, "docs", "consolidation-2026-11", "ledger.json");
+  // The flow pass (docs/flow-2026-11/ledger.json) logs its moves between chapters the same way.
+  const flowLedger = path.join(ROOT, "docs", "flow-2026-11", "ledger.json");
   const movedOut = new Set(
-    (fs.existsSync(moveLedger) ? JSON.parse(fs.readFileSync(moveLedger, "utf8")) : [])
+    [moveLedger, flowLedger].flatMap((f) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : []))
       .filter((e) => e.kind === "moved" && e.to && e.to.split(":")[0] !== e.file)
       .map((e) => `content/${e.file}.md`)
   );
