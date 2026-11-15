@@ -378,8 +378,12 @@ export function PhaseNow() {
 
 /* ------------------------------------------------------------------ the fourteen workstreams, at a glance */
 
+/**
+ * The way into the chapter (flow pass, WP10): open from the start, each card jumps to its
+ * workstream's heading, and every workstream's full text stays behind its own fold.
+ */
 export function WorkstreamMap() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <section className="sx-wsmap print:hidden" aria-label="The fourteen workstreams">
       <button type="button" className="sx-wsmap__toggle" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
@@ -411,10 +415,10 @@ const CHAPTER_LABEL: Record<string, string> = Object.fromEntries(SECTIONS.map((s
 const chapterOf = (home: string) => home.split("-sec-")[0];
 type Job = { id: string; label: string; icon: typeof Check; chapters?: string[]; group?: string; extra?: { label: string; to: string }[] };
 const JOBS: Job[] = [
-  { id: "analyse", label: "Analyse", icon: BarChart3, chapters: ["kitui", "needs", "news", "votes", "annex-evidence"] },
+  { id: "analyse", label: "Analyse", icon: BarChart3, chapters: ["kitui", "needs", "news", "votes", "winning", "known", "spend", "annex-evidence"] },
   { id: "decide", label: "Decide", icon: Compass, chapters: ["diagnosis", "goal", "message", "voters", "channels"] },
   { id: "direct", label: "Direct the team", icon: Users, group: "Direct the team" },
-  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["lawful", "annex-technology"] },
+  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["week", "lawful", "annex-technology"] },
   { id: "measure", label: "Measure", icon: Gauge, group: "Measure", chapters: ["success"] },
   { id: "deliver", label: "Deliver", icon: Wrench, group: "Deliver", chapters: ["timeline", "workstreams"] },
 ];
