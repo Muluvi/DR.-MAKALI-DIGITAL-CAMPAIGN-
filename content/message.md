@@ -63,7 +63,7 @@ items:
     badge: "sources pending"
 ```
 
-**The ward fund forces a choice.** The incumbent's equal-ward allocation is open to criticism, and Pillar 3 proposes an equal-ward guarantee of its own. The campaign cannot run both.
+**The ward fund forces a choice.** The county government's equal-ward allocation is open to criticism, and Pillar 3 proposes an equal-ward guarantee of its own. The campaign cannot run both.
 
 ```visual
 kind: cards
@@ -71,7 +71,7 @@ preset: policy
 items:
   - title: "Settled: the needs-weighted formula."
     text: "**The platform is the second position: a published, needs-weighted allocation formula, because it is the stronger fit with the verification pillar (Pillar 1) and leaves the campaign free to make the argument against equal-ward allocation.** The equal-ward guarantee of Ksh {{policy.ward-fund|m}} million per ward (about Ksh {{policy.ward-fund.total|bn}} billion a year, {{policy.ward-fund.share}}% of the envelope) is withdrawn from campaign copy."
-    body: "Criticism of the incumbent's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Pillar 3 currently proposes an equal-ward guarantee of its own. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula."
+    body: "Criticism of the county government's equal-ward funding allocation is a live policy argument, and one where the campaign's own position needs settling first: Pillar 3 currently proposes an equal-ward guarantee of its own. Either the equal-ward guarantee is the platform, and this line of argument is not available to the campaign, or the argument is made and the guarantee is restated as a needs-weighted formula."
 ```
 
 ```visual
@@ -108,7 +108,7 @@ items:
     text: "the flagship theme."
     head: { label: "Evidence", text: "the KSh {{budget.total|bn}} billion envelope, the audit findings and the county's own KESTA agenda (Sections 1.5 and 3.7)." }
     fields:
-      - { label: "Why it matters", text: "the incumbent administration names Dr. Mulu's own frame, which makes the argument about *execution* rather than direction: the ground an evaluator wins on." }
+      - { label: "Why it matters", text: "the county government's own scorecard names Dr. Mulu's frame, which makes the argument about *execution* rather than direction: the ground an evaluator wins on." }
   - title: "Youth employment and digital skills"
     text: "vocational training, county innovation hubs, enterprise credit."
     head: { label: "Evidence", text: "a median age of {{census.median-age}} and youth concentrated in Kitui Central, Mwingi Central and Mutomo (Section 3.5)." }
@@ -163,7 +163,7 @@ Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made wit
 
 **Every claim carries its source.** Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**. Every message, from a 160-character Kiswahili SMS to a two-hour Kikamba radio debate, rests on parliamentary records, Auditor-General reports or KNBS data. The three regions differ and most residents are offline (Sections 1.2 and 4.1), so the message and its language are set region by region and channel by channel.
 
-**The incumbent's slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. This proposal's governing line, quoted in full in Section 9.1, answers it: Kitui has the resources, and lacks the leadership to use them. Governor Malombe's administration is Wiper and the nomination is a Wiper contest, so until the ticket is settled the campaign uses the line's verification half (publish whether it happened), not its deficit half. In the general election the full contrast is available.
+**The county's own slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. The campaign's governing line, quoted in full in Section 9.1, answers it: Kitui has the resources, and lacks the leadership to use them. The campaign leads with the line's verification half: publish whether each promised project happened.
 
 #### Framing true claims, transparently
 

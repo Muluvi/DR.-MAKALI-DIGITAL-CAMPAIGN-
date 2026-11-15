@@ -243,7 +243,7 @@ The three parts sum to KSh 13.80 billion (calculated) against a published total 
 
 **The development plan.** The county's priorities for the term are set in the Kitui County Integrated Development Plan 2023–2027, held in the KIPPRA repository. No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.
 
-**The audit record.** The Auditor-General's findings and the Controller of Budget's absorption rate follow directly below, with the incumbent's own scorecard.
+**The audit record.** The Auditor-General's findings and the Controller of Budget's absorption rate follow directly below, with the county government's own scorecard.
 
 **What it means for the campaign.** A KSh {{budget.total|bn}} billion envelope is the scale of the job: the campaign translates it into ward-level policy targets, so that an economist's case is made in shillings per ward.
 

@@ -26,9 +26,9 @@ items:
 
 *   **Pending bills.** The Controller of Budget records outstanding pending bills of about **KSh {{budget.pending-bills.2021|bn}} billion as of FY2020/21** (Tier 1).
 *   **Development absorption.** The Controller of Budget's County Budget Implementation Review Report records **{{budget.absorption.q1}}%** in the first quarter of FY2025/26 (Tier 1). Media reports of a 5% rate are not used.
-*   **The envelope and the county's own frame.** The county runs a KSh {{budget.total|bn}} billion envelope (Tier 3, Section 1.5). Its development theme for the year is **KESTA — Accelerating Kitui Economic and Social Transformation Agenda**, with a stated priority on raising household income (Tier 1). The incumbent administration names the same goal Dr. Mulu does, so the argument is about *execution*, not direction.
+*   **The envelope and the county's own frame.** The county runs a KSh {{budget.total|bn}} billion envelope (Tier 3, Section 1.5). Its development theme for the year is **KESTA — Accelerating Kitui Economic and Social Transformation Agenda**, with a stated priority on raising household income (Tier 1). The county government names the same goal Dr. Mulu does, so the argument is about *execution*, not direction.
 
-#### The incumbent's scorecard: where the itemised money went
+#### The county's scorecard: where the itemised money went
 
 The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) itemises {{scorecard.itemised}} of the {{scorecard.claimed}} projects it claims, KSh {{scorecard.itemised.ksh|bn}} billion in all (Tier 1). Summed from its own tables:
 
