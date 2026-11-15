@@ -49,7 +49,8 @@
    (`scripts/verify-mounts.mjs`), or when content changes without a ledger entry (`npm run check:content`).
 5. Anything marked **(new)** is a new idea, not something the site has today. Build it only if the WP
    says to.
-6. Anything in §10 needs Firefly's decision. Do not guess wording for those items. Ask.
+6. §10 records Firefly's approved decisions with exact wording. Use that wording verbatim. Anything
+   not covered there needs Firefly's decision: ask, don't guess.
 7. Do not commit to `main`. Do not open a pull request unless asked.
 
 **Shorthand used below.** Stages: **W** Welcome · **D** Data · **A** Analysis · **O** Objectives ·
@@ -77,7 +78,7 @@ Respect all of these. Challenge one only with strong evidence, and explain why.
 **The plan challenges none of these.** One placement needs a judgement call: Firefly's commercial close
 ("What you get and what you provide", "The ask") has no slot in D1's six stages. The plan puts it at the
 end of Implementation, because the agreed order ends there and the site's first purpose (make
-Firefly's case to Dr. Mulu without a meeting) needs a close. See §10, Q1.
+Firefly's case to Dr. Mulu without a meeting) needs a close. Firefly approved this (§10, Q1).
 
 ---
 
@@ -264,7 +265,7 @@ Section names only. No numbering in names.
 
 ### 5.1 Target configuration
 
-`FLOW_ACTS` (replaces `lib/flow.ts:26-35`). The `blurb` text is a proposal for Firefly to confirm (§10, Q6).
+`FLOW_ACTS` (replaces `lib/flow.ts:26-35`). The `blurb` text is approved (§10, Q6).
 
 ```ts
 export const FLOW_ACTS: FlowAct[] = [
@@ -340,7 +341,7 @@ section** · **change** (move / merge / split / cut / convert).
 - Inside: the four big numbers (`BigNumber`), portrait, county drawing.
 - Into next: scroll straight into "A welcome from Firefly".
 - Change: **merge** the hero into the Welcome. Retitle it away from "Analysis, Strategy and Direction"
-  (wording: §10, Q2). **Replace** `RouteMap`'s "{n} questions, then one decision" with a six-stage route
+  (approved wording: §10, Q2). **Replace** `RouteMap`'s "{n} questions, then one decision" with a six-stage route
   (Welcome, Data, Analysis, Objectives, Strategies, Implementation), each stage listing its chapters.
   **Cut** the "Go to the ask" main button. **Cut** the `fig-cover-map` that repeats the hero's numbers
   (the hero carries the same figures; it stays at `/full` and in print).
@@ -371,7 +372,7 @@ section** · **change** (move / merge / split / cut / convert).
 - Inside: `fig-6-3-decision`.
 - Into next: "The evidence starts with the county."
 - Change: **cut** the three stats (the Opening's four numbers do the job, D7). Rewrite the offer
-  sentence in the Welcome's tense (wording: §10, Q1).
+  sentence in the Welcome's tense (approved wording: §10, Q1).
 
 ### Data
 
@@ -445,7 +446,7 @@ section** · **change** (move / merge / split / cut / convert).
 - Job: one general-election target and five objectives.
 - Inside: the countdown to the next Gazette deadline.
 - Into next: "How we will win them."
-- Change: **reframe** to the single general-election lens (§10, Q3 for wording). **Move** the Governor
+- Change: **reframe** to the single general-election lens (approved wording: §10, Q3). **Move** the Governor
   Nomination Path tool and the nomination-window text to the Timeline as a dated milestone. Gets its
   own part opener (`FLOW_ACTS` `objectives`).
 
@@ -461,7 +462,7 @@ section** · **change** (move / merge / split / cut / convert).
 - Inside: Ward Allocation Simulator, Issue-to-Message Matcher, Fact Card Generator, Message Studio,
   plus the C.2 formats and copy samples moved in from the playbooks.
 - Change: **move** the *Creative tests* record to workstreams 15.1 (Workstream 3, creative testing).
-  **Check** the "incumbent" lines against D5 (§10, Q4).
+  **Reword** the "incumbent" lines (approved: §10, Q4).
 
 **The voters to win** (`voters`)
 - Job: three universes, six segments.
@@ -492,7 +493,7 @@ section** · **change** (move / merge / split / cut / convert).
 **Timeline to August 2027** (`timeline`)
 - Job: the phases, and which one is live now.
 - Inside: Governor Race Calendar, *phase-now*, countdown, **Governor Nomination Path** (moved in).
-- Change: mark 14.1 "The first four weeks" as passed, or reword it (§10, Q5).
+- Change: count 14.1 "The first four weeks" from the go-ahead (approved: §10, Q5).
 
 **The fourteen workstreams** (`workstreams`)
 - Job: what each workstream produces, who owns it, how often it reports.
@@ -522,7 +523,7 @@ section** · **change** (move / merge / split / cut / convert).
 - Job: the one decision.
 - Inside: *ask window* visual.
 - Into next: the utility shelf.
-- Change: update the window that is going stale (§10, Q5).
+- Change: replace the window with the Gazette countdown (approved: §10, Q5).
 
 ### After the story (utility)
 
@@ -536,8 +537,7 @@ link to it from the Assumptions Panel.
 
 **Footer**: **merge** in the `cover` chapter's text (prepared for, prepared by, contact, date) by
 rendering `cover.md` in the footer. Replace "please do not circulate it further" and "Status: Proposal
-for discussion" with text that matches D3, for example "Open to view; sign in to edit" (wording: §10,
-Q2). Keep Print, Search and the live line.
+for discussion" with the approved text (§10, Q2). Keep Print, Search and the live line.
 
 **Separate pages**: they stay as full-screen views of what is embedded. **Replace** `PlatformNav` with
 a single "Back to [chapter]" link that returns to the item's home in the story. /dashboards is reached
@@ -592,18 +592,18 @@ Ranked by impact against effort. **★ = do first.**
 | ★2 | WP2 | Six stages | High | Low |
 | ★3 | WP3 | Split Data from Analysis | High | Med |
 | ★4 | WP4 | "This week" and stranded tools | High | Med |
-| ★5 | WP5 | Single general-election lens | High | Med (needs Firefly's wording) |
+| ★5 | WP5 | Single general-election lens | High | Med |
 | 6 | WP6 | Hide empty live blocks from viewers | Med–High | Low |
 | 7 | WP7 | Phone controls | Med | Med |
 | 8 | WP8 | Separate pages | Med | Low |
 | 9 | WP9 | Disperse the playbooks | Med | Med |
 | 10 | WP10 | Text to visual, repeats | Med | Low–Med |
 | 11 | WP11 | Tools panel by stage, recently used | Med | Low |
-| 12 | WP12 | "Incumbent" lines check | Low–Med | Low |
+| 12 | WP12 | "Incumbent" lines reworded | Low–Med | Low |
 
 Dependencies: WP2 before WP3 and WP4 (they add chapters to `SECTIONS`). WP3 and WP4 both add anchor
-entries, so do them in sequence or merge the anchors file carefully. WP5 and WP12 wait for Firefly's
-answers in §10.
+entries, so do them in sequence or merge the anchors file carefully. Firefly's answers for WP1, WP5 and WP12 are
+in §10.
 
 ---
 
@@ -617,7 +617,7 @@ answers in §10.
 
 **Steps.**
 1. In `CoverHero`, replace the title and the "Prepared for" seal with the Welcome's opening line
-   (wording from Firefly, §10, Q2). Keep the portrait, county and four numbers.
+   (approved wording, §10, Q2). Keep the portrait, county and four numbers.
 2. In `ClientPage.tsx:442-465`, remove the second `fig-cover-map` (it repeats the hero's numbers; keep
    it in `/full` and print). Replace `RouteMap`'s header with a six-stage route: stage name, then its
    chapters as buttons. Remove the "Go to the ask" button and the "After the proposal" kicker
@@ -628,9 +628,9 @@ answers in §10.
    in place of the footer's own "Prepared by / Date / Status" list, so the text is not duplicated and is
    not lost. Do **not** delete `content/cover.md` (`check:preservation` fails on a missing protected
    file). Update `cover.md`'s "Status" line and the footer's "please do not circulate" line with
-   Firefly's wording (§10, Q2), with ledger entries.
+   the approved wording (§10, Q2), with ledger entries.
 5. In `brief.md`, remove the three stats (the Opening carries them) and align the offer sentence's tense
-   (§10, Q1). Ledger both.
+   (approved wording, §10, Q1). Ledger both.
 6. In `welcome.md`, fix "just below" and repoint the quick links (after WP4, repoint to new homes).
 
 **Acceptance.**
@@ -753,20 +753,21 @@ in the Welcome.
 **Goal.** The Objectives run on the general election only. The nomination becomes a dated
 milestone in the Timeline.
 
-**Blocked on** §10, Q3 and Q5 (Firefly's wording).
+**Uses** §10, Q3 and Q5 (approved wording).
 
 **Files.** `content/goal.md`, `content/timeline.md`, `content/ask.md`, `lib/phases.ts`,
 `lib/tools/meta.ts`, ledger.
 
 **Steps.**
 1. Rewrite the 8.1 lead and heading ("The goal and its two deadlines") to one general-election target,
-   with Firefly's wording. Move the nomination paragraphs verbatim to a Timeline heading (for example
-   14.1). Ledger every move and rewrite.
+   with the approved wording (§10, Q3). Move the nomination paragraphs verbatim to the new Timeline
+   heading `## 14.0 Securing the ballot line`. Ledger every move and rewrite.
 2. Move the Governor Nomination Path tool home from `goal-sec-8-1` to that Timeline heading.
 3. Keep the `goal-sec-8-1` countdown (it counts to the next Gazette deadline, which is the general
    election calendar).
-4. Update `ask.md` 23.1 and `NOMINATION_WINDOW` per Firefly's answer (the window ends 30 Nov 2026).
-5. Keep the `neg1` phase in `lib/phases.ts` only if Firefly confirms it; it drives the timeline figure.
+4. Apply §10, Q5: "from the go-ahead" wording, the 23.1 rewrite, the countdown at `ask-sec-23-1`, and
+   the passed/upcoming rule for `NOMINATION_WINDOW`.
+5. Relabel phase `neg1` in `lib/phases.ts` as §10, Q3 says (keep the id).
 
 **Acceptance.**
 - The Objectives chapter names one deadline: 10 August 2027.
@@ -890,13 +891,16 @@ playbooks lands. Checks as in WP3.
 
 ---
 
-### WP12. "Incumbent" lines check
+### WP12. "Incumbent" lines reworded
 
-**Blocked on** §10, Q4.
+**Uses** §10, Q4 (approved wording).
 
-**Lines.** `content/message.md:66, 74, 111, 166`; `content/needs.md:246, 280`. They criticise the county
-government's record and slogan; they don't name a 2027 candidate. Firefly decides whether they stay
-(governance data) or are reworded (rival-adjacent). Ledger any change.
+**Lines.** `content/message.md:66, 74, 111, 166`; `content/needs.md:246, 280`. Apply the replacements in
+§10, Q4 verbatim and ledger each. Past results naming Governor Malombe (`votes.md`, `annex-evidence.md`,
+`diagnosis.md`) stay.
+
+**Acceptance.** `grep -n -i "incumbent" content/*.md` returns nothing. `message.md` no longer frames
+the sitting governor as a nomination opponent. Checks as in WP3.
 
 ---
 
@@ -916,18 +920,104 @@ government's record and slogan; they don't name a 2027 candidate. Firefly decide
 
 ---
 
-## 10. Open decisions for Firefly
+## 10. Firefly's decisions (approved 15 November 2026)
 
-Do not implement these without an answer.
+Firefly approved the recommended answer to all six questions. The wording below is final unless
+Firefly changes it. Use it verbatim. Keep `{{token}}` placeholders as written: `scripts/build-content.ts`
+fills them from the data pack. Every rewrite gets a ledger entry in `docs/flow-2026-11/ledger.json`
+(`kind: "replaced"`, with the old text, the new text and a note citing this section).
 
-| # | Question | Why it matters | Blocks |
-|---|---|---|---|
-| Q1 | Is the platform **built and running** (the Welcome's voice) or **offered for approval** (the brief, receives and ask)? The site says both | The tense of the brief, receives and ask, and whether "The ask" stays as the close | WP1 step 5 |
-| Q2 | Opening title and the footer's status line, to replace "Analysis, Strategy and Direction", "Prepared for Dr. Mulu personally", "please do not circulate" and "Proposal for discussion" | P1 and D3 | WP1 |
-| Q3 | Wording of the single general-election goal (8.1 lead and heading) | D6 | WP5 |
-| Q4 | Keep or reword the six "incumbent" lines | D5 | WP12 |
-| Q5 | What replaces the dated items: 14.1 "The first four weeks" (counts from 1 Sept 2026) and 23.1 "The window that sets the pace" (window ends 30 Nov 2026) | They go stale this month | WP5 |
-| Q6 | The stage blurbs in §5.1 | Shown on every part opener | WP2 |
+### Q1. Built, or offered for approval? → **Built and running**
+
+**Decision.** The whole site speaks in the Welcome's voice: Firefly built the platform and runs it.
+"The ask" stays as the close of Implementation, but it asks for the go-ahead to run the campaign on the
+platform at a chosen scope, not for approval of a proposal.
+
+**Why.** The sign-in, live records, change history and 36 tools are all built and deployed. Writing them
+up as a proposal undersells them and contradicts the Welcome.
+
+| Where | Current | Replace with |
+|---|---|---|
+| `content/brief.md` lead (line 2) | "**Firefly Management offers a platform and asks him to approve it.**" | "**Firefly Management built this platform for his campaign, and one decision puts it to work.**" |
+| `content/brief.md` body (line 5) | "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.**" | "**Firefly Management built this platform for his campaign. One decision puts it to work: choose the scope, and his team runs the campaign through it.**" |
+| `content/ask.md` lead | "**Firefly Management offers a platform and asks for one decision: approve it, and his team runs the campaign through it.** Everything after that is evidence." | "**The platform is built. One decision puts it to work: choose the scope, and his team runs the campaign through it.** Everything after that is evidence." |
+| `content/ask.md` body | "Firefly asks him to approve the platform at the recommended Standard level." | "Firefly recommends the Standard scope level." |
+| `content/ask.md` blockquote under "What the record does not yet show" | The repeated offer sentence | Remove (the lead says it; WP10 step 3) |
+| `content/receives.md` (lines 83, 86, 144, 155) | "this proposal", "the proposal" | "this plan", "the plan" |
+| Other "proposal" wording in `content/*.md` | "This proposal…" | "This plan…" or "The site…", whichever reads true. Search `content/` for "proposal" and ledger each hit |
+
+### Q2. Opening title and status line
+
+| Where | Current | Replace with |
+|---|---|---|
+| `CoverHero` title (`components/premium/CoverHero.tsx`) | "Kitui 2027: Analysis, Strategy and Direction for Dr. Mulu's Campaign" | Line 1 "Kitui 2027:", line 2 "The campaign's data, analysis and plan, in one place" |
+| `CoverHero` seal | "**Prepared for Dr. Mulu** — open to anyone with the link." | "**Built for Dr. Mulu and his team.** Open to view; the team signs in to edit." |
+| `CoverHero` subtitle | "Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team." | Keep as written (it is already in the built voice) |
+| Footer notice (`ClientPage.tsx:598-601`) | "**Prepared for Hon. Dr. Benson Makali Mulu personally** — open to anyone with the link. Please do not circulate it further." | "**Built for Hon. Dr. Benson Makali Mulu and his campaign team.** Open to view; the team signs in to edit." |
+| Footer status (`ClientPage.tsx:624`) and `content/cover.md:20` | "Proposal for discussion" | "Live. Updated by the campaign team; run by Firefly Management" |
+| `content/cover.md:1` | "Who this proposal is for, who prepared it, the terms it is submitted under, and the order of the parts that follow." | "Who the site is for, who built it, and the terms it is offered on." |
+| `content/cover.md:5` | "**Prepared for Hon. Dr. Benson Makali Mulu personally.**" | "**Built for Hon. Dr. Benson Makali Mulu and his campaign team.**" (keep the rest of the line) |
+| `RouteMap` header | "{n} questions, then one decision." | "Six stages, from the data to the work." |
+| `RouteMap` and `ActOpener` | "After the proposal" | "After the story" |
+
+### Q3. The single general-election goal
+
+| Where | Current | Replace with |
+|---|---|---|
+| `content/goal.md` chapter lead (line 2) | "The goal is the Wiper ticket first and the county second: the nomination <window-chip></window-chip>, then at least **{{benchmark}} votes** on 10 August 2027." | "The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**." |
+| `content/goal.md` line 5 | Same opening, then "…every one traces to one of the two deadlines. This chapter opens Part III: the strategy that the evidence in Parts I and II justifies." | "The goal is to win the general election on 10 August 2027, with at least **{{benchmark}} votes**. Five objectives for the digital operation serve it, and every one traces to that result." (Removes the "Part III" document numbering too, D4) |
+| `goal.md` heading `## 8.1 The goal and its two deadlines` | — | `## 8.1 The goal and its deadline` (keep the number: it makes the id `goal-sec-8-1`) |
+| `goal.md` 8.1 lead (line 10) | "The campaign operates against two deadlines: the Wiper nomination <window-chip></window-chip> and the 10 August 2027 general election." | "The campaign works to one deadline: the general election on 10 August 2027. Being on the ballot comes first, and the Timeline tracks it as a milestone." |
+| `goal.md` line 13 | "…two deadlines… Every objective traces either to winning the Wiper Patriotic Front nomination or to delivering the ~{{benchmark}} vote threshold…" | "Every objective traces to delivering the ~{{benchmark}} vote threshold at the general election; digital measures that do not are left out (Section 18.4)." |
+| `goal.md` nomination paragraphs (the "Success" bullet at line 16 and "The two deadlines" list) | — | **Move verbatim** to a new Timeline heading, `## 14.0 Securing the ballot line` (id `timeline-sec-14-0`; check it is unused in `lib/anchors/*.json` first), placed before 14.1. Ledger as a move |
+| Governor Nomination Path tool | `goal-sec-8-1` | `timeline-sec-14-0` |
+| `timeline.md` lines 2 and 5 | "Five phases run from signature… a Phase −1 for the nomination contest…" | "Five phases run from the go-ahead to the 10 August 2027 general election: securing the ballot line, then setting up the campaign's measurement, then awareness, persuasion and turnout." |
+| `lib/phases.ts`, phase `neg1` | label "Nomination sprint", focus "The team's work aimed at the Wiper decision" | label "Ballot line", focus "Securing the nomination that puts him on the ballot". Keep the id `neg1` so figures keyed on it still resolve |
+
+### Q4. The "incumbent" lines → **reword policy critique to "the county government"; remove the 2027 framing**
+
+**Decision.** Lines that analyse the county government's record and policy stay as governance data,
+with "the incumbent" replaced by "the county government" (or "the county's"), because "the incumbent"
+reads as a 2027 opponent. The one sentence that frames the sitting governor as the nomination
+opponent is rewritten, because it breaks D5 and D6. Past results that name Governor Malombe
+(`votes.md`, `annex-evidence.md`, `diagnosis.md`) stay: they are past election data.
+
+| Where | Current | Replace with |
+|---|---|---|
+| `message.md:66` | "The incumbent's equal-ward allocation is open to criticism…" | "The county government's equal-ward allocation is open to criticism…" |
+| `message.md:74` | "Criticism of the incumbent's equal-ward funding allocation…" | "Criticism of the county government's equal-ward funding allocation…" |
+| `message.md:111` | "the incumbent administration names Dr. Mulu's own frame…" | "the county government's own scorecard names Dr. Mulu's frame…" |
+| `message.md:166` heading phrase | "**The incumbent's slogan already claims resources.**" | "**The county's own slogan already claims resources.**" |
+| `message.md:166` sentence | "Governor Malombe's administration is Wiper and the nomination is a Wiper contest, so until the ticket is settled the campaign uses the line's verification half (publish whether it happened), not its deficit half. In the general election the full contrast is available." | "The campaign leads with the line's verification half: publish whether each promised project happened." |
+| `message.md:166` | "This proposal's governing line" | "The campaign's governing line" |
+| `needs.md:246` | "…with the incumbent's own scorecard." | "…with the county government's own scorecard." |
+| `needs.md:280` heading | "#### The incumbent's scorecard: where the itemised money went" | "#### The county's scorecard: where the itemised money went" |
+
+### Q5. The dated items
+
+**Decision.** Count the early phases from the go-ahead, not from a fixed September date. Replace the
+nomination window as "what sets the pace" with the countdown the site already has.
+
+| Where | Current | Replace with |
+|---|---|---|
+| Visible "from signature" wording (`timeline.md:55, 272, 277`, `lib/phases.ts` `phaseWhen`, and any other hit for "signature" in `content/`) | "from signature" | "from the go-ahead" |
+| `lib/phases.ts` `PLANNING_SIGNATURE` | `"2026-09-01"` (an assumption) | Keep the constant until the go-ahead date is known. Do not show dates computed from it on screen: show "Weeks 1–6 from the go-ahead" only (the comment says the reader already sees weeks, not dates; check `fig-5-4` and remove any computed date it shows) |
+| `timeline.md` 14.1 "The first four weeks" | Counted from signature | Keep the content; it now counts from the go-ahead |
+| `ask.md` heading `## 23.1 The window that sets the pace` | — | `## 23.1 The clock that sets the pace` (keep the number, so the id `ask-sec-23-1` is unchanged) |
+| `ask.md` 23.1 blockquote | "**What sets the pace.** <window-chip></window-chip> That date is not in the campaign's gift…" and "Counting back from a window that opens in late October…" | "**What sets the pace.** The IEBC's Gazette deadlines and election day, 10 August 2027. Those dates are not in the campaign's gift, and every other date in this plan is derived from them rather than chosen." and "**What the work needs in front of it.** Roughly six weeks for a first directed cycle, and the first of those six for the presence audit that sets its targets." (drop the late-October sentence) |
+| `ask-sec-23-1` embeds | *ask window* visual. `AskWindow` (`components/story/Visuals.tsx:146`) reads `NOMINATION_WINDOW` and shows "The window that sets the pace" with days left in the reported window | Rework `AskWindow` to show the days to the next Gazette deadline and to election day (10 August 2027), using the same deadline data as the Governor Race Calendar, with the kicker "The clock that sets the pace". Add `ask-sec-23-1` to `COUNTDOWN_HOMES` only if the reworked visual doesn't already show that countdown (don't show it twice) |
+| `NOMINATION_WINDOW` in `lib/phases.ts` | Shown as a chip in `goal` and `ask` | Show it only in the Timeline milestone (`timeline-sec-14-0`). After 30 November 2026 the chip must read "Reported for late Oct–Nov 2026 · passed" rather than as upcoming. Use the same passed/upcoming rule the Governor Race Calendar uses |
+
+### Q6. Stage blurbs → **approved as in §5.1**
+
+| Stage | Blurb |
+|---|---|
+| Data | What is true about Kitui, its voters and Dr. Mulu? |
+| Analysis | What does the data mean for the race? |
+| Objectives | What must the campaign achieve? |
+| Strategies | How will it achieve it? |
+| Implementation | Who does what, when, and how it is measured |
+| The evidence behind it | Where every figure comes from, and the terms |
 
 ---
 
@@ -957,7 +1047,7 @@ verified:
 - the team's usage patterns.
 
 **Assumptions.**
-- The commercial close stays, at the end of Implementation (§10, Q1).
+- The commercial close stays, at the end of Implementation, in the built voice (approved: §10, Q1).
 - "This week" is a new name for a merge of existing sections, not a new feature.
 - New chapter ids `winning`, `known`, `spend`, `week` are unused in `lib/anchors/*.json` (checked at
   `333afa8`).
@@ -987,7 +1077,7 @@ Source: `lib/tools/meta.ts` (`home`). Unchanged homes are listed so the table is
 | Channel Mix by Sub-county (`channel-mix`) | `news-sec-4-3` | unchanged | — |
 | Offline Waterline (`offline-waterline`) | `news-sec-4-4` | unchanged | — |
 | Assumptions Panel (`assumptions`) | `diagnosis-sec-7-4` | unchanged | — |
-| Governor Nomination Path (`nomination-path`) | `goal-sec-8-1` | Timeline milestone heading | WP5 |
+| Governor Nomination Path (`nomination-path`) | `goal-sec-8-1` | `timeline-sec-14-0` | WP5 |
 | Ward Allocation Simulator (`allocation`) | `message-sec-10-1` | unchanged | — |
 | Issue-to-Message Matcher (`issue-matcher`) | `message-sec-10-1` | unchanged | — |
 | Fact Card Generator (`fact-cards`) | `message-sec-10-2` | unchanged | — |
@@ -1043,7 +1133,7 @@ Source: `lib/story/embeds.ts`.
 | `languages` | Visual | `channels-sec-12-4` | unchanged | — |
 | `deliverables` | Visual | `receives-sec-21-2` | unchanged | — |
 | `phase-now` | Visual | `timeline-sec-14-4` | unchanged | — |
-| Countdown | Countdown | `goal-sec-8-1`, `timeline-sec-14-1` | unchanged | — |
+| Countdown | Countdown | `goal-sec-8-1`, `timeline-sec-14-1` | add `ask-sec-23-1` | WP5 |
 | Change feed | Feed | `annex-evidence-sec-a-2` | Welcome (`welcome-sec-0-1`, or mounted after `welcome`) | WP4 |
 | `PlatformMap` | Chapter extra | `platform` (end of flow) | `platform` (part 0) | WP2 |
 | `ContactCard` | Chapter extra | `cover` | Footer | WP1 |
@@ -1076,7 +1166,7 @@ heading (for example `-sec-2-5-1`) move with it; list them by running the sectio
 | `annex-playbooks-sec-c-1` | `channels-sec-c-1` | WP9 |
 | `annex-playbooks-sec-c-2` | `message-sec-c-2` | WP9 |
 | `annex-playbooks-sec-d-1` | `workstreams-sec-d-1` | WP9 |
-| Goal 8.1 nomination paragraphs | Timeline milestone heading | WP5 (ids set once Firefly's wording is known) |
+| Goal 8.1 nomination paragraphs (no heading of their own) | `timeline-sec-14-0` (new heading `## 14.0 Securing the ballot line`) | WP5 |
 
 Also update in-content links that use the old ids, for example in `content/welcome.md`
 (`/#channels-sec-12-6`, `/#annex-evidence-sec-b-1`, `/#annex-evidence-sec-a-2`). Redirects keep old
