@@ -105,7 +105,7 @@ const CARD = `<!doctype html>
   .who { font-size: 26px; font-weight: 750; color: var(--accent); letter-spacing: -0.01em; }
   .where { font-size: 19px; font-weight: 500; color: var(--muted); margin-top: 3px; }
   h1 { font-size: 104px; font-weight: 800; font-stretch: 88%; line-height: 0.96; letter-spacing: -0.035em; color: var(--accent); }
-  h1 .sub { display: block; margin-top: 14px; font-family: Newsreader, Charter, "DejaVu Serif", Georgia, serif;
+  h1 .sub { display: block; margin-top: 14px; text-wrap: balance; font-family: Newsreader, Charter, "DejaVu Serif", Georgia, serif;
             font-size: 44px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.1; }
   .foot { margin-top: auto; padding-top: 26px; border-top: 1px solid var(--line);
           display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
@@ -135,14 +135,14 @@ const CARD = `<!doctype html>
       </div>
     </div>
 
-    <h1>Kitui 2027<span class="sub">Analysis, strategy and direction</span></h1>
+    <h1>Kitui 2027<span class="sub">The campaign&rsquo;s data, analysis and plan</span></h1>
 
     <div class="foot">
       <div class="prepared">
-        Prepared for Hon. Dr. Benson Makali Mulu
-        <span>Firefly Management &middot; September 2026</span>
+        Built for Dr. Mulu and his team
+        <span>Firefly Management &middot; September 2026, revised November 2026</span>
       </div>
-      <div class="conf"><span class="seal"></span>Confidential</div>
+      <div class="conf"><span class="seal"></span>Open to view</div>
     </div>
   </div>
 </body></html>`;
