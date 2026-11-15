@@ -37,7 +37,6 @@ const TAB_ICONS: Record<TabId, React.ComponentType<{ size?: number; className?: 
   receives: ListChecks,
   ask: Handshake,
   "annex-evidence": ClipboardList,
-  "annex-playbooks": MessageSquare,
   "annex-technology": FileCog,
   "annex-terms": Shield,
 };

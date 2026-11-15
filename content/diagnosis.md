@@ -47,6 +47,9 @@ Each assumption is stated so that if one fails, the campaign can see immediately
 
 This plan rests on eleven assumptions. Each is stated so that if one fails, the campaign can see immediately what in the plan moves. None of them is a prediction, and none is presented as settled fact.
 
+<!-- keep -->
+The variables the voter model uses are defined in [the voter model and its variables](/#annex-technology-sec-e-2).
+
 ```visual
 kind: cards
 preset: assumption

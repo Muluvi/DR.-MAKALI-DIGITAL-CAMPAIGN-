@@ -414,7 +414,7 @@ const JOBS: Job[] = [
   { id: "analyse", label: "Analyse", icon: BarChart3, chapters: ["kitui", "needs", "news", "votes", "annex-evidence"] },
   { id: "decide", label: "Decide", icon: Compass, chapters: ["diagnosis", "goal", "message", "voters", "channels"] },
   { id: "direct", label: "Direct the team", icon: Users, group: "Direct the team" },
-  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["lawful", "annex-playbooks", "annex-technology"] },
+  { id: "run", label: "Run the channels", icon: RadioIcon, group: "Run the channels", chapters: ["lawful", "annex-technology"] },
   { id: "measure", label: "Measure", icon: Gauge, group: "Measure", chapters: ["success"] },
   { id: "deliver", label: "Deliver", icon: Wrench, group: "Deliver", chapters: ["timeline", "workstreams"] },
 ];

@@ -55,8 +55,8 @@ export const TOOL_META: ToolMeta[] = [
   { slug: "sources", title: "Sources and Data Gaps", line: "Where every official figure comes from, and what is missing.", home: "annex-evidence-sec-a-1", gesture: "tap", preview: "rows", prompt: "See what data is still missing, and who holds it." },
   { slug: "ward-dossier", title: "Ward Dossier", line: "Everything about one ward on one page.", home: "votes-sec-b-1", gesture: "type", preview: "rows", prompt: "Find your ward and open its dossier." },
   { slug: "ward-compare", title: "Ward Comparison", line: "Two to four wards, side by side.", home: "votes-sec-b-1", gesture: "tap", preview: "bars", prompt: "Compare the largest ward with the one you know best." },
-  { slug: "ussd", title: "USSD Flow Builder", line: "Prototype the USSD menu and download it.", home: "annex-playbooks-sec-c-2", gesture: "type", preview: "phone", prompt: "Shorten the menu until it fits one 182-character screen." },
-  { slug: "links", title: "Ward Link and QR Builder", line: "A trackable link and QR code for each ward.", home: "annex-technology-sec-e-1", gesture: "tap", preview: "tiles", prompt: "Pick a channel and print a ward's QR code for a poster." },
+  { slug: "ussd", title: "USSD Flow Builder", line: "Prototype the USSD menu and download it.", home: "workstreams-sec-15-3", gesture: "type", preview: "phone", prompt: "Shorten the menu until it fits one 182-character screen." },
+  { slug: "links", title: "Ward Link and QR Builder", line: "A trackable link and QR code for each ward.", home: "workstreams-sec-15-3", gesture: "tap", preview: "tiles", prompt: "Pick a channel and print a ward's QR code for a poster." },
 ];
 
 export const TOOL_BY_SLUG: Record<string, ToolMeta> = Object.fromEntries(TOOL_META.map((t) => [t.slug, t]));

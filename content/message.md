@@ -306,3 +306,33 @@ Built on what each channel can reach (Section 4.3):
 ```figure
 id: message-by-channel
 ```
+
+## C.2 Formats, copy samples and the USSD pointer
+
+```lead
+The shortcode and sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.
+```
+
+#### Formats, by channel
+
+```figure
+id: format-specs
+```
+
+#### Copy samples: radio, SMS and USSD
+
+#### A. Vernacular radio: a 45-second script (Kikamba)
+
+> **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  
+> **Elder farmer (male, 50s):** *"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)"*  
+> **Candidate (Dr. Mulu, calm and authoritative):** *"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (KSh {{policy.ndengu-floor}}). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of KSh {{policy.ndengu-floor}}/kg. Our priority is household wealth. Real money in your hands.)"*  
+> **Voiceover (fast, punchy):** *"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)"*
+
+#### B. Bulk SMS on 2G: a ward-specific sample
+
+> *"Kitui Rural / Mbitini: Dr. Mulu will fund wards by need, on one published formula. Solar water to Mbitini Market first. Reply 1 to join, STOP to opt out."*
+
+#### C. The USSD menu
+
+The menu is set out once, in Section 15.3.3, which governs the offline layer. The shortcode and
+sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.

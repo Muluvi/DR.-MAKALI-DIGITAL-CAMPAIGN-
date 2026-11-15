@@ -66,7 +66,6 @@ export const SECTIONS = [
   { id: "ask", part: 5, number: "23", label: "The ask", blurb: "The decision in front of him, and the clock that sets the pace" },
   { id: "annex-evidence", part: 6, number: "A", label: "Evidence and sources", blurb: "The standard every figure meets, where each comes from, and every ward in one table" },
   { id: "annex-terms", part: 6, number: "G", label: "Fine print", blurb: "Who it is for, how it may be used, and the terms used throughout" },
-  { id: "annex-playbooks", part: 6, number: "C", label: "Platform playbooks", blurb: "One job per platform, its formats, copy samples and volunteers" },
   { id: "annex-technology", part: 6, number: "E", label: "Technology", blurb: "The reference architecture and the voter-model dictionary" },
 ] as const;
 

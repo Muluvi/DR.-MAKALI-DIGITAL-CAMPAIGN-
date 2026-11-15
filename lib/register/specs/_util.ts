@@ -54,7 +54,7 @@ export function secHref(num: string): string {
     "21": "receives", "22": "receives", "23": "ask",
   };
   const annex: Record<string, string> = {
-    A: "annex-evidence", B: "annex-evidence", C: "annex-playbooks", D: "annex-playbooks", E: "annex-technology",
+    A: "annex-evidence", B: "votes", C: "channels", D: "workstreams", E: "annex-technology",
     G: "annex-terms", H: "annex-terms",
   };
   const workstreams: Record<string, string> = { "1": "workstreams", "2": "workstreams", "3": "workstreams", "4": "workstreams" };
@@ -65,6 +65,7 @@ export function secHref(num: string): string {
     "1.3": "needs", "1.5": "needs",
     "2.5": "winning", "6.2": "known", "6.3": "known", "6.5": "known", "3.7": "spend",
     "12.6": "week", "12.7": "week", "13.4": "week", "13.5": "week", "B.1": "votes",
+    "C.1": "channels", "C.2": "message", "D.1": "workstreams",
   };
   const parts = num.split(".");
   const home = located[num] ?? located[parts.slice(0, 2).join(".")];

@@ -94,8 +94,14 @@ const nextConfig: NextConfig = {
     // The flow pass (November 2026) took the cover out of the flow: its text is the footer of every
     // page, so its route goes to the top of the story. /content/cover.md is still served.
     const footerOnly = ['cover'];
+    // The flow pass dispersed the platform playbooks into the chapters of their stage (C.1 to
+    // Channels and language, C.2 to The message, D.1 to The fourteen workstreams); a fragment on
+    // the old URL is sent on to the moved heading by ClientPage. /content/annex-playbooks.md is
+    // still served.
+    const dispersed: Record<string, string> = { 'annex-playbooks': 'channels' };
     return [
       ...footerOnly.map((from) => ({ source: `/${from}`, destination: '/', permanent: false })),
+      ...Object.entries(dispersed).map(([from, to]) => ({ source: `/${from}`, destination: `/${to}`, permanent: false })),
       ...Object.entries(moved).map(([from, to]) => ({
         source: `/content/${from}.md`,
         destination: `/content/${to}.md`,

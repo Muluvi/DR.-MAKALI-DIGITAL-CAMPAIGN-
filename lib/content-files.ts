@@ -34,7 +34,6 @@ export const CONTENT_FILES: Record<TabId, string> = {
   receives: "receives.md",
   ask: "ask.md",
   "annex-evidence": "annex-evidence.md",
-  "annex-playbooks": "annex-playbooks.md",
   "annex-technology": "annex-technology.md",
   "annex-terms": "annex-terms.md",
 };

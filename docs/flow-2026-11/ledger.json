@@ -941,5 +941,73 @@
   "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP7): search and every tool now open from the dock at the foot of the screen, one entry point each; the card says where they are.",
   "text": "{ title: \"Search and Tools\", text: \"The bar at the top searches every chapter and lists every tool and record\" }",
   "replacement": "{ title: \"Search and Tools\", text: \"The bar at the foot of the screen searches every chapter and lists every tool and record\" }"
+ },
+ {
+  "file": "annex-playbooks",
+  "section": "C.1",
+  "first12": "```visual kind: cards preset: platform items: - title: \"Facebook\" text: \"Daily posts",
+  "words": 372,
+  "kind": "moved",
+  "whole": true,
+  "to": "channels:C.1",
+  "home": "channels:C.1",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: annex-playbooks C.1 moved into channels, word for word, heading and all.",
+  "text": "```visual\nkind: cards\npreset: platform\nitems:\n  - title: \"Facebook\"\n    text: \"Daily posts in English, Kiswahili and Kikamba\"\n    body: \"* **Weekly Facebook Live town halls** where Dr. Mulu answers constituent questions — the highest-value recurring format, because unscripted competence is his strongest asset\\n* Ward-specific groups moderated by trained local digital champions\\n* Targeted ads across the 40 wards and diaspora hubs\\n* **Sample ad copy:** *\\\"Kitui County will handle KSh {{budget.total|bn}} billion this year. Dr. Makali Mulu is an economist and an evaluator — he knows how to allocate it and how to prove it was spent. #MuluForKitui\\\"*\"\n  - title: \"X\"\n    text: \"Policy commentary on national and county budget matters\"\n    body: \"* Threads breaking down county issues into shareable explanations\\n* Engagement with journalists, analysts and national conversations\\n* **Sample thread starter:** *\\\"Kitui County's approved resource envelope for 2026/27 is KSh {{budget.total|bn}} billion, of which KSh {{budget.osr.revised|bn}} billion is own-source revenue. As an economist, here are three things I would change on day one…\\\"*\"\n  - title: \"WhatsApp\"\n    text: \"Broadcast lists segmented by ward and interest group — **opt-in only**\"\n    body: \"* **Kikamba voice notes from Dr. Mulu** — the single highest-trust format available to this campaign\\n* Shareable cards with key policy points, designed for forwarding\\n* Ward-level group admins, trained to the team's written standard (kept on Firefly's platform) by your team, distributing content and reporting sentiment\\n* Weekly \\\"Kitui Updates\\\" broadcast in Kikamba and Kiswahili\\n* **Forwarding-friendly correction cards** during crisis response\"\n  - title: \"TikTok\"\n    text: \"Short, energetic videos on youth issues, campaign moments and Kikamba cultural content\"\n    body: \"* Explainer format: county money made visual and concrete\\n* Paid ads targeting Kitui-based users aged 18–35\\n* **Sample content:** a 30-second video explaining county revenue allocation using common objects — *\\\"Hii pesa ya county inatumika aje? Mchukue mwana uchumi aeleze.\\\"*\"\n  - title: \"Instagram\"\n    text: \"Visual storytelling: events, community projects, aspirational imagery\"\n    body: \"* Reels and Stories for daily relevance\\n* Infographics summarising budget priorities and development plans\\n* Question and quiz stickers for younger voters\"\n  - title: \"YouTube\"\n    text: \"Long-form policy speeches, town halls and documentary-style Kitui stories\"\n    body: \"* Search-optimised videos answering \\\"What does the Kitui Governor do?\\\" and \\\"Kitui development 2027\\\"\\n* **Monthly \\\"Kitui Economic Brief\\\"** reviewing county budget execution\\n* **Home for full sign-language-interpreted versions** (Section 15.1.4)\"\n  - title: \"Google Ads\"\n    text: \"Search ads on the candidate's name and related terms\"\n    body: \"* Display on Kenyan news sites and local blogs\\n* Location targeting to Kitui County and Nairobi diaspora areas\\n* **Sample search ad:** *\\\"Dr. Makali Mulu for Kitui Governor | Economist. Evaluator. Reformer. | Read the plan for your ward.\\\"*\"\n```"
+ },
+ {
+  "file": "annex-playbooks",
+  "section": "C.2",
+  "first12": "```lead The shortcode and sender ID are those the aggregator provisions at",
+  "words": 240,
+  "kind": "moved",
+  "whole": true,
+  "to": "message:C.2",
+  "home": "message:C.2",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: annex-playbooks C.2 moved into message, word for word, heading and all.",
+  "text": "```lead\nThe shortcode and sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.\n```\n\n#### Formats, by channel\n\n```figure\nid: format-specs\n```\n\n#### Copy samples: radio, SMS and USSD\n\n#### A. Vernacular radio: a 45-second script (Kikamba)\n\n> **SFX:** Ambient sounds of a busy grain market (*ndengu* bags being loaded, tractor engine idling).  \n> **Elder farmer (male, 50s):** *\"Mwaĩĩ, nĩtwamĩnyie kũthoozya ndengu ya mĩio mĩtheke kwa mbesa nini nũndũ wa makuli? (My brother, are we tired of selling our hard-earned green grams for pennies to exploitative middlemen?)\"*  \n> **Candidate (Dr. Mulu, calm and authoritative):** *\"Nĩ Mwanya Mweũ. Serikalĩ yitũ ya Kitui ĩkese kũũnganĩsya ndengu yonthe na kũthoozya kĩla kilo kĩvĩndĩ kĩla kĩũ (KSh {{policy.ndengu-floor}}). Wathi witũ nĩ ũtonga wa mĩsyĩ. Nĩ ngwenda twĩthĩwe na mbesa mĩkonĩ yitũ. (A new dawn is here. Our Kitui government will aggregate all produce and guarantee a floor price of KSh {{policy.ndengu-floor}}/kg. Our priority is household wealth. Real money in your hands.)\"*  \n> **Voiceover (fast, punchy):** *\"Vota Dr. Makali Mulu – Gavana wa Kitui 2027. Muvisi Mũlũngalu, Mwĩkĩi wa Wathi! (Vote Dr. Makali Mulu – Governor Kitui 2027. The Proven Economist, The Trusted Leader!)\"*\n\n#### B. Bulk SMS on 2G: a ward-specific sample\n\n> *\"Kitui Rural / Mbitini: Dr. Mulu will fund wards by need, on one published formula. Solar water to Mbitini Market first. Reply 1 to join, STOP to opt out.\"*\n\n#### C. The USSD menu\n\nThe menu is set out once, in Section 15.3.3, which governs the offline layer. The shortcode and\nsender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number."
+ },
+ {
+  "file": "annex-playbooks",
+  "section": "D.1",
+  "first12": "*Reference for the campaign's own team. Volunteer organising is outside the platform's",
+  "words": 355,
+  "kind": "moved",
+  "whole": true,
+  "to": "workstreams:D.1",
+  "home": "workstreams:D.1",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md): section move into the six-stage story: annex-playbooks D.1 moved into workstreams, word for word, heading and all.",
+  "text": "*Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*\n\n```lead\n**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).\n```\n\n#### Turning online supporters into offline organisers\n\nA tiered volunteer programme converting passive online supporters into active\noffline organisers, with gamification driving sustained engagement.\n\n#### Volunteer tiers\n\n| Tier | Name | Entry requirement | Activities |\n|---|---|---|---|\n| **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |\n| **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |\n| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 15.3.2)** |\n| **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |\n\n**Data-handling training is a gate, not an option.** No volunteer collects\npersonal data before completing it (Section 19.3).\n\n#### Gamification mechanics\n\n| Mechanic | Implementation | Reward |\n|---|---|---|\n| Points | Awarded for shares, sign-ups, training completion, verified registration drives, canvass returns | Merchandise, recognition |\n| Leaderboards | Ward and county rankings published weekly in WhatsApp groups | Public recognition, tier advancement |\n| Badges | Milestones — \"10 Voters Registered,\" \"Content Creator,\" \"Ward Champion\" | Profile display, sharing |\n| Streaks | Daily engagement tracked via WhatsApp bot | Bonus points, spotlight features |\n\n**Integrity rule.** Points reward **verified real-world action** — a registered\nvoter, a canvassed household, a completed training — not raw posting volume.\nReward systems that pay for volume produce spam and, at scale, look\nindistinguishable from inauthentic activity. That would breach both platform\npolicy and the Section 19.3 charter, and it is designed out from the start.\n\n#### Management tooling\n\n* **Custom WhatsApp bot** for lightweight volunteer management: registration,\npoint tracking, content distribution, leaderboards\n* **USSD registration path** so volunteers without smartphones can join\n(Section 15.3.3) — a genuine differentiator in the arid belt\n* Forms and spreadsheets for baseline collection\n* Task management via a shared board\n* Purpose-built volunteer platforms only at the premium level\n\n#### Volunteer KPIs\n\n| Metric | Target |\n|---|---|\n| Sign-up conversion from social traffic | ≥ 5% |\n| Active rate (engaged in last 30 days) | ≥ 40% |\n| Tier 2 advancement | ≥ 20% of Tier 1 |\n| Offline action completion | ≥ 60% |\n| Average points per volunteer per month | ≥ {{target.volunteer-points}} |\n| 90-day retention | ≥ 50% |\n| **Canvass returns logged per active Tier 3 organiser per week** | ≥ 25 households |\n\n<ws-mark tab=\"data\"></ws-mark>"
+ },
+ {
+  "file": "workstreams",
+  "section": "15.3.4",
+  "first12": "*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex",
+  "words": 3,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP9): the volunteer programme reference now follows this section in the same chapter, so the pointers say so (and drop 'Annex' and 'proposal', D4 and Q1).",
+  "text": "*The volunteer programme reference (tiers, gamification, tooling and KPIs) is in Annex D.1.*",
+  "replacement": "*The volunteer programme reference (tiers, gamification, tooling and KPIs) follows.*"
+ },
+ {
+  "file": "workstreams",
+  "section": "15.3.4",
+  "first12": "The volunteer programme reference is in Platform playbooks, in the working platform",
+  "words": 16,
+  "kind": "replaced",
+  "home": "",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP9): the volunteer programme reference now follows this section in the same chapter, so the pointers say so (and drop 'Annex' and 'proposal', D4 and Q1). The second pointer repeated the first.",
+  "text": "The volunteer programme reference is in Platform playbooks, in the working platform that follows the proposal.\n\n",
+  "replacement": ""
+ },
+ {
+  "file": "diagnosis",
+  "section": "7.4",
+  "first12": "The variables the voter model uses are defined in [the voter model",
+  "words": 0,
+  "kind": "added",
+  "home": "annex-technology:E.2",
+  "note": "Flow pass (docs/flow-2026-11/FLOW-PLAN.md, WP9 step 4): a link from the assumptions to the voter-model dictionary in Technology, which the Assumptions Panel's figures rest on.",
+  "text": "The variables the voter model uses are defined in [the voter model and its variables](/#annex-technology-sec-e-2)."
  }
 ]
