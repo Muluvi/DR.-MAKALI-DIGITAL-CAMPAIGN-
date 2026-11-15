@@ -86,6 +86,8 @@ const DataSecurityEthicsCharter = dynamic(() => import("./markdown/DataSecurityE
 const ObjectivesIndex = dynamic(() => import("./markdown/ObjectivesIndex").then((m) => m.ObjectivesIndex));
 
 const REHYPE = [rehypeRaw, rehypeInlineMarks, rehypePlainLabels];
+/** Prose also marks the first use of each Fine-print term, for the tap-to-define popover. */
+const REHYPE_PROSE = [...REHYPE, rehypeGlossary];
 import { CrossRef } from "./CrossRef";
 import { PrintSafeDisclosures } from "./PrintSafeDisclosures";
 import { DisclosureGroup } from "./markdown/DisclosureGroup";
@@ -96,6 +98,8 @@ import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark,
 import { WorkstreamMark, WorkstreamTabBar } from "./markdown/WorkstreamTabs";
 import { GroupChip } from "./markdown/GroupChip";
 import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
+import { rehypeGlossary } from "../lib/rehype-glossary";
+import { GlossTerm } from "./story/GlossTerm";
 
 const kituiCentralPopulationDispute = DISPUTED_FIGURES.find((d) => d.id === "kitui-central-2019-population")!;
 
@@ -466,7 +470,7 @@ function buildComponents(tabId: TabId): Components {
               if (fenceLanguage(children) === "lead") {
                 return (
                   <div className="pf-lead not-prose" data-lead>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE_PROSE} components={buildComponents(tabId)}>
                       {source}
                     </ReactMarkdown>
                   </div>
@@ -481,7 +485,7 @@ function buildComponents(tabId: TabId): Components {
               if (fenceLanguage(children) === "textversion") {
                 return (
                   <TextVersion>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE_PROSE} components={buildComponents(tabId)}>
                       {source}
                     </ReactMarkdown>
                   </TextVersion>
@@ -685,6 +689,9 @@ function buildComponents(tabId: TabId): Components {
               "status-mark": (props: { status?: string; note?: string }) => <StatusMark status={props.status} note={props.note} />,
               "xref-mark": (props: { refs?: string; raw?: string }) => <XrefMark refs={props.refs} raw={props.raw} />,
               "window-chip": () => <WindowChip />,
+              // A Fine-print term, tap for its definition (lib/rehype-glossary.ts). Not in the glossary itself.
+              "gloss-term": (props: { term?: string; children?: React.ReactNode }) =>
+                tabId === "annex-terms" || !props.term ? <>{props.children}</> : <GlossTerm term={props.term}>{props.children}</GlossTerm>,
               // Where each workstream group begins; the tab bar reads these (consolidation pass, Step 4H).
               "ws-mark": (props: { tab?: string }) => <WorkstreamMark tab={props.tab} />,
             } as unknown as Components),
@@ -754,7 +761,7 @@ function withoutNumber(children: React.ReactNode): React.ReactNode {
  */
 export function LeadMarkdown({ text, tabId }: { text: string; tabId: TabId }) {
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE} components={buildComponents(tabId)}>
+    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={REHYPE_PROSE} components={buildComponents(tabId)}>
       {text}
     </ReactMarkdown>
   );
@@ -772,7 +779,7 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
     <ReactMarkdown
       key={key}
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={REHYPE}
+      rehypePlugins={REHYPE_PROSE}
       components={buildComponents(tabId)}
     >
       {text}

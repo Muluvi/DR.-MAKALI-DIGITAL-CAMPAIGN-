@@ -21,6 +21,13 @@ export const RIVALS_BASE = "d034eb1";
 const OUT = path.join(ROOT, "docs", "rivals-2026-11", "ledger.json");
 const FENCES_OUT = path.join(ROOT, "docs", "rivals-2026-11", "fences.json");
 const NOTE = "Rivals pass (November 2026): no 2027 rival is named, profiled, compared or monitored, and the attack-response material is removed, by Firefly's decision (docs/rivals-2026-11/DECISION.md). Past election results stay.";
+/**
+ * Files edited again after the pass, by a later change that is not about rivals. The entry stays
+ * in this ledger (the guards weigh every change since the base here), and its note says so.
+ */
+const LATER = {
+  platform: " Later edited by the story integration (November 2026, CHANGE-LOG.md): the cards and the link row now point to the chapters where the team does the work.",
+};
 const CHECK = process.argv.includes("--check");
 
 const git = (args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"] });
@@ -77,7 +84,7 @@ for (const name of baseNames) {
       words: wb - wa,
       kind: "removed",
       whole: !a,
-      note: NOTE,
+      note: NOTE + (LATER[name] ?? ""),
       text,
       ...(added.length ? { replacement: added.join("\n") } : {}),
       at: 0,
