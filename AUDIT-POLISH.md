@@ -423,3 +423,69 @@ spacing scales (4 and 6) replace per-component one-offs.
 `npm run lint`, `npm run verify` and `npm run build` pass. `check-preservation` prints the same
 lines as on main: 259 protected files present, the same 73 edited since its baseline, and no
 count below baseline. No file under `content/` or `public/content/` changed.
+
+---
+
+## 8. Workstream 3: section arrival
+
+### What shipped
+
+- **The arrival entrance.** As a chapter's head comes into view, its part label fades in, its name
+  rises into place (60 ms later) and its blurb follows (120 ms). The rule under it then draws in.
+  - Timing uses the `--pf-dur-entrance` token with `--pf-ease` (the expo-out
+    `EASE_ENTRANCE`), and only transform and opacity animate. The rule's existing literal
+    `900ms cubic-bezier(0.16, 1, 0.3, 1)` is now the same value as tokens: `--pf-dur-settle` and
+    `--pf-ease`.
+  - The entrance is armed only for a head still below the fold at mount
+    (`components/flow/ChapterMarker.tsx`). The server HTML, a reader without script, a reader
+    arriving from a link and a reader with reduced motion all see the head complete.
+  - The transition applies to the in-view state only. Chapters sit in
+    `content-visibility: auto` sections, where Chrome pauses transitions. A transition on
+    arming had stalled at its first frame, which a browser probe caught. Now arming hides the
+    head instantly while it's off screen, and only the arrival animates.
+  - Measured on `/`, the label's opacity reads 0 → 0.26 → 0.88 → 0.98 → 1.00 in 120 ms samples
+    after arrival, at 1440 px. At 390 px it reads 0 → 0.89 → 0.99 → 1.00.
+- **Lighter on a phone.** On a phone the parts arrive together, the rise is smaller (0.2em
+  instead of 0.35em), and the rule draws on the entrance token rather than the settle token.
+- **Reduced motion.** The head is never armed and reads opacity 1 throughout.
+- **Landing.** `--pf-chrome-top: 3rem` is the sticky header, measured at 48 px at 390, 768,
+  1440, 1920 and 3840 px. `--pf-snap-top` adds 1.5rem of air, so a chapter head reached by
+  link, route map or Page Down lands at 72 px, clear of the header. The style diff shows exactly
+  this one change: `scroll-margin-top` 80 → 72 px on the chapter heads, and nothing else.
+
+### What did not ship, and why: snap points
+
+I built and measured snap points: the chapter heads, plus the act openers on wide screens, with
+`scroll-snap-align: start` and `proximity`. Arrival worked. A scroll ending 140 px short of a head,
+or 60 px past it, settled with the head at 72 px, and the page didn't jump on load.
+
+But Chromium returns a proximity scroll that **starts on** a snap point to that same point
+whenever the step is shorter than about 30% of the viewport. Starting from a settled head at
+1440×900, wheel steps of 100, 180 and 260 px all came back to the head; 340 px and more escaped.
+- On the home page, the chapter digests are 620 px apart, so a reader stepping one notch at a
+  time stuck on the first head they reached: 12 steps of 180 px moved the page 0 px.
+- On the phone it stuck after the fourth step.
+- Arrow keys (40 px) still moved, and Page Down went to the next head. Touch gestures couldn't be
+  synthesised in this headless build. Chromium snaps a drag on the same end-position rule, so a
+  short drag from a head would come back too.
+
+Every other geometry I tried failed one way or the other:
+
+| Snap target | Arrives on the head | One notch down from a head | One notch up from a head |
+|---|---|---|---|
+| Chapter head | yes | pulled back | pulled back |
+| Head extended with `scroll-margin-bottom: 100vh` (covers the snapport) | lands 60 px off | free | pulled back |
+| Whole section | lands 60 px off | free | pulled back |
+
+A magnet strong enough to pull a reader onto a head is also strong enough to hold one there, and
+the brief rules out the JavaScript that could make it one-directional. You ranked "nothing traps
+the reader" above the snap, so the snap targets are out. `html` keeps
+`scroll-snap-type: y proximity`, with no vertical targets. The horizontal rails keep their own
+x-axis snapping, unchanged. The full reasoning is in the comment at "section arrival" in
+`app/globals.css`.
+
+**This needs your decision.** If the pull is worth that cost, the change is two declarations:
+`scroll-snap-align: start` on `.flow-chap`, and on `.pf-act` above 640 px.
+
+After removing the targets, eight steps of 100 px (four down, then four up) move exactly 100 px
+each, on `/` and `/workstreams`, on the phone and at 1440 px.
