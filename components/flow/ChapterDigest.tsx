@@ -4,7 +4,6 @@ import { ArrowUpRight, ChevronDown, Hand, Sparkles, Table2 } from "lucide-react"
 import { chapterHands } from "../../lib/story/embeds";
 
 import { useInView } from "../../hooks/use-in-view";
-import { tierWord } from "../../data/types";
 import type { DigestStat } from "../../lib/digest";
 import type { TabId } from "../../lib/heading-slug";
 import { LeadMarkdown } from "../MarkdownViewer";
@@ -35,8 +34,6 @@ export interface DigestStep {
   id: string;
   title: string;
 }
-
-const TIER_TONE: Record<string, string> = { "1": "t1", "2": "t2", "3": "t3" };
 
 export function ChapterDigest({
   tabId,
@@ -82,9 +79,6 @@ export function ChapterDigest({
                 <CountUp text={s.value} />
               </span>
               <span className="cd__label">{s.label}</span>
-              {s.tier !== undefined && (
-                <span className={`cd__tier cd__tier--${TIER_TONE[String(s.tier)] ?? "model"}`}>{tierWord(s.tier)}</span>
-              )}
             </li>
           ))}
         </ul>

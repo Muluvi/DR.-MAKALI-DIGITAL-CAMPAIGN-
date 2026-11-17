@@ -206,19 +206,6 @@
 }
 .cd__stat:first-child .cd__value { color: var(--gold); }
 .cd__label { font: 500 0.8438rem/1.3 var(--pf-display); color: var(--muted); text-wrap: pretty; }
-.cd__tier {
-  justify-self: start;
-  margin-top: 0.15rem;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid currentColor;
-  border-radius: 99px;
-  font: 700 0.6875rem/1 var(--pf-display);
-  text-transform: capitalize;
-}
-.cd__tier--t1 { color: var(--pf-t1); }
-.cd__tier--t2 { color: var(--pf-t2); }
-.cd__tier--t3 { color: var(--pf-t3); border-style: dashed; }
-.cd__tier--model { color: var(--muted); }
 
 .cd__kicker {
   margin: 0 0 0.5rem;

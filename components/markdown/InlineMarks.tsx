@@ -3,9 +3,8 @@
 import { useCallback, useContext, useId, useState, useSyncExternalStore, type ReactNode } from "react";
 import { NOMINATION_WINDOW, isPassed } from "../../lib/phases";
 
-import { TIER_META, type Tier } from "../../data/types";
 import { hasHighlight } from "../../lib/highlight-patterns";
-import { tokenizeInline, hasInlineMark, COUNSEL_NOTE } from "../../lib/inline-marks";
+import { tokenizeInline, hasInlineMark, withoutEmptyTierMarks, COUNSEL_NOTE } from "../../lib/inline-marks";
 import { CrossSectionLink } from "./CrossSectionLink";
 import { FoldBody } from "./FoldBody";
 import { InertMarks } from "./InertMarks";
@@ -17,13 +16,10 @@ import { plainLabels } from "../../lib/plain-labels";
  * The chips a reader sees where the source carries a working mark (lib/inline-marks.ts says which
  * mark becomes which chip, and why the source itself is unchanged).
  *
- * Each chip that stands for words opens, on tap, to those words: a tier badge to the source and
- * caveat the parenthetical carried, a status chip to its note. Closed, the words are still in the
+ * Each chip that stands for words opens, on tap, to those words: a "Source" chip to the citation
+ * and caveat a tier parenthetical carried, a status chip to its note. Closed, the words are still in the
  * DOM (lib/fold.ts), so find in page, a deep link and print reach them.
  */
-
-/** Annex A.1.2, the tier legend every badge points at. */
-const TIER_LEGEND_ID = "annex-evidence-sec-a-1-2";
 
 export { InertMarks };
 
@@ -69,26 +65,20 @@ function plain(text: string) {
   return hasHighlight(text) ? <HighlightedText text={text} /> : text;
 }
 
-function tierBadgeText(tiers: number[], head: string): string {
-  if (tiers.length === 1) {
-    const extra = head.replace(/^Tier [123]\s*/, "").trim();
-    return `${TIER_META[tiers[0] as Tier].short}${extra ? ` ${extra}` : ""}`;
-  }
-  return head.replace(/Tier ([123])/g, (_, n) => TIER_META[Number(n) as Tier].short);
-}
-
-export function TierMark({ tiers, head, rest }: { tiers?: string; head?: string; rest?: string }) {
-  const list = (tiers ?? "").split(",").filter(Boolean).map(Number);
-  const first = (list[0] ?? 1) as Tier;
+/**
+ * A tier parenthetical in the source text, e.g. "(Tier 1, IEBC 2022)".
+ *
+ * No status tag is drawn (November 2026, the campaign's direction): not "Official", "Reported"
+ * or "Unconfirmed". What the parenthetical cites is kept: a neutral "Source" chip opens to it,
+ * so the citation is still one tap away. A parenthetical that carries only the tier and no
+ * citation, or whose words are only a status ("(Tier 3, unconfirmed)"), is taken out before it
+ * reaches here (lib/inline-marks.ts, withoutEmptyTierMarks).
+ */
+export function TierMark({ rest }: { tiers?: string; head?: string; rest?: string }) {
+  if (!rest) return null;
   return (
-    <Chip
-      className={`ichip--tier ichip--t${first}`}
-      label={tierBadgeText(list, head ?? "")}
-      title={TIER_META[first].description}
-      inertText={rest || TIER_META[first].label}
-    >
-      {rest ? <>{plain(rest)} · </> : <>{TIER_META[first].label}. </>}
-      <CrossSectionLink id={TIER_LEGEND_ID}>What the tiers mean</CrossSectionLink>
+    <Chip className="ichip--source" label="Source" inertText={rest}>
+      {plain(rest)}
     </Chip>
   );
 }
@@ -156,7 +146,7 @@ export function InlineMarks({ text }: { text: string }) {
   if (!hasInlineMark(text)) return <>{plainLabels(text)}</>;
   return (
     <>
-      {tokenizeInline(text).map((p, i) => {
+      {withoutEmptyTierMarks(tokenizeInline(text)).map((p, i) => {
         switch (p.type) {
           case "text": return <span key={i}>{plainLabels(p.text)}</span>;
           case "tier": return <TierMark key={i} tiers={p.tiers.join(",")} head={p.head} rest={p.rest} />;
@@ -191,7 +181,7 @@ export function WindowChip() {
   }
   return (
     <span className="wchip">
-      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short} · reported · <span className="wchip__t">Unconfirmed</span>
+      <span className="wchip__k">Wiper decision:</span> {NOMINATION_WINDOW.short}
     </span>
   );
 }

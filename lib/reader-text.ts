@@ -98,6 +98,42 @@ export function pageText(input: string): string {
 }
 
 /**
+ * The tier word a figure's text carries, taken out for display (November 2026, the campaign's
+ * direction: figures carry no status tags). Only the tag forms are touched, never the word in
+ * running text ("Unconfirmed cash balances" is a figure's name):
+ *
+ *   "KNBS 2019 Census (Official)"              -> "KNBS 2019 Census"
+ *   "(Unconfirmed, awaiting verification)"     -> "(awaiting verification)"
+ *   "(IEBC, Official)"                         -> "(IEBC)"
+ *   "IEBC Form 37C - Official"                 -> "IEBC Form 37C"
+ *
+ * Applied on the way to the screen only. The CSVs, checks and registry read the specs before it,
+ * so every published data file keeps its tiers.
+ */
+const TAG = String.raw`(?:Official|Reported|Unconfirmed)`;
+const TAG_ALONE = new RegExp(String.raw`\s*\(${TAG}\)`, "g");
+const TAG_LEAD = new RegExp(String.raw`\(${TAG},\s*`, "g");
+const TAG_TAIL = new RegExp(String.raw`,\s*${TAG}\)`, "g");
+const TAG_SUFFIX = new RegExp(String.raw`\s+[-–·]\s+${TAG}(?=\s*(?:$|[;,.)]))`, "g");
+
+export function withoutTierTags(input: string): string {
+  if (!/Official|Reported|Unconfirmed/.test(input)) return input;
+  return input.replace(TAG_ALONE, "").replace(TAG_LEAD, "(").replace(TAG_TAIL, ")").replace(TAG_SUFFIX, "");
+}
+
+/** withoutTierTags over a whole spec, leaving data fields (KEEP) exactly as written. */
+export function withoutTierTagsDeep<T>(value: T, key = ""): T {
+  if (typeof value === "string") return (KEEP.has(key) ? value : withoutTierTags(value)) as T;
+  if (Array.isArray(value)) return value.map((v) => withoutTierTagsDeep(v, key)) as T;
+  if (value && typeof value === "object" && Object.getPrototypeOf(value) === Object.prototype) {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) out[k] = KEEP.has(k) ? v : withoutTierTagsDeep(v, k);
+    return out as T;
+  }
+  return value;
+}
+
+/**
  * A deep copy of a spec with every prose string passed through pageText. For specs built from the
  * hand-built panels' data (lib/register/specs/s7-reference.ts), whose citations follow the older
  * numbering pageText exists for: cleaned here, so the server-rendered page already reads in words.

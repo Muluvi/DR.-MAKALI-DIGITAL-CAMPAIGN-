@@ -6,9 +6,6 @@ import { CountUp } from "./CountUp";
 import { WeaveDefs } from "./weave";
 
 type FunnelChart = Extract<Chart, { type: "funnel" }>;
-type Stage = FunnelChart["stages"][number];
-
-const STATE_WORD: Record<Stage["state"], string> = { sourced: "", modelled: "Modelled", needed: "Data needed", target: "Target" };
 
 /**
  * Chart kit v2, the funnel (brief G-5), drawn on a d3 linear scale.
@@ -82,7 +79,6 @@ export function FunnelV2({ chart, id }: { chart: FunnelChart; id: string }) {
                   <span className="pf-fn__name">
                     <span className="pf-show-a">{sa.label}</span>
                     <span className="pf-show-b">{sb.label}</span>
-                    {sa.state !== "sourced" && <span className="pf-fn__state">{STATE_WORD[sa.state]}</span>}
                   </span>
                   <span className="pf-fn__value pf-num">
                     <span className="pf-show-a"><CountUp text={sa.display ?? group(va)} /></span>

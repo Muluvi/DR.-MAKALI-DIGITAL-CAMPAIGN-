@@ -3,7 +3,7 @@
  * (public/data/<id>.csv, written by scripts/build-csv.ts) and the table-of-figures entry.
  */
 import type { FigureSpec } from "../types.ts";
-import { readerDeep } from "../../reader-text.ts";
+import { readerDeep, withoutTierTagsDeep } from "../../reader-text.ts";
 import { S0 } from "./s0-cover.ts";
 import { S1 } from "./s1-objectives.ts";
 import { S2 } from "./s2-data.ts";
@@ -20,4 +20,5 @@ export const REGISTER_SOURCE: FigureSpec[] = [...S0, ...S1, ...S2, ...S3, ...S4,
 /** The specs as the reader sees them: the same figures in plain words (lib/reader-text.ts). */
 export const REGISTER_ORDER: FigureSpec[] = REGISTER_SOURCE.map((s) => readerDeep(s));
 
-export const REGISTER: Record<string, FigureSpec> = Object.fromEntries(REGISTER_ORDER.map((s) => [s.id, s]));
+/** What the page draws: REGISTER_ORDER with the tier tags taken out (lib/reader-text.ts, withoutTierTags). */
+export const REGISTER: Record<string, FigureSpec> = Object.fromEntries(REGISTER_ORDER.map((s) => [s.id, withoutTierTagsDeep(s)]));

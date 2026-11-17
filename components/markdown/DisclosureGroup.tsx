@@ -19,12 +19,9 @@ import { FoldBody } from "./FoldBody";
  */
 export function DisclosureGroup({
   labels,
-  unresolved = [],
   children,
 }: {
   labels: string[];
-  /** Per-panel: does this panel carry a figure the campaign has not yet established? */
-  unresolved?: boolean[];
   children: React.ReactNode[];
 }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -56,18 +53,6 @@ export function DisclosureGroup({
                 <span className="font-serif t-small font-semibold leading-snug flex-1 text-balance">
                   {label}
                 </span>
-                {/* The document marks what it has not yet measured, and that marking is worth
-                    more to this reader than a confident-looking gap. Surfacing it on the closed
-                    label means collapsing a panel never hides the fact that something in it is
-                    still open. */}
-                {unresolved[i] && (
-                  <span
-                    className="t-micro font-extrabold text-gold border border-gold/40 bg-gold/[0.08] rounded-full px-2 py-0.5 shrink-0"
-                    title="Contains a figure awaiting a campaign decision or verification"
-                  >
-                    Awaiting
-                  </span>
-                )}
                 <ChevronDown
                   size={16}
                   className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${

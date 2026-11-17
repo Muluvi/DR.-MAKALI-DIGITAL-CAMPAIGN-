@@ -1,4 +1,4 @@
-import { tokenizeInline, hasInlineMark, type InlinePart } from "./inline-marks.ts";
+import { tokenizeInline, hasInlineMark, withoutEmptyTierMarks, type InlinePart } from "./inline-marks.ts";
 
 /**
  * The renderer half of lib/inline-marks.ts: a rehype plugin that turns the working marks in each
@@ -70,7 +70,7 @@ function walk(node: HastNode): void {
   const next: HastNode[] = [];
   for (const child of children) {
     if (child.type === "text" && hasInlineMark((child as HastText).value)) {
-      next.push(...toNodes(tokenizeInline((child as HastText).value)));
+      next.push(...toNodes(withoutEmptyTierMarks(tokenizeInline((child as HastText).value))));
     } else {
       walk(child);
       next.push(child);

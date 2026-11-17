@@ -24,17 +24,15 @@ export function FigureDetails({ children }: { children: ReactNode }) {
 
 /**
  * The one control that opens a figure's details: its question and notes, its sources and its data.
- * `badges` are the figure's tier badges, shown beside the control, so a figure's tiers stay in view
- * while its source names sit behind it (brief section 2, rule 5).
+ * No tier badges beside it (November 2026, the campaign's direction): figures carry no status tags.
  */
-export function FigureDetailsToggle({ badges }: { badges?: ReactNode }) {
+export function FigureDetailsToggle() {
   const ctx = useContext(Ctx);
   if (!ctx) return null;
   return (
     <button type="button" className="rf-more" aria-expanded={ctx.open} aria-controls={`${ctx.id}-notes`} onClick={ctx.toggle}>
       <span>{ctx.open ? "Hide the details" : "Show the details"}</span>
       <ChevronDown size={14} aria-hidden="true" className="rf-more__chev" data-open={ctx.open ? "true" : "false"} />
-      {badges ? <span className="rf-more__tiers">{badges}</span> : null}
     </button>
   );
 }

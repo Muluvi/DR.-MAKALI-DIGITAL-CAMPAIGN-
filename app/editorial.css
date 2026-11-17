@@ -344,37 +344,6 @@
 .pf-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
 .pf-line > span { display: block; }
 
-/* ---------------------------------------------------------------- provenance pill */
-.pf-pp {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  min-height: 22px;
-  padding: 0 8px;
-  border-radius: 999px;
-  border: 1.5px solid currentColor;
-  font: 700 11px/1 var(--pf-display);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-.pf-pp--t1 { background: var(--pf-t1); border-color: var(--pf-t1); color: var(--pf-ground); }
-.pf-pp--t2 { color: var(--pf-t2); }
-.pf-pp--t3 { color: var(--pf-t3); border-style: dashed; }
-.pf-pp--modelled { color: var(--pf-ink); border-color: var(--pf-muted); padding-left: 4px; }
-/* The weave is the modelled mark: a woven disc beside the word, never behind it. */
-.pf-pp--modelled::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: var(--pf-earth-solid);
-  background-image: var(--pf-weave-img);
-  background-size: 6px 6px;
-}
-.pf-pp--target { color: var(--pf-accent); border-style: double; border-width: 3px; }
-.pf-pp--needed { color: var(--pf-muted); border-style: dotted; }
-
 /* ---------------------------------------------------------------- cover hero */
 .pf-hero { position: relative; }
 .pf-hero[data-story="true"] { height: 360svh; }
@@ -721,7 +690,6 @@
 .pf-fig__foot { margin-top: 18px; display: grid; gap: 14px; }
 .pf-fig__sources { display: grid; gap: 8px; font: 400 13px/1.45 var(--pf-display); color: var(--pf-muted); }
 .pf-fig__sources li { display: flex; gap: 10px; align-items: flex-start; }
-.pf-fig__sources .pf-pp { margin-top: 1px; }
 .pf-fig__details summary {
   display: inline-flex;
   align-items: center;
@@ -814,15 +782,6 @@
   margin-bottom: 8px;
 }
 .pf-fn__name { font: 600 15px/1.3 var(--pf-display); }
-.pf-fn__state {
-  margin-left: 8px;
-  padding: 2px 7px;
-  border-radius: 999px;
-  border: 1px solid var(--pf-line);
-  font: 600 11.5px/1 var(--pf-display);
-  color: var(--pf-muted);
-  white-space: nowrap;
-}
 .pf-fn__value { font: 800 clamp(1.4rem, 5.6vw, 2rem)/1 var(--pf-display); letter-spacing: -0.02em; }
 .pf-fn__row.is-accent .pf-fn__value { color: var(--pf-accent); }
 .pf-fn__bar { display: block; width: 100%; height: 34px; overflow: visible; }

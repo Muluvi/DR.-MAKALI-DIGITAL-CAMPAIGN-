@@ -29,6 +29,32 @@ export type InlinePart =
   | { type: "status"; status: "source" | "counsel"; note: string; raw: string }
   | { type: "xref"; refs: string[]; raw: string };
 
+/** Text that is only a status tag ("unconfirmed", "not yet tiered", "sources pending"), which is not drawn. */
+const STATUS_ONLY = /^\s*(?:official|reported|unconfirmed|confirmed|verified|unverified|estimated?|modelled|provisional|awaiting(?: campaign decision| verification)?|not yet tiered|sources? pending)\s*\.?\s*$/i;
+
+export function isStatusTag(text: string): boolean {
+  return STATUS_ONLY.test(text);
+}
+
+/**
+ * Figures carry no status tags (November 2026, the campaign's direction). A tier mark that cites
+ * something is kept, and is drawn as a neutral "Source" chip; one that carries only the tier, or
+ * only a status word ("(Tier 3, unconfirmed)"), is taken out, with the space in front of it, so
+ * "authority (Tier 1); the" reads "authority; the".
+ */
+export function withoutEmptyTierMarks(parts: InlinePart[]): InlinePart[] {
+  const out: InlinePart[] = [];
+  for (const p of parts) {
+    if (p.type === "tier" && (!p.rest || isStatusTag(p.rest))) {
+      const prev = out[out.length - 1];
+      if (prev && prev.type === "text") prev.text = prev.text.replace(/\s+$/, "");
+      continue;
+    }
+    out.push(p.type === "text" ? { ...p } : p);
+  }
+  return out;
+}
+
 /** A parenthetical that opens with a tier: one level of nested parentheses is allowed inside it. */
 const TIER = String.raw`\(Tier [123][^()]*(?:\([^()]*\)[^()]*)*\)`;
 const CONFLICT = String.raw`\[CONFLICT (C\d+): see open items\]`;

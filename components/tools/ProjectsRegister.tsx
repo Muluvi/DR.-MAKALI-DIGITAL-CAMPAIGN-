@@ -1,6 +1,5 @@
 "use client";
 
-import { tierWord } from "../../data/types";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search, ShieldCheck } from "lucide-react";
@@ -60,7 +59,6 @@ function Select({ label, value, onChange, options }: {
 }
 
 function Row({ p }: { p: ProjectRow }) {
-  const unconfirmed = p.provenance.status === "verify";
   return (
     <li className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
@@ -76,13 +74,7 @@ function Row({ p }: { p: ProjectRow }) {
         </div>
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-[0.7rem] text-slate-400">
-        <span className="rounded-full border border-white/20 px-2 py-0.5 font-semibold text-slate-200">{tierWord(p.provenance.tier)}</span>
         <span>{p.provenance.method} · as of {p.provenance.as_of} · {p.provenance.source_id}, p. {p.page}</span>
-        {unconfirmed && (
-          <span className="rounded-full border border-dashed border-amber-300/60 px-2 py-0.5 font-semibold text-amber-200">
-            Unconfirmed ward match
-          </span>
-        )}
       </div>
       <details className="mt-3 text-sm text-slate-400">
         <summary className="cursor-pointer text-xs font-semibold text-slate-300 hover:text-cyan-200">As printed</summary>

@@ -2,22 +2,23 @@
 
 import { useEffect } from "react";
 
-import { pageText } from "../lib/reader-text";
+import { pageText, withoutTierTags } from "../lib/reader-text";
 
 /**
  * The last pass over the words on screen.
  *
  * Most of the page already reads in plain words: headings drop their numbers, references in the
- * prose become named links, tier pills say Official / Reported / Unconfirmed, phases have names.
+ * prose become named links, phases have names, and no figure carries a tier tag.
  * What is left is text drawn by hand-built panels and charts straight from their data files, which
  * still carries "§6.2", "(T1)" or "Phase −1". This walks those text nodes once after the page is
  * interactive, and again as lazily mounted sections arrive, and rewrites them with the same rules
- * (lib/reader-text.ts). Links, code, inputs and anything marked data-raw are left alone.
+ * (lib/reader-text.ts); a tier code becomes nothing at all. Links, code, inputs and anything
+ * marked data-raw are left alone.
  *
  * It only ever changes a text node's value, never the tree, so React's own updates still land.
  */
 const SKIP = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "NOSCRIPT"]);
-const PROBE = /§|Section|Chapter|Annex|Parts? [IV]|\bT[123]\b|Phase|Stage/;
+const PROBE = /§|Section|Chapter|Annex|Parts? [IV]|\bT[123]\b|Phase|Stage|Official|Reported|Unconfirmed/;
 
 export function PlainTextPass({ rootId = "pf-root" }: { rootId?: string }) {
   useEffect(() => {
@@ -33,7 +34,7 @@ export function PlainTextPass({ rootId = "pf-root" }: { rootId?: string }) {
       const hits: Text[] = [];
       while (walker.nextNode()) hits.push(walker.currentNode as Text);
       for (const t of hits) {
-        const next = pageText(t.nodeValue ?? "");
+        const next = withoutTierTags(pageText(t.nodeValue ?? ""));
         if (next !== t.nodeValue) t.nodeValue = next;
       }
     };

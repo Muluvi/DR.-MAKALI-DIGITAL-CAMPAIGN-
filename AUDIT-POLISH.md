@@ -575,3 +575,59 @@ the one with no original has been retired.
 - **Observation.** The supplied originals look AI-upscaled: skin and fabric texture are smoothed
   at full size. They are 2496 × 3744 pixels, but not that much optical detail. If camera originals
   exist, the same pipeline will take them.
+
+---
+
+## 11. Status tags removed from figures (your request, 17 November 2026)
+
+Figures no longer carry status tags. The tier and state stay in the data, the CSVs and the
+registry. Only the tag on screen is gone.
+
+**Removed from view**
+
+| Tag | Where it was | How |
+|---|---|---|
+| Official / Reported / Unconfirmed tier badges | panels, provenance lines, disputed figures, fiscal, drought and basin panels, the zone matrix | `TierBadge` renders nothing |
+| Verified / Estimate / Awaiting campaign decision / Not yet measured | claim badges beside figures, placeholders and USSD copy | `ClaimBadge` renders nothing |
+| Official / Reported / Unconfirmed / Modelled / Target / Data needed pills | register figures, beside "Show the details" and in each source line, and the map legend | `TierPill` renders nothing; the slot beside the details control is removed |
+| Provenance pills | big numbers, the station table, the premium figures | `ProvPill` renders nothing |
+| Inline tier chips in prose ("Official", "Unconfirmed") | 107 places | see below |
+| Modelled / Target chips and "· modelled" words | register bar labels, stat tiles, segment legends and their screen-reader labels | removed |
+| Funnel state chip | funnel stages | removed |
+| Chapter-digest tier word | every chapter digest stat | removed |
+| Visual tier tags, and the badges "not yet tiered" and "sources pending" | content visuals | removed; other content badges ("campaign-owned", "workstreams 1 to 4") stay |
+| "Confirmed" / "Unverified" / "Provisional" chips | analysis figure rows | removed |
+| "This block contains unconfirmed figures. Every one is marked below…" | analysis figures | removed, because it promised marks that no longer show |
+| "Awaiting" chip on panel labels | disclosure groups | removed |
+| Tier pill and "Unconfirmed ward match" chip | projects register cards | removed |
+| "· reported · Unconfirmed" | the nomination-window chip | removed; the chip reads "Wiper decision: {window}" |
+| "(Official)", "(Unconfirmed, …)", "- Official" in text drawn from data | register figures, hand-built panels | dropped on the way to the screen (`withoutTierTags`) |
+
+**Citations are kept.**
+- A tier parenthetical in the content, for example "(Tier 2, Nation, 4 July 2026)", used to be a
+  chip labelled with the tier word. It's now a neutral **Source** chip, muted and with no tier
+  colour, that opens to the same citation.
+- A parenthetical that carries only the tier, or only a status word ("(Tier 3, unconfirmed)"), is
+  removed together with the space in front of it. "authority (Tier 1); the" now reads
+  "authority; the". A scan of every route finds no space left before punctuation, apart from one
+  typo that's already in the county's own data ("water pan ,").
+
+**Kept on purpose**
+- **Method lines in analysis figures**, such as "Official figure · S2 · as at 2022" and
+  "Modelled — not a measurement". These are source sentences, not chips. Tell me if they should
+  go too.
+- **Table columns that hold a tier or state per row**, such as the "Basis" column in register
+  data tables. That's data. The team's editing form also keeps its Reliability select, because it
+  is a working control.
+- **"Awaiting campaign decision" written in the content** (five Procurement Status lines in the
+  technology annex) and "not yet tiered" inside a content sentence. These are the content's own
+  words, and the content is unchanged.
+- **"Data needed" on the tools hub**, which describes a tool, not a figure.
+- **The woven fill that marks a modelled segment inside a chart.** That's how the chart draws the
+  data, not a tag.
+
+**Unchanged.** Content and the published data are byte-identical. `content/`, `public/content/`
+and `public/data/` all show no diff. The CSVs and registry are still built from the specs with
+tiers, because the stripping happens only on the way to the screen. 43 CSS rules for the removed
+tags are deleted. `check-preservation` passes with 81 protected files edited (73 on main); each of
+the 8 new ones is a tag removal listed above.

@@ -41,22 +41,6 @@
 .kx-row.is-accent .kx-val { color: var(--pf-accent); }
 .kx-row.is-neg .kx-val { color: var(--pf-ink); }
 .kx-muted { color: var(--pf-muted); font-weight: 500; }
-.kx-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0 0 0 8px;
-  padding: 1px 8px;
-  border: 1px solid var(--pf-line);
-  border-radius: 999px;
-  font: 600 11.5px/1.45 var(--pf-display);
-  color: var(--pf-muted);
-  white-space: nowrap;
-  vertical-align: 1px;
-}
-.kx-chip.is-modelled::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--pf-weave-img) center / 7px; box-shadow: 0 0 0 1px var(--pf-muted); }
-.kx-chip.is-target { border-style: dotted; border-color: var(--pf-muted); }
-.kx-chip.is-needed { border-style: dashed; border-color: var(--pf-muted); }
 
 .kx-track { position: relative; height: 18px; }
 .rf--hero .kx-track { height: 26px; }
@@ -470,7 +454,6 @@
 .kx-stat.is-modelled { border-top-style: dashed; }
 .kx-stat__v { margin: 0; font: 800 clamp(1.55rem, 6vw, 2.3rem)/1.05 var(--pf-display); font-stretch: var(--pf-display-stretch); letter-spacing: -0.02em; color: var(--pf-ink); overflow-wrap: anywhere; }
 .kx-stat__l { margin: 6px 0 0; font: 400 14.5px/1.4 var(--pf-serif); color: var(--pf-muted); }
-.kx-stat .kx-chip { margin: 8px 0 0; }
 
 /* ---------------------------------------------------------------- gauges */
 .kx-gauges { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
