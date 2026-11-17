@@ -78,6 +78,8 @@ export function Portrait({
       height={p.h}
       sizes={sizes}
       priority={priority}
+      // The cover portrait is the home page's LCP element: fetched at high priority, beside its preload.
+      fetchPriority={priority ? "high" : undefined}
       loading={priority ? undefined : "lazy"}
       referrerPolicy="no-referrer"
       className={`h-auto w-full object-contain select-none pointer-events-none ${className}`}

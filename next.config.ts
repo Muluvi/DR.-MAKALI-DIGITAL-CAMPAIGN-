@@ -40,6 +40,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: '/sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }] },
+      // Portrait sources are named by content (-4k, polish pass) and never change in place.
+      { source: '/portraits/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/data/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
       { source: '/content/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
     ];

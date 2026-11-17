@@ -200,6 +200,14 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const openChapter = useCallback((tab: string) => setOpened((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab))), []);
   const toggleChapter = useCallback((tab: string) => {
+    // Opening renders a whole chapter. As a transition, the press paints at once and React builds
+    // the chapter in yielding chunks: opening one from its digest was the slowest interaction on
+    // the page, 208ms on a mid-range phone (polish pass, INP). Closing stays immediate, because it
+    // restores the reader's scroll position first.
+    if (!opened.has(tab)) {
+      React.startTransition(() => setOpened((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab))));
+      return;
+    }
     setOpened((prev) => {
       const next = new Set(prev);
       if (!next.has(tab)) {
@@ -213,7 +221,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
       if (head && head.getBoundingClientRect().top < 0) head.scrollIntoView({ behavior: "instant", block: "start" });
       return next;
     });
-  }, []);
+  }, [opened]);
 
   const forceFor = useCallback((rawId: string) => {
     // A jump to a chapter lands on its digest, so there is nothing to mount. Only a link to a

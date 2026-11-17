@@ -21,7 +21,9 @@
  */
 // v2 (November 2026): pages became network first. Bumping the version clears every page cached
 // under v1, including pages from builds whose files are no longer on the site.
-const VERSION = "kitui-2027-v2";
+// v3 (polish pass, November 2026): the 1600px portraits and every chunk changed, so the old
+// caches are dropped on activate instead of holding renditions nothing requests any more.
+const VERSION = "kitui-2027-v3";
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 

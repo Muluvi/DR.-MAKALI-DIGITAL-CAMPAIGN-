@@ -1562,6 +1562,32 @@ input[type="checkbox"]:active, input[type="radio"]:active { transform: scale(0.8
   .flow-chap[data-in-view="true"] .flow-chap__railfill { transform: scaleX(1); }
 }
 
+/* ------------------------------------------------------ block rendering */
+
+/* Inside a chapter, each heavy block is skipped by the browser until it nears the screen (polish
+   pass, performance). A chapter route is one section, always on screen, so the section-level
+   `content-visibility` never skipped anything there: /workstreams styled and laid out all 6,700
+   elements before the first interaction. The intrinsic size is a placeholder until the block has
+   rendered once; `auto` then remembers its real height, so scrolling back never jumps. Print and
+   find-in-page still reach skipped content (Chrome renders it on demand). */
+.flow-body .prose > :is(figure, .pf-panel, .sx-embeds, .pf-callout, .vz-table-wrap) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 30rem;
+  /* content-visibility brings paint containment; the margin keeps a focus ring, a shadow or a
+     chart tooltip at a block's edge from being clipped by it. Overlays are portaled to <body>. */
+  overflow-clip-margin: 0.75rem;
+}
+/* The "Read the full text" folds: closed, each is one line tall, but it holds the chapter's full
+   text (up to 350 elements) in the DOM for find-in-page and print, all of it styled and laid out. */
+.flow-body .prose > .pf-more {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 3.5rem;
+  overflow-clip-margin: 0.75rem;
+}
+@media print {
+  .flow-body .prose > :is(figure, .pf-panel, .sx-embeds, .pf-callout, .vz-table-wrap, .pf-more) { content-visibility: visible; }
+}
+
 /* --------------------------------------------------------- block arrival */
 
 /* Panels, tool embeds and callouts rise into place as they enter (polish pass). Figures already

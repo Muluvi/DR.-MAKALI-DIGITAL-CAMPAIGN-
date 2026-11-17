@@ -790,3 +790,112 @@ the scale. No record, strategy or solution count changed, and no file under `con
 `content-visibility: auto` brings paint containment, which clips to the column. From 1440 px the
 section's `overflow-clip-margin` is 9rem, exactly the breakout, so wide figures draw whole and the
 sections keep their rendering skip.
+
+---
+
+## 15. Workstream 9: performance
+
+Every number below is measured the same way as the baseline: Lighthouse 12 mobile defaults
+(simulated Moto G Power, 4× CPU, 1.6 Mbps, 150 ms RTT) against `next start` in this container.
+The final table is the median of 5 runs per route. INP and scroll were measured with the Event
+Timing API in Playwright, at 4× CPU and 412 × 823 px, on `main` and on this branch.
+
+### What changed, in the order it was measured
+
+| Step | Effect |
+|---|---|
+| **Chapters render on the server.** `MarkdownViewer` lost its `"use client"`, so a prerendered chapter reaches the browser as HTML and only its islands hydrate. Digest leads and every string a visual fence shows are rendered on the server and passed in. The streamed-section renderer loads on demand. | react-markdown, remark, rehype-raw, parse5 and entities (about 270 kB raw) leave the first-load bundle; the route goes from 422 to 400 kB; script execution on `/workstreams` drops from 4.9 s to 2.1 s. |
+| **No forced layouts at mount.** Chapter markers (the workstream-3 entrance) and act openers read `getBoundingClientRect()` in an effect: 28 whole-document layouts, about 290 ms on home. Both now use an IntersectionObserver's first report. Act openers listen to scroll only within a screen of the viewport. | Forced layout on home: 287 ms → 2 ms. Home TBT: 936 → 486 ms. |
+| **Per-block `content-visibility`.** Figures, panels, tool embeds, callouts, wide tables and closed "Read the full text" folds inside a chapter are skipped until near the screen. A chapter route is one section that's always on screen, so the section-level skip never applied there. `contain-intrinsic-size: auto` remembers each block's real height. A 0.75rem clip margin protects focus rings and edge tooltips. Every fixed overlay is portaled to `<body>`, so paint containment can't trap one. Print shows everything. | `/workstreams` TBT: 863 → about 650 ms. |
+| **Opening a chapter is a transition.** The press paints first, and React builds the chapter in yielding chunks. Closing stays immediate, because it restores scroll first. | INP on home: 208 → 168 ms. |
+| **LCP image.** The cover portrait gets `fetchpriority="high"` beside its preload; it already had explicit dimensions. | |
+| **Caching.** `/portraits/*` is now `public, max-age=31536000, immutable`, since the sources are named by content. | |
+| **Service worker.** Cache version bumped to v3, so phones drop the old 1600 px renditions and old chunks. Strategy unchanged: hashed static cache-first, pages network-first with a 3.5 s fallback, content and data stale-while-revalidate. | |
+
+**Tried and reverted** because they measured worse:
+- **A `Suspense` boundary per chapter**, to split hydration: the hydration task grew from 596 to
+  756 ms.
+- **Dropping the Bricolage preload:** FCP got later on every route, and `/annex-evidence` CLS rose
+  from 0 to 0.035.
+
+**Checked and left alone.**
+- **Custom font subsets:** no smaller than `next/font`'s (section 9).
+- **The page-wide text pass:** 3 ms.
+
+### Final numbers
+
+| | `/` before | `/` after | `/workstreams` before | after | `/annex-evidence` before | after |
+|---|---:|---:|---:|---:|---:|---:|
+| Lighthouse (mobile) | 61 | **70** | 50 | **57** | 58 | **66** |
+| LCP | 4.91 s | 4.44 s | 6.93 s | 5.26 s | 5.00 s | 4.51 s |
+| CLS | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| TBT | 775 ms | 443 ms | 964 ms | 822 ms | 943 ms | 605 ms |
+| INP (worst of the measured interactions) | 280 ms | **168 ms** | 560 ms | **80 ms** | — | — |
+| Transfer | 809 KB | 799 KB | 1,028 KB | 998 KB | 866 KB | 857 KB |
+
+On `/votes` INP went from 112 to 80 ms.
+
+**Scroll.** At 4× CPU on `/`, 8 seconds of continuous scrolling gave 482 frames at a median and
+95th percentile of 16.7 ms, no frame over 50 ms and **no long task**, on both `main` and this
+branch.
+
+### Targets: met and missed
+
+| Target | Result |
+|---|---|
+| CLS < 0.05 | **Met:** 0.000 on all three routes |
+| INP < 200 ms | **Met:** 168 / 80 / 80 ms (was 280 / 560 / 112) |
+| No long tasks over 50 ms during scroll | **Met:** none in 8 s of scroll at 4× CPU |
+| 60 fps scrolling | **Met:** median and p95 frame 16.7 ms. 120 Hz can't be measured in a headless container. |
+| Lighthouse ≥ 95 | **Missed** by 25–38 points: 70 / 57 / 66 |
+| LCP < 2.0 s | **Missed** by 2.4–3.3 s (simulated): 4.44 / 5.26 / 4.51 s |
+
+**Why the score and LCP targets are missed.**
+- **The real pages paint fast.** Without throttling, LCP is 0.23–0.38 s and equals first paint
+  on all three routes.
+- **What the simulation counts.** Lighthouse's simulated LCP charges every byte requested before
+  that paint to a 1.6 Mbps link: about 400 KB of JavaScript, 225 KB of fonts and 73 KB of CSS.
+- **The floor.** React and Next.js alone are about 100 KB gzipped. The three font files are the
+  brand's typefaces (Bricolage's opsz and wdth axes are a brief requirement). The CSS is the site.
+- **What a sub-2 s simulated LCP would take.** Dropping the custom fonts, or removing most of the
+  interactive tools from the first load, and the brief rules out both.
+- **Where the rest of the score goes.** TBT (443–822 ms) is now React hydrating the chapter's
+  interactive islands and the browser parsing a 6,000–6,800-element document.
+- **What would close the gap.** Making `ClientPage` itself mostly server-rendered, with the chapter
+  state lifted into small islands. That's a rewrite of the site's central component; it fits
+  neither a polish pass nor the brief's rule against new features. It's the right next project if
+  the score matters more than that cost.
+
+### Size
+
+| | Before | After |
+|---|---:|---:|
+| First-load JS, chapter route | 423 kB | 400 kB |
+| Client JS emitted | 3,572,769 B in 111 files | 3,532,015 B in 76 files |
+| CSS, built | 433,191 B raw / 77,977 B gzip | 399,699 B raw / 71,564 B gzip |
+| CSS files | 12 | 4 |
+
+---
+
+## 16. Self-check
+
+| Check | Result |
+|---|---|
+| `npm run lint`, `npm run verify`, `npm run build` | **Pass**, no new warnings. The build's only "warn" matches are the `--no-warnings` flags in its own commands. |
+| Content byte-identical | **Pass.** `git diff 795fce1 -- content public/content` is empty; `public/data` is unchanged too. |
+| Performance targets measured | **Partly met**, see section 15. CLS, INP and scroll met; Lighthouse ≥ 95 and LCP < 2.0 s missed, with the margins and reasons given. |
+| Changed colour pairs meet their thresholds | **Pass.** Section 12 lists each changed pair with its measured ratio, and both contrast audits find no remaining failure outside WCAG's exemptions. |
+| Soft snap works, nothing traps the reader, reduced motion shows final values | **Snap: not shipped, by measurement and your approval** (section 8): in Chromium it trapped notch-by-notch scrolling. Free scrolling verified in both directions. Reduced motion: the entrance is never armed (opacity 1 throughout), block reveals are off, counters show final values. |
+| 3840 px deliberate and sharp | **Pass.** The root scales to 32 px, prose keeps a ~67-character measure, figures span 2,048 px, portraits come from 3,200–3,400 px sources up to 3840w, no horizontal scroll, no upscaled image. Screenshots: `docs/polish-2026-11/screenshots/`. |
+| Nothing deleted that wasn't approved | **Pass.** All 89 deleted paths are on the approved list (A, B, E, F, the 1600 px portraits) or are CSS files merged into the four new ones. |
+
+**Assumptions and uncertainties.**
+- **Measurement environment.** Lighthouse ran in this container, not on a physical Moto G.
+  Benchmark indexes varied from 1,955 to 3,102 between runs, which is why medians are used.
+- **Interaction choices for INP.** INP is the worst measured interaction (opening a chapter, a
+  Details toggle, a fold, a tab), not field data.
+- **Touch scrolling.** Synthetic touch scrolling doesn't work in this headless build. Touch snap
+  behaviour was reasoned from Chromium's documented end-position rule and from the wheel results.
+- **Source photographs.** The supplied originals look AI-upscaled (section 10).
+- **Branch name.** `polish/visual-performance`, as the brief asked, rather than this session's
+  default branch.
