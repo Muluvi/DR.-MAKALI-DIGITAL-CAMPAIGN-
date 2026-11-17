@@ -343,7 +343,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // The week replaces a bullet list, a meeting table and the governance chart cut from Annex C.
   "week-sec-13-4": (
     <>
-      <SectionPortrait id="seated-grey-cropped" kicker="The engagement model" flip>
+      <SectionPortrait id="hero-clasped-hands" kicker="The engagement model" flip>
         Your team reports to a single named campaign-side counterpart.
       </SectionPortrait>
       <DirectionWeek />

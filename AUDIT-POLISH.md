@@ -541,3 +541,37 @@ each, on `/` and `/workstreams`, on the phone and at 1440 px.
 - Heights and widths shifted on 52 and 34 elements, following from the lead and the condensed
   headings.
 - No other property changed.
+
+---
+
+## 10. Workstream 7: portraits sharp to 4K
+
+You supplied four 2496 × 3744 originals. Three of the four site portraits now come from them, and
+the one with no original has been retired.
+
+| Portrait | Source | Cut-out (cropped to the subject) | Was |
+|---|---|---:|---:|
+| `hero-clasped-hands` | purple suit, hands at the cuff (263870) | 1959 × 3236 | 971 × 1600 |
+| `three-piece-formal` | grey three-piece, 263868, the sharper of the two (face edge variance 81.0 against 78.6) | 2024 × 3432 | 963 × 1600 |
+| `gesture-explaining` | purple suit, gesturing (263871) | 2142 × 3254 | 1055 × 1600 |
+| `seated-grey-cropped` | no original above 1600 px | retired, as you asked | 1243 × 1600 |
+
+- **The cut-outs.** They were matted with BiRefNet-portrait (rembg) and checked on both the light
+  and the dark ground at the hairline and ears. They're cropped to the alpha bounds with 12 px of
+  air, saved as WebP (q90, alpha q100), and nothing was upscaled. Each new aspect ratio is within
+  2% of the cut-out it replaces, so no layout moves. The existing bottom fade still dissolves the
+  straight cut at the jacket.
+- **Serving.** `next/image` serves AVIF, then WebP, from these sources. `deviceSizes` now reaches
+  2560w and 3840w for large high-DPR screens, and a phone still picks a small rendition through
+  each placement's `sizes`.
+- **Placements.**
+  - The act openers rotate evenly through the three portraits (three-piece, gesture, hero, and
+    again). Each appears twice, no neighbouring acts match, and the first act doesn't repeat the
+    cover's portrait.
+  - "The engagement model" (`/week`) now uses `hero-clasped-hands`. The candidate profile on
+    `/record` keeps `gesture-explaining`.
+- **Removed.** The four `-1600` files are gone, `02-seated-grey-cropped` among them. The
+  service worker caches `/portraits/` by prefix and names no file.
+- **Observation.** The supplied originals look AI-upscaled: skin and fabric texture are smoothed
+  at full size. They are 2496 × 3744 pixels, but not that much optical detail. If camera originals
+  exist, the same pipeline will take them.

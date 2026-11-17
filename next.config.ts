@@ -14,7 +14,9 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     // Widths the layout actually requests: the hero at 1x/2x/3x, and the in-section portraits.
     // Trimming the default ladder stops the optimiser generating renditions nothing asks for.
-    deviceSizes: [390, 640, 828, 1080, 1200, 1920],
+    // 2560 and 3840 serve a large high-DPR screen from the 4K portrait sources (polish pass);
+    // a phone still picks from the bottom of the ladder by `sizes`.
+    deviceSizes: [390, 640, 828, 1080, 1200, 1920, 2560, 3840],
     imageSizes: [128, 140, 150, 168, 196, 210, 260, 384],
     // Cutouts are transparent WebP; a year is safe because the filenames are versioned
     // by content and never change in place.
