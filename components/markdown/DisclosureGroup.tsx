@@ -40,7 +40,7 @@ export function DisclosureGroup({
                 onClick={() => setOpenIndex(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className={`w-full flex items-center gap-3 text-left px-4 py-3.5 sm:px-5 cursor-pointer transition-colors min-h-[52px] ${
+                className={`w-full flex items-center gap-3 text-left px-4 py-4 sm:px-5 cursor-pointer transition-colors min-h-[3.25rem] ${
                   isOpen ? "bg-accent/[0.06] text-ink" : "text-muted hover:bg-ink/[0.03] hover:text-ink"
                 }`}
               >

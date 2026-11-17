@@ -27,14 +27,14 @@ export function ProvenanceLine({ provenance }: { provenance: Provenance | Proven
   if (unique.length === 0) return null;
 
   return (
-    <div className="px-4 sm:px-0 pt-3 pb-1 space-y-1.5 border-t border-line/30 mt-3">
+    <div className="px-4 sm:px-0 pt-3 pb-1 space-y-1 border-t border-line/30 mt-3">
       {unique.map((p, i) => (
         <div key={i} className="flex flex-wrap items-center gap-x-2 gap-y-1 t-label font-semibold text-muted">
           <Database size={10} className="shrink-0 opacity-60" aria-hidden="true" />
           <TierBadge tier={p.source.tier} compact />
           <span>
             {p.source.url ? (
-              <a href={p.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] min-w-[44px] justify-center py-1 underline decoration-dotted underline-offset-2 hover:text-accent transition-colors">
+              <a href={p.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[2.75rem] min-w-[2.75rem] justify-center py-1 underline decoration-dotted underline-offset-2 hover:text-accent transition-colors">
                 {p.source.name}
               </a>
             ) : (

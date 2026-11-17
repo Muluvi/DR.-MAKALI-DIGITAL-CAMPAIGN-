@@ -66,7 +66,7 @@ function Frame({
 }) {
   return (
     <figure className="bleed-narrow my-6 not-prose border border-line rounded-2xl bg-card overflow-hidden shadow-sm print:break-inside-avoid">
-      <figcaption className="flex items-center gap-2 px-4 py-2.5 bg-paper/60 border-b border-line">
+      <figcaption className="flex items-center gap-2 px-4 py-3 bg-paper/60 border-b border-line">
         <Icon size={13} className="text-accent shrink-0" aria-hidden="true" />
         {title ? (
           <span className="t-small sm:t-label font-bold text-ink leading-tight">{title}</span>
@@ -133,7 +133,7 @@ function DiagramTable({ d }: { d: Extract<Diagram, { kind: "table" }> }) {
                       data-label={!isBanner && d.headers?.[j] ? d.headers[j] : undefined}
                       className={
  isBanner
-                          ? "px-3 py-1.5 font-black  t-micro text-accent"
+                          ? "px-3 py-2 font-black  t-micro text-accent"
                           : `px-3 py-2 align-top leading-snug ${
                               j === 0 ? "font-semibold text-ink" : "text-muted"
                             } ${isFigure(cell.text) ? "tabular-nums font-mono font-semibold" : ""}`
@@ -157,7 +157,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
     <Frame title={d.title} icon={ListTree} kind="Summary">
       <dl className="divide-y divide-line/40">
         {d.items.map((item, i) => (
-          <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-2.5">
+          <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 px-4 py-3">
             <dt className="t-small font-semibold text-ink sm:w-[15rem] sm:shrink-0 leading-snug">
               {withEmphasis(item.label)}
             </dt>
@@ -172,7 +172,7 @@ function DiagramKeyValue({ d }: { d: Extract<Diagram, { kind: "keyvalue" }> }) {
         ))}
       </dl>
       {d.notes.length > 0 && (
-        <div className="px-4 py-2.5 border-t border-line/60 bg-paper/40 space-y-1">
+        <div className="px-4 py-3 border-t border-line/60 bg-paper/40 space-y-1">
           {d.notes.map((n, i) => (
             <p key={i} className="t-label sm:t-small text-muted leading-relaxed">
               {n}
@@ -195,7 +195,7 @@ function DiagramBanner({ title }: { title: string }) {
     // The label wraps — these titles run to 50 characters, which is more than one phone line —
     // so the rule sits under the whole block rather than beside it, where a wrap would leave it
     // stranded as a stray dash against the first line.
-    <div className="not-prose my-5 pb-1.5 border-b border-line print:break-inside-avoid">
+    <div className="not-prose my-5 pb-2 border-b border-line print:break-inside-avoid">
       <span className="t-label font-black sm: text-muted break-words">
         {withEmphasis(title)}
       </span>
@@ -244,7 +244,7 @@ export function AsciiDiagram({ source, children }: { source: string; children: R
     // A section plate, set as text. No frame, no zoom control, no scaling: it is a label, and it
     // was only ever a drawing because it happened to be typed inside a box.
     return (
-      <div className="not-prose my-5 border-l-2 border-accent pl-3.5">
+      <div className="not-prose my-5 border-l-2 border-accent pl-4">
         <p className="t-small sm:t-label font-black uppercase tracking-wide text-accent leading-tight">
           {withEmphasis(parsed.title)}
         </p>

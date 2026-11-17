@@ -179,15 +179,15 @@ export function VoteFunnel() {
         <tbody>
           {STAGES.map((s) => (
             <tr key={s.key} className="border-b border-line/40">
-              <th scope="row" className="text-left py-1.5 font-semibold text-ink">{s.label}</th>
-              <td className="text-right py-1.5 tabular-nums text-muted">{s.value.toLocaleString()}</td>
+              <th scope="row" className="text-left py-2 font-semibold text-ink">{s.label}</th>
+              <td className="text-right py-2 tabular-nums text-muted">{s.value.toLocaleString()}</td>
             </tr>
           ))}
           <tr>
-            <th scope="row" className="text-left py-1.5 font-semibold text-ink">
+            <th scope="row" className="text-left py-2 font-semibold text-ink">
               Winning total, 2022
             </th>
-            <td className="text-right py-1.5 tabular-nums text-muted">{WON_2022.toLocaleString()}</td>
+            <td className="text-right py-2 tabular-nums text-muted">{WON_2022.toLocaleString()}</td>
           </tr>
         </tbody>
       </table>

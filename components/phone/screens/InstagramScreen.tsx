@@ -40,7 +40,7 @@ export function InstagramScreen() {
 
       <div className="flex-1 min-h-0 overflow-hidden">
         {/* Post header */}
-        <div className="flex items-center gap-2.5 px-3 py-2">
+        <div className="flex items-center gap-2 px-3 py-2">
           <Avatar size={34} ring />
           <span className="flex-1 min-w-0">
             <span className="block font-semibold truncate" style={{ fontSize: "0.84375em", color: FG }}>
@@ -66,7 +66,7 @@ export function InstagramScreen() {
               <span className="block font-black" style={{ fontSize: "2.875em", lineHeight: 1, color: "#fff", letterSpacing: "-0.03em" }}>
                 {INSTAGRAM.cardHeadline.value}
               </span>
-              <span className="block mt-1.5" style={{ fontSize: "0.90625em", color: "#9fb6d8" }}>
+              <span className="block mt-1" style={{ fontSize: "0.90625em", color: "#9fb6d8" }}>
                 {INSTAGRAM.cardSub.value}
               </span>
             </span>
@@ -81,14 +81,14 @@ export function InstagramScreen() {
         </div>
 
         {/* Action row */}
-        <div className="flex items-center justify-between px-3 pt-2.5">
+        <div className="flex items-center justify-between px-3 pt-3">
           <span className="flex items-center gap-4">
             <Heart size={24} color={FG} strokeWidth={1.8} aria-hidden="true" />
             <MessageCircle size={23} color={FG} strokeWidth={1.8} aria-hidden="true" />
             <Send size={22} color={FG} strokeWidth={1.8} aria-hidden="true" />
           </span>
           {/* Carousel dots */}
-          <span className="flex items-center gap-1.5" aria-hidden="true">
+          <span className="flex items-center gap-1" aria-hidden="true">
             {Array.from({ length: INSTAGRAM.slideCount }).map((_, i) => (
               <span
                 key={i}
@@ -109,7 +109,7 @@ export function InstagramScreen() {
             <span className="font-semibold">{IDENTITY.handle.replace("@", "")}</span>{" "}
             {INSTAGRAM.caption.value} <span style={{ color: MUTED }}>more</span>
           </p>
-          <p className="mt-1.5 uppercase" style={{ fontSize: "0.65625em", letterSpacing: "0.02em", color: MUTED }}>
+          <p className="mt-1 uppercase" style={{ fontSize: "0.65625em", letterSpacing: "0.02em", color: MUTED }}>
             {INSTAGRAM.timestamp}
           </p>
         </div>

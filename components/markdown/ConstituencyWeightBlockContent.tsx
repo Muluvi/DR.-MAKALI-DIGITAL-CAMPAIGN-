@@ -27,7 +27,7 @@ export function ConstituencyWeightBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Constituency Weight — All Eight, by Register</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4">
         <strong className="text-ink">{largest.name} is the largest constituency in the county register, at{" "}
         {largest.voters.toLocaleString()} voters</strong> ({((largest.voters / COUNTY_TOTAL_WARDS) * 100).toFixed(1)}%
         of the county total) — the candidate&apos;s own base is the county&apos;s heaviest constituency. That is the
@@ -53,9 +53,9 @@ export function ConstituencyWeightBlockContent() {
           <tbody>
             {CHART_DATA.map((d) => (
               <tr key={d.id} className="border-t border-line/40">
-                <td className={`py-1.5 pr-3 font-bold ${d.id === "kitui-central" ? "text-accent" : "text-ink"}`}>{d.name}</td>
-                <td className="py-1.5 pr-3 text-ink/80">{d.voters.toLocaleString()}</td>
-                <td className="py-1.5 text-ink/80">{d.share}</td>
+                <td className={`py-2 pr-3 font-bold ${d.id === "kitui-central" ? "text-accent" : "text-ink"}`}>{d.name}</td>
+                <td className="py-2 pr-3 text-ink/80">{d.voters.toLocaleString()}</td>
+                <td className="py-2 text-ink/80">{d.share}</td>
               </tr>
             ))}
           </tbody>

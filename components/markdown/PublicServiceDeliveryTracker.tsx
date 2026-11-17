@@ -107,14 +107,14 @@ export function PublicServiceDeliveryTracker() {
         </div>
 
         {/* Intake channels. Shortcodes are vendor allocations pending at Phase 0 (Appendix A). */}
-        <div className="flex flex-wrap items-center gap-1.5 t-label font-mono font-bold text-muted">
+        <div className="flex flex-wrap items-center gap-1 t-label font-mono font-bold text-muted">
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">USSD &mdash; code pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">SMS &mdash; shortcode pending</span>
           <span className="px-2 py-1 bg-paper border border-line rounded-lg">WhatsApp</span>
         </div>
       </div>
 
-      <div className="px-4 py-2.5 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
+      <div className="px-4 py-3 bg-gold/[0.06] border-b border-gold/25 flex items-start gap-2">
         <Info size={13} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
         <p className="t-small text-ink leading-relaxed">
           <strong>Interface preview.</strong> The tracker described in Section 15.1.1 has not been built. Every entry below is
@@ -154,14 +154,14 @@ export function PublicServiceDeliveryTracker() {
       </div>
 
       {/* Category Filter Chips */}
-      <div className="p-3 bg-card border-b border-line flex flex-wrap items-center gap-1.5">
+      <div className="p-3 bg-card border-b border-line flex flex-wrap items-center gap-1">
         {["All", "Water Infrastructure", "Feeder Roads", "Health Clinic", "Market Sanitation"].map((cat) => (
           <button
             key={cat}
             type="button"
             onClick={() => setSelectedCategory(cat)}
             aria-pressed={selectedCategory === cat}
-            className={`shrink-0 px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`shrink-0 px-3 py-2 min-h-[2.75rem] min-w-[2.75rem] justify-center inline-flex items-center rounded-xl t-label font-bold whitespace-nowrap transition-all cursor-pointer ${
  selectedCategory === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-paper border border-line text-muted hover:text-ink"
@@ -175,8 +175,8 @@ export function PublicServiceDeliveryTracker() {
       {/* Reports Feed */}
       <div className="p-4 sm:p-6 space-y-3">
         {filteredReports.map((report) => (
-          <div key={report.refNumber} className="p-3.5 sm:p-4 bg-paper rounded-xl border border-line space-y-2">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+          <div key={report.refNumber} className="p-4 sm:p-4 bg-paper rounded-xl border border-line space-y-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div className="flex items-center gap-2">
                 <span className="font-mono t-label font-black text-accent bg-card px-2 py-0.5 rounded border border-line">
                   {report.refNumber}
@@ -202,7 +202,7 @@ export function PublicServiceDeliveryTracker() {
               {report.issue}
             </p>
 
-            <div className="pt-1.5 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
+            <div className="pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
               <span className="text-muted">
                 <strong className="text-ink">M&E Verification Note:</strong> {report.outcomeNote}
               </span>
@@ -216,7 +216,7 @@ export function PublicServiceDeliveryTracker() {
 
       {/* Interactive Simulation Form */}
       <div className="p-4 bg-paper/80 border-t border-line">
-        <div className="t-label font-bold text-ink mb-2 flex items-center gap-1.5">
+        <div className="t-label font-bold text-ink mb-2 flex items-center gap-1">
           <Smartphone size={14} className="text-accent" />
           <span>Simulate Ward Issue Submission (Web / USSD Bridge)</span>
         </div>
@@ -260,7 +260,7 @@ export function PublicServiceDeliveryTracker() {
             <button
               type="submit"
               disabled={isSimulatingSubmission || !issueInput.trim()}
-              className="px-4 py-1.5 rounded-lg bg-accent-solid text-on-accent t-label font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-accent-solid text-on-accent t-label font-bold flex items-center gap-1 disabled:opacity-50 cursor-pointer"
             >
               <Send size={12} />
               <span>{isSimulatingSubmission ? "Logging to Register..." : "Submit Test Report"}</span>
@@ -271,7 +271,7 @@ export function PublicServiceDeliveryTracker() {
 
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <ShieldCheck size={12} className="text-accent" />
           <span>Governance Commitment: The public delivery tracker continues post-election as the official County Citizen Oversight Portal.</span>
         </span>

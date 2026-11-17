@@ -34,7 +34,7 @@ import { useMotionPreset } from "../../hooks/useMotionPreset";
 function CellValue({ value, emphasised }: { value: Cell; emphasised?: boolean }) {
   if (value === true) {
     return (
-      <span className="inline-flex items-center gap-1.5 text-accent font-semibold">
+      <span className="inline-flex items-center gap-1 text-accent font-semibold">
         <Check size={14} className="stroke-[3] shrink-0" aria-hidden="true" />
         Included
       </span>
@@ -42,7 +42,7 @@ function CellValue({ value, emphasised }: { value: Cell; emphasised?: boolean })
   }
   if (value === false) {
     return (
-      <span className="inline-flex items-center gap-1.5 text-muted">
+      <span className="inline-flex items-center gap-1 text-muted">
         <Minus size={14} className="stroke-[3] shrink-0" aria-hidden="true" />
         Not included
       </span>
@@ -90,7 +90,7 @@ export function ServiceLevelSelector() {
             aria-selected={i === active}
             aria-controls={`${groupId}-panel`}
             onClick={() => setActive(i)}
-            className={`relative min-h-[44px] rounded-lg px-2 t-small font-bold transition-colors ${
+            className={`relative min-h-[2.75rem] rounded-lg px-2 t-small font-bold transition-colors ${
               i === active ? "text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
@@ -134,7 +134,7 @@ export function ServiceLevelSelector() {
         </dl>
       </div>
 
-      <label className="mt-4 flex items-center gap-2 min-h-[44px] t-small text-muted cursor-pointer">
+      <label className="mt-4 flex items-center gap-2 min-h-[2.75rem] t-small text-muted cursor-pointer">
         <input
           type="checkbox"
           checked={diffOnly}

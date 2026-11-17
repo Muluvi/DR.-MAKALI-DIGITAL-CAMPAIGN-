@@ -77,9 +77,9 @@ export default function ModelVariablesDrawer() {
   return (
     <div className="border border-line/70 rounded-2xl bg-card/60 overflow-hidden my-6 shadow-sm not-prose">
       {/* Header */}
-      <div className="p-3.5 sm:p-4 bg-paper/60 border-b border-line/60">
+      <div className="p-4 sm:p-4 bg-paper/60 border-b border-line/60">
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <div className="p-2 rounded-xl bg-accent/10 text-accent shrink-0">
               <Database size={16} />
             </div>
@@ -115,7 +115,7 @@ export default function ModelVariablesDrawer() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search variable, description, source..."
-            className="w-full pl-8 pr-3 py-2 bg-card border border-line rounded-xl t-small text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[44px]"
+            className="w-full pl-8 pr-3 py-2 bg-card border border-line rounded-xl t-small text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[2.75rem]"
             aria-label="Search model variables"
           />
         </div>
@@ -123,7 +123,7 @@ export default function ModelVariablesDrawer() {
         {/* Source & Type Filter Chips */}
         <div className="mt-3 space-y-2">
           {/* Source filters */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
+          <div className="flex items-center gap-1 overflow-x-auto pb-1 max-w-full">
             <span className="t-micro font-bold text-muted shrink-0 mr-1">
               Source:
             </span>
@@ -133,7 +133,7 @@ export default function ModelVariablesDrawer() {
                 type="button"
                 onClick={() => setSourceFilter(s)}
                 aria-pressed={sourceFilter === s}
-                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
+                className={`px-3 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[2.75rem] min-w-[2.75rem] justify-center ${
  sourceFilter === s
                     ? "bg-accent-solid text-on-accent shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
@@ -145,7 +145,7 @@ export default function ModelVariablesDrawer() {
           </div>
 
           {/* Type filters */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
+          <div className="flex items-center gap-1 overflow-x-auto pb-1 max-w-full">
             <span className="t-micro font-bold text-muted shrink-0 mr-1">
               Type:
             </span>
@@ -155,7 +155,7 @@ export default function ModelVariablesDrawer() {
                 type="button"
                 onClick={() => setTypeFilter(t)}
                 aria-pressed={typeFilter === t}
-                className={`px-2.5 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[44px] min-w-[44px] justify-center ${
+                className={`px-3 py-1 rounded-lg t-micro font-bold transition-all shrink-0 cursor-pointer min-h-[2.75rem] min-w-[2.75rem] justify-center ${
  typeFilter === t
                     ? "bg-gold-solid text-on-gold shadow-xs"
                     : "bg-card border border-line/60 text-muted hover:text-ink"
@@ -169,7 +169,7 @@ export default function ModelVariablesDrawer() {
       </div>
 
       {/* Dictionary Items List */}
-      <div className="divide-y divide-line/40 p-2 sm:p-3 max-h-[600px] overflow-y-auto">
+      <div className="divide-y divide-line/40 p-2 sm:p-3 max-h-[37.5rem] overflow-y-auto">
         {filtered.length === 0 ? (
           <div className="p-8 text-center t-label text-muted">
             No variables match current search or filters.
@@ -192,13 +192,13 @@ export default function ModelVariablesDrawer() {
                 onClick={() => setExpandedVar(isExpanded ? null : item.variable)}
                 className={`fx-focus p-3 rounded-xl transition-all cursor-pointer ${
  item.highlight
-                    ? "bg-accent/[0.04] border border-accent/30 my-1.5"
+                    ? "bg-accent/[0.04] border border-accent/30 my-1"
                     : "hover:bg-line/10"
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-baseline gap-2 flex-wrap min-w-0">
-                    <code className="font-mono font-bold text-accent t-small bg-card px-1.5 py-0.5 rounded border border-line/50">
+                    <code className="font-mono font-bold text-accent t-small bg-card px-2 py-0.5 rounded border border-line/50">
                       {item.variable}
                     </code>
                     <span className="t-micro font-semibold px-2 py-0.5 rounded-full bg-paper border border-line/50 text-muted">
@@ -208,7 +208,7 @@ export default function ModelVariablesDrawer() {
                       via {item.source}
                     </span>
                     {item.highlight && (
-                      <span className="t-micro font-black px-1.5 py-0.2 bg-gold/15 text-gold rounded">
+                      <span className="t-micro font-black px-2 py-0.2 bg-gold/15 text-gold rounded">
                         Key Driver
                       </span>
                     )}
@@ -218,13 +218,13 @@ export default function ModelVariablesDrawer() {
                   </div>
                 </div>
 
-                <p className="t-small text-ink mt-1.5 leading-snug">
+                <p className="t-small text-ink mt-1 leading-snug">
                   {item.description}
                 </p>
 
                 {/* Expanded Details */}
                 {isExpanded && (
-                  <div className="mt-2.5 pt-2.5 border-t border-line/40 grid grid-cols-1 sm:grid-cols-3 gap-2 t-label">
+                  <div className="mt-2 pt-3 border-t border-line/40 grid grid-cols-1 sm:grid-cols-3 gap-2 t-label">
                     <div className="bg-paper/70 p-2 rounded-lg border border-line/40">
                       <span className="t-micro font-bold text-muted block">Format</span>
                       <span className="font-mono text-ink font-semibold">{item.format}</span>
@@ -254,7 +254,7 @@ export default function ModelVariablesDrawer() {
       </div>
 
       {/* Footer info strip */}
-      <div className="px-3.5 py-2.5 bg-paper/50 border-t border-line/60 flex items-center justify-between text-muted t-micro">
+      <div className="px-4 py-3 bg-paper/50 border-t border-line/60 flex items-center justify-between text-muted t-micro">
         <span>Showing {filtered.length} of 23 variables</span>
         <span className="font-mono">Section 15.4.2 Tech Spec</span>
       </div>

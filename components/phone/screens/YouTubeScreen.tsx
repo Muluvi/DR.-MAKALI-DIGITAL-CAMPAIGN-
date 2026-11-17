@@ -33,7 +33,7 @@ const RED = "#ff0000";
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="flex items-center gap-1.5 rounded-full shrink-0"
+      className="flex items-center gap-1 rounded-full shrink-0"
       style={{ background: "#f2f2f2", padding: "7px 12px", fontSize: "0.78125em", fontWeight: 500, color: FG }}
     >
       {children}
@@ -70,7 +70,7 @@ export function YouTubeScreen() {
         />
         <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end px-4 pb-6">
           <span
-            className="self-start rounded px-1.5 py-0.5 font-black uppercase"
+            className="self-start rounded px-2 py-0.5 font-black uppercase"
             style={{ fontSize: "0.5em", letterSpacing: "0.12em", background: "rgba(255,255,255,0.14)", color: "#cfe0ff" }}
           >
             {YOUTUBE.thumbnailKicker.value}
@@ -88,7 +88,7 @@ export function YouTubeScreen() {
         >
           <Play size={22} color="#fff" fill="#fff" strokeWidth={0} />
         </span>
-        <span className="absolute right-2 bottom-4 flex items-center gap-2.5" aria-hidden="true">
+        <span className="absolute right-2 bottom-4 flex items-center gap-2" aria-hidden="true">
           <span className="tabular-nums" style={{ fontSize: "0.65625em", color: "#fff", textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}>
             {YOUTUBE.duration}
           </span>
@@ -108,7 +108,7 @@ export function YouTubeScreen() {
 
       <div className="flex-1 min-h-0 overflow-hidden">
         {/* Title */}
-        <div className="px-3 pt-2.5">
+        <div className="px-3 pt-3">
           <p className="font-semibold" style={{ fontSize: "0.96875em", lineHeight: 1.26, color: FG }}>
             {YOUTUBE.title.value}
           </p>
@@ -119,7 +119,7 @@ export function YouTubeScreen() {
 
         {/* Action pills */}
         <div
-          className="flex items-center gap-2 px-3 pt-2.5 overflow-x-auto"
+          className="flex items-center gap-2 px-3 pt-3 overflow-x-auto"
           tabIndex={0}
           role="group"
           aria-label="Video action pills, scrollable"
@@ -129,7 +129,7 @@ export function YouTubeScreen() {
             className="flex items-center rounded-full shrink-0"
             style={{ background: "#f2f2f2", fontSize: "0.78125em", fontWeight: 500, color: FG }}
           >
-            <span className="flex items-center gap-1.5" style={{ padding: "7px 10px 7px 12px" }}>
+            <span className="flex items-center gap-1" style={{ padding: "7px 10px 7px 12px" }}>
               <ThumbsUp size={15} strokeWidth={2} aria-hidden="true" />
               <span className="tabular-nums">{ILLUSTRATIVE_COUNTS.youtubeLikes}</span>
             </span>
@@ -150,7 +150,7 @@ export function YouTubeScreen() {
         </div>
 
         {/* Channel row */}
-        <div className="flex items-center gap-2.5 px-3 py-3 mt-1">
+        <div className="flex items-center gap-2 px-3 py-3 mt-1">
           <Avatar size={36} />
           <span className="flex-1 min-w-0">
             <span className="block font-semibold truncate" style={{ fontSize: "0.84375em", color: FG }}>
@@ -169,7 +169,7 @@ export function YouTubeScreen() {
         </div>
 
         {/* Collapsed description */}
-        <div className="mx-3 rounded-xl px-3 py-2.5" style={{ background: "#f2f2f2" }}>
+        <div className="mx-3 rounded-xl px-3 py-3" style={{ background: "#f2f2f2" }}>
           <p className="truncate" style={{ fontSize: "0.78125em", color: FG }}>
             {YOUTUBE.descriptionLine.value}
           </p>
@@ -179,7 +179,7 @@ export function YouTubeScreen() {
         </div>
 
         {/* Comments. The proposal carries no comment copy, here or on the Facebook post. */}
-        <div className="mx-3 mt-2.5 rounded-xl px-3 py-2.5" style={{ background: "#f2f2f2" }}>
+        <div className="mx-3 mt-2 rounded-xl px-3 py-3" style={{ background: "#f2f2f2" }}>
           <p className="font-semibold" style={{ fontSize: "0.78125em", color: FG }}>
             Comments
           </p>

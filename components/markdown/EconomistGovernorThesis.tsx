@@ -72,11 +72,11 @@ export function EconomistGovernorThesis() {
 
         </div>
         {/* The statesman register, next to the claim it is making. */}
-        <div className="hidden sm:block w-[118px] lg:w-[136px] shrink-0 -my-3">
+        <div className="hidden sm:block w-[7.375rem] lg:w-[8.5rem] shrink-0 -my-3">
           <Portrait
             id="three-piece-formal"
             sizes="(min-width: 1024px) 136px, 118px"
-            className="max-h-[178px] object-bottom"
+            className="max-h-[11.125rem] object-bottom"
           />
         </div>
       </div>

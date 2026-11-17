@@ -34,12 +34,12 @@ export function PlatformNav({ signedIn }: { signedIn: boolean }) {
   const chapter = home ? CHAPTER_LABEL[home.split("-sec-")[0]] : null;
   return (
     <nav aria-label="Back to the story" className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-2 text-[0.85rem] sm:px-6">
-      <Link href={home ? `/#${home}` : "/"} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-ink hover:bg-card">
+      <Link href={home ? `/#${home}` : "/"} className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-ink hover:bg-card">
         <ArrowLeft size={15} aria-hidden="true" />
         {chapter ? `Back to ${chapter}` : "Back to the story"}
       </Link>
       {signedIn && (
-        <Link href="/team/data" aria-current={path.startsWith("/team/data") ? "page" : undefined} className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-ink hover:bg-card">
+        <Link href="/team/data" aria-current={path.startsWith("/team/data") ? "page" : undefined} className="ml-auto inline-flex items-center gap-1 rounded-full px-3 py-2 text-ink hover:bg-card">
           <PenLine size={15} aria-hidden="true" /> Edit data
         </Link>
       )}

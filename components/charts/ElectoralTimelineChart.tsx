@@ -87,7 +87,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
               y={y(d.votes) + 3}
               textAnchor="end"
               className="fill-muted"
-              style={{ fontSize: 9, fontWeight: 700 }}
+              style={{ fontSize: "0.5625rem", fontWeight: 700 }}
             >
               {(d.votes / 1000).toFixed(0)}k
             </text>
@@ -125,7 +125,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
                   y={H - PAD.bottom + 17}
                   textAnchor="middle"
                   className="fill-muted"
-                  style={{ fontSize: 10, fontWeight: 700 }}
+                  style={{ fontSize: "0.625rem", fontWeight: 700 }}
                 >
                   {d.year}
                 </text>
@@ -148,7 +148,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
                 y={H - PAD.bottom + 17}
                 textAnchor="middle"
                 className="fill-ink"
-                style={{ fontSize: 10.5, fontWeight: 800 }}
+                style={{ fontSize: "0.65625rem", fontWeight: 800 }}
               >
                 {d.year}
               </text>
@@ -157,7 +157,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
                 y={y(d.votes) - 11}
                 textAnchor={isLast ? "start" : "middle"}
                 className="fill-ink"
-                style={{ fontSize: 10, fontWeight: 800 }}
+                style={{ fontSize: "0.625rem", fontWeight: 800 }}
               >
                 {d.winner}
               </text>
@@ -166,7 +166,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
                   x={x(i) + 11}
                   y={y(d.votes) + 4}
                   className="fill-accent"
-                  style={{ fontSize: 10, fontWeight: 800 }}
+                  style={{ fontSize: "0.625rem", fontWeight: 800 }}
                 >
                   {d.votes.toLocaleString()}
                 </text>
@@ -177,7 +177,7 @@ export default function ElectoralTimelineChart({ data }: { data: TimelinePoint[]
       </svg>
 
       {gaps.length > 0 && (
-        <p className="flex items-center justify-center gap-1.5 t-label text-muted mt-1">
+        <p className="flex items-center justify-center gap-1 t-label text-muted mt-1">
           <span
             className="inline-block w-2.5 h-2.5 rounded-full border-[1.5px] border-dashed border-muted shrink-0"
             aria-hidden="true"

@@ -59,7 +59,7 @@ export function CrossRef({
       open
       className="crossref print-open not-prose group my-4 rounded-xl border border-line bg-paper/60"
     >
-      <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-2 gap-y-1 px-3 py-2.5 [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-2 gap-y-1 px-3 py-3 [&::-webkit-details-marker]:hidden">
         <CornerDownRight size={13} className="shrink-0 text-muted" aria-hidden="true" />
         <span className="t-micro leading-snug text-muted">
           {verbatim ? "Repeats" : "Restates"}{" "}
@@ -76,7 +76,7 @@ export function CrossRef({
           />
         </span>
       </summary>
-      <div className="border-t border-line/60 px-3 py-2.5 text-ink">
+      <div className="border-t border-line/60 px-3 py-3 text-ink">
         {/* A real anchor: it works with JavaScript off, and it is the point of the control. */}
         <p className="t-micro mb-2 leading-snug text-muted">
           <a href={href} className="font-semibold text-accent underline underline-offset-2">

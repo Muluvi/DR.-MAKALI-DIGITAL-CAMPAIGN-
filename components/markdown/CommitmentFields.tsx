@@ -91,7 +91,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
   });
 
   return (
-    <div ref={ref} className="not-prose my-4 space-y-2.5">
+    <div ref={ref} className="not-prose my-4 space-y-2">
       {/* Where it stands, and what it has committed to. The pair is the commitment. */}
       {baseline && target && (
         <motion.div className="flex flex-col sm:flex-row items-stretch gap-2" {...rise(0)}>
@@ -132,7 +132,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
         <motion.div className="flex items-start gap-2 px-1" {...rise(2)}>
           <Route size={13} className="text-muted shrink-0 mt-1" aria-hidden="true" />
           <p className="t-small text-muted leading-relaxed">
-            <span className="font-black t-micro text-muted mr-1.5">
+            <span className="font-black t-micro text-muted mr-1">
               {traceability.label}
             </span>
             <Value tabId={tabId}>{traceability.value}</Value>
@@ -147,7 +147,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
         >
           <TriangleAlert size={13} className="text-danger shrink-0 mt-0.5" aria-hidden="true" />
           <p className="t-small text-ink/90 leading-relaxed min-w-0">
-            <span className="font-black t-micro text-danger mr-1.5">
+            <span className="font-black t-micro text-danger mr-1">
               {escalation.label}
             </span>
             <Value tabId={tabId}>{escalation.value}</Value>
@@ -157,7 +157,7 @@ export function CommitmentFields({ fields, tabId }: { fields: CommitmentField[];
 
       {extras.map((f, i) => (
         <motion.p key={i} className="t-small text-muted leading-relaxed px-1" {...rise(4 + i)}>
-          <span className="font-black t-micro text-muted mr-1.5">{f.label}</span>
+          <span className="font-black t-micro text-muted mr-1">{f.label}</span>
           <Value tabId={tabId}>{f.value}</Value>
         </motion.p>
       ))}

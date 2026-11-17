@@ -145,7 +145,7 @@ export function PersuasionFramingMatrix() {
               type="button"
               onClick={() => setActiveThemeId(theme.id)}
               aria-pressed={isSelected}
-              className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
+              className={`p-3 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
  isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15" 
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
@@ -166,7 +166,7 @@ export function PersuasionFramingMatrix() {
 
         <div className="space-y-3">
           {currentTheme.principles.map((p, idx) => (
-            <div key={idx} className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line space-y-2">
+            <div key={idx} className="p-4 sm:p-4 rounded-xl bg-paper border border-line space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center t-label font-bold">
@@ -187,7 +187,7 @@ export function PersuasionFramingMatrix() {
 
       {/* Ethical Boundary Note */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <CheckCircle2 size={12} className="text-accent" />
           <span>Ethics Charter Boundary: Framing is applied strictly to verified empirical facts — zero psychographic micro-targeting or ethnic wedge operations.</span>
         </span>

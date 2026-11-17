@@ -23,7 +23,7 @@ function highlight(children: React.ReactNode, tabId?: TabId) {
 
 export function MarkdownParagraph({ children, tabId }: { children?: React.ReactNode; tabId?: TabId }) {
   return (
-    <p className="t-body sm:t-body text-ink/90 leading-[1.65] my-2.5 sm:my-3.5 text-pretty max-w-none lg:max-w-[72ch]">
+    <p className="t-body sm:t-body text-ink/90 leading-[1.65] my-2 sm:my-3 text-pretty max-w-none lg:max-w-[72ch]">
       {highlight(children, tabId)}
     </p>
   );
@@ -51,7 +51,7 @@ export function MarkdownListItem({
   }
 
   return (
-    <li className="flex items-start gap-2 my-1.5 sm:my-2 t-body sm:t-body text-ink/90 list-none">
+    <li className="flex items-start gap-2 my-1 sm:my-2 t-body sm:t-body text-ink/90 list-none">
       <span className="mt-1 text-accent shrink-0">
         <CheckCircle2 size={14} className="stroke-[2.5]" />
       </span>

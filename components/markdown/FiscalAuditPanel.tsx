@@ -23,7 +23,7 @@ export function FiscalAuditPanel() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Auditor-General FY2023/24 Queries and Pending Bills</h4>
       </div>
-      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-4">
         These are queries flagged by the Auditor-General, not settled findings of wrongdoing — the county has a right
         of reply through the normal audit process.
       </p>
@@ -40,17 +40,17 @@ export function FiscalAuditPanel() {
           <tbody>
             {AUDIT_QUERIES_FY2023_24.map((q, i) => (
               <tr key={i} className="border-t border-line/40">
-                <td className="py-1.5 pr-3 font-bold text-ink">{q.label}</td>
-                <td className="py-1.5 pr-3 font-black text-ink">{formatKSh(q.value)}</td>
-                <td className="py-1.5">
+                <td className="py-2 pr-3 font-bold text-ink">{q.label}</td>
+                <td className="py-2 pr-3 font-black text-ink">{formatKSh(q.value)}</td>
+                <td className="py-2">
                   <TierBadge tier={q.provenance.source.tier} compact />
                 </td>
               </tr>
             ))}
             <tr className="border-t border-line/40">
-              <td className="py-1.5 pr-3 font-bold text-ink">{PENDING_BILLS_FY2020_21.label}</td>
-              <td className="py-1.5 pr-3 font-black text-ink">{formatKSh(PENDING_BILLS_FY2020_21.value)}</td>
-              <td className="py-1.5">
+              <td className="py-2 pr-3 font-bold text-ink">{PENDING_BILLS_FY2020_21.label}</td>
+              <td className="py-2 pr-3 font-black text-ink">{formatKSh(PENDING_BILLS_FY2020_21.value)}</td>
+              <td className="py-2">
                 <TierBadge tier={PENDING_BILLS_FY2020_21.provenance.source.tier} compact />
               </td>
             </tr>

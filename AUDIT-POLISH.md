@@ -690,3 +690,65 @@ since the 2026 premium pass.
 **Colour with intent.** Removing the status tags (section 11) took out the largest source of
 colour noise on the page: three tier colours and four state colours on chips beside nearly every
 figure. Blue now marks the campaign and laterite the gap, as the brand defines.
+
+---
+
+## 13. Workstream 6: space, layout and large screens
+
+**1. Lengths in rem.** 1,118 CSS declarations, 128 Tailwind arbitrary classes and 13 chart font
+sizes moved from px to rem.
+- **What converted:** type, spacing, sizes, offsets and radii of 4 px and up.
+- **What stayed px:** hairlines, borders, outlines, shadows, blurs, pattern sizes and media
+  queries.
+- **Check:** at the default 16 px root this is pixel-identical. The computed-style diff on all
+  124 route × width × theme dumps showed **0** differing elements. It's what lets one root step
+  scale the whole site on a large screen.
+
+**2. One 4/8 spacing scale.** The scale is 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 112,
+128, 160, 192 px.
+- **Hand-written CSS:** 571 of the 1,105 spacing values (margin, padding, gap) were off it
+  (6, 10, 14, 9.6, 4.8, 14.4 px and so on), across 476 declarations. All are now on it.
+- **Components:** 407 Tailwind half-step classes (`gap-1.5`, `py-2.5`, `pl-3.5` …) across 86
+  files moved onto it. `-0.5` (2 px) stays as a hairline nudge.
+- **Rounding:** on an exact tie, padding rounds up and margins and gaps round down. A control's
+  padding never shrinks, and the page doesn't loosen.
+- **Touch targets:** comparing all 2,331 interactive elements at 390 px before and after, none
+  became shorter than 44 px because of this. Two links reflowed onto one line, which is wrapping,
+  not size.
+
+**3. Large screens.** The root steps up at **1920 px (18 px), 2560 (22), 3200 (26) and 3840
+(32)**. Because everything is in rem, type, spacing, the reading column and the figures scale
+together. The root is a percentage, so a reader's own browser text size still multiplies it.
+
+| Width | Body | Prose column | Register figure |
+|---:|---:|---:|---:|
+| 390 | 16.1 px | 339 px | 358 px |
+| 1440 | 18 px | 717 px | **1,024 px** (was 736) |
+| 2560 | 24.75 px | 987 px | **1,408 px** |
+| 3840 | 36 px | 1,437 px | **2,048 px** |
+
+- **Prose** keeps its measure, about 67 characters, at every width.
+- **Figures** break out from 1440 px: register figures and visuals widen to
+  `min(64rem, 100vw − gutters)`, centred on the 46rem column. Hero and full-bleed figures are
+  excluded. The chapter body's `overflow: hidden` clipped the breakout, so from 1440 px it's
+  `overflow: visible` with `display: flow-root`, which keeps the same block formatting context.
+- **No horizontal scroll:** a check of all 31 routes at 390, 1440, 1920, 2560 and 3840 found
+  no page scrolling sideways.
+
+**4. Mobile rhythm.** At 390 px every chapter opens on its title, its line and real content in
+the first screen (checked on `/workstreams` and a mid-document chapter on `/`). The chapter head's
+own spacing (`1.5rem / 1rem` on phones) was already tight, so it's unchanged.
+
+**5. Fixed along the way.** The header tagline was clipped at 11rem (176 px) on every screen, and
+because the span was a flex box its ellipsis never showed. The tagline now has the room it
+needs: 12rem on phones, which fits the full 181 px line at 360 and 390 px, and no cap from
+640 px. On a narrower phone it ends in a proper "…".
+
+**Not done: unifying the `--space-*` names.** The scale is applied as values; there's no new
+token set alongside the existing `--rhythm` and `--pf-gutter` tokens, because a token nothing
+reads would be dead code.
+
+`check-preservation` passes with 138 protected files edited (82 before this workstream). The 56
+new ones are class-string edits only: Tailwind px → rem, and half-step spacing classes moved onto
+the scale. No record, strategy or solution count changed, and no file under `content/`,
+`public/content/` or `public/data/` changed.

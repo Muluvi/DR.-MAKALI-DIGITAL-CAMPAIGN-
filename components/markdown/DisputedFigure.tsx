@@ -66,7 +66,7 @@ export function DisputedFigure({ entry }: { entry: DisputedFigureEntry }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
         {entry.values.map((v, i) => (
           <div key={i} className="rounded-xl border p-3 border-line/60 bg-card">
-            <div className="flex items-center justify-between gap-2 mb-1.5">
+            <div className="flex items-center justify-between gap-2 mb-1">
               <TierBadge tier={v.source.tier} compact />
             </div>
             <div className="font-serif text-lg font-black text-ink">{formatValue(v.value, v.unit)}</div>

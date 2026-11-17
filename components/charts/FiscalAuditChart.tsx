@@ -49,7 +49,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
 
   return (
     <div ref={ref} className="w-full">
-      <div className="flex items-baseline justify-between gap-3 mb-1.5">
+      <div className="flex items-baseline justify-between gap-3 mb-1">
         <span className="t-label font-black text-muted">{whole.name}</span>
         <span className="font-mono text-sm font-black text-ink tabular-nums">{fmt(whole.value)}</span>
       </div>
@@ -86,7 +86,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
         </span>
       </div>
 
-      <ul className="mt-3 space-y-1.5">
+      <ul className="mt-3 space-y-1">
         {segments.map((s) => (
           <li key={s.name} className="flex items-baseline gap-2 t-small leading-snug">
             <span
@@ -101,7 +101,7 @@ export default function FiscalAuditChart({ data }: { data: FiscalBar[] }) {
             </span>
           </li>
         ))}
-        <li className="flex items-baseline gap-2 t-small pt-1.5 border-t border-line/50">
+        <li className="flex items-baseline gap-2 t-small pt-2 border-t border-line/50">
           <span className="w-2.5 shrink-0" aria-hidden="true" />
           <span className="text-ink font-bold flex-1">Total exposure</span>
           <span className="font-mono text-ink font-bold tabular-nums shrink-0">{fmt(exposure)}</span>

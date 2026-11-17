@@ -22,8 +22,8 @@ export default function WardCartogram() {
     <div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {CONSTITUENCIES.map((c) => (
-          <div key={c.id} className="bg-paper border border-line/60 rounded-xl p-2.5">
-            <div className="t-micro font-black text-muted mb-1.5 truncate" title={c.name}>
+          <div key={c.id} className="bg-paper border border-line/60 rounded-xl p-3">
+            <div className="t-micro font-black text-muted mb-1 truncate" title={c.name}>
               {c.name}
             </div>
             {/* The forty tiles fill in ward order rather than all at once, which is the
@@ -43,7 +43,7 @@ export default function WardCartogram() {
                     aria-label={`${w.name}, ${c.name}: ${w.voters.toLocaleString()} registered voters`}
                     aria-pressed={isSelected}
                     style={{ background: tileBackground(w.voters), "--fx-r": wIdx } as React.CSSProperties}
-                    className={`fx-region w-6 h-6 sm:w-7 sm:h-7 rounded-[5px] border border-line/40 transition-all cursor-pointer ${
+                    className={`fx-region w-6 h-6 sm:w-7 sm:h-7 rounded-[0.3125rem] border border-line/40 transition-all cursor-pointer ${
  isSelected ? "ring-2 ring-accent ring-offset-1 ring-offset-paper" : "hover:scale-110 hover:z-10 hover:shadow-md"
                     }`}
                   />
@@ -55,18 +55,18 @@ export default function WardCartogram() {
       </div>
 
       <div className="flex items-center gap-4 mb-4 t-micro font-bold text-muted flex-wrap">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <span className="w-3 h-3 rounded-sm border border-line/40" style={{ background: tileBackground(MAX_VOTERS) }} />
           Higher registered voters
         </span>
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <span className="w-3 h-3 rounded-sm border border-line/40" style={{ background: tileBackground(1) }} />
           Lower
         </span>
         <span>All 40 wards itemised — IEBC, 2022 register</span>
       </div>
 
-      <div className="bg-paper border border-line rounded-xl p-3.5 min-h-[64px]">
+      <div className="bg-paper border border-line rounded-xl p-4 min-h-[4rem]">
         {selected ? (
           <div>
             <div className="t-micro font-black text-accent">

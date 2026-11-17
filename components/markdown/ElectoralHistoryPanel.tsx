@@ -19,7 +19,7 @@ export function ElectoralHistoryPanel() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Kitui Governor, Senator and Woman Representative — Results by Cycle</h4>
       </div>
-      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-4">
         Three cycles, three different Governor-race winners. 2013 is shown as an explicit gap rather than filled in —
         see the note below and the Data Gaps Register.
       </p>
@@ -47,18 +47,18 @@ export function ElectoralHistoryPanel() {
                   <tbody>
                     {race.results.map((r, j) => (
                       <tr key={j} className="border-t border-line/40">
-                        <td className="py-1.5 pr-3 font-bold text-ink">
+                        <td className="py-2 pr-3 font-bold text-ink">
                           {r.candidate}
                           {r.disputedFigureId &&
                             (DISPUTED_FIGURES.find((d) => d.id === r.disputedFigureId)?.status === "resolved-preferred" ? (
-                              <span className="ml-1.5 t-micro font-black text-muted">Source note ↓</span>
+                              <span className="ml-1 t-micro font-black text-muted">Source note ↓</span>
                             ) : (
-                              <span className="ml-1.5 t-micro font-black text-danger">Disputed ↓</span>
+                              <span className="ml-1 t-micro font-black text-danger">Disputed ↓</span>
                             ))}
                         </td>
-                        <td className="py-1.5 pr-3 text-ink/70">{r.party ?? "—"}</td>
-                        <td className="py-1.5 pr-3 font-black text-ink">{r.votes.toLocaleString()}</td>
-                        <td className="py-1.5">
+                        <td className="py-2 pr-3 text-ink/70">{r.party ?? "—"}</td>
+                        <td className="py-2 pr-3 font-black text-ink">{r.votes.toLocaleString()}</td>
+                        <td className="py-2">
                           <TierBadge tier={r.source.tier} compact />
                         </td>
                       </tr>

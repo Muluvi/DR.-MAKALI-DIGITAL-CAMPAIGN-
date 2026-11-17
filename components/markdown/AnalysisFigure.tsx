@@ -80,7 +80,7 @@ export function FigureRow({
       ? `derived from ${value.source_id} (Tier ${value.tier})`
       : value.source_id;
   return (
-    <li className="py-2.5 border-b border-line/30 last:border-b-0">
+    <li className="py-3 border-b border-line/30 last:border-b-0">
       <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <span className="t-small font-semibold text-ink">{value.label}</span>
         <span className="t-small font-bold text-ink tabular-nums">
@@ -89,14 +89,14 @@ export function FigureRow({
         </span>
       </div>
       {numeric && maxValue ? (
-        <div className="mt-1.5 h-1.5 w-full rounded-full bg-line/40 overflow-hidden" aria-hidden="true">
+        <div className="mt-1 h-1.5 w-full rounded-full bg-line/40 overflow-hidden" aria-hidden="true">
           <div
             className={value.method === "modelled" ? "h-full rounded-full bg-muted/60" : "h-full rounded-full bg-accent"}
             style={{ width: `${width}%` }}
           />
         </div>
       ) : null}
-      <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+      <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
         {/* No status chip and no tier badge (November 2026, the campaign's direction): a figure
             carries its method and source in words, and no tag. */}
         <span className="t-label text-muted font-medium">
@@ -139,7 +139,7 @@ export function AnalysisFigure({
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">{heading ?? chart.title}</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5"><InlineMarks text={chart.description} /></p>
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4"><InlineMarks text={chart.description} /></p>
 
       {chart.scenario_label ? (
         <p className="analysis-banner analysis-banner-scenario">
@@ -177,7 +177,7 @@ export function AnalysisFigure({
         </ul>
       ) : null}
 
-      <div className="flex flex-wrap items-center gap-1.5 px-0 pt-2 t-label font-semibold text-muted">
+      <div className="flex flex-wrap items-center gap-1 px-0 pt-2 t-label font-semibold text-muted">
         <Database size={10} className="shrink-0 opacity-60" aria-hidden="true" />
         <span>
           Firefly analysis pipeline · data as at {chart.data_as_of}

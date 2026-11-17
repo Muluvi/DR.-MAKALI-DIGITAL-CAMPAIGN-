@@ -61,7 +61,7 @@ const STEP_SEQUENCE: { step: Step; hold: number }[] = [
 function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
   const reduce = useReducedMotionSafe();
   return (
-    <TiltStage className="mx-auto w-full max-w-[212px]" radius={28} maxX={4} maxY={9}>
+    <TiltStage className="mx-auto w-full max-w-[13.25rem]" radius={28} maxX={4} maxY={9}>
       <div aria-hidden="true" className="pf-handset select-none">
         {/* Earpiece */}
         <div className="h-6 flex items-center justify-center">
@@ -71,7 +71,7 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
         {/* The screen. A 2G handset panel: small, greenish, system type, no design language. It
             sits under a glass that catches the light; each step crossfades, as the panel redraws. */}
         <div className="pf-handset__screen font-mono">
-          <div className="flex items-center justify-between opacity-70" style={{ fontSize: 7 }}>
+          <div className="flex items-center justify-between opacity-70" style={{ fontSize: "0.4375rem" }}>
             <span className="inline-flex items-center gap-0.5"><Signal size={7} /> 2G</span>
             <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} /></span>
           </div>
@@ -92,7 +92,7 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
               )}
 
               {step === "menu" && (
-                <div className="mt-1.5">
+                <div className="mt-1">
                   <div className="font-bold">{USSD_HEADER}</div>
                   {USSD_MENU.map((o) => (
                     <div key={o.key} className="truncate">
@@ -103,7 +103,7 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
               )}
 
               {step === "submenu" && (
-                <div className="mt-1.5">
+                <div className="mt-1">
                   <div className="font-bold">{USSD_MENU[0].kikamba}</div>
                   <div className="mt-1 opacity-80">{USSD_MENU[0].english}</div>
                   <div className="mt-2 border-t border-black/20 pt-1 opacity-70">
@@ -117,7 +117,7 @@ function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
         </div>
 
         {/* Keypad. The pressed key sinks, which is the only thing that moves. */}
-        <div className="grid grid-cols-3 gap-1.5 p-3 pt-3.5">
+        <div className="grid grid-cols-3 gap-1 p-3 pt-4">
           {["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"].map((k) => (
             <motion.span
               key={k}
@@ -183,7 +183,7 @@ export function FeaturePhoneSpecimen() {
         <h4 id="feature-phone-title" className="font-serif t-label font-black text-ink">
           What a voter without the internet actually sees
         </h4>
-        <p className="t-small text-muted leading-relaxed mt-1.5">
+        <p className="t-small text-muted leading-relaxed mt-1">
           USSD works on every phone, needs no internet, and costs the voter almost nothing. This is
           §15.3.3&rsquo;s menu on a 2G handset, and §15.3.3&rsquo;s message beside it.
         </p>
@@ -199,7 +199,7 @@ export function FeaturePhoneSpecimen() {
                 aria-controls={panelId}
                 onClick={() => setLang(l.id)}
                 title={l.note}
-                className={`min-h-[44px] px-3 rounded-lg t-micro font-black fx-press fx-focus cursor-pointer transition-colors ${
+                className={`min-h-[2.75rem] px-3 rounded-lg t-micro font-black fx-press fx-focus cursor-pointer transition-colors ${
                   lang === l.id ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
                 }`}
               >
@@ -219,7 +219,7 @@ export function FeaturePhoneSpecimen() {
           <div className="mt-3 flex items-center justify-center gap-2">
             <button
               onClick={() => { if (running) { clearTimers(); } setRunning((v) => !v); }}
-              className="min-h-[44px] min-w-[44px] justify-center px-3 rounded-xl border border-line bg-paper t-micro font-black text-muted hover:text-ink fx-press fx-focus cursor-pointer"
+              className="min-h-[2.75rem] min-w-[2.75rem] justify-center px-3 rounded-xl border border-line bg-paper t-micro font-black text-muted hover:text-ink fx-press fx-focus cursor-pointer"
             >
               {running && !reduce ? "Pause session" : "Play session"}
             </button>
@@ -230,8 +230,8 @@ export function FeaturePhoneSpecimen() {
             {/* Wraps rather than compressing. In a non-wrapping flex row the badge is 27
                 characters of unbreakable uppercase, so it took the width and squeezed the
                 shortcode into a one-character-per-line column. */}
-            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1.5 mb-2">
-              <span className="inline-flex items-center gap-1.5 shrink-0">
+            <div className="flex flex-wrap items-center gap-x-1 gap-y-1 mb-2">
+              <span className="inline-flex items-center gap-1 shrink-0">
                 <Phone size={12} className="text-accent" aria-hidden="true" />
                 <span className="t-micro font-black text-muted">Dial</span>
                 <span className="t-micro whitespace-nowrap">{USSD_SHORTCODE_PLACEHOLDER}</span>
@@ -262,12 +262,12 @@ export function FeaturePhoneSpecimen() {
         <div id={panelId} role="tabpanel" className="min-w-0">
           <div className="rounded-xl border border-line/60 bg-paper p-3">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 t-micro font-black text-muted">
+              <span className="inline-flex items-center gap-1 t-micro font-black text-muted">
                 <MessageSquare size={12} className="text-accent" aria-hidden="true" />
                 {specimen.type}
               </span>
               <span
-                className={`t-micro font-black tabular-nums px-1.5 py-0.5 rounded ${
+                className={`t-micro font-black tabular-nums px-2 py-0.5 rounded ${
  chars > SMS_LIMIT ? "bg-danger/15 text-danger" : "bg-accent/10 text-accent"
                 }`}
               >
@@ -283,14 +283,14 @@ export function FeaturePhoneSpecimen() {
                   No {SPECIMEN_LANGUAGES.find((l) => l.id === lang)?.label} copy is shown, because
                   none has been through the chain that has to clear it.
                 </p>
-                <ol className="mt-2.5 space-y-1.5">
+                <ol className="mt-2 space-y-1">
                   {APPROVAL_CHAIN.map((s) => (
                     <li key={s.stage} className="flex gap-2 t-micro leading-snug">
                       <span
                         className={`shrink-0 w-4 h-4 rounded-full grid place-items-center font-black ${
  s.stage === 1 ? "bg-accent-solid text-on-accent" : "bg-line text-muted"
                         }`}
-                        style={{ fontSize: 8 }}
+                        style={{ fontSize: "0.5rem" }}
                       >
                         {s.stage}
                       </span>
@@ -301,7 +301,7 @@ export function FeaturePhoneSpecimen() {
                     </li>
                   ))}
                 </ol>
-                <p className="t-micro text-muted mt-2.5 leading-snug">
+                <p className="t-micro text-muted mt-2 leading-snug">
                   <InlineMarks text="§8.5 [CHECK REF] places those appointments in Phase −1. Showing invented vernacular here would be the claim-versus-delivery gap this plan argues against." />
                 </p>
               </div>
@@ -309,7 +309,7 @@ export function FeaturePhoneSpecimen() {
               <>
                 {/* The message as it arrives: no rich text, no links, one screen. */}
                 <div
-                  className="rounded-lg border border-line/60 p-2.5 font-mono t-small leading-snug"
+                  className="rounded-lg border border-line/60 p-3 font-mono t-small leading-snug"
                   style={{ background: "var(--code-bg)" }}
                 >
                   {body}
@@ -322,13 +322,13 @@ export function FeaturePhoneSpecimen() {
             )}
 
             {/* Message type selector. */}
-            <div className="mt-3 flex flex-wrap gap-1.5">
+            <div className="mt-3 flex flex-wrap gap-1">
               {SMS_SPECIMENS.map((s, i) => (
                 <button
                   key={s.type}
                   onClick={() => setSpecimenIndex(i)}
                   aria-pressed={i === specimenIndex}
-                  className={`min-h-[44px] px-2.5 rounded-lg border t-micro font-bold fx-press fx-focus cursor-pointer transition-colors ${
+                  className={`min-h-[2.75rem] px-3 rounded-lg border t-micro font-bold fx-press fx-focus cursor-pointer transition-colors ${
  i === specimenIndex
                       ? "bg-accent-solid border-accent-solid text-on-accent"
                       : "bg-card border-line text-muted hover:text-ink"

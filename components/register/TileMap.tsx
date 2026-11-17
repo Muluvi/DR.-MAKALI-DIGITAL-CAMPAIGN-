@@ -117,7 +117,7 @@ export function TileMap({ id, layers, initial, showWardList = false }: { id: str
                 </li>
               ))}
             </ul>
-            <p className="rb-note mt-1 flex items-center gap-1.5"><TierPill source={{ tier: L.tier, state: L.state === "sourced" ? undefined : L.state }} /> {L.source}</p>
+            <p className="rb-note mt-1 flex items-center gap-1"><TierPill source={{ tier: L.tier, state: L.state === "sourced" ? undefined : L.state }} /> {L.source}</p>
           </div>
         );
       })}

@@ -41,7 +41,7 @@ export function AudioSummaryPlayer() {
   return (
     <div className="bg-gradient-to-br from-card to-paper border border-line rounded-2xl p-4 sm:p-5 shadow-sm max-w-md my-4">
       <div className="flex items-center gap-3">
-        <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent">
+        <div className="p-3 rounded-xl bg-accent/10 border border-accent/20 text-accent">
           <Volume2 size={18} />
         </div>
         <div>
@@ -53,7 +53,7 @@ export function AudioSummaryPlayer() {
       <div className="mt-4 flex gap-2">
         <button
           onClick={() => setLanguage("en")}
-          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
+          className={`flex-1 t-small font-bold py-2 rounded-lg border transition-all ${
  language === "en" ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line"
           }`}
         >
@@ -61,7 +61,7 @@ export function AudioSummaryPlayer() {
         </button>
         <button
           onClick={() => setLanguage("kik")}
-          className={`flex-1 t-small font-bold py-1.5 rounded-lg border transition-all ${
+          className={`flex-1 t-small font-bold py-2 rounded-lg border transition-all ${
  language === "kik" ? "bg-gold-solid text-on-gold border-gold-solid" : "bg-card text-muted border-line"
           }`}
         >
@@ -114,7 +114,7 @@ export function AudioSummaryPlayer() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="flex justify-between items-center t-micro font-bold text-muted mt-1.5 uppercase">
+          <div className="flex justify-between items-center t-micro font-bold text-muted mt-1 uppercase">
             <span>{language === "en" ? "0:12" : "0:19"} / 2:30</span>
             <span className="text-accent font-semibold">Vernacular Radio Audio Feed</span>
           </div>
@@ -149,7 +149,7 @@ export function FocusModeToggle({
       </div>
       <button
         onClick={onToggle}
-        className={`px-3 py-1.5 rounded-lg t-label font-extrabold transition-all border cursor-pointer ${
+        className={`px-3 py-2 rounded-lg t-label font-extrabold transition-all border cursor-pointer ${
           isActive 
             ? "bg-accent-solid border-accent-solid text-on-accent" 
             : "bg-paper border-line text-muted hover:text-accent"
@@ -215,12 +215,12 @@ export function MessagingPlayground() {
     <div className="bg-card border border-line rounded-2xl p-4 sm:p-5 shadow-sm my-6">
       <IllustrativeTag />
       <h4 className="font-serif text-sm font-bold text-ink mb-3">Multilingual Campaign Slogan Selector</h4>
-      <div className="flex gap-1.5 mb-4">
+      <div className="flex gap-1 mb-4">
         {Object.keys(messages).map((l) => (
           <button
             key={l}
             onClick={() => setLang(l as "en" | "kik" | "sw")}
-            className={`flex-1 min-h-[44px] t-label font-black py-1.5 rounded-lg border transition-all cursor-pointer ${
+            className={`flex-1 min-h-[2.75rem] t-label font-black py-2 rounded-lg border transition-all cursor-pointer ${
  lang === l ? "bg-accent-solid border-accent-solid text-on-accent" : "bg-paper border-line text-muted"
             }`}
           >
@@ -232,7 +232,7 @@ export function MessagingPlayground() {
       <div className="p-4 bg-paper border border-line rounded-xl">
         <span className="t-micro font-black text-accent leading-none">Aligned Brand Slogan</span>
         <h5 className="font-serif text-sm font-black text-ink mt-0.5">{messages[lang].slogan}</h5>
-        <p className="t-label text-muted/90 mt-1.5 leading-relaxed">{messages[lang].copy}</p>
+        <p className="t-label text-muted/90 mt-1 leading-relaxed">{messages[lang].copy}</p>
       </div>
     </div>
   );
@@ -353,7 +353,7 @@ export function ToneVoiceSlider() {
               className="w-full accent-accent h-2 bg-line/60 rounded-full cursor-pointer appearance-none"
             />
           </div>
-          <div className="flex justify-between t-micro font-bold text-muted/80 mt-1.5">
+          <div className="flex justify-between t-micro font-bold text-muted/80 mt-1">
             <span>0% Technical</span>
             <span className="font-black text-accent">{sliderVal}% Grassroots Weight</span>
             <span>100% Grassroots</span>
@@ -416,7 +416,7 @@ export function SloganBuilder() {
             <button
               key={pill}
               onClick={() => handleToggle(pill)}
-              className={`t-label font-extrabold uppercase py-1 px-2.5 rounded-full border transition-all cursor-pointer ${
+              className={`t-label font-extrabold uppercase py-1 px-3 rounded-full border transition-all cursor-pointer ${
  isSelected ? "bg-gold-solid border-gold-solid text-on-gold" : "bg-paper border-line text-muted hover:border-gold/30"
               }`}
             >
@@ -456,7 +456,7 @@ export function SMSFeedbackVisualizer() {
       <div className="space-y-3">
         {logs.map((log, idx) => (
           <div key={idx} className="p-3 bg-paper border border-line rounded-xl">
-            <div className="flex justify-between t-label font-extrabold text-muted mb-1.5 uppercase">
+            <div className="flex justify-between t-label font-extrabold text-muted mb-1 uppercase">
               <span>{log.sender}</span>
               <span>{log.time}</span>
             </div>
@@ -481,7 +481,7 @@ export function CommunityScheduler() {
       <div className="space-y-3">
         {events.map((ev, i) => (
           <div key={i} className="flex gap-3 bg-paper border border-line p-3 rounded-xl hover:border-accent/30 transition-all">
-            <div className="p-2.5 bg-card border border-line rounded-lg text-accent self-start shrink-0">
+            <div className="p-3 bg-card border border-line rounded-lg text-accent self-start shrink-0">
               <Calendar size={16} />
             </div>
             <div>
@@ -534,7 +534,7 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
   return (
     <div className="bg-card border border-line rounded-2xl p-4 shadow-sm flex items-center justify-between my-6 select-none">
       <div className="flex items-center gap-3">
-        <div className="p-2.5 rounded-lg bg-accent/10 text-accent">
+        <div className="p-3 rounded-lg bg-accent/10 text-accent">
           <FileText size={16} />
         </div>
         <div>
@@ -544,7 +544,7 @@ export function PrintReportGenerator({ onPrint }: { onPrint?: () => void } = {})
       </div>
       <button
         onClick={triggerPrint}
-        className="px-4 py-1.5 bg-accent-solid text-on-accent rounded-lg t-label font-extrabold hover:bg-accent/90 transition-all cursor-pointer"
+        className="px-4 py-2 bg-accent-solid text-on-accent rounded-lg t-label font-extrabold hover:bg-accent/90 transition-all cursor-pointer"
       >
         Export PDF
       </button>

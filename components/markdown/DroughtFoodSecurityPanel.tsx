@@ -16,7 +16,7 @@ export function DroughtFoodSecurityPanel() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Drought, Food Security and Climate Volatility</h4>
       </div>
-      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-4">
         Climate volatility in Kitui now runs both directions — drought classification and flood exposure in the same
         reporting period.
       </p>
@@ -24,7 +24,7 @@ export function DroughtFoodSecurityPanel() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {ITEMS.map((item, i) => (
           <div key={i} className="rounded-xl border border-line/60 bg-paper p-3">
-            <div className="flex items-center justify-between gap-2 mb-1.5">
+            <div className="flex items-center justify-between gap-2 mb-1">
               <span className="t-micro font-bold text-muted">{item.label}</span>
               <TierBadge tier={item.provenance.source.tier} compact />
             </div>

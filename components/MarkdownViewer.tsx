@@ -525,7 +525,7 @@ function buildComponents(tabId: TabId): Components {
               if (counsel) return counsel;
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
                 return (
-                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle my-0.5">
+                  <span className="inline-flex items-center gap-1 flex-wrap align-middle my-0.5">
                     <ClaimBadge status="awaiting" compact />
                     <code className="placeholder">{text}</code>
                   </span>
@@ -536,7 +536,7 @@ function buildComponents(tabId: TabId): Components {
             span: ({ className, children }) => {
               if (className === "placeholder") {
                 return (
-                  <span className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+                  <span className="inline-flex items-center gap-1 flex-wrap align-middle">
                     <ClaimBadge status="awaiting" compact />
                     <span className="placeholder">{children}</span>
                   </span>
@@ -787,7 +787,9 @@ export function MarkdownViewer({ content, tabId }: { content: string; tabId: Tab
   );
 
   return (
-    <div className="relative bg-transparent overflow-hidden p-0">
+    // From 1440px the clip is lifted so a figure can break out of the reading column (app/editorial.css,
+    // "Large screens"); flow-root keeps the same block formatting context the clip gave.
+    <div className="relative bg-transparent overflow-hidden p-0 min-[1440px]:overflow-visible min-[1440px]:flow-root">
       {/* Editorial Content Container */}
       {/* The lede treatment is scoped with `>` deliberately. As a descendant selector
           (`[&_p:first-of-type]`) it matched the first paragraph of EVERY nested container —

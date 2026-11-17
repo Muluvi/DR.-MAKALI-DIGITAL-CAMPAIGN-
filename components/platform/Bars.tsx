@@ -22,7 +22,7 @@ export function Bars({ title, caption, bars, unit = "", empty = "Nothing entered
       {bars.length === 0 ? (
         <p className="mt-4 rounded-xl border border-dashed border-line p-4 text-center text-[0.85rem] text-muted">{empty}</p>
       ) : (
-        <ul className="mt-4 space-y-2.5">
+        <ul className="mt-4 space-y-2">
           {bars.map((b, i) => (
             <li key={`${i}-${b.label}`}>
               <div className="flex items-baseline justify-between gap-3 text-[0.82rem]">

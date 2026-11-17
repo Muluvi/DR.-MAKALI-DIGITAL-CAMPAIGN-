@@ -91,7 +91,7 @@ export function WhatsAppScreen() {
   return (
     <ScreenShell tone="light" background={WALLPAPER} showHome={false} statusBarBackground={GREEN_HEADER}>
       {/* Header */}
-      <div className="shrink-0 flex items-center gap-2.5 px-3 pb-2.5 pt-0.5" style={{ background: GREEN_HEADER }}>
+      <div className="shrink-0 flex items-center gap-2 px-3 pb-3 pt-0.5" style={{ background: GREEN_HEADER }}>
         <ArrowLeft size={22} color="#fff" strokeWidth={2.2} aria-hidden="true" />
         <span
           className="grid place-items-center rounded-full shrink-0 text-white font-bold"
@@ -122,7 +122,7 @@ export function WhatsAppScreen() {
         }}
       >
         <span
-          className="self-center rounded-md px-2.5 py-1 font-medium"
+          className="self-center rounded-md px-3 py-1 font-medium"
           style={{ fontSize: "0.6875em", background: "#e2f2ff", color: "#5a6873", boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
         >
           {WHATSAPP.dateDivider}
@@ -132,7 +132,7 @@ export function WhatsAppScreen() {
         <div className="relative self-end max-w-[85%]">
           <Tail side="out" />
           <div
-            className="rounded-lg rounded-tr-none px-2.5 py-1.5"
+            className="rounded-lg rounded-tr-none px-3 py-2"
             style={{ background: OUT_BUBBLE, boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
           >
             <p style={{ fontSize: "0.8875em", lineHeight: 1.36, color: "#111b21" }}>{pledge.text}</p>
@@ -149,7 +149,7 @@ export function WhatsAppScreen() {
         <div className="relative self-start max-w-[85%]">
           <Tail side="in" />
           <div
-            className="rounded-lg rounded-tl-none px-2.5 py-1.5 min-w-[54px]"
+            className="rounded-lg rounded-tl-none px-3 py-2 min-w-[3.375rem]"
             style={{ background: IN_BUBBLE, boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
           >
             {replied ? (
@@ -176,7 +176,7 @@ export function WhatsAppScreen() {
         <div className="relative self-end max-w-[85%] w-[80%]">
           <Tail side="out" />
           <div
-            className="rounded-lg rounded-tr-none px-2.5 py-2"
+            className="rounded-lg rounded-tr-none px-3 py-2"
             style={{ background: OUT_BUBBLE, boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
           >
             <span className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export function WhatsAppScreen() {
                 ))}
               </span>
             </span>
-            <span className="flex items-center justify-between mt-1 pl-[38px]">
+            <span className="flex items-center justify-between mt-1 pl-[2.375rem]">
               <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#54656f" }}>
                 {voice.duration}
               </span>
@@ -212,9 +212,9 @@ export function WhatsAppScreen() {
       </div>
 
       {/* Composer */}
-      <div className="shrink-0 flex items-end gap-1.5 px-2 pb-1.5 pt-1" style={{ background: WALLPAPER }}>
+      <div className="shrink-0 flex items-end gap-1 px-2 pb-2 pt-1" style={{ background: WALLPAPER }}>
         <div
-          className="flex-1 flex items-center gap-2 rounded-[22px] px-3 py-2"
+          className="flex-1 flex items-center gap-2 rounded-[1.375rem] px-3 py-2"
           style={{ background: "#fff", boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
         >
           <Plus size={20} color="#54656f" strokeWidth={2} aria-hidden="true" />

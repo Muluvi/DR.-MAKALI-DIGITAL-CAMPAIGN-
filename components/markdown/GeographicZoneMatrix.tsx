@@ -169,7 +169,7 @@ export function GeographicZoneMatrix() {
                 <span className={`t-label font-black ${isSelected ? "text-accent" : "text-muted"}`}>
                   {zone.popShare} of population
                 </span>
-                <span className="t-label font-mono font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">
+                <span className="t-label font-mono font-bold px-2 py-0.5 rounded bg-accent/10 text-accent shrink-0">
                   Phase −1: {zone.nominationWeight}%
                 </span>
               </div>
@@ -192,7 +192,7 @@ export function GeographicZoneMatrix() {
             transition={{ duration: DURATION.instant, ease: "easeOut" }}
             className="space-y-4"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <div className="p-3 bg-paper rounded-xl border border-line">
                 <div className="t-label uppercase font-bold text-muted">Population</div>
                 <div className="text-sm font-bold text-ink mt-0.5 font-mono tabular-nums">{currentZone.population}</div>
@@ -220,8 +220,8 @@ export function GeographicZoneMatrix() {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-paper border border-line space-y-1.5">
-              <div className="t-label font-black text-accent flex items-center gap-1.5">
+            <div className="p-4 rounded-xl bg-paper border border-line space-y-1">
+              <div className="t-label font-black text-accent flex items-center gap-1">
                 <TrendingUp size={13} aria-hidden="true" />
                 Zone strategic imperative
               </div>
@@ -229,7 +229,7 @@ export function GeographicZoneMatrix() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
+              <div className="p-4 rounded-xl bg-paper/60 border border-line space-y-1">
                 <div className="t-label font-black text-muted flex items-center gap-1">
                   <Radio size={12} className="text-accent" aria-hidden="true" />
                   Connectivity &amp; delivery channels
@@ -240,7 +240,7 @@ export function GeographicZoneMatrix() {
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1.5">
+              <div className="p-4 rounded-xl bg-paper/60 border border-line space-y-1">
                 <div className="t-label font-black text-muted flex items-center gap-1">
                   <MapPin size={12} className="text-accent" aria-hidden="true" />
                   Largest wards by register
@@ -263,7 +263,7 @@ export function GeographicZoneMatrix() {
       </div>
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line space-y-2">
-        <p className="t-small text-muted font-medium flex items-start gap-1.5">
+        <p className="t-small text-muted font-medium flex items-start gap-1">
           <Percent size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Phase −1 deliberately over-indexes on Mwingi and the arid belt relative to population share, because the
@@ -273,7 +273,7 @@ export function GeographicZoneMatrix() {
           </span>
         </p>
         {UNASSIGNED.length > 0 && (
-          <p className="t-small text-muted flex items-start gap-1.5">
+          <p className="t-small text-muted flex items-start gap-1">
             <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
             <span>
               Section 5.3 groups the county by sub-county; the IEBC register is published by constituency, and the two do

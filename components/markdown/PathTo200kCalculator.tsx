@@ -156,7 +156,7 @@ export function PathTo200kCalculator() {
         </div>
 
         {/* Victory Status Pill */}
-        <div className={`px-3 py-1.5 rounded-xl border t-label font-black flex items-center gap-1.5 self-start sm:self-auto ${
+        <div className={`px-3 py-2 rounded-xl border t-label font-black flex items-center gap-1 self-start sm:self-auto ${
  selectedPath.isViable 
             ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
             : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
@@ -189,7 +189,7 @@ export function PathTo200kCalculator() {
               type="button"
               onClick={() => setSelectedPathId(path.id)}
               aria-pressed={isSelected}
-              className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+              className={`p-3 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
  isSelected 
                   ? "bg-card border-accent shadow-sm ring-2 ring-accent/15"
                   : "bg-paper/40 border-line hover:border-accent/40 text-muted hover:text-ink"
@@ -223,7 +223,7 @@ export function PathTo200kCalculator() {
         </p>
         {/* Animated Progress Bar */}
         <div>
-          <div className="flex items-center justify-between t-label mb-1.5 font-bold">
+          <div className="flex items-center justify-between t-label mb-1 font-bold">
             <span className="text-ink">{selectedPath.name}</span>
             <span className="font-mono text-accent">
               {selectedPath.voterPool.toLocaleString()} / {TARGET_THRESHOLD.toLocaleString()} ({selectedPath.shareOfCounty.toFixed(2)}% of register, {selectedPath.wardCount} wards)
@@ -258,17 +258,17 @@ export function PathTo200kCalculator() {
 
         {/* Constituent Sub-County Cards */}
         <div>
-          <div className="t-label font-black text-muted mb-2 flex items-center gap-1.5">
+          <div className="t-label font-black text-muted mb-2 flex items-center gap-1">
             <Layers size={12} className="text-accent" />
             <span>Constituency Building Blocks</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {selectedPath.constituencies.map((c, i) => (
               <div key={i} className="p-3 bg-paper border border-line rounded-xl space-y-1">
                 <div className="t-label font-bold text-ink">{c.name}</div>
                 <div className="flex items-center justify-between t-small font-mono text-muted">
                   <span>{c.voters.toLocaleString()} Voters</span>
-                  <span className="t-label px-1.5 py-0.2 bg-card rounded border border-line">{c.wards} Wards</span>
+                  <span className="t-label px-2 py-0.2 bg-card rounded border border-line">{c.wards} Wards</span>
                 </div>
               </div>
             ))}
@@ -277,7 +277,7 @@ export function PathTo200kCalculator() {
 
         {/* Strategic Verdict Callout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
-          <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
+          <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
             <div className="t-label font-black text-accent flex items-center gap-1">
               <TrendingUp size={12} />
               Strategic Verdict
@@ -287,7 +287,7 @@ export function PathTo200kCalculator() {
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-paper border border-line space-y-1">
+          <div className="p-4 rounded-xl bg-paper border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
               <ShieldAlert size={12} className="text-gold" />
               Tactical Requirement
@@ -301,7 +301,7 @@ export function PathTo200kCalculator() {
 
       {/* Footer Insight */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <Percent size={12} className="text-accent" />
           <span>The benchmark: the 2022 winning tally, {fmt("result.2022.gov.malombe")} (IEBC Form 37C), rounded to {fmt("benchmark")}. There is no fixed threshold: the most votes wins.</span>
         </span>

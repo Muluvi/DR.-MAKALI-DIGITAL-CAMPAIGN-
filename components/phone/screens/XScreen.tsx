@@ -46,7 +46,7 @@ function Action({
   fill?: boolean;
 }) {
   return (
-    <span className="flex items-center gap-1.5" style={{ color }}>
+    <span className="flex items-center gap-1" style={{ color }}>
       <Icon size={17.5} strokeWidth={1.9} fill={fill ? color : "none"} aria-hidden="true" />
       {count && (
         <span className="tabular-nums" style={{ fontSize: "0.78125em" }}>
@@ -75,14 +75,14 @@ export function XScreen() {
   return (
     <ScreenShell tone="light" background={BG}>
       {/* Top bar */}
-      <div className="shrink-0 flex items-center gap-6 px-4 pb-2.5" style={{ borderBottom: `1px solid ${LINE}` }}>
+      <div className="shrink-0 flex items-center gap-6 px-4 pb-3" style={{ borderBottom: `1px solid ${LINE}` }}>
         <ArrowLeft size={20} color={FG} strokeWidth={2} aria-hidden="true" />
         <span style={{ fontSize: "1.0625em", fontWeight: 700, color: FG }}>Post</span>
       </div>
 
       <div className="flex-1 min-h-0 px-4 pt-3 overflow-hidden">
         {/* Author */}
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <Avatar size={40} />
           <span className="flex-1 min-w-0">
             <span className="flex items-center gap-1">
@@ -110,9 +110,9 @@ export function XScreen() {
           className="mt-3 overflow-hidden"
           style={{ borderRadius: 16, border: `1px solid ${LINE}`, background: "#0b1a30" }}
         >
-          <div className="px-3.5 py-4">
+          <div className="px-4 py-4">
             <span
-              className="inline-block rounded px-1.5 py-0.5 font-black uppercase"
+              className="inline-block rounded px-2 py-0.5 font-black uppercase"
               style={{ fontSize: "0.53125em", letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
             >
               Tier 1 — Auditor-General
@@ -139,7 +139,7 @@ export function XScreen() {
 
         {/* Action row */}
         <div
-          className="flex items-center justify-between mt-2.5 pt-2.5 pb-2"
+          className="flex items-center justify-between mt-2 pt-3 pb-2"
           style={{ borderTop: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }}
         >
           <Action icon={MessageCircle} count={ILLUSTRATIVE_COUNTS.xReplies} />
@@ -152,7 +152,7 @@ export function XScreen() {
             <Action icon={Heart} count={likeCount} color={liked ? "#f91880" : MUTED} fill={liked} />
           </motion.span>
           <Action icon={BarChart3} count={ILLUSTRATIVE_COUNTS.xViews} />
-          <span className="flex items-center gap-3.5" style={{ color: MUTED }}>
+          <span className="flex items-center gap-3" style={{ color: MUTED }}>
             <Bookmark size={17.5} strokeWidth={1.9} aria-hidden="true" />
             <Share size={17.5} strokeWidth={1.9} aria-hidden="true" />
           </span>
@@ -161,7 +161,7 @@ export function XScreen() {
 
       {/* Bottom nav */}
       <div
-        className="shrink-0 flex items-center justify-around px-6 pt-2.5 pb-1"
+        className="shrink-0 flex items-center justify-around px-6 pt-3 pb-1"
         style={{ borderTop: `1px solid ${LINE}` }}
       >
         <Home size={21} color={FG} strokeWidth={2.1} fill={FG} aria-hidden="true" />

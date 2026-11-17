@@ -25,7 +25,7 @@ export function FiscalAuditChartBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Resource Envelope Against Audit Exposure</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4">
         Audit queries and pending bills together are <strong className="text-ink">{fmt(EXPOSURE_TOTAL)}</strong> — about{" "}
         <strong className="text-ink">{((EXPOSURE_TOTAL / RESOURCE_ENVELOPE_FY2026_27.value) * 100).toFixed(0)}%</strong> of
         the annual resource envelope. That comparison is this chart&apos;s only computation: a sum of figures already
@@ -50,8 +50,8 @@ export function FiscalAuditChartBlockContent() {
           <tbody>
             {DATA.map((d, i) => (
               <tr key={i} className="border-t border-line/40">
-                <td className="py-1.5 pr-3 font-bold text-ink">{d.name}</td>
-                <td className="py-1.5 text-ink/80">{d.display}</td>
+                <td className="py-2 pr-3 font-bold text-ink">{d.name}</td>
+                <td className="py-2 text-ink/80">{d.display}</td>
               </tr>
             ))}
           </tbody>

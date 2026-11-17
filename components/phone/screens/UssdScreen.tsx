@@ -34,17 +34,17 @@ function DimmedHome() {
         className="absolute inset-0"
         style={{ background: "radial-gradient(120% 80% at 50% 0%, #1d2735 0%, #0d1117 70%)" }}
       />
-      <div className="absolute inset-x-0 top-[92px] px-7 grid grid-cols-4 gap-x-5 gap-y-6">
+      <div className="absolute inset-x-0 top-[5.75rem] px-7 grid grid-cols-4 gap-x-5 gap-y-6">
         {Array.from({ length: 16 }).map((_, i) => (
           <span
             key={i}
-            className="block rounded-[14px]"
+            className="block rounded-[0.875rem]"
             style={{ aspectRatio: "1", background: "rgba(255,255,255,0.07)" }}
           />
         ))}
       </div>
       <div
-        className="absolute inset-x-5 bottom-8 h-[76px] rounded-[26px]"
+        className="absolute inset-x-5 bottom-8 h-[4.75rem] rounded-[1.625rem]"
         style={{ background: "rgba(255,255,255,0.06)" }}
       />
     </div>
@@ -131,7 +131,7 @@ export function UssdScreen() {
           </div>
         </div>
 
-        <div aria-hidden="true" className="shrink-0 flex justify-center pt-1.5 pb-2">
+        <div aria-hidden="true" className="shrink-0 flex justify-center pt-2 pb-2">
           <span className="block rounded-full" style={{ width: 118, height: 5, background: "#ffffff", opacity: 0.55 }} />
         </div>
       </div>

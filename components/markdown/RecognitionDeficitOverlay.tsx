@@ -146,7 +146,7 @@ export function RecognitionDeficitOverlay() {
           <button
             onClick={() => setFilterMode("all")}
             aria-pressed={filterMode === "all"}
-            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
+            className={`px-3 py-2 min-h-[2.75rem] min-w-[2.75rem] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
  filterMode === "all" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
@@ -155,7 +155,7 @@ export function RecognitionDeficitOverlay() {
           <button
             onClick={() => setFilterMode("deficitOnly")}
             aria-pressed={filterMode === "deficitOnly"}
-            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
+            className={`px-3 py-2 min-h-[2.75rem] min-w-[2.75rem] inline-flex items-center justify-center rounded-lg t-small font-bold transition-colors cursor-pointer ${
  filterMode === "deficitOnly" ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink"
             }`}
           >
@@ -165,7 +165,7 @@ export function RecognitionDeficitOverlay() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line border-b border-line bg-card">
-        <div className="p-3.5 sm:p-4">
+        <div className="p-4 sm:p-4">
           <div className="t-label font-black text-muted">Decisive deficit pool</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-ink mt-0.5 tabular-nums">
             {fmt(DEFICIT_POOL)}
@@ -174,14 +174,14 @@ export function RecognitionDeficitOverlay() {
             {DEFICIT_POOL_SHARE.toFixed(2)}% of the county register
           </div>
         </div>
-        <div className="p-3.5 sm:p-4">
+        <div className="p-4 sm:p-4">
           <div className="t-label font-black text-muted">Pool wards</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-ink mt-0.5 tabular-nums">
             {POOL_WARD_COUNT} of {ALL_WARDS.length}
           </div>
           <div className="t-small text-muted mt-0.5">Wards where he has never held office</div>
         </div>
-        <div className="p-3.5 sm:p-4">
+        <div className="p-4 sm:p-4">
           <div className="t-label font-black text-muted">Phase −1 geofenced spend</div>
           <div className="font-serif text-xl sm:text-2xl font-bold text-accent mt-0.5 tabular-nums">65%</div>
           <div className="t-small text-muted mt-0.5">Mwingi (all three) + Kitui South</div>
@@ -193,9 +193,9 @@ export function RecognitionDeficitOverlay() {
           const meta = STATUS_META[w.status];
           const share = (w.voters / COUNTY_TOTAL_WARDS) * 100;
           return (
-            <div key={`${w.constituencyId}-${w.name}`} className={`p-3 sm:p-3.5 rounded-xl border ${meta.className}`}>
+            <div key={`${w.constituencyId}-${w.name}`} className={`p-3 sm:p-4 rounded-xl border ${meta.className}`}>
               <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-2.5 min-w-0">
+                <div className="flex items-start gap-2 min-w-0">
                   <span className="font-mono t-small font-bold text-muted tabular-nums pt-0.5 shrink-0 w-5">
                     {w.rank}
                   </span>
@@ -212,8 +212,8 @@ export function RecognitionDeficitOverlay() {
                   <div className="t-label text-muted tabular-nums">{share.toFixed(2)}% of register</div>
                 </div>
               </div>
-              <div className="flex items-start gap-1.5 mt-2.5 pt-2.5 border-t border-line/40">
-                <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1.5 ${meta.dot}`} aria-hidden="true" />
+              <div className="flex items-start gap-1 mt-2 pt-3 border-t border-line/40">
+                <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1 ${meta.dot}`} aria-hidden="true" />
                 <span className="t-label font-black text-ink shrink-0">{meta.label}</span>
                 {/* No truncation on the qualifier: it is the reason, and §3.4 gave a different one
                     to two wards in the same constituency. Clipping it would erase the distinction. */}
@@ -228,7 +228,7 @@ export function RecognitionDeficitOverlay() {
       </div>
 
       <div className="px-4 py-3 bg-paper/60 border-t border-line space-y-2">
-        <p className="t-small text-muted font-medium flex items-start gap-1.5">
+        <p className="t-small text-muted font-medium flex items-start gap-1">
           <TrendingDown size={12} className="text-rose-500 shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             {DEFICIT_IN_TOP_8.length} of the top 8 wards countywide —{" "}
@@ -241,10 +241,10 @@ export function RecognitionDeficitOverlay() {
             , <span className="tabular-nums">{fmt(DEFICIT_IN_TOP_11_VOTERS)}</span> voters.
           </span>
         </p>
-        <p className="t-small text-muted font-medium pl-[18px]">
+        <p className="t-small text-muted font-medium pl-[1.125rem]">
           Either way, the wards that decide the election are the wards where Dr. Mulu is least known.
         </p>
-        <p className="t-small text-muted flex items-start gap-1.5">
+        <p className="t-small text-muted flex items-start gap-1">
           <AlertTriangle size={12} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Recognition status here is <strong>structural</strong> — derived from where Dr. Mulu has held office, not
@@ -252,7 +252,7 @@ export function RecognitionDeficitOverlay() {
             results are the official record the analysis reads next.
           </span>
         </p>
-        <p className="t-small text-muted flex items-start gap-1.5">
+        <p className="t-small text-muted flex items-start gap-1">
           <Radio size={12} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Ward figures: IEBC 2022 register, all 40 wards. Ranking computed from that register, not asserted.

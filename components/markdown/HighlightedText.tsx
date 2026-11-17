@@ -118,7 +118,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
       const statusMatch = STATUS_PHRASES.find((p) => new RegExp(`^${p.pattern}$`, "i").test(part));
       if (statusMatch) {
         return (
-          <span key={idx} className="inline-flex items-center gap-1.5 flex-wrap align-middle">
+          <span key={idx} className="inline-flex items-center gap-1 flex-wrap align-middle">
             {part}
             <ClaimBadge status={statusMatch.status} compact />
           </span>
@@ -129,7 +129,7 @@ export const HighlightedText = React.memo(function HighlightedText({ text, tabId
         return (
           <span
             key={idx}
-            className="bg-gold/10 text-gold border border-gold/20 px-1.5 py-0.5 rounded font-mono t-label font-bold mx-1 whitespace-nowrap"
+            className="bg-gold/10 text-gold border border-gold/20 px-2 py-0.5 rounded font-mono t-label font-bold mx-1 whitespace-nowrap"
           >
             {part}
           </span>

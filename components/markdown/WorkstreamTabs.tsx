@@ -132,7 +132,7 @@ export function WorkstreamTabBar() {
 
   return (
     <nav aria-label="The workstreams" data-ws-tabs="" className="not-prose sticky top-2 z-10 my-6 print:hidden">
-      <ul role="tablist" className="grid grid-cols-2 gap-1.5 rounded-2xl border border-line bg-card/95 p-1.5 backdrop-blur sm:grid-cols-4">
+      <ul role="tablist" className="grid grid-cols-2 gap-1 rounded-2xl border border-line bg-card/95 p-2 backdrop-blur sm:grid-cols-4">
         {WORKSTREAM_TABS.map((t) => {
           const on = active === t.tab;
           return (
@@ -148,7 +148,7 @@ export function WorkstreamTabBar() {
                   history.replaceState(null, "", `#ws-${t.tab}`);
                   document.getElementById(`ws-${t.tab}`)?.scrollIntoView({ block: "start" });
                 }}
-                className={`relative flex min-h-11 flex-col justify-center rounded-xl px-3 py-1.5 text-left transition-colors ${on ? "text-white" : "text-ink hover:bg-paper"}`}
+                className={`relative flex min-h-11 flex-col justify-center rounded-xl px-3 py-2 text-left transition-colors ${on ? "text-white" : "text-ink hover:bg-paper"}`}
               >
                 {/* One highlight that travels to the chosen tab, rather than one that blinks out
                     and reappears: the reader sees where they moved from and to. */}

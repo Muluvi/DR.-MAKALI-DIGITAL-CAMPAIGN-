@@ -260,14 +260,14 @@ export function MobileTOCModal({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   ref={searchRef}
-                  className="w-full pl-10 pr-20 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[48px]"
+                  className="w-full pl-10 pr-20 py-2 bg-card border border-line rounded-xl t-label font-semibold text-ink placeholder:text-muted focus:outline-none focus:border-accent min-h-[3rem]"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     aria-label="Clear search"
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-2.5 py-1.5 bg-paper rounded-lg border border-line cursor-pointer"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 t-label text-muted hover:text-ink px-3 py-2 bg-paper rounded-lg border border-line cursor-pointer"
                   >
                     Clear
                   </button>
@@ -321,12 +321,12 @@ export function MobileTOCModal({
 
               {/* Filter pills */}
               <div className="pf-idx__subhead"><span>Every heading</span></div>
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
+              <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-none t-small font-bold">
                 <button
                   type="button"
                   onClick={() => setSelectedTabFilter("all")}
                   aria-pressed={selectedTabFilter === "all"}
-                  className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[36px] ${
+                  className={`px-3 py-2 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[2.25rem] ${
                     selectedTabFilter === "all" ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line hover:text-ink"
                   }`}
                 >
@@ -338,7 +338,7 @@ export function MobileTOCModal({
                     key={part.part}
                     onClick={() => setSelectedTabFilter(part.part)}
                     aria-pressed={selectedTabFilter === part.part}
-                    className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[36px] ${
+                    className={`px-3 py-2 rounded-full whitespace-nowrap transition-colors border cursor-pointer min-h-[2.25rem] ${
                       selectedTabFilter === part.part ? "bg-accent-solid text-on-accent border-accent-solid" : "bg-card text-muted border-line hover:text-ink"
                     }`}
                   >
@@ -361,9 +361,9 @@ export function MobileTOCModal({
                           onSelectSection(item.id, item.tabId);
                           onClose();
                         }}
-                        className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-colors group cursor-pointer min-h-[50px]"
+                        className="fx-press fx-focus w-full py-3 px-2 flex items-center justify-between text-left hover:bg-paper/70 active:bg-paper rounded-xl transition-colors group cursor-pointer min-h-[3.125rem]"
                       >
-                        <div className={`flex items-start gap-2.5 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
+                        <div className={`flex items-start gap-2 sm:gap-3 min-w-0 pr-2 ${item.level === 3 ? "pl-3 sm:pl-5" : ""}`}>
                                                     <div className="min-w-0">
                             <span className={`block t-label text-ink group-hover:text-accent transition-colors ${item.level === 2 ? "font-bold" : "font-medium"}`}>
                               {item.title}
@@ -376,7 +376,7 @@ export function MobileTOCModal({
                                     Figure: {f.title}
                                   </span>
                                 ))}
-                            <div className="flex items-center gap-1.5 mt-0.5 t-micro text-muted">
+                            <div className="flex items-center gap-1 mt-0.5 t-micro text-muted">
                               <Icon size={11} className="shrink-0" aria-hidden="true" />
                               <span className="font-medium truncate">{item.tabLabel}</span>
                               {isCurrentTab && <span className="text-accent font-semibold">· current</span>}

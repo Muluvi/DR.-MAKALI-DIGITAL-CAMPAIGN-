@@ -614,7 +614,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button
               onClick={printDocument}
-              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
+              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[2.5rem]"
             >
               <Printer size={14} />
               <span>Print, or save as PDF</span>

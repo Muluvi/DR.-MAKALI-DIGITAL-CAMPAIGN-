@@ -45,12 +45,12 @@ function Select({ label, value, onChange, options }: {
   options: { value: string; label: string }[];
 }) {
   return (
-    <label className="flex min-w-0 flex-col gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+    <label className="flex min-w-0 flex-col gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
       {label}
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-xl border border-white/10 bg-[#0b1526] px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-100 outline-none focus-visible:border-cyan-300/60"
+        className="w-full rounded-xl border border-white/10 bg-[#0b1526] px-3 py-3 text-sm font-normal normal-case tracking-normal text-slate-100 outline-none focus-visible:border-cyan-300/60"
       >
         {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>
@@ -64,7 +64,7 @@ function Row({ p }: { p: ProjectRow }) {
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
         <div className="min-w-0 flex-1">
           <h3 className="text-base font-semibold leading-snug text-white">{p.title}</h3>
-          <p className="mt-1.5 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-400">
             {p.sector} · {p.constituency === "All/HQ" ? "All/HQ" : p.constituency} · <span className={p.level === "ward" ? "text-slate-200" : "text-amber-200"}>{placeOf(p)}</span>
           </p>
         </div>
@@ -153,7 +153,7 @@ export function ProjectsRegister() {
           />
           <Select label="Sector" value={sector} onChange={reset(setSector)} options={[{ value: ALL, label: "All sectors" }, ...sectors.map((s) => ({ value: s, label: s }))]} />
           <Select label="Status, as printed" value={status} onChange={reset(setStatus)} options={[{ value: ALL, label: "All statuses" }, ...statuses.map((s) => ({ value: s, label: s }))]} />
-          <label className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#0b1526] px-3 py-2.5 text-sm text-slate-300 sm:col-span-2 lg:col-span-4">
+          <label className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#0b1526] px-3 py-3 text-sm text-slate-300 sm:col-span-2 lg:col-span-4">
             <Search size={16} aria-hidden="true" />
             <span className="sr-only">Search projects</span>
             <input value={query} onChange={(event) => reset(setQuery)(event.target.value)} placeholder="Search titles and villages" className="w-full bg-transparent outline-none placeholder:text-slate-400" />
@@ -184,7 +184,7 @@ export function ProjectsRegister() {
           <button
             type="button"
             onClick={() => setShown((n) => n + PAGE)}
-            className="mx-auto mt-6 block rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-slate-200 hover:border-cyan-300/50 hover:text-cyan-200"
+            className="mx-auto mt-6 block rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-cyan-300/50 hover:text-cyan-200"
           >
             Show more ({count(filtered.length - shown)} left)
           </button>

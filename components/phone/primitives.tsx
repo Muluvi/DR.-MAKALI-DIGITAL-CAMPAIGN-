@@ -23,7 +23,7 @@ export function StatusBar({ tone = "dark", className = "" }: { tone?: Tone; clas
       <span className="font-semibold tabular-nums tracking-tight" style={{ fontSize: "0.875em", letterSpacing: "-0.01em" }}>
         {ILLUSTRATIVE_COUNTS.statusBarTime}
       </span>
-      <span className="flex items-center gap-[5px]">
+      <span className="flex items-center gap-[0.3125rem]">
         {/* Cellular bars */}
         <svg width="17" height="11" viewBox="0 0 17 11" fill={fg} aria-hidden="true">
           <rect x="0" y="7.5" width="3" height="3.5" rx="1" />
@@ -51,7 +51,7 @@ export function StatusBar({ tone = "dark", className = "" }: { tone?: Tone; clas
 /** The home indicator every modern handset draws at the base of the screen. */
 export function HomeIndicator({ tone = "dark" }: { tone?: Tone }) {
   return (
-    <div aria-hidden="true" className="shrink-0 flex justify-center pt-1.5 pb-2">
+    <div aria-hidden="true" className="shrink-0 flex justify-center pt-2 pb-2">
       <span
         className="block rounded-full"
         style={{ width: 118, height: 5, background: tone === "dark" ? "#0f0f0f" : "#ffffff", opacity: 0.9 }}

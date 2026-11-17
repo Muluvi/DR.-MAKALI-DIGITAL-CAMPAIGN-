@@ -67,7 +67,7 @@ export function DirectionWeek() {
                 <p className="t-small font-black text-ink leading-snug">{p.label}</p>
                 <p className="t-micro text-muted leading-relaxed mt-0.5">{p.detail}</p>
               </div>
-              <span className="shrink-0 inline-flex items-center gap-1.5 t-micro font-bold text-muted pt-0.5">
+              <span className="shrink-0 inline-flex items-center gap-1 t-micro font-bold text-muted pt-0.5">
                 <span className={`w-2 h-2 rounded-full ${s.dot}`} aria-hidden="true" />
                 {s.who}
               </span>
