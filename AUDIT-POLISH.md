@@ -629,5 +629,5 @@ registry. Only the tag on screen is gone.
 **Unchanged.** Content and the published data are byte-identical. `content/`, `public/content/`
 and `public/data/` all show no diff. The CSVs and registry are still built from the specs with
 tiers, because the stripping happens only on the way to the screen. 43 CSS rules for the removed
-tags are deleted. `check-preservation` passes with 81 protected files edited (73 on main); each of
-the 8 new ones is a tag removal listed above.
+tags are deleted. `check-preservation` passes with 82 protected files edited (73 on main); each of
+the 9 new ones is a tag removal listed above.
