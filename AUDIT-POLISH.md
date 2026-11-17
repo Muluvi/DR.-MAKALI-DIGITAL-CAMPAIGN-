@@ -307,3 +307,110 @@ from D now and from workstreams 4 and 9 (fonts, hydration) later.
    that hydrates every chapter's client tree is a large move from 50–61. It's achievable only if
    workstream 9 can make most of the chapter tree server-rendered. I'll report the measured result
    honestly if it falls short.
+
+---
+
+## 7. Approval and what was done (workstream 2)
+
+Approved on 17 November 2026: groups A, B, C and D, plus "remove what's not being used", which
+I took to cover E and the free part of F. For F, a script was deleted only when no live file
+names it: not the code, the configs, the workflows, `package.json`, the data or the JSON
+ledgers. Files that only `docs/` and markdown mention count as free.
+
+### Deleted
+
+- **A.** All 11 files, as listed.
+- **B.** All 6 portrait files, as listed.
+- **E.** All 5 root documents, as listed.
+- **F.** 54 files, listed below. `build-app-icon.mjs` stays: it regenerates the shipped
+  `app/apple-icon.png`, like `build-og-image.mjs`. These 19 also stay because a live file
+  still names them:
+  - Live callers: `preservation-manifest.json`, `section-visual-overrides.json`,
+    `figure-retirements.json`, `consolidation/literals-allow.json`, `preservation/loader.mjs`,
+    `rebuild/routes.mjs`, `consolidation/ledger.mjs`.
+  - Named by a live script's comments or anchors: `build-og-image.mjs`, `build-ward-keys.mjs`,
+    `consolidation/live-check.mjs`, `consolidation/motion-check.mjs`,
+    `consolidation/move-section.mjs`, `declutter/edit.py`, `measure-section-heights.mjs`,
+    `rebuild/phase1.py`, `rebuild/snapshot-anchors.mjs`, `restructure-2026-10/build-moves.py`,
+    `restructure-2026-11/build-moves.py`, `restructure-2026-11/build-preservation.py`.
+
+F, deleted (54 files, 759,709 B):
+`scripts/audit-additions.json`, `scripts/audit-rewrites.json`, `scripts/build-visual-inventory.mjs`, `scripts/consolidation/dedupe.mjs`, `scripts/consolidation/feature-check.mjs`, `scripts/consolidation/merge-chapter.mjs`, `scripts/declutter/fig.mjs`, `scripts/declutter/live-checks.mjs`, `scripts/declutter/measure-heights.mjs`, `scripts/declutter/screenshots.mjs`, `scripts/declutter/stage_helpers.py`, `scripts/declutter/stages/e1_source_pack.py`, `scripts/declutter/stages/s3_intros.py`, `scripts/declutter/stages/s3_register.py`, `scripts/declutter/stages/s3_window.py`, `scripts/declutter/stages/s4_decision.py`, `scripts/declutter/stages/s5_evidence.py`, `scripts/declutter/stages/s6_strategy.py`, `scripts/declutter/stages/s7_part4.py`, `scripts/declutter/stages/s8_measure_risks.py`, `scripts/declutter/stages/s9_annexes.py`, `scripts/figure-migrations.json`, `scripts/heading-inventory.ts`, `scripts/measure-chrome-occlusion.mjs`, `scripts/measure-text-load.mjs`, `scripts/measure-visual-baseline.mjs`, `scripts/notation-rewrites.json`, `scripts/optimisation/dom-probe.mjs`, `scripts/optimisation/lighthouse-summary.mjs`, `scripts/optimisation/prose-screens.mjs`, `scripts/optimisation/prune-css.mjs`, `scripts/optimisation/screen-coverage.mjs`, `scripts/optimisation/screenshots.mjs`, `scripts/rebuild/inventory.mjs`, `scripts/rebuild/mapping.mjs`, `scripts/rebuild/migrate.mjs`, `scripts/rebuild/tokenize.ts`, `scripts/renumber-citations.ts`, `scripts/restructure-2026-10/build-layout.py`, `scripts/restructure-2026-10/check-acceptance.py`, `scripts/restructure-2026-10/check-conservation.py`, `scripts/restructure-2026-10/live-checks.mjs`, `scripts/restructure-2026-10/parse-mapping.py`, `scripts/restructure-2026-10/update-keys.py`, `scripts/restructure-2026-11/build-layout.py`, `scripts/restructure-2026-11/inventory.py`, `scripts/restructure-2026-11/mapping.py`, `scripts/restructure-2026-11/render.py`, `scripts/restructure-2026-11/render_final.py`, `scripts/restructure-2026-11/renumber.py`, `scripts/restructure-2026-11/write_docs.py`, `scripts/start-dev.mjs`, `scripts/visual-feature-ledger.py`, `scripts/visual-inventory-plan.json`
+
+### Dependencies (C)
+
+`zod`, `autoprefixer` and `tw-animate-css` were removed, along with the `@import` in `globals.css`
+and the `autoprefixer` entry in `postcss.config.mjs`. `@types/qrcode` moved to
+`devDependencies`.
+
+There is one visible effect of dropping autoprefixer. It had been stripping
+`-webkit-backdrop-filter` from Tailwind's `transition-property` list, so that entry now ships.
+Safari before 18 needs it, and it changes nothing in Chromium.
+
+### CSS consolidation (D and the merge)
+
+**12 files became 4**, in the exact cascade order the 12 had:
+
+| New file | Holds, in order |
+|---|---|
+| `app/globals.css` | head of globals → visual-fx → part-visuals → flow → declutter → rest of globals (exactly where the four `@import`s used to inline them) |
+| `app/editorial.css` | register → premium |
+| `app/charts.css` | chart-kit → motion-draw |
+| `app/story.css` | streamline → platform → story-live |
+
+Each old file now opens with a banner that names it, so nothing that pointed at it is lost.
+
+| Step | Count |
+|---|---:|
+| Dead rules removed | 192 |
+| Comments removed (only those owned entirely by removed rules) | 16 |
+| Later same-selector declarations folded into the earlier rule | 376 |
+| Override rules emptied by folding and removed | 21 |
+
+Folding moves a declaration from rule B up into an earlier rule A with the same selector and
+context. It only does this when no rule anywhere between A and B sets a property of the same
+family (`margin-top` and `margin` count as one family, for example). That rule guarantees the
+cascade result is unchanged.
+
+The dead count is lower than the 198 in section 3D for two reasons:
+- The detector now ignores class names inside `:not()`, `:is()`, `:where()` and `:has()`. A rule
+  such as `.prose > :is(.not-prose, figure):not(.pf-wide-block)` matches even though
+  `.pf-wide-block` is unused.
+- It now treats any text directly before `${` as a dynamic prefix. This is what keeps
+  `ichip--t${tier}`.
+
+The first stage-2 run caught both mistakes, and the corrected run removed none of those rules.
+
+Tailwind now scans only `app`, `components`, `hooks`, `lib`, `content` and `data`
+(`source(none)` plus `@source`), instead of the whole repository.
+
+**Verification.** I dumped the computed style and box of every element, including `::before` and
+`::after`, for 85 properties, on all 31 static routes at 390 and 1440 px, light and dark: 124
+dumps against the original build. Each stage was diffed against that baseline.
+
+- The only differences left are run-to-run state: the toast region, the delayed "try me" cue,
+  React `useId` values, the heading currently in view, and lazily mounted charts.
+- Each of these differs between two runs of the same build, in both directions, and disappears
+  when the route is run again.
+- Stages 1 (merge), 2 (dead rules), 3 (folding) and 4 (Tailwind sources) each show zero
+  differences outside that set.
+
+### Result
+
+| | Before | After |
+|---|---:|---:|
+| CSS source files | 12 | 4 |
+| CSS source bytes | 428,866 | 397,392 |
+| Built CSS, raw | 433,191 | 401,808 |
+| Built CSS, gzip | 77,977 | 72,873 |
+| Tracked files | 1,140 | 1057 |
+
+The cut in built CSS is 7%, not the large cut the brief hoped for. The rest of the hand-written
+CSS is live: every remaining rule matches something the site renders. The 106 kB Tailwind
+utilities layer is all used, which is why restricting the scan saved only 1.1 kB. Further
+reductions now come from the later workstreams, which rewrite rather than delete: the type and
+spacing scales (4 and 6) replace per-component one-offs.
+
+`npm run lint`, `npm run verify` and `npm run build` pass. `check-preservation` prints the same
+lines as on main: 259 protected files present, the same 73 edited since its baseline, and no
+count below baseline. No file under `content/` or `public/content/` changed.

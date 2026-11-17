@@ -79,7 +79,7 @@ const CARD = `<!doctype html>
 <html><head><meta charset="utf-8">
 <style>
   ${FONTS}
-  /* The 2026 dark-theme tokens, copied from app/globals.css and app/premium.css. */
+  /* The 2026 dark-theme tokens, copied from app/globals.css and app/editorial.css. */
   :root {
     --paper: oklch(0.16 0.03 262);
     --card: oklch(0.205 0.032 262);

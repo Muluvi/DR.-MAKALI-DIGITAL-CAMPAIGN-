@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * The site's motion, checked in a real browser against a running copy of the site (app/motion-draw.css,
- * app/chart-kit.css, components/register/RegisterMotion.tsx).
+ * The site's motion, checked in a real browser against a running copy of the site (app/charts.css,
+ * app/charts.css, components/register/RegisterMotion.tsx).
  *
  * Motion must never be the only way to see something, so this checks the ends rather than the
  * middle:
  *
- *   0. Statically, before any browser: app/motion-draw.css moves nothing but compositor
+ *   0. Statically, before any browser: app/charts.css moves nothing but compositor
  *      properties (opacity, translate, scale, rotate, transform, stroke-dashoffset), so motion
  *      cannot shift the layout around it.
  *   1. Every chapter at 390px, scrolled through a screen at a time: at no step is a figure (.rf)
@@ -95,7 +95,7 @@ async function stuck(page) {
   return { revisited: ids.length, bad };
 }
 
-/** What app/motion-draw.css moves. A mark that ends below full opacity by design is not among them. */
+/** What app/charts.css moves. A mark that ends below full opacity by design is not among them. */
 const MOVED = [
   ".kx-matrix tbody tr", ".kx-card", ".kx-heat__cell", ".kx-riskgrid td", ".kx-riskgrid .kx-riskpin", ".kx-day", ".kx-phone__fields li", ".kx-phone .kx-pin",
   ".vz-seq__mark", ".vz-seq--stepper .vz-seq__text", ".vz-seq--timeline .vz-seq__text", ".vz-card", ".vz-stat__value", ".vz-stat__label", ".vz-bars__fill",
@@ -116,7 +116,7 @@ const unsettled = (page) => page.evaluate((MOVED) => {
 // 0. Motion moves compositor properties only.
 console.log("\nstatic: what the motion moves");
 {
-  const css = fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), "..", "..", "app", "motion-draw.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+  const css = fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), "..", "..", "app", "charts.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
   const ALLOWED = new Set(["opacity", "translate", "scale", "rotate", "transform", "stroke-dashoffset"]);
   const bad = new Set();
   // Properties set in a pending state or in a keyframe: what the browser animates away from.
@@ -127,7 +127,7 @@ console.log("\nstatic: what the motion moves");
   for (const m of css.matchAll(/transition:\s*([^;]+);/g)) {
     for (const part of m[1].split(/,(?![^(]*\))/)) { const prop = part.trim().split(/\s+/)[0]; if (!ALLOWED.has(prop)) bad.add(prop); }
   }
-  ok(bad.size === 0, `app/motion-draw.css animates only compositor properties${bad.size ? ` (found: ${[...bad].join(", ")})` : ""}`);
+  ok(bad.size === 0, `app/charts.css animates only compositor properties${bad.size ? ` (found: ${[...bad].join(", ")})` : ""}`);
 }
 
 const browser = await chromium.launch();

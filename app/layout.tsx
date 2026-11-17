@@ -1,14 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google';
-import './globals.css'; // Global styles
+import './globals.css'; // Tokens, the theme and the base layer, with the effect, part-visual, flow and declutter layers
 import { RangeFill } from '@/components/story/RangeFill';
-import './register.css'; // The figure register's visual system
-import './premium.css'; // The 2026 premium layer
-import './chart-kit.css'; // Chart kit v2: the register's marks, after the layer they sit in
-import './motion-draw.css'; // How each visual arrives and how folds and tabs open (after the marks it moves)
-import './streamline.css'; // The summary layer: the route map and the chapter digests
-import './platform.css'; // The platform's controls, used by the tools and records the chapters now hold
-import './story-live.css'; // The working layer in the story: tools, live records, charts and their cues
+import './editorial.css'; // The figure register's visual system, then the 2026 premium layer over it
+import './charts.css'; // Chart kit v2 and how each visual draws in, after the layer they sit in
+import './story.css'; // The route map and digests, the platform's controls, and the working layer in the story
 
 // The variable axis, not a pair of static cuts.
 //

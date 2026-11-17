@@ -1,80 +1,148 @@
-/*
- * The premium visual layer (2026): "The county, measured".
- *
- * Component styles for components/premium/*, and the site-level rules that carry the new
- * language through the document (grid, type, chapters, callouts, tables, chrome). Imported after
- * globals.css and register.css so it is the last word.
- *
- * TOKENS. The palette itself lives in app/globals.css under the site's existing names (--paper,
- * --card, --ink, --muted, --accent, --accent-solid, --gold, --gold-solid, …). The --pf-* names
- * below are aliases onto those, plus the few values the new components need that the site had no
- * name for. Contrast for every pair is recorded in docs/visual-premium/PHASE-0.md §7.7.
- */
 
-:root {
-  --pf-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --pf-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --pf-dur-fast: 180ms;
-  --pf-dur-entrance: 520ms;
-  --pf-dur-deliberate: 620ms;
-  --pf-dur-settle: 900ms;
-  --pf-dur-type: 1200ms;
-
-  --pf-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  --pf-display-stretch: 88%;
-  --pf-serif: var(--font-newsreader), Georgia, serif;
-  --pf-mono: var(--font-mono), ui-monospace, monospace;
-  --pf-dock-h: 56px;
-  --pf-gutter: 16px;
-
-  --pf-ground: var(--paper);
-  --pf-raised: var(--card);
-  --pf-raised-2: oklch(0.95 0.014 85);
-  --pf-ink: var(--ink);
-  --pf-muted: var(--muted);
-  --pf-line: var(--line);
-  --pf-grid: oklch(0.84 0.015 85);
-  --pf-accent: var(--accent);
-  --pf-accent-solid: var(--accent-solid);
-  --pf-accent-glow: oklch(0.47 0.21 265 / 0.12);
-  --pf-earth: var(--gold);
-  --pf-earth-solid: var(--gold-solid);
-  --pf-earth-glow: oklch(0.53 0.15 40 / 0.12);
-  --pf-sisal: oklch(0.52 0.07 80);
-  --pf-rival: var(--rival);
-  --pf-rival-solid: var(--rival-solid);
-  --pf-on-solid: oklch(1 0 0);
-  --pf-neutral-tile: oklch(0.62 0.03 85); /* 3.4:1 on the ground: a mark, not a void */
-  --pf-on-earth-weave: oklch(0.97 0.03 85);
-  --pf-bar: oklch(0.42 0.04 262);
-  --pf-weave-on-bar: oklch(0.99 0.01 85);
-  --pf-t1: oklch(0.45 0.12 150);
-  --pf-t2: oklch(0.5 0.12 75);
-  --pf-t3: oklch(0.5 0.17 28);
-  --pf-glass: oklch(1 0 0 / 0.86);
-  --pf-shadow: 0 18px 40px -22px oklch(0.25 0.06 268 / 0.35);
-  --pf-weave-op: 0.05;
-  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(58,44,30)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+/* ------------------------------------------------------------------ the frame */
+.rf { margin: 1.5rem 0; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); overflow: hidden; break-inside: avoid; }
+.rf-head { padding: 1rem 1rem 0; }
+.rf-title { font-family: var(--font-newsreader, Georgia), serif; font-weight: 700; font-size: 1.0625rem; line-height: 1.3; color: var(--ink); text-wrap: balance; margin: 0; }
+.rf-question { margin: 0.25rem 0 0; font-size: 0.8125rem; line-height: 1.4; color: var(--muted); }
+.rf-body { padding: 1rem; }
+.rf-notes { margin: 0.5rem 0 0; font-size: 0.75rem; color: var(--muted); }
+.rf-takeaway { margin: 0; padding: 0.75rem 1rem; border-top: 1px solid var(--line); font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.rf-foot { padding: 0.625rem 1rem 0.875rem; border-top: 1px solid var(--line); background: color-mix(in oklab, var(--paper) 55%, transparent); font-size: 0.75rem; color: var(--muted); }
+.rf-source { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.5rem; margin: 0; }
+.rf-details { margin-top: 0.5rem; }
+.rf-details > summary { cursor: pointer; font-weight: 600; color: var(--accent); min-height: 24px; display: inline-flex; align-items: center; }
+.rf-details > summary:focus-visible, .rf-csv:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.rf-table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.rf-table-wrap { margin-top: 0.5rem; overflow-x: auto; }
+.rf-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.rf-table th, .rf-table td { padding: 0.375rem 0.5rem 0.375rem 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); text-align: left; vertical-align: top; color: var(--ink); min-width: 3.25rem; }
+.rf-table thead th { color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--card); }
+.rf-table .num { text-align: right; }
+.rf-table tbody th { font-weight: 500; }
+/* Narrow screens: each row becomes a card of label/value pairs (brief §Q, tables), so a 360px
+   reader never scrolls a table sideways. The labels come from each cell's data-col. */
+@media (max-width: 30rem) {
+  .rf-table:not(.is-long) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .rf-table:not(.is-long), .rf-table:not(.is-long) tbody, .rf-table:not(.is-long) tr { display: block; }
+  .rf-table:not(.is-long) tr { padding: 0.5rem 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); }
+  .rf-table:not(.is-long) tbody th, .rf-table:not(.is-long) td { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem; border: 0; padding: 0.125rem 0; }
+  .rf-table:not(.is-long) tbody th { font-weight: 700; display: block; padding-bottom: 0.25rem; }
+  .rf-table:not(.is-long) td::before { content: attr(data-col); color: var(--muted); font-weight: 600; }
+  .rf-table:not(.is-long) td.num { text-align: left; }
+  /* A long table scrolls sideways inside its frame, first column pinned. */
+  .rf-table.is-long { min-width: 32rem; }
+  .rf-table.is-long tbody th { position: sticky; left: 0; background: var(--card); z-index: 1; }
+}
+.rf-csv { display: inline-flex; align-items: center; min-height: 24px; margin-top: 0.5rem; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+.rf-csv .rf-csv-file { display: none; margin-left: 0.375rem; font-weight: 400; color: var(--muted); text-decoration: none; }
+.rf-csv:focus-visible .rf-csv-file, .rf-csv:hover .rf-csv-file { display: inline; }
+.rf-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.rf-svg text { font-family: inherit; fill: var(--ink); }
+.rf-svg .muted { fill: var(--muted); }
+@media (min-width: 640px) {
+  .rf-head { padding: 1.25rem 1.25rem 0; }
+  .rf-body { padding: 1.25rem; }
+  .rf-takeaway, .rf-foot { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
 
-.dark {
-  --pf-raised-2: oklch(0.25 0.035 262);
-  --pf-grid: oklch(0.34 0.03 262 / 0.7);
-  --pf-accent-glow: oklch(0.5 0.2 265 / 0.22);
-  --pf-earth-glow: oklch(0.53 0.15 40 / 0.2);
-  --pf-sisal: oklch(0.84 0.05 85);
-  --pf-neutral-tile: oklch(0.52 0.03 262); /* 3.5:1 on the ground */
-  --pf-on-earth-weave: oklch(0.86 0.06 80);
-  --pf-bar: oklch(0.78 0.03 255);
-  --pf-weave-on-bar: oklch(0.16 0.03 262);
-  --pf-t1: oklch(0.8 0.14 150);
-  --pf-t2: oklch(0.82 0.13 85);
-  --pf-t3: oklch(0.74 0.16 28);
-  --pf-glass: oklch(0.205 0.032 262 / 0.84);
-  --pf-shadow: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 18px 40px -18px oklch(0 0 0 / 0.7);
-  --pf-weave-op: 0.06;
-  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(236,224,196)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+/* ------------------------------------------------------------------ tier pills, by shape */
+.tp { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.5rem; min-height: 1.25rem; border-radius: 999px; font-size: 0.6875rem; font-weight: 700; line-height: 1; white-space: nowrap; border: 1.5px solid var(--ink); color: var(--ink); }
+.tp-T1 { background: var(--ink); color: var(--card); }
+.tp-T2 { background: transparent; border-style: solid; }
+.tp-T3 { background: transparent; border-style: dashed; }
+.tp-modelled { background-image: repeating-linear-gradient(45deg, transparent 0 3px, color-mix(in oklab, var(--ink) 22%, transparent) 3px 4.5px); }
+.tp-needed { border-style: dashed; color: var(--muted); border-color: var(--muted); }
+.tp-target { border-style: dotted; }
+
+/* ------------------------------------------------------------------ html marks */
+.rb-label { display: flex; justify-content: space-between; gap: 0.75rem; font-size: 0.8125rem; line-height: 1.3; color: var(--ink); }
+.rb-label .v { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.rb-note { font-size: 0.6875rem; color: var(--muted); }
+
+.rm-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+.rm-table th, .rm-table td { border: 1px solid var(--line); padding: 0.5rem; vertical-align: top; text-align: left; color: var(--ink); }
+.rm-table thead th { background: color-mix(in oklab, var(--paper) 60%, var(--card)); font-weight: 700; }
+.rm-table tbody th { font-weight: 700; background: color-mix(in oklab, var(--paper) 30%, var(--card)); }
+.rm-table tr:hover td, .rm-table tr:focus-within td { background: color-mix(in oklab, var(--accent) 6%, transparent); }
+.rm-scroll { overflow-x: auto; }
+@media (max-width: 639px) {
+  .rm-table.is-cards thead { display: none; }
+  .rm-table.is-cards, .rm-table.is-cards tbody, .rm-table.is-cards tr, .rm-table.is-cards th, .rm-table.is-cards td { display: block; width: 100%; }
+  .rm-table.is-cards tr { border: 1px solid var(--line); border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; }
+  .rm-table.is-cards th, .rm-table.is-cards td { border: 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 60%, transparent); }
+  .rm-table.is-cards td::before { content: attr(data-col); display: block; font-size: 0.6875rem; font-weight: 700; color: var(--muted); }
 }
+
+/* ------------------------------------------------------------------ the tile map */
+.tm { display: grid; gap: 1rem; }
+@media (min-width: 720px) { .tm.is-wide { grid-template-columns: minmax(0, 20rem) 1fr; align-items: start; } }
+.tm-layers { display: flex; flex-wrap: wrap; gap: 0.375rem; border: 0; padding: 0; margin: 0 0 0.75rem; }
+.tm-layers legend { font-size: 0.6875rem; font-weight: 700; color: var(--muted); margin-bottom: 0.25rem; width: 100%; }
+.tm-layers label { display: inline-flex; align-items: center; min-height: 32px; padding: 0 0.75rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.75rem; cursor: pointer; color: var(--ink); background: var(--card); }
+.tm-layers input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.tm-layers input:checked + span { font-weight: 700; }
+.tm-layers label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.tm-layers label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tm-tile rect { stroke: var(--card); stroke-width: 2; }
+.tm-tile .tm-hatch { pointer-events: none; }
+.tm-tile text { font-size: 7.5px; pointer-events: none; }
+.tm-tile .tm-v { font-size: 8px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tm-block-label { font-size: 8px; font-weight: 700; fill: var(--muted); }
+.tm-legend { list-style: none; margin: 0.75rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.375rem 0.875rem; font-size: 0.75rem; color: var(--ink); }
+.tm-legend li { display: inline-flex; align-items: center; gap: 0.375rem; }
+.tm-swatch { width: 0.875rem; height: 0.875rem; border-radius: 3px; border: 1px solid var(--line); flex: none; }
+.tm-schematic { font-size: 0.6875rem; color: var(--muted); margin: 0.5rem 0 0; }
+.tm-wardlist { margin-top: 0.75rem; }
+.tm-wardlist summary { cursor: pointer; font-size: 0.75rem; font-weight: 600; color: var(--accent); min-height: 24px; }
+.tm-wardlist ul { columns: 2; column-gap: 1rem; list-style: none; padding: 0; margin: 0.5rem 0 0; font-size: 0.75rem; }
+.tm-wardlist li { break-inside: avoid; padding: 0.125rem 0; }
+
+/* One set of tiles; each carries a fill per layer as a custom property, and the checked radio
+ * picks which one paints. Works with JavaScript off, and the fill transition is the morph. */
+.tm-fill { fill: var(--f-default); }
+.tm-lab, .tm-hatch, .tm-panel { display: none; }
+.tm-lab.is-default, .tm-hatch.is-default { display: inline; }
+.tm-panel.is-default { display: block; }
+.tm:has(.tm-layers input:checked) .tm-lab, .tm:has(.tm-layers input:checked) .tm-hatch, .tm:has(.tm-layers input:checked) .tm-panel { display: none; }
+.tm:has(input[value="register"]:checked) .tm-fill { fill: var(--f-register, var(--f-default)); }
+.tm:has(input[value="register"]:checked) .tm-lab[data-l="register"], .tm:has(input[value="register"]:checked) .tm-hatch[data-l="register"] { display: inline; }
+.tm:has(input[value="register"]:checked) .tm-panel[data-l="register"] { display: block; }
+.tm:has(input[value="largest"]:checked) .tm-fill { fill: var(--f-largest, var(--f-default)); }
+.tm:has(input[value="largest"]:checked) .tm-lab[data-l="largest"], .tm:has(input[value="largest"]:checked) .tm-hatch[data-l="largest"] { display: inline; }
+.tm:has(input[value="largest"]:checked) .tm-panel[data-l="largest"] { display: block; }
+.tm:has(input[value="footprint"]:checked) .tm-fill { fill: var(--f-footprint, var(--f-default)); }
+.tm:has(input[value="footprint"]:checked) .tm-lab[data-l="footprint"], .tm:has(input[value="footprint"]:checked) .tm-hatch[data-l="footprint"] { display: inline; }
+.tm:has(input[value="footprint"]:checked) .tm-panel[data-l="footprint"] { display: block; }
+.tm:has(input[value="party-flow"]:checked) .tm-fill { fill: var(--f-party-flow, var(--f-default)); }
+.tm:has(input[value="party-flow"]:checked) .tm-lab[data-l="party-flow"], .tm:has(input[value="party-flow"]:checked) .tm-hatch[data-l="party-flow"] { display: inline; }
+.tm:has(input[value="party-flow"]:checked) .tm-panel[data-l="party-flow"] { display: block; }
+.tm:has(input[value="zones"]:checked) .tm-fill { fill: var(--f-zones, var(--f-default)); }
+.tm:has(input[value="zones"]:checked) .tm-lab[data-l="zones"], .tm:has(input[value="zones"]:checked) .tm-hatch[data-l="zones"] { display: inline; }
+.tm:has(input[value="zones"]:checked) .tm-panel[data-l="zones"] { display: block; }
+.tm:has(input[value="effort"]:checked) .tm-fill { fill: var(--f-effort, var(--f-default)); }
+.tm:has(input[value="effort"]:checked) .tm-lab[data-l="effort"], .tm:has(input[value="effort"]:checked) .tm-hatch[data-l="effort"] { display: inline; }
+.tm:has(input[value="effort"]:checked) .tm-panel[data-l="effort"] { display: block; }
+.tm:has(input[value="reach-targets"]:checked) .tm-fill { fill: var(--f-reach-targets, var(--f-default)); }
+.tm:has(input[value="reach-targets"]:checked) .tm-lab[data-l="reach-targets"], .tm:has(input[value="reach-targets"]:checked) .tm-hatch[data-l="reach-targets"] { display: inline; }
+.tm:has(input[value="reach-targets"]:checked) .tm-panel[data-l="reach-targets"] { display: block; }
+
+/* The workstreams' groups: one shows at a time with JavaScript; print shows them all. */
+@media print { [data-ws-hidden][hidden] { display: revert !important; } }
+
+/* ------------------------------------------------------------------ motion: still by default */
+@media (prefers-reduced-motion: no-preference) {
+  .tm-tile rect { transition: fill 600ms ease-out; }
+}
+
+@media print {
+  .rf { break-inside: avoid; border-color: #999; }
+  .rf, .rf * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rf-details > summary { display: none; }
+  .rf-csv { display: none; }
+  .tm-layers { display: none; }
+}
+
+/* ------------------------------------------------------------------ the weekly calendar */
 
 .pf-num { font-variant-numeric: lining-nums tabular-nums; }
 .pf-mono { font-family: var(--pf-mono); font-size: 0.86em; }
@@ -89,7 +157,6 @@
   opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
 
 /* Line-mask reveal. The text is in the DOM once; only its lines move. */
 .pf-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
@@ -326,9 +393,8 @@
   letter-spacing: -0.035em;
   font-variant-numeric: lining-nums tabular-nums;
   white-space: nowrap;
+/* A long value (a range) steps down so it never runs off a phone: ~0.6em per character. */ font-size: min(clamp(2.9rem, 13vw, 4.4rem), calc((100vw - 2 * var(--pf-gutter) - 8px) / (var(--chars, 7) * 0.6)));
 }
-/* A long value (a range) steps down so it never runs off a phone: ~0.6em per character. */
-.pf-bn__value { font-size: min(clamp(2.9rem, 13vw, 4.4rem), calc((100vw - 2 * var(--pf-gutter) - 8px) / (var(--chars, 7) * 0.6))); }
 @media (min-width: 640px) { .pf-bn__value { font-size: min(clamp(2.6rem, 6vw, 4.4rem), calc((50vw - 2 * var(--pf-gutter)) / (var(--chars, 7) * 0.6))); } }
 @media (min-width: 1100px) { .pf-bn__value { font-size: min(clamp(2.6rem, 3.6vw, 3.9rem), calc((25vw - 40px) / (var(--chars, 7) * 0.6))); } }
 .pf-tone-accent .pf-bn__value { color: var(--pf-accent); }
@@ -649,15 +715,13 @@
     padding: 6px 0;
     border: 0;
     text-align: left;
-    white-space: normal;
+    white-space: normal; justify-items: start;
   }
   .pf-table--cards tbody td::before { content: attr(data-label); font: 600 12px/1.3 var(--pf-display); color: var(--pf-muted); }
   .pf-table--cards .is-num { text-align: left; }
   .pf-table--cards caption { display: block; }
-  .pf-table--cards tbody td { justify-items: start; }
   .pf-table-wrap--pin tbody th { position: static; }
 }
-
 
 /* ---------------------------------------------------------------- dock (G-7) */
 .pf-dock {
@@ -691,7 +755,7 @@
   min-height: 44px;
   padding: 0 10px 0 6px;
   border-radius: 999px;
-  color: var(--pf-ink);
+  color: var(--pf-ink); cursor: pointer;
 }
 .pf-dock__numeral {
   display: grid;
@@ -835,13 +899,7 @@
   .pf-hero[data-story="true"] .pf-hero__static { display: block; }
 }
 
-
 /* ================================================================== the document (Phase 1) */
-
-/* ---- G-1: an editorial canvas. The shell widens to 1180 px; running text is held to a 66ch
-   measure at the left of it (the existing --measure rule in globals.css), and figures, tables
-   and inserts take the width the text leaves. The lead figure of a section runs the full shell. */
-:root { --measure: 66ch; }
 .pf-shell {
   width: 100%;
   max-width: 1180px;
@@ -868,7 +926,6 @@
 .pf-footer__cover .prose :is(p, li) { font-size: 0.875rem; line-height: 1.55; margin: 0 0 0.6em; color: var(--color-muted, inherit); }
 .pf-footer__cover .prose :is(h2, h3, h4) { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 1em 0 0.5em; }
 .pf-footer__cover .prose strong { color: var(--color-ink, inherit); }
-html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 
 /* Non-text blocks cap at a comfortable figure width; the hero figure and bleed blocks run full. */
 @media (min-width: 1024px) {
@@ -989,7 +1046,6 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 /* ---- the dock, as the document uses it. */
 .pf-dock__num { color: var(--gold); font-weight: 750; margin-right: 2px; }
 .pf-dock__hold { width: 14px; height: 14px; border-radius: 50%; background: var(--line); }
-.pf-dock__where { cursor: pointer; }
 
 /* ---- act openers in the document. The numeral runs large, as a background layer behind the
    title (Phase 0 Q-3). The title is text, not a heading: the chapter below carries the heading. */
@@ -1054,14 +1110,12 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 /* The cover county, traced once (visual-first pass, replaces the WebGL scene). Each ward carries
    pathLength="1", so one dash covers its whole outline. Only `from` is animated: the default style
    is the finished map, so reduced motion (1ms, globals.css), no script and print all show it. */
-.pf-county--draw .pf-county__ward { stroke: var(--paper); stroke-width: 2; stroke-linejoin: round; }
-@keyframes pf-ward-trace { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
-@keyframes pf-ward-fill { from { fill-opacity: 0; } }
-.pf-county--draw .pf-county__ward {
+.pf-county--draw .pf-county__ward { stroke: var(--paper); stroke-width: 2; stroke-linejoin: round;
   animation:
     pf-ward-trace var(--pf-dur-settle) var(--pf-ease-out) both,
-    pf-ward-fill var(--pf-dur-deliberate) var(--pf-ease-out) calc(var(--pf-dur-settle) * 0.6) both;
-}
+    pf-ward-fill var(--pf-dur-deliberate) var(--pf-ease-out) calc(var(--pf-dur-settle) * 0.6) both; }
+@keyframes pf-ward-trace { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+@keyframes pf-ward-fill { from { fill-opacity: 0; } }
 @media (prefers-reduced-data: reduce) { .pf-county--draw .pf-county__ward { animation: none; } }
 .pf-story__static .pf-county__ward { transition: opacity var(--pf-dur-fast) var(--pf-ease-out); }
 .pf-story__static .pf-county__ward[data-dim="true"] { opacity: 0.45; }
@@ -1562,7 +1616,6 @@ html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on e
 .pf-keys dd { margin: 0; color: var(--muted); }
 .pf-keys kbd { display: inline-block; min-width: 1.6em; padding: 1px 6px; border: 1px solid var(--pf-line); border-radius: 6px; font: 600 12px/1.5 var(--font-mono), monospace; text-align: center; }
 @media print { .pf-toast-region, .pf-keys { display: none; } }
-
 
 /* ------------------------------------------------------------------ part dots
    The single "where am I" signal (components/flow/PartDots.tsx): six dots, one per part. Shape

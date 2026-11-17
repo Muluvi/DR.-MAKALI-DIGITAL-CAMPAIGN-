@@ -25,7 +25,7 @@ import { CountUp } from "../premium/CountUp";
  *
  * MOTION. The steps draw forward along their line and the numbers count up, once, as the digest
  * arrives; both rest at their true values in the server HTML and under reduced motion
- * (app/streamline.css). Nothing is hidden waiting for a script.
+ * (app/story.css). Nothing is hidden waiting for a script.
  */
 
 /** Steps shown before "and N more": a digest is a summary, and the chapter holds the rest. */
