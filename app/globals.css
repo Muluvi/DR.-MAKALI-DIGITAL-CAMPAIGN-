@@ -2307,7 +2307,9 @@ button, a, input, select, textarea, [role="button"], .cursor-pointer {
   --fs-label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem); /* 13 → 14px */
   --fs-small: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem); /* 14 → 15px */
   --fs-body:  clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /* 16px phone → 18px laptop (visual-first pass: the brief sets 16–17 / 18–19) */
-  --fs-lead:  clamp(1.0625rem, 1.02rem + 0.28vw, 1.25rem);   /* 17px mobile → 20px desktop */
+  /* The lead sits a clear step above body (polish pass): at 17 → 20px it was 1px over body on a
+     phone and 2px on a laptop, too close to read as a lead. 18 → 22px is a 1.125 → 1.22 step. */
+  --fs-lead:  clamp(1.125rem, 1.03rem + 0.4vw, 1.375rem);    /* 18px mobile → 22px desktop */
 
   /* The display end. Hero statistics only — the deficit, the ceiling, the vote threshold —
      never body copy. Weight 800, tabular figures, and a viewport coefficient steep enough
@@ -3128,11 +3130,35 @@ textarea:focus-visible {
 /* ---------------------------------------------------------------------- */
 /* Editorial text-wrap: balanced headings, no orphan words in body copy   */
 /* ---------------------------------------------------------------------- */
-h1, h2, h3, .text-balance-heading {
+h1, h2, h3, h4, .text-balance-heading {
   text-wrap: balance;
 }
-p, li, blockquote {
+p, li, blockquote, figcaption, dd {
   text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Figures read in columns                                                */
+/* ---------------------------------------------------------------------- */
+/* Every table, figure, chart, counter and data value sets its digits on one width and on the
+   baseline, so a column of numbers aligns and a counter does not jitter as it rolls. `:where()`
+   keeps this at zero specificity: any surface that deliberately sets its own figures (running
+   prose keeps proportional ones) still wins. */
+:where(table, figure, svg, output, data, time, .rf, .anim-num, .pf-num, .pf-numbers, .vz-stats, .kx-stats, .kx-countdown__n, .sx-count, .sx-count-card, .cd__stats) {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Bricolage's axes, by size                                              */
+/* ---------------------------------------------------------------------- */
+/* Large display text tightens: the width axis condenses it a little (the hero and act titles
+   go further, to --pf-display-stretch) and the optical-size axis, left on `auto`, draws its
+   finer, tighter cuts. Labels and small type stay at full width, where `auto` optical sizing
+   opens their spacing and apertures. */
+.flow-chap__label,
+.prose h1:not(.not-prose *),
+.prose h2:not(.not-prose *) {
+  font-stretch: 94%;
 }
 
 /* ---------------------------------------------------------------------- */

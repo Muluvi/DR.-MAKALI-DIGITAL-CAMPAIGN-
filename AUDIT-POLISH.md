@@ -489,3 +489,55 @@ x-axis snapping, unchanged. The full reasoning is in the comment at "section arr
 
 After removing the targets, eight steps of 100 px (four down, then four up) move exactly 100 px
 each, on `/` and `/workstreams`, on the phone and at 1440 px.
+
+---
+
+## 9. Workstream 4: typography
+
+**Measured first.**
+- **Reading prose.** On `/votes` at 1440 px the body is 18 px with a 29.7 px line (1.65) and a
+  719 px measure, about 67 characters. At 390 px it's 16.1 px with the same 1.65 ratio, about
+  35 characters (a phone's width). Measure and leading were already inside the brief's 60–72
+  and 1.55–1.65, so they're unchanged. Headings already used `text-wrap: balance` and
+  paragraphs `pretty`.
+- **Fonts.** Fonts are self-hosted and Latin-subset by `next/font`. Only Bricolage Latin
+  (131 KB) is preloaded. Newsreader and JetBrains Mono load on demand, and the fallbacks are
+  metric-adjusted. CLS measured 0.000 on all three baseline routes.
+
+**Changed.**
+- **The lead step.** `--fs-lead` was 17 → 20 px, which put it 1 px above body on a phone and
+  2 px above on a laptop. It's now 18 → 22 px, a step of 1.125 to 1.22.
+- **Tabular, lining figures.** These now apply to every table, figure, SVG chart, `<output>`,
+  `<data>`, `<time>`, register figure (`.rf`), counter (`.anim-num`) and stat surface
+  (`.pf-num`, `.pf-numbers`, `.vz-stats`, `.kx-stats`, `.kx-countdown__n`, `.sx-count`,
+  `.sx-count-card`, `.cd__stats`). The selector is `:where()`, so it has zero specificity and
+  every surface that sets its own figures keeps them. Running prose keeps proportional figures.
+- **Wrapping.** `text-wrap: balance` now also covers `h4`; `pretty` also covers `figcaption`
+  and `dd`.
+- **Bricolage's axes, by size.**
+  - Chapter names and prose h1/h2 condense to `font-stretch: 94%`. Where the editorial layer
+    already set 92% for prose h2, that more specific rule still wins.
+  - The hero and act titles stay at `--pf-display-stretch` (88%).
+  - Labels and small type stay at full width, with optical size on `auto` to open their
+    spacing.
+- **Not changed: the font files.** I built custom subsets (every character the content and UI
+  use, plus ASCII and Latin-1, axes pinned to wght 300–800 and wdth 88–100, no hinting) and
+  compared them with what `next/font` already ships:
+
+  | Face | next/font Latin | Custom subset |
+  |---|---:|---:|
+  | Bricolage | 131.3 KB | 143.4 KB |
+  | Newsreader | 58.2 KB | 58.6 KB |
+  | Newsreader italic | 64.5 KB | 64.7 KB |
+  | JetBrains Mono | 40.5 KB | 40.5 KB |
+
+  The only gain would be on pages with Kikamba ĩ/ũ, which today also fetch Latin-ext files, and
+  it would cost every page 12 KB. That's not worth it, so the Google subsets stay.
+- **Large screens** are part of workstream 6.
+
+**Diff against the baseline (124 dumps).**
+- `font-variant-numeric` changed on 34,066 elements (tables, figures and SVG descendants).
+- `font-size` and `line-height` changed on 4 lead paragraphs.
+- Heights and widths shifted on 52 and 34 elements, following from the lead and the condensed
+  headings.
+- No other property changed.
