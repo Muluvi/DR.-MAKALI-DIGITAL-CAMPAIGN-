@@ -752,3 +752,41 @@ reads would be dead code.
 new ones are class-string edits only: Tailwind px → rem, and half-step spacing classes moved onto
 the scale. No record, strategy or solution count changed, and no file under `content/`,
 `public/content/` or `public/data/` changed.
+
+---
+
+## 14. Workstream 8: captivating, but restrained
+
+- **Panels, tool embeds and callouts rise in** as they enter, using the motion system's riseIn
+  (8 px).
+  - **How:** the existing `fx-slide-up` keyframe, driven by the CSS view timeline. No JavaScript
+    runs, so nothing can add a long task during scroll, and only transform and opacity animate.
+  - **Never hidden:** a browser without view timelines, a reduced-motion reader and print all see
+    the block in place. Measured on `/votes`: a panel below the fold reads opacity 0, then 1 once
+    scrolled into view. Under `reduce` it reads 1 throughout.
+  - **Scope:** figures and visuals already draw themselves in by what they are, and prose and
+    headings stay still under the motion system's rule against generic reveals, so the rise
+    covers only the blocks that had no entrance.
+- **Key figures count.**
+  - **Stat cards** in content visuals ("532,758 registered voters", "61.7% turnout", …) now use
+    the existing `CountUp`. It renders the final value on the server, does nothing under reduced
+    motion, and always ends on the exact printed string. Measured: 46,357 → 125,227 → … →
+    532,758 in 900 ms. A value with markdown or two numbers in it is set as written.
+  - **Fixed in `CountUp`:** a rAF timestamp can come before the start time, so the first frame
+    showed **"-0.6%"** on a digest stat. Progress is now clamped to 0–1, and no frame can show a
+    wrong figure.
+  - **Fixed:** the stat value's inline span was misread by IntersectionObserver and never
+    counted. It's now `inline-block`.
+- **Press feedback on touch.** On a no-hover device, every button, tab, summary, header control and
+  chip scales to 0.98 while pressed (`--pf-dur-fast`). Hover-capable pointers keep their hover
+  states.
+- **Focus.** The existing `:focus-visible` ring (2 px accent, 4 px paper halo, keyboard only)
+  already covers every control, and is unchanged.
+- **Ambient loops: still 3.** No loop, video, parallax or decorative motion was added, and no new
+  duration or easing: every addition uses `--pf-dur-fast`, `--pf-ease-out` or the existing
+  keyframe.
+
+**Workstream 6 completed here.** The figure breakout was still clipped. Each chapter section's
+`content-visibility: auto` brings paint containment, which clips to the column. From 1440 px the
+section's `overflow-clip-margin` is 9rem, exactly the breakout, so wide figures draw whole and the
+sections keep their rendering skip.

@@ -1091,6 +1091,10 @@ html { scroll-padding-bottom: calc(var(--pf-dock-h) + 1.5rem); }
     max-width: none;
     margin-inline: calc((100% - var(--pf-fig-w)) / 2);
   }
+  /* The section's `content-visibility: auto` brings paint containment, which clips to its box:
+     the reading column. The clip edge moves out by the breakout (9rem a side) so the figure is
+     drawn whole, and the section keeps the rendering skip that makes this long page cheap. */
+  .flow-section { overflow-clip-margin: 9rem; }
 }
 
 /* ---- type. Newsreader carries the reading (18-19 px on phones, 1.6 leading); Bricolage carries

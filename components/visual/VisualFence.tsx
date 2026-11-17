@@ -7,6 +7,7 @@ import { numberOf, type Field, type Item, type Side, type VisualSpec } from "../
 import { FoldBody } from "../markdown/FoldBody";
 import { ConflictMark, InertMarks } from "../markdown/InlineMarks";
 import { isStatusTag } from "../../lib/inline-marks";
+import { CountUp } from "../premium/CountUp";
 
 /**
  * The renderer for a ```visual fence (lib/visual.ts holds the shapes and what each shows on load).
@@ -185,7 +186,12 @@ function Stats({ items, md }: { items: Item[]; md: Md }) {
     <ul className="vz-stats" style={{ "--vz-n": Math.min(items.length, 3) } as React.CSSProperties}>
       {items.map((it, i) => (
         <li key={i} className="vz-stat" style={{ "--i": i } as React.CSSProperties}>
-          <span className="vz-stat__value">{md(it.value ?? "", true)}</span>
+          <span className="vz-stat__value">
+            {/* A key figure counts up once as it enters, and ends on its exact printed string
+                (premium/CountUp: final value on the server, under reduced motion and without
+                script). A value carrying markdown or two numbers is set as written. */}
+            {it.value && /^[^*_`[\]{}<>]*$/.test(it.value) ? <CountUp text={it.value} /> : md(it.value ?? "", true)}
+          </span>
           <span className="vz-stat__label">
             {md(labelOf(it), true)}
           </span>
