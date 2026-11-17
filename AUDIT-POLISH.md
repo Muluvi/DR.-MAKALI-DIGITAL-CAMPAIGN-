@@ -631,3 +631,62 @@ and `public/data/` all show no diff. The CSVs and registry are still built from 
 tiers, because the stripping happens only on the way to the screen. 43 CSS rules for the removed
 tags are deleted. `check-preservation` passes with 82 protected files edited (73 on main); each of
 the 9 new ones is a tag removal listed above.
+
+---
+
+## 12. Workstream 5: colour
+
+**Method.** Two audits, after the status tags were removed:
+
+1. **Every text element, on all 31 static routes, in light and dark (1440 px).** The audit reads
+   each element's computed colour, its opacity through its ancestors, and its background,
+   composited through every translucent layer behind it. It flags anything under 4.5:1, or 3:1
+   for large text (24 px, or 18.66 px bold).
+2. **Pixel sampling for what the first audit can't see.** This covers SVG chart labels, text on
+   gradients, text whose background is a sibling (a sliding pill behind a tab) and light text in
+   the light theme. The text is made transparent, its exact box is screenshotted to read the real
+   background, and the median contrast against the text colour is taken.
+
+**Found and fixed.** Every changed pair was re-measured.
+
+| Where | Was | Now | Change |
+|---|---:|---:|---|
+| Language list (`/channels`), inactive rows | 1.83 (light), 2.32 (dark) | 6.6 (muted), 13+ (ink) | Rows were dimmed to 38% opacity. Now the text stays full strength and only the bar dims; the tick and the bar carry the meaning. |
+| Tools hub and projects register, small `slate-500` text on #0f1622 / #060d1a | 3.80 / 4.08 | 6.90 / 7.40 | `slate-500` → `slate-400` |
+| Phone mock-up: timestamps on the green bubble | 4.19 | 5.46 | #667781 → #54656f |
+| Phone mock-up: message input text | 3.05 | 4.65 | #8696a0 → #667781 |
+| Phone mock-up: chat-list subtitle, white on #008069 | 3.61 | 4.89 | 78% white → white |
+| Segment rank numbers (`/voters`) | 3.47 / 3.94 / 4.38 | 6.6 / 6.30 / 7.24 | `opacity-70` removed |
+| Budget envelope bar (`/position`), white on the gradient in dark | 2.58 | 5.36 (dark end), 7.44 (light end) | The gradient ends on `--accent-solid` mixed with 15% `--accent`, not on `--accent` (the bright text blue in dark). |
+
+**Measured and exempt.**
+- **"Submit Test Report" while disabled (50%).** WCAG 1.4.3 exempts inactive controls.
+- **The "·" separators at 60%.** These are decorative.
+- **Text at opacity 0.** It's folded or hidden, so no reader sees it.
+
+**Result.** After the fixes, both audits find no failing text pair in light or dark, apart from
+the exemptions above. 1,097 flagged elements came down to 0 real failures: 1,037 of them were
+artefacts (zero-opacity folded text, or backgrounds the first audit couldn't see), and the pixel
+check cleared those.
+
+**The token set.** It already has the structure the brief asks for, so it's documented rather
+than renamed:
+- **Surfaces:** `--paper` (ground), `--card` (cards), and `--pf-raised` (= card) for raised
+  chrome.
+- **Lines:** `--line`.
+- **Text levels:** `--ink`, `--prose-body`, `--muted`.
+- **Accent states:** `--accent` (text and strokes), `--accent-solid` (fills) and `--on-accent`
+  (text on fills), with the same three for laterite (`--gold`, `--gold-solid`, `--on-gold`).
+
+Renaming the tokens would touch every component and change nothing a reader sees. The brand
+values (Wiper blue, laterite, indigo ink, sisal paper) and their meanings are unchanged.
+
+**Dark mode** meets the same standard, measured with the same two audits.
+
+**Duplicate tokens collapsed.** The retired sepia theme's token block (`.sepia`, 1,551 bytes) is
+deleted. `lib/useTheme.ts` only ever removes that class and has carried sepia readers to light
+since the 2026 premium pass.
+
+**Colour with intent.** Removing the status tags (section 11) took out the largest source of
+colour noise on the page: three tier colours and four state colours on chips beside nearly every
+figure. Blue now marks the campaign and laterite the gap, as the brand defines.

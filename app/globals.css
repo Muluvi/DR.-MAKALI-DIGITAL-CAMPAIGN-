@@ -2178,54 +2178,6 @@ span[data-fold-body][hidden] { display: inline-block; }
   --phase-3: oklch(0.78 0.17 145);
 }
 
-/* Archival / Warm Sandstone Theme */
-.sepia {
-  --ink: oklch(0.24 0.035 55);
-  --muted: oklch(0.48 0.045 60);
-  --paper: oklch(0.95 0.022 80); /* Warm archival parchment */
-  --card: oklch(0.97 0.015 80);
-  --line: oklch(0.87 0.03 75);
-  --accent: oklch(0.36 0.18 262);
-  --accent-solid: oklch(0.46 0.19 262);
-  --on-accent: oklch(1 0 0);
-  --rival: oklch(0.48 0.08 220);
-  --rival-solid: oklch(0.48 0.08 220);
-  --gold: oklch(0.44 0.16 42);
-  --gold-solid: oklch(0.44 0.16 42);
-  --on-gold: oklch(1 0 0);
-  --align-a: #a3131f;
-  --align-b: #7d4407;
-  --align-c: #0b4f95;
-  --dark: oklch(0.22 0.035 55);
-  --danger: oklch(0.55 0.20 27);
-  --glow: oklch(0.36 0.18 262 / 0.12);
-
-  --prose-body: oklch(0.32 0.035 60);
-  --prose-strong: oklch(0.18 0.035 55);
-  --prose-bg-nested: oklch(0.97 0.015 80);
-  --code-bg: oklch(0.91 0.025 80);
-  --th-bg: oklch(0.93 0.02 80);
-  --placeholder-bg: oklch(0.93 0.04 40);
-  --placeholder-border: oklch(0.82 0.08 40);
-  --placeholder-color: oklch(0.44 0.16 35);
-
-  --verified-bg: oklch(0.94 0.03 155);
-  --verified-border: oklch(0.84 0.07 155);
-  --verified-color: oklch(0.42 0.12 155);
-  --estimate-bg: oklch(0.94 0.04 85);
-  --estimate-border: oklch(0.83 0.09 85);
-  --estimate-color: oklch(0.48 0.14 85);
-  --unmeasured-bg: oklch(0.93 0.005 80);
-  --unmeasured-border: oklch(0.78 0.01 80);
-  --unmeasured-color: oklch(0.42 0.015 80);
-
-  --phase-neg1: oklch(0.45 0.20 295);
-  --phase-0: oklch(0.55 0.14 210);
-  --phase-1: oklch(0.45 0.18 255);
-  --phase-2: oklch(0.52 0.16 60);
-  --phase-3: oklch(0.48 0.16 145);
-}
-
 /* Wide-gamut display P3 layer: retired in the 2026 premium pass. Every accent and laterite
    value above was chosen by contrast measurement, and a P3 override would move the colour off
    the ratio it was measured at. */

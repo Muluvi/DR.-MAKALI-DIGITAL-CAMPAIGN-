@@ -79,7 +79,7 @@ function Row({ p }: { p: ProjectRow }) {
       <details className="mt-3 text-sm text-slate-400">
         <summary className="cursor-pointer text-xs font-semibold text-slate-300 hover:text-cyan-200">As printed</summary>
         <p className="mt-2 break-words font-mono text-xs leading-5 text-slate-400">{p.asPrinted}</p>
-        <p className="mt-2 text-xs text-slate-500">Ward match: {p.match}</p>
+        <p className="mt-2 text-xs text-slate-400">Ward match: {p.match}</p>
       </details>
     </li>
   );
@@ -156,7 +156,7 @@ export function ProjectsRegister() {
           <label className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#0b1526] px-3 py-2.5 text-sm text-slate-300 sm:col-span-2 lg:col-span-4">
             <Search size={16} aria-hidden="true" />
             <span className="sr-only">Search projects</span>
-            <input value={query} onChange={(event) => reset(setQuery)(event.target.value)} placeholder="Search titles and villages" className="w-full bg-transparent outline-none placeholder:text-slate-500" />
+            <input value={query} onChange={(event) => reset(setQuery)(event.target.value)} placeholder="Search titles and villages" className="w-full bg-transparent outline-none placeholder:text-slate-400" />
           </label>
         </section>
 

@@ -172,7 +172,7 @@ export function AudienceSegmentationMatrix() {
  isActive ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
-              <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
+              <span className="font-mono mr-1.5">{s.index}</span>
               {s.shortName}
             </button>
           );

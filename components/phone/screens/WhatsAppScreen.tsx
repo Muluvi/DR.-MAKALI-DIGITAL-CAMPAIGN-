@@ -103,7 +103,7 @@ export function WhatsAppScreen() {
           <span className="block text-white font-semibold truncate" style={{ fontSize: "0.96875em", lineHeight: 1.2 }}>
             {WHATSAPP.contactName}
           </span>
-          <span className="block truncate" style={{ fontSize: "0.78125em", color: "rgba(255,255,255,0.78)" }}>
+          <span className="block truncate" style={{ fontSize: "0.78125em", color: "#ffffff" }}>
             {WHATSAPP.contactStatus}
           </span>
         </span>
@@ -137,7 +137,7 @@ export function WhatsAppScreen() {
           >
             <p style={{ fontSize: "0.8875em", lineHeight: 1.36, color: "#111b21" }}>{pledge.text}</p>
             <span className="flex items-center justify-end gap-1 mt-0.5">
-              <span style={{ fontSize: "0.6875em", color: "#667781" }} className="tabular-nums">
+              <span style={{ fontSize: "0.6875em", color: "#54656f" }} className="tabular-nums">
                 {pledge.time}
               </span>
               <DoubleTick />
@@ -161,7 +161,7 @@ export function WhatsAppScreen() {
               >
                 <span style={{ fontSize: "0.8875em", lineHeight: 1.36, color: "#111b21" }}>{reply.text}</span>
                 <span className="flex items-center justify-end mt-0.5">
-                  <span style={{ fontSize: "0.6875em", color: "#667781" }} className="tabular-nums">
+                  <span style={{ fontSize: "0.6875em", color: "#54656f" }} className="tabular-nums">
                     {reply.time}
                   </span>
                 </span>
@@ -197,11 +197,11 @@ export function WhatsAppScreen() {
               </span>
             </span>
             <span className="flex items-center justify-between mt-1 pl-[38px]">
-              <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#667781" }}>
+              <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#54656f" }}>
                 {voice.duration}
               </span>
               <span className="flex items-center gap-1">
-                <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#667781" }}>
+                <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#54656f" }}>
                   {voice.time}
                 </span>
                 <DoubleTick />
@@ -218,7 +218,7 @@ export function WhatsAppScreen() {
           style={{ background: "#fff", boxShadow: "0 1px 0.5px rgba(0,0,0,0.13)" }}
         >
           <Plus size={20} color="#54656f" strokeWidth={2} aria-hidden="true" />
-          <span className="flex-1" style={{ fontSize: "0.90625em", color: "#8696a0" }}>
+          <span className="flex-1" style={{ fontSize: "0.90625em", color: "#667781" }}>
             {WHATSAPP.composerPlaceholder}
           </span>
           <Paperclip size={19} color="#54656f" strokeWidth={2} aria-hidden="true" />
