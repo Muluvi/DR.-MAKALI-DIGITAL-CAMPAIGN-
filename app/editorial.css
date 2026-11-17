@@ -1,4 +1,76 @@
 
+/* ==========================================================================================
+ * register
+ * The figure register's visual system (formerly app/register.css).
+ * ========================================================================================== */
+/*
+ * The figure register's visual system (brief §E): chart roles as tokens, the three data states,
+ * the tier pills, and the figure grammar. Every colour below was run through the dataviz
+ * validator in both themes (docs/rebuild/RECON.md §2.1 has the results).
+ *
+ * Roles:
+ *   --accent / --accent-solid   Dr. Mulu. Used for him and nothing else.
+ *   --rival / --rival-solid     every other candidate, one neutral family.
+ *   --zone-a/-b/-c              the three regions: orange, aqua, violet. Passes all-pairs CVD in
+ *                               both modes; tiles always carry a text label as relief.
+ *   --seq-1 … --seq-5           one teal hue, light to dark, for magnitude (register size, effort).
+ *   --div-neg / --div-mid       below and at a reference (deviation from 200,000).
+ *   --state-*                   sourced (solid), modelled (hatched), needed (dashed, empty).
+ */
+:root {
+  --zone-a: #eb6834;
+  --zone-b: #1baf7a;
+  --zone-c: #4a3aa7;
+  --seq-1: #86bcb7;
+  --seq-2: #5f9f9a;
+  --seq-3: #3a7772; /* was #428580: 4.28:1 under white; now 5.17:1 */
+  --seq-4: #2b6a65;
+  --seq-5: #1a4c48;
+  --seq-ink-light: #0b1f1d;
+  --seq-ink-dark: #ffffff;
+  --div-neg: #c2410c;
+  --div-mid: #d6d3cd;
+  --neutral-fill: oklch(0.80 0.012 250);
+  --neutral-strong: oklch(0.55 0.02 250);
+  --ref-line: oklch(0.30 0.03 250);
+  --hatch-ink: oklch(0.45 0.03 250);
+  /* The four production pillars (Section 4.5): validated as a categorical set, labels always printed. */
+  --pillar-1: #eda100;
+  --pillar-2: #e87ba4;
+  --pillar-3: #008300;
+  --pillar-4: #4a3aa7;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #2a0716;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #ffffff;
+}
+.dark {
+  --zone-a: #d95926;
+  --zone-b: #199e70;
+  --zone-c: #9085e9;
+  --seq-1: #2f5f5b;
+  --seq-2: #3f7b77;
+  --seq-3: #5aa39d;
+  --seq-4: #86c4be;
+  --seq-5: #b7e0db;
+  --seq-ink-light: #ffffff;
+  --seq-ink-dark: #0b1f1d;
+  --div-neg: #f07b45;
+  --div-mid: #4a4845;
+  --neutral-fill: oklch(0.38 0.015 250);
+  --neutral-strong: oklch(0.62 0.02 250);
+  --ref-line: oklch(0.88 0.02 250);
+  --hatch-ink: oklch(0.72 0.02 250);
+  --pillar-1: #c98500;
+  --pillar-2: #d55181;
+  --pillar-3: #008300;
+  --pillar-4: #9085e9;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #1f0410;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #0e0a2a;
+}
+
 /* ------------------------------------------------------------------ the frame */
 .rf { margin: 1.5rem 0; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); overflow: hidden; break-inside: avoid; }
 .rf-head { padding: 1rem 1rem 0; }
@@ -135,6 +207,34 @@
 }
 
 @media print {
+  /* Paper is light whatever the screen theme was: the light chart tokens, restated. */
+  :root, .dark {
+  --zone-a: #eb6834;
+  --zone-b: #1baf7a;
+  --zone-c: #4a3aa7;
+  --seq-1: #86bcb7;
+  --seq-2: #5f9f9a;
+  --seq-3: #428580;
+  --seq-4: #2b6a65;
+  --seq-5: #1a4c48;
+  --seq-ink-light: #0b1f1d;
+  --seq-ink-dark: #ffffff;
+  --div-neg: #c2410c;
+  --div-mid: #d6d3cd;
+  --neutral-fill: oklch(0.80 0.012 250);
+  --neutral-strong: oklch(0.55 0.02 250);
+  --ref-line: oklch(0.30 0.03 250);
+  --hatch-ink: oklch(0.45 0.03 250);
+  /* The four production pillars (Section 4.5): validated as a categorical set, labels always printed. */
+  --pillar-1: #eda100;
+  --pillar-2: #e87ba4;
+  --pillar-3: #008300;
+  --pillar-4: #4a3aa7;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #2a0716;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #ffffff;
+  }
   .rf { break-inside: avoid; border-color: #999; }
   .rf, .rf * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .rf-details > summary { display: none; }
@@ -143,6 +243,88 @@
 }
 
 /* ------------------------------------------------------------------ the weekly calendar */
+
+/* ==========================================================================================
+ * premium
+ * The 2026 premium layer (formerly app/premium.css).
+ * ========================================================================================== */
+/*
+ * The premium visual layer (2026): "The county, measured".
+ *
+ * Component styles for components/premium/*, and the site-level rules that carry the new
+ * language through the document (grid, type, chapters, callouts, tables, chrome). Imported after
+ * globals.css and register.css so it is the last word.
+ *
+ * TOKENS. The palette itself lives in app/globals.css under the site's existing names (--paper,
+ * --card, --ink, --muted, --accent, --accent-solid, --gold, --gold-solid, …). The --pf-* names
+ * below are aliases onto those, plus the few values the new components need that the site had no
+ * name for. Contrast for every pair is recorded in docs/visual-premium/PHASE-0.md §7.7.
+ */
+
+:root {
+  --pf-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --pf-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --pf-dur-fast: 180ms;
+  --pf-dur-entrance: 520ms;
+  --pf-dur-deliberate: 620ms;
+  --pf-dur-settle: 900ms;
+  --pf-dur-type: 1200ms;
+
+  --pf-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --pf-display-stretch: 88%;
+  --pf-serif: var(--font-newsreader), Georgia, serif;
+  --pf-mono: var(--font-mono), ui-monospace, monospace;
+  --pf-dock-h: 56px;
+  --pf-gutter: 16px;
+
+  --pf-ground: var(--paper);
+  --pf-raised: var(--card);
+  --pf-raised-2: oklch(0.95 0.014 85);
+  --pf-ink: var(--ink);
+  --pf-muted: var(--muted);
+  --pf-line: var(--line);
+  --pf-grid: oklch(0.84 0.015 85);
+  --pf-accent: var(--accent);
+  --pf-accent-solid: var(--accent-solid);
+  --pf-accent-glow: oklch(0.47 0.21 265 / 0.12);
+  --pf-earth: var(--gold);
+  --pf-earth-solid: var(--gold-solid);
+  --pf-earth-glow: oklch(0.53 0.15 40 / 0.12);
+  --pf-sisal: oklch(0.52 0.07 80);
+  --pf-rival: var(--rival);
+  --pf-rival-solid: var(--rival-solid);
+  --pf-on-solid: oklch(1 0 0);
+  --pf-neutral-tile: oklch(0.62 0.03 85); /* 3.4:1 on the ground: a mark, not a void */
+  --pf-on-earth-weave: oklch(0.97 0.03 85);
+  --pf-bar: oklch(0.42 0.04 262);
+  --pf-weave-on-bar: oklch(0.99 0.01 85);
+  --pf-t1: oklch(0.45 0.12 150);
+  --pf-t2: oklch(0.5 0.12 75);
+  --pf-t3: oklch(0.5 0.17 28);
+  --pf-glass: oklch(1 0 0 / 0.86);
+  --pf-shadow: 0 18px 40px -22px oklch(0.25 0.06 268 / 0.35);
+  --pf-weave-op: 0.05;
+  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(58,44,30)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+}
+
+.dark {
+  --pf-raised-2: oklch(0.25 0.035 262);
+  --pf-grid: oklch(0.34 0.03 262 / 0.7);
+  --pf-accent-glow: oklch(0.5 0.2 265 / 0.22);
+  --pf-earth-glow: oklch(0.53 0.15 40 / 0.2);
+  --pf-sisal: oklch(0.84 0.05 85);
+  --pf-neutral-tile: oklch(0.52 0.03 262); /* 3.5:1 on the ground */
+  --pf-on-earth-weave: oklch(0.86 0.06 80);
+  --pf-bar: oklch(0.78 0.03 255);
+  --pf-weave-on-bar: oklch(0.16 0.03 262);
+  --pf-t1: oklch(0.8 0.14 150);
+  --pf-t2: oklch(0.82 0.13 85);
+  --pf-t3: oklch(0.74 0.16 28);
+  --pf-glass: oklch(0.205 0.032 262 / 0.84);
+  --pf-shadow: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 18px 40px -18px oklch(0 0 0 / 0.7);
+  --pf-weave-op: 0.06;
+  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(236,224,196)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+}
 
 .pf-num { font-variant-numeric: lining-nums tabular-nums; }
 .pf-mono { font-family: var(--pf-mono); font-size: 0.86em; }
@@ -393,8 +575,9 @@
   letter-spacing: -0.035em;
   font-variant-numeric: lining-nums tabular-nums;
   white-space: nowrap;
-/* A long value (a range) steps down so it never runs off a phone: ~0.6em per character. */ font-size: min(clamp(2.9rem, 13vw, 4.4rem), calc((100vw - 2 * var(--pf-gutter) - 8px) / (var(--chars, 7) * 0.6)));
 }
+/* A long value (a range) steps down so it never runs off a phone: ~0.6em per character. */
+.pf-bn__value { font-size: min(clamp(2.9rem, 13vw, 4.4rem), calc((100vw - 2 * var(--pf-gutter) - 8px) / (var(--chars, 7) * 0.6))); }
 @media (min-width: 640px) { .pf-bn__value { font-size: min(clamp(2.6rem, 6vw, 4.4rem), calc((50vw - 2 * var(--pf-gutter)) / (var(--chars, 7) * 0.6))); } }
 @media (min-width: 1100px) { .pf-bn__value { font-size: min(clamp(2.6rem, 3.6vw, 3.9rem), calc((25vw - 40px) / (var(--chars, 7) * 0.6))); } }
 .pf-tone-accent .pf-bn__value { color: var(--pf-accent); }
@@ -900,6 +1083,11 @@
 }
 
 /* ================================================================== the document (Phase 1) */
+
+/* ---- G-1: an editorial canvas. The shell widens to 1180 px; running text is held to a 66ch
+   measure at the left of it (the existing --measure rule in globals.css), and figures, tables
+   and inserts take the width the text leaves. The lead figure of a section runs the full shell. */
+:root { --measure: 66ch; }
 .pf-shell {
   width: 100%;
   max-width: 1180px;
@@ -926,6 +1114,7 @@
 .pf-footer__cover .prose :is(p, li) { font-size: 0.875rem; line-height: 1.55; margin: 0 0 0.6em; color: var(--color-muted, inherit); }
 .pf-footer__cover .prose :is(h2, h3, h4) { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 1em 0 0.5em; }
 .pf-footer__cover .prose strong { color: var(--color-ink, inherit); }
+html { scroll-padding-bottom: calc(var(--pf-dock-h) + 24px); }
 
 /* Non-text blocks cap at a comfortable figure width; the hero figure and bleed blocks run full. */
 @media (min-width: 1024px) {

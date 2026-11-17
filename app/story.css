@@ -1,7 +1,7 @@
 
 /* ==========================================================================================
  * streamline
- * The summary layer: the route map and the chapter digests (formerly app/story.css).
+ * The summary layer: the route map and the chapter digests (formerly app/streamline.css).
  * ========================================================================================== */
 /*
  * The summary layer (streamline pass, November 2026; docs/streamline-2026-11).
@@ -357,7 +357,7 @@
 
 /* ==========================================================================================
  * platform
- * The platform's controls (formerly app/story.css).
+ * The platform's controls (formerly app/platform.css).
  * ========================================================================================== */
 /* The platform pages: explorer, dashboards, library, implementation, workspace, history, team. */
 .plat-btn {
@@ -402,7 +402,7 @@
 
 /* ==========================================================================================
  * story-live
- * The working layer in the story: tools, live records, charts and their cues (formerly app/story.css).
+ * The working layer in the story: tools, live records, charts and their cues (formerly app/story-live.css).
  * ========================================================================================== */
 /* The story's working layer (November 2026): the tools, live records, charts and change history
    drawn inside the chapters, the header, and the cues that tell a reader what can be used.
@@ -954,7 +954,7 @@
    visual-fx.css draws every range input's thumb but no track, so on a white card a slider read as
    a floating dot. The track is drawn here, for every range input on the site; the filled part
    follows --fill, which components/story/RangeFill.tsx keeps in step with the value. */
-input[type="range"] { height: 28px; }
+input[type="range"] { height: 28px; --fill: 50%; }
 input[type="range"]::-webkit-slider-runnable-track {
   height: 6px; border-radius: 999px;
   background: linear-gradient(var(--accent-solid), var(--accent-solid)) 0 0 / var(--fill) 100% no-repeat, color-mix(in srgb, var(--ink) 14%, transparent);

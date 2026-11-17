@@ -1,7 +1,7 @@
 
 /* ==========================================================================================
  * chart-kit
- * Chart kit v2: the register's marks (formerly app/charts.css).
+ * Chart kit v2: the register's marks (formerly app/chart-kit.css).
  * ========================================================================================== */
 /*
  * Chart kit v2 (brief G-5): the register's marks, in the premium language.
@@ -642,7 +642,7 @@
 
 /* ==========================================================================================
  * motion-draw
- * How each visual arrives, and how folds and tabs open (formerly app/charts.css).
+ * How each visual arrives, and how folds and tabs open (formerly app/motion-draw.css).
  * ========================================================================================== */
 /* ========================================================================== */
 /*  motion-draw.css: how each visual arrives, and how what a reader opens      */
@@ -671,6 +671,14 @@
 /*      pins land in their cells, the two sides of a contrast come from        */
 /*      opposite sides. Long sets cap their stagger so the last item never     */
 /*      waits more than about a second.                                       */
+/* ========================================================================== */
+
+:root {
+  --mx-ease: var(--pf-ease, cubic-bezier(0.16, 1, 0.3, 1));
+  --mx-ease-out: var(--pf-ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  /* The emphasis curve (lib/motion.ts EASE_EMPHASIS): a small overshoot for a mark landing on its place. */
+  --mx-land: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
 
 @media screen and (prefers-reduced-motion: no-preference) {
   /* ---------------------------------------------------------------- shared stagger */

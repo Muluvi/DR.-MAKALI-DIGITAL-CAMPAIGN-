@@ -363,14 +363,23 @@ Each old file now opens with a banner that names it, so nothing that pointed at 
 | Step | Count |
 |---|---:|
 | Dead rules removed | 192 |
-| Comments removed (only those owned entirely by removed rules) | 16 |
-| Later same-selector declarations folded into the earlier rule | 376 |
-| Override rules emptied by folding and removed | 21 |
+| Comments removed: 16 directly above a removed rule, 8 inside a removed block | 24 |
+| Later same-selector declarations folded into the earlier rule | 10 |
+| Override rules emptied by folding and removed | 6 |
 
 Folding moves a declaration from rule B up into an earlier rule A with the same selector and
 context. It only does this when no rule anywhere between A and B sets a property of the same
-family (`margin-top` and `margin` count as one family, for example). That rule guarantees the
-cascade result is unchanged.
+family (`margin-top` and `margin` count as one family, for example), so the cascade result is
+unchanged. It is restricted on purpose, to three conditions:
+- A and B come from the same original file.
+- B has no comment inside it or directly above it.
+- Comments are never moved.
+
+An unrestricted first run folded 376 declarations, and the style diff showed it was cascade-safe.
+It still damaged the source. It moved the brand tokens out of their documented `:root` into an
+earlier one, left their measured contrast-ratio notes ("6.6:1 on paper") behind to be dropped,
+and lost the premium file's banner. A comment-by-comment audit against the original 12 files
+caught this. In the final run, every comment that's gone described a rule that is gone.
 
 The dead count is lower than the 198 in section 3D for two reasons:
 - The detector now ignores class names inside `:not()`, `:is()`, `:where()` and `:has()`. A rule
@@ -400,10 +409,10 @@ dumps against the original build. Each stage was diffed against that baseline.
 | | Before | After |
 |---|---:|---:|
 | CSS source files | 12 | 4 |
-| CSS source bytes | 428,866 | 397,392 |
-| Built CSS, raw | 433,191 | 401,808 |
-| Built CSS, gzip | 77,977 | 72,873 |
-| Tracked files | 1,140 | 1057 |
+| CSS source bytes | 428,866 | 403,711 |
+| Built CSS, raw | 433,191 | 402,012 |
+| Built CSS, gzip | 77,977 | 72,401 |
+| Tracked files | 1,140 | 1,057 |
 
 The cut in built CSS is 7%, not the large cut the brief hoped for. The rest of the hand-written
 CSS is live: every remaining rule matches something the site renders. The 106 kB Tailwind
