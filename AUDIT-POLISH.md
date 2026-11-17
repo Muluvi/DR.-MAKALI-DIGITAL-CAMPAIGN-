@@ -1,0 +1,309 @@
+# Polish pass: audit and baseline
+
+Workstream 1 of the visual and performance polish (branch `polish/visual-performance`). No code
+was changed for this audit. Nothing listed here has been deleted. Each item needs approval first.
+
+Measured on 17 November 2026 against `795fce1` (main).
+
+---
+
+## 1. Baseline
+
+### 1.1 Build
+
+`npm run build` passes (prebuild checks included, `check-preservation: 259 protected files
+present`). The working tree is clean after the build.
+
+| Route | Route JS | First-load JS |
+|---|---:|---:|
+| `/[[...slug]]` (every chapter, `/` included) | 235 kB | **423 kB** |
+| `/tools/[tool]` | 36 kB | 193 kB |
+| `/dashboards` | 0.2 kB | 181 kB |
+| `/tools/service-delivery` | 1.7 kB | 140 kB |
+| `/tools` | 7.4 kB | 134 kB |
+| Other platform routes | 0.1–7 kB | 104–125 kB |
+| Shared by all | — | 103 kB |
+| Middleware | — | 34.9 kB |
+
+- Client JS emitted (`.next/static/**/*.js`): 111 files, 3,572,769 bytes raw.
+- CSS emitted: 5 files, **433,191 B raw / 77,977 B gzip**, all five loaded on every chapter route.
+- Source CSS: 12 files, 8,083 lines, 428,866 B, of which 92,123 B are comments.
+- Prerendered HTML, heaviest: `/full` 4.15 MB, `/workstreams` 684 kB, `/` 456 kB,
+  `/annex-evidence` 365 kB.
+
+### 1.2 Lighthouse, mobile
+
+Lighthouse 12, default mobile config: Moto G Power emulation, simulated throttling (150 ms RTT,
+1.6 Mbps, 4× CPU). `next start` on the production build. Three runs per route, median shown.
+
+The two chapter routes are the heaviest single chapters by HTML weight. (`/full` is the whole
+document on one page, not a chapter.)
+
+| Route | Score | LCP | FCP | CLS | TBT | Speed Index | Transfer | Runs |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| `/` | **61** | **4.91 s** | 2.28 s | 0.000 | 775 ms | 2.44 s | 809 KB | 61 / 60 / 62 |
+| `/workstreams` | **50** | **6.93 s** | 2.87 s | 0.000 | 964 ms | 2.87 s | 1,028 KB | 50 / 52 / 48 |
+| `/annex-evidence` | **58** | **5.00 s** | 2.27 s | 0.000 | 943 ms | 2.56 s | 866 KB | 55 / 60 / 58 |
+
+INP is a field metric, and lab Lighthouse does not report it. TBT is the lab proxy. For
+workstream 9, I'll measure INP directly with the Event Timing API in Playwright under 4× CPU
+throttling, and record it alongside TBT.
+
+**Where the time goes** (run 1 of each route):
+
+| | `/` | `/workstreams` | `/annex-evidence` |
+|---|---|---|---|
+| LCP element | hero portrait `img` | chapter `h1.flow-chap__label` | first lead `p.t-body` |
+| Script | 16 req / 435 KB | 26 req / 527 KB | 19 req / 489 KB |
+| **Fonts** | **2 req / 186 KB** | **4 req / 289 KB** | **3 req / 225 KB** |
+| CSS | 5 req / 79 KB | 5 req / 79 KB | 5 req / 79 KB |
+| Long tasks (count / longest) | 10 / 337 ms | 17 / 514 ms | 15 / 341 ms |
+| Boot-up, largest | shared chunk `1255` 1.7 s | shared chunk `1255` **6.1 s** | route doc 2.9 s |
+| Unused JS | 148 KB | 111 KB | 134 KB |
+| Unused CSS | 23 KB | 24 KB | 25 KB |
+
+What this shows for the later workstreams:
+
+1. **Hydration of the 235 kB chapter bundle is the main cost.** Every chapter hydrates the same
+   client tree, and TBT of 775–964 ms is what keeps the score at 50–61. Reaching ≥ 95 means turning
+   static prose components into server components and deferring Recharts, d3 and the maps. CSS
+   alone won't get there.
+2. **Fonts are 186–289 KB per route**, more than all the CSS. Bricolage with two variable axes
+   plus Newsreader roman and italic is heavy. Subsetting is the biggest single byte saving.
+3. LCP on chapter routes is text, so it waits on fonts and CSS, not on an image.
+4. CLS is already 0.000 on all three. It must stay there.
+
+### 1.3 File counts
+
+| | Count |
+|---|---:|
+| Tracked files | 1,140 |
+| `components` + `hooks` + `lib` + `app` + `types` | 355 |
+| CSS files under `app/` | 12 |
+
+---
+
+## 2. Method
+
+**Code.** I built an import graph covering static `import`/`export … from`, dynamic `import()`,
+`require()` and CSS `@import`, resolving `@/` through `tsconfig` paths. Roots are every file
+under `app/`, plus `middleware.ts` and `next.config.ts`. Separately, I walked the graph from every
+script named in `package.json` and in `.github/workflows/*.yml`. A file counts as unused only if
+it's unreachable from both, and a full-text search finds its name nowhere except comments, docs
+or `scripts/preservation-manifest.json`.
+
+**Preservation guard.** `scripts/check-preservation.js` fails if any file under a protected tree
+is missing: `components/phone`, `components/markdown`, `components/premium`, `components/tools`,
+`components/charts`, `components/register`, `components/terminal`, `components/partviz`,
+`app/tools`, `lib/data` and others. Unreachable files in those trees are therefore **not**
+proposed for deletion. Deleting them would fail `prebuild`, and you told me not to edit the
+manifest.
+
+**CSS.** I extracted every leaf rule from the 12 files. A rule counts as dead only if every
+selector in its list contains at least one class that appears **nowhere** in `components/`,
+`app/`, `lib/`, `hooks/`, `content/`, `data/` or `scripts/`, either as a literal or behind a
+dynamic prefix (`foo-${…}`, `'foo-' + …`). Library-generated classes (`recharts-*`, `lucide-*`)
+and the theme class `dark` are treated as used. I spot-checked the dynamic-construction cases by
+hand for the `rc-`/`rb-`/`rs-`/`rk-` families.
+
+**Dependencies.** Import sites counted across `.ts`, `.tsx`, `.mjs`, `.js` and `.css` (including
+`@plugin`), plus `postcss.config.mjs`.
+
+---
+
+## 3. Proposed removals: for approval
+
+Approve by group (A–F), or strike individual items.
+
+### A. Unused application code: 11 files, 38,588 B
+
+None of these is imported by any route, script or test, none is in a protected tree, and none is
+named in content or a markdown directive.
+
+| # | Path | Bytes | Evidence |
+|---|---|---:|---|
+| A1 | `components/ChartComponent.tsx` | 8,593 | No importer. The only mention is a comment in `StrategicAids.tsx:555` recording that the re-export was removed. |
+| A2 | `components/ScrollProgressBar.tsx` | 4,948 | No importer. Named only in `scripts/visual-feature-ledger.py` (historical, run by nothing). |
+| A3 | `components/figures/UnderReview.tsx` | 1,905 | No importer, no other mention. |
+| A4 | `components/flow/ActMarker.tsx` | 1,489 | No importer. Only a comment in `premium/ActOpener.tsx:12` saying ActOpener replaced it. |
+| A5 | `components/flow/FlowChrome.tsx` | 4,768 | No importer, no other mention. |
+| A6 | `components/flow/FlowRail.tsx` | 1,519 | No importer, no other mention. |
+| A7 | `components/visual/AmbientField.tsx` | 2,811 | Re-exported only by `visual/index.ts` (A9), which nothing imports. |
+| A8 | `components/visual/Reveal.tsx` | 4,295 | Re-exported only by `visual/index.ts`. Every live "Reveal" match is the CSS class or a comment, not this module. |
+| A9 | `components/visual/index.ts` | 1,150 | The barrel. Nothing imports `@/components/visual`; every consumer imports the file directly. |
+| A10 | `hooks/use-marquee-active.ts` | 1,302 | No importer, no other mention. |
+| A11 | `lib/figures/register.ts` | 5,808 | No importer. `figures.test.ts` imports `register-math.ts` directly, so that file stays. |
+
+**Kept although unreachable from routes:**
+- `components/markdown/NominationPathPanel.tsx`, `components/phone/OptInConsentPhoneMockup.tsx`,
+  `components/phone/ServiceTrackerPhoneMockup.tsx` and `components/premium/FigureV2.tsx`. These
+  are protected by the preservation manifest.
+- `lib/visual-compile.ts` and `lib/data/allow.ts`, which scripts in `verify` use.
+- The three `*.test.ts` files, run by `test:figures` and `test:declutter`.
+- `types/js-yaml.d.ts`, the ambient type for `js-yaml`, which has no `@types` package.
+
+### B. Unused public assets: 6 files, 352,828 B
+
+`components/Portrait.tsx:82` is the only place a portrait is loaded. It always requests
+`/portraits/${file}-1600.webp`, and next/image produces its own smaller renditions from that one
+file. The four ids it maps are `hero-clasped-hands`, `seated-grey-cropped`, `three-piece-formal`
+and `gesture-explaining`. `public/sw.js:115` caches by the `/portraits/` prefix only and names no
+file.
+
+| # | Path | Bytes | Evidence |
+|---|---|---:|---|
+| B1 | `public/portraits/01-hero-clasped-hands-800.webp` | 34,780 | No code references `-800`. |
+| B2 | `public/portraits/02-seated-grey-800.webp` | 47,514 | Same, and the id isn't mapped. |
+| B3 | `public/portraits/02-seated-grey-cropped-800.webp` | 54,270 | No code references `-800`. |
+| B4 | `public/portraits/03-three-piece-formal-800.webp` | 40,528 | No code references `-800`. |
+| B5 | `public/portraits/04-gesture-explaining-800.webp` | 41,438 | No code references `-800`. |
+| B6 | `public/portraits/02-seated-grey-1600.webp` | 134,298 | The uncropped variant. `Portrait.tsx` maps only `02-seated-grey-cropped`. |
+
+### C. Unused npm dependencies
+
+| # | Package | Evidence | Saving |
+|---|---|---|---|
+| C1 | `zod` | 0 import sites anywhere in the repo. | install size only (never bundled) |
+| C2 | `autoprefixer` | Listed in `postcss.config.mjs`. Tailwind v4's `@tailwindcss/postcss` already prefixes through Lightning CSS, so this second pass repeats work. I'll remove both the dependency and the config entry, then diff the built CSS to confirm nothing changes. | build time |
+| C3 | `tw-animate-css` | Its only consumers are `animate-in` and `slide-in-from-bottom` in `components/phone/OptInConsentPhoneMockup.tsx:160,166`, a file no route renders (it's kept for preservation only, see A). I'll remove the `@import` in `globals.css:101` and the dependency. The protected file stays byte-identical; its two class names simply stop matching a rule. | CSS bytes, measured in workstream 2 |
+| C4 | `@types/qrcode` | Not unused. It's a type package listed under `dependencies`. **Move** it to `devDependencies`. | none at runtime |
+
+Every other dependency has at least one live import site: `@supabase/*`, `d3-geo`, `d3-scale`,
+`d3-time` (one use, `utcYear`, in `register/charts.tsx`), `js-yaml`, `lucide-react` (71 files),
+`motion` (39), `qrcode`, `react-markdown`, `recharts` (6), `rehype-raw`, `remark-gfm`,
+`topojson-client` and `@tailwindcss/typography`.
+
+### D. Dead CSS rules: 198 rules, about 30.3 kB of rule text
+
+These selectors match nothing anywhere in the source (method in section 2). Deleting them is
+part of the CSS consolidation in workstream 2. **Before** that work, every route gets a
+before/after screenshot diff at 390, 1440 and 3840 px, light and dark. Any rule whose removal
+changes a pixel goes back in and is reported to you.
+
+**`globals.css`** (57 rules, 9.9 kB):
+`.visual-overview*`, `.t-headline`, `.t-display`, `.t-chart-{micro,tick,axis,label,title}`,
+`.density-{compact,balanced,generous}` and their descendants, `.measure-{narrow,balanced,wide}`,
+`.marginalia-container`, `.prose-sidenote`, `.clean-editorial-section*`, `.grid-2`, `.grid-3`,
+`.mobile-compact`, `.mobile-tight-stack`, `.hairline-border`, `.oled-shadow`,
+`.gpu-accelerated`, `.text-oled-glow`, `.cv-auto-section*`, `.cv-auto-hero`,
+`.zero-chrome-active`, `.print\:block`, `.print\:hidden` (both hand-written duplicates of
+Tailwind utilities), `.decor-watermark`, `.tap-expand`, `.plane-3d`, `.sheen-3d`,
+`.track-unmeasured*`, `.bottom-dock.fx-glass`, `.fx-figure-{bar,line,hatch}`.
+
+> Note on `.t-display`, `.t-headline` and `.t-chart-*`: these are the type-scale classes
+> workstream 4 will build on. They are dead as **classes**, but the `--fs-*` tokens they read are
+> live. I'll delete the dead classes and refine the tokens. I won't revive the classes unless
+> workstream 4 needs them, and I'll say so if it does.
+
+**`register.css`** (56 rules, 5.7 kB): the `.rc-*` card grid, `.rb-*` bar list, `.rs-*` steps,
+`.rk-*` week and risk table, `.rx-draw`, `.ds-needed*`. These are an earlier register renderer;
+`components/register/*` now emits `.rf`, `.rb-n…` and `.rb-l…` only.
+
+**`premium.css`** (37 rules, 4.9 kB): `.pf-scene`, `.pf-hero__steps`, `.pf-step*`,
+`.pf-hero__pick`, `.pf-pick*`, `.pf-act__numeral`, `.pf-dock__hold`,
+`.pf-story__{title,take,link}`, `.pf-idx__n`, `.pf-idx__rownum`, `.pf-slab`, `.pf-glass-screen`,
+`.pf-xfade`, `.pf-bn__label` / `.pf-bn__note`.
+
+**`part-visuals.css`** (25 rules, 4.2 kB): `.pv-steps__body`, `.pv-hub*`, `.pv-chap*`,
+`.pv-quote*`, `.pv-statement*`, `.pv-shape*`.
+
+**`story-live.css`** (9 rules, 1.3 kB): `.sx-top-btn--accent*`, `.sx-search-hint`,
+`.sx-tour-pill*`, `.sx-hint-cycle`.
+
+**`declutter.css`** (6 rules, 0.6 kB): `.ichip--t{1,2,3} .ichip__btn`, `.vz-seq__label*`,
+`.vz-col__label`.
+
+**`flow.css`** (4 rules, 0.9 kB): `.flow-chap__dot`, `.fx-scroll-cue*`.
+
+**`visual-fx.css`** (4 rules, 2.8 kB): `.fx-glass`, `.dark .fx-glass`.
+
+`chart-kit.css`, `motion-draw.css`, `streamline.css` and `platform.css` have no dead rules.
+
+Beyond the dead rules, workstream 2 will merge the 12 files into fewer files, fold overrides into
+the rules they override, and collapse duplicate tokens. That is consolidation, not deletion, so
+it isn't itemised here. Comments make up 92 kB of the source CSS (34 kB in `globals.css`, 26 kB in
+`visual-fx.css`). They don't ship, but they go with the rules they describe.
+
+### E. Stale root-level documents: optional, your call
+
+None of these is read by any build, verify or check script. They are records of earlier passes,
+so deleting them is an editorial decision rather than a technical one. My recommendation is to
+**keep them** (or move them under `docs/history/`), because CHANGE-LOG and the ledgers point back
+to them. I'll delete them only if you say so explicitly.
+
+| # | Path | Bytes | Referenced by |
+|---|---|---:|---|
+| E1 | `DR-MAKALI-PROPOSAL-REDESIGN-SPEC.md` | 127,936 | `CHANGE-LOG.md` (text only) |
+| E2 | `kitui-rebuild-prompt.md` | 69,394 | `docs/rebuild/RECON.md`, `REPORT.md` (text only) |
+| E3 | `WRITING-LOG.md` | 60,565 | two docs (text only) |
+| E4 | `AUDIT-FINDINGS-PROMPTS-A-AND-B.md` | 22,785 | three docs (text only) |
+| E5 | `metadata.json` | 367 | AI Studio app manifest (`MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API`). Nothing in the build reads it, and the site doesn't use Gemini. |
+
+**Not proposed:** `CHANGE-LOG.md` (read by `scripts/rivals-2026-11/build-ledger.mjs`, which runs
+in `check:content`), `ARCHITECTURE.md`, `CONTRIBUTING.md`, `MOTION-SYSTEM.md`, `AGENTS.md`.
+
+### F. Historical one-shot scripts: not proposed
+
+Sixty-five code files under `scripts/` (plus nine JSON data files beside them) aren't reachable from any npm script or workflow. Examples are
+`scripts/restructure-2026-1{0,11}/*.py`, `scripts/rebuild/*`, `scripts/declutter/stages/*.py`,
+`scripts/optimisation/*`, `scripts/measure-*.mjs` and `renumber-citations.ts`. They are the
+migrations that produced the current content and its ledgers, and several JSON files beside them
+(`figure-migrations.json` and `figure-retirements.json`, 383 kB together) are data those ledgers
+cite. None of them ships to the site. I recommend **keeping** them all. The full list is available
+on request.
+
+---
+
+## 4. Totals if A–D are approved
+
+| | Saving |
+|---|---:|
+| A. Application code | 11 files, 38.6 kB source |
+| B. Portrait renditions | 6 files, 352.8 kB of deployed assets |
+| C. Dependencies | 3 removed (`zod`, `autoprefixer`, `tw-animate-css`), 1 moved |
+| D. Dead CSS | 198 rules, about 30.3 kB raw, plus the `tw-animate-css` import |
+| E. Root docs (only if you opt in) | 5 files, 281 kB |
+
+None of A–D reaches a page's critical path except D and C3, so the byte savings on the wire come
+from D now and from workstreams 4 and 9 (fonts, hydration) later.
+
+---
+
+## 5. Findings for later workstreams (no action yet)
+
+- **Caching headers live in `next.config.ts` `headers()`, not `vercel.json`.** `vercel.json`
+  holds only an `ignoreCommand`. `/sw.js` is `no-cache`, and `/data` and `/content` are
+  `max-age=300, stale-while-revalidate=86400`. `/_next/static` gets Next's immutable default.
+  Workstream 9 will confirm these against the deployed preview.
+- **Portrait sources top out at 1600 px tall**, with widths of 963–1243 px. The portrait comment
+  says the 7.6 MB master PNGs are not in the repo. Workstream 7's srcset to 2560w and 3840w can't
+  be served honestly from these files, so all four portraits will be listed as needing
+  higher-resolution originals. They won't be upscaled.
+  `next.config.ts` `deviceSizes` currently stops at 1920.
+- `html` has the `dark` class hard-coded in `layout.tsx`, with an inline script that removes it
+  for light readers. Dark mode exists and must meet the same contrast standard (workstream 5).
+- The prompt describes 12 CSS layers "each over the one before". In practice 8 are imported in
+  `layout.tsx` and 4 (`visual-fx`, `part-visuals`, `flow`, `declutter`) are `@import`ed **inside**
+  `globals.css`. Tailwind therefore inlines them before `register.css`, `premium.css` and the rest
+  of the files that layout.tsx imports after globals.css. The real cascade order is globals →
+  visual-fx → part-visuals → flow → declutter → register → premium → chart-kit → motion-draw →
+  streamline → platform → story-live. Consolidation keeps that order.
+
+---
+
+## 6. Assumptions and open points
+
+1. **Branch.** You asked for `polish/visual-performance`, and that's the branch I'm using. This
+   cloud session was set up with `claude/new-session-j4xf4g` as its default branch. I read your
+   explicit instruction as permission to push to `polish/visual-performance` instead.
+2. **Chapter routes for Lighthouse.** `/workstreams` and `/annex-evidence` are the two heaviest
+   chapters by HTML weight. `/full` (4.15 MB, the whole document) isn't a chapter, so it wasn't
+   used as one of the two targets.
+3. **Lab environment.** Lighthouse ran in this container. Its benchmark index varied from 1,428 to
+   2,507 between runs, which is why each route was run three times and the median used. The
+   after-numbers will be taken the same way, in the same container, so the comparison is like
+   for like.
+4. **Performance target realism.** A score of ≥ 95 with LCP < 2.0 s on a 423 kB-first-load route
+   that hydrates every chapter's client tree is a large move from 50–61. It's achievable only if
+   workstream 9 can make most of the chapter tree server-rendered. I'll report the measured result
+   honestly if it falls short.
