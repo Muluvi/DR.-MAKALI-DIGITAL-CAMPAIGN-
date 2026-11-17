@@ -85,6 +85,8 @@ interface ClientPageProps {
   streamed?: boolean;
   /** Each chapter's takeaway and numbers, read from its own markdown (lib/digest.ts). */
   digests?: Partial<Record<TabId, Digest>>;
+  /** Each digest's lead, already rendered on the server (app/[[...slug]]/page.tsx). */
+  leads?: Partial<Record<TabId, React.ReactNode>>;
   /**
    * Who the site is for, who built it, and on what terms: content/cover.md, rendered on the server.
    * It left the flow in the flow pass (docs/flow-2026-11, WP1) and is the footer's front matter.
@@ -129,7 +131,7 @@ const DIGEST_HEIGHT = 620;
 
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, cover }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, leads, cover }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -568,7 +570,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                     <>
                       <ChapterDigest
                         tabId={item.id}
-                        lead={digest.lead}
+                        lead={leads?.[item.id] ?? null}
                         stats={digest.stats}
                         steps={sections.filter((sec) => sec.tabId === item.id && sec.level === 2).map((sec) => ({ id: sec.id, title: sec.title }))}
                         minutes={readingMinutes(item.visibleWordCount)}

@@ -4,7 +4,7 @@ import { useCallback, useContext, useId, useState, useSyncExternalStore, type Re
 import { NOMINATION_WINDOW, isPassed } from "../../lib/phases";
 
 import { hasHighlight } from "../../lib/highlight-patterns";
-import { tokenizeInline, hasInlineMark, withoutEmptyTierMarks, COUNSEL_NOTE } from "../../lib/inline-marks";
+import { tokenizeInline, hasInlineMark, withoutEmptyTierMarks } from "../../lib/inline-marks";
 import { CrossSectionLink } from "./CrossSectionLink";
 import { FoldBody } from "./FoldBody";
 import { InertMarks } from "./InertMarks";
@@ -130,12 +130,6 @@ export function XrefMark({ refs, raw }: { refs?: string; raw?: string }) {
       ))}
     </span>
   );
-}
-
-/** A counsel note typed as a code span, `[Confirm approach with campaign counsel — …]` (X4). */
-export function counselNote(text: string): ReactNode | null {
-  const m = COUNSEL_NOTE.exec(text.trim());
-  return m ? <StatusMark status="counsel" note={m[1]} /> : null;
 }
 
 /**

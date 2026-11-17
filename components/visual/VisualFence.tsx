@@ -539,7 +539,10 @@ function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
   }
 }
 
-export function VisualFence({ json, md }: { json: string; md: Md }) {
+export function VisualFence({ json, texts }: { json: string; texts: Record<string, ReactNode> }) {
+  // Every string this visual shows arrives already rendered, block and inline, keyed by its text
+  // (visualTexts in components/MarkdownViewer.tsx): no markdown parser runs in the browser for it.
+  const md: Md = (text, inline = false) => texts[`${inline ? "i" : "b"}\u0000${text}`] ?? text;
   let spec: VisualSpec | null = null;
   try {
     spec = JSON.parse(json) as VisualSpec;

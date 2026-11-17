@@ -6,7 +6,6 @@ import { chapterHands } from "../../lib/story/embeds";
 import { useInView } from "../../hooks/use-in-view";
 import type { DigestStat } from "../../lib/digest";
 import type { TabId } from "../../lib/heading-slug";
-import { LeadMarkdown } from "../MarkdownViewer";
 import { CountUp } from "../premium/CountUp";
 
 /**
@@ -47,7 +46,8 @@ export function ChapterDigest({
   onStep,
 }: {
   tabId: TabId;
-  lead: string;
+  /** The chapter's lead, rendered on the server (LeadMarkdown in app/[[...slug]]/page.tsx). */
+  lead: React.ReactNode;
   stats: DigestStat[];
   steps: DigestStep[];
   /** How long the opened chapter takes to read, from what it shows on load. */
@@ -67,7 +67,7 @@ export function ChapterDigest({
     <div ref={ref} className="cd not-prose" data-in-view={inView ? "true" : "false"} data-open={open ? "true" : "false"}>
       {lead && (
         <div className="cd__lead">
-          <LeadMarkdown text={lead} tabId={tabId} />
+          {lead}
         </div>
       )}
 

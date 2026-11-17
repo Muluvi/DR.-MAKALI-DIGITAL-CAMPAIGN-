@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -35,7 +33,6 @@ import { crossRefFor, segmentContent } from "../lib/collapse-groups";
  * its own blocks need.
  */
 const PartVisual = dynamic(() => import("./partviz/PartVisual").then((m) => m.PartVisual));
-const DataExplorer = dynamic(() => import("./tools/DataExplorer").then((m) => m.DataExplorer), { ssr: false });
 const ResourceEnvelopeBlock = dynamic(() => import("./markdown/ResourceEnvelopeBlock").then((m) => m.ResourceEnvelopeBlock));
 const ChannelReachBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.ChannelReachBlock));
 const IssueEvidenceBlock = dynamic(() => import("./markdown/AnalysisBlocks").then((m) => m.IssueEvidenceBlock));
@@ -94,7 +91,8 @@ import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { TextVersion } from "./markdown/TextVersion";
 import { ReadMore } from "./markdown/ReadMore";
 import { VisualFence } from "./visual/VisualFence";
-import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark, counselNote } from "./markdown/InlineMarks";
+import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark } from "./markdown/InlineMarks";
+import { COUNSEL_NOTE } from "../lib/inline-marks";
 import { WorkstreamMark, WorkstreamTabBar } from "./markdown/WorkstreamTabs";
 import { GroupChip } from "./markdown/GroupChip";
 import { rehypeInlineMarks } from "../lib/rehype-inline-marks";
@@ -112,6 +110,7 @@ const GOVERNING_REALITY_TRIGGERS = [
 ];
 import { PHASES } from "../lib/phases";
 import { PHASE_ID_BY_NAME, rehypePlainLabels } from "../lib/plain-labels";
+import { DataExplorerLazy } from "./tools/DataExplorerLazy";
 
 // §4.1's phase parts ("Phase −1: Nomination Sprint …", "Phase 0: …") don't start
 // with a digit, so they never pick up a heading id from headingSlug — but they should still get
@@ -383,7 +382,7 @@ const HEADING_INSERTS: Record<string, React.ReactNode> = {
   // ---- Reference shelf -----------------------------------------------------------------------
   // The data explorer sits above the generated source table, which stays as the print and
   // JavaScript-off copy of the same figures (consolidation pass, Step 4N).
-  "annex-evidence-sec-a-2": <DataExplorer />,
+  "annex-evidence-sec-a-2": <DataExplorerLazy />,
 
   // ---- Part VI: the decision ----------------------------------------------------------------
   "receives-sec-21-1-1": <ServiceLevelSelector />,
@@ -479,7 +478,7 @@ function buildComponents(tabId: TabId): Components {
 
               // A ```visual fence: prose laid out as the shape it already has (components/visual).
               if (fenceLanguage(children) === "visual") {
-                return <VisualFence json={source} md={markdownFor(tabId)} />;
+                return <VisualFence json={source} texts={visualTexts(source, tabId)} />;
               }
 
               if (fenceLanguage(children) === "textversion") {
@@ -520,8 +519,10 @@ function buildComponents(tabId: TabId): Components {
             },
             code: ({ children }) => {
               const text = flattenText(children);
-              // X4: a counsel note typed as a code span renders as a "Counsel review" chip.
-              const counsel = counselNote(text);
+              // X4: a counsel note typed as a code span renders as a "Counsel review" chip. Matched here,
+              // on the server, rather than through a helper in the client InlineMarks module.
+              const counselMatch = COUNSEL_NOTE.exec(text.trim());
+              const counsel = counselMatch ? <StatusMark status="counsel" note={counselMatch[1]} /> : null;
               if (counsel) return counsel;
               if (PLACEHOLDER_PATTERN.test(text.trim())) {
                 return (
@@ -714,6 +715,33 @@ function buildComponents(tabId: TabId): Components {
  * Markdown inside a visual: a field, a card's text, a tab's body. `inline` renders a single run of
  * text without a paragraph box, for labels and one-line fields.
  */
+/**
+ * Every string a visual fence shows, rendered here (on the server for a prerendered chapter), block
+ * and inline, keyed by its text. VisualFence is a client island for its toggles and tabs; handing it
+ * the rendered strings keeps the markdown parser out of the browser's first-load bundle.
+ */
+function visualTexts(json: string, tabId: TabId): Record<string, React.ReactNode> {
+  let spec: unknown;
+  try {
+    spec = JSON.parse(json);
+  } catch {
+    return {};
+  }
+  const md = markdownFor(tabId);
+  const out: Record<string, React.ReactNode> = {};
+  const walk = (v: unknown): void => {
+    if (typeof v === "string") {
+      if (v && !(`b\u0000${v}` in out)) {
+        out[`b\u0000${v}`] = md(v, false);
+        out[`i\u0000${v}`] = md(v, true);
+      }
+    } else if (Array.isArray(v)) v.forEach(walk);
+    else if (v && typeof v === "object") Object.values(v).forEach(walk);
+  };
+  walk(spec);
+  return out;
+}
+
 function markdownFor(tabId: TabId) {
   // Inside a visual a table is part of a card or tab, so it is drawn as a plain, compact table that
   // scrolls sideways on a phone, not as the document's interactive table with its own controls.

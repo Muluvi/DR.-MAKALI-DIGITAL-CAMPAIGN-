@@ -42,10 +42,18 @@ export function ChapterMarker({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduce) return;
-    // Arming is a one-off read of where the marker sits at mount, not state derived from props:
-    // a marker already on screen (or above it) must never be hidden for an entrance.
-    if (el.getBoundingClientRect().top > window.innerHeight) setArmed(true);
+    if (!el || reduce || typeof IntersectionObserver === "undefined") return;
+    // Arming is a one-off read of where the marker sits at mount: a marker already on screen (or
+    // above it) must never be hidden for an entrance. The observer's first report gives that
+    // position from the browser's own layout pass. Reading getBoundingClientRect() here instead
+    // forced a synchronous layout of the whole document once per chapter: 28 forced layouts and
+    // about 290ms of main thread on a mid-range phone (polish pass, performance).
+    const io = new IntersectionObserver(([entry]) => {
+      io.disconnect();
+      if (!entry.isIntersecting && entry.boundingClientRect.top > (entry.rootBounds?.height ?? window.innerHeight)) setArmed(true);
+    });
+    io.observe(el);
+    return () => io.disconnect();
   }, [ref, reduce]);
 
   return (
