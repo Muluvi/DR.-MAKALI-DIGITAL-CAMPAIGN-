@@ -10,6 +10,8 @@ import fs from "node:fs";
 const S2 = JSON.parse(fs.readFileSync(new URL("./rewrites-s2.json", import.meta.url), "utf8"));
 /** Section 3: the tier words in running prose, reworded one by one (the parenthesised tags are generated, tiers.mjs). */
 const S3 = JSON.parse(fs.readFileSync(new URL("./rewrites-s3.json", import.meta.url), "utf8"));
+/** Section 5: copy that promised editing, live records or a change log while team sign-in is off. */
+const S5 = JSON.parse(fs.readFileSync(new URL("./rewrites-s5.json", import.meta.url), "utf8"));
 
 const REFS_GLOSS = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): the gloss after a numbered reference repeated the heading's own words once the reference became a link carrying them, so it goes.";
 
@@ -28,4 +30,6 @@ export const REWRITES = [
   ...S2,
   // 3. Tier words in running prose
   ...S3,
+  // 5. Copy that follows the sign-in switch
+  ...S5,
 ];

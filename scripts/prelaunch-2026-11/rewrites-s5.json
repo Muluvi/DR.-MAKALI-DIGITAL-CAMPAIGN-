@@ -1,0 +1,50 @@
+[
+ {
+  "f": "content/cover.md",
+  "from": "**Status:** Live. Updated by the campaign team; run by Firefly Management.",
+  "to": "**Status:** Live. Built and run by Firefly Management; the campaign team edits it once the engagement starts.",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "Anyone with the link sees everything; the team signs in to edit, and Firefly keeps the platform running.",
+  "to": "Anyone with the link sees everything; once the engagement starts, the team signs in here to edit, and Firefly keeps the platform running.",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "{ title: \"Live team records\", text: \"The weekly brief, content calendar, dispatch log and seven more, inside the chapters they run\" }",
+  "to": "{ title: \"Team records\", text: \"The weekly brief, content calendar, dispatch log and seven more, inside the chapters they run, kept by the team once the engagement starts\" }",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "{ title: \"Live charts\", text: \"The team's numbers drawn in the chapter they measure, the moment a record is saved\" }",
+  "to": "{ title: \"Team charts\", text: \"Once the engagement starts, the team's numbers are drawn in the chapter they measure, the moment a record is saved\" }",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "{ title: \"Every change\", text: \"Every edit logged with who made it, and any edit can be put back\" }",
+  "to": "{ title: \"Every change\", text: \"Once the engagement starts, every edit is logged with who made it, and any edit can be put back\" }",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "{ title: \"Sign in to edit\", text: \"The team adds and updates records without leaving the story\" }",
+  "to": "{ title: \"Sign in to edit\", text: \"Once the engagement starts, the team adds and updates records without leaving the story\" }",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "{ label: \"Nothing is lost: every change can be undone\" }",
+  "to": "{ label: \"Nothing is lost: once editing starts, every change can be undone\" }",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ },
+ {
+  "f": "content/welcome.md",
+  "from": "The team's latest edits appear here, newest first, each with who made it and when.",
+  "to": "Once the engagement starts, the team's latest edits appear here, newest first, each with who made it and when.",
+  "note": "Pre-launch pass, section 5 (docs/prelaunch-2026-11): team sign-in (PLATFORM_TEAM_LOGIN) is off, so the copy no longer says the team already edits, that records are live or that edits are logged; it says this starts with the engagement, in the words The platform in one view already uses."
+ }
+]

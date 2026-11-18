@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 const KEY = "sx-tour-seen";
 const STOPS: { sel: string; title: string; text: string }[] = [
   { sel: ".pf-dock__where", title: "Where you are, and search", text: "The bar at the bottom shows the stage and the chapter you are in. Tap it for every chapter, by stage, and to search any heading or figure." },
-  { sel: '[data-tour="tools"]', title: "Every tool, one tap away", text: "36 tools and the team's 10 live records. Tap one and the story opens right where it lives." },
+  { sel: '[data-tour="tools"]', title: "Every tool, one tap away", text: "36 tools and the team's 10 records. Tap one and the story opens right where it lives." },
   { sel: '[data-tour="live"]', title: "Live from the team", text: "A green dot means the team has updated something; tap it to see what changed. Records and charts change inside the chapters the moment a record is saved." },
   { sel: "#section-winning .sx-hands", title: "Try it in this chapter", text: "Each chapter lists the tools inside it. In the chapter, look for the cards with a moving hand: something you can use, not just read." },
 ];

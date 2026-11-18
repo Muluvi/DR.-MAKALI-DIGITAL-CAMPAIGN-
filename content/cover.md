@@ -17,4 +17,4 @@ fireflymanagement.ke@gmail.com · 0726 766 800
 
 **Date:** September 2026, revised November 2026
 
-**Status:** Live. Updated by the campaign team; run by Firefly Management.
+**Status:** Live. Built and run by Firefly Management; the campaign team edits it once the engagement starts.

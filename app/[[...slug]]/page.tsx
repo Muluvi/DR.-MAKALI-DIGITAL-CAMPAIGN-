@@ -11,6 +11,7 @@ import { buildSectionIndex } from "@/lib/section-index";
 import { visibleProseWords } from "@/lib/collapse-groups";
 import { visibleWordsOfJson } from "@/lib/visual";
 import { chapterDigest } from "@/lib/digest";
+import { teamLoginEnabled } from "@/lib/platform/config";
 
 const TAB_IDS = SECTIONS.map((s) => s.id) as TabId[];
 
@@ -196,6 +197,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       activeTab={activeTab}
       expanded={expanded}
       streamed={streamed}
+      teamLogin={teamLoginEnabled()}
     />
   );
 }

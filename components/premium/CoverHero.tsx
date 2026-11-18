@@ -33,7 +33,7 @@ const STAT_PROVENANCE = [
   provenanceOf(FIGURES["register.polling-stations"]),
 ];
 
-export function CoverHero({ byline, children }: { byline?: ReactNode; children?: ReactNode }) {
+export function CoverHero({ byline, children, teamLogin = false }: { byline?: ReactNode; children?: ReactNode; teamLogin?: boolean }) {
   return (
     <>
       <section className="pf-hero" data-story="false" aria-labelledby="pf-hero-title">
@@ -51,7 +51,7 @@ export function CoverHero({ byline, children }: { byline?: ReactNode; children?:
             {byline}
             <p className="pf-seal">
               <span className="pf-seal__mark" aria-hidden="true" />
-              <strong>Built for Dr. Mulu and his team.</strong> Open to view; the team signs in to edit.
+              <strong>Built for Hon. Dr. Benson Makali Mulu and his team.</strong>{teamLogin ? " Open to view; the team signs in to edit." : " Open to view; once the engagement starts, the team signs in here to edit."}
             </p>
             <h1 id="pf-hero-title" className="pf-hero__title">
               <span className="pf-line"><span>Kitui 2027:</span></span>

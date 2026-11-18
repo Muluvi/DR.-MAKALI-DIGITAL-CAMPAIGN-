@@ -92,6 +92,11 @@ interface ClientPageProps {
    * It left the flow in the flow pass (docs/flow-2026-11, WP1) and is the footer's front matter.
    */
   cover?: React.ReactNode;
+  /**
+   * Whether team sign-in is switched on (PLATFORM_TEAM_LOGIN, read on the server at build). While it
+   * is off, nothing on the page says the team can already edit: it says sign-in comes with the engagement.
+   */
+  teamLogin?: boolean;
 }
 
 /**
@@ -131,7 +136,7 @@ const DIGEST_HEIGHT = 620;
 
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, leads, cover }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, leads, cover, teamLogin = false }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -457,6 +462,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
             static county is in the HTML for print, reduced motion and scripts off. */}
         {expanded && (
           <CoverHero
+            teamLogin={teamLogin}
             byline={
               <p className="pf-byline">
                 <WiperUmbrellaLogo />
@@ -619,7 +625,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           <span aria-hidden="true" className="fx-divider-gradient absolute inset-x-4 sm:inset-x-6 top-0" />
           <div className="confidentiality-marker mb-3">
             <strong>Built for Hon. Dr. Benson Makali Mulu and his campaign team.</strong>
-            <span className="opacity-85"> Open to view; the team signs in to edit.</span>
+            <span className="opacity-85">{teamLogin ? " Open to view; the team signs in to edit." : " Open to view; once the engagement starts, the team signs in here to edit."}</span>
           </div>
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button

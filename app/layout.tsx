@@ -5,6 +5,7 @@ import { RangeFill } from '@/components/story/RangeFill';
 import './editorial.css'; // The figure register's visual system, then the 2026 premium layer over it
 import './charts.css'; // Chart kit v2 and how each visual draws in, after the layer they sit in
 import './story.css'; // The route map and digests, the platform's controls, and the working layer in the story
+import { teamLoginEnabled } from '@/lib/platform/config';
 
 // The variable axis, not a pair of static cuts.
 //
@@ -55,8 +56,15 @@ export const viewport: Viewport = {
 };
 
 const TITLE = 'Kitui 2027 — The campaign’s data, analysis and plan';
+/**
+ * What the share card says about editing follows the switch that turns team sign-in on
+ * (PLATFORM_TEAM_LOGIN, lib/platform/config.ts). While it is off, nobody can edit, so the
+ * description says sign-in comes with the engagement rather than promising it now.
+ */
+const TEAM_LOGIN = teamLoginEnabled();
 const DESCRIPTION =
-  'Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team. Open to view; the team signs in to edit.';
+  'Built by Firefly Management for Hon. Dr. Benson Makali Mulu, MP for Kitui Central and gubernatorial aspirant, Kitui County, and for his team. ' +
+  (TEAM_LOGIN ? 'Open to view; the team signs in to edit.' : 'Open to view; once the engagement starts, the team signs in here to edit.');
 
 /**
  * The share card, and why there is one.
@@ -77,7 +85,7 @@ const OG_IMAGE = {
   url: '/og/kitui-2027.png',
   width: 1200,
   height: 630,
-  alt: 'Kitui 2027 — The campaign’s data, analysis and plan. Built for Dr. Mulu and his team. Firefly Management, September 2026, revised November 2026. Open to view.',
+  alt: 'Kitui 2027 — The campaign’s data, analysis and plan. Built for Hon. Dr. Benson Makali Mulu and his team. Firefly Management, September 2026, revised November 2026. Open to view.',
 };
 
 /**

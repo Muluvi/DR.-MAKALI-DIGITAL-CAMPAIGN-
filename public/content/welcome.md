@@ -2,10 +2,10 @@
 **Firefly Management built this platform for Dr. Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone.
 ```
 
-**Firefly Management built this platform for Dr. Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone. Anyone with the link sees everything; the team signs in to edit, and Firefly keeps the platform running.
+**Firefly Management built this platform for Dr. Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone. Anyone with the link sees everything; once the engagement starts, the team signs in here to edit, and Firefly keeps the platform running.
 
 ```visual
-{"kind":"cards","title":"What's inside","items":[{"title":"The story","text":"The full case, chapter by chapter, from the county's data to the plan that delivers it"},{"title":"36 tools, in their chapters","text":"Each opens where it is needed: look for the moving Try it cards under the headings"},{"title":"Live team records","text":"The weekly brief, content calendar, dispatch log and seven more, inside the chapters they run"},{"title":"Live charts","text":"The team's numbers drawn in the chapter they measure, the moment a record is saved"},{"title":"Search and Tools","text":"The bar at the foot of the screen searches every chapter and lists every tool and record"},{"title":"Every dataset","text":"Search, filter and download any table behind the story, from the links below"},{"title":"Every change","text":"Every edit logged with who made it, and any edit can be put back"},{"title":"Sign in to edit","text":"The team adds and updates records without leaving the story"}]}
+{"kind":"cards","title":"What's inside","items":[{"title":"The story","text":"The full case, chapter by chapter, from the county's data to the plan that delivers it"},{"title":"36 tools, in their chapters","text":"Each opens where it is needed: look for the moving Try it cards under the headings"},{"title":"Team records","text":"The weekly brief, content calendar, dispatch log and seven more, inside the chapters they run, kept by the team once the engagement starts"},{"title":"Team charts","text":"Once the engagement starts, the team's numbers are drawn in the chapter they measure, the moment a record is saved"},{"title":"Search and Tools","text":"The bar at the foot of the screen searches every chapter and lists every tool and record"},{"title":"Every dataset","text":"Search, filter and download any table behind the story, from the links below"},{"title":"Every change","text":"Once the engagement starts, every edit is logged with who made it, and any edit can be put back"},{"title":"Sign in to edit","text":"Once the engagement starts, the team adds and updates records without leaving the story"}]}
 ```
 
 <!-- keep -->
@@ -16,11 +16,11 @@
 ```
 
 ```visual
-{"kind":"checklist","title":"Why it helps","items":[{"label":"One source of truth instead of scattered files"},{"label":"Every figure shows its source and how sure it is"},{"label":"Options can be tested without changing the published data"},{"label":"Made for the phone"},{"label":"Nothing is lost: every change can be undone"}]}
+{"kind":"checklist","title":"Why it helps","items":[{"label":"One source of truth instead of scattered files"},{"label":"Every figure shows its source and how sure it is"},{"label":"Options can be tested without changing the published data"},{"label":"Made for the phone"},{"label":"Nothing is lost: once editing starts, every change can be undone"}]}
 ```
 
 Firefly built, owns and runs the platform. The campaign owns its content and its data.
 
 ## 0.1 What changed
 
-The team's latest edits appear here, newest first, each with who made it and when.
+Once the engagement starts, the team's latest edits appear here, newest first, each with who made it and when.

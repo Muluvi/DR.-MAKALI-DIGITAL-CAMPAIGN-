@@ -104,7 +104,7 @@ function ToolsSheet({ onClose, onJump, signedIn, name }: { onClose: () => void; 
         <div className="sx-sheet__grip" aria-hidden="true" />
         <div style={{ display: "flex", alignItems: "start", justifyContent: "space-between", gap: "0.5rem" }}>
           <div>
-            <h2 id="sx-sheet-title">Every tool and live record</h2>
+            <h2 id="sx-sheet-title">Every tool and team record</h2>
             <p className="sx-sheet__lead">{TOOL_META.length} tools and 10 team records, by stage of the story, each inside the chapter it works on. Tap one to go straight there.{signedIn && name ? ` Signed in as ${name}.` : ""}</p>
           </div>
           <button type="button" className="sx-top-btn" onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
@@ -119,7 +119,7 @@ function ToolsSheet({ onClose, onJump, signedIn, name }: { onClose: () => void; 
                 <li key={`${i.kind}-${i.key}`}>
                   <button type="button" style={{ "--i": n++ } as React.CSSProperties} onClick={() => onJump(i.home)}>
                     {i.kind === "tool" ? <Sparkles size={16} aria-hidden="true" /> : <Table2 size={16} aria-hidden="true" style={{ color: "#1f7a45" }} />}
-                    <span>{i.title}<small>{CHAPTER_LABEL[chapterOf(i.home)] ?? ""} · {i.kind === "record" ? "Live record · " : ""}{i.line}</small></span>
+                    <span>{i.title}<small>{CHAPTER_LABEL[chapterOf(i.home)] ?? ""} · {i.kind === "record" ? "Team record · " : ""}{i.line}</small></span>
                     <ChevronRight size={16} aria-hidden="true" />
                   </button>
                 </li>

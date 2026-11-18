@@ -445,7 +445,7 @@ export function PlatformMap() {
       <div className="sx-pmap__list" key={job}>
         {records.map((c, i) => (
           <button key={c.id} type="button" data-kind="record" style={{ "--i": i } as React.CSSProperties} onClick={() => { const home = Object.entries(RECORD_AT).find(([, ids]) => ids.includes(c.id))?.[0]; if (home) jumpTo(home); }}>
-            <Table2 size={14} aria-hidden="true" /><span>{c.label}<small>Live record</small></span><ArrowRight size={13} aria-hidden="true" />
+            <Table2 size={14} aria-hidden="true" /><span>{c.label}<small>Team record</small></span><ArrowRight size={13} aria-hidden="true" />
           </button>
         ))}
         {shownTools.map((tm, i) => (

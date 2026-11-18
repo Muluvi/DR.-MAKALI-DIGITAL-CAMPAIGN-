@@ -259,11 +259,11 @@ function LiveRecord({ id }: { id: string }) {
   const recent = c.rows.slice(0, 3);
   const canEdit = live.signedIn;
   return (
-    <section ref={ref} className="sx-record" data-in={inView ? "true" : "false"} aria-label={`${c.label}: the team's live record`}>
+    <section ref={ref} className="sx-record" data-in={inView ? "true" : "false"} aria-label={`${c.label}: the team's record`}>
       <header className="sx-record__head">
         <span className="sx-record__icon" aria-hidden="true"><Table2 size={18} /></span>
         <span>
-          <span className="sx-record__kicker"><LiveDot on={c.count > 0} /> Live record · {c.group}</span>
+          <span className="sx-record__kicker"><LiveDot on={c.count > 0} /> {live.loginEnabled ? "Live record" : "Team record"} · {c.group}</span>
           <span className="sx-record__title">{c.label}</span>
         </span>
         <span className="sx-count" aria-label={`${c.count} entries`}>{c.count}</span>
@@ -312,8 +312,30 @@ function ChangeFeed() {
   const { live, ready } = useLive();
   const [ref, inView] = useReveal<HTMLElement>();
   const changes = live?.changes.slice(0, 8) ?? [];
+  // Nothing is drawn until the history has loaded, so the feed never sits on a loading line.
+  if (!ready) return null;
+  // While team sign-in is off (PLATFORM_TEAM_LOGIN), nobody can edit, so there is no history to
+  // show and no claim that edits are recorded: a static note says when it starts.
+  if (!live?.loginEnabled) {
+    return (
+      <section ref={ref} className="sx-feed" data-in={inView ? "true" : "false"} aria-label="The change history">
+        <header className="sx-record__head">
+          <span className="sx-record__icon" aria-hidden="true"><History size={18} /></span>
+          <span>
+            <span className="sx-record__kicker">Starts with the engagement</span>
+            <span className="sx-record__title">What changed, who changed it, and when</span>
+          </span>
+        </header>
+        <p className="sx-record__purpose">Once the engagement starts, the team signs in here to edit, and every change appears here with who made it and when.</p>
+        <div className="sx-record__actions">
+          <Link className="sx-btn" href="/explore"><Database size={15} aria-hidden="true" /> Explore every dataset</Link>
+          <Link className="sx-btn" href="/strategies"><Radio size={15} aria-hidden="true" /> The strategy library</Link>
+        </div>
+      </section>
+    );
+  }
   // Nothing to show is shown as nothing: a first reader never meets an empty history (flow pass, WP4).
-  if (ready && changes.length === 0) return null;
+  if (changes.length === 0) return null;
   return (
     <section ref={ref} className="sx-feed" data-in={inView ? "true" : "false"} aria-label="The latest changes">
       <header className="sx-record__head">
@@ -323,21 +345,17 @@ function ChangeFeed() {
           <span className="sx-record__title">What changed, who changed it, and when</span>
         </span>
       </header>
-      {!ready ? (
-        <div className="sx-loading" role="status"><span /><span /><span /><em>Reading the history…</em></div>
-      ) : (
-        <ol className="sx-feed__list">
-          {changes.map((e, i) => (
-            <li key={e.id} style={{ "--i": i } as React.CSSProperties}>
-              <span className="sx-avatar" aria-hidden="true">{e.actor.slice(0, 1).toUpperCase()}</span>
-              <span>
-                <b>{e.actor}</b> {VERB[e.action] ?? e.action} <span className="sx-feed__title">{e.title}</span>
-                <span className="sx-feed__meta">{e.where} · {ago(e.at)}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      )}
+      <ol className="sx-feed__list">
+        {changes.map((e, i) => (
+          <li key={e.id} style={{ "--i": i } as React.CSSProperties}>
+            <span className="sx-avatar" aria-hidden="true">{e.actor.slice(0, 1).toUpperCase()}</span>
+            <span>
+              <b>{e.actor}</b> {VERB[e.action] ?? e.action} <span className="sx-feed__title">{e.title}</span>
+              <span className="sx-feed__meta">{e.where} · {ago(e.at)}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
       <div className="sx-record__actions">
         <Link className="sx-btn" href="/history"><History size={15} aria-hidden="true" /> Every change</Link>
         <Link className="sx-btn" href="/explore"><Database size={15} aria-hidden="true" /> Explore every dataset</Link>
