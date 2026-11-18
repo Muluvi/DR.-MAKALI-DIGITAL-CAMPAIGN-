@@ -231,7 +231,7 @@ accessibility is reach, not compliance theatre.*
 #### The case
 
 ```visual
-{"kind":"stats","items":[{"value":"15.1%","label":"of women aged 6+ have no education","tier":1,"body":"KDHS 2022 via the County Gender Data Sheet (October 2025): 15.1% of females and 9.7% of males aged six and over have no education. This replaces an untiered 13.0% (\"never attended school\", a different measure). 17.4% completed secondary is still not yet tiered."},{"value":"73.8%","label":"outside the internet-using population","tier":1,"body":"**73.8% are outside the internet-using population** (CA/KNBS 2023/24)"}],"body":"Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle. In Kitui, 7.5% of men and 5.5% of women aged 15 and over have a disability (2022, Tier 1). Low bandwidth is itself an accessibility constraint"}
+{"kind":"stats","items":[{"value":"15.1%","label":"of women aged 6+ have no education","tier":1,"body":"KDHS 2022 via the County Gender Data Sheet (October 2025): 15.1% of females and 9.7% of males aged six and over have no education. 17.4% completed secondary is still not yet tiered."},{"value":"73.8%","label":"outside the internet-using population","tier":1,"body":"**73.8% are outside the internet-using population** (CA/KNBS 2023/24)"}],"body":"Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle. In Kitui, 7.5% of men and 5.5% of women aged 15 and over have a disability (2022, Tier 1). Low bandwidth is itself an accessibility constraint"}
 ```
 
 A campaign built on transparency that publishes only in dense written English
@@ -274,8 +274,6 @@ Paid media on the platforms that reach the connected minority, and earned media 
 ```
 
 **Owner: your team, to its own brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things anyone will post for you; Firefly posts nothing. The team writes the targeting plan and reads the performance on the platform; your team places and publishes. The campaign holds the ad account ([the weekly rhythm and approvals](/#week-sec-13-4)).
-
-*Corrected: an earlier version said the ad-account recommendation was still open; [the weekly rhythm and approvals](/#week-sec-13-4) records it as approved in September 2026.*
 
 *The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in [Platform playbooks](/#channels-sec-c-1).*
 

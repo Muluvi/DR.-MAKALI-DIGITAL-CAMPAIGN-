@@ -325,3 +325,70 @@ Every figure in the store, 629 in all: 448 read off a named document, 113 modell
 
 <!-- source-table:end -->
 
+## A.3 Source notes and corrections
+
+Where a figure or a statement in a chapter was corrected, or two sources disagreed, the chapter carries the verified figure and its source; the note on what changed, and why, is kept here, word for word, by chapter.
+
+#### The county in numbers
+
+The national comparison is not yet sourced: an earlier draft gave 82 per km²; the record that would settle it is KNBS 2019 Census Volume I.
+
+Source conflict: secondary reporting puts the rural share near 86%, and an earlier draft gave an urban share of 14.9% with no source; the figures above sum exactly to the census total and are the verified ones, at Tier 2 until the KNBS Volume II table itself is cited.
+
+Over a third of the county, at an average density an earlier draft put at 19 people per km² (not yet sourced).
+
+#### What voters need
+
+Education: the KDHS 2022 no-education figures replace an untiered 13.0%. The share who completed secondary school was given in an earlier draft as 17.4%.
+
+An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
+
+No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.
+
+#### How voters get news
+
+Source conflict: an earlier version named this source as the 2023/24 Kenya Continuous Household Survey and Communications Authority reports; the figures come from the CA/KNBS ICT Analytical Report on the 2023/24 Kenya Housing Survey, and that is the source named above.
+
+#### The position
+
+Source conflict: an earlier version graded the KSh 13.79 billion envelope Tier 1; it is cited through secondary reporting of the Paper, and the Tier 3 grade above is the verified one.
+
+#### The message
+
+Earlier drafts carried five overlapping groupings under four names (four campaign pillars, three message pillars, four production pillars, four content buckets and six themes). They are merged here into one architecture, and every fact from each is kept.
+
+The four campaign pillars of earlier drafts fold into the three pillars, and the four content buckets into the four content types.
+
+Earlier drafts also cited the same inventory for a classroom count, a different project category; all now defer to the inventory's own line items, which would let the team use one consistent set of figures throughout.
+
+Source conflict: an earlier version gave a sum of segment shares, printed from a population-density figure rather than from any share, and counts applied to the 532,758 register; the grids carry no shares or counts, so both are withdrawn.
+
+#### Who does what
+
+Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as [the three scope levels, compared](/#receives-sec-21-1) states.
+
+#### Timeline to August 2027
+
+Corrected: earlier versions put recruitment in 15 wards (Weeks 6–8) and in 40 (Weeks 7–8) without saying how the two relate; they are one sequence, starting in the 15 priority wards and reaching all 40 by the end of Phase 0, as the KPI below already required.
+
+The target ladder: four different quantities are in play, and earlier drafts quoted them interchangeably.
+
+#### The fourteen workstreams
+
+Education: the KDHS 2022 figures replace an untiered 13.0% ("never attended school", a different measure).
+
+Corrected: an earlier version said the ad-account recommendation was still open; [the weekly rhythm and approvals](/#week-sec-13-4) records it as approved in September 2026.
+
+#### Measuring success
+
+Evidence required: an earlier draft of this section put that share at "over 60%", which no source in this plan supports. The figure is withdrawn rather than restated.
+
+#### What you get and what you provide
+
+Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.
+
+Source conflict: an earlier version pointed the cadence to [who owns what](/#engagement-sec-13-2), the standard to [how success will be judged](/#success-sec-18-1) and [the weekly rhythm and approvals](/#week-sec-13-4) and the conditions to [his public record](/#record-sec-6-1); the references above are the current ones.
+
+#### Technology
+
+Source conflict: an earlier version said six core components; it listed five, and five is the verified count.

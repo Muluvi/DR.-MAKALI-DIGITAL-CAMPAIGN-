@@ -182,7 +182,7 @@ No verified figure is available yet for the county's road network or its conditi
 **Kitui is young, and its young people are short of work and of skills.** The median age is **{{census.median-age}}** (Tier 1, calculated from KNBS 2019 Census Volume III), and about **{{segment.youth.voters}}** registered voters are aged 18 to 35 (modelled: the 2019 census age distribution applied to the 2022 register). {{women.nopaidwork}}% of women aged 15–49 had no paid work in the past year, against {{women.nopaidwork.kenya}}% nationally and {{men.nopaidwork}}% of Kitui's men (Tier 1, County Gender Data Sheet, October 2025).
 
 *   **No verified youth unemployment figure** is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey county tables or the 2019 Census Volume IV labour table.
-*   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an untiered 13.0%). The share who completed secondary school, given in an earlier draft as 17.4%, is **not yet tiered**.
+*   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (Tier 1, KDHS 2022). The share who completed secondary school is **not yet tiered**.
 *   **Attendance.** Girls attend secondary school more than boys: net attendance {{edu.secondary.girls}}% against {{edu.secondary.boys}}% (Tier 1).
 *   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another (Tier 1). {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners (Tier 1, NDMA).
 *   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui ([where people get information](/#news-sec-4-1)).
@@ -227,7 +227,7 @@ items:
 The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
 ```
 
-**The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document. An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
+**The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document.
 
 *   **Equitable share:** KSh {{budget.equitable|bn}} billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
 *   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%, Tier 3), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly (Tier 3). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
@@ -241,7 +241,7 @@ The three parts sum to KSh 13.80 billion (calculated) against a published total 
 
 **The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (Tier 2, The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
 
-**The development plan.** The county's priorities for the term are set in the Kitui County Integrated Development Plan 2023–2027, held in the KIPPRA repository. No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.
+**The development plan.** The county's priorities for the term are set in the Kitui County Integrated Development Plan 2023–2027, held in the KIPPRA repository. No verified figure is available yet for its number of priority sectors; the record that would settle it is the plan itself.
 
 **The audit record.** The Auditor-General's findings and the Controller of Budget's absorption rate follow directly below, with the county government's own scorecard.
 

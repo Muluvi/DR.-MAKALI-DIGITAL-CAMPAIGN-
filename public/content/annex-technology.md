@@ -8,8 +8,6 @@ A data-driven campaign needs reliable and compliant technical infrastructure. Th
 
 This section specifies the five core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Service-Delivery Tracker** ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)).
 
-*Source conflict: an earlier version said six core components; it listed five, and five is the verified count.*
-
 ```figure
 id: tech-stack
 ```

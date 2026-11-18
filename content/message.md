@@ -10,7 +10,7 @@ The message is one claim, argued through three pillars, evidenced by six themes,
 One claim, argued through three pillars, evidenced by six themes, and made week by week in four content types: each layer carries the one above it.
 ```
 
-One claim, argued through three pillars, evidenced by six themes, and made week by week in four content types: each layer carries the one above it. Earlier drafts carried five overlapping groupings under four names (four campaign pillars, three message pillars, four production pillars, four content buckets and six themes). They are merged here into one architecture, and every fact from each is kept.
+One claim, argued through three pillars, evidenced by six themes, and made week by week in four content types: each layer carries the one above it.
 
 ```visual
 kind: crosswalk
@@ -21,7 +21,7 @@ rows:
   - cells: ["Pillars", "3", "how the claim is argued to a voter", "below"]
   - cells: ["Themes", "6", "the issues each pillar is evidenced on", "below; evidence in [what voters need](/#needs-sec-1-3)"]
   - cells: ["Content types, P1 to P4", "4", "what the team makes each week, and what the weekly brief commissions", "below"]
-note: "Each layer maps to the one above it. The four campaign pillars of earlier drafts fold into the three pillars, and the four content buckets into the four content types."
+note: "Each layer maps to the one above it."
 ```
 
 ```figure
@@ -59,7 +59,7 @@ items:
       - { label: "How it is argued", text: "Dr. Mulu's record, including the NG-CDF-funded projects in Kitui Central, broken down in infographics so voters can see the impact: budget documents turned into simple charts, ward maps and before-and-after comparisons." }
       - { label: "Narrative Statement", text: "*\"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu will allocate ward development funds by one needs-weighted formula, published before any allocation and audited after, prioritizing solar borehole reticulation and stocked village dispensaries.\"* (policy commitment; see the decision below)" }
       - { label: "Proof Point — awaiting page reference", text: "**Kitui County Integrated Development Plan (CIDP III).** Its 61% water figure is not yet tiered. The County Gender Data Sheet (October 2025) gives {{water.over30}}% of residents taking more than 30 minutes to reach drinking water (KDHS 2022, Tier 1); it is not substituted until the CIDP's 61% is confirmed to be the same measure. [Water](/#needs-sec-3-1) carries the documented water figures, which measure different things." }
-      - { label: "CDF Proof — a request to your constituency office", text: "{{record.cdf.boreholes}} community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026, Tier 3 until its line items are in hand). Earlier drafts also cited the same inventory for a classroom count, a different project category; all now defer to the inventory's own line items, which would let the team use one consistent set of figures throughout." }
+      - { label: "CDF Proof — a request to your constituency office", text: "{{record.cdf.boreholes}} community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026, Tier 3 until its line items are in hand)." }
     badge: "sources pending"
 ```
 
@@ -276,8 +276,6 @@ id: fig-4-4-message-region
 The segments are those of [the six voter segments](/#voters-sec-11-2). **No segment in these grids carries a size.** [How large each segment is](/#voters-sec-11-3) is the sizing authority, built from census and register data; it states only sourced sizes and gives none where none is published ([what the data cannot yet show](/#diagnosis-sec-7-3)). The grids assign messages; they do not measure audiences. The segments overlap: a woman farming in Mwingi is in rows 2 and 4, and a boda operator in Kitui Town in rows 1 and 3.
 
 **These segments overlap.** A woman farming in Mwingi is in both the agrarian and the women's-cooperative segments; a boda operator in Kitui Town is in both the youth and the trader segments. That is expected for messaging segments and would be an error for a population breakdown.
-
-*Source conflict: an earlier version gave a sum of segment shares, printed from a population-density figure rather than from any share, and counts applied to the {{register.2022}} register; the grids carry no shares or counts, so both are withdrawn.*
 
 ```figure
 id: message-by-segment

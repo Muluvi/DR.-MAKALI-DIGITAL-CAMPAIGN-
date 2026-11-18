@@ -66,10 +66,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   for (const r of REWRITES) {
     const file = path.join(ROOT, r.f);
     let text = fs.readFileSync(file, "utf8");
+    // Applied already: the result is there (an insertion keeps its anchor, so this is asked first),
+    // or, for a deletion, the text is gone.
+    if (r.to && r.to.includes(r.from) && text.includes(r.to)) { skipped++; continue; }
     const count = text.split(r.from).length - 1;
     if (count === 0) {
-      if (r.to && text.includes(r.to)) { skipped++; continue; }
-      if (!r.to && r.kind === "moved") { skipped++; continue; }
+      if (!r.to || text.includes(r.to)) { skipped++; continue; }
       problems.push(`${r.f}: not found: ${r.from.slice(0, 90)}`);
       continue;
     }

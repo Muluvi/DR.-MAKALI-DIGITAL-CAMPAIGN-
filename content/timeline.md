@@ -82,8 +82,6 @@ items:
     label: "Service-delivery tracker built and tested ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1))"
 ```
 
-*Corrected: earlier versions put recruitment in 15 wards (Weeks 6–8) and in 40 (Weeks 7–8) without saying how the two relate; they are one sequence, starting in the 15 priority wards and reaching all 40 by the end of Phase 0, as the KPI below already required.*
-
 ```visual
 kind: checklist
 title: "KPIs"
@@ -115,7 +113,7 @@ id: fig-4-7-profile-fixes
 
 ## 14.4 The target ladder
 
-**One definition per number.** Four different quantities are in play, and earlier drafts quoted them interchangeably:
+**One definition per number.** Four different quantities are in play:
 
 ```visual
 kind: nested

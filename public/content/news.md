@@ -10,8 +10,6 @@
 {"kind":"stats","title":"Phones, internet and money agents (CA/KNBS)","items":[{"value":"26.2%","label":"use the internet","tier":1},{"value":"73.8%","label":"of residents offline","tier":1},{"value":"44.1%","label":"own a mobile phone","tier":1},{"value":"602,470","label":"mobile-money agents, nationally","tier":1,"body":"Up from 480,216 in late 2025 (Tier 1). In settlements without broadband, the agent kiosk is a trusted local point of contact, and it is commercially motivated."}],"body":"The **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** (Tier 1) puts internet use in Kitui at **26.2%** (up from 13.6% in the 2019 KNBS Census), leaving **73.8% of residents offline**. Mobile phone ownership is **44.1%** (up from 42.9% in 2019)."}
 ```
 
-*Source conflict: an earlier version named this source as the 2023/24 Kenya Continuous Household Survey and Communications Authority reports; the figures come from the CA/KNBS ICT Analytical Report on the 2023/24 Kenya Housing Survey, and that is the source named above.*
-
 | Measure | Kitui, 2023/24 | Kitui, 2019 | National context |
 |---|---|---|---|
 | Mobile phone ownership | **44.1%** of residents (CA/KNBS 2023/24) (Tier 1) | 452,948 people (42.9%) (Tier 1) | 84.1 million active SIM cards; 157.7% penetration (CA, Q3 FY2025/26) |

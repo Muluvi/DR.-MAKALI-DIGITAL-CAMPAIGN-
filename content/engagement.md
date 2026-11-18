@@ -156,8 +156,6 @@ id: fig-5-9-team
 
 Where this chapter says "four-person core" it means the campaign's command; where [the three scope levels, compared](/#receives-sec-21-1) says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in [Analytics and attribution](/#workstreams-sec-15-4-4) is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in [five objectives](/#goal-sec-8-2)) are the campaign's to appoint.
 
-*Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as [the three scope levels, compared](/#receives-sec-21-1) states.*
-
 What the arrangement buys, stated without the usual claims about bloat:
 
 1.  **Decisions in one place.** A single named campaign-side counterpart approves, and a single

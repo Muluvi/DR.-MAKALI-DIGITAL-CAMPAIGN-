@@ -113,8 +113,6 @@ now directed by the team itself. Firefly's own deliverable is the platform: host
 | Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | [The content brief and asset governance](/#workstreams-sec-15-1-2), [The weekly rhythm and approvals](/#week-sec-13-4) |
 | The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | [Who owns what](/#engagement-sec-13-2) |
 
-*Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.*
-
 ## 22 Commitments on both sides
 
 ```lead
@@ -131,8 +129,6 @@ what the ballot returns.
 ```visual
 {"kind":"checklist","items":[{"label":"The scope","body":"is the fourteen workstreams in [who owns what](/#engagement-sec-13-2), with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."},{"label":"The cadence","text":"is in [the weekly rhythm and approvals](/#week-sec-13-4):","body":"the weekly brief, the calendar, the approval path and the monthly review. [The three scope levels, compared](/#receives-sec-21-1) states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."},{"label":"The standard","text":"is in [how success will be judged](/#success-sec-18-1) and [Meetings and escalation](/#week-sec-13-5):","body":"indicators that trace to either the nomination objectives in [five objectives](/#goal-sec-8-2) or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."},{"label":"The conditions","text":"are in [what the campaign provides](/#receives-sec-22-2).","body":"This plan depends on decisions and appointments that only the campaign can make, and it names them rather than assuming them."}]}
 ```
-
-*Source conflict: an earlier version pointed the cadence to [who owns what](/#engagement-sec-13-2), the standard to [how success will be judged](/#success-sec-18-1) and [the weekly rhythm and approvals](/#week-sec-13-4) and the conditions to [his public record](/#record-sec-6-1); the references above are the current ones.*
 
 ## 22.2 What the campaign provides
 

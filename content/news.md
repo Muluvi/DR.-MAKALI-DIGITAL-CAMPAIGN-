@@ -26,8 +26,6 @@ items:
 body: "The **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** (Tier 1) puts internet use in Kitui at **{{ict.internet}}%** (up from {{ict.internet.2019}}% in the 2019 KNBS Census), leaving **{{ict.offline}}% of residents offline**. Mobile phone ownership is **{{ict.phone}}%** (up from {{ict.phone.2019}}% in 2019)."
 ```
 
-*Source conflict: an earlier version named this source as the 2023/24 Kenya Continuous Household Survey and Communications Authority reports; the figures come from the CA/KNBS ICT Analytical Report on the 2023/24 Kenya Housing Survey, and that is the source named above.*
-
 | Measure | Kitui, 2023/24 | Kitui, 2019 | National context |
 |---|---|---|---|
 | Mobile phone ownership | **{{ict.phone}}%** of residents (CA/KNBS 2023/24) (Tier 1) | {{ict.phone.2019.people}} people ({{ict.phone.2019}}%) (Tier 1) | {{ict.sims.national|m1}} million active SIM cards; {{ict.sim-penetration}}% penetration (CA, Q3 FY2025/26) |

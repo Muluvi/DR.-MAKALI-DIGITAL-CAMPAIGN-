@@ -4,6 +4,11 @@
  * text out of its chapter; the rewrite that sets it down in Evidence and sources is `unlogged`,
  * because the move's own entry already weighs it at its destination.
  */
+import fs from "node:fs";
+
+/** Section 2: generated from the exact source text, and kept as data so no quote is mis-escaped. */
+const S2 = JSON.parse(fs.readFileSync(new URL("./rewrites-s2.json", import.meta.url), "utf8"));
+
 const REFS_GLOSS = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): the gloss after a numbered reference repeated the heading's own words once the reference became a link carrying them, so it goes.";
 
 const REFS_NUM = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): a bare section number becomes a link that carries the heading's own words.";
@@ -17,4 +22,6 @@ export const REWRITES = [
   { f: "content/timeline.md", from: '"text": "15.3.3: {{target.sms}} by Phase 3"', to: '"text": "[What your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3): {{target.sms}} by Phase 3"', note: REFS_NUM },
   { f: "content/timeline.md", from: '"Where it is set", text: "18.2 GE-01: {{target.pledged-voters}} target"', to: '"Where it is set", text: "[Scorecards for each stage](/#success-sec-18-2), GE-01: {{target.pledged-voters}} target"', note: REFS_NUM },
   { f: "content/timeline.md", from: '"text": "8.2.4: {{target.supporters}} target"', to: '"text": "[Give every post a voter, ward and reason](/#goal-sec-8-2-4): {{target.supporters}} target"', note: REFS_NUM },
+  // 2. Draft history, moved word for word to Source notes and corrections (Evidence and sources)
+  ...S2,
 ];

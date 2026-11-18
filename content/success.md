@@ -122,7 +122,7 @@ items:
     body: "Chasing likes takes effort away from village barazas and market caravans."
   - title: "Much of the interaction comes from outside Kitui"
     text: "Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards."
-    body: "**Evidence required:** an earlier draft of this section put that share at \"over 60%\", which no source in this plan supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 ([how the presence audit works](/#success-sec-18-5)) and should replace this sentence once measured. The argument does not depend on the precise number."
+    body: "**Evidence required:** the ward-level split is obtainable from the campaign's own platform analytics in Week 1 ([how the presence audit works](/#success-sec-18-5)) and should replace this sentence once measured. The argument does not depend on the precise number."
     tier: "not yet tiered"
   - title: "No demonstrated link to turnout"
     text: "A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning."

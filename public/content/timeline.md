@@ -58,8 +58,6 @@ The directed cycles that start in Weeks 2–4 run on to Week 6; the consolidatio
 {"kind":"timeline","title":"Activities","items":[{"when":"Weeks 1–2","label":"complete the presence analysis; identify structural gaps and opportunities"},{"when":"Weeks 3–4","label":"**analytics access configured on the accounts you already hold**; reporting dashboards live; **USSD shared code commissioned** (5–7 working days for set-up)"},{"when":"Weeks 5–6","label":"brand guidelines, content library, 90-day content calendar; **WCAG audit before public launch**"},{"when":"Weeks 6–8","label":"consolidation: coalition roundtables with professional associations; ward champion recruitment begins in the 15 highest-priority wards"},{"when":"Weeks 7–8","label":"the campaign recruits ward digital champions to reach **all 40 wards** (campaign-owned, [what is outside the scope](/#engagement-sec-13-3)); the strategy core delivers the mandatory data-handling training, logged in the workspace (Firefly hosts the platform it is logged on); establish WhatsApp reporting structures. Recruitment priority: Mwingi Central, Mutomo, Kitui Central"},{"when":"By Week 10","label":"Service-delivery tracker built and tested ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1))"}]}
 ```
 
-*Corrected: earlier versions put recruitment in 15 wards (Weeks 6–8) and in 40 (Weeks 7–8) without saying how the two relate; they are one sequence, starting in the 15 priority wards and reaching all 40 by the end of Phase 0, as the KPI below already required.*
-
 ```visual
 {"kind":"checklist","title":"KPIs","items":[{"label":"Analytics access live on every existing channel, and the audit reproducible monthly"},{"label":"Baseline metrics recorded across reach, engagement and sentiment"},{"label":"Website live, WCAG 2.1 AA audited, with volunteer forms"},{"label":"USSD code live across all networks"},{"label":"40 ward digital champions onboarded and data-trained"},{"label":"First 100 pieces of content approved and scheduled"},{"label":"**[The Data Protection Act and the regulator](/#lawful-sec-19-2) compliance opinion received**"}]}
 ```
@@ -82,7 +80,7 @@ id: fig-4-7-profile-fixes
 
 ## 14.4 The target ladder
 
-**One definition per number.** Four different quantities are in play, and earlier drafts quoted them interchangeably:
+**One definition per number.** Four different quantities are in play:
 
 ```visual
 {"kind":"nested","items":[{"label":"Contact universe","text":"Everyone reachable by any owned channel, SMS or otherwise","fields":[{"label":"Where it is set","text":"[The three scope levels, compared](/#receives-sec-21-1): ~60k / ~150k / ~250k by level (targets)"}],"items":[{"label":"Consented SMS contacts","text":"Phone numbers held with opt-in, reachable by SMS","fields":[{"label":"Where it is set","text":"[What your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3): 120,000 by Phase 3"}]}]},{"label":"Pledged voters","text":"CRM records with phone, ward and polling station logged","fields":[{"label":"Where it is set","text":"[Scorecards for each stage](/#success-sec-18-2), GE-01: 220,000 target"}],"items":[{"label":"Verified supporters","text":"Pledged voters confirmed by a second touch","fields":[{"label":"Where it is set","text":"[Give every post a voter, ward and reason](/#goal-sec-8-2-4): 200,000 target"}]}]}]}
