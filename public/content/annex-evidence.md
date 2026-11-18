@@ -170,7 +170,7 @@ Every figure in the store, 629 in all: 448 read off a named document, 113 modell
 | `benchmark.2026-equivalent` | 225,115 | Tier 1 | The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast. |
 | `benchmark.2026-equivalent.rounded` | 225,000 | Tier 1 | The 2026 equivalent, rounded to the nearest 5,000 for prose. |
 | `benchmark.2026-equivalent.share` | 37.2% | Tier 1 | The share carried forward: 198,004 / 532,758. |
-| `turnout.rate` | 0.617% | Tier 1 | The turnout rate as a multiplier, for the working shown in [the number it takes](/#winning-sec-2-5). |
+| `turnout.rate` | 0.617% | Tier 1 | The turnout rate as a multiplier, for the working shown in “The number it takes”. |
 | `ballots.2026` | 373,719 | Tier 1 | July 2026 register × the 2022 turnout rate, carried forward. |
 | `benchmark.share-of-ballots.2026` | 53.5% | Tier 1 | 200,000 / ballots at the 2022 turnout rate on the July 2026 register. |
 | `benchmark.share-of-ballots` | 60.8% | Tier 1 | 200,000 / the 328,760 certified 2022 ballots. |
@@ -260,7 +260,7 @@ Every figure in the store, 629 in all: 448 read off a named document, 113 modell
 <!-- keep -->
 | Target | Value | Whose, and what it commits to |
 |---|---|---|
-| `benchmark` | 200,000 | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in [the number it takes](/#winning-sec-2-5) and reused everywhere (consistency fix 3). |
+| `benchmark` | 200,000 | The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in “The number it takes” and reused everywhere (consistency fix 3). |
 | `turnout.constant` | 61.7% | The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%. |
 | `policy.ndengu-floor` | KSh 85 | A proposed floor price for ndengu, per kilogram: a campaign policy proposal, not yet sized. |
 | `target.sms.phase-1` | 15,000 | Consented SMS contacts by the end of Phase −1. |
@@ -344,6 +344,8 @@ Education: the KDHS 2022 no-education figures replace an untiered 13.0%. The sha
 An earlier draft gave an ADP envelope of KSh 14.27 billion; it is not confirmed and is not used.
 
 No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.
+
+Safe drinking water: households with safe drinking water are 38.5% on the census definition. An earlier draft's 53.2% likely used a different definition and is not used.
 
 #### How voters get news
 

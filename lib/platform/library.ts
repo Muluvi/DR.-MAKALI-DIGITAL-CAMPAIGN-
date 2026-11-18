@@ -84,7 +84,7 @@ function fromHeadings(tab: TabId, kind: LibraryKind, pick: (h: Heading) => boole
   return heads.filter(pick).map((h) => {
     const slug = headingSlug(h.text);
     const body = bodyOf(h, heads, lines);
-    const owner = /\*\*Owner:\s*([^*]+?)\.?\*\*/.exec(body)?.[1]?.trim();
+    const owner = plain(/\*\*Owner:\s*([^*]+?)\.?\*\*/.exec(body)?.[1] ?? "") || undefined;
     const id = slug ? sectionId(tab, slug) : `${tab}-${h.line}`;
     return { id, kind, title: displayTitle(h.text).replace(/^Workstream \d+ — /, ""), summary: firstSentences(body), chapter: TAB_LABELS[tab], href: `/#${id}`, figures: figuresIn(body), owner };
   });

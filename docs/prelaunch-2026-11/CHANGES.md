@@ -2,7 +2,7 @@
 
 Every passage the pre-launch pass changed, generated from `ledger.json` by `scripts/declutter/build-cuts-md.mjs`: numbered references named, draft history moved to the source notes, tier tags taken out of the prose, and copy that follows what is switched on (README.md).
 
-763 cuts, -624 words; 10 passages moved to their homes.
+765 cuts, -622 words; 10 passages moved to their homes.
 
 | File | Section | First words | Words | Kind | Canonical home | Note |
 |---|---|---|---:|---|---|---|
@@ -779,3 +779,5 @@ Every passage the pre-launch pass changed, generated from `ledger.json` by `scri
 | welcome | (intro) | Dr. Makali Mulu | 0 | Replaced (a figure or source superseded) | — | Pre-launch pass, section 9 (docs/prelaunch-2026-11): one style for his name, Hon. Dr. Benson Makali Mulu at the first mention in a chapter and Dr. Mulu after it; quotations and titles are left as written. Left in place: `Hon. Dr. Benson Makali Mulu`. |
 | welcome | (intro) | Dr. Makali Mulu | -2 | Replaced (a figure or source superseded) | — | Pre-launch pass, section 9 (docs/prelaunch-2026-11): one style for his name, Hon. Dr. Benson Makali Mulu at the first mention in a chapter and Dr. Mulu after it; quotations and titles are left as written. Left in place: `Hon. Dr. Benson Makali Mulu`. |
 | success | (intro) | Hon. Dr. Benson Makali Mulu | 0 | Replaced (a figure or source superseded) | — | Pre-launch pass, section 9 (docs/prelaunch-2026-11): one style for his name, Hon. Dr. Benson Makali Mulu at the first mention in a chapter and Dr. Mulu after it; quotations and titles are left as written. Left in place: `Dr. Mulu`. |
+| timeline | 16.2 | when: "Phase 0 (Weeks 4–10 from the go-ahead, [Phase 0: instrumentation](/#timeline-sec-14-2))" | 3 | Replaced (a figure or source superseded) | — | Pre-launch pass, section 1 (docs/prelaunch-2026-11): this field is drawn as plain text, so the reference is named in words rather than linked; the phase field's reference pointed at its own section and goes. Left in place: `when: "Phase 0 (Weeks 4–10 from the go-ahead)"`. |
+| timeline | 16.3 | label: "Community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1)) recruited from | -1 | Replaced (a figure or source superseded) | — | Pre-launch pass, section 1 (docs/prelaunch-2026-11): this field is drawn as plain text, so the reference is named in words rather than linked; the phase field's reference pointed at its own section and goes. Left in place: `label: "Community organisers (volunteer Tier 3; see the volunteer programme reference) recruited from cooperative networks"`. |

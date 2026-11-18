@@ -19,6 +19,8 @@ const REFS_GLOSS = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): the glo
 
 const REFS_NUM = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): a bare section number becomes a link that carries the heading's own words.";
 
+const REFS_PLAIN = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): this field is drawn as plain text, so the reference is named in words rather than linked; the phase field's reference pointed at its own section and goes.";
+
 export const REWRITES = [
   // 1. A gloss that now repeats the link it followed
   { f: "content/goal.md", from: "[Where the effort goes](/#channels-sec-12-1) (where the effort goes) and", to: "[Where the effort goes](/#channels-sec-12-1) and", note: REFS_GLOSS },
@@ -28,8 +30,13 @@ export const REWRITES = [
   { f: "content/timeline.md", from: '"text": "15.3.3: {{target.sms}} by Phase 3"', to: '"text": "[What your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3): {{target.sms}} by Phase 3"', note: REFS_NUM },
   { f: "content/timeline.md", from: '"Where it is set", text: "18.2 GE-01: {{target.pledged-voters}} target"', to: '"Where it is set", text: "[Scorecards for each stage](/#success-sec-18-2), GE-01: {{target.pledged-voters}} target"', note: REFS_NUM },
   { f: "content/timeline.md", from: '"text": "8.2.4: {{target.supporters}} target"', to: '"text": "[Give every post a voter, ward and reason](/#goal-sec-8-2-4): {{target.supporters}} target"', note: REFS_NUM },
+  // 1. Two visual fields the renderer draws as plain text, where a link would show its markdown
+  { f: "content/timeline.md", from: 'when: "Phase 0 (Weeks 4–10 from the go-ahead, [Phase 0: instrumentation](/#timeline-sec-14-2))"', to: 'when: "Phase 0 (Weeks 4–10 from the go-ahead)"', note: REFS_PLAIN },
+  { f: "content/timeline.md", from: 'label: "Community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1)) recruited from cooperative networks"', to: 'label: "Community organisers (volunteer Tier 3; see the volunteer programme reference) recruited from cooperative networks"', note: REFS_PLAIN },
   // 2. Draft history, moved word for word to Source notes and corrections (Evidence and sources)
   ...S2,
+  // 2. A figure note's draft history (lib/data/figures.ts, water.safe.2019), kept with the chapter's other notes
+  { f: "content/annex-evidence.md", from: "No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.\n", to: "No verified figure is available yet for its number of priority sectors: an earlier draft said 16, led by agriculture, water, health, education and roads, and the record that would settle it is the plan itself.\n\nSafe drinking water: households with safe drinking water are 38.5% on the census definition. An earlier draft's 53.2% likely used a different definition and is not used.\n", unlogged: true },
   // 3. Tier words in running prose
   ...S3,
   // 5. Copy that follows the sign-in switch

@@ -73,7 +73,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     let text = fs.readFileSync(file, "utf8");
     // Applied already: the result is there (an insertion keeps its anchor, so this is asked first),
     // or, for a deletion, the text is gone.
-    if (r.to && r.to.includes(r.from) && text.includes(r.to)) { skipped++; continue; }
+    if (r.to && r.to.includes(r.from) && (text.includes(r.to) || text.includes(settled(i)))) { skipped++; continue; }
     const count = text.split(r.from).length - 1;
     if (count === 0) {
       // A later section of the pass may have rewritten this one's result again (section 3 takes the

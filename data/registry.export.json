@@ -110,7 +110,7 @@
    "state": "target",
    "source": "This plan",
    "asOf": null,
-   "note": "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3)."
+   "note": "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in “The number it takes” and reused everywhere (consistency fix 3)."
   },
   {
    "id": "benchmark.2026-equivalent",
@@ -5410,7 +5410,7 @@
    "state": "modelled",
    "source": "Derived in lib/data/figures.ts",
    "asOf": null,
-   "note": "The turnout rate as a multiplier, for the working shown in Section 2.5."
+   "note": "The turnout rate as a multiplier, for the working shown in “The number it takes”."
   },
   {
    "id": "unemployment.youth.county",
@@ -5950,7 +5950,7 @@
    "state": "sourced",
    "source": "KNBS 2019 Census, via Stats Kenya county profile (statskenya.co.ke)",
    "asOf": "2019",
-   "note": "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used."
+   "note": "Households with safe drinking water (the census definition)."
   },
   {
    "id": "water.schools.unsafe",

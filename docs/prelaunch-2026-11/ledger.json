@@ -8501,5 +8501,27 @@
     "note": "Pre-launch pass, section 9 (docs/prelaunch-2026-11): one style for his name, Hon. Dr. Benson Makali Mulu at the first mention in a chapter and Dr. Mulu after it; quotations and titles are left as written.",
     "text": "Hon. Dr. Benson Makali Mulu",
     "replacement": "Dr. Mulu"
+  },
+  {
+    "file": "timeline",
+    "section": "16.2",
+    "first12": "when: \"Phase 0 (Weeks 4–10 from the go-ahead, [Phase 0: instrumentation](/#timeline-sec-14-2))\"",
+    "words": 3,
+    "kind": "replaced",
+    "home": "",
+    "note": "Pre-launch pass, section 1 (docs/prelaunch-2026-11): this field is drawn as plain text, so the reference is named in words rather than linked; the phase field's reference pointed at its own section and goes.",
+    "text": "when: \"Phase 0 (Weeks 4–10 from the go-ahead, [Phase 0: instrumentation](/#timeline-sec-14-2))\"",
+    "replacement": "when: \"Phase 0 (Weeks 4–10 from the go-ahead)\""
+  },
+  {
+    "file": "timeline",
+    "section": "16.3",
+    "first12": "label: \"Community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1)) recruited from",
+    "words": -1,
+    "kind": "replaced",
+    "home": "",
+    "note": "Pre-launch pass, section 1 (docs/prelaunch-2026-11): this field is drawn as plain text, so the reference is named in words rather than linked; the phase field's reference pointed at its own section and goes.",
+    "text": "label: \"Community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1)) recruited from cooperative networks\"",
+    "replacement": "label: \"Community organisers (volunteer Tier 3; see the volunteer programme reference) recruited from cooperative networks\""
   }
 ]

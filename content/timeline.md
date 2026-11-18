@@ -282,7 +282,7 @@ items:
     text: "Roundtables on county fiscal management, drawing on his Evaluation Society of Kenya membership"
     fields:
       - { label: "Digital output", text: "Thought-leadership content; LinkedIn and X threads; earned media" }
-  - when: "Phase 0 (Weeks 4–10 from the go-ahead, [Phase 0: instrumentation](/#timeline-sec-14-2))"
+  - when: "Phase 0 (Weeks 4–10 from the go-ahead)"
     label: "Ward-level women's cooperatives and table-banking groups"
     text: "Listening sessions; identify chairladies as community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1))"
     fields:
@@ -339,7 +339,7 @@ items:
   - value: "≥ 40"
     label: "Institutional engagements completed by end of Phase 2"
   - value: "≥ 80"
-    label: "Community organisers (volunteer Tier 3, [the volunteer programme reference](/#workstreams-sec-d-1)) recruited from cooperative networks"
+    label: "Community organisers (volunteer Tier 3; see the volunteer programme reference) recruited from cooperative networks"
   - value: "Set with the campaign at contracting"
     label: "Endorsements publicly announced by Phase 3"
   - value: "≥ 2/month"

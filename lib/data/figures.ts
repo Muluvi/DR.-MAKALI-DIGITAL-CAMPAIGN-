@@ -152,14 +152,14 @@ sourced("result.2022.mp.mulu", 30_954, "votes", "T1", IEBC_35B, {
 sourced("result.2022.mp.musambi", 9_866, "votes", "T1", IEBC_35B, { note: "Boniface Musambi, second in Kitui Central, 2022." });
 
 // ---- the benchmark and the arithmetic (Section 3.1)
-target("benchmark", 200_000, "votes", "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in Section 2.5 and reused everywhere (consistency fix 3).");
+target("benchmark", 200_000, "votes", "The single working benchmark: the 2022 winning tally, 198,004, rounded. Stated once in “The number it takes” and reused everywhere (consistency fix 3).");
 modelled("benchmark.share-2022", pct(v("result.2022.gov.malombe"), v("register.2022")), "percent", "198,004 / 532,758: the 2022 winner's share of the register.");
 modelled("benchmark.2026-equivalent", Math.round((v("result.2022.gov.malombe") / v("register.2022")) * v("register.2026")), "votes", "The 2022 winner's share of the register applied to the July 2026 register. A ratio carried forward, not a forecast.");
 modelled("benchmark.2026-equivalent.rounded", Math.round(v("benchmark.2026-equivalent") / 5000) * 5000, "votes", "The 2026 equivalent, rounded to the nearest 5,000 for prose.");
 modelled("benchmark.2026-equivalent.share", pct(v("result.2022.gov.malombe"), v("register.2022")), "percent", "The share carried forward: 198,004 / 532,758.");
 target("turnout.constant", v("turnout.2022"), "percent", "The turnout rate used in every calculation: the certified 2022 county rate carried forward to 2027. An assumption about 2027, not a measurement of it; the scenario model brackets it at 55–72%.", { decimals: 1 });
 const TURNOUT = v("turnout.constant") / 100;
-modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in Section 2.5.", { decimals: 3 });
+modelled("turnout.rate", TURNOUT, "percent", "The turnout rate as a multiplier, for the working shown in “The number it takes”.", { decimals: 3 });
 // C8, settled (November 2026): for 2022 the ballots are measured, so the document uses the
 // certified count, not the register × 61.7% (which gave 328,712, a rounding artefact of the rate).
 // The modelled method stays for 2026, where there is no count yet.
@@ -222,7 +222,7 @@ const STATS_KENYA = "KNBS 2019 Census, via Stats Kenya county profile (statskeny
 sourced("census.median-age.statskenya", 17, "count", "T2", STATS_KENYA, { asOf: "2019", note: "Median age in years, as Stats Kenya prints it. Superseded by census.median-age (18.9), calculated from the KNBS table itself: under-18s are 48% of residents, so the median cannot be 17." });
 sourced("electricity.2019", 17.2, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with electricity." });
 sourced("electricity.2009", 4.8, "percent", "T2", STATS_KENYA, { asOf: "2009", note: "Households with electricity, 2009 Census." });
-sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition). An earlier draft's 53.2% likely used a different definition and is not used." });
+sourced("water.safe.2019", 38.5, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with safe drinking water (the census definition)." });
 sourced("water.piped.2019", 5.1, "percent", "T2", STATS_KENYA, { asOf: "2019", note: "Households with piped water." });
 // The KNBS 2019 census tables themselves, read from the rKenyaCensus package (analysis Stage 15,
 // docs/open-data/REGISTER.md), which reproduces Kitui's published population, phone and internet figures.
