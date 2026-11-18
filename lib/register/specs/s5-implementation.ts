@@ -135,7 +135,7 @@ export const FIG_5_4: FigureSpec = {
       { date: ELECTION, label: "General election", state: "sourced" as const },
     ],
   },
-  notes: ["Same date axis as Figure fig-1-1-timeline. The two phases counted from the go-ahead are drawn from an assumed start; read them in weeks from the go-ahead, not as dates."],
+  notes: ["Same date axis as the timeline to August 2027. The two phases counted from the go-ahead are drawn from an assumed start; read them in weeks from the go-ahead, not as dates."],
   columns: [{ key: "phase", label: "Phase" }, { key: "when", label: "When" }],
   rows: [
     ...PHASES.map((p) => ({ cells: { phase: phaseTitle(p), when: phaseWhen(p) }, state: "target" as const })),

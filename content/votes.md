@@ -28,7 +28,7 @@ items:
   - value: "{{turnout.2022}}%"
     label: "turnout, 2022"
     tier: 1
-    body: "**{{turnout.2022}}%** certified: {{result.2022.gov.valid}} valid votes for governor, of {{register.2022}} registered (Tier 1, IEBC Form 37C). Chapter 2 carries this rate forward to 2027 as a stated assumption."
+    body: "**{{turnout.2022}}%** certified: {{result.2022.gov.valid}} valid votes for governor, of {{register.2022}} registered (Tier 1, IEBC Form 37C). [How Kitui voted](/#votes-sec-2-1) carries this rate forward to 2027 as a stated assumption."
 ```
 
 ```figure
@@ -37,7 +37,7 @@ id: fig-2-1-register
 
 **Which turnout.** Two turnout figures are in circulation, on different bases, and this plan says which it uses. **{{turnout.2022}}%** is governor valid votes ({{result.2022.gov.valid}}) divided by the register (Tier 1, IEBC Form 37C). The presidential turnout in Kitui was about **{{result.2022.pres.turnout}}%**, and it includes {{result.2022.pres.rejected}} rejected ballots (Tier 2, Equal Politics aggregation of IEBC results). Every calculation in this plan uses {{turnout.2022}}%.
 
-The full 40-ward register, by constituency, is in Annex B.
+The full 40-ward register, by constituency, is in [the Ward Dossier](/tools/ward-dossier).
 
 ## 2.2 Results from 2013 to 2022
 
@@ -51,7 +51,7 @@ Julius Malombe won 2022 with **{{result.2022.gov.malombe}} votes** on a certifie
 *   **President, 2022 (Kitui):** Raila Odinga won **{{result.2022.pres.odinga}}** votes (**{{result.2022.pres.odinga.share}}%**) and William Ruto **{{result.2022.pres.ruto}}** (**{{result.2022.pres.ruto.share}}%**); George Wajackoyah won {{result.2022.pres.wajackoyah}} and David Mwaure {{result.2022.pres.mwaure}}, with {{result.2022.pres.rejected}} ballots rejected (Tier 2, Equal Politics aggregation of IEBC results). The Tier 1 record is IEBC Forms 34B and 34C, not yet in hand.
 *   **Kitui Central MP, 2022:** Dr. Makali Mulu was re-elected on the Wiper ticket with **{{result.2022.mp.mulu}} votes** (Tier 1, IEBC declaration as gazetted); Boniface Musambi was second with {{result.2022.mp.musambi}}. Early media totals differ from the gazetted figure and are not used. The figure reached this plan through a press reproduction of the declaration; the Kenya Gazette notice itself is the record to hold.
 *   **Senator and Woman Representative, 2022:** Senator Enoch Wambua (Wiper) won with **{{result.2022.senate.wambua}} votes** (Tier 2), and Woman Representative Irene Kasalu (Wiper) with **{{result.2022.womanrep.kasalu}} votes** (Tier 2). Both totals are media reports. The certified declarations (IEBC Form 38C for the Senate, Form 39C for the Woman Representative) are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.
-*   **Ward and polling-station results:** the constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records, not yet in hand. Section 6.2 needs them to test where each candidate's vote came from, ward by ward.
+*   **Ward and polling-station results:** the constituency and polling-station forms for the 2017 and 2022 governor races (IEBC Forms 37B and 37A) are public records, not yet in hand. [Where he is known, and where not](/#known-sec-6-2) needs them to test where each candidate's vote came from, ward by ward.
 
 ```figure
 id: fig-2-2-results
@@ -89,7 +89,7 @@ items:
 This annex holds the 40-ward register: background the argument rests on rather than part of the argument.
 ```
 
-This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in Section 3.7, drought and food security in Section 3.2, and the Mui Basin in Section 3.8.
+This annex holds the 40-ward register: background the argument rests on rather than part of the argument. The audit record is now in [how county money is spent](/#spend-sec-3-7), drought and food security in [Food, farming and drought](/#needs-sec-3-2), and the Mui Basin in [Mui Basin coal and displaced communities](/#needs-sec-3-8).
 
 The register of every ward, with its voters and polling stations, is at the end of Evidence and sources.
 

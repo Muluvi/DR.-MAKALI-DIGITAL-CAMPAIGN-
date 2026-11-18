@@ -37,7 +37,7 @@ body: "The **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** (Tier 1) p
 | Phone ownership, adults (KDHS 2022) | Men 18+ **{{ict.phone.adult.men}}%**, women 18+ **{{ict.phone.adult.women}}%** (Tier 1, County Gender Data Sheet, October 2025) | — | Kenya: men {{ict.kenya.phone.adult.men}}%, women {{ict.kenya.phone.adult.women}}% (Tier 1) |
 | Internet use, ages 15–49 (KDHS 2022) | Men **{{ict.internet.1549.men}}%**, women **{{ict.internet.1549.women}}%** (Tier 1) | — | Kenya: men {{ict.kenya.internet.1549.men}}%, women {{ict.kenya.internet.1549.women}}% (Tier 1) |
 
-**Two bases, never averaged.** {{ict.phone}}% and {{ict.internet}}% are shares of all residents, children included. The register holds adults only, and adults own phones at about three times in four. Section 4.3 models voter reach on both bases and says which it uses.
+**Two bases, never averaged.** {{ict.phone}}% and {{ict.internet}}% are shares of all residents, children included. The register holds adults only, and adults own phones at about three times in four. [What each channel can reach](/#news-sec-4-3) models voter reach on both bases and says which it uses.
 
 ```figure
 id: fig-2-6-connectivity
@@ -49,7 +49,7 @@ id: fig-2-6-connectivity
 **The highest-reach commercial radio stations broadcasting in Kikamba are owned, financed or editorially steered by political figures or party gatekeepers.** The ownership map and posture for every station are set out once, below.
 ```
 
-Kikamba radio is the main source of news and political talk in rural and peri-urban Kitui, and it is the dominant information channel for the {{ict.offline}}% of residents outside the internet-using population (CA/KNBS 2023/24). But ownership is concentrated: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed or editorially steered by political figures or party gatekeepers**. So the campaign works with the commercial stations on disciplined terms, and builds routes around the rest (Section 15.2.2).
+Kikamba radio is the main source of news and political talk in rural and peri-urban Kitui, and it is the dominant information channel for the {{ict.offline}}% of residents outside the internet-using population (CA/KNBS 2023/24). But ownership is concentrated: **the highest-reach commercial radio stations broadcasting in Kikamba are owned, financed or editorially steered by political figures or party gatekeepers**. So the campaign works with the commercial stations on disciplined terms, and builds routes around the rest ([Earned media, journalists and debates](/#workstreams-sec-15-2-2)).
 
 ```figure
 id: fig-2-7-media
@@ -94,7 +94,7 @@ Ownership associations are publicly reported rather than certified, and ownershi
 If the campaign reached 100% of every internet-connected voter in Kitui County, it would reach about **{{reach.smartphone}} voters** (modelled), and even if every one of them voted for him he would be **{{reach.smartphone.short}} votes short** of the {{benchmark}} benchmark.
 ```
 
-**The digital ceiling.** If the campaign reached 100% of every internet-connected voter in Kitui County, it would reach about **{{reach.smartphone}} voters** (modelled: {{ict.internet}}% internet use applied to the July 2026 register), and even if every one of them voted for him he would be **{{reach.smartphone.short}} votes short** of the {{benchmark}} benchmark (modelled). Reach is not votes. Digital alone cannot win this election: the offline channels and the field operation (Section 15.3.3) carry the reach, and digital is used precisely, to shape opinion among those who set the agenda, to organise young volunteers, and to reach the diaspora.
+**The digital ceiling.** If the campaign reached 100% of every internet-connected voter in Kitui County, it would reach about **{{reach.smartphone}} voters** (modelled: {{ict.internet}}% internet use applied to the July 2026 register), and even if every one of them voted for him he would be **{{reach.smartphone.short}} votes short** of the {{benchmark}} benchmark (modelled). Reach is not votes. Digital alone cannot win this election: the offline channels and the field operation ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) carry the reach, and digital is used precisely, to shape opinion among those who set the agenda, to organise young volunteers, and to reach the diaspora.
 
 Digital use is concentrated in towns (Kitui Town, Mwingi Town, the Kwa Vonza university corridor) and among educated young people. In-county users per platform are not published, so this section sizes what digital can reach from the published rates alone.
 
@@ -109,7 +109,7 @@ id: fig-3-8-ceiling
 | Reachable by smartphone or data, in county | ~{{reach.smartphone}} voters (modelled: {{ict.internet}}% of the July 2026 register) |
 | Share of the {{benchmark}} benchmark digital could reach | **{{reach.smartphone.of-benchmark}}%** (modelled), reach not votes |
 | Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
-| Phone owners: the SMS and USSD layer | ~{{reach.phone.resident}} voters on the resident rate ({{ict.phone}}%); ~{{reach.phone.adult}} on the adult rate (KDHS 2022: {{ict.phone.adult}}%). Both modelled, never averaged (Section 4.3) |
+| Phone owners: the SMS and USSD layer | ~{{reach.phone.resident}} voters on the resident rate ({{ict.phone}}%); ~{{reach.phone.adult}} on the adult rate (KDHS 2022: {{ict.phone.adult}}%). Both modelled, never averaged ([what each channel can reach](/#news-sec-4-3)) |
 | No phone: radio or in person only | ~{{reach.nophone}} voters on the resident rate; ~{{reach.nophone.adult}} on the adult rate (both modelled) |
 | Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement, Tier 2). |
 
@@ -121,7 +121,7 @@ left:
   title: "What digital can do"
   items:
     - label: "Set the agenda"
-      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so what is posted there can shape what radio goes on to discuss. No source in this plan measures that link or its timing; the channel audit (Section 18.5) records it from the first month rather than assuming it."
+      body: "The working premise is that local radio producers, vernacular talk-show hosts, church leaders and county assembly members follow X and Facebook, so what is posted there can shape what radio goes on to discuss. No source in this plan measures that link or its timing; the channel audit ([how the presence audit works](/#success-sec-18-5)) records it from the first month rather than assuming it."
     - label: "Recruit young volunteers"
       body: "Reaching the ~{{segment.youth.voters}} young voters on TikTok and WhatsApp recruits field volunteers who run ground logistics and serve as polling agents."
     - label: "Target urban traders"
@@ -152,24 +152,24 @@ items:
   - title: "Kikamba radio"
     fields:
       - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience." }
-      - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (politically affiliated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — Section 4.2 has the ownership map and the posture for each." }
-      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3):\n*   *Weekly morning interviews:* two-hour studio interviews (06:30–08:30) with Dr. Mulu in the weeks a policy is launched.\n    *   *Kikamba jingles and testimonials:* 45-second stories from farmers in Mwingi North, Kitui South and Kitui Rural on how Dr. Mulu's economic plan protects their harvest prices.\n    *   *Outside broadcasts:* sponsored live broadcast vans at major market rallies in Kalundu, Kabati and Mutomo." }
+      - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (politically affiliated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — [who owns the airwaves](/#news-sec-4-2) has the ownership map and the posture for each." }
+      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)):\n*   *Weekly morning interviews:* two-hour studio interviews (06:30–08:30) with Dr. Mulu in the weeks a policy is launched.\n    *   *Kikamba jingles and testimonials:* 45-second stories from farmers in Mwingi North, Kitui South and Kitui Rural on how Dr. Mulu's economic plan protects their harvest prices.\n    *   *Outside broadcasts:* sponsored live broadcast vans at major market rallies in Kalundu, Kabati and Mutomo." }
   - title: "SMS and USSD"
     head: { label: "Reach", text: "mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD." }
     fields:
-      - { label: null, text: "**What your team operates** (Section 15.3.3):\n*   *A free USSD menu (`*[shortcode]#`):* any feature phone can dial it to read Dr. Mulu's five-point manifesto in Kikamba, register as a volunteer, or find the nearest Ward Captain.\n    *   *Ward-targeted SMS:* **Kiswahili** messages to consented supporters in specific wards on the eve of market days, and on election morning to get out the vote (GOTV)." }
+      - { label: null, text: "**What your team operates** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)):\n*   *A free USSD menu (`*[shortcode]#`):* any feature phone can dial it to read Dr. Mulu's five-point manifesto in Kikamba, register as a volunteer, or find the nearest Ward Captain.\n    *   *Ward-targeted SMS:* **Kiswahili** messages to consented supporters in specific wards on the eve of market days, and on election morning to get out the vote (GOTV)." }
   - title: "Mobile-money agents"
-    head: { label: "Reach", text: "nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, Section 4.1)." }
+    head: { label: "Reach", text: "nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, [where people get information](/#news-sec-4-1))." }
     fields:
-      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3):\n*   M-Pesa agents are trusted community hubs where residents deposit money, buy airtime and talk about local news. **Agent networks are regulated financial infrastructure**; Section 15.3.3 requires campaign counsel to review any commercial arrangement with them before recruitment begins. The ambassador network is untiered and needs a source.\n    *   The campaign would recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents (a target) as \"Economic Ambassadors\", with branded ledgers, counter pens, calendar posters and daily economic talking points." }
+      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)):\n*   M-Pesa agents are trusted community hubs where residents deposit money, buy airtime and talk about local news. **Agent networks are regulated financial infrastructure**; [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) requires campaign counsel to review any commercial arrangement with them before recruitment begins. The ambassador network is untiered and needs a source.\n    *   The campaign would recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents (a target) as \"Economic Ambassadors\", with branded ledgers, counter pens, calendar posters and daily economic talking points." }
   - title: "Market days and caravans"
     head: { label: "Reach", text: "for scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (Tier 3), and market days are gazetted by market. Neither is a market-day count." }
     fields:
-      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3): two sound trucks (*The Mulu Economic Caravans*) with PA systems, Kikamba music and local young speakers, at market entrances on market days. Section 15.3.1 sets out how the ground team runs them." }
+      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)): two sound trucks (*The Mulu Economic Caravans*) with PA systems, Kikamba music and local young speakers, at market entrances on market days. [Ground-digital integration](/#workstreams-sec-15-3-1) sets out how the ground team runs them." }
   - title: "Churches and clergy"
     head: { label: "Reach", text: "denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance." }
     fields:
-      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, Section 13.3): Sunday visits across all eight constituencies, respecting the liturgy, asking for prayers, and meeting parish development committees after the service." }
+      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)): Sunday visits across all eight constituencies, respecting the liturgy, asking for prayers, and meeting parish development committees after the service." }
 ```
 
 ```visual

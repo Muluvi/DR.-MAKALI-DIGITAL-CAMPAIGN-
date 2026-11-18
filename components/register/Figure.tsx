@@ -76,7 +76,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
           </div>
         </details>
         <a className="rf-csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
-          Download the data as CSV<span className="rf-csv-file">{spec.id}.csv</span>
+          Download the data as CSV
         </a>
         </div>
       </FigDetail>

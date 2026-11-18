@@ -1,6 +1,7 @@
 import { tierWord } from "../data/types.ts";
 import { plainLabels } from "./plain-labels.ts";
 import { SECTIONS } from "./heading-slug.ts";
+import SECTION_TITLES from "./section-titles.generated.json" with { type: "json" };
 
 /**
  * What a figure's words look like to the reader. The figure specs keep their working form (tier
@@ -20,8 +21,37 @@ const PAREN_REF = new RegExp(
 const LEAD_REF = new RegExp(String.raw`^§\s?${NUM}(?:['’]s)?\s*(?:—|–|-|:)\s*(\S)?`);
 const TIER_CODE = /\bT([123])\b/g;
 
+/**
+ * A section's printed number -> the words its heading carries (lib/section-titles.generated.json,
+ * written from content/*.md by scripts/prelaunch-2026-11/section-titles.mjs). A reference to a
+ * heading that exists today reads as its name, in quotation marks; a number that names no heading
+ * (an older numbering, kept in a hand-built panel's data) falls to the wording below.
+ */
+const TITLES = SECTION_TITLES as Record<string, { id: string; title: string }>;
+const NAMED_REF = new RegExp(
+  String.raw`(?:§\s?|Sections?\s+)(${NUM})(?:\s*(?:(,|and|&|–|-|to|/))\s*(?:§\s?|Sections?\s+)?(${NUM}))?(?!\s*\[CHECK REF\])`,
+  "g"
+);
+export function sectionName(num: string): string | null {
+  const hit = TITLES[num] ?? TITLES[num.toUpperCase()];
+  return hit ? hit.title : null;
+}
+function nameRefs(s: string): string {
+  return s.replace(NAMED_REF, (m: string, a: string, joiner?: string, b?: string) => {
+    const ta = sectionName(a);
+    // A compound that does not resolve whole is reduced to its first number, so the wording below
+    // takes all of it and no bare second number is left behind ("Sections 2 and 5.1").
+    if (!ta) return `Section ${a}`;
+    if (!b) return `“${ta}”`;
+    const tb = sectionName(b);
+    if (!tb) return `“${ta}”`;
+    const j = joiner === "–" || joiner === "-" || joiner === "to" ? " to " : joiner === "," ? ", " : ` ${joiner} `;
+    return `“${ta}”${j}“${tb}”`;
+  });
+}
+
 export function readerText(input: string): string {
-  let s = input.replace(PAREN_REF, "");
+  let s = nameRefs(input.replace(PAREN_REF, ""));
   s = s.replace(LEAD_REF, (_, c?: string) => (c ? c.toUpperCase() : ""));
   s = s.replace(TIER_CODE, (_, n: string) => tierWord(n)).replace(/\bUnconfirmed,?\s+unconfirmed\b/g, "Unconfirmed");
   return plainLabels(s);

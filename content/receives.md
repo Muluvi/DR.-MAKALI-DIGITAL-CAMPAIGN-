@@ -19,7 +19,7 @@ none of them changes is who publishes: your team does, at every level.
 
 <!-- keep -->
 **Accessibility is not a service level.** Sign-language interpretation on flagship content, and
-every commitment in Section 15.1.4, applies in full at whichever level is chosen. Accessibility is
+every commitment in [Accessibility and inclusion](/#workstreams-sec-15-1-4), applies in full at whichever level is chosen. Accessibility is
 not something a campaign buys more of, and it is not a line to trade away.
 
 #### Level 1: Lean
@@ -28,7 +28,7 @@ not something a campaign buys more of, and it is not a line to trade away.
 
 * **Strategy core (campaign roles):** Strategy Director + Analyst; offline-layer operator part-activated. Firefly runs the platform at every level
 * **Presence audit:** once, at the start
-* **Reach reporting:** the twelve decisive wards in Section 2.3 only
+* **Reach reporting:** the twelve decisive wards in [the twelve largest wards](/#votes-sec-2-3) only
 * **Weekly brief:** yes — the brief is the operation and is never a level
 * **Creative testing:** monthly cycle
 * **Team upskilling:** the written standard, delivered once
@@ -46,7 +46,7 @@ cannot afford to be blind**
 * **Reach reporting:** **all 40 wards**
 * **Weekly brief:** yes, plus the mid-week reach check
 * **Creative testing:** weekly cycle
-* **Team upskilling:** the standard, plus paired brief-writing to Month 3 (Section 17.5)
+* **Team upskilling:** the standard, plus paired brief-writing to Month 3 ([Assessing and upskilling the team](/#engagement-sec-17-5))
 * **Offline layer:** **SMS and USSD active across all 40 wards**; shared code, all networks
 * **Trade-offs:** no premium social listening licences
 
@@ -85,7 +85,7 @@ Every row below is set somewhere else in this plan, in the workstream that produ
 
 Every row below is set somewhere else in this plan, in the workstream that produces it. This
 section consolidates them so the campaign can see the whole commitment on one page rather than
-assembling it from nine sections. The last column gives the section that sets each row. Where a cadence varies by level, Section 21.1 governs; the cadence
+assembling it from nine sections. The last column gives the section that sets each row. Where a cadence varies by level, [the three scope levels, compared](/#receives-sec-21-1) governs; the cadence
 shown here is the one Level 2 carries.
 
 **The "Produced by" column is the point.** Most of this schedule is your team's existing output,
@@ -94,24 +94,24 @@ now directed by the team itself. Firefly's own deliverable is the platform: host
 <!-- keep -->
 | Deliverable | Cadence | Produced by | Form | Where it is set |
 |---|---|---|---|---|
-| Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | 15.1.2 |
-| Daily multilingual social | Daily | Your team | Post, graphic or short video in English, Kiswahili and Kikamba | 15.1.2 |
-| Kikamba voice note | Weekly | Your team, Kikamba reviewer signs off | Audio for WhatsApp and community networks | 15.1.2 |
-| Facebook Live | Weekly | Your team | Live broadcast with moderated comments | 15.1.2 |
-| Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | 15.1.2 |
-| "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | 15 |
-| **The weekly brief** | **Weekly, Thursday** | **Your team (strategy core)** | One page: pillar weights, must-post items, ward priority, language rule | 13.4 |
-| Content calendar | Weekly, Friday | Your team; the strategy core approves | Approved calendar for the week ahead | 15.1.2 |
-| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Your team** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§15.3.3) | 15.3.3 |
-| USSD menu availability | Continuous once provisioned | **Your team** | Zero-rated interactive menu across all networks | 15.3.3 |
-| Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | 15.3.1 |
-| Creative test cycle | Weekly | **Your team** designs, reads and produces variants | A/B test results and the decisions taken from them | 15.1.3 |
-| **Presence audit refresh** | **Monthly** | **Your team** | Ninety-day rolling read: reach by ward, language and format | 14.1 |
-| Performance report | Monthly | **Your team** | Reach in the pool, engagement, sentiment, conversion | 13.4 |
-| Sentiment report to leadership | Monthly | **Your team** | Written brief with ward-level detail | 15 |
-| Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | 19.2 |
-| Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | 15.1.2, 13.4 |
-| The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | 13.2 |
+| Flagship video | 2–3 per week | Your team | Subtitled video, platform-native cuts | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| Daily multilingual social | Daily | Your team | Post, graphic or short video in English, Kiswahili and Kikamba | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| Kikamba voice note | Weekly | Your team, Kikamba reviewer signs off | Audio for WhatsApp and community networks | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| Facebook Live | Weekly | Your team | Live broadcast with moderated comments | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| Kitui Economic Brief | Monthly | Your team | Plain-language explainer, print and digital | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| "Dr. Mulu Explains" | Weekly | Your team | Explainer video or audio on county finance | [The fourteen workstreams](/#workstreams-sec-15-1) |
+| **The weekly brief** | **Weekly, Thursday** | **Your team (strategy core)** | One page: pillar weights, must-post items, ward priority, language rule | [The weekly rhythm and approvals](/#week-sec-13-4) |
+| Content calendar | Weekly, Friday | Your team; the strategy core approves | Approved calendar for the week ahead | [The content brief and asset governance](/#workstreams-sec-15-1-2) |
+| SMS touch to the consented list | Fortnightly, rising to a GOTV surge | **Your team** | 160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) | [What your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) |
+| USSD menu availability | Continuous once provisioned | **Your team** | Zero-rated interactive menu across all networks | [What your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) |
+| Ward coordinator field report | Daily | Campaign ground team | Structured report from all 40 wards into the CRM | [Ground-digital integration](/#workstreams-sec-15-3-1) |
+| Creative test cycle | Weekly | **Your team** designs, reads and produces variants | A/B test results and the decisions taken from them | [Creative testing and AI assistance](/#workstreams-sec-15-1-3) |
+| **Presence audit refresh** | **Monthly** | **Your team** | Ninety-day rolling read: reach by ward, language and format | [The first four weeks](/#timeline-sec-14-1) |
+| Performance report | Monthly | **Your team** | Reach in the pool, engagement, sentiment, conversion | [The weekly rhythm and approvals](/#week-sec-13-4) |
+| Sentiment report to leadership | Monthly | **Your team** | Written brief with ward-level detail | [The fourteen workstreams](/#workstreams-sec-15-1) |
+| Compliance review | Once, early, then on material change | Campaign's appointed reviewer | Written opinion | [The Data Protection Act and the regulator](/#lawful-sec-19-2) |
+| Asset library deposit | Continuous | Your team | Originals with metadata retained, catalogued | [The content brief and asset governance](/#workstreams-sec-15-1-2), [The weekly rhythm and approvals](/#week-sec-13-4) |
+| The platform: hosting, upkeep, data checks, new features | Continuous | **Firefly** | The live site, its explorer, dashboards and workspace; every edit checked before it goes live | [Who owns what](/#engagement-sec-13-2) |
 
 *Source conflict: an earlier version gave the last column in the October numbering (4.5.2, 4.1.1, E.12 and so on); the section numbers above are the current ones.*
 
@@ -132,19 +132,19 @@ what the ballot returns.
 kind: checklist
 items:
   - label: "The scope"
-    body: "is the fourteen workstreams in Section 13.2, with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."
+    body: "is the fourteen workstreams in [who owns what](/#engagement-sec-13-2), with an owner named against each — twelve your team runs on the platform, seven of them once proposed as Firefly's, two are outside the operation, with Workstream 1 shared (Firefly built the tracker into the platform; your team runs it and the owned platforms) — and boundaries stated so that what is outside them is as clear as what is inside."
   - label: "The cadence"
-    text: "is in Section 13.4:"
-    body: "the weekly brief, the calendar, the approval path and the monthly review. Section 21.1 states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."
+    text: "is in [the weekly rhythm and approvals](/#week-sec-13-4):"
+    body: "the weekly brief, the calendar, the approval path and the monthly review. [The three scope levels, compared](/#receives-sec-21-1) states what each level carries, measured in depth of intelligence rather than in volume of output; Firefly keeps the platform running at every level."
   - label: "The standard"
-    text: "is in Sections 18.1 and 13.5:"
-    body: "indicators that trace to either the nomination objectives in Section 8.2 or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."
+    text: "is in [how success will be judged](/#success-sec-18-1) and [Meetings and escalation](/#week-sec-13-5):"
+    body: "indicators that trace to either the nomination objectives in [five objectives](/#goal-sec-8-2) or the vote benchmark, reported on a fixed cycle to a single named campaign counterpart, with an escalation path that is agreed before it is needed rather than improvised under pressure."
   - label: "The conditions"
-    text: "are in Section 22.2."
+    text: "are in [what the campaign provides](/#receives-sec-22-2)."
     body: "This plan depends on decisions and appointments that only the campaign can make, and it names them rather than assuming them."
 ```
 
-*Source conflict: an earlier version pointed the cadence to Section 13.2, the standard to Sections 18.1 and 13.4 and the conditions to Section 6; the references above are the current ones.*
+*Source conflict: an earlier version pointed the cadence to [who owns what](/#engagement-sec-13-2), the standard to [how success will be judged](/#success-sec-18-1) and [the weekly rhythm and approvals](/#week-sec-13-4) and the conditions to [his public record](/#record-sec-6-1); the references above are the current ones.*
 
 ## 22.2 What the campaign provides
 
@@ -152,7 +152,7 @@ items:
 Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer.
 ```
 
-This section lists what the plan needs from the campaign; Chapter 23 states the decision requested. Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer. Stated plainly:
+This section lists what the plan needs from the campaign; [the ask](/#ask-sec-23-1) states the decision requested. Nine dependencies determine delivery, and three of them gate everything else: a named counterpart, the team's own analytics exports and the appointment of the data-protection reviewer. Stated plainly:
 
 ```figure
 id: fig-6-1-dependencies

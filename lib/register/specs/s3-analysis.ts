@@ -317,7 +317,7 @@ export const FIG_3_9: FigureSpec = {
     type: "composite",
     parts: [
       { heading: "The profile as displayed, numbered", chart: { type: "mock", header: "Hon Makali Mulu · Facebook, intro", fields: PROFILE } },
-      { heading: "What the Week 1 audit draws", chart: { type: "cards", columns: 2, cards: AUDIT_FIGURES.map((f, i) => ({ kicker: `Figure ${i + 1} · Week 1`, title: f.title, body: f.body })) } },
+      { heading: "What the Week 1 audit draws", chart: { type: "cards", columns: 2, cards: AUDIT_FIGURES.map((f) => ({ kicker: "Week 1 audit", title: f.title, body: f.body })) } },
     ],
   },
   columns: [{ key: "item", label: "Item" }, { key: "shown", label: "As displayed, or the figure" }, { key: "issue", label: "The issue" }],

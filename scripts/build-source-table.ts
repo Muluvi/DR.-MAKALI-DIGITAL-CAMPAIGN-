@@ -7,7 +7,7 @@
  *      and the as-of dates its figures carry
  *   2. every modelled figure, with the note that says how it was computed
  *   3. every target, with the note that says whose it is
- * Needed figures are not repeated: they are the open items listed in Section 7.3.
+ * Needed figures are not repeated: they are the open items listed in What the data cannot yet show.
  *
  * Values are written as {{tokens}}, so scripts/build-content.ts prints them from the same store.
  *   --check fails if the region on disk is stale.
@@ -17,6 +17,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { FIGURES } from "../lib/data/figures.ts";
 import type { Figure } from "../lib/data/schema.ts";
+// A note that cites a section names it, as a link, as the prose around it does (docs/prelaunch-2026-11).
+import { linkRefs } from "./prelaunch-2026-11/refs.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const FILE = path.join(ROOT, "content", "annex-evidence.md");
@@ -66,7 +68,7 @@ for (const f of modelled) lines.push(`| \`${f.id}\` | ${value(f)} | ${f.tier ? T
 lines.push("", "#### Targets, and whose each is", "", "<!-- keep -->", "| Target | Value | Whose, and what it commits to |", "|---|---|---|");
 for (const f of targets) lines.push(`| \`${f.id}\` | ${value(f)} | ${cell(f.note ?? "")} |`);
 lines.push("", END);
-const region = lines.join("\n");
+const region = linkRefs(lines.join("\n"));
 
 const text = fs.readFileSync(FILE, "utf8");
 const i = text.indexOf(START);

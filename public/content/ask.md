@@ -10,20 +10,20 @@ Dr. Makali Mulu has the credentials, the experience and the vision to be an
 outstanding governor of Kitui County. He also has something rare in county politics:
 a professional qualification in verifying whether public money
 delivered what it promised. Unconfirmed balances, pending bills and low development absorption are what the
-Auditor-General and the Controller of Budget report for the county (Section 3.7), and that qualification is currently the campaign's most under-used
+Auditor-General and the Controller of Budget report for the county ([how county money is spent](/#spend-sec-3-7)), and that qualification is currently the campaign's most under-used
 asset.
 
 **But the timeline is not the one the planning cycle assumes.** Just over half the register, 51.7%, lives in the four
 constituencies where he has never held office. The working hypothesis is that the gap there is one
-of recognition rather than credibility (Section 7.1). If Week 1 confirms it, it is the kind of gap
+of recognition rather than credibility ([what the evidence says](/#diagnosis-sec-7-1)). If Week 1 confirms it, it is the kind of gap
 that closes fastest through disciplined reach into Mwingi and the arid south.
 
 This plan sets out the platform that lets his own team turn an active channel into a directed one: an audit of
-what the existing accounts are actually doing (Section 14.1), a strategy derived from it, a weekly
+what the existing accounts are actually doing ([the first four weeks](/#timeline-sec-14-1)), a strategy derived from it, a weekly
 brief the team writes and carries to the people already publishing, an SMS and USSD layer built for the
 73.8% of Kitui residents who are offline, a published ethics charter that turns
-careful data practice into a differentiator (Section 19.3), a data-protection gate that protects
-the candidate from the legal exposure others in this cycle will walk into (Section 19.2), and a
+careful data practice into a differentiator ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)), a data-protection gate that protects
+the candidate from the legal exposure others in this cycle will walk into ([the Data Protection Act and the regulator](/#lawful-sec-19-2)), and a
 public service-delivery tracker that puts his strongest credential to work before a single vote is
 cast.
 

@@ -16,13 +16,13 @@ items:
       - { label: "thirty minutes", body: "Approve, amend, flag. The only standing meeting in the engagement." }
   - day: "Tuesday to Sunday"
     items:
-      - { label: "publishing", body: "Your team, on your accounts, with your credentials, and on the SMS, USSD and WhatsApp layer it operates (Section 15.3.3). Firefly publishes on no channel." }
+      - { label: "publishing", body: "Your team, on your accounts, with your credentials, and on the SMS, USSD and WhatsApp layer it operates ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)). Firefly publishes on no channel." }
   - day: "Wednesday"
     items:
       - { label: "one number", body: "A mid-week reach check against the pool's wards, and at most one adjustment. If nothing needs adjusting, nothing is sent." }
   - day: "Last Friday of the month"
     items:
-      - { label: "the review", body: "Recognition indicators (Section 18.3), the overrides log, and the brief re-based on what the month proved." }
+      - { label: "the review", body: "Recognition indicators ([Recognition where he is least known](/#success-sec-18-3)), the overrides log, and the brief re-based on what the month proved." }
 ```
 
 ```visual
@@ -31,7 +31,7 @@ items:
   - label: "Asset centralisation"
     body: "A cloud repository for the ground team to upload photographs and video daily. **Originals retained with metadata**, so the origin of every published image and clip can be shown."
   - label: "Performance tracking"
-    body: "Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap (Section 15.4.4). The team reports to a single named campaign-side counterpart (Section 17.4); Firefly reports platform matters to the same person."
+    body: "Monthly analytics reports covering reach, engagement, sentiment and conversion, plus progress against the analytics maturity roadmap ([Analytics and attribution](/#workstreams-sec-15-4-4)). The team reports to a single named campaign-side counterpart ([Leadership, reporting lines and local roles](/#engagement-sec-17-4)); Firefly reports platform matters to the same person."
   - label: "Escalation"
     body: "The decision matrix below governs all approvals."
 ```
@@ -48,7 +48,7 @@ id: fig-5-7-approval
 
 ## 12.6 A week of publishing, before and after
 
-{{pool.share}}% of the register lives where he has never held office (Section 6.2), and nothing published so far argues his case there.
+{{pool.share}}% of the register lives where he has never held office ([where he is known, and where not](/#known-sec-6-2)), and nothing published so far argues his case there.
 
 **Same week. Same events. Same team. Different structure.**
 
@@ -78,7 +78,7 @@ right:
 This annex now carries only the rhythm the engagement itself creates.
 ```
 
-The meeting rhythm and the escalation path are schedule material: what a reader approves is that they exist and are proportionate. What matters to a decision is who decides what, which is Section 13.4. This annex now carries only the rhythm the engagement itself creates; the campaign's own internal forums — the candidate's Monday war room, the Wednesday vendor review, the monthly board — are not the platform's to schedule. The table is the engagement's rhythm in full.
+The meeting rhythm and the escalation path are schedule material: what a reader approves is that they exist and are proportionate. What matters to a decision is who decides what, which is [the weekly rhythm and approvals](/#week-sec-13-4). This annex now carries only the rhythm the engagement itself creates; the campaign's own internal forums — the candidate's Monday war room, the Wednesday vendor review, the monthly board — are not the platform's to schedule. The table is the engagement's rhythm in full.
 
 <!-- keep -->
 | Cadence | Meeting | Participants | Output |
@@ -89,9 +89,9 @@ The meeting rhythm and the escalation path are schedule material: what a reader 
 | **Weekly** | Creative review | Content Lead + Kikamba Producer | Language and cultural sign-off before scheduling |
 | **Fortnightly** | Ward champion call | Volunteer Coordinator + ward champions | Ground sentiment; content distribution; leaderboard |
 | **Monthly** | Performance review | Strategy Director + Campaign leadership + `[campaign counsel, where voter-file work is live]` | Analytics report |
-| **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target (Chapter 14); opt-out rate; ward coverage |
+| **Monthly** | Consented-list review | Strategy Director + Volunteer Coordinator | Consented-list growth against the phase target ([Timeline to August 2027](/#timeline-sec-14-0)); opt-out rate; ward coverage |
 
-"Strategy Director" in this table is the campaign role of Section 17.2. Each meeting's decisions are logged in the workspace; Firefly attends none of them.
+"Strategy Director" in this table is the campaign role of [the strategy core, and Firefly's part](/#engagement-sec-17-2). Each meeting's decisions are logged in the workspace; Firefly attends none of them.
 
 #### The escalation path
 
@@ -103,7 +103,7 @@ id: escalation-ladder
 
 ## 12.7 When the plan changes
 
-The diagnosis is a hypothesis, and Week 1 tests it (Section 7.2). The decision rules below are stated in advance, so the audit cannot be read backwards into whatever was already planned.
+The diagnosis is a hypothesis, and Week 1 tests it ([what could overturn it](/#diagnosis-sec-7-2)). The decision rules below are stated in advance, so the audit cannot be read backwards into whatever was already planned.
 
 ```figure
 id: fig-4-8-decision-rules

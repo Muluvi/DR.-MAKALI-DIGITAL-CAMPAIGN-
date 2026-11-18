@@ -14,7 +14,7 @@ export function PartDots({ actId, className = "" }: { actId: string | null | und
   const current = PARTS.findIndex((a) => a.id === actId);
   if (current < 0) return null;
   return (
-    <span className={`part-dots ${className}`} role="img" aria-label={`Part ${current + 1} of ${PARTS.length}: ${PARTS[current].label}`}>
+    <span className={`part-dots ${className}`} role="img" aria-label={`Stage: ${PARTS[current].label}`}>
       {PARTS.map((a, i) => (
         <span key={a.id} className="part-dots__dot" data-state={i === current ? "here" : i < current ? "passed" : "ahead"} title={a.label} />
       ))}
@@ -34,7 +34,7 @@ export function StageBar({ tab, className = "" }: { tab: TabId; className?: stri
   const act = actOf(tab);
   const after = partOf(tab) !== 0 && isAfterAct(act.id);
   const current = partOf(tab) === 0 ? 0 : after ? STAGES.length : STAGES.findIndex((s) => s.id === act.id);
-  const label = after ? `After the story: ${act.label}` : `Stage ${current + 1} of ${STAGES.length}: ${STAGES[current]?.label ?? ""}`;
+  const label = after ? `After the story: ${act.label}` : `Stage: ${STAGES[current]?.label ?? ""}`;
   return (
     <span className={`part-dots stage-bar ${className}`} role="img" aria-label={label}>
       {STAGES.map((s, i) => (

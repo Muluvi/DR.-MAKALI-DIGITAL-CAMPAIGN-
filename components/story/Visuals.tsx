@@ -14,6 +14,7 @@ import {
   MessageCircle, MousePointerClick, Phone, Radio as RadioIcon, Send, ShieldCheck, Table2, Users, Wrench,
 } from "lucide-react";
 import mirrors from "@/lib/story/mirrors.generated.json";
+import SECTION_TITLES from "@/lib/section-titles.generated.json";
 import { FIGURES } from "@/lib/data/figures";
 import { formatFigure } from "@/lib/data/format";
 import { PHASES, PLANNING_SIGNATURE, ELECTION_DAY } from "@/lib/phases";
@@ -87,7 +88,7 @@ export function ProofStack() {
               <span className="sx-proof__body">
                 <span className="sx-proof__step">{p.step}</span>
                 <span className="sx-proof__text">{p.text}</span>
-                <span className="sx-proof__go">Section {p.where} <ArrowRight size={13} aria-hidden="true" /></span>
+                <span className="sx-proof__go">{(SECTION_TITLES as Record<string, { title: string }>)[p.where]?.title ?? "Read it"} <ArrowRight size={13} aria-hidden="true" /></span>
               </span>
             </button>
           </li>
@@ -320,7 +321,7 @@ export function DeliverablesMap() {
                           <span><b>Cadence:</b> {d.cadence}</span>
                           <span><b>Produced by:</b> {d.by}</span>
                           <span><b>Form:</b> {d.form}</span>
-                          <button type="button" className="sx-link" onClick={() => jumpTo(`${sectionFor(d.where)}`)}>Where it is set: {d.where} <ArrowRight size={12} aria-hidden="true" /></button>
+                          {d.whereId && <button type="button" className="sx-link" onClick={() => jumpTo(d.whereId!)}>Where it is set: {d.where} <ArrowRight size={12} aria-hidden="true" /></button>}
                         </span>
                       )}
                     </li>
@@ -334,14 +335,6 @@ export function DeliverablesMap() {
       <p className="sx-vis__foot">Read from the table in this section, at the Standard level&rsquo;s cadence. Tap one for its details.</p>
     </Shell>
   );
-}
-
-/** "15.1.2, 13.4" → the first section's live id. */
-function sectionFor(where: string): string {
-  const n = where.split(",")[0].trim();
-  const top = Number(n.split(".")[0]);
-  const chapter: Record<number, string> = { 13: "engagement", 14: "timeline", 15: "workstreams", 19: "lawful" };
-  return `${chapter[top] ?? "workstreams"}-sec-${n.includes(".") ? n.replace(/\./g, "-") : `${n}-1`}`;
 }
 
 /* ------------------------------------------------------------------ 14.4 you are here, in the five phases */
@@ -395,7 +388,7 @@ export function WorkstreamMap() {
         <div className="sx-wsmap__grid">
           {mirrors.groups.map((g, gi) => (
             <div key={g.number} className="sx-wsmap__group" style={{ "--i": gi } as React.CSSProperties}>
-              <p>{g.number} {g.title}</p>
+              <p>{g.title}</p>
               <ul>
                 {mirrors.workstreams.filter((w) => w.group === g.number).map((w) => (
                   <li key={w.id}><button type="button" onClick={() => jumpTo(w.id)}><span className="sx-wsmap__n">{w.number}</span>{w.title}<ArrowRight size={13} aria-hidden="true" /></button></li>

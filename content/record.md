@@ -23,7 +23,7 @@ id: fig-2-8-record
 | Asset | The evidence | How we would use it |
 |---|---|---|
 | Economics and the national budget | PhD (Economics) (Tier 1); Budget and Appropriations Committee membership (Tier 1; any leadership role to be confirmed from the National Assembly's committee records) | A weekly "Dr. Mulu on Public Finance" explainer series |
-| **Monitoring and evaluation** | Certified consultant in project management and M&E (Tier 1); member, Evaluation Society of Kenya (ESK) (Tier 1); **designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | The public service-delivery tracker (Section 15.1.1) |
+| **Monitoring and evaluation** | Certified consultant in project management and M&E (Tier 1); member, Evaluation Society of Kenya (ESK) (Tier 1); **designated M&E Champion by the Ministry of Finance** (Tier 1; the issuing letter or notice is to be cited) | The public service-delivery tracker ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)) |
 | International standing | United Nations project management and financial advisory roles (Tier 1) | Credibility with professional and diaspora networks |
 | Delivery in Kitui Central | KSh {{record.bursary.ksh|m}} million in educational bursaries to {{record.bursary.recipients}} students (Tier 1); **Kitui Central certified as the best-evaluated constituency in the Eastern region, FY2014/15**, first of 71 in its national peer group (Tier 1; the evaluating body's report is to be cited) | Ward-level proof points |
 | Length of service | 17 years in political leadership, 13 as Member of Parliament for Kitui Central (Tier 1); Commander of the Order of the Burning Spear (CBS) (Tier 1; the Kenya Gazette notice of the award is to be cited) | Steady, low-risk leadership, set against less-experienced candidates |
@@ -37,5 +37,5 @@ id: fig-2-8-record
 id: fig-2-9-channels
 ```
 
-**The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run record of completed projects, and the first content type, "Where the money went" (Section 10.1), exists to put that record in front of voters who have never heard of him. The boundary in Section 19.2 applies: the **project record** is usable; the **beneficiary personal data** behind it is not.
+**The NG-CDF site is the most under-used asset in this list.** It is a public, constituency-run record of completed projects, and the first content type, "Where the money went" ([one claim, three pillars, six themes](/#message-sec-10-1)), exists to put that record in front of voters who have never heard of him. The boundary in [the Data Protection Act and the regulator](/#lawful-sec-19-2) applies: the **project record** is usable; the **beneficiary personal data** behind it is not.
 

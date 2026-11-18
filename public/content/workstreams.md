@@ -4,7 +4,7 @@
 Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports.
 ```
 
-Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports. Twelve are your team's to run on Firefly's platform, seven of them once proposed as Firefly's, and two are outside this operation (Section 13.2).
+Fourteen workstreams deliver the plan, in four groups: owned platforms and content, media, ground and offline reach, and data and technology. Each names what it produces, who owns it and how often it reports. Twelve are your team's to run on Firefly's platform, seven of them once proposed as Firefly's, and two are outside this operation ([who owns what](/#engagement-sec-13-2)).
 
 ```figure
 id: fig-5-2-workstream-panels
@@ -18,7 +18,7 @@ id: fig-5-2-workstream-panels
 *The two scope lists below stay together, rather than being split across the workstreams that deliver them, until conflict C4 is settled.*
 
 ```visual
-{"kind":"checklist","title":"Digital infrastructure, brand and civic content","items":[{"label":"Web management and digital architecture","body":"Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 26.2% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** (Section 15.1.4). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."},{"label":"Brand management","body":"Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs (Section 15.2.2). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp stays with your team, which publishes and holds the credentials (Section 13.2); the team sets the standard in its weekly brief. Community management: your team responds to comments, DMs and mentions within **2 hours** during peak periods."},{"label":"Civic content and visual data","body":"Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh 13.79 billion county envelope. Content calendars tailored to each segment in Section 10.4. Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."}]}
+{"kind":"checklist","title":"Digital infrastructure, brand and civic content","items":[{"label":"Web management and digital architecture","body":"Development and deployment of a high-performance campaign web portal hosting the manifesto, tracking media appearances, and capturing volunteer data. Lightweight, rapid-loading frameworks so the site is usable on 3G and on feature-phone browsers — non-negotiable in a county at 26.2% internet use (CA/KNBS 2023/24). **WCAG 2.1 AA compliance from build, not retrofitted** ([Accessibility and inclusion](/#workstreams-sec-15-1-4)). Search engine optimisation for \"Kitui Governor 2027\", \"Kitui development\" and related terms. A \"Meet Dr. Mulu\" page with biography, parliamentary record, M&E credentials and vision for Kitui. **Audit before build:** an existing Kitui Central NG-CDF web presence is already live. Phase 0 audits and integrates it rather than duplicating it."},{"label":"Brand management","body":"Core messaging matrix ensuring consistency across broadcast, print and digital. Dynamic digital press kits for media houses and influencers — approved biographies, high-resolution assets, policy briefs ([Earned media, journalists and debates](/#workstreams-sec-15-2-2)). Daily management of Facebook, X, Instagram, TikTok, YouTube and WhatsApp stays with your team, which publishes and holds the credentials ([who owns what](/#engagement-sec-13-2)); the team sets the standard in its weekly brief. Community management: your team responds to comments, DMs and mentions within **2 hours** during peak periods."},{"label":"Civic content and visual data","body":"Infographic analyses highlighting Kitui's economic challenges and Dr. Mulu's proposed solutions, anchored to the KSh 13.79 billion county envelope. Content calendars tailored to each segment in [Sample messages from the weekly brief](/#message-sec-10-4). Graphics, short video, motion graphics and policy explainers in English, Kiswahili and Kikamba. Human-interest storytelling: constituent testimonials, verified project outcomes, vision-driven narratives. A weekly **\"Dr. Mulu Explains\"** series breaking down county budgets, revenue sources and development economics in plain language."}]}
 ```
 
 ```visual
@@ -71,25 +71,25 @@ id: fig-5-2-1-report-flow
 #### Design principles
 
 ```visual
-{"kind":"checklist","items":[{"label":"Public by default","body":"The register is visible to anyone, mapped by ward, with counts by category. Transparency is the point."},{"label":"No personal data published","body":"Reports appear with ward, category and status only. Contact details are used to update the reporter and nothing else, under the Section 19.3 charter."},{"label":"Outcomes published honestly — including failures","body":"Where an issue is not resolved, the register says so. A tracker that only shows successes is marketing, and voters recognise it instantly. Publishing unresolved items is what makes the resolved ones credible."},{"label":"No false authority","body":"Dr. Mulu is not the county government. The tracker records what was reported, what was raised, and what happened — never implying powers he does not hold. Overclaiming here would undermine the credibility the tool exists to build."},{"label":"Continues after the election","body":"Stated up front. A tracker that closes on polling day was a campaign tactic; one that continues is a governance commitment — and the commitment is the persuasive element."}]}
+{"kind":"checklist","items":[{"label":"Public by default","body":"The register is visible to anyone, mapped by ward, with counts by category. Transparency is the point."},{"label":"No personal data published","body":"Reports appear with ward, category and status only. Contact details are used to update the reporter and nothing else, under the [the Digital Ethics and Data Charter](/#lawful-sec-19-3) charter."},{"label":"Outcomes published honestly — including failures","body":"Where an issue is not resolved, the register says so. A tracker that only shows successes is marketing, and voters recognise it instantly. Publishing unresolved items is what makes the resolved ones credible."},{"label":"No false authority","body":"Dr. Mulu is not the county government. The tracker records what was reported, what was raised, and what happened — never implying powers he does not hold. Overclaiming here would undermine the credibility the tool exists to build."},{"label":"Continues after the election","body":"Stated up front. A tracker that closes on polling day was a campaign tactic; one that continues is a governance commitment — and the commitment is the persuasive element."}]}
 ```
 
 #### What it is worth to the campaign
 
 ```visual
-{"kind":"checklist","items":[{"label":"Narrative","body":"the strongest possible proof of the Verification pillar (Section 10.1) — evidence rather than assertion"},{"label":"Data","body":"the issues citizens report, ward by ward, counted from what arrives rather than assumed, feeding directly into the weekly brief"},{"label":"Organising","body":"every report is a consented contact and a warm lead for ward champions"},{"label":"Earned media","body":"a public register of county service-delivery failures is a standing story for county correspondents (Section 15.2.2)"}]}
+{"kind":"checklist","items":[{"label":"Narrative","body":"the strongest possible proof of the Verification pillar ([one claim, three pillars, six themes](/#message-sec-10-1)) — evidence rather than assertion"},{"label":"Data","body":"the issues citizens report, ward by ward, counted from what arrives rather than assumed, feeding directly into the weekly brief"},{"label":"Organising","body":"every report is a consented contact and a warm lead for ward champions"},{"label":"Earned media","body":"a public register of county service-delivery failures is a standing story for county correspondents ([Earned media, journalists and debates](/#workstreams-sec-15-2-2))"}]}
 ```
 
 #### Build
 
-Built on the USSD and SMS layer your team operates (Section 15.3.3), plus a lightweight public register on the campaign site, which Firefly hosts. **It reuses a
+Built on the USSD and SMS layer your team operates ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)), plus a lightweight public register on the campaign site, which Firefly hosts. **It reuses a
 layer the campaign is building anyway; nothing comparable exists in this race.**
 
 #### The opening register: the county's own scorecard
 
 The tracker does not start from an empty list. The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) claims 2,244 projects and itemises 401 of them with value, ward and status, KSh 1.36 billion in all (Tier 1 as a record of what the county claims, not evidence that the claims are true). Those rows load as the tracker's opening register ([kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv)): each becomes a public row, *County says: complete. Residents say: ___*, and reports through USSD option 3 fill the second column.
 
-The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently (Section 15.2.2).
+The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently ([Earned media, journalists and debates](/#workstreams-sec-15-2-2)).
 
 ```visual
 {"kind":"checklist","title":"The tracker's first questions","items":[{"label":"Q1. Livestock vaccinated","text":"1,500,000 claimed (Tier 1, county scorecard); the itemised rows total 226,491 animals (calculated)."},{"label":"Q2. Infant mortality","text":"Claimed to fall from 47 to 13 per thousand births; KDHS 2022 puts Kitui at 23. Is the scorecard's figure a facility rate or a county rate?"},{"label":"Q3. Roads graded","text":"6,974.77 km claimed; the itemised row of 2,800 km (Tier 1) comes to KSh 6,429 a km (calculated)."},{"label":"Q4. Boreholes","text":"57 drilled and 32 equipped: are the rest not yet equipped?"},{"label":"Q5. Health beneficiaries","text":"Two health projects list 1,304,665 beneficiaries (Tier 1, county scorecard), more than the county's 2019 population of 1,136,187: a catchment, not people served?"},{"label":"Q6. The unitemised projects","text":"2,244 claimed, 401 itemised: where is the list of the other 1,843 (calculated)?"},{"label":"Q7. Kangu Kangu","text":"KSh 839.7 million for 25,000+ households (Tier 1, county scorecard), commissioned after the period the scorecard covers: what has been delivered since?"},{"label":"Q8. Boda boda sheds","text":"44 claimed; 32 itemised."},{"label":"Q9. Ward attributions","text":"Some rows place wards in the wrong constituency (Voo/Kyamatu under Kitui South; it is in Kitui East): a data-quality point for any ward-level use."}]}
@@ -120,7 +120,7 @@ id: delivery-tracker
     *   *Public Web & USSD Transparency:* Voters can dial `*[shortcode]#` or visit the web portal to query exact project GPS coordinates, contract values, and completion certificates in their own village.
     *   *Debate & Media Resource:* Equips candidate and spokespersons with instant, primary-sourced factual data for live radio and television debates.
 2.  **As a Day-One Governing Tool (Post-Election; a pledge Dr. Mulu may make, not a deliverable of this engagement):**
-    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing ward development funds allocated by the published, needs-weighted formula that replaced the Ksh 100 million equal-ward guarantee (Section 10.1), tracking execution velocity and contractor payments across all 40 wards in real time.
+    *   *Statutory Ward Equalization Tracking:* Establishes the operational framework for managing ward development funds allocated by the published, needs-weighted formula that replaced the Ksh 100 million equal-ward guarantee ([one claim, three pillars, six themes](/#message-sec-10-1)), tracking execution velocity and contractor payments across all 40 wards in real time.
     *   *Zero Pending Bills Enforcer:* Integrates directly into the County Treasury accounting system to ensure all ward projects are verified before invoice settlement, preventing the recurrence of county debt.
 
 ### 15.1.2 Workstream 2 — The content brief and asset governance
@@ -131,13 +131,13 @@ id: delivery-tracker
 
 **Owner: your team, to its own brief.** Your producers write, film, edit and publish, as they do today. What this workstream adds is the brief that tells them which pillar, which ward, which language and which format — and the approval gate on new policy claims and Kikamba output.
 
-Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only 26.2% of residents use the internet (CA/KNBS 2023/24, Section 4.1), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
+Campaign communications succeed when production is treated as a pipeline rather than ad-hoc creative posting. In a county where only 26.2% of residents use the internet (CA/KNBS 2023/24, [where people get information](/#news-sec-4-1)), the content production engine must be **predominantly focused on offline and broadcast formats**—vernacular radio scripts, 2G bulk SMS, USSD menu trees, printed baraza photobooks, and market PA audio jingles—while maintaining a high-fidelity digital and video pipeline for youth and the diaspora.
 
 ```figure
 id: production-pipeline
 ```
 
-*The four content pillars are now in 10.1, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in Annex C.2.*
+*The four content pillars are now in 10.1, with the other production pillars. Formats by channel and the radio, SMS and USSD copy samples are in [Formats, copy samples and the USSD pointer](/#message-sec-c-2).*
 
 #### The weekly production schedule
 
@@ -174,7 +174,7 @@ id: asset-library
 #### What AI is used for, and what it is never used for
 
 ```visual
-{"kind":"contrast","left":{"title":"What AI is used for","items":[{"label":"AI is used to test and optimise content so that every regulated ad placement delivers maximum persuasive impact."},{"label":"AI assists production and optimisation."}]},"right":{"title":"What it is never used for","items":[{"label":"to fabricate imagery of real people"},{"label":"to simulate events that did not occur"},{"label":"to generate synthetic voices of the candidate or any other person"}]},"body":"**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment (Section 19.3)."}
+{"kind":"contrast","left":{"title":"What AI is used for","items":[{"label":"AI is used to test and optimise content so that every regulated ad placement delivers maximum persuasive impact."},{"label":"AI assists production and optimisation."}]},"right":{"title":"What it is never used for","items":[{"label":"to fabricate imagery of real people"},{"label":"to simulate events that did not occur"},{"label":"to generate synthetic voices of the candidate or any other person"}]},"body":"**Disclosure commitment.** AI assists production and optimisation. It is never used to fabricate imagery of real people, simulate events that did not occur, or generate synthetic voices of the candidate or any other person. Where AI-generated illustration appears in published material, it is labelled. This is a published commitment ([the Digital Ethics and Data Charter](/#lawful-sec-19-3))."}
 ```
 
 #### Tools and platforms
@@ -218,7 +218,7 @@ id: asset-library
 *The languages this standard works in, and the content mix for locally facing platforms, are set out in 12.4.*
 
 **Governance.** A native Kikamba speaker is a named role at every engagement
-level (Section 17.3), not an occasional reviewer. No Kikamba content publishes
+level ([Surge roles](/#engagement-sec-17-3)), not an occasional reviewer. No Kikamba content publishes
 without their sign-off. Proverbs carry cultural weight and misused proverbs
 do cultural damage — in a campaign built on rigour, a mangled idiom is a
 substantive error, not a cosmetic one.
@@ -238,7 +238,7 @@ A campaign built on transparency that publishes only in dense written English
 is not transparent. It is legible to the people who already had access.
 
 ```visual
-{"kind":"checklist","title":"The commitments","items":[{"label":"Sign language","text":"**Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument.","body":"Full-video coverage at premium tier. Interpreter engaged through the Kenya National Association of the Deaf or an accredited interpreter service"},{"label":"Captioning","text":"Burned-in captions on **all** video, in the language of the audio.","body":"Non-negotiable: most social video is watched without sound"},{"label":"Website","text":"**WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone"},{"label":"Plain language","text":"Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud"},{"label":"Audio versions","text":"Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio"},{"label":"Low bandwidth","text":"Text-first fallbacks;","body":"compressed images; a site that loads on 3G; SMS and USSD paths to the same information (Section 15.3.3)"},{"label":"Print","text":"Ward-level materials in large print with QR and USSD codes"}]}
+{"kind":"checklist","title":"The commitments","items":[{"label":"Sign language","text":"**Kenyan Sign Language interpretation on all flagship video** — manifesto launch, vision video, monthly Economic Brief, closing argument.","body":"Full-video coverage at premium tier. Interpreter engaged through the Kenya National Association of the Deaf or an accredited interpreter service"},{"label":"Captioning","text":"Burned-in captions on **all** video, in the language of the audio.","body":"Non-negotiable: most social video is watched without sound"},{"label":"Website","text":"**WCAG 2.1 AA** — semantic structure, keyboard navigation, contrast ratios, alt text on every image and infographic, no information conveyed by colour alone"},{"label":"Plain language","text":"Every policy document paired with a **one-page plain-language summary** in all three languages, written to be read aloud"},{"label":"Audio versions","text":"Every flagship policy item available as audio, distributable by WhatsApp, voice note and radio"},{"label":"Low bandwidth","text":"Text-first fallbacks;","body":"compressed images; a site that loads on 3G; SMS and USSD paths to the same information ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3))"},{"label":"Print","text":"Ward-level materials in large print with QR and USSD codes"}]}
 ```
 
 #### Why this is scope, not an annex
@@ -265,7 +265,7 @@ important content last.
 
 ## 15.2 Media (workstreams 5–6)
 
-Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely politically owned (Section 4.2).
+Paid media on the platforms that reach the connected minority, and earned media in a county whose Kamba-language radio is largely politically owned ([who owns the airwaves](/#news-sec-4-2)).
 
 ### 15.2.1 Workstream 5 — Platform tactics and paid media
 
@@ -273,11 +273,11 @@ Paid media on the platforms that reach the connected minority, and earned media 
 **Owner: your team, to its own brief.** The team writes the targeting plan and reads the performance on the platform; your team places and publishes.
 ```
 
-**Owner: your team, to its own brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things anyone will post for you; Firefly posts nothing. The team writes the targeting plan and reads the performance on the platform; your team places and publishes. The campaign holds the ad account (Section 13.4).
+**Owner: your team, to its own brief.** Read every platform block below as *what belongs on this channel and why*, not as a list of things anyone will post for you; Firefly posts nothing. The team writes the targeting plan and reads the performance on the platform; your team places and publishes. The campaign holds the ad account ([the weekly rhythm and approvals](/#week-sec-13-4)).
 
-*Corrected: an earlier version said the ad-account recommendation was still open; Section 13.4 records it as approved in September 2026.*
+*Corrected: an earlier version said the ad-account recommendation was still open; [the weekly rhythm and approvals](/#week-sec-13-4) records it as approved in September 2026.*
 
-*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in Annex C.1.*
+*The platform-by-platform playbooks (Facebook, X, WhatsApp, TikTok, Instagram, YouTube and Google Ads) are in [Platform playbooks](/#channels-sec-c-1).*
 
 ### 15.2.2 Workstream 6 — Earned media, journalists and debates
 
@@ -285,7 +285,7 @@ Paid media on the platforms that reach the connected minority, and earned media 
 **Owner: your team and the campaign, to the team's brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else.
 ```
 
-**Owner: your team and the campaign, to the team's brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. The team prepares the briefing notes, the debate preparation and the evidence pack behind each pitch, from the evidence on Firefly's platform. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in Section 4.2.
+**Owner: your team and the campaign, to the team's brief.** Paid and owned media reach the connected minority; earned media, especially radio, reaches everyone else. Placement is a relationship business the campaign already has. The team prepares the briefing notes, the debate preparation and the evidence pack behind each pitch, from the evidence on Firefly's platform. The radio plan runs through Musyi, County FM and Wikwatyo, on the ownership map in [who owns the airwaves](/#news-sec-4-2).
 
 #### The journalist relationship programme
 
@@ -298,7 +298,7 @@ credible national commentator on county fiscal management earns coverage that
 money cannot buy, and it reinforces the core narrative every time it runs.
 
 **Standing press kit** — permanently available: approved biography (short,
-medium, long), high-resolution photography, the M&E and parliamentary record (Section 6.1)
+medium, long), high-resolution photography, the M&E and parliamentary record ([the public record](/#record-sec-6-1))
 with sources, policy briefs by theme, verified county data with citations, and
 contact routes. The easier the campaign makes a journalist's job, the more
 often it is quoted.
@@ -354,7 +354,7 @@ distributes the moment first defines what the debate was about.
 
 #### Getting on air around a hostile gatekeeper
 
-So that the campaign can reach all 532,758 registered voters in the 40 wards whatever the politically aligned stations do (Section 12.3), it runs four routes that need none of them:
+So that the campaign can reach all 532,758 registered voters in the 40 wards whatever the politically aligned stations do ([the radio gatekeepers](/#channels-sec-12-3)), it runs four routes that need none of them:
 
 ```figure
 id: bypass-architecture
@@ -388,7 +388,7 @@ id: field-loop
 
 #### What the 40 ward coordinators report
 
-The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains (400 recommended, 10 per ward; campaign-owned, Section 13.3). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
+The primary sensing mechanism of the campaign is the **40 Ward Coordinators**, who supervise the campaign's ward captains (400 recommended, 10 per ward; campaign-owned, [what is outside the scope](/#engagement-sec-13-3)). Each coordinator is equipped with a dual reporting channel: a **secure field WhatsApp bot** for smartphone-equipped coordinators in 3G/4G zones, and a **zero-rated USSD/SMS structured reporting tree** for offline/2G wards.
 
 ```figure
 id: field-reports
@@ -400,13 +400,13 @@ id: field-reports
 
 #### Distribution beyond social media
 
-> **Campaign-owned recommendations, outside this engagement (Section 13.3).** The four networks
+> **Campaign-owned recommendations, outside this engagement ([what is outside the scope](/#engagement-sec-13-3)).** The four networks
 > below are the campaign's to recruit, equip and run. The team writes the brief each one carries.
 
 To bypass digital connectivity barriers, the campaign turns physical transportation, trade, and civic networks into active information distribution conduits:
 
 ```visual
-{"kind":"cards","preset":"network","items":[{"title":"The Boda Boda Stage Network (1,200 Stage Champions)","badge":"campaign-owned","head":{"label":"Operational Role","text":"The campaign identifies 1,200 \"Stage Champions\" (30 per ward) across all 40 wards."},"fields":[{"label":"Infrastructure","text":"Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **14,000 riders** by a 2026 estimate, of whom 10,921 were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to 783 operators drawn from all 40 wards (Tier 2)."},{"label":"Execution","text":"- Champions receive high-visibility reflective campaign vests branded with \"Uchumi na Kazi\" and safety helmets.\n- Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.\n- Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles."}]},{"title":"Matatu & Sacco Commuter Transit Routes","badge":"campaign-owned","head":{"label":"Operational Role","text":"Capturing passengers during long transit journeys (3–6 hours)."},"fields":[{"label":"Infrastructure","text":"Matatu SACCOs connecting Kitui Town, Mwingi, Mutomo, Nairobi, and Mombasa (e.g., Kitui Classic, Mwingi Travelers, TSS, Buscar)."},{"label":"Execution","text":"- Provision of branded onboard audio USB flash drives to matatu drivers featuring popular Kamba secular and gospel music interspersed with 60-second policy messages from Dr. Mulu.\n- Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter."}]},{"title":"Weekly Market Days & Caravan Circuits","badge":"campaign-owned","head":{"label":"Operational Role","text":"Concentrated voter aggregation points."},"fields":[{"label":"Infrastructure","text":"The 40 major market centres rotating across the county weekly (the rotation is in Section 4.4)."},{"label":"Execution","text":"- Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.\n- Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers."}]},{"title":"Community Barazas & Chief's Gatherings (Protocol-Compliant)","badge":"campaign-owned","head":{"label":"Operational Mandate & Civility","text":"Campaign teams respect that civil service barazas are strictly non-partisan by law."},"fields":[{"label":"Infrastructure","text":"Monthly administrative barazas convened by National Government Administrative Officers (NGAO—Chiefs and Assistant Chiefs)."},{"label":"Execution","text":"- Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).\n- Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza."}]}]}
+{"kind":"cards","preset":"network","items":[{"title":"The Boda Boda Stage Network (1,200 Stage Champions)","badge":"campaign-owned","head":{"label":"Operational Role","text":"The campaign identifies 1,200 \"Stage Champions\" (30 per ward) across all 40 wards."},"fields":[{"label":"Infrastructure","text":"Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **14,000 riders** by a 2026 estimate, of whom 10,921 were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to 783 operators drawn from all 40 wards (Tier 2)."},{"label":"Execution","text":"- Champions receive high-visibility reflective campaign vests branded with \"Uchumi na Kazi\" and safety helmets.\n- Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.\n- Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles."}]},{"title":"Matatu & Sacco Commuter Transit Routes","badge":"campaign-owned","head":{"label":"Operational Role","text":"Capturing passengers during long transit journeys (3–6 hours)."},"fields":[{"label":"Infrastructure","text":"Matatu SACCOs connecting Kitui Town, Mwingi, Mutomo, Nairobi, and Mombasa (e.g., Kitui Classic, Mwingi Travelers, TSS, Buscar)."},{"label":"Execution","text":"- Provision of branded onboard audio USB flash drives to matatu drivers featuring popular Kamba secular and gospel music interspersed with 60-second policy messages from Dr. Mulu.\n- Placement of seatback information cards in commuter vans detailing Dr. Mulu's 5-point Economic Charter."}]},{"title":"Weekly Market Days & Caravan Circuits","badge":"campaign-owned","head":{"label":"Operational Role","text":"Concentrated voter aggregation points."},"fields":[{"label":"Infrastructure","text":"The 40 major market centres rotating across the county weekly (the rotation is in [reaching the offline majority](/#news-sec-4-4))."},{"label":"Execution","text":"- Coordinated arrival of the *Mulu Economic Caravan* sound trucks at 10:00 AM on market days.\n- Ward Coordinators lead door-to-door merchant walk-throughs, distributing Kikamba business charters to shopkeepers, vegetable vendors (*mama mboga*), and hardware dealers."}]},{"title":"Community Barazas & Chief's Gatherings (Protocol-Compliant)","badge":"campaign-owned","head":{"label":"Operational Mandate & Civility","text":"Campaign teams respect that civil service barazas are strictly non-partisan by law."},"fields":[{"label":"Infrastructure","text":"Monthly administrative barazas convened by National Government Administrative Officers (NGAO—Chiefs and Assistant Chiefs)."},{"label":"Execution","text":"- Ward Captains attend barazas as active community citizens to listen to localized grievances (water, security, relief food).\n- Post-baraza informal engagement: Engaging elders and attendees outside official proceedings, answering questions, and sharing Dr. Mulu's policy solutions for the specific community issues raised during the baraza."}]}]}
 ```
 
 #### The operating rhythm
@@ -444,7 +444,7 @@ id: fig-5-2-3-field-loop
 #### Governance and data protection on the doorstep
 
 ```visual
-{"kind":"checklist","items":[{"label":"Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data (Section 19.3)."},{"label":"Ward champions receive data-handling training before being issued the form, and cannot export or retain contact data on personal devices."},{"label":"Opt-in rate on routed doors","body":"is the joint KPI holding both sides honest: if doors the model routes do not opt in at a higher rate than doors it does not, the routing is wrong."}]}
+{"kind":"checklist","items":[{"label":"Field data is campaign first-party data, collected with notice, and governed by the same charter as all other personal data ([the Digital Ethics and Data Charter](/#lawful-sec-19-3))."},{"label":"Ward champions receive data-handling training before being issued the form, and cannot export or retain contact data on personal devices."},{"label":"Opt-in rate on routed doors","body":"is the joint KPI holding both sides honest: if doors the model routes do not opt in at a higher rate than doors it does not, the routing is wrong."}]}
 ```
 
 ### 15.3.3 Workstream 9 — What your team operates: SMS, USSD and voice
@@ -453,7 +453,7 @@ id: fig-5-2-3-field-loop
 **Owner: your team, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
 ```
 
-**Owner: your team, end to end.** Two pieces of infrastructure, held and run by the campaign: the **WhatsApp Business API line** and the **USSD shortcode**. The campaign is the **data controller**; Firefly is a processor only for what the team logs on the platform — see Section 19.1, which must be settled in writing before the first dispatch. Every send is planned and logged in the platform's dispatch log, which refuses Kikamba on the bulk SMS rail.
+**Owner: your team, end to end.** Two pieces of infrastructure, held and run by the campaign: the **WhatsApp Business API line** and the **USSD shortcode**. The campaign is the **data controller**; Firefly is a processor only for what the team logs on the platform — see [our standard](/#lawful-sec-19-1), which must be settled in writing before the first dispatch. Every send is planned and logged in the platform's dispatch log, which refuses Kikamba on the bulk SMS rail.
 
 #### Why this layer decides the race
 
@@ -474,7 +474,7 @@ campaigning in this county, and solving it is the clearest demonstration of the
 rather than where measurement is convenient.
 
 The critical constraint: the campaign can only message consented numbers
-(Section 19.1). List building is therefore a KPI in its own right from Phase −1,
+([our standard](/#lawful-sec-19-1)). List building is therefore a KPI in its own right from Phase −1,
 not an afterthought — consented contacts are a campaign asset that compounds.
 
 #### The SMS layer
@@ -482,7 +482,7 @@ not an afterthought — consented contacts are a campaign asset that compounds.
 **Consent-first architecture.** Every number in the campaign database arrives
 by opt-in: a USSD self-registration, a signed baraza sheet with a clear data
 notice, a WhatsApp opt-in confirmation, a website form, or a missed-call
-opt-in. **No purchased lists. Ever.** See Section 19.2 for the
+opt-in. **No purchased lists. Ever.** See [the Data Protection Act and the regulator](/#lawful-sec-19-2) for the
 regulatory basis; the short version is that the industry code requires express
 opt-in for political messages and the ODPC has demonstrated willingness to
 penalise unsolicited messaging.
@@ -497,7 +497,7 @@ penalise unsolicited messaging.
 >
 > **This changes the channel plan, not the language strategy.** Kikamba remains the campaign's
 > strongest register — it simply cannot ride the bulk SMS rail. It belongs on **radio, WhatsApp
-> voice notes, USSD menu text, barazas and person-to-person**, which is where the Section 12.6
+> voice notes, USSD menu text, barazas and person-to-person**, which is where the [A week of publishing, before and after](/#week-sec-12-6)
 > pillars already put it. SMS carries the Kiswahili and English versions of the same message.
 >
 > Two practical consequences the operating rhythm must absorb: a 48-hour lodging lead time makes
@@ -515,7 +515,7 @@ penalise unsolicited messaging.
 | **GOTV sequence** | Final 30 days | Kiswahili / English | Countdown, polling station, time |
 
 ```visual
-{"kind":"checklist","title":"Operational discipline","items":[{"label":"Every bulk send lodged with the operator 48 hours ahead","body":", verbatim text plus signed authorisation, logged against the dispatch record"},{"label":"No attacks on individuals, families, ethnicity, religion or association","body":"in any message — a guideline requirement, and already a charter commitment (Section 19.3, clauses 2 and 6)"},{"label":"Sending window **7am–7pm**, per market practice and DND norms"},{"label":"Every message carries a clear opt-out; opt-outs honoured immediately and permanently"},{"label":"Ward-tagged segmentation so a message about mango prices reaches Kitui West and not Kyuso"},{"label":"Personalisation by first name where consent covers it"},{"label":"Per-send audit trail retained, per the charter (Section 19.3)"}]}
+{"kind":"checklist","title":"Operational discipline","items":[{"label":"Every bulk send lodged with the operator 48 hours ahead","body":", verbatim text plus signed authorisation, logged against the dispatch record"},{"label":"No attacks on individuals, families, ethnicity, religion or association","body":"in any message — a guideline requirement, and already a charter commitment ([the Digital Ethics and Data Charter](/#lawful-sec-19-3), clauses 2 and 6)"},{"label":"Sending window **7am–7pm**, per market practice and DND norms"},{"label":"Every message carries a clear opt-out; opt-outs honoured immediately and permanently"},{"label":"Ward-tagged segmentation so a message about mango prices reaches Kitui West and not Kyuso"},{"label":"Personalisation by first name where consent covers it"},{"label":"Per-send audit trail retained, per the charter ([the Digital Ethics and Data Charter](/#lawful-sec-19-3))"}]}
 ```
 
 #### The USSD layer
@@ -530,7 +530,7 @@ politics.
 id: fig-5-2-3-ussd-menu
 ```
 
-**Why option 3 matters most.** The service-delivery tracker (Section 15.1.1) is
+**Why option 3 matters most.** The service-delivery tracker ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)) is
 reachable from a feature phone in Mutha. A constituent reports a broken water
 point by dialling a short code; the report enters a public register; the
 campaign follows up and publishes the outcome. That is the M&E credential
@@ -544,7 +544,7 @@ pending operator approval.
 * **Kikamba voice notes from Dr. Mulu** distributed by WhatsApp and by ward
 champions to Bluetooth-share onward. Audio travels where text does not, and
 carries the candidate's actual voice — the highest-trust format available.
-* **Radio** — see Section 15.2.2.
+* **Radio** — see [Earned media, journalists and debates](/#workstreams-sec-15-2-2).
 * **Audio versions of all flagship policy content**, addressing both low
 literacy (15.1% of women and 9.7% of men aged six and over have no education) and low bandwidth.
 
@@ -589,7 +589,7 @@ a vanity one.
 *Reference for the campaign's own team. Volunteer organising is outside the platform's scope, and Firefly's (How it works); this is the programme the ground campaign runs, kept here beside the workstream it belongs to.*
 
 ```lead
-**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it (Section 19.3).
+**Data-handling training is a gate, not an option.** No volunteer collects personal data before completing it ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)).
 ```
 
 #### Turning online supporters into offline organisers
@@ -603,11 +603,11 @@ offline organisers, with gamification driving sustained engagement.
 |---|---|---|---|
 | **1** | Digital Advocate | Follow on 2+ platforms | Share, comment, amplify |
 | **2** | Ward Champion | Join ward WhatsApp group + data-handling briefing | Distribute content, report ground sentiment, recruit 5 advocates |
-| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes (Section 15.3.2)** |
+| **3** | Community Organiser | Complete online training module | Host groups, coordinate local events, **log canvass outcomes ([the field-to-digital loop](/#workstreams-sec-15-3-2))** |
 | **4** | County Coordinator | Manage 3+ organisers | Oversee regional operations, attend weekly syncs |
 
 **Data-handling training is a gate, not an option.** No volunteer collects
-personal data before completing it (Section 19.3).
+personal data before completing it ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)).
 
 #### Gamification mechanics
 
@@ -622,14 +622,14 @@ personal data before completing it (Section 19.3).
 voter, a canvassed household, a completed training — not raw posting volume.
 Reward systems that pay for volume produce spam and, at scale, look
 indistinguishable from inauthentic activity. That would breach both platform
-policy and the Section 19.3 charter, and it is designed out from the start.
+policy and the [the Digital Ethics and Data Charter](/#lawful-sec-19-3) charter, and it is designed out from the start.
 
 #### Management tooling
 
 * **Custom WhatsApp bot** for lightweight volunteer management: registration,
 point tracking, content distribution, leaderboards
 * **USSD registration path** so volunteers without smartphones can join
-(Section 15.3.3) — a genuine differentiator in the arid belt
+([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) — a genuine differentiator in the arid belt
 * Forms and spreadsheets for baseline collection
 * Task management via a shared board
 * Purpose-built volunteer platforms only at the premium level
@@ -655,14 +655,14 @@ Four workstreams under the rest: the data layer, the voter model built on it, th
 ### 15.4.1 Workstream 11 — The data layer
 
 ```lead
-**Owner: your team**, on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement (Section 19.1).
+**Owner: your team**, on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement ([our standard](/#lawful-sec-19-1)).
 ```
 
-**Owner: your team** , on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement (Section 19.1). No supporter record is entered on the platform: it is open to anyone with the link.
+**Owner: your team** , on the campaign's own systems. Firefly is processor only for the counts the platform holds, under a written processing agreement ([our standard](/#lawful-sec-19-1)). No supporter record is entered on the platform: it is open to anyone with the link.
 
 A precise campaign needs a data layer it can trust. No loose spreadsheets, unverified voter claims or ad-hoc phone lists: one structured database, with provenance and audit trails on every record, run within Kenyan privacy law.
 
-This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this plan (Annex A.1.1) and the protocol for when two sources disagree (Annex A.1.3) are set out alongside the evidence they govern.
+This section defines the voter and supporter data model and the legal compliance workflows under Kenya's **Data Protection Act (DPA) 2019** and the **Office of the Data Protection Commissioner (ODPC)**. The three-tier provenance standard that grades every figure in this plan ([every figure carries its provenance](/#annex-evidence-sec-a-1-1)) and the protocol for when two sources disagree ([when two sources disagree](/#annex-evidence-sec-a-1-3)) are set out alongside the evidence they govern.
 
 ```figure
 id: data-layer
@@ -685,13 +685,13 @@ id: supporter-schema
 ### 15.4.2 Workstream 12 — Predictive voter modelling
 
 ```lead
-**Owner: your team, on the platform's ward dashboards — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
+**Owner: your team, on the platform's ward dashboards — gated on [the Data Protection Act and the regulator](/#lawful-sec-19-2).** Until written sign-off, this runs as **ward-level aggregate scoring only**. Individual-level scoring waits for the opinion.
 ```
 
-**Owner: your team, on the platform's ward dashboards — gated on Section 19.2.** Until written sign-off, this runs as **ward-level aggregate scoring only**, which delivers most of the targeting value at a fraction of the exposure. Individual-level scoring waits for the opinion.
+**Owner: your team, on the platform's ward dashboards — gated on [the Data Protection Act and the regulator](/#lawful-sec-19-2).** Until written sign-off, this runs as **ward-level aggregate scoring only**, which delivers most of the targeting value at a fraction of the exposure. Individual-level scoring waits for the opinion.
 
 ```visual
-{"kind":"stepper","items":[{"label":"What the model scores, and why","text":"The campaign will build a model scoring Kitui's polling stations and wards on two dimensions:","body":"likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in Section 19.2.**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in Annex E.2.*"},{"label":"Modelling methodology","body":"| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in Annex E.2.*"},{"label":"How the model is evaluated","body":"| Metric | Target | Frequency |\n|---|---|---|\n| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |\n| Cross-validation stability | Variance < 5% across folds | Quarterly |\n| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |"},{"label":"Putting the model to work","body":"* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first (Section 15.3.2)"}]}
+{"kind":"stepper","items":[{"label":"What the model scores, and why","text":"The campaign will build a model scoring Kitui's polling stations and wards on two dimensions:","body":"likely support for the Wiper Patriotic Front ticket and likely turnout. Both are estimated from how each station actually voted in 2017 and 2022 (IEBC Forms 37A) and from the register, not from asking anyone how they will vote. This moves the campaign from broad messaging to disciplined prioritisation of persuasion and mobilisation effort, on the official record.\n\n**This entire section is conditional on the compliance gate in [the Data Protection Act and the regulator](/#lawful-sec-19-2).**\nNo voter-file-based targeting is deployed until a Kenyan data-protection or\nelectoral-law specialist has reviewed and signed off the specific proposed\nprocessing. Nothing in this section should be read as a claim that such\nprocessing is already permissible.\n\n*The data sources the model draws on are listed in [the voter model and its variables](/#annex-technology-sec-e-2).*"},{"label":"Modelling methodology","body":"| Model | Purpose | Strength |\n|---|---|---|\n| **Logistic regression** | Baseline support and turnout scores | Interpretability; identifies driving variables |\n| **Random forest** | Non-linear pattern detection | Captures interactions; robust to outliers |\n| **Gradient boosting (XGBoost)** | Final ensemble scoring | Highest predictive accuracy at scale |\n| **Propensity score matching** | Volunteer conversion | Estimates causal effect of touchpoints on offline action |\n\nFinal output: an ensemble score (0–1) per polling station for likely support and\nturnout likelihood.\n\n*The model's variable dictionary is in [the voter model and its variables](/#annex-technology-sec-e-2).*"},{"label":"How the model is evaluated","body":"| Metric | Target | Frequency |\n|---|---|---|\n| Back-test against 2022 | Scores built on the 2017 record, checked against each station's 2022 result; the error is reported, not pre-set | Once, before first use |\n| Cross-validation stability | Variance < 5% across folds | Quarterly |\n| Opt-in rate on routed doors | Higher on doors the model routes than on doors it does not | Monthly |"},{"label":"Putting the model to work","body":"* **Ad targeting:** scored segments as custom audiences on Meta, Google, TikTok\n* **SMS/USSD segmentation:** priority broadcast lists for high-support,\nlow-turnout polling-station areas — the single most valuable GOTV segment\n* **Content personalisation:** different messages to station areas by their support\nand turnout history\n* **Volunteer routing:** ground teams directed to the highest-potential\npolling-station areas first ([the field-to-digital loop](/#workstreams-sec-15-3-2))"}]}
 ```
 
 #### The compliance gate this depends on
@@ -704,7 +704,7 @@ id: supporter-schema
 **Mostly outside this engagement.** Firefly builds and operates one component only: the platform, which carries the **service-delivery tracker**. The **supporter CRM** and the **SMS/USSD/WhatsApp layer** are the campaign's, run by your team.
 ```
 
-**Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in daily use, and procuring a stack the campaign already has is not a service. Firefly builds and operates one component only: the platform, which carries the **service-delivery tracker**. The **supporter CRM** and the **SMS/USSD/WhatsApp layer** are the campaign's, run by your team. The reference architecture the campaign owns and Firefly's platform sits beside — component by component, with the procurement matrix and the security protocols — is in Annex E.1.
+**Mostly outside this engagement.** Dr. Mulu already holds accounts, hosting and the tooling in daily use, and procuring a stack the campaign already has is not a service. Firefly builds and operates one component only: the platform, which carries the **service-delivery tracker**. The **supporter CRM** and the **SMS/USSD/WhatsApp layer** are the campaign's, run by your team. The reference architecture the campaign owns and Firefly's platform sits beside — component by component, with the procurement matrix and the security protocols — is in [the reference architecture](/#annex-technology-sec-e-1).
 
 ### 15.4.4 Workstream 14 — Analytics and attribution
 
@@ -712,7 +712,7 @@ id: supporter-schema
 **Owner: your team, on Firefly's platform. This is the engine room of the operation.** Measurement moves beyond vanity metrics to what drives votes, anchored to the ~200,000-vote threshold. **No stage is skipped.**
 ```
 
-**Owner: your team, on Firefly's platform. This is the engine room of the operation.** It is numbered fourteenth because that is where the original numbering put it; it is read first, in Section 14.1, and it is the workstream every other one is measured by.
+**Owner: your team, on Firefly's platform. This is the engine room of the operation.** It is numbered fourteenth because that is where the original numbering put it; it is read first, in [the first four weeks](/#timeline-sec-14-1), and it is the workstream every other one is measured by.
 
 #### Attribution model and offline conversion tracking
 
@@ -730,14 +730,14 @@ anchored to the ~200,000-vote threshold.
 | YouTube view | View-through | Google Ads |
 | Website visit | Multi-touch weighted | GA4 |
 | Email open | Position-based | Email platform |
-| **Field canvass contact** | Direct event | Ward champion form (Section 15.3.2) |
+| **Field canvass contact** | Direct event | Ward champion form ([the field-to-digital loop](/#workstreams-sec-15-3-2)) |
 
 To track offline-to-digital and physical engagement, four mechanisms bridge the gap:
 
 * **Unique QR codes** on printed materials and at barazas, tracking which content drove physical attendance
 * **SMS keyword short codes** — text a keyword to the campaign shortcode to register support and opt in
 * **USSD completions** as a direct offline-to-digital bridge
-* **Volunteer-reported contact outcomes** from the doorstep form (Section 15.3.2)
+* **Volunteer-reported contact outcomes** from the doorstep form ([the field-to-digital loop](/#workstreams-sec-15-3-2))
 
 #### Key metrics and benchmarks
 
@@ -745,7 +745,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 |---|---|---|---|
 | Share of voice | % of Kitui gubernatorial mentions about Dr. Mulu | 30–40% for leader | ≥ 50% |
 | Net sentiment | (Positive − negative) / total | +20 to +30 | ≥ +40 |
-| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, Section 18.3) | — | **≥ 51.7%, the pool's share of the register** |
+| **Reach share in the deficit pool** | Share of his reach landing in Mwingi and Kitui South (R-02, [Recognition where he is least known](/#success-sec-18-3)) | — | **≥ 51.7%, the pool's share of the register** |
 | Voter registration lift | Increase in target wards from campaign drives | 5–10% | ≥ 10% |
 | Digital-to-offline conversion | % of engagers attending or volunteering | 5–15% | ≥ 10% |
 | GOTV contact rate | % of target voters reached | 60–80% | ≥ 70% |
@@ -756,7 +756,7 @@ To track offline-to-digital and physical engagement, four mechanisms bridge the 
 *A staged path, so the campaign is never blocked waiting on capability.*
 
 ```visual
-{"kind":"timeline","items":[{"when":"Phase −1","label":"0 — Baseline","text":"Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established","fields":[{"label":"Prerequisite","text":"Accounts and pixel installed"},{"label":"Owner","text":"Paid Media & Analytics Manager"}]},{"when":"Phase 0–1","label":"1 — Integrated","text":"Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline","fields":[{"label":"Prerequisite","text":"Consistent tagging taxonomy"},{"label":"Owner","text":"Paid Media & Analytics Manager"}]},{"when":"Phase 1–2","label":"2 — Predictive","text":"Voter scoring live; field-digital loop operating; audience segments driven by score","fields":[{"label":"Prerequisite","text":"**Section 19.2 compliance gate cleared**"},{"label":"Owner","text":"Data Analyst (surge)"}]},{"when":"Phase 2–3","label":"3 — Attributed","text":"Multi-touch attribution; offline conversion tracking; effort per persuaded voter reported against actuals","fields":[{"label":"Prerequisite","text":"Stage 2 stable ≥ 6 weeks"},{"label":"Owner","text":"Data Analyst"}]},{"when":"Phase 3","label":"4 — Optimised","text":"Continuous reallocation against modelled marginal return; GOTV list prioritisation","fields":[{"label":"Prerequisite","text":"Stage 3 validated against field returns"},{"label":"Owner","text":"Data Analyst + Director"}]}]}
+{"kind":"timeline","items":[{"when":"Phase −1","label":"0 — Baseline","text":"Platform-native dashboards; manual weekly report; SMS delivery reporting; single source of truth established","fields":[{"label":"Prerequisite","text":"Accounts and pixel installed"},{"label":"Owner","text":"Paid Media & Analytics Manager"}]},{"when":"Phase 0–1","label":"1 — Integrated","text":"Unified BI dashboard across paid, organic, SMS, USSD, web; ward-level segmentation; A/B testing discipline","fields":[{"label":"Prerequisite","text":"Consistent tagging taxonomy"},{"label":"Owner","text":"Paid Media & Analytics Manager"}]},{"when":"Phase 1–2","label":"2 — Predictive","text":"Voter scoring live; field-digital loop operating; audience segments driven by score","fields":[{"label":"Prerequisite","text":"**[The Data Protection Act and the regulator](/#lawful-sec-19-2) compliance gate cleared**"},{"label":"Owner","text":"Data Analyst (surge)"}]},{"when":"Phase 2–3","label":"3 — Attributed","text":"Multi-touch attribution; offline conversion tracking; effort per persuaded voter reported against actuals","fields":[{"label":"Prerequisite","text":"Stage 2 stable ≥ 6 weeks"},{"label":"Owner","text":"Data Analyst"}]},{"when":"Phase 3","label":"4 — Optimised","text":"Continuous reallocation against modelled marginal return; GOTV list prioritisation","fields":[{"label":"Prerequisite","text":"Stage 3 validated against field returns"},{"label":"Owner","text":"Data Analyst + Director"}]}]}
 ```
 
 **No stage is skipped.** A campaign that attempts predictive scoring before its
@@ -775,10 +775,10 @@ Responsibilities:
 who has access
 * Owns the consent audit trail and can produce it on demand within
 **24 hours**
-* Owns the deletion schedule and executes it (Section 19.3)
-* Is the campaign's standing point of contact for the Section 19.2 compliance
+* Owns the deletion schedule and executes it ([the Digital Ethics and Data Charter](/#lawful-sec-19-3))
+* Is the campaign's standing point of contact for the [the Data Protection Act and the regulator](/#lawful-sec-19-2) compliance
 reviewer
 * Holds authority to **suspend any targeting activity** pending review, without
 requiring commercial sign-off
 
-At Lean this role sits with the Digital Director, who heads the campaign's existing digital team; from Standard it sits with the Data Analyst / Modeller (Section 17.2). It is named in writing either way.
+At Lean this role sits with the Digital Director, who heads the campaign's existing digital team; from Standard it sits with the Data Analyst / Modeller ([the strategy core, and Firefly's part](/#engagement-sec-17-2)). It is named in writing either way.

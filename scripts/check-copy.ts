@@ -59,6 +59,9 @@ const MONEY_OK = [
   /National Budget Seat/gi, // his committee seat
   /household spending|a household spending|county spending|funeral costs|throwaway prices|floor-price|borehole location, cost|prove it was spent/gi, // household and county money as issues, not the engagement's
   /Budget Discipline for Water/g, // a message about the county's budget, in the Section 10.4 grid
+  /how county money is spent/gi, // the name of the county-spending heading, as a reference to it reads (docs/prelaunch-2026-11)
+  /the cost of living/gi, // the voters' issue heading in What voters need, named where it is cited
+  /\]\(\/[^)\s]*\)/g, // a link's address ("/#spend-sec-3-7") is not prose; its words are checked
 ];
 
 const REMOTE = /\bremote(ly)?\s+(team|work|working|engagement|delivery|management|operation|agency|basis|support)\b/gi;

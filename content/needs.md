@@ -2,7 +2,7 @@
 Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022).
 ```
 
-Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022). Behind it come food and drought, health, roads, jobs for the young, the cost of living, how county money is spent, and the unresolved Mui Basin coalfield. Each concern below carries its evidence against the national figure where one is published, its source and year, and what it means for the campaign. The themes the campaign argues from this evidence are in Section 10.1.
+Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022). Behind it come food and drought, health, roads, jobs for the young, the cost of living, how county money is spent, and the unresolved Mui Basin coalfield. Each concern below carries its evidence against the national figure where one is published, its source and year, and what it means for the campaign. The themes the campaign argues from this evidence are in [one claim, three pillars, six themes](/#message-sec-10-1).
 
 ## 1.3 How households live
 
@@ -31,11 +31,11 @@ items:
 
 **Poverty.** The KNBS Kenya Poverty Report puts **{{poverty.2021}}%** of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021 (Tier 1). NDMA's 2025 long-rains assessment cites {{poverty.ndma.2019}}% "below the poverty line (KNBS 2019)" and a county poverty rate of {{poverty.ndma.county}}%, on bases it does not reconcile with this one (Tier 2), so neither is used in its place. Stats Kenya reports {{poverty.2022.statskenya}}% for 2022 (Tier 3); it is not used until checked against the KNBS 2022 poverty report.
 
-**Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; Section 3.1 sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source (Tier 1).
+**Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; [Water](/#needs-sec-3-1) sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source (Tier 1).
 
 **Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV).
 
-**Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. Chapter 4 sets out what each channel can reach.
+**Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. [How voters get news](/#news-sec-4-1) sets out what each channel can reach.
 
 **What it means for the campaign.** Most voters are poor, offline and without piped water, so the campaign is fought on services and reaches most voters off the internet.
 
@@ -98,7 +98,7 @@ items:
 body: "Drought pressure ran through 2025 (Tier 1). The county was at Alert in NDMA's January 2026 bulletin and at IPC Phase 2 in September 2025 (Tier 1), and the March 2026 national flooding followed (Tier 2)."
 ```
 
-**How Kitui makes a living (NDMA, July 2025, Tier 1).** {{livelihood.mixed}}% of residents live in the mixed farming zone, {{livelihood.marginal}}% in marginal mixed farming and {{livelihood.employment}}% in formal and unskilled employment. NDMA's wealth groups are very poor {{wealth.verypoor}}%, poor {{wealth.poor}}%, middle {{wealth.middle}}% and better-off {{wealth.better}}%: the Tier 1 basis for the rural agrarian and agro-pastoralist segments in Section 11.2.
+**How Kitui makes a living (NDMA, July 2025, Tier 1).** {{livelihood.mixed}}% of residents live in the mixed farming zone, {{livelihood.marginal}}% in marginal mixed farming and {{livelihood.employment}}% in formal and unskilled employment. NDMA's wealth groups are very poor {{wealth.verypoor}}%, poor {{wealth.poor}}%, middle {{wealth.middle}}% and better-off {{wealth.better}}%: the Tier 1 basis for the rural agrarian and agro-pastoralist segments in [the six voter segments](/#voters-sec-11-2).
 
 ```visual
 kind: stats
@@ -113,7 +113,7 @@ items:
     body: "Poultry is kept by more than nine households in ten (Tier 1), and carries no county policy of its own."
 ```
 
-*   **Green grams.** They give {{greengrams.cash.marginal}}% of cash income in marginal mixed farming and {{greengrams.cash.mixed}}% in mixed farming. The 2025 long rains produced {{greengrams.lr2025}} bags, {{greengrams.lr2025.vs-average}}% above the five-year average, while maize was {{maize.lr2025.vs-average}}% below (Tier 1, NDMA). This does not confirm the untiered annual output in Message Pillar 2 (Section 10.1): the long rains supply only part of the year's crop.
+*   **Green grams.** They give {{greengrams.cash.marginal}}% of cash income in marginal mixed farming and {{greengrams.cash.mixed}}% in mixed farming. The 2025 long rains produced {{greengrams.lr2025}} bags, {{greengrams.lr2025.vs-average}}% above the five-year average, while maize was {{maize.lr2025.vs-average}}% below (Tier 1, NDMA). This does not confirm the untiered annual output in Message Pillar 2 ([one claim, three pillars, six themes](/#message-sec-10-1)): the long rains supply only part of the year's crop.
 *   **Fodder.** The county holds {{fodder.held}} bales against {{fodder.needed}} needed, and has no commercial fodder business (Tier 1, NDMA).
 *   **Aflatoxin.** KEPHIS found {{aflatoxin.maize}}% of maize and {{aflatoxin.groundnut}}% of groundnut samples above the limit in 2024 (Tier 1, via NDMA).
 *   **Livestock disease.** Goats suffered CCPP (morbidity {{goats.ccpp.morbidity}}%, mortality {{goats.ccpp.mortality}}%) and PPR (morbidity {{goats.ppr.morbidity}}%, mortality {{goats.ppr.mortality}}%) (Tier 1, NDMA).
@@ -125,16 +125,16 @@ items:
 |---|---|---|---|
 | 1 | Mwingi North | Yes | Ngomeni, Kyuso, Tseikuru, Tharaka |
 | 2 | Kitui South | Yes | Athi, Ikutha, Kanziko/Simisi, Mutha |
-| 3 | Kitui East | No (no party flow, Section 6.3) | Zombe/Mwitika, Voo/Kyamatu, Endau/Malalani |
+| 3 | Kitui East | No (no party flow, [where party loyalty will not carry him](/#known-sec-6-3)) | Zombe/Mwitika, Voo/Kyamatu, Endau/Malalani |
 | 4 | Mwingi Central | Yes | Nguni, Nuu |
 | 5 | Kitui West | No | Mutonguni, Kauwi |
 | 6 | Kitui Rural | No | Kanyangi |
 | 7 | Mwingi West | Yes | Kyome/Thaana, Nguutani, Kiomo/Kyethani |
 | 8 | Kitui Central | No (home base) | Mulango, Kyangwithya West |
 
-NDMA names hotspot wards in every sub-county, the home base included, so the ranking is the evidence, not hotspot status. "The pool" is the four constituencies where Dr. Mulu has never held office (Section 6.2).
+NDMA names hotspot wards in every sub-county, the home base included, so the ranking is the evidence, not hotspot status. "The pool" is the four constituencies where Dr. Mulu has never held office ([where he is known, and where not](/#known-sec-6-2)).
 
-**Security and resource conflict.** NDMA reports {{border.killed}} people killed on the Kitui–Tana River border at Endau/Malalani, herders migrating in, clashes between herder communities in Ngomeni and Tseikuru, and wildlife taking stock and crops near Tsavo East (July 2025, Tier 1). The county's scorecard claims {{scorecard.police.stations}} border police stations, {{scorecard.police.complete}} of them complete. This is the Tier 1 evidence for the insecurity the agro-pastoralist segment names as its core anxiety (Section 11.2). It is framed as resource and border security, never in community or ethnic terms (Charter clause 6, Section 19.3).
+**Security and resource conflict.** NDMA reports {{border.killed}} people killed on the Kitui–Tana River border at Endau/Malalani, herders migrating in, clashes between herder communities in Ngomeni and Tseikuru, and wildlife taking stock and crops near Tsavo East (July 2025, Tier 1). The county's scorecard claims {{scorecard.police.stations}} border police stations, {{scorecard.police.complete}} of them complete. This is the Tier 1 evidence for the insecurity the agro-pastoralist segment names as its core anxiety ([the six voter segments](/#voters-sec-11-2)). It is framed as resource and border security, never in community or ethnic terms (Charter clause 6, [the Digital Ethics and Data Charter](/#lawful-sec-19-3)).
 
 **What it means for the campaign.** The pool is where food insecurity is worst, so a candidate who verifies delivery has most to show in the wards he most needs to win.
 
@@ -161,7 +161,7 @@ items:
     tier: 1
 ```
 
-*   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both Tier 1, KDHS 2022; Section 10.3 carries the older county baseline).
+*   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both Tier 1, KDHS 2022; [Framing, in worked examples](/#message-sec-10-3) carries the older county baseline).
 *   **Child survival.** Infant mortality is {{health.imr}} per thousand births and under-five mortality {{health.u5mr}}, both better than Kenya's {{health.imr.kenya}} and {{health.u5mr.kenya}} (Tier 1, KDHS 2022).
 *   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak ({{health.measles.ngomeni}} cases), and typhoid cases rose from {{health.typhoid.2024}} to {{health.typhoid.2025}}, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
 *   **Nutrition.** Only {{health.diet.diversity}}% of children aged 6–23 months meet minimum dietary diversity (Tier 1, SMART 2023).
@@ -171,11 +171,11 @@ items:
 
 ## 3.4 Roads and access
 
-**Distance is the condition of life in most of Kitui.** The county covers {{census.area}} km² at {{census.density}} people per km² (Tier 1), and in Ikutha the density is {{sub.ikutha.density}} (Tier 1). The March 2026 national flooding disrupted rural transport across several sub-counties (Tier 2). The county's scorecard claims {{scorecard.roads.graded}} km of roads graded (Tier 1 as a record of what the county claims, not evidence that the claims are true; Section 15.1.1 sets out the question its own itemised row raises).
+**Distance is the condition of life in most of Kitui.** The county covers {{census.area}} km² at {{census.density}} people per km² (Tier 1), and in Ikutha the density is {{sub.ikutha.density}} (Tier 1). The March 2026 national flooding disrupted rural transport across several sub-counties (Tier 2). The county's scorecard claims {{scorecard.roads.graded}} km of roads graded (Tier 1 as a record of what the county claims, not evidence that the claims are true; [Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1) sets out the question its own itemised row raises).
 
 No verified figure is available yet for the county's road network or its condition against the national average; the record that would settle it is the county roads inventory in the CIDP 2023–2027 and KeRRA and KURA classified-road data.
 
-**What it means for the campaign.** Long distances make ground contact slow and expensive, which is why the SMS, USSD and radio layer in Chapter 4 carries the reach.
+**What it means for the campaign.** Long distances make ground contact slow and expensive, which is why the SMS, USSD and radio layer in [how voters get news](/#news-sec-4-1) carries the reach.
 
 ## 3.5 Jobs and the young
 
@@ -185,7 +185,7 @@ No verified figure is available yet for the county's road network or its conditi
 *   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (Tier 1, KDHS 2022; this replaces an untiered 13.0%). The share who completed secondary school, given in an earlier draft as 17.4%, is **not yet tiered**.
 *   **Attendance.** Girls attend secondary school more than boys: net attendance {{edu.secondary.girls}}% against {{edu.secondary.boys}}% (Tier 1).
 *   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another (Tier 1). {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners (Tier 1, NDMA).
-*   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui (Section 4.1).
+*   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui ([where people get information](/#news-sec-4-1)).
 
 **What it means for the campaign.** The young are the largest group arriving at each election, and they are reached on their phones, so jobs and skills are the issue that travels on social media.
 

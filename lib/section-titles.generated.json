@@ -1,0 +1,602 @@
+{
+ "1": {
+  "id": "kitui-sec-1-1",
+  "title": "The county in numbers"
+ },
+ "2": {
+  "id": "votes-sec-2-1",
+  "title": "How Kitui voted"
+ },
+ "3": {
+  "id": "needs-sec-1-3",
+  "title": "What voters need"
+ },
+ "4": {
+  "id": "news-sec-4-1",
+  "title": "How voters get news"
+ },
+ "6": {
+  "id": "record-sec-6-1",
+  "title": "His public record"
+ },
+ "7": {
+  "id": "diagnosis-sec-7-1",
+  "title": "The diagnosis"
+ },
+ "8": {
+  "id": "goal-sec-8-1",
+  "title": "The goal and five objectives"
+ },
+ "9": {
+  "id": "position-sec-9-1",
+  "title": "The position"
+ },
+ "10": {
+  "id": "message-sec-10-1",
+  "title": "The message"
+ },
+ "11": {
+  "id": "voters-sec-11-1",
+  "title": "The voters to win"
+ },
+ "12": {
+  "id": "channels-sec-12-1",
+  "title": "Channels and language"
+ },
+ "13": {
+  "id": "engagement-sec-13-1",
+  "title": "Who does what"
+ },
+ "14": {
+  "id": "timeline-sec-14-0",
+  "title": "Timeline to August 2027"
+ },
+ "15": {
+  "id": "workstreams-sec-15-1",
+  "title": "The fourteen workstreams"
+ },
+ "16": {
+  "id": "timeline-sec-16",
+  "title": "Coalitions and endorsements, in order"
+ },
+ "17": {
+  "id": "engagement-sec-17",
+  "title": "The campaign team"
+ },
+ "18": {
+  "id": "success-sec-18-1",
+  "title": "Measuring success"
+ },
+ "19": {
+  "id": "lawful-sec-19-1",
+  "title": "Lawful and ethical"
+ },
+ "21": {
+  "id": "receives-sec-21-1",
+  "title": "What you get and what you provide"
+ },
+ "22": {
+  "id": "receives-sec-22",
+  "title": "Commitments on both sides"
+ },
+ "23": {
+  "id": "ask-sec-23-1",
+  "title": "The ask"
+ },
+ "0.1": {
+  "id": "welcome-sec-0-1",
+  "title": "What changed"
+ },
+ "1.1": {
+  "id": "kitui-sec-1-1",
+  "title": "Who lives here"
+ },
+ "1.2": {
+  "id": "kitui-sec-1-2",
+  "title": "The land and its three regions"
+ },
+ "1.3": {
+  "id": "needs-sec-1-3",
+  "title": "How households live"
+ },
+ "1.4": {
+  "id": "kitui-sec-1-4",
+  "title": "How the county is run"
+ },
+ "1.5": {
+  "id": "needs-sec-1-5",
+  "title": "The county's budget and plan"
+ },
+ "2.1": {
+  "id": "votes-sec-2-1",
+  "title": "The electorate and polling stations"
+ },
+ "2.2": {
+  "id": "votes-sec-2-2",
+  "title": "Results from 2013 to 2022"
+ },
+ "2.3": {
+  "id": "votes-sec-2-3",
+  "title": "The twelve largest wards"
+ },
+ "2.4": {
+  "id": "votes-sec-2-4",
+  "title": "The constituencies that decide it"
+ },
+ "2.5": {
+  "id": "winning-sec-2-5",
+  "title": "The number it takes"
+ },
+ "3.1": {
+  "id": "needs-sec-3-1",
+  "title": "Water"
+ },
+ "3.2": {
+  "id": "needs-sec-3-2",
+  "title": "Food, farming and drought"
+ },
+ "3.3": {
+  "id": "needs-sec-3-3",
+  "title": "Health"
+ },
+ "3.4": {
+  "id": "needs-sec-3-4",
+  "title": "Roads and access"
+ },
+ "3.5": {
+  "id": "needs-sec-3-5",
+  "title": "Jobs and the young"
+ },
+ "3.6": {
+  "id": "needs-sec-3-6",
+  "title": "The cost of living"
+ },
+ "3.7": {
+  "id": "spend-sec-3-7",
+  "title": "How county money is spent"
+ },
+ "3.8": {
+  "id": "needs-sec-3-8",
+  "title": "Mui Basin coal and displaced communities"
+ },
+ "4.1": {
+  "id": "news-sec-4-1",
+  "title": "Where people get information"
+ },
+ "4.2": {
+  "id": "news-sec-4-2",
+  "title": "Who owns the airwaves"
+ },
+ "4.3": {
+  "id": "news-sec-4-3",
+  "title": "What each channel can reach"
+ },
+ "4.4": {
+  "id": "news-sec-4-4",
+  "title": "Reaching the offline majority"
+ },
+ "6.1": {
+  "id": "record-sec-6-1",
+  "title": "The public record"
+ },
+ "6.2": {
+  "id": "known-sec-6-2",
+  "title": "Where he is known, and where not"
+ },
+ "6.3": {
+  "id": "known-sec-6-3",
+  "title": "Where party loyalty will not carry him"
+ },
+ "6.4": {
+  "id": "record-sec-6-4",
+  "title": "His channels"
+ },
+ "6.5": {
+  "id": "known-sec-6-5",
+  "title": "What his online presence shows"
+ },
+ "7.1": {
+  "id": "diagnosis-sec-7-1",
+  "title": "What the evidence says"
+ },
+ "7.2": {
+  "id": "diagnosis-sec-7-2",
+  "title": "What could overturn it"
+ },
+ "7.3": {
+  "id": "diagnosis-sec-7-3",
+  "title": "What the data cannot yet show"
+ },
+ "7.4": {
+  "id": "diagnosis-sec-7-4",
+  "title": "The assumptions the plan rests on"
+ },
+ "8.1": {
+  "id": "goal-sec-8-1",
+  "title": "The goal and its deadline"
+ },
+ "8.2": {
+  "id": "goal-sec-8-2",
+  "title": "Five objectives"
+ },
+ "8.2.1": {
+  "id": "goal-sec-8-2-1",
+  "title": "Be known where he is not yet known"
+ },
+ "8.2.2": {
+  "id": "goal-sec-8-2-2",
+  "title": "Turn his record into visible proof"
+ },
+ "8.2.3": {
+  "id": "goal-sec-8-2-3",
+  "title": "Reach voters the internet does not"
+ },
+ "8.2.4": {
+  "id": "goal-sec-8-2-4",
+  "title": "Give every post a voter, ward and reason"
+ },
+ "8.2.5": {
+  "id": "goal-sec-8-2-5",
+  "title": "Hold the home base"
+ },
+ "9.1": {
+  "id": "position-sec-9-1",
+  "title": "The central claim"
+ },
+ "9.2": {
+  "id": "position-sec-9-2",
+  "title": "The resource paradox"
+ },
+ "10.1": {
+  "id": "message-sec-10-1",
+  "title": "One claim, three pillars, six themes"
+ },
+ "10.2": {
+  "id": "message-sec-10-2",
+  "title": "Discipline and persuasion principles"
+ },
+ "10.3": {
+  "id": "message-sec-10-3",
+  "title": "Framing, in worked examples"
+ },
+ "10.4": {
+  "id": "message-sec-10-4",
+  "title": "Sample messages from the weekly brief"
+ },
+ "11.1": {
+  "id": "voters-sec-11-1",
+  "title": "The base, persuasion and turnout universes"
+ },
+ "11.2": {
+  "id": "voters-sec-11-2",
+  "title": "The six voter segments"
+ },
+ "11.3": {
+  "id": "voters-sec-11-3",
+  "title": "How large each segment is"
+ },
+ "12.1": {
+  "id": "channels-sec-12-1",
+  "title": "Where the effort goes"
+ },
+ "12.2": {
+  "id": "channels-sec-12-2",
+  "title": "Which channel does which job"
+ },
+ "12.3": {
+  "id": "channels-sec-12-3",
+  "title": "The radio gatekeepers"
+ },
+ "12.4": {
+  "id": "channels-sec-12-4",
+  "title": "Which language reaches which voters"
+ },
+ "12.5": {
+  "id": "channels-sec-12-5",
+  "title": "Register, dialect and quality control"
+ },
+ "12.6": {
+  "id": "week-sec-12-6",
+  "title": "A week of publishing, before and after"
+ },
+ "12.7": {
+  "id": "week-sec-12-7",
+  "title": "When the plan changes"
+ },
+ "13.1": {
+  "id": "engagement-sec-13-1",
+  "title": "How the work is built"
+ },
+ "13.2": {
+  "id": "engagement-sec-13-2",
+  "title": "Who owns what"
+ },
+ "13.3": {
+  "id": "engagement-sec-13-3",
+  "title": "What is outside the scope"
+ },
+ "13.4": {
+  "id": "week-sec-13-4",
+  "title": "The weekly rhythm and approvals"
+ },
+ "13.5": {
+  "id": "week-sec-13-5",
+  "title": "Meetings and escalation"
+ },
+ "14.0": {
+  "id": "timeline-sec-14-0",
+  "title": "Securing the ballot line"
+ },
+ "14.1": {
+  "id": "timeline-sec-14-1",
+  "title": "The first four weeks"
+ },
+ "14.2": {
+  "id": "timeline-sec-14-2",
+  "title": "Phase 0: instrumentation"
+ },
+ "14.3": {
+  "id": "timeline-sec-14-3",
+  "title": "Six profile corrections"
+ },
+ "14.4": {
+  "id": "timeline-sec-14-4",
+  "title": "The target ladder"
+ },
+ "14.5": {
+  "id": "timeline-sec-14-5",
+  "title": "Phase 1: awareness, October–December 2026"
+ },
+ "14.6": {
+  "id": "timeline-sec-14-6",
+  "title": "Phase 2: engagement and persuasion, January–March 2027"
+ },
+ "14.7": {
+  "id": "timeline-sec-14-7",
+  "title": "Phase 3: mobilisation and turnout, April–August 2027"
+ },
+ "14.8": {
+  "id": "timeline-sec-14-8",
+  "title": "After the election"
+ },
+ "15.1": {
+  "id": "workstreams-sec-15-1",
+  "title": "Owned platforms and content (workstreams 1–4)"
+ },
+ "15.1.1": {
+  "id": "workstreams-sec-15-1-1",
+  "title": "Owned platforms and the service-delivery tracker"
+ },
+ "15.1.2": {
+  "id": "workstreams-sec-15-1-2",
+  "title": "The content brief and asset governance"
+ },
+ "15.1.3": {
+  "id": "workstreams-sec-15-1-3",
+  "title": "Creative testing and AI assistance"
+ },
+ "15.1.4": {
+  "id": "workstreams-sec-15-1-4",
+  "title": "Accessibility and inclusion"
+ },
+ "15.2": {
+  "id": "workstreams-sec-15-2",
+  "title": "Media (workstreams 5–6)"
+ },
+ "15.2.1": {
+  "id": "workstreams-sec-15-2-1",
+  "title": "Platform tactics and paid media"
+ },
+ "15.2.2": {
+  "id": "workstreams-sec-15-2-2",
+  "title": "Earned media, journalists and debates"
+ },
+ "15.3": {
+  "id": "workstreams-sec-15-3",
+  "title": "Ground and offline (workstreams 7–10)"
+ },
+ "15.3.1": {
+  "id": "workstreams-sec-15-3-1",
+  "title": "Ground-digital integration"
+ },
+ "15.3.2": {
+  "id": "workstreams-sec-15-3-2",
+  "title": "The field-to-digital loop"
+ },
+ "15.3.3": {
+  "id": "workstreams-sec-15-3-3",
+  "title": "What your team operates: SMS, USSD and voice"
+ },
+ "15.3.4": {
+  "id": "workstreams-sec-15-3-4",
+  "title": "Digital organising and volunteers"
+ },
+ "15.4": {
+  "id": "workstreams-sec-15-4",
+  "title": "Data and technology (workstreams 11–14)"
+ },
+ "15.4.1": {
+  "id": "workstreams-sec-15-4-1",
+  "title": "The data layer"
+ },
+ "15.4.2": {
+  "id": "workstreams-sec-15-4-2",
+  "title": "Predictive voter modelling"
+ },
+ "15.4.3": {
+  "id": "workstreams-sec-15-4-3",
+  "title": "The technology stack"
+ },
+ "15.4.4": {
+  "id": "workstreams-sec-15-4-4",
+  "title": "Analytics and attribution"
+ },
+ "16.1": {
+  "id": "timeline-sec-16-1",
+  "title": "The principle behind the order"
+ },
+ "16.2": {
+  "id": "timeline-sec-16-2",
+  "title": "The sequenced calendar"
+ },
+ "16.3": {
+  "id": "timeline-sec-16-3",
+  "title": "Managing endorsements and measuring coalitions"
+ },
+ "17.1": {
+  "id": "engagement-sec-17-1",
+  "title": "Three teams, and how they fit"
+ },
+ "17.2": {
+  "id": "engagement-sec-17-2",
+  "title": "The strategy core, and Firefly's part"
+ },
+ "17.3": {
+  "id": "engagement-sec-17-3",
+  "title": "Surge roles"
+ },
+ "17.4": {
+  "id": "engagement-sec-17-4",
+  "title": "Leadership, reporting lines and local roles"
+ },
+ "17.5": {
+  "id": "engagement-sec-17-5",
+  "title": "Assessing and upskilling the team"
+ },
+ "18.1": {
+  "id": "success-sec-18-1",
+  "title": "How success will be judged"
+ },
+ "18.2": {
+  "id": "success-sec-18-2",
+  "title": "Scorecards for each stage"
+ },
+ "18.3": {
+  "id": "success-sec-18-3",
+  "title": "Recognition where he is least known"
+ },
+ "18.4": {
+  "id": "success-sec-18-4",
+  "title": "Why vanity metrics are left out"
+ },
+ "18.5": {
+  "id": "success-sec-18-5",
+  "title": "How the presence audit works"
+ },
+ "19.1": {
+  "id": "lawful-sec-19-1",
+  "title": "Our standard"
+ },
+ "19.2": {
+  "id": "lawful-sec-19-2",
+  "title": "The Data Protection Act and the regulator"
+ },
+ "19.3": {
+  "id": "lawful-sec-19-3",
+  "title": "The Digital Ethics and Data Charter"
+ },
+ "19.4": {
+  "id": "lawful-sec-19-4",
+  "title": "IEBC clearance and liability"
+ },
+ "19.5": {
+  "id": "lawful-sec-19-5",
+  "title": "Open regulatory items"
+ },
+ "21.1": {
+  "id": "receives-sec-21-1",
+  "title": "The three scope levels, compared"
+ },
+ "21.1.1": {
+  "id": "receives-sec-21-1-1",
+  "title": "The three scope levels"
+ },
+ "21.1.2": {
+  "id": "receives-sec-21-1-2",
+  "title": "The scope levels compared"
+ },
+ "21.2": {
+  "id": "receives-sec-21-2",
+  "title": "The deliverables schedule"
+ },
+ "22.1": {
+  "id": "receives-sec-22-1",
+  "title": "What Firefly commits to"
+ },
+ "22.2": {
+  "id": "receives-sec-22-2",
+  "title": "What the campaign provides"
+ },
+ "23.1": {
+  "id": "ask-sec-23-1",
+  "title": "The clock that sets the pace"
+ },
+ "A": {
+  "id": "annex-evidence-sec-a-1",
+  "title": "Evidence and sources"
+ },
+ "A.1": {
+  "id": "annex-evidence-sec-a-1",
+  "title": "The evidence standard"
+ },
+ "A.1.1": {
+  "id": "annex-evidence-sec-a-1-1",
+  "title": "Every figure carries its provenance"
+ },
+ "A.1.2": {
+  "id": "annex-evidence-sec-a-1-2",
+  "title": "The three source tiers"
+ },
+ "A.1.3": {
+  "id": "annex-evidence-sec-a-1-3",
+  "title": "When two sources disagree"
+ },
+ "A.1.4": {
+  "id": "annex-evidence-sec-a-1-4",
+  "title": "The standard applied to our own measurement"
+ },
+ "A.2": {
+  "id": "annex-evidence-sec-a-2",
+  "title": "Every source, in one table"
+ },
+ "B.1": {
+  "id": "votes-sec-b-1",
+  "title": "The 40-ward register"
+ },
+ "C.1": {
+  "id": "channels-sec-c-1",
+  "title": "Platform playbooks"
+ },
+ "C.2": {
+  "id": "message-sec-c-2",
+  "title": "Formats, copy samples and the USSD pointer"
+ },
+ "D.1": {
+  "id": "workstreams-sec-d-1",
+  "title": "Volunteer programme reference"
+ },
+ "E": {
+  "id": "annex-technology-sec-e-1",
+  "title": "Technology"
+ },
+ "E.1": {
+  "id": "annex-technology-sec-e-1",
+  "title": "The reference architecture"
+ },
+ "E.2": {
+  "id": "annex-technology-sec-e-2",
+  "title": "The voter model and its variables"
+ },
+ "G": {
+  "id": "annex-terms-sec-g-1",
+  "title": "Fine print"
+ },
+ "G.1": {
+  "id": "annex-terms-sec-g-1",
+  "title": "Who it is for, and how it may be used"
+ },
+ "H.1": {
+  "id": "annex-terms-sec-h-1",
+  "title": "Terms used on this site"
+ }
+}

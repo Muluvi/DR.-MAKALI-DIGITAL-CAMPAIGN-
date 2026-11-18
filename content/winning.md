@@ -4,8 +4,8 @@
 Governor Julius Malombe's certified 2022 winning total was {{result.2022.gov.malombe}} votes; this document rounds it to **{{benchmark}}**. [CALC, not a forecast] Held against the July 2026 register, the number to win is ≈{{benchmark}}–{{benchmark.2026-equivalent.rounded}}.
 ```
 
-*   **The electorate (July 2026, Tier 3, unconfirmed):** **{{register.2026}} voters** (Section 2.1). IEBC has not yet published the 2026 register by ward, so every ward figure in this plan is the 2022 register.
-*   **The benchmark: {{benchmark}} votes.** Governor Julius Malombe's certified 2022 winning total was **{{result.2022.gov.malombe}} votes** (Section 2.2). This document rounds it to **{{benchmark}}** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in Section 4.3 and the objectives in Chapter 8 are measured against it.
+*   **The electorate (July 2026, Tier 3, unconfirmed):** **{{register.2026}} voters** ([the electorate and polling stations](/#votes-sec-2-1)). IEBC has not yet published the 2026 register by ward, so every ward figure in this plan is the 2022 register.
+*   **The benchmark: {{benchmark}} votes.** Governor Julius Malombe's certified 2022 winning total was **{{result.2022.gov.malombe}} votes** ([Results from 2013 to 2022](/#votes-sec-2-2)). This document rounds it to **{{benchmark}}** and uses that one figure as the benchmark everywhere: every route below, the digital ceiling in [what each channel can reach](/#news-sec-4-3) and the objectives in [the goal and five objectives](/#goal-sec-8-1) are measured against it.
 *   **[CALC, not a forecast] The same share of a larger register.** In 2022 the winning tally was **{{benchmark.share-2022}}%** of the register (calculated). Held against the July 2026 register of {{register.2026}}, the equivalent tally is **≈{{benchmark.2026-equivalent.rounded}} votes** (calculated). Treat {{benchmark}} as the floor and ≈{{benchmark.2026-equivalent.rounded}} as the equivalent on today's register: the number to win is ≈{{benchmark}}–{{benchmark.2026-equivalent.rounded}} (calculated).
 *   **The turnout rate: {{turnout.constant}}%.** The certified 2022 county turnout was **{{turnout.2022}}%**: {{result.2022.gov.valid}} valid votes of {{register.2022}} registered (Tier 1, IEBC Form 37C). Every calculation here carries that rate forward to 2027. The rate is measured; carrying it forward is an assumption, and the scenario model brackets it at 55–72%.
     *   At {{turnout.constant}}% of the 2022 register, total ballots cast were **{{ballots.2022}} votes**: the certified count of valid votes for governor (Tier 1, IEBC Form 37C).
@@ -67,4 +67,4 @@ id: fig-3-3-paths
 *   **Strategic Conclusion:** **A home-constituency strategy cannot reach the number.** Dr. Mulu cannot win by maximising margins in Kitui Central, Kitui West and Kitui Rural alone. Expansion into Mwingi and Kitui South is an arithmetic necessity, not a choice.
 ```
 
-**What it means for the campaign.** The margin is built in Mwingi and Kitui South, where Dr. Mulu has never held office (Section 6.2), and the home belt is held, not relied on.
+**What it means for the campaign.** The margin is built in Mwingi and Kitui South, where Dr. Mulu has never held office ([where he is known, and where not](/#known-sec-6-2)), and the home belt is held, not relied on.

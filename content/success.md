@@ -6,7 +6,7 @@ Success is judged on measures his team can observe on Dr. Makali Mulu's own chan
 
 ## 18.1 How success will be judged
 
-Every indicator is one his team can observe on his own channels or on the SMS list it operates, and, once the engagement starts, enters in the platform's KPI tracker, and every one traces to the nomination objectives (Section 8.2) or to the ~{{benchmark}}-vote benchmark. Firefly commits to the platform that holds the measurement, and the team to its method and cadence, not to an electoral outcome (Section 22.1).
+Every indicator is one his team can observe on his own channels or on the SMS list it operates, and, once the engagement starts, enters in the platform's KPI tracker, and every one traces to the nomination objectives ([five objectives](/#goal-sec-8-2)) or to the ~{{benchmark}}-vote benchmark. Firefly commits to the platform that holds the measurement, and the team to its method and cadence, not to an electoral outcome ([what Firefly commits to](/#receives-sec-22-1)).
 
 ```figure
 id: fig-1-5-scorecard
@@ -45,7 +45,7 @@ items:
     text: "Review of the headline indicators (NW-01 to NW-04, or GE-01 to GE-05)."
     body: "Any metric lagging behind target by $>10\\%$ triggers a mandatory **Red Flag Action Plan** within 24 hours."
   - label: "Monthly Reallocation Trigger"
-    body: "If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager shifts a fifth of that sub-county's communications weight from digital and creative output to ground sound-truck caravans, on the Section 12.2 weighting model."
+    body: "If voter pledge recruitment (GE-01) lags in any sub-county for two consecutive cycles, the Campaign Manager shifts a fifth of that sub-county's communications weight from digital and creative output to ground sound-truck caravans, on the [which channel does which job](/#channels-sec-12-2) weighting model."
   - label: "Polling Day Real-Time Conversion Operations (GE-04 & GE-05)"
     text: "On election day, the War Room monitors voter turnout conversion every hour from 06:00 to 17:00 EAT."
     body: "Wards reporting $<40\\%$ turnout by 12:00 EAT receive immediate boda boda mobilization squad dispatches."
@@ -54,13 +54,13 @@ items:
 ## 18.3 Recognition where he is least known
 
 ```lead
-**R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in Section 7.1.
+**R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in [what the evidence says](/#diagnosis-sec-7-1).
 ```
 
 <!-- keep -->
 **Followers are not the target. Being known in Mwingi is.**
 
-Section 18.4 sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every
+[Why vanity metrics are left out](/#success-sec-18-4) sets out why vanity metrics are left out. These five recognition indicators, R-01 to R-05, replace them; they sit beside the two scorecards above, the four nomination indicators and the five general-election ones. Every
 one is measured where Dr. Mulu is least known, and every one is read from his own channels or from
 the team's dispatch log on Firefly's platform.
 
@@ -94,15 +94,15 @@ items:
       - { label: "Baseline", text: "0" }
   - title: "Kikamba-first share of weekly output, and its engagement on reach"
     chips: ["R-05"]
-    head: { label: "Target", text: "≥ 4 of 7 weekly posts Kikamba-first (Section 12.6)" }
+    head: { label: "Target", text: "≥ 4 of 7 weekly posts Kikamba-first ([A week of publishing, before and after](/#week-sec-12-6))" }
     fields:
-      - { label: "Method", text: "Post coding, weekly (Section 18.5)" }
+      - { label: "Method", text: "Post coding, weekly ([how the presence audit works](/#success-sec-18-5))" }
       - { label: "Baseline", text: "Set in Week 1" }
 ```
 
 **R-02 is the indicator this engagement lives or dies on.** It is the only one fully inside the
 direction layer's control, it moves weekly, and it is the direct test of the recognition thesis in
-Section 7.1. If reach share in the pool does not rise, the briefs are wrong and the monthly
+[What the evidence says](/#diagnosis-sec-7-1). If reach share in the pool does not rise, the briefs are wrong and the monthly
 review says so.
 
 **Excluded, and named so the exclusion is visible:** total followers, impressions, post likes, video
@@ -112,7 +112,7 @@ post can usefully do.
 
 ## 18.4 Why vanity metrics are left out
 
-Vanity metrics are kept out of every dashboard, reporting meeting and vendor contract, for three reasons. They remain visible as operational diagnostics (Section 14.4), marked as such.
+Vanity metrics are kept out of every dashboard, reporting meeting and vendor contract, for three reasons. They remain visible as operational diagnostics ([the target ladder](/#timeline-sec-14-4)), marked as such.
 
 ```visual
 kind: cards
@@ -122,7 +122,7 @@ items:
     body: "Chasing likes takes effort away from village barazas and market caravans."
   - title: "Much of the interaction comes from outside Kitui"
     text: "Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards."
-    body: "**Evidence required:** an earlier draft of this section put that share at \"over 60%\", which no source in this plan supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 (Section 18.5) and should replace this sentence once measured. The argument does not depend on the precise number."
+    body: "**Evidence required:** an earlier draft of this section put that share at \"over 60%\", which no source in this plan supports. The figure is withdrawn rather than restated; the ward-level split is obtainable from the campaign's own platform analytics in Week 1 ([how the presence audit works](/#success-sec-18-5)) and should replace this sentence once measured. The argument does not depend on the precise number."
     tier: "not yet tiered"
   - title: "No demonstrated link to turnout"
     text: "A viral video does not transport an elderly voter in Ikutha or Nguni to their polling stream on election morning."
@@ -169,7 +169,7 @@ items:
   - label: "Other platforms"
     body: "X: **@MakaliMulu**, about {{channel.x.followers}} followers in a September 2026 snapshot (Tier 3, a dated baseline). TikTok, Instagram, YouTube and any WhatsApp Channel or Business number: recorded in the Week 1 audit where they exist."
     fields:
-      - { label: "Why this one", text: "Not estimated, per Annex A." }
+      - { label: "Why this one", text: "Not estimated, per [Evidence and sources](/#annex-evidence-sec-a-1)." }
 ```
 
 #### The window
@@ -201,8 +201,8 @@ an operating channel with a record, and that record can be read. What it has nev
 only question that matters in a countywide name-recognition contest: **how much of this reach lands
 where he is not yet known?**
 
-Section 6.2 establishes that **{{pool}} registered voters — {{pool.share}}% of the county register** — sit
-where he has never held office. Section 4.3 establishes that in-county digital reach has a
+[Where he is known, and where not](/#known-sec-6-2) establishes that **{{pool}} registered voters — {{pool.share}}% of the county register** — sit
+where he has never held office. [What each channel can reach](/#news-sec-4-3) establishes that in-county digital reach has a
 ceiling of about {{reach.smartphone}} voters. Put together, those two figures make one measurement decisive:
 the share of existing reach that lands inside the pool. Nothing in the public record answers
 it. The Week 1 audit does.
@@ -224,10 +224,10 @@ items:
   - label: "Ad libraries"
     text: "for his pages."
   - label: "Overlay"
-    body: "Reach-by-city onto the twelve decisive wards in Section 2.3 and the {{pool}}-voter pool in Section 6.2."
+    body: "Reach-by-city onto the twelve decisive wards in [the twelve largest wards](/#votes-sec-2-3) and the {{pool}}-voter pool in [where he is known, and where not](/#known-sec-6-2)."
   - label: "Aggregate only"
     text: "No named commenter lists, no export of individual profiles, no retention of personal data."
-    body: "Counts and shares. The audit is scoped in the Section 19.2 memorandum before it begins, on the same terms as every other processing activity in this engagement."
+    body: "Counts and shares. The audit is scoped in the [the Data Protection Act and the regulator](/#lawful-sec-19-2) memorandum before it begins, on the same terms as every other processing activity in this engagement."
 ```
 
 #### What this section is not
@@ -236,7 +236,7 @@ items:
 It is not an appraisal of the people doing the work. This section reads the output, not the operators.
 ```
 
-It is not an appraisal of the people doing the work. Section 17.5 sets out how the team is assessed
+It is not an appraisal of the people doing the work. [Assessing and upskilling the team](/#engagement-sec-17-5) sets out how the team is assessed
 and upskilled, and that assessment is done with them in the room. This section reads the output, not
 the operators — and the distinction is kept deliberately, because a measurement exercise that
 doubles as a performance review will be resisted, and rightly.

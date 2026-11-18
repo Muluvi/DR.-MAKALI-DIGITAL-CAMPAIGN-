@@ -198,126 +198,144 @@
       "cadence": "2–3 per week",
       "by": "Your team",
       "form": "Subtitled video, platform-native cuts",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "Daily multilingual social",
       "cadence": "Daily",
       "by": "Your team",
       "form": "Post, graphic or short video in English, Kiswahili and Kikamba",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "Kikamba voice note",
       "cadence": "Weekly",
       "by": "Your team, Kikamba reviewer signs off",
       "form": "Audio for WhatsApp and community networks",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "Facebook Live",
       "cadence": "Weekly",
       "by": "Your team",
       "form": "Live broadcast with moderated comments",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "Kitui Economic Brief",
       "cadence": "Monthly",
       "by": "Your team",
       "form": "Plain-language explainer, print and digital",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "\"Dr. Mulu Explains\"",
       "cadence": "Weekly",
       "by": "Your team",
       "form": "Explainer video or audio on county finance",
-      "where": "15"
+      "where": "The fourteen workstreams",
+      "whereId": "workstreams-sec-15-1"
     },
     {
       "deliverable": "The weekly brief",
       "cadence": "Weekly, Thursday",
       "by": "Your team (strategy core)",
       "form": "One page: pillar weights, must-post items, ward priority, language rule",
-      "where": "13.4"
+      "where": "The weekly rhythm and approvals",
+      "whereId": "week-sec-13-4"
     },
     {
       "deliverable": "Content calendar",
       "cadence": "Weekly, Friday",
       "by": "Your team; the strategy core approves",
       "form": "Approved calendar for the week ahead",
-      "where": "15.1.2"
+      "where": "The content brief and asset governance",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "SMS touch to the consented list",
       "cadence": "Fortnightly, rising to a GOTV surge",
       "by": "Your team",
-      "form": "160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail (§15.3.3)",
-      "where": "15.3.3"
+      "form": "160-character Kiswahili or English SMS — Kikamba is not permitted on the bulk SMS rail ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3))",
+      "where": "What your team operates: SMS, USSD and voice",
+      "whereId": "workstreams-sec-15-3-3"
     },
     {
       "deliverable": "USSD menu availability",
       "cadence": "Continuous once provisioned",
       "by": "Your team",
       "form": "Zero-rated interactive menu across all networks",
-      "where": "15.3.3"
+      "where": "What your team operates: SMS, USSD and voice",
+      "whereId": "workstreams-sec-15-3-3"
     },
     {
       "deliverable": "Ward coordinator field report",
       "cadence": "Daily",
       "by": "Campaign ground team",
       "form": "Structured report from all 40 wards into the CRM",
-      "where": "15.3.1"
+      "where": "Ground-digital integration",
+      "whereId": "workstreams-sec-15-3-1"
     },
     {
       "deliverable": "Creative test cycle",
       "cadence": "Weekly",
       "by": "Your team designs, reads and produces variants",
       "form": "A/B test results and the decisions taken from them",
-      "where": "15.1.3"
+      "where": "Creative testing and AI assistance",
+      "whereId": "workstreams-sec-15-1-3"
     },
     {
       "deliverable": "Presence audit refresh",
       "cadence": "Monthly",
       "by": "Your team",
       "form": "Ninety-day rolling read: reach by ward, language and format",
-      "where": "14.1"
+      "where": "The first four weeks",
+      "whereId": "timeline-sec-14-1"
     },
     {
       "deliverable": "Performance report",
       "cadence": "Monthly",
       "by": "Your team",
       "form": "Reach in the pool, engagement, sentiment, conversion",
-      "where": "13.4"
+      "where": "The weekly rhythm and approvals",
+      "whereId": "week-sec-13-4"
     },
     {
       "deliverable": "Sentiment report to leadership",
       "cadence": "Monthly",
       "by": "Your team",
       "form": "Written brief with ward-level detail",
-      "where": "15"
+      "where": "The fourteen workstreams",
+      "whereId": "workstreams-sec-15-1"
     },
     {
       "deliverable": "Compliance review",
       "cadence": "Once, early, then on material change",
       "by": "Campaign's appointed reviewer",
       "form": "Written opinion",
-      "where": "19.2"
+      "where": "The Data Protection Act and the regulator",
+      "whereId": "lawful-sec-19-2"
     },
     {
       "deliverable": "Asset library deposit",
       "cadence": "Continuous",
       "by": "Your team",
       "form": "Originals with metadata retained, catalogued",
-      "where": "15.1.2, 13.4"
+      "where": "The content brief and asset governance, The weekly rhythm and approvals",
+      "whereId": "workstreams-sec-15-1-2"
     },
     {
       "deliverable": "The platform: hosting, upkeep, data checks, new features",
       "cadence": "Continuous",
       "by": "Firefly",
       "form": "The live site, its explorer, dashboards and workspace; every edit checked before it goes live",
-      "where": "13.2"
+      "where": "Who owns what",
+      "whereId": "engagement-sec-13-2"
     }
   ],
   "groups": [

@@ -84,7 +84,11 @@ test("parenthesised section references become link chips; references in a senten
   assert.deepEqual(xref.filter((p) => p.type === "xref").map((p) => (p.type === "xref" ? p.refs : [])), [["4.2.1"]]);
   assert.deepEqual(refsOf("(Sections 2.5 and 2.6)"), ["2.5", "2.6"]);
   assert.deepEqual(refsOf("(Section A.1.2)"), ["A.1.2"]);
+  // The tokenizer still draws one as a chip named for its heading. Outside the text versions, which
+  // are kept word for word, the content no longer holds any: the pre-launch pass
+  // (docs/prelaunch-2026-11) wrote every reference as a link that carries the heading's words.
   const n = tokenizeInline(all).filter((p) => p.type === "xref").length;
-  console.log("parenthesised references drawn as chips:", n);
-  assert.ok(n > 100);
+  const outside = tokenizeInline(all.replace(/```textversion[\s\S]*?```/g, "")).filter((p) => p.type === "xref").length;
+  console.log("parenthesised references drawn as chips:", n, "outside the text versions:", outside);
+  assert.equal(outside, 0);
 });

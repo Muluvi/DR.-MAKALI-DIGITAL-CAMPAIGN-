@@ -77,7 +77,7 @@ export function FigureV2({ spec, chart, variant = "standard" }: { spec: FigureSp
           </div>
         </details>
         <a className="pf-fig__csv" href={`/data/${spec.id}.csv`} download={`${spec.id}.csv`}>
-          Download the data as CSV <span className="pf-mono">{spec.id}.csv</span>
+          Download the data as CSV
         </a>
       </figcaption>
     </figure>

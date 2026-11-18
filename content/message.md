@@ -17,9 +17,9 @@ kind: crosswalk
 title: "The message, layer by layer"
 columns: ["Layer", "How many", "What it is", "Where"]
 rows:
-  - cells: ["The claim", "1", "the Economist Governor", "Section 9.1"]
+  - cells: ["The claim", "1", "the Economist Governor", "[The central claim](/#position-sec-9-1)"]
   - cells: ["Pillars", "3", "how the claim is argued to a voter", "below"]
-  - cells: ["Themes", "6", "the issues each pillar is evidenced on", "below; evidence in Chapter 3"]
+  - cells: ["Themes", "6", "the issues each pillar is evidenced on", "below; evidence in [what voters need](/#needs-sec-1-3)"]
   - cells: ["Content types, P1 to P4", "4", "what the team makes each week, and what the weekly brief commissions", "below"]
 note: "Each layer maps to the one above it. The four campaign pillars of earlier drafts fold into the three pillars, and the four content buckets into the four content types."
 ```
@@ -30,7 +30,7 @@ id: fig-4-1-message-house
 
 #### The claim
 
-**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Makali Mulu's own cover line, and the architecture below argues it. It has carried no content so far; the content types turn it into a weekly production cycle. The claim itself, that he is the Economist Governor Kitui needs, is set out in Section 9.1.
+**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Makali Mulu's own cover line, and the architecture below argues it. It has carried no content so far; the content types turn it into a weekly production cycle. The claim itself, that he is the Economist Governor Kitui needs, is set out in [the central claim](/#position-sec-9-1).
 
 #### The three pillars
 
@@ -42,10 +42,10 @@ preset: message
 items:
   - title: "Pillar 1: Fiscal integrity and transparent public finance"
     fields:
-      - { label: "How it is argued", text: "Dr. Mulu's parliamentary work for fair distribution of resources becomes a clear manifesto for Kitui's 40 wards, showing line by line how the county's KSh {{budget.total|bn}} billion should be allocated and audited. And the pillar that sets him apart: **publishing what was promised, then publishing whether it happened**, through the public service-delivery tracker (Section 15.1.1), the analytics cadence in Section 15.4.4, and the disclosure of every paid placement under the Digital Ethics and Data Charter (Section 19.3). An M&E specialist who campaigns without a way to verify is wasting his strongest asset." }
+      - { label: "How it is argued", text: "Dr. Mulu's parliamentary work for fair distribution of resources becomes a clear manifesto for Kitui's 40 wards, showing line by line how the county's KSh {{budget.total|bn}} billion should be allocated and audited. And the pillar that sets him apart: **publishing what was promised, then publishing whether it happened**, through the public service-delivery tracker ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)), the analytics cadence in [Analytics and attribution](/#workstreams-sec-15-4-4), and the disclosure of every paid placement under the Digital Ethics and Data Charter ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)). An M&E specialist who campaigns without a way to verify is wasting his strongest asset." }
       - { label: "Narrative Statement *(held until the Auditor-General's reports below are in hand)*", text: "*\"Kitui's KSh {{budget.total|bn}} billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu has a verified track record of managing public funds with zero financial audit queries.\"*" }
-      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in public debate than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the Tier 1 claim in Section 6.1, best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
-      - { label: "Contrast — awaiting primary documents", text: "Kitui County Government audited accounts under both predecessor administrations are reported to have accumulated over **KSh {{audit.pending.contested|bn}} billion in contested pending bills** (Tier 3; OAG County Executive Audit FY2021/22 and FY2022/23, Tier 3). This is a **different measure** from the KSh {{budget.pending-bills.2021|bn}} billion pending-bill figure at FY2020/21 carried as Tier 1 in Section 3.7: different years, different scopes. Both are usable; whichever is quoted is named with its year." }
+      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in public debate than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the Tier 1 claim in [the public record](/#record-sec-6-1), best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
+      - { label: "Contrast — awaiting primary documents", text: "Kitui County Government audited accounts under both predecessor administrations are reported to have accumulated over **KSh {{audit.pending.contested|bn}} billion in contested pending bills** (Tier 3; OAG County Executive Audit FY2021/22 and FY2022/23, Tier 3). This is a **different measure** from the KSh {{budget.pending-bills.2021|bn}} billion pending-bill figure at FY2020/21 carried as Tier 1 in [how county money is spent](/#spend-sec-3-7): different years, different scopes. Both are usable; whichever is quoted is named with its year." }
     badge: "sources pending"
   - title: "Pillar 2: Household economic empowerment and agricultural value"
     fields:
@@ -58,7 +58,7 @@ items:
     fields:
       - { label: "How it is argued", text: "Dr. Mulu's record, including the NG-CDF-funded projects in Kitui Central, broken down in infographics so voters can see the impact: budget documents turned into simple charts, ward maps and before-and-after comparisons." }
       - { label: "Narrative Statement", text: "*\"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu will allocate ward development funds by one needs-weighted formula, published before any allocation and audited after, prioritizing solar borehole reticulation and stocked village dispensaries.\"* (policy commitment; see the decision below)" }
-      - { label: "Proof Point — awaiting page reference", text: "**Kitui County Integrated Development Plan (CIDP III).** Its 61% water figure is not yet tiered. The County Gender Data Sheet (October 2025) gives {{water.over30}}% of residents taking more than 30 minutes to reach drinking water (KDHS 2022, Tier 1); it is not substituted until the CIDP's 61% is confirmed to be the same measure. Section 3.1 carries the documented water figures, which measure different things." }
+      - { label: "Proof Point — awaiting page reference", text: "**Kitui County Integrated Development Plan (CIDP III).** Its 61% water figure is not yet tiered. The County Gender Data Sheet (October 2025) gives {{water.over30}}% of residents taking more than 30 minutes to reach drinking water (KDHS 2022, Tier 1); it is not substituted until the CIDP's 61% is confirmed to be the same measure. [Water](/#needs-sec-3-1) carries the documented water figures, which measure different things." }
       - { label: "CDF Proof — a request to your constituency office", text: "{{record.cdf.boreholes}} community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026, Tier 3 until its line items are in hand). Earlier drafts also cited the same inventory for a classroom count, a different project category; all now defer to the inventory's own line items, which would let the team use one consistent set of figures throughout." }
     badge: "sources pending"
 ```
@@ -77,18 +77,18 @@ items:
 ```visual
 kind: bars
 title: "What the two flagship commitments would take from the county envelope, and what still has to be decided."
-note: "Share of the KSh {{budget.total|bn}} billion envelope in Section 1.5. Envelope arithmetic, not a full sizing."
+note: "Share of the KSh {{budget.total|bn}} billion envelope in [the county's budget and plan](/#needs-sec-1-5). Envelope arithmetic, not a full sizing."
 items:
   - label: "A Ward Development Equalization Fund at KSh {{policy.ward-fund|m}} million across 40 wards"
     value: "{{policy.ward-fund.share}}%"
   - label: "Both flagship commitments together, on the bridge case"
     value: "{{policy.flagships.share}}%"
-body: "Against the KSh {{budget.total|bn}} billion envelope in Section 1.5: a Ward Development Equalization\nFund at KSh {{policy.ward-fund|m}} million across 40 wards is **KSh {{policy.ward-fund.total|bn}} billion a year, or {{policy.ward-fund.share}}% of the\nenvelope** before salaries (modelled). A *ndengu* floor price at KSh {{policy.ndengu-floor}}/kg against the {{policy.ndengu-output}} tonnes\ncited in Pillar 2 is **a further ~KSh {{policy.ndengu.bridge|bn}} billion** (modelled) if the county bridges from the\nKSh {{price.ndengu.farmgate}} farm-gate price, or KSh {{policy.ndengu.purchase|bn}} billion (modelled) if it buys the crop outright. Together, on the\nbridge case, **~KSh {{policy.flagships.bridge|bn}} billion, {{policy.flagships.share}}% of the envelope** (modelled).\n\nThese are envelope arithmetic, not a full sizing: the delivery mechanism for each is still to be\nset, and a floor price may be structured as a revolving fund or a partial aggregation\nscheme rather than a purchase guarantee, which changes the figure materially. Firefly's\nrecommendation is that both are sized and structured with the campaign's fiscal team before\nthey go into broadcast copy, since the figures already appear in the radio scripts, SMS\ncopy and USSD menu in Annex C.2. **This is the campaign's call, and one worth settling\nearly rather than on air.**"
+body: "Against the KSh {{budget.total|bn}} billion envelope in [the county's budget and plan](/#needs-sec-1-5): a Ward Development Equalization\nFund at KSh {{policy.ward-fund|m}} million across 40 wards is **KSh {{policy.ward-fund.total|bn}} billion a year, or {{policy.ward-fund.share}}% of the\nenvelope** before salaries (modelled). A *ndengu* floor price at KSh {{policy.ndengu-floor}}/kg against the {{policy.ndengu-output}} tonnes\ncited in Pillar 2 is **a further ~KSh {{policy.ndengu.bridge|bn}} billion** (modelled) if the county bridges from the\nKSh {{price.ndengu.farmgate}} farm-gate price, or KSh {{policy.ndengu.purchase|bn}} billion (modelled) if it buys the crop outright. Together, on the\nbridge case, **~KSh {{policy.flagships.bridge|bn}} billion, {{policy.flagships.share}}% of the envelope** (modelled).\n\nThese are envelope arithmetic, not a full sizing: the delivery mechanism for each is still to be\nset, and a floor price may be structured as a revolving fund or a partial aggregation\nscheme rather than a purchase guarantee, which changes the figure materially. Firefly's\nrecommendation is that both are sized and structured with the campaign's fiscal team before\nthey go into broadcast copy, since the figures already appear in the radio scripts, SMS\ncopy and USSD menu in [Formats, copy samples and the USSD pointer](/#message-sec-c-2). **This is the campaign's call, and one worth settling\nearly rather than on air.**"
 ```
 
 #### The six themes
 
-Each theme is an issue the pillars are evidenced on. The evidence is in Chapter 3, with its tier and source; three supporting figures are not yet established anywhere in this plan and say so, rather than borrowing authority from those beside them.
+Each theme is an issue the pillars are evidenced on. The evidence is in [what voters need](/#needs-sec-1-3), with its tier and source; three supporting figures are not yet established anywhere in this plan and say so, rather than borrowing authority from those beside them.
 
 ```visual
 kind: cards
@@ -96,32 +96,32 @@ preset: theme
 items:
   - title: "Water security and climate resilience"
     text: "sand dams, boreholes, irrigation, and adaptation to both drought and flood."
-    head: { label: "Evidence", text: "Kitui has the lowest share of any county with at least a basic drinking-water service, {{water.basic.kdhs}}% (Tier 1, Section 3.1)." }
+    head: { label: "Evidence", text: "Kitui has the lowest share of any county with at least a basic drinking-water service, {{water.basic.kdhs}}% (Tier 1, [Water](/#needs-sec-3-1))." }
     fields:
       - { label: "Why this is the strongest theme", text: "it is the only issue on which Kitui is measurably last in the country, and it is measured by a Tier 1 source with a monthly update cycle — so a claim made about it can be re-verified every month rather than argued." }
   - title: "Economic transformation"
     text: "farm value chains, mango processing, livestock markets, county investment."
-    head: { label: "Evidence", text: "{{poverty.2021}}% in poverty in 2021 and food at {{food.share}}% of household spending (Sections 3.2 and 3.6)." }
+    head: { label: "Evidence", text: "{{poverty.2021}}% in poverty in 2021 and food at {{food.share}}% of household spending ([Food, farming and drought](/#needs-sec-3-2) and [the cost of living](/#needs-sec-3-6))." }
     fields:
       - { label: "Why it matters", text: "a household spending seven shillings in ten on food has no margin to invest, and every content type that raises household income is aimed at it." }
   - title: "Fiscal discipline and verified delivery"
     text: "the flagship theme."
-    head: { label: "Evidence", text: "the KSh {{budget.total|bn}} billion envelope, the audit findings and the county's own KESTA agenda (Sections 1.5 and 3.7)." }
+    head: { label: "Evidence", text: "the KSh {{budget.total|bn}} billion envelope, the audit findings and the county's own KESTA agenda ([the county's budget and plan](/#needs-sec-1-5) and [how county money is spent](/#spend-sec-3-7))." }
     fields:
       - { label: "Why it matters", text: "the county government's own scorecard names Dr. Mulu's frame, which makes the argument about *execution* rather than direction: the ground an evaluator wins on." }
   - title: "Youth employment and digital skills"
     text: "vocational training, county innovation hubs, enterprise credit."
-    head: { label: "Evidence", text: "a median age of {{census.median-age}} and youth concentrated in Kitui Central, Mwingi Central and Mutomo (Section 3.5)." }
+    head: { label: "Evidence", text: "a median age of {{census.median-age}} and youth concentrated in Kitui Central, Mwingi Central and Mutomo ([Jobs and the young](/#needs-sec-3-5))." }
   - title: "Health care"
     text: "hospital upgrades, maternal health, insurance coverage."
-    head: { label: "Evidence", text: "{{health.insurance}}% with any health insurance and {{health.stunting}}% of children under five stunted (Tier 1, Section 3.3)." }
+    head: { label: "Evidence", text: "{{health.insurance}}% with any health insurance and {{health.stunting}}% of children under five stunted (Tier 1, [Health](/#needs-sec-3-3))." }
   - title: "Education"
     text: "ECDE, bursaries, school infrastructure."
-    head: { label: "Evidence", text: "{{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education (Tier 1, Section 3.5); the secondary-completion figure is not yet tiered." }
+    head: { label: "Evidence", text: "{{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education (Tier 1, [Jobs and the young](/#needs-sec-3-5)); the secondary-completion figure is not yet tiered." }
     badge: "not yet tiered"
 ```
 
-A further theme the evidence supports is security and resource conflict on the Tana River border, framed as resource and border security, never in community or ethnic terms (Section 3.2).
+A further theme the evidence supports is security and resource conflict on the Tana River border, framed as resource and border security, never in community or ethnic terms ([Food, farming and drought](/#needs-sec-3-2)).
 
 #### The four content types and the visit-to-verification loop
 
@@ -129,7 +129,7 @@ A further theme the evidence supports is security and resource conflict on the T
 **The engine is the loop between the fourth content type and the first**: a commitment with no date is not logged, and twelve weeks later that commitment and that date become a P1 post.
 ```
 
-The content types are what the team makes, week by week, and what the weekly brief commissions. Their weights are set by the Week 1 audit (Section 14.1) and re-set at each monthly review, not chosen in advance. Each absorbs one of the earlier content buckets, with its formats and tone. The fourth feeds the first, so the campaign compounds instead of repeating.
+The content types are what the team makes, week by week, and what the weekly brief commissions. Their weights are set by the Week 1 audit ([the first four weeks](/#timeline-sec-14-1)) and re-set at each monthly review, not chosen in advance. Each absorbs one of the earlier content buckets, with its formats and tone. The fourth feeds the first, so the campaign compounds instead of repeating.
 
 The Kikamba name for each type comes from the native-speaker reviewer. The names below are working drafts from the earlier buckets, and none is published before that review.
 
@@ -137,9 +137,9 @@ The Kikamba name for each type comes from the native-speaker reviewer. The names
 kind: matrix
 columns: ["Content type", "Segment", "Language", "Channel", "Format"]
 rows:
-  - cells: ["P1 — Where the money went", "smallholders and traders in Mwingi and Kitui South — the **{{pool}}** registered voters in the pool (Section 6.2).", "Kikamba primary, Kiswahili secondary.", "WhatsApp voice note, SMS, Facebook.", "45–60 seconds. One figure. One named place. One verdict: delivered, delayed, or not done."]
-    body: "**Why it exists:** it is built on a qualification his public record carries: Dr. Mulu is an M&E Champion designated by the Ministry of Finance, and Kitui Central was evaluated the best constituency in the Eastern region for FY2014/15 (Section 6.1). It turns that from a line in a CV into a weekly habit, and it answers *\"who is this man\"* with a ward name rather than a qualification. **From the Integrity and Stewardship Ledger bucket** (working Kikamba name *Kĩtĩo kya Kũthũkũma*): 13 years of Kitui Central NG-CDF management, shown through the Auditor-General's opinion for every year, with no year characterised before its report is in hand. Formats: radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements. Tone: authoritative, calm, documented, transparent."
-  - cells: ["P2 — From poverty to wealth creation, one household", "the rural farming majority, and the women's household economy — **{{census.female}}** women, {{census.female.share}}% of residents (Section 1.1).", "Kikamba.", "WhatsApp, SMS, Facebook.", "one household, one income stream, one number. Poultry is in **over 90%** of Kitui households (Section 3.2) and carries no county policy at all."]
+  - cells: ["P1 — Where the money went", "smallholders and traders in Mwingi and Kitui South — the **{{pool}}** registered voters in the pool ([where he is known, and where not](/#known-sec-6-2)).", "Kikamba primary, Kiswahili secondary.", "WhatsApp voice note, SMS, Facebook.", "45–60 seconds. One figure. One named place. One verdict: delivered, delayed, or not done."]
+    body: "**Why it exists:** it is built on a qualification his public record carries: Dr. Mulu is an M&E Champion designated by the Ministry of Finance, and Kitui Central was evaluated the best constituency in the Eastern region for FY2014/15 ([the public record](/#record-sec-6-1)). It turns that from a line in a CV into a weekly habit, and it answers *\"who is this man\"* with a ward name rather than a qualification. **From the Integrity and Stewardship Ledger bucket** (working Kikamba name *Kĩtĩo kya Kũthũkũma*): 13 years of Kitui Central NG-CDF management, shown through the Auditor-General's opinion for every year, with no year characterised before its report is in hand. Formats: radio debate evidence cards, documentary video case studies, audit certificate infographics, press statements. Tone: authoritative, calm, documented, transparent."
+  - cells: ["P2 — From poverty to wealth creation, one household", "the rural farming majority, and the women's household economy — **{{census.female}}** women, {{census.female.share}}% of residents ([who lives here](/#kitui-sec-1-1)).", "Kikamba.", "WhatsApp, SMS, Facebook.", "one household, one income stream, one number. Poultry is in **over 90%** of Kitui households ([Food, farming and drought](/#needs-sec-3-2)) and carries no county policy at all."]
     body: "**Why it exists:** the cover line is currently a banner, and a slogan with no weekly proof behind it stays a banner. This type is the proof, and it is the only one that speaks to the county's largest group in the register's own terms. **From the Agrarian and Household Wealth bucket** (working Kikamba name *Ũtonga wa Mĩsyĩ na Mĩũnda*): guaranteed minimum floor prices for *ndengu* (KSh {{policy.ndengu-floor}}/kg), county aggregation and cold-storage hubs, solar borehole irrigation, and livestock feed reserves. Formats: morning radio skits in the vernacular, 2G market-day SMS alerts, printed agricultural policy fold-outs. Tone: practical, warm, farmer-first, culturally right in Kikamba."
   - cells: ["P3 — The economist explains", "youth 18–35, traders, professionals, and the out-of-county Kamba diaspora.", "Kiswahili and Sheng with Kikamba hooks; English for diaspora and national press.", "TikTok, Facebook, X, YouTube.", "45-second vertical video. One county figure made physical — the **KSh {{budget.total|bn}} billion** envelope, or the **KSh {{audit.cash|m}} million** in unconfirmed cash balances, shown with objects rather than charts."]
     body: "**Why it exists:** it turns \"PhD in Economics\" from a title into a demonstrated skill, and it is the only type that travels beyond the county. **From the Youth Enterprise and TVET bucket** (working Kikamba name *Mwanya wa Mwanake na Wathi*): zero-interest equipment loans, digital cottage hubs, fee waivers for artisan TVET courses, and dignity for boda boda riders. Formats: vertical TikTok and Reels clips, sound-truck music tracks, boda boda shed stickers, WhatsApp voice notes. Tone: energetic, aspirational, street-smart Sheng and Kikamba, action-oriented."
@@ -158,12 +158,12 @@ A commitment with no date is not logged. A date that passes with no verification
 ## 10.2 Discipline and persuasion principles
 
 ```lead
-Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**.
+Under the campaign's Provenance Discipline ([every figure carries its provenance](/#annex-evidence-sec-a-1-1)), **no claim is made without an attached primary empirical source**.
 ```
 
-**Every claim carries its source.** Under the campaign's Provenance Discipline (Annex A.1.1), **no claim is made without an attached primary empirical source**. Every message, from a 160-character Kiswahili SMS to a two-hour Kikamba radio debate, rests on parliamentary records, Auditor-General reports or KNBS data. The three regions differ and most residents are offline (Sections 1.2 and 4.1), so the message and its language are set region by region and channel by channel.
+**Every claim carries its source.** Under the campaign's Provenance Discipline ([every figure carries its provenance](/#annex-evidence-sec-a-1-1)), **no claim is made without an attached primary empirical source**. Every message, from a 160-character Kiswahili SMS to a two-hour Kikamba radio debate, rests on parliamentary records, Auditor-General reports or KNBS data. The three regions differ and most residents are offline ([the land and its three regions](/#kitui-sec-1-2) and [where people get information](/#news-sec-4-1)), so the message and its language are set region by region and channel by channel.
 
-**The county's own slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. The campaign's governing line, quoted in full in Section 9.1, answers it: Kitui has the resources, and lacks the leadership to use them. The campaign leads with the line's verification half: publish whether each promised project happened.
+**The county's own slogan already claims resources.** The county scorecard runs *"Rasilimali Zetu, Maisha Bora"* ("Our Resources, Better Lives") on every page. The campaign's governing line, quoted in full in [the central claim](/#position-sec-9-1), answers it: Kitui has the resources, and lacks the leadership to use them. The campaign leads with the line's verification half: publish whether each promised project happened.
 
 #### Framing true claims, transparently
 
@@ -173,7 +173,7 @@ The campaign uses behavioural economics to make each message effective: not only
 **Boundary.** These are framing techniques applied to **true claims**, delivered
 transparently, at population level. They are not psychographic targeting, not
 personality-based manipulation, and not individualised emotional profiling.
-Section 19.3 makes this a published commitment.
+[The Digital Ethics and Data Charter](/#lawful-sec-19-3) makes this a published commitment.
 
 ```visual
 kind: cards
@@ -217,19 +217,19 @@ The last principle is the campaign's own. It turns Dr. Mulu's M&E credential int
 
 ## 10.3 Framing, in worked examples
 
-Each example applies one principle from Section 10.2 to evidence from Chapter 3.
+Each example applies one principle from [Discipline and persuasion principles](/#message-sec-10-2) to evidence from [what voters need](/#needs-sec-1-3).
 
 ```visual
 kind: tabs
 preset: message
-note: "All figures drawn from KNBS and county sources; each is verified before\npublication under the Section 19.3 fact-check protocol."
+note: "All figures drawn from KNBS and county sources; each is verified before\npublication under the [the Digital Ethics and Data Charter](/#lawful-sec-19-3) fact-check protocol."
 items:
   - title: "Water scarcity"
     fields:
       - { label: "Loss aversion", text: "\"Approximately {{water.surface}} people in Kitui still depend on surface water for drinking. Every dry season takes more from us than the boreholes would.\"" }
       - { label: "Verification", text: "\"We will publish every borehole location, cost and completion date. Dial `[shortcode]` to check the one nearest you.\"" }
       - { label: "Loss aversion (July 2025)", text: "\"More than a quarter of Kitui's water points were not working in July 2025 (NDMA). Every broken borehole is a longer walk for a woman in Mutha.\" {{water.points.down.share}}% of {{water.points.total}} sources, Tier 1." }
-      - { label: "Verification (the county's own count)", text: "\"The county says it drilled {{scorecard.boreholes.drilled}} boreholes. Dial `[shortcode]` and check the one nearest you.\" During the nomination window, the verification half only (Section 10.2)." }
+      - { label: "Verification (the county's own count)", text: "\"The county says it drilled {{scorecard.boreholes.drilled}} boreholes. Dial `[shortcode]` and check the one nearest you.\" During the nomination window, the verification half only ([Discipline and persuasion principles](/#message-sec-10-2))." }
   - title: "Fiscal accountability"
     fields:
       - { label: "Anchoring", text: "\"Kitui County will handle KSh {{budget.total|bn}} billion this financial year. Do you know where it goes? Dr. Mulu will publish every shilling.\"" }
@@ -253,7 +253,7 @@ items:
       - { label: "Anchoring", text: "\"Seven in ten Kitui residents report a problem getting health care. Dr. Mulu will publish which clinics have medicines this week.\" {{health.access.problem}}% of women, KDHS 2022, Tier 1: say \"residents report\" only with that base stated." }
   - title: "School meals"
     fields:
-      - { label: "Messenger effect", text: "A parent from a school running a parent-funded meals programme, on why the county should carry it. NDMA links the gap to absenteeism and dropout (Section 3.5)." }
+      - { label: "Messenger effect", text: "A parent from a school running a parent-funded meals programme, on why the county should carry it. NDMA links the gap to absenteeism and dropout ([Jobs and the young](/#needs-sec-3-5))." }
   - title: "Energy poverty"
     fields:
       - { label: "Anchoring", text: "\"Only {{fuel.clean.2022}}% of Kitui households cook with clean fuels. Energy poverty is economic poverty.\" 2022, County Gender Data Sheet, Tier 1 (Kenya {{fuel.clean.2022.kenya}}%). The 2019 Census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%." }
@@ -265,7 +265,7 @@ items:
 **No segment in these grids carries a size.** The grids assign messages; they do not measure audiences.
 ```
 
-**A demonstration, not a script.** What follows is the kind of message assignment the team's own weekly brief hands its producers: which message goes to whom, on which channel. It attributes nothing to Dr. Mulu beyond his public record, and the policies it quotes are proposals for the campaign to decide (Section 10.1). Each grid row carries the content type that commissions it (P1 to P4, Section 10.1), so a producer reading a row knows which slot in the weekly brief it fills.
+**A demonstration, not a script.** What follows is the kind of message assignment the team's own weekly brief hands its producers: which message goes to whom, on which channel. It attributes nothing to Dr. Mulu beyond his public record, and the policies it quotes are proposals for the campaign to decide ([one claim, three pillars, six themes](/#message-sec-10-1)). Each grid row carries the content type that commissions it (P1 to P4, [one claim, three pillars, six themes](/#message-sec-10-1)), so a producer reading a row knows which slot in the weekly brief it fills.
 
 ```figure
 id: fig-4-4-message-region
@@ -273,7 +273,7 @@ id: fig-4-4-message-region
 
 #### Message assignment by segment
 
-The segments are those of Section 11.2. **No segment in these grids carries a size.** Section 11.3 is the sizing authority, built from census and register data; it states only sourced sizes and gives none where none is published (Section 7.3). The grids assign messages; they do not measure audiences. The segments overlap: a woman farming in Mwingi is in rows 2 and 4, and a boda operator in Kitui Town in rows 1 and 3.
+The segments are those of [the six voter segments](/#voters-sec-11-2). **No segment in these grids carries a size.** [How large each segment is](/#voters-sec-11-3) is the sizing authority, built from census and register data; it states only sourced sizes and gives none where none is published ([what the data cannot yet show](/#diagnosis-sec-7-3)). The grids assign messages; they do not measure audiences. The segments overlap: a woman farming in Mwingi is in rows 2 and 4, and a boda operator in Kitui Town in rows 1 and 3.
 
 **These segments overlap.** A woman farming in Mwingi is in both the agrarian and the women's-cooperative segments; a boda operator in Kitui Town is in both the youth and the trader segments. That is expected for messaging segments and would be an error for a population breakdown.
 
@@ -285,23 +285,23 @@ id: message-by-segment
 
 Messaging is set to the economic realities, geography and priorities of Kitui County's eight constituencies and 40 wards.
 
-**Segmentation principle and hard constraint.** Segmentation is by **economic interest, geography, life stage and issue salience only**. It is never by ethnicity, clan or religious affiliation. Cultural and linguistic localisation — Kikamba content, local idiom, proverbs, cultural imagery — is a matter of respect and reach and stays. Identity-based wedge targeting does not: it is excluded by the Digital Ethics and Data Charter (Section 19.3), and it is a documented driver of election-period tension in Kenya. This is a live risk in the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital ecosystem identified coordinated cross-platform operations explicitly weaponising ethnicity.
+**Segmentation principle and hard constraint.** Segmentation is by **economic interest, geography, life stage and issue salience only**. It is never by ethnicity, clan or religious affiliation. Cultural and linguistic localisation — Kikamba content, local idiom, proverbs, cultural imagery — is a matter of respect and reach and stays. Identity-based wedge targeting does not: it is excluded by the Digital Ethics and Data Charter ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)), and it is a documented driver of election-period tension in Kenya. This is a live risk in the 2027 cycle, not a theoretical one: EU-funded analysis of the 2025 digital ecosystem identified coordinated cross-platform operations explicitly weaponising ethnicity.
 
 | Voter Segment | Demographics & Primary Hubs | Core Priorities | Tailored Messaging & Channels |
 |---|---|---|---|
 | **Youth & Digital Natives** | 18–35; Kitui Town, Mwingi, Kwa Vonza; SEKU and MUT | Youth unemployment; TVET funding & digital skills; boda boda regulation & trade licensing; enterprise loans | **Message:** "Economic Empowerment & Tech Integration." The leader who will digitise county services and allocate bursaries transparently — with a public record of {{record.bursary.recipients}} bursary beneficiaries to prove it.<br>**Channels:** TikTok, Instagram, X, short video, infographics |
 | **Agrarian & Pastoral Communities** | {{census.rural.share}}% of residents are rural (2019 Census, Tier 2); Kitui Rural, Kitui East, Kitui South, Mwingi North | Water scarcity; farm inputs (green grams/ndengu, maize); feeder roads; livestock health; drought and flood resilience | **Message:** "Budget Discipline for Water & Food Security." Public finance experience directed at sand dams, boreholes and subsidised inputs.<br>**Channels:** **SMS/USSD (primary)**, vernacular radio, barazas, WhatsApp, visual policy summaries |
 | **MSMEs, Traders & Business Owners** | Kitui Town, Mwingi Town, Mutomo, Kabati, Kyuso, Kwa Vonza | County taxes, double licensing, cess; market infrastructure & sanitation; power reliability | **Message:** "An Economist in City Hall." A business-friendly environment that cuts red tape and reorganises county revenue collection — anchored to the KSh {{budget.osr.revised|bn}} billion own-source revenue target.<br>**Channels:** Town halls, business association roundtables, policy briefs, Facebook, X, LinkedIn |
-| **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; {{census.female}} women in {{census.households}} households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS *(SMS in Kiswahili — §15.3.3)* |
+| **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; {{census.female}} women in {{census.households}} households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS *(SMS in Kiswahili — [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3))* |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries** (not yet sourced; the record is the IEBC's gazette notice).<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |
 | **First-Time Voters** | 18–22; secondary and early tertiary | Hope, change, youth inclusion, digital opportunity, accountability | **Message:** "A New Kind of Leader." Integrity, economic expertise, youth digital empowerment.<br>**Channels:** TikTok, Instagram, WhatsApp, short-form video |
-| **Offline Majority** | Any ward with low connectivity; older voters; the {{ict.offline}}% outside internet use (CA/KNBS 2023/24) | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** (Section 15.3.3) |
+| **Offline Majority** | Any ward with low connectivity; older voters; the {{ict.offline}}% outside internet use (CA/KNBS 2023/24) | The same priorities as above — but reached by no digital channel currently in the plan | **Message:** identical policy substance, adapted to 160 characters and to audio.<br>**Channels:** **SMS, USSD, radio, mobile-money agent networks, printed QR-linked materials** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) |
 
 The last row matters most. Treating the offline majority as a segment with its own channels, rather than as a group the campaign regrets not reaching, is the difference between a digital plan and a communications plan.
 
 #### Message assignment by channel
 
-Built on what each channel can reach (Section 4.3):
+Built on what each channel can reach ([what each channel can reach](/#news-sec-4-3)):
 
 ```figure
 id: message-by-channel
@@ -334,5 +334,5 @@ id: format-specs
 
 #### C. The USSD menu
 
-The menu is set out once, in Section 15.3.3, which governs the offline layer. The shortcode and
+The menu is set out once, in [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3), which governs the offline layer. The shortcode and
 sender ID are those the aggregator provisions at contracting. Nothing here should be printed, dialled or published as a working number.

@@ -2,7 +2,8 @@
  * Section 1, Objectives: the clock, the five objectives, how the engagement runs, and the scorecard.
  */
 import type { FigureSpec } from "../types.ts";
-import { fmt, secHref } from "./_util.ts";
+import { fmt } from "./_util.ts";
+import SECTION_TITLES from "../../section-titles.generated.json" with { type: "json" };
 import { ELECTION_DAY, NOMINATION_WINDOW, inSentence } from "../../phases.ts";
 
 /* ------------------------------------------------------------------ the calendar, shared with 5.4 */
@@ -45,31 +46,42 @@ export const FIG_1_1: FigureSpec = {
 
 /* ------------------------------------------------------------------ the five objectives */
 
+/**
+ * The finding, strategy and measure each objective names, as the headings that hold them today
+ * (lib/section-titles.generated.json): the card links and the table name them, never number them.
+ */
+const titleOf = (num: string): string => {
+  const hit = (SECTION_TITLES as Record<string, { id: string; title: string }>)[num];
+  if (!hit) throw new Error(`s1-objectives: no heading numbered ${num}`);
+  return hit.title;
+};
+const hrefOf = (num: string): string => `/#${(SECTION_TITLES as Record<string, { id: string; title: string }>)[num].id}`;
+
 const OBJECTIVES = [
   {
     n: "1", title: "Be known where he isn't yet",
     target: `At least ${fmt("pool.share")}% of his reach landing in the ${fmt("pool")}-voter pool`,
-    finding: "2.7", measure: "18.1", measureLabel: "NW-01, R-02", serves: "3.3.1",
+    finding: "6.2", measure: "18.1", measureLabel: "NW-01, R-02", serves: "12.1",
   },
   {
     n: "2", title: "Turn his record into visible proof",
     target: "Ward-specific achievement briefs for every ward, distributed where he is least known",
-    finding: "2.6", measure: "18.1", measureLabel: "R-03", serves: "3.1",
+    finding: "6.1", measure: "18.1", measureLabel: "R-03", serves: "9.1",
   },
   {
     n: "3", title: "A direct line to the voters the internet doesn't reach",
     target: `${fmt("target.sms")} consented SMS/USSD subscribers by 30 June 2027`,
-    finding: "2.9.3", measure: "18.1", measureLabel: "NW-03, R-04", serves: "3.3.2",
+    finding: "4.3", measure: "18.1", measureLabel: "NW-03, R-04", serves: "12.2",
   },
   {
     n: "4", title: "Give every post a voter, a ward and a reason",
     target: "Every briefed post coded with segment, ward and pillar",
-    finding: "2.3", measure: "18.1", measureLabel: "R-05", serves: "3.7",
+    finding: "12.6", measure: "18.1", measureLabel: "R-05", serves: "10.1",
   },
   {
     n: "5", title: "Hold the home base while Kitui Central runs its own race",
     target: "Reach and engagement in Kitui Central at or above the Week 1 baseline",
-    finding: "2.7.2", measure: "1.5.3", measureLabel: "Monthly report", serves: "3.3.1",
+    finding: "6.3", measure: "18.1", measureLabel: "Monthly report", serves: "12.1",
   },
 ];
 
@@ -78,8 +90,8 @@ export const FIG_1_3: FigureSpec = {
   section: "1.3",
   title: "Each of the five objectives answers one finding and is judged by one observable measure",
   question: "What are the five objectives, and what does each serve?",
-  takeaway: "No objective stands on its own: each starts from a finding in Section 2 and ends in an indicator in Section 18.1.",
-  sources: [{ name: "This plan, Sections 2 and 5.1", tier: null, state: "target" }],
+  takeaway: "No objective stands on its own: each starts from a finding in the data and ends in an indicator in “How success will be judged”.",
+  sources: [{ name: "This plan: the findings, and how success will be judged", tier: null, state: "target" }],
   chart: {
     type: "cards",
     columns: 3,
@@ -89,9 +101,9 @@ export const FIG_1_3: FigureSpec = {
       body: o.target,
       meta: `Target, set by this plan`,
       links: [
-        { label: `Finding ${o.finding}`, href: secHref(o.finding) },
-        { label: `Strategy ${o.serves}`, href: secHref(o.serves) },
-        { label: `Measure: ${o.measureLabel}`, href: secHref(o.measure) },
+        { label: `Finding: ${titleOf(o.finding)}`, href: hrefOf(o.finding) },
+        { label: `Strategy: ${titleOf(o.serves)}`, href: hrefOf(o.serves) },
+        { label: `Measure: ${o.measureLabel}`, href: hrefOf(o.measure) },
       ],
     })),
   },
@@ -102,7 +114,7 @@ export const FIG_1_3: FigureSpec = {
     { key: "strategy", label: "Strategy" },
     { key: "measure", label: "Measured by" },
   ],
-  rows: OBJECTIVES.map((o) => ({ cells: { objective: `${o.n}. ${o.title}`, target: o.target, finding: `Section ${o.finding}`, strategy: `Section ${o.serves}`, measure: o.measureLabel }, state: "target" as const })),
+  rows: OBJECTIVES.map((o) => ({ cells: { objective: `${o.n}. ${o.title}`, target: o.target, finding: titleOf(o.finding), strategy: titleOf(o.serves), measure: o.measureLabel }, state: "target" as const })),
 };
 
 /* ------------------------------------------------------------------ how the engagement runs */

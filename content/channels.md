@@ -7,31 +7,31 @@ The effort goes where he is least known, in the languages and on the channels th
 ## 12.1 Where the effort goes
 
 ```lead
-Because **{{pool.share}}% of the county register sits where he has never held office** (Section 6.2), output and targeting are weighted accordingly.
+Because **{{pool.share}}% of the county register sits where he has never held office** ([where he is known, and where not](/#known-sec-6-2)), output and targeting are weighted accordingly.
 ```
 
-Because **{{pool.share}}% of the county register sits where he has never held office** (Section 6.2), output and targeting are weighted accordingly. The campaign cannot rely on reach spilling over from Kitui Central.
+Because **{{pool.share}}% of the county register sits where he has never held office** ([where he is known, and where not](/#known-sec-6-2)), output and targeting are weighted accordingly. The campaign cannot rely on reach spilling over from Kitui Central.
 
 ```visual
 kind: stats
 items:
   - value: "{{effort.digital.pool}}%"
     label: "of Phase −1 digital reach effort, in the pool"
-    body: "**{{effort.digital.pool}}% of all Phase −1 digital reach effort (Meta, Google, YouTube)** is geofenced to Mwingi North, Mwingi Central, Mwingi West and Kitui South. The weighting is on output and targeting, and R-02 measures it (Section 18.3)."
+    body: "**{{effort.digital.pool}}% of all Phase −1 digital reach effort (Meta, Google, YouTube)** is geofenced to Mwingi North, Mwingi Central, Mwingi West and Kitui South. The weighting is on output and targeting, and R-02 measures it ([Recognition where he is least known](/#success-sec-18-3))."
   - value: "{{effort.sms.pool}}%"
     label: "of SMS/USSD onboarding, in the pool's 21 wards"
-    body: "**{{effort.sms.pool}}% of the offline SMS and USSD onboarding effort** (Section 15.3.3) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (a target of {{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement (Section 13.3)."
+    body: "**{{effort.sms.pool}}% of the offline SMS and USSD onboarding effort** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (a target of {{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement ([what is outside the scope](/#engagement-sec-13-3))."
 ```
 
 **What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Dr. Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
 
-**Where the voters are, and where the need is worst.** NDMA ranks Mwingi North first and Kitui South second of the eight sub-counties for food-insecurity severity, and Kitui Central eighth (July 2025, Tier 1; Section 3.2). Its hotspot wards in the three most severe sub-counties include Kyuso, Tseikuru and Athi, three of the twelve largest wards (Section 2.3). The county's own scorecard supplies part of the ward-level expenditure data this weighting needs: on its {{scorecard.itemised}} itemised projects the pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed expenditure against {{pool.share}}% of the register, so the pool as a whole was not passed over and the plan does not claim it was. The gap is Mwingi West, at KSh {{scorecard.mwingi-west.per-voter}} per registered voter against KSh {{scorecard.kitui-central.per-voter}} in Kitui Central (Section 3.7).
+**Where the voters are, and where the need is worst.** NDMA ranks Mwingi North first and Kitui South second of the eight sub-counties for food-insecurity severity, and Kitui Central eighth (July 2025, Tier 1; [Food, farming and drought](/#needs-sec-3-2)). Its hotspot wards in the three most severe sub-counties include Kyuso, Tseikuru and Athi, three of the twelve largest wards ([the twelve largest wards](/#votes-sec-2-3)). The county's own scorecard supplies part of the ward-level expenditure data this weighting needs: on its {{scorecard.itemised}} itemised projects the pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed expenditure against {{pool.share}}% of the register, so the pool as a whole was not passed over and the plan does not claim it was. The gap is Mwingi West, at KSh {{scorecard.mwingi-west.per-voter}} per registered voter against KSh {{scorecard.kitui-central.per-voter}} in Kitui Central ([how county money is spent](/#spend-sec-3-7)).
 
 ```lead
 **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead.
 ```
 
-**Coverage note.** The three zones of Section 1.2 total {{zones.population}} residents, **{{zones.share}}% of the county's {{census.population}}** (calculated from the 2019 census, Tier 1). They name 12 of the county's {{census.subcounties}} sub-counties; the remaining six, about {{zones.excluded}} residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the Section 1.2 regions and the IEBC register, and the weighting is restated when it is done.
+**Coverage note.** The three zones of [the land and its three regions](/#kitui-sec-1-2) total {{zones.population}} residents, **{{zones.share}}% of the county's {{census.population}}** (calculated from the 2019 census, Tier 1). They name 12 of the county's {{census.subcounties}} sub-counties; the remaining six, about {{zones.excluded}} residents, are in no zone. The weightings below therefore spread all of the communications effort across zones covering under four-fifths of the population. **Until the six are assigned, the Phase −1 weighting governs only the three zones, and the six unassigned sub-counties receive the rotating share alone.** Assigning them is a Week 2 task for the strategy lead, against the [the land and its three regions](/#kitui-sec-1-2) regions and the IEBC register, and the weighting is restated when it is done.
 
 *Effort and content allocation across zones, by phase:*
 
@@ -39,7 +39,7 @@ items:
 id: fig-4-2-effort
 ```
 
-Phase −1 deliberately puts more effort into Mwingi and the arid belt than their share of the population, on the working hypothesis that his gap is one of recognition, concentrated outside the home base (Section 7.1). If Week 1 refutes it, Section 12.7 sets out how the weighting changes. The weightings are reviewed monthly against the reach data (Section 18.3) and reallocated.
+Phase −1 deliberately puts more effort into Mwingi and the arid belt than their share of the population, on the working hypothesis that his gap is one of recognition, concentrated outside the home base ([what the evidence says](/#diagnosis-sec-7-1)). If Week 1 refutes it, [when the plan changes](/#week-sec-12-7) sets out how the weighting changes. The weightings are reviewed monthly against the reach data ([Recognition where he is least known](/#success-sec-18-3)) and reallocated.
 
 ## 12.2 Which channel does which job
 
@@ -47,7 +47,7 @@ Phase −1 deliberately puts more effort into Mwingi and the arid belt than thei
 The rebalancing target is the share of communications effort each domain should carry: {{channel.offline.rebalanced}}% offline and {{channel.digital.rebalanced}}% digital, re-read at each monthly review.
 ```
 
-Digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark even if every one of them voted for him (Section 4.3). So the weighting below is a **rebalancing target**: the direction of travel away from the conventional digital pitch, argued from reach. It sets the share of communications *effort* each domain should carry — production time, team attention, weekly output and channel priority — and so where the campaign's weight goes.
+Digital alone reaches about {{reach.smartphone}} voters at most, short of the {{benchmark}} benchmark even if every one of them voted for him ([what each channel can reach](/#news-sec-4-3)). So the weighting below is a **rebalancing target**: the direction of travel away from the conventional digital pitch, argued from reach. It sets the share of communications *effort* each domain should carry — production time, team attention, weekly output and channel priority — and so where the campaign's weight goes.
 
 ```figure
 id: fig-4-6-channel-shift
@@ -65,11 +65,11 @@ items:
 
 **The reach behind the weighting** is set out channel by channel, with its bases, in How voters get news.
 
-**The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at {{ict.internet.2019}}% of residents (the 2019 census rate). On the 2023/24 rate of {{ict.internet}}% digital still reaches at most {{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark (Section 4.3), so the case for an offline-led mix is unchanged. The split is re-read at each monthly review against the reach data (confirmed by Firefly, September 2026).
+**The {{channel.offline.rebalanced}}/{{channel.digital.rebalanced}} weighting stands on the 2023/24 rate.** It was first set when digital reach was put at {{ict.internet.2019}}% of residents (the 2019 census rate). On the 2023/24 rate of {{ict.internet}}% digital still reaches at most {{reach.smartphone}} voters, {{reach.smartphone.short}} short of the {{benchmark}} benchmark ([what each channel can reach](/#news-sec-4-3)), so the case for an offline-led mix is unchanged. The split is re-read at each monthly review against the reach data (confirmed by Firefly, September 2026).
 
 ## 12.3 The radio gatekeepers
 
-The stations with the widest Kikamba reach are politically aligned (Section 4.2), and that creates three hazards for the campaign:
+The stations with the widest Kikamba reach are politically aligned ([who owns the airwaves](/#news-sec-4-2)), and that creates three hazards for the campaign:
 
 ```visual
 kind: cards
@@ -83,7 +83,7 @@ items:
     text: "Politically aligned stations refuse prime morning slots to campaigns they do not favour, or offer them on worse terms."
 ```
 
-The routes around these stations are in Section 15.2.2.
+The routes around these stations are in [Earned media, journalists and debates](/#workstreams-sec-15-2-2).
 
 ## 12.4 Which language reaches which voters
 
@@ -100,7 +100,7 @@ id: language-map
 ```
 
 <!-- keep -->
-**Which number governs.** The shares in the language map describe who speaks what (Tier 3, an estimate); the target for what the campaign publishes is the 50 / 30 / 20 content mix below. Bulk SMS carries Kiswahili and English only, by law (Section 15.3.3), and the weekly rule of at least four Kikamba-first posts in seven (Section 12.6) sits above the 50% floor.
+**Which number governs.** The shares in the language map describe who speaks what (Tier 3, an estimate); the target for what the campaign publishes is the 50 / 30 / 20 content mix below. Bulk SMS carries Kiswahili and English only, by law ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)), and the weekly rule of at least four Kikamba-first posts in seven ([A week of publishing, before and after](/#week-sec-12-6)) sits above the 50% floor.
 
 Language is central to trust in Kitui.
 
@@ -108,7 +108,7 @@ Language is central to trust in Kitui.
 * **Kiswahili** — broader reach, urban and younger audiences, national framing
 * **English** — policy depth, professional audiences, national media
 
-**One channel consequence.** Bulk political SMS cannot be sent in Kikamba (Section 15.3.3), so Kikamba travels by radio, WhatsApp voice notes, USSD menu text, barazas and in person, and SMS carries the Kiswahili and English versions of the same message.
+**One channel consequence.** Bulk political SMS cannot be sent in Kikamba ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)), so Kikamba travels by radio, WhatsApp voice notes, USSD menu text, barazas and in person, and SMS carries the Kiswahili and English versions of the same message.
 
 ```visual
 kind: donut
@@ -116,7 +116,7 @@ title: "Content mix for locally facing platforms"
 items:
   - label: "Kikamba"
     value: "50%"
-    body: "WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** (§15.3.3)"
+    body: "WhatsApp, TikTok, Facebook grassroots, voice notes, radio, USSD — **not bulk SMS** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3))"
   - label: "Kiswahili"
     value: "30%"
     body: "General social, national reach, SMS"
@@ -201,7 +201,7 @@ items:
     body: "* Reels and Stories for daily relevance\n* Infographics summarising budget priorities and development plans\n* Question and quiz stickers for younger voters"
   - title: "YouTube"
     text: "Long-form policy speeches, town halls and documentary-style Kitui stories"
-    body: "* Search-optimised videos answering \"What does the Kitui Governor do?\" and \"Kitui development 2027\"\n* **Monthly \"Kitui Economic Brief\"** reviewing county budget execution\n* **Home for full sign-language-interpreted versions** (Section 15.1.4)"
+    body: "* Search-optimised videos answering \"What does the Kitui Governor do?\" and \"Kitui development 2027\"\n* **Monthly \"Kitui Economic Brief\"** reviewing county budget execution\n* **Home for full sign-language-interpreted versions** ([Accessibility and inclusion](/#workstreams-sec-15-1-4))"
   - title: "Google Ads"
     text: "Search ads on the candidate's name and related terms"
     body: "* Display on Kenyan news sites and local blogs\n* Location targeting to Kitui County and Nairobi diaspora areas\n* **Sample search ad:** *\"Dr. Makali Mulu for Kitui Governor | Economist. Evaluator. Reformer. | Read the plan for your ward.\"*"

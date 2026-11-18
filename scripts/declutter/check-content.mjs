@@ -154,6 +154,9 @@ function capitalisedNames(text) {
     if (SENTENCE_START.test(clean.slice(Math.max(0, at - 4), at))) continue;
     out.add(m[0].replace(/['’]s$/, ""));
   }
+  // "Section", "Chapter" and "Annex" introduce a reference, not a fact: since the pre-launch pass
+  // (docs/prelaunch-2026-11) a home names the heading it points to instead of its number.
+  for (const w of ["Section", "Sections", "Chapter", "Chapters", "Annex", "Annexes"]) out.delete(w);
   return [...out];
 }
 function homeText(home) {

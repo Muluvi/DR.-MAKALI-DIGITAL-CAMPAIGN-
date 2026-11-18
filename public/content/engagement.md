@@ -10,14 +10,14 @@
 Your team works in three steps on the platform, and keeps publishing throughout: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4.
 ```
 
-Your team works in three steps on the platform, and keeps publishing throughout: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4. Section 18.5 specifies what Week 1 measures, and Section 12.7 what would change the strategy.
+Your team works in three steps on the platform, and keeps publishing throughout: analyse in Week 1, strategise in Weeks 2–3, and direct from Week 4. [How the presence audit works](/#success-sec-18-5) specifies what Week 1 measures, and [when the plan changes](/#week-sec-12-7) what would change the strategy.
 
 ```figure
 id: fig-1-4-flow
 ```
 
 ```visual
-{"kind":"stepper","items":[{"label":"Analyse (Week 1)","text":"Your team audits his channels against the race in the channel audit:","body":"ninety days of reach, engagement, language and geography (Section 18.5)."},{"label":"Strategise (Weeks 2–3)","body":"From that audit, your team defines what to post, for whom, in which language, on which channel, and why (Part III)."},{"label":"Direct (Week 4 on)","text":"His team keeps publishing.","body":"Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards (Section 13.4)."}]}
+{"kind":"stepper","items":[{"label":"Analyse (Week 1)","text":"Your team audits his channels against the race in the channel audit:","body":"ninety days of reach, engagement, language and geography ([how the presence audit works](/#success-sec-18-5))."},{"label":"Strategise (Weeks 2–3)","body":"From that audit, your team defines what to post, for whom, in which language, on which channel, and why (Part III)."},{"label":"Direct (Week 4 on)","text":"His team keeps publishing.","body":"Your team issues the weekly brief, approves the calendar and reviews performance on the platform's dashboards ([the weekly rhythm and approvals](/#week-sec-13-4))."}]}
 ```
 
 Firefly is a **Kenya-based media and consulting company**, and it made, owns and runs this platform. This plan deliberately claims no named clients or case studies; its proof is the specificity of the analysis in Parts I and II, the operating model, the governance and the measurable deliverables set out here.
@@ -45,14 +45,14 @@ Firefly is a **Kenya-based media and consulting company**, and it made, owns and
 *   **Two are not this operation's to touch** — volunteer organising, and the technology stack
     Dr. Mulu already holds. Firefly's part is the platform beneath all fourteen.
 
-The figure below names the owner against each of the fourteen; Section 13.3 states what is outside scope. Commercial terms are settled separately and appear nowhere in this document.
+The figure below names the owner against each of the fourteen; [what is outside the scope](/#engagement-sec-13-3) states what is outside scope. Commercial terms are settled separately and appear nowhere in this document.
 
 ```figure
 id: fig-5-1-workstreams
 ```
 
 ```visual
-{"kind":"cards","items":[{"title":"Workstream 9 is the one your team now operates and the one that decides the race.","text":"(Section 4.3) Every other workstream is built on the assumption that this one works."},{"title":"Workstream 14 is the one that makes the rest legible.","text":"Without it the other thirteen are activity. It is listed fourteenth because that is where the numbering put it; it is read first, in Week 1 (Section 14.1)."}]}
+{"kind":"cards","items":[{"title":"Workstream 9 is the one your team now operates and the one that decides the race.","text":"([what each channel can reach](/#news-sec-4-3)) Every other workstream is built on the assumption that this one works."},{"title":"Workstream 14 is the one that makes the rest legible.","text":"Without it the other thirteen are activity. It is listed fourteenth because that is where the numbering put it; it is read first, in Week 1 ([the first four weeks](/#timeline-sec-14-1))."}]}
 ```
 
 #### Who does what, in one table
@@ -82,7 +82,7 @@ R responsible · A accountable · C consulted · I informed.
 Stated as plainly as what is inside, because a boundary a plan will not draw is a boundary the campaign discovers later:
 
 ```visual
-{"kind":"inout","out":[{"label":"Publishing to Dr. Mulu's owned accounts","text":"Firefly runs the platform; your team briefs, approves and measures on it.","body":"Firefly does not post, and does not hold credentials. The offline layer in §15.3.3 is your team's to operate end to end."},{"label":"Replacing or restaffing the existing team","text":"Section 17.5 sets out how the team assesses and upskills itself on the platform.","body":"Where a capability gap cannot be closed by upskilling, the team names the gap and the campaign decides — Firefly does not propose itself for the role."},{"label":"Volunteer organising","text":"recruitment, tiers, gamification and ward-champion management (Workstream 10).","body":"The team defines the metrics the leaderboard reports, in the platform's indicator list."},{"label":"The existing technology estate","body":"accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."},{"label":"Physical event logistics","text":"staging, PA systems, tents, transport and fuel.","body":"Section 17.1 names these as subcontracted vendor classes managed by the campaign."},{"label":"Legal representation","text":"election petitions, litigation, and the data-protection and electoral-law review itself.","body":"Section 19.2 has the campaign appoint that reviewer; the team and Firefly's platform work to their sign-off rather than substituting for it."},{"label":"Candidate scheduling","text":"tour management, diary and constituency office operations."},{"label":"Party-level negotiation","text":"with Wiper Patriotic Front organs, branch committees and the national executive."},{"label":"Polling agent recruitment, accreditation and payment","text":"The team tracks indicator GE-03 on the platform's KPI tracker;","body":"the campaign supplies and accredits the agents."},{"label":"Campaign-owned field recommendations","body":"The ward-captain network (240 of 400 captains recommended for the pool's wards, Section 12.1), the 800 M-Pesa \"Economic Ambassadors\", the 1,200 boda-boda Stage Champions (a target, Section 15.3.1), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans (Section 4.4). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."}]}
+{"kind":"inout","out":[{"label":"Publishing to Dr. Mulu's owned accounts","text":"Firefly runs the platform; your team briefs, approves and measures on it.","body":"Firefly does not post, and does not hold credentials. The offline layer in [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) is your team's to operate end to end."},{"label":"Replacing or restaffing the existing team","text":"[Assessing and upskilling the team](/#engagement-sec-17-5) sets out how the team assesses and upskills itself on the platform.","body":"Where a capability gap cannot be closed by upskilling, the team names the gap and the campaign decides — Firefly does not propose itself for the role."},{"label":"Volunteer organising","text":"recruitment, tiers, gamification and ward-champion management (Workstream 10).","body":"The team defines the metrics the leaderboard reports, in the platform's indicator list."},{"label":"The existing technology estate","body":"accounts, hosting, devices and the tooling already in use (Workstream 13, in part). Procuring a stack the campaign already has is not a service."},{"label":"Physical event logistics","text":"staging, PA systems, tents, transport and fuel.","body":"[Three teams, and how they fit](/#engagement-sec-17-1) names these as subcontracted vendor classes managed by the campaign."},{"label":"Legal representation","text":"election petitions, litigation, and the data-protection and electoral-law review itself.","body":"[The Data Protection Act and the regulator](/#lawful-sec-19-2) has the campaign appoint that reviewer; the team and Firefly's platform work to their sign-off rather than substituting for it."},{"label":"Candidate scheduling","text":"tour management, diary and constituency office operations."},{"label":"Party-level negotiation","text":"with Wiper Patriotic Front organs, branch committees and the national executive."},{"label":"Polling agent recruitment, accreditation and payment","text":"The team tracks indicator GE-03 on the platform's KPI tracker;","body":"the campaign supplies and accredits the agents."},{"label":"Campaign-owned field recommendations","body":"The ward-captain network (240 of 400 captains recommended for the pool's wards, [where the effort goes](/#channels-sec-12-1)), the 800 M-Pesa \"Economic Ambassadors\", the 1,200 boda-boda Stage Champions (a target, [Ground-digital integration](/#workstreams-sec-15-3-1)), radio studio bookings and sponsored outside broadcasts, and the market-day sound-truck caravans ([reaching the offline majority](/#news-sec-4-4)). Each appears in this document as a recommendation to the campaign. The team writes the brief each one carries; the campaign recruits, pays and runs them."}]}
 ```
 
 ## 17 The campaign team
@@ -107,15 +107,15 @@ id: org-chart
     chart above. Four roles. The platform serves it and replaces no part of it.
 *   **Dr. Mulu's existing digital team** — the people producing and publishing the daily record
     today, led by the campaign's **Digital Director**. This engagement adds a brief to their week. It does not add a manager to their line.
-*   **The strategy core** — strategy, analysis and the offline layer: three campaign roles at Standard and Premium, two at Lean with the offline-layer operator part-activated (Section 21.1). Firefly runs the platform beneath all three cores.
+*   **The strategy core** — strategy, analysis and the offline layer: three campaign roles at Standard and Premium, two at Lean with the offline-layer operator part-activated ([the three scope levels, compared](/#receives-sec-21-1)). Firefly runs the platform beneath all three cores.
 
 ```figure
 id: fig-5-9-team
 ```
 
-Where this chapter says "four-person core" it means the campaign's command; where Section 21.1 says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in Section 15.4.4 is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in Section 8.2) are the campaign's to appoint.
+Where this chapter says "four-person core" it means the campaign's command; where [the three scope levels, compared](/#receives-sec-21-1) says "3-person core" it means the strategy core; "your team" means the one already in post. The **Digital Director** named in [Analytics and attribution](/#workstreams-sec-15-4-4) is the head of that team, a campaign role. Other campaign-side roles named in this plan (for example the owners of the objectives in [five objectives](/#goal-sec-8-2)) are the campaign's to appoint.
 
-*Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as Section 21.1 states.*
+*Corrected: earlier versions said the three-person strategy core, then Firefly's, is named at every level; at Lean it is two people and a part-activated operator, as [the three scope levels, compared](/#receives-sec-21-1) states.*
 
 What the arrangement buys, stated without the usual claims about bloat:
 
@@ -136,17 +136,17 @@ stated plainly because a campaign is entitled to know exactly who is doing the
 work. A plan claiming a large standing department it does not have will
 fail on the first question about it.
 
-The structure below scales with the service level selected in Section 21.1.
+The structure below scales with the service level selected in [the three scope levels, compared](/#receives-sec-21-1).
 
 ## 17.2 The strategy core, and Firefly's part
 
 The core is retained throughout the campaign. **What this section covers, and what it does not.** The three roles below are **the campaign's** — the
-people who run the strategy on the platform. Firefly runs the platform itself: hosting, deployment, upkeep, the data checks and new features. Section 17.4 sets out the **campaign's own** leadership structure,
-which Firefly reports platform matters into and does not staff. Section 17.5 sets out how Dr. Mulu's existing
+people who run the strategy on the platform. Firefly runs the platform itself: hosting, deployment, upkeep, the data checks and new features. [Leadership, reporting lines and local roles](/#engagement-sec-17-4) sets out the **campaign's own** leadership structure,
+which Firefly reports platform matters into and does not staff. [Assessing and upskilling the team](/#engagement-sec-17-5) sets out how Dr. Mulu's existing
 digital team is assessed and upskilled — that team is neither staffed nor replaced by this
-engagement. Section 18.1's KPI owners are campaign-side roles, and they enter their numbers on the platform.
+engagement. [How success will be judged](/#success-sec-18-1)'s KPI owners are campaign-side roles, and they enter their numbers on the platform.
 
-**The data-governance owner** (Section 15.4.4) is one named role, accountable in writing. For the presence audit's scope it is the Analyst. Across the campaign's data it is the Digital Director at Lean, and the Data Analyst / Modeller from Standard (Section 17.3).
+**The data-governance owner** ([Analytics and attribution](/#workstreams-sec-15-4-4)) is one named role, accountable in writing. For the presence audit's scope it is the Analyst. Across the campaign's data it is the Digital Director at Lean, and the Data Analyst / Modeller from Standard ([Surge roles](/#engagement-sec-17-3)).
 
 ```visual
 {"kind":"cards","preset":"role","items":[{"title":"**Strategy Director** (campaign role)","text":"Owns the analysis, the strategy and the weekly brief; the relationship with the campaign counterpart","fields":[{"label":"Decision rights","text":"Approves new policy claims and Kikamba output before your team publishes. **Does not publish, and holds no account credentials**"}]},{"title":"**Analyst**","text":"Owns the presence audit, the measurement cycle, attribution and the weekly read; named **data-governance owner** for the audit scope","fields":[{"label":"Decision rights","text":"Sets the indicators and the reporting in the KPI tracker; flags a brief that the data does not support"}]},{"title":"**Offline-layer Operator**","text":"Runs the SMS, USSD and WhatsApp Business API dispatch; consent ledger; **compliance logging for IEBC returns**","fields":[{"label":"Decision rights","text":"Executes the approved weighting; logs every send in the dispatch log; dispatches nothing outside the consented list"}]}]}
@@ -163,10 +163,10 @@ Surge roles are activated by phase and scope level.
 <!-- keep -->
 | Role | Activated | Function |
 |---|---|---|
-| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** (Section 15.4.4) |
+| **Data Analyst / Modeller** | Phase 1 onward (standard and premium levels) | Predictive scoring, field-digital integration, attribution modelling. **Named data-governance owner** ([Analytics and attribution](/#workstreams-sec-15-4-4)) |
 | **Kikamba Reviewer (native speaker)** | Week 1 onward — **mandatory at all levels** | Proverb and idiom verification, cultural register review. No Kikamba content publishes without this review. Your team produces; this role signs off |
-| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme (Section 15.3.4); ward champion training and reporting |
-| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement (Section 15.2.2) |
+| **Volunteer & Ward Champion Coordinator** | Phase 1 onward | Tiered volunteer programme ([Digital organising and volunteers](/#workstreams-sec-15-3-4)); ward champion training and reporting |
+| **Earned Media / Press Officer** | Phase −1 onward (standard and premium levels) | Journalist relationships, debate clipping, radio placement ([Earned media, journalists and debates](/#workstreams-sec-15-2-2)) |
 
 **Community management and video editing are not on this list, and that is deliberate.** Both are
 roles your team already fills. Adding them here would have been the plan selling back capability the
@@ -187,7 +187,7 @@ reason the county-facing half of this operation will sound like the county.
 id: role-ownership
 ```
 
-**Reporting lines.** The weekly brief is the interface between the strategy core and the publishing team. The strategy director reports to one named person in the campaign, not to a committee, and briefs one named lead on the publishing team (Section 17.1, point 1). Firefly reports platform matters to the same person.
+**Reporting lines.** The weekly brief is the interface between the strategy core and the publishing team. The strategy director reports to one named person in the campaign, not to a committee, and briefs one named lead on the publishing team ([three teams, and how they fit](/#engagement-sec-17-1), point 1). Firefly reports platform matters to the same person.
 
 ```figure
 id: reporting-lines
@@ -198,7 +198,7 @@ id: reporting-lines
 **The team assesses itself on the platform. Firefly replaces no one.**
 
 ```visual
-{"kind":"timeline","items":[{"when":"Week 1","label":"the capability map, not an appraisal","body":"Four axes, scored 1–4, with each person in the room while it is scored: platform mechanics, Kikamba fluency and cultural register, measurement literacy, and response speed under pressure. The map goes to Dr. Mulu and to the team at the same time. Nobody is graded in private."},{"when":"Week 2","label":"one written standard","body":"The brief template, the caption pattern, the commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from Section 15.1.4. Six pages. It belongs to the team from the day it is written."},{"when":"Weeks 3–8","label":"pairing, not training","body":"The strategy director and the team write the first three briefs together in the workspace. Then the director writes and the team marks it up. Then the team drafts and the director reviews."},{"when":"Month 3","label":"the handover of the pen","body":"The whole team writes the weekly brief; the strategy director reviews and challenges it. That is the success measure, and it is stated here so it can be held against us. A platform that makes an outsider permanently necessary has failed at the part that mattered."}]}
+{"kind":"timeline","items":[{"when":"Week 1","label":"the capability map, not an appraisal","body":"Four axes, scored 1–4, with each person in the room while it is scored: platform mechanics, Kikamba fluency and cultural register, measurement literacy, and response speed under pressure. The map goes to Dr. Mulu and to the team at the same time. Nobody is graded in private."},{"when":"Week 2","label":"one written standard","body":"The brief template, the caption pattern, the commitment-and-date rule, the language rule, the escalation line, and the accessibility floor from [Accessibility and inclusion](/#workstreams-sec-15-1-4). Six pages. It belongs to the team from the day it is written."},{"when":"Weeks 3–8","label":"pairing, not training","body":"The strategy director and the team write the first three briefs together in the workspace. Then the director writes and the team marks it up. Then the team drafts and the director reviews."},{"when":"Month 3","label":"the handover of the pen","body":"The whole team writes the weekly brief; the strategy director reviews and challenges it. That is the success measure, and it is stated here so it can be held against us. A platform that makes an outsider permanently necessary has failed at the part that mattered."}]}
 ```
 
 **Where a gap cannot be closed by upskilling** — no native Kikamba producer, nobody who can cut

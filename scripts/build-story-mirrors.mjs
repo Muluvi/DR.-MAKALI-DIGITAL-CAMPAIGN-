@@ -40,7 +40,10 @@ const roles = rhead.slice(1).map(plain);
 const raci = { roles, rows: rrows.map(([a, ...cells]) => ({ activity: plain(a), cells: cells.map(plain) })) };
 
 const deliverables = tableAfter(read("receives.md"), "## 21.2 ").slice(1).map(([d, cadence, by, form, where]) => ({
-  deliverable: plain(d), cadence: plain(cadence), by: plain(by), form: plain(form), where: plain(where),
+  deliverable: plain(d), cadence: plain(cadence), by: plain(by), form: plain(form),
+  // The column links the headings that set each row: their words, and the first one's id.
+  where: plain(where).replace(/\[([^\]]+)\]\([^)]*\)/g, "$1"),
+  whereId: /\]\(\/#([^)]+)\)/.exec(where)?.[1] ?? null,
 }));
 
 // The fourteen workstreams, from their headings, with the group each belongs to.

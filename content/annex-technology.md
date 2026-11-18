@@ -6,7 +6,7 @@ The technology stack must bridge the gap between the war room and offline rural 
 
 A data-driven campaign needs reliable and compliant technical infrastructure. The technology stack must bridge the gap between the war room and offline rural wards, while adhering to Kenya's **Data Protection Act (DPA) 2019** and cybersecurity best practice.
 
-This section specifies the five core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Service-Delivery Tracker** (Section 15.1.1).
+This section specifies the five core software components of the campaign: the **SMS/USSD Telecommunications Gateway**, the **Supporter CRM & Voter Database**, **Social Media Publishing & Social Listening Systems**, **Analytics & Business Intelligence Dashboard**, and the **Service-Delivery Tracker** ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)).
 
 *Source conflict: an earlier version said six core components; it listed five, and five is the verified count.*
 
@@ -86,7 +86,7 @@ kind: checklist
 title: "Data sources"
 items:
   - label: "IEBC Voter Register"
-    text: "name, gender, age bracket, polling station, ward, constituency — **subject to lawful access and the Section 19.2 gate**."
+    text: "name, gender, age bracket, polling station, ward, constituency — **subject to lawful access and the [the Data Protection Act and the regulator](/#lawful-sec-19-2) gate**."
     body: "The IEBC does not publish individual turnout history, and none is assumed."
   - label: "KNBS Census and county statistics"
     body: "demographics, education, household characteristics and economic activity, at the finest unit KNBS publishes (which for several measures is the sub-county, not the ward)"
@@ -95,13 +95,13 @@ items:
   - label: "Campaign first-party data"
     text: "interactions with campaign content, WhatsApp membership, **SMS/USSD opt-ins**, volunteer sign-ups — all consent-based"
   - label: "Field contact log"
-    text: "(Section 15.3.2): whether a household was reached, opted in, or asked not to be contacted — contactability, never voting intention"
+    text: "([the field-to-digital loop](/#workstreams-sec-15-3-2)): whether a household was reached, opted in, or asked not to be contacted — contactability, never voting intention"
 ```
 
 **Explicitly excluded:** purchased third-party contact lists, scraped number
 databases, and any inferred psychographic or personality attributes. Vendors
 openly market bulk Kenyan mobile-number databases; the campaign will not buy
-them. See Section 19.3.
+them. See [the Digital Ethics and Data Charter](/#lawful-sec-19-3).
 
 #### Model variables
 
@@ -128,7 +128,7 @@ them. See Section 19.3.
 | `sms_optin_status` | **Consented to SMS contact** | Campaign | Binary | 0/1 |
 | `whatsapp_group_member` | Campaign group member | Campaign | Binary | 0/1 |
 | `volunteer_status` | Sign-up status | Campaign | Categorical | None/Inactive/Active |
-| `field_contact_outcome` | **Doorstep contact result (Section 15.3.2)** | Field team | Categorical | Opted in/Reached, no opt-in/Do not contact/No one home |
+| `field_contact_outcome` | **Doorstep contact result ([the field-to-digital loop](/#workstreams-sec-15-3-2))** | Field team | Categorical | Opted in/Reached, no opt-in/Do not contact/No one home |
 | `support_score` | Predicted Wiper support at the station (output) | Model | Continuous | 0–1 |
 | `turnout_score` | Predicted turnout (output) | Model | Continuous | 0–1 |
 
