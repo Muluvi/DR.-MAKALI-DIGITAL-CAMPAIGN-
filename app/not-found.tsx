@@ -15,7 +15,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-accent text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity"
+          className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity"
         >
           Return to Strategy Portal
         </Link>

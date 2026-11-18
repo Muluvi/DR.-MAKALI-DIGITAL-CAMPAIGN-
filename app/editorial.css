@@ -1,0 +1,1806 @@
+
+/* ==========================================================================================
+ * register
+ * The figure register's visual system (formerly app/register.css).
+ * ========================================================================================== */
+/*
+ * The figure register's visual system (brief §E): chart roles as tokens, the three data states,
+ * the tier pills, and the figure grammar. Every colour below was run through the dataviz
+ * validator in both themes (docs/rebuild/RECON.md §2.1 has the results).
+ *
+ * Roles:
+ *   --accent / --accent-solid   Dr. Mulu. Used for him and nothing else.
+ *   --rival / --rival-solid     every other candidate, one neutral family.
+ *   --zone-a/-b/-c              the three regions: orange, aqua, violet. Passes all-pairs CVD in
+ *                               both modes; tiles always carry a text label as relief.
+ *   --seq-1 … --seq-5           one teal hue, light to dark, for magnitude (register size, effort).
+ *   --div-neg / --div-mid       below and at a reference (deviation from 200,000).
+ *   --state-*                   sourced (solid), modelled (hatched), needed (dashed, empty).
+ */
+:root {
+  --zone-a: #eb6834;
+  --zone-b: #1baf7a;
+  --zone-c: #4a3aa7;
+  --seq-1: #86bcb7;
+  --seq-2: #5f9f9a;
+  --seq-3: #3a7772; /* was #428580: 4.28:1 under white; now 5.17:1 */
+  --seq-4: #2b6a65;
+  --seq-5: #1a4c48;
+  --seq-ink-light: #0b1f1d;
+  --seq-ink-dark: #ffffff;
+  --div-neg: #c2410c;
+  --div-mid: #d6d3cd;
+  --neutral-fill: oklch(0.80 0.012 250);
+  --neutral-strong: oklch(0.55 0.02 250);
+  --ref-line: oklch(0.30 0.03 250);
+  --hatch-ink: oklch(0.45 0.03 250);
+  /* The four production pillars (Section 4.5): validated as a categorical set, labels always printed. */
+  --pillar-1: #eda100;
+  --pillar-2: #e87ba4;
+  --pillar-3: #008300;
+  --pillar-4: #4a3aa7;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #2a0716;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #ffffff;
+}
+.dark {
+  --zone-a: #d95926;
+  --zone-b: #199e70;
+  --zone-c: #9085e9;
+  --seq-1: #2f5f5b;
+  --seq-2: #3f7b77;
+  --seq-3: #5aa39d;
+  --seq-4: #86c4be;
+  --seq-5: #b7e0db;
+  --seq-ink-light: #ffffff;
+  --seq-ink-dark: #0b1f1d;
+  --div-neg: #f07b45;
+  --div-mid: #4a4845;
+  --neutral-fill: oklch(0.38 0.015 250);
+  --neutral-strong: oklch(0.62 0.02 250);
+  --ref-line: oklch(0.88 0.02 250);
+  --hatch-ink: oklch(0.72 0.02 250);
+  --pillar-1: #c98500;
+  --pillar-2: #d55181;
+  --pillar-3: #008300;
+  --pillar-4: #9085e9;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #1f0410;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #0e0a2a;
+}
+
+/* ------------------------------------------------------------------ the frame */
+.rf { margin: 1.5rem 0; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); overflow: hidden; break-inside: avoid; }
+.rf-head { padding: 1rem 1rem 0; }
+.rf-title { font-family: var(--font-newsreader, Georgia), serif; font-weight: 700; font-size: 1.0625rem; line-height: 1.3; color: var(--ink); text-wrap: balance; margin: 0; }
+.rf-question { margin: 0.25rem 0 0; font-size: 0.8125rem; line-height: 1.4; color: var(--muted); }
+.rf-body { padding: 1rem; }
+.rf-notes { margin: 0.5rem 0 0; font-size: 0.75rem; color: var(--muted); }
+.rf-takeaway { margin: 0; padding: 0.75rem 1rem; border-top: 1px solid var(--line); font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.rf-foot { padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--line); background: color-mix(in oklab, var(--paper) 55%, transparent); font-size: 0.75rem; color: var(--muted); }
+.rf-source { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; margin: 0; }
+.rf-details { margin-top: 0.5rem; }
+.rf-details > summary { cursor: pointer; font-weight: 600; color: var(--accent); min-height: 1.5rem; display: inline-flex; align-items: center; }
+.rf-details > summary:focus-visible, .rf-csv:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 0.25rem; }
+.rf-table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 0.25rem; }
+.rf-table-wrap { margin-top: 0.5rem; overflow-x: auto; }
+.rf-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.rf-table th, .rf-table td { padding: 0.5rem 0.5rem 0.5rem 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); text-align: left; vertical-align: top; color: var(--ink); min-width: 3.25rem; }
+.rf-table thead th { color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--card); }
+.rf-table .num { text-align: right; }
+.rf-table tbody th { font-weight: 500; }
+/* Narrow screens: each row becomes a card of label/value pairs (brief §Q, tables), so a 360px
+   reader never scrolls a table sideways. The labels come from each cell's data-col. */
+@media (max-width: 30rem) {
+  .rf-table:not(.is-long) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .rf-table:not(.is-long), .rf-table:not(.is-long) tbody, .rf-table:not(.is-long) tr { display: block; }
+  .rf-table:not(.is-long) tr { padding: 0.5rem 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); }
+  .rf-table:not(.is-long) tbody th, .rf-table:not(.is-long) td { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem; border: 0; padding: 0.125rem 0; }
+  .rf-table:not(.is-long) tbody th { font-weight: 700; display: block; padding-bottom: 0.25rem; }
+  .rf-table:not(.is-long) td::before { content: attr(data-col); color: var(--muted); font-weight: 600; }
+  .rf-table:not(.is-long) td.num { text-align: left; }
+  /* A long table scrolls sideways inside its frame, first column pinned. */
+  .rf-table.is-long { min-width: 32rem; }
+  .rf-table.is-long tbody th { position: sticky; left: 0; background: var(--card); z-index: 1; }
+}
+.rf-csv { display: inline-flex; align-items: center; min-height: 1.5rem; margin-top: 0.5rem; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+.rf-csv .rf-csv-file { display: none; margin-left: 0.25rem; font-weight: 400; color: var(--muted); text-decoration: none; }
+.rf-csv:focus-visible .rf-csv-file, .rf-csv:hover .rf-csv-file { display: inline; }
+.rf-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.rf-svg text { font-family: inherit; fill: var(--ink); }
+.rf-svg .muted { fill: var(--muted); }
+@media (min-width: 640px) {
+  .rf-head { padding: 1.25rem 1.25rem 0; }
+  .rf-body { padding: 1.25rem; }
+  .rf-takeaway, .rf-foot { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* ------------------------------------------------------------------ tier pills, by shape */
+.tp { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.5rem; min-height: 1.25rem; border-radius: 62.4375rem; font-size: 0.6875rem; font-weight: 700; line-height: 1; white-space: nowrap; border: 1.5px solid var(--ink); color: var(--ink); }
+.tp-T1 { background: var(--ink); color: var(--card); }
+.tp-T2 { background: transparent; border-style: solid; }
+.tp-T3 { background: transparent; border-style: dashed; }
+.tp-modelled { background-image: repeating-linear-gradient(45deg, transparent 0 3px, color-mix(in oklab, var(--ink) 22%, transparent) 3px 4.5px); }
+.tp-needed { border-style: dashed; color: var(--muted); border-color: var(--muted); }
+.tp-target { border-style: dotted; }
+
+/* ------------------------------------------------------------------ html marks */
+.rb-label { display: flex; justify-content: space-between; gap: 0.75rem; font-size: 0.8125rem; line-height: 1.3; color: var(--ink); }
+.rb-label .v { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.rb-note { font-size: 0.6875rem; color: var(--muted); }
+
+.rm-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+.rm-table th, .rm-table td { border: 1px solid var(--line); padding: 0.5rem; vertical-align: top; text-align: left; color: var(--ink); }
+.rm-table thead th { background: color-mix(in oklab, var(--paper) 60%, var(--card)); font-weight: 700; }
+.rm-table tbody th { font-weight: 700; background: color-mix(in oklab, var(--paper) 30%, var(--card)); }
+.rm-table tr:hover td, .rm-table tr:focus-within td { background: color-mix(in oklab, var(--accent) 6%, transparent); }
+.rm-scroll { overflow-x: auto; }
+@media (max-width: 639px) {
+  .rm-table.is-cards thead { display: none; }
+  .rm-table.is-cards, .rm-table.is-cards tbody, .rm-table.is-cards tr, .rm-table.is-cards th, .rm-table.is-cards td { display: block; width: 100%; }
+  .rm-table.is-cards tr { border: 1px solid var(--line); border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; }
+  .rm-table.is-cards th, .rm-table.is-cards td { border: 0; border-bottom: 1px solid color-mix(in oklab, var(--line) 60%, transparent); }
+  .rm-table.is-cards td::before { content: attr(data-col); display: block; font-size: 0.6875rem; font-weight: 700; color: var(--muted); }
+}
+
+/* ------------------------------------------------------------------ the tile map */
+.tm { display: grid; gap: 1rem; }
+@media (min-width: 720px) { .tm.is-wide { grid-template-columns: minmax(0, 20rem) 1fr; align-items: start; } }
+.tm-layers { display: flex; flex-wrap: wrap; gap: 0.25rem; border: 0; padding: 0; margin: 0 0 0.75rem; }
+.tm-layers legend { font-size: 0.6875rem; font-weight: 700; color: var(--muted); margin-bottom: 0.25rem; width: 100%; }
+.tm-layers label { display: inline-flex; align-items: center; min-height: 2rem; padding: 0 0.75rem; border: 1px solid var(--line); border-radius: 62.4375rem; font-size: 0.75rem; cursor: pointer; color: var(--ink); background: var(--card); }
+.tm-layers input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.tm-layers input:checked + span { font-weight: 700; }
+.tm-layers label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.tm-layers label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tm-tile rect { stroke: var(--card); stroke-width: 2; }
+.tm-tile .tm-hatch { pointer-events: none; }
+.tm-tile text { font-size: 0.46875rem; pointer-events: none; }
+.tm-tile .tm-v { font-size: 0.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tm-block-label { font-size: 0.5rem; font-weight: 700; fill: var(--muted); }
+.tm-legend { list-style: none; margin: 0.75rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--ink); }
+.tm-legend li { display: inline-flex; align-items: center; gap: 0.25rem; }
+.tm-swatch { width: 0.875rem; height: 0.875rem; border-radius: 3px; border: 1px solid var(--line); flex: none; }
+.tm-schematic { font-size: 0.6875rem; color: var(--muted); margin: 0.5rem 0 0; }
+.tm-wardlist { margin-top: 0.75rem; }
+.tm-wardlist summary { cursor: pointer; font-size: 0.75rem; font-weight: 600; color: var(--accent); min-height: 1.5rem; }
+.tm-wardlist ul { columns: 2; column-gap: 1rem; list-style: none; padding: 0; margin: 0.5rem 0 0; font-size: 0.75rem; }
+.tm-wardlist li { break-inside: avoid; padding: 0.125rem 0; }
+
+/* One set of tiles; each carries a fill per layer as a custom property, and the checked radio
+ * picks which one paints. Works with JavaScript off, and the fill transition is the morph. */
+.tm-fill { fill: var(--f-default); }
+.tm-lab, .tm-hatch, .tm-panel { display: none; }
+.tm-lab.is-default, .tm-hatch.is-default { display: inline; }
+.tm-panel.is-default { display: block; }
+.tm:has(.tm-layers input:checked) .tm-lab, .tm:has(.tm-layers input:checked) .tm-hatch, .tm:has(.tm-layers input:checked) .tm-panel { display: none; }
+.tm:has(input[value="register"]:checked) .tm-fill { fill: var(--f-register, var(--f-default)); }
+.tm:has(input[value="register"]:checked) .tm-lab[data-l="register"], .tm:has(input[value="register"]:checked) .tm-hatch[data-l="register"] { display: inline; }
+.tm:has(input[value="register"]:checked) .tm-panel[data-l="register"] { display: block; }
+.tm:has(input[value="largest"]:checked) .tm-fill { fill: var(--f-largest, var(--f-default)); }
+.tm:has(input[value="largest"]:checked) .tm-lab[data-l="largest"], .tm:has(input[value="largest"]:checked) .tm-hatch[data-l="largest"] { display: inline; }
+.tm:has(input[value="largest"]:checked) .tm-panel[data-l="largest"] { display: block; }
+.tm:has(input[value="footprint"]:checked) .tm-fill { fill: var(--f-footprint, var(--f-default)); }
+.tm:has(input[value="footprint"]:checked) .tm-lab[data-l="footprint"], .tm:has(input[value="footprint"]:checked) .tm-hatch[data-l="footprint"] { display: inline; }
+.tm:has(input[value="footprint"]:checked) .tm-panel[data-l="footprint"] { display: block; }
+.tm:has(input[value="party-flow"]:checked) .tm-fill { fill: var(--f-party-flow, var(--f-default)); }
+.tm:has(input[value="party-flow"]:checked) .tm-lab[data-l="party-flow"], .tm:has(input[value="party-flow"]:checked) .tm-hatch[data-l="party-flow"] { display: inline; }
+.tm:has(input[value="party-flow"]:checked) .tm-panel[data-l="party-flow"] { display: block; }
+.tm:has(input[value="zones"]:checked) .tm-fill { fill: var(--f-zones, var(--f-default)); }
+.tm:has(input[value="zones"]:checked) .tm-lab[data-l="zones"], .tm:has(input[value="zones"]:checked) .tm-hatch[data-l="zones"] { display: inline; }
+.tm:has(input[value="zones"]:checked) .tm-panel[data-l="zones"] { display: block; }
+.tm:has(input[value="effort"]:checked) .tm-fill { fill: var(--f-effort, var(--f-default)); }
+.tm:has(input[value="effort"]:checked) .tm-lab[data-l="effort"], .tm:has(input[value="effort"]:checked) .tm-hatch[data-l="effort"] { display: inline; }
+.tm:has(input[value="effort"]:checked) .tm-panel[data-l="effort"] { display: block; }
+.tm:has(input[value="reach-targets"]:checked) .tm-fill { fill: var(--f-reach-targets, var(--f-default)); }
+.tm:has(input[value="reach-targets"]:checked) .tm-lab[data-l="reach-targets"], .tm:has(input[value="reach-targets"]:checked) .tm-hatch[data-l="reach-targets"] { display: inline; }
+.tm:has(input[value="reach-targets"]:checked) .tm-panel[data-l="reach-targets"] { display: block; }
+
+/* The workstreams' groups: one shows at a time with JavaScript; print shows them all. */
+@media print { [data-ws-hidden][hidden] { display: revert !important; } }
+
+/* ------------------------------------------------------------------ motion: still by default */
+@media (prefers-reduced-motion: no-preference) {
+  .tm-tile rect { transition: fill 600ms ease-out; }
+}
+
+@media print {
+  /* Paper is light whatever the screen theme was: the light chart tokens, restated. */
+  :root, .dark {
+  --zone-a: #eb6834;
+  --zone-b: #1baf7a;
+  --zone-c: #4a3aa7;
+  --seq-1: #86bcb7;
+  --seq-2: #5f9f9a;
+  --seq-3: #428580;
+  --seq-4: #2b6a65;
+  --seq-5: #1a4c48;
+  --seq-ink-light: #0b1f1d;
+  --seq-ink-dark: #ffffff;
+  --div-neg: #c2410c;
+  --div-mid: #d6d3cd;
+  --neutral-fill: oklch(0.80 0.012 250);
+  --neutral-strong: oklch(0.55 0.02 250);
+  --ref-line: oklch(0.30 0.03 250);
+  --hatch-ink: oklch(0.45 0.03 250);
+  /* The four production pillars (Section 4.5): validated as a categorical set, labels always printed. */
+  --pillar-1: #eda100;
+  --pillar-2: #e87ba4;
+  --pillar-3: #008300;
+  --pillar-4: #4a3aa7;
+  --pillar-ink-1: #1d1600;
+  --pillar-ink-2: #2a0716;
+  --pillar-ink-3: #ffffff;
+  --pillar-ink-4: #ffffff;
+  }
+  .rf { break-inside: avoid; border-color: #999; }
+  .rf, .rf * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rf-details > summary { display: none; }
+  .rf-csv { display: none; }
+  .tm-layers { display: none; }
+}
+
+/* ------------------------------------------------------------------ the weekly calendar */
+
+/* ==========================================================================================
+ * premium
+ * The 2026 premium layer (formerly app/premium.css).
+ * ========================================================================================== */
+/*
+ * The premium visual layer (2026): "The county, measured".
+ *
+ * Component styles for components/premium/*, and the site-level rules that carry the new
+ * language through the document (grid, type, chapters, callouts, tables, chrome). Imported after
+ * globals.css and register.css so it is the last word.
+ *
+ * TOKENS. The palette itself lives in app/globals.css under the site's existing names (--paper,
+ * --card, --ink, --muted, --accent, --accent-solid, --gold, --gold-solid, …). The --pf-* names
+ * below are aliases onto those, plus the few values the new components need that the site had no
+ * name for. Contrast for every pair is recorded in docs/visual-premium/PHASE-0.md §7.7.
+ */
+
+:root {
+  --pf-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --pf-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --pf-dur-fast: 180ms;
+  --pf-dur-entrance: 520ms;
+  --pf-dur-deliberate: 620ms;
+  --pf-dur-settle: 900ms;
+  --pf-dur-type: 1200ms;
+
+  --pf-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --pf-display-stretch: 88%;
+  --pf-serif: var(--font-newsreader), Georgia, serif;
+  --pf-mono: var(--font-mono), ui-monospace, monospace;
+  --pf-dock-h: 3.5rem;
+  --pf-gutter: 1rem;
+
+  --pf-ground: var(--paper);
+  --pf-raised: var(--card);
+  --pf-raised-2: oklch(0.95 0.014 85);
+  --pf-ink: var(--ink);
+  --pf-muted: var(--muted);
+  --pf-line: var(--line);
+  --pf-grid: oklch(0.84 0.015 85);
+  --pf-accent: var(--accent);
+  --pf-accent-solid: var(--accent-solid);
+  --pf-accent-glow: oklch(0.47 0.21 265 / 0.12);
+  --pf-earth: var(--gold);
+  --pf-earth-solid: var(--gold-solid);
+  --pf-earth-glow: oklch(0.53 0.15 40 / 0.12);
+  --pf-sisal: oklch(0.52 0.07 80);
+  --pf-rival: var(--rival);
+  --pf-rival-solid: var(--rival-solid);
+  --pf-on-solid: oklch(1 0 0);
+  --pf-neutral-tile: oklch(0.62 0.03 85); /* 3.4:1 on the ground: a mark, not a void */
+  --pf-on-earth-weave: oklch(0.97 0.03 85);
+  --pf-bar: oklch(0.42 0.04 262);
+  --pf-weave-on-bar: oklch(0.99 0.01 85);
+  --pf-t1: oklch(0.45 0.12 150);
+  --pf-t2: oklch(0.5 0.12 75);
+  --pf-t3: oklch(0.5 0.17 28);
+  --pf-glass: oklch(1 0 0 / 0.86);
+  --pf-shadow: 0 18px 40px -22px oklch(0.25 0.06 268 / 0.35);
+  --pf-weave-op: 0.05;
+  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(58,44,30)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+}
+
+.dark {
+  --pf-raised-2: oklch(0.25 0.035 262);
+  --pf-grid: oklch(0.34 0.03 262 / 0.7);
+  --pf-accent-glow: oklch(0.5 0.2 265 / 0.22);
+  --pf-earth-glow: oklch(0.53 0.15 40 / 0.2);
+  --pf-sisal: oklch(0.84 0.05 85);
+  --pf-neutral-tile: oklch(0.52 0.03 262); /* 3.5:1 on the ground */
+  --pf-on-earth-weave: oklch(0.86 0.06 80);
+  --pf-bar: oklch(0.78 0.03 255);
+  --pf-weave-on-bar: oklch(0.16 0.03 262);
+  --pf-t1: oklch(0.8 0.14 150);
+  --pf-t2: oklch(0.82 0.13 85);
+  --pf-t3: oklch(0.74 0.16 28);
+  --pf-glass: oklch(0.205 0.032 262 / 0.84);
+  --pf-shadow: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 18px 40px -18px oklch(0 0 0 / 0.7);
+  --pf-weave-op: 0.06;
+  --pf-weave-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cdefs%3E%3Cpattern id='w' patternUnits='userSpaceOnUse' width='9.899' height='9.899' patternTransform='rotate(45)'%3E%3Cg fill='rgb(236,224,196)' fill-opacity='1'%3E%3Crect x='0.693' y='0.3' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.643' y='5.250' width='3.564' height='4.350' rx='1.782'/%3E%3Crect x='5.250' y='0.693' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3Crect x='0.3' y='5.643' width='4.350' height='3.564' rx='1.782' fill-opacity='0.6'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='14' height='14' fill='url(%23w)'/%3E%3C/svg%3E");
+}
+
+.pf-num { font-variant-numeric: lining-nums tabular-nums; }
+.pf-mono { font-family: var(--pf-mono); font-size: 0.86em; }
+
+/* ---------------------------------------------------------------- grain */
+/* A very fine film grain on the ground: static, one composited layer, off in print. */
+.pf-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Line-mask reveal. The text is in the DOM once; only its lines move. */
+.pf-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.pf-line > span { display: block; }
+
+/* ---------------------------------------------------------------- cover hero */
+.pf-hero { position: relative; }
+.pf-hero[data-story="true"] { height: 360svh; }
+.pf-hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 38.75rem;
+  overflow: hidden;
+}
+.pf-hero[data-story="false"] .pf-hero__stage { position: relative; }
+.pf-hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 45% at 62% 58%, var(--pf-accent-glow), transparent 70%),
+    radial-gradient(40% 30% at 70% 30%, var(--pf-earth-glow), transparent 70%);
+}
+.pf-hero__county { position: absolute; inset: 0; }
+.pf-hero__county > svg { position: absolute; inset: 22% 6% 4% 30%; width: 64%; height: 74%; }
+.pf-scene { position: absolute; inset: 0; }
+.pf-hero[data-story="true"] .pf-hero__static { display: none; }
+
+.pf-hero__portrait {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  right: -4vw;
+  height: 64svh;
+  aspect-ratio: 971 / 1600;
+  transform: translate3d(0, calc(var(--p, 0) * 60%), 0);
+  opacity: clamp(0, calc(1 - (var(--p, 0) - 0.08) * 5), 1);
+  pointer-events: none;
+}
+.pf-hero[data-story="true"] .pf-hero__portrait { will-change: transform, opacity; }
+.pf-hero__portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+
+.pf-hero__copy {
+  position: relative;
+  z-index: 3;
+  padding: 2rem var(--pf-gutter) 0;
+  max-width: 34rem;
+  opacity: clamp(0, calc(1 - (var(--p, 0) - 0.1) * 5), 1);
+  pointer-events: none;
+}
+.pf-hero__copy a, .pf-hero__copy button { pointer-events: auto; }
+.pf-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  border-radius: 62.4375rem;
+  border: 1px solid var(--pf-line);
+  background: color-mix(in oklch, var(--pf-raised) 70%, transparent);
+  font: 500 0.78125rem/1.2 var(--pf-display);
+  color: var(--pf-muted);
+}
+.pf-seal strong { color: var(--pf-ink); font-weight: 700; }
+.pf-seal__mark {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background-image: var(--pf-weave-img);
+  background-size: 7px 7px;
+  background-color: var(--pf-earth-solid);
+  box-shadow: inset 0 0 0 1.5px var(--pf-earth);
+}
+.pf-hero__title {
+  font: 800 clamp(2.4rem, 10.4vw, 5.6rem)/0.96 var(--pf-display);
+  font-stretch: var(--pf-display-stretch);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.pf-hero__title .pf-line:first-child { color: var(--pf-accent); }
+.pf-hero__title .pf-line:last-child > span {
+  font-size: 0.5em;
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 0.35em;
+  max-width: 16em;
+}
+.pf-hero__sub {
+  margin-top: 1rem;
+  max-width: 28rem;
+  font: 400 1.0625rem/1.5 var(--pf-serif);
+  color: var(--pf-muted);
+  text-wrap: pretty;
+}
+
+.pf-hero__steps {
+  position: absolute;
+  z-index: 3;
+  left: var(--pf-gutter);
+  right: var(--pf-gutter);
+  bottom: calc(var(--pf-dock-h) + 1.75rem + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+.pf-step {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 30rem;
+  padding: 1rem 1rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-glass);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  font: 400 0.9375rem/1.45 var(--pf-serif);
+  color: var(--pf-ink);
+  box-shadow: var(--pf-shadow);
+  will-change: opacity, transform;
+}
+.pf-step b { font-family: var(--pf-display); font-weight: 700; }
+.pf-step--1 { opacity: clamp(0, min(calc((var(--p, 0) - 0.03) * 22), calc((0.37 - var(--p, 0)) * 22)), 1); }
+.pf-step--2 { opacity: clamp(0, min(calc((var(--p, 0) - 0.42) * 22), calc((0.76 - var(--p, 0)) * 22)), 1); }
+.pf-step--3 { opacity: clamp(0, calc((var(--p, 0) - 0.8) * 16), 1); }
+
+.pf-hero__pick {
+  position: absolute;
+  z-index: 4;
+  top: 1rem;
+  right: var(--pf-gutter);
+  left: auto;
+  opacity: clamp(0, calc((var(--p, 0) - 0.3) * 8), 1);
+}
+.pf-pick {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 0.75rem;
+  max-width: 17rem;
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 500 0.8125rem/1.35 var(--pf-display);
+  color: var(--pf-muted);
+}
+.pf-pick strong { color: var(--pf-ink); font-size: 0.9375rem; }
+.pf-pick > span, .pf-pick strong { grid-column: 1; }
+.pf-pick button {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: start;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: -0.5rem -0.5rem 0 0;
+  font-size: 1.25rem;
+  color: var(--pf-muted);
+}
+.pf-pick--hint { display: block; font-size: 0.78125rem; }
+
+@media (min-width: 1024px) {
+  :root { --pf-gutter: 3rem; }
+  .pf-hero__county { left: 44%; }
+  .pf-hero__county > svg { inset: 8% 6% 8% 8%; width: 86%; height: 84%; }
+  .pf-hero__portrait {
+    left: 29vw;
+    right: auto;
+    height: 84svh;
+    transform: translate3d(0, calc(var(--p, 0) * 8%), 0);
+    opacity: clamp(0.18, calc(1 - (var(--p, 0) - 0.35) * 2.2), 1);
+  }
+  .pf-hero__copy { padding-top: 9vh; max-width: min(30vw, 30rem); opacity: 1; }
+  .pf-hero__title { font-size: clamp(3.4rem, 5.8vw, 6.2rem); }
+  .pf-hero__steps { left: auto; right: 3rem; width: 30rem; bottom: 2.5rem; }
+  .pf-hero__pick { top: auto; bottom: 2.5rem; left: 3rem; right: auto; opacity: 1; max-width: 26vw; }
+}
+
+/* ---------------------------------------------------------------- big numbers */
+.pf-numbers {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin: 0 auto;
+  max-width: 82.5rem;
+  padding: 3.5rem var(--pf-gutter) 1.5rem;
+}
+@media (min-width: 640px) { .pf-numbers { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .pf-numbers { grid-template-columns: repeat(4, 1fr); } }
+
+.pf-bn {
+  padding: 1.5rem 0.25rem 1.5rem;
+  border-top: 1px solid var(--pf-line);
+}
+.pf-bn__value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font: 800 clamp(2.9rem, 13vw, 4.4rem)/1 var(--pf-display);
+  font-stretch: var(--pf-display-stretch);
+  letter-spacing: -0.035em;
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+/* A long value (a range) steps down so it never runs off a phone: ~0.6em per character. */
+.pf-bn__value { font-size: min(clamp(2.9rem, 13vw, 4.4rem), calc((100vw - 2 * var(--pf-gutter) - 0.5rem) / (var(--chars, 7) * 0.6))); }
+@media (min-width: 640px) { .pf-bn__value { font-size: min(clamp(2.6rem, 6vw, 4.4rem), calc((50vw - 2 * var(--pf-gutter)) / (var(--chars, 7) * 0.6))); } }
+@media (min-width: 1100px) { .pf-bn__value { font-size: min(clamp(2.6rem, 3.6vw, 3.9rem), calc((25vw - 2.5rem) / (var(--chars, 7) * 0.6))); } }
+.pf-tone-accent .pf-bn__value { color: var(--pf-accent); }
+.pf-tone-earth .pf-bn__value { color: var(--pf-earth); }
+.pf-bn__unit { font: 700 0.3em/1 var(--pf-display); letter-spacing: 0.02em; font-variant-caps: all-small-caps; color: var(--pf-muted); }
+.pf-bn__context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+  max-width: 26rem;
+  font: 400 0.9375rem/1.45 var(--pf-serif);
+  color: var(--pf-muted);
+}
+.pf-bn__roll { display: inline-flex; }
+.pf-bn__col { position: relative; display: inline-block; overflow: hidden; height: 1em; }
+.pf-bn__ghost { visibility: hidden; }
+.pf-bn__strip {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  flex-direction: column;
+  animation: pf-roll var(--pf-dur-type) var(--pf-ease) both;
+}
+.pf-bn__strip > span { display: block; height: 1em; line-height: 1; }
+@keyframes pf-roll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, calc(var(--d) * -1em), 0); }
+}
+
+/* ---------------------------------------------------------------- act opener */
+.pf-act {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  align-content: start;
+  padding: 5rem var(--pf-gutter) 0;
+  background:
+    radial-gradient(70% 50% at 80% 70%, var(--pf-earth-glow), transparent 70%),
+    linear-gradient(180deg, var(--pf-ground), var(--pf-raised) 120%);
+}
+.pf-act__weave {
+  position: absolute;
+  inset: 0;
+  background-image: var(--pf-weave-img);
+  background-size: 18px 18px;
+  opacity: var(--pf-weave-op);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+.pf-act__county {
+  position: absolute;
+  right: -12vw;
+  top: 10%;
+  width: 78vw;
+  height: 90%;
+  opacity: 0.22;
+  transform: translate3d(0, calc(var(--t, 0) * 8vh), 0);
+}
+.pf-act__county svg { width: 100%; height: 100%; }
+.pf-act__numeral {
+  position: relative;
+  z-index: 1;
+  font: 800 clamp(4.5rem, 18vw, 17rem)/0.82 var(--pf-display);
+  font-stretch: var(--pf-display-stretch);
+  letter-spacing: -0.02em;
+  color: var(--pf-earth);
+  transform: translate3d(0, calc(var(--t, 0) * -12vh), 0);
+}
+.pf-act__portrait {
+  position: absolute;
+  z-index: 2;
+  right: -6vw;
+  bottom: 0;
+  height: 66svh;
+  aspect-ratio: 1055 / 1600;
+  transform: translate3d(0, calc(var(--t, 0) * -4vh), 0);
+}
+.pf-act__portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.pf-act__copy { position: relative; z-index: 3; margin-top: 0.75rem; max-width: 22rem; }
+.pf-act__count { font: 600 0.8125rem/1.2 var(--pf-display); color: var(--pf-muted); }
+.pf-act__title {
+  margin-top: 0.5rem;
+  font: 800 clamp(2.9rem, 13vw, 7.4rem)/0.94 var(--pf-display);
+  font-stretch: var(--pf-display-stretch);
+  letter-spacing: -0.035em;
+  font-variation-settings: "wght" 800;
+}
+.pf-act__answers {
+  margin-top: 1rem;
+  font: 400 1.125rem/1.45 var(--pf-serif);
+  color: var(--pf-ink);
+  text-wrap: pretty;
+}
+.pf-act__answers-k { display: block; margin-bottom: 0.25rem; font: 700 0.8125rem/1.2 var(--pf-display); color: var(--pf-earth); }
+
+@media (min-width: 1024px) {
+  .pf-act { align-content: center; padding: 0 var(--pf-gutter); grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .pf-act__numeral { position: absolute; left: 44%; top: 50%; translate: 0 -50%; font-size: clamp(12rem, 18vw, 17rem); }
+  .pf-act__copy { max-width: 36rem; margin-top: 0; }
+  .pf-act__portrait { right: 4vw; height: 90svh; }
+  .pf-act__county { right: 0; width: 46vw; top: 5%; }
+}
+
+/* ---------------------------------------------------------------- figure v2 */
+.pf-fig {
+  position: relative;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-raised);
+}
+.pf-fig--hero {
+  padding: 2rem 1.25rem 1.5rem;
+  border-radius: 1.75rem;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--pf-accent) 18%, transparent), inset 0 40px 120px -60px var(--pf-accent-glow), var(--pf-shadow);
+}
+@media (min-width: 900px) { .pf-fig--hero { padding: 3rem 3.5rem 2.5rem; } }
+.pf-fig__head { max-width: 52rem; }
+.pf-fig__sec { font: 600 0.8125rem/1.2 var(--pf-display); color: var(--pf-accent); }
+.pf-fig__title {
+  margin-top: 0.5rem;
+  font: 600 clamp(1.5rem, 4.6vw, 2.35rem)/1.14 var(--pf-serif);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.pf-fig--standard .pf-fig__title { font-size: 1.3rem; }
+.pf-fig__question { margin-top: 0.5rem; font: 500 0.9375rem/1.4 var(--pf-display); color: var(--pf-muted); }
+.pf-fig__body { margin-top: 1.5rem; }
+.pf-fig__note { margin-top: 0.75rem; max-width: 60ch; font: 400 0.84375rem/1.5 var(--pf-display); color: var(--pf-muted); }
+.pf-fig__takeaway {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pf-line);
+  max-width: 62ch;
+  font: 500 1.125rem/1.5 var(--pf-serif);
+  color: var(--pf-ink);
+}
+.pf-fig__foot { margin-top: 1rem; display: grid; gap: 0.75rem; }
+.pf-fig__sources { display: grid; gap: 0.5rem; font: 400 0.8125rem/1.45 var(--pf-display); color: var(--pf-muted); }
+.pf-fig__sources li { display: flex; gap: 0.5rem; align-items: flex-start; }
+.pf-fig__details summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  cursor: pointer;
+  font: 600 0.875rem/1 var(--pf-display);
+  color: var(--pf-accent);
+}
+.pf-fig__csv {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.75rem;
+  font: 600 0.875rem/1.2 var(--pf-display);
+  color: var(--pf-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pf-fig__csv .pf-mono { color: var(--pf-muted); text-decoration: none; }
+
+/* ---- funnel v2 */
+.pf-defs { position: absolute; width: 0; height: 0; }
+.pf-toggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1.25rem;
+  padding: 3px;
+  border: 1px solid var(--pf-line);
+  border-radius: 62.4375rem;
+  background: var(--pf-ground);
+}
+.pf-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.pf-toggle label {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font: 600 0.875rem/1.1 var(--pf-display);
+  color: var(--pf-muted);
+  cursor: pointer;
+  text-align: center;
+  transition: color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: 62.4375rem;
+  background: var(--pf-accent-solid);
+  transition: transform var(--pf-dur-entrance) var(--pf-ease);
+}
+.pf-toggle:has(input[value="a"]:checked) label[for$="-a"],
+.pf-toggle:has(input[value="b"]:checked) label[for$="-b"] { color: var(--pf-on-solid); }
+.pf-toggle:has(input[value="b"]:checked) .pf-toggle__thumb { transform: translateX(100%); }
+.pf-toggle:has(input:focus-visible) { outline: 2px solid var(--pf-accent); outline-offset: 3px; }
+
+.pf-show-b { display: none; }
+.pf-fn:has(input[value="b"]:checked) .pf-show-a { display: none; }
+.pf-fn:has(input[value="b"]:checked) .pf-show-b { display: inline; }
+
+.pf-fn__plot { position: relative; padding-bottom: 1.5rem; }
+.pf-fn__grid { position: absolute; inset: 0 0 0 0; pointer-events: none; }
+.pf-fn__tick { position: absolute; top: 0; bottom: 1.125rem; border-left: 1px solid var(--pf-grid); }
+.pf-fn__ticklabel {
+  white-space: nowrap;
+  position: absolute;
+  bottom: -1.25rem;
+  left: 0;
+  transform: translateX(-50%);
+  font: 500 0.71875rem/1 var(--pf-display);
+  color: var(--pf-muted);
+}
+.pf-fn__tick:first-child .pf-fn__ticklabel { transform: none; }
+@media (max-width: 639.98px) { .pf-fn__tick:nth-child(even) .pf-fn__ticklabel { display: none; } }
+.pf-fn__tick:last-child .pf-fn__ticklabel { transform: translateX(-100%); }
+.pf-fn__rows { position: relative; display: grid; gap: 1.25rem; }
+.pf-fn__row { position: relative; outline-offset: 0.375rem; }
+.pf-fn__label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.pf-fn__name { font: 600 0.9375rem/1.3 var(--pf-display); }
+.pf-fn__value { font: 800 clamp(1.4rem, 5.6vw, 2rem)/1 var(--pf-display); letter-spacing: -0.02em; }
+.pf-fn__row.is-accent .pf-fn__value { color: var(--pf-accent); }
+.pf-fn__bar { display: block; width: 100%; height: 2.125rem; overflow: visible; }
+.pf-fn__track { fill: color-mix(in oklch, var(--pf-grid) 30%, transparent); }
+.pf-fn__mark {
+  transform-box: view-box;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--wa));
+  transition: transform var(--pf-dur-settle) var(--pf-ease);
+  transition-delay: calc(var(--i) * 90ms);
+}
+.pf-fn:has(input[value="b"]:checked) .pf-fn__mark { transform: scaleX(var(--wb)); transition-delay: 0ms; }
+[data-armed="true"]:not([data-in="true"]) .pf-fn__mark { transform: scaleX(0); }
+.pf-fn__target-a { fill: var(--pf-accent-glow); stroke: var(--pf-accent); stroke-width: 2; }
+.pf-fn__target-b { fill: none; stroke: var(--pf-accent); stroke-width: 1; }
+.pf-fn__tip {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: calc(100% + 0.375rem);
+  max-width: min(30rem, 100%);
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-raised-2);
+  box-shadow: var(--pf-shadow);
+  font: 400 0.84375rem/1.45 var(--pf-display);
+  color: var(--pf-ink);
+  opacity: 0;
+  transform: translate3d(0, -0.25rem, 0);
+  pointer-events: none;
+  transition: opacity var(--pf-dur-fast) var(--pf-ease-out), transform var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-fn__row:hover .pf-fn__tip,
+.pf-fn__row:focus .pf-fn__tip,
+.pf-fn__row:focus-within .pf-fn__tip { opacity: 1; transform: none; }
+
+/* ---------------------------------------------------------------- tables (G-6) */
+.pf-table-wrap { overflow-x: auto; border-radius: 0.875rem; border: 1px solid var(--pf-line); background: var(--pf-raised); }
+.pf-table { width: 100%; border-collapse: separate; border-spacing: 0; font: 400 0.90625rem/1.45 var(--pf-display); }
+.pf-table__caption { caption-side: top; padding: 1rem 1.25rem 0.75rem; text-align: left; font: 500 0.875rem/1.45 var(--pf-serif); color: var(--pf-muted); }
+.pf-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.75rem 1rem;
+  background: var(--pf-raised-2);
+  border-bottom: 1px solid var(--pf-line);
+  text-align: left;
+  font: 600 0.78125rem/1.25 var(--pf-display);
+  color: var(--pf-muted);
+  white-space: nowrap;
+}
+.pf-table tbody th,
+.pf-table tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--pf-line); vertical-align: top; text-align: left; }
+.pf-table tbody tr:last-child > * { border-bottom: 0; }
+.pf-table tbody th { font-weight: 700; color: var(--pf-ink); }
+.pf-table .is-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pf-table-wrap--pin tbody th { position: sticky; left: 0; background: var(--pf-raised); }
+.pf-reach { display: inline-flex; gap: 3px; margin-right: 0.5rem; vertical-align: 1px; }
+.pf-reach i { width: 0.4375rem; height: 0.4375rem; border-radius: 50%; border: 1.5px solid var(--pf-accent); }
+.pf-reach i[data-on="true"] { background: var(--pf-accent); }
+
+@media (max-width: 639.98px) {
+  .pf-table--cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pf-table--cards, .pf-table--cards tbody, .pf-table--cards tr { display: block; }
+  .pf-table--cards tr { padding: 1rem 1rem; border-bottom: 1px solid var(--pf-line); }
+  .pf-table--cards tbody tr:last-child { border-bottom: 0; }
+  .pf-table--cards tbody th { display: block; position: static; padding: 0 0 0.5rem; border: 0; font-size: 1rem; }
+  .pf-table--cards tbody td {
+    display: grid;
+    gap: 2px;
+    padding: 0.5rem 0;
+    border: 0;
+    text-align: left;
+    white-space: normal; justify-items: start;
+  }
+  .pf-table--cards tbody td::before { content: attr(data-label); font: 600 0.75rem/1.3 var(--pf-display); color: var(--pf-muted); }
+  .pf-table--cards .is-num { text-align: left; }
+  .pf-table--cards caption { display: block; }
+  .pf-table-wrap--pin tbody th { position: static; }
+}
+
+/* ---------------------------------------------------------------- dock (G-7) */
+.pf-dock {
+  position: fixed;
+  z-index: 50;
+  left: 50%;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  transform: translate3d(-50%, 0, 0);
+  transition: transform var(--pf-dur-entrance) var(--pf-ease), opacity var(--pf-dur-entrance) var(--pf-ease);
+  max-width: calc(100vw - 1.25rem);
+}
+.pf-dock[data-hidden="true"] { transform: translate3d(-50%, calc(100% + 1.5rem), 0); opacity: 0; }
+.pf-dock__pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: var(--pf-dock-h);
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 62.4375rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-glass);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: var(--pf-shadow);
+}
+.pf-dock__where {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0 0.75rem 0 0.5rem;
+  border-radius: 62.4375rem;
+  color: var(--pf-ink); cursor: pointer;
+}
+.pf-dock__numeral {
+  display: grid;
+  place-items: center;
+  min-width: 2.125rem;
+  height: 2.125rem;
+  padding: 0 0.5rem;
+  border-radius: 62.4375rem;
+  background: var(--pf-accent-solid);
+  color: var(--pf-on-solid);
+  font: 800 0.8125rem/1 var(--pf-display);
+}
+.pf-dock__label {
+  overflow: hidden;
+  max-width: 34vw;
+  font: 600 0.875rem/1.2 var(--pf-display);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media (min-width: 640px) { .pf-dock__label { max-width: 22rem; } }
+.pf-dock__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 62.4375rem;
+  color: var(--pf-ink);
+  transition: background var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-dock__icon:hover { background: var(--pf-raised-2); }
+.pf-dock button:active { transform: scale(0.96); }
+
+/* ---------------------------------------------------------------- spine (G-7) */
+.pf-spine { display: none; }
+@media (min-width: 1024px) {
+  .pf-spine {
+    position: fixed;
+    z-index: 45;
+    right: 0.625rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    height: min(62vh, 35rem);
+  }
+  .pf-spine ol { display: flex; flex-direction: column; gap: 0.25rem; height: 100%; }
+  .pf-spine li { position: relative; display: flex; min-height: 1.625rem; }
+  .pf-spine button { position: relative; display: flex; justify-content: center; width: 2.75rem; height: 100%; }
+  .pf-spine__track {
+    position: relative;
+    width: 0.375rem;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 62.4375rem;
+    background: var(--pf-line);
+  }
+  .pf-spine__fill {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--pf-accent-solid);
+    background-image: var(--pf-weave-img);
+    background-size: 8px 8px;
+    transform-origin: top;
+    transform: scaleY(var(--fill, 0));
+    will-change: transform;
+  }
+  .pf-spine button[aria-current="true"] .pf-spine__track { box-shadow: 0 0 0 2px var(--pf-accent-glow); }
+  .pf-spine__name {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    translate: 0 -50%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--pf-line);
+    background: var(--pf-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font: 600 0.8125rem/1 var(--pf-display);
+    white-space: nowrap;
+    color: var(--pf-ink);
+    opacity: 0;
+    transform: translateX(0.375rem);
+    pointer-events: none;
+    transition: opacity var(--pf-dur-fast) var(--pf-ease-out), transform var(--pf-dur-fast) var(--pf-ease-out);
+  }
+  .pf-spine__name b { color: var(--pf-earth); margin-right: 0.25rem; }
+  .pf-spine button:hover .pf-spine__name,
+  .pf-spine button:focus-visible .pf-spine__name { opacity: 1; transform: none; }
+}
+
+/* ---------------------------------------------------------------- motion */
+@media (prefers-reduced-motion: no-preference) {
+  .pf-hero__title .pf-line > span,
+  .pf-hero__sub,
+  .pf-seal {
+    animation: pf-rise var(--pf-dur-settle) var(--pf-ease) both;
+  }
+  .pf-seal { animation-name: pf-fade; }
+  .pf-hero__title .pf-line:nth-child(2) > span { animation-delay: 110ms; }
+  .pf-hero__sub { animation-name: pf-fade; animation-delay: 320ms; }
+
+  .pf-act .pf-line > span { transition: transform var(--pf-dur-settle) var(--pf-ease); }
+  .pf-act .pf-act__answers .pf-line > span { transition-delay: 160ms; }
+  .pf-act__title { transition: font-variation-settings var(--pf-dur-type) var(--pf-ease); }
+  .pf-act[data-armed="true"]:not([data-in-view="true"]) .pf-line > span { transform: translate3d(0, 105%, 0); }
+  .pf-act[data-armed="true"]:not([data-in-view="true"]) .pf-act__title { font-variation-settings: "wght" 300; }
+}
+@keyframes pf-rise { from { transform: translate3d(0, 105%, 0); } to { transform: none; } }
+@keyframes pf-fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.pf-hero, .pf-act, .pf-numbers, .pf-fn, .pf-dock, .pf-spine, .pf-story, .pf-bn) :is(*, *::before, *::after) { animation: none !important; transition-duration: 80ms !important; }
+  .pf-hero__portrait, .pf-hero__copy, .pf-act__portrait, .pf-act__county, .pf-act__numeral { transform: none !important; opacity: 1 !important; }
+}
+
+  @media (max-width: 640px) {
+    .pf-hero[data-story="true"] { height: 250svh; }
+    .pf-hero__stage { min-height: 100svh; }
+    .pf-hero__copy {
+      padding: max(1rem, env(safe-area-inset-top)) var(--gutter) 0;
+      max-width: min(100%, 30rem);
+    }
+    .pf-hero__title {
+      font-size: clamp(2.25rem, 12vw, 3.75rem);
+      line-height: 0.98;
+    }
+    .pf-hero__sub { max-width: 25rem; font-size: 1rem; line-height: 1.45; }
+    .pf-hero__portrait { right: -14vw; height: 52svh; max-width: 78vw; }
+  }
+
+  /* ---------------------------------------------------------------- print */
+  @media print {
+
+  .pf-grain, .pf-dock, .pf-spine, .pf-hero__steps, .pf-hero__pick { display: none !important; }
+  .pf-hero[data-story="true"] { height: auto; }
+  .pf-hero__stage { position: relative; height: auto; min-height: 0; }
+  .pf-fn__tip { position: static; opacity: 1; transform: none; box-shadow: none; margin-top: 0.25rem; }
+  .pf-fn__mark { transform: scaleX(var(--wa)) !important; }
+  .pf-scene { display: none !important; }
+  .pf-hero[data-story="true"] .pf-hero__static { display: block; }
+}
+
+/* ================================================================== the document (Phase 1) */
+
+/* ---- G-1: an editorial canvas. The shell widens to 1180 px; running text is held to a 66ch
+   measure at the left of it (the existing --measure rule in globals.css), and figures, tables
+   and inserts take the width the text leaves. The lead figure of a section runs the full shell. */
+:root { --measure: 66ch; }
+.pf-shell {
+  width: 100%;
+  max-width: 73.75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3.5vw, 3.5rem);
+  }
+
+/* Keep long-form reading comfortably narrow while giving figures room to breathe. */
+.flow-body .prose {
+  max-width: 66ch;
+  margin-inline: auto;
+  font-size: clamp(1.0625rem, 1rem + 0.22vw, 1.1875rem);
+  line-height: 1.62;
+  text-wrap: pretty;
+  }
+.flow-body .prose :is(h1, h2, h3, h4) { text-wrap: balance; }
+@media (min-width: 640px) { .pf-shell { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .pf-shell { padding-inline: 3.5rem; } }
+/* D-07: the dock's band is reserved at the end of the document. */
+.pf-main { padding-bottom: calc(var(--pf-dock-h) + 2.5rem + env(safe-area-inset-bottom)); }
+.pf-footer { padding-bottom: calc(var(--pf-dock-h) + 3rem + env(safe-area-inset-bottom)); }
+/* The cover's front matter, in the footer since the flow pass (docs/flow-2026-11, WP1): footer-sized, not prose-sized. */
+.pf-footer__cover { margin: 0 0 1.25rem; }
+.pf-footer__cover .prose :is(p, li) { font-size: 0.875rem; line-height: 1.55; margin: 0 0 0.6em; color: var(--color-muted, inherit); }
+.pf-footer__cover .prose :is(h2, h3, h4) { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 1em 0 0.5em; }
+.pf-footer__cover .prose strong { color: var(--color-ink, inherit); }
+html { scroll-padding-bottom: calc(var(--pf-dock-h) + 1.5rem); }
+
+/* Non-text blocks cap at a comfortable figure width; the hero figure and bleed blocks run full. */
+@media (min-width: 1024px) {
+  .flow-body .prose > :is(.not-prose, figure, table):not(.rf--hero):not(.pf-wide-block) { max-width: 58.75rem; }
+}
+
+/* Large screens (polish pass): the prose keeps its measure, and figures use the width. A figure
+   breaks out of the 46rem reading column to 64rem, centred on it, so a chart on a 1440px laptop
+   or a 4K monitor is drawn at the size its marks need instead of floating in a narrow column. */
+@media (min-width: 1440px) {
+  /* :is() carries the class specificity of the 1024px cap above, so this rule outranks it. */
+  .flow-body .prose > :is(figure.rf, figure.vz, figure.not-prose, figure):not(.rf--hero):not(.pf-wide-block) {
+    --pf-fig-w: min(64rem, calc(100vw - 2 * var(--pf-gutter)));
+    width: var(--pf-fig-w);
+    max-width: none;
+    margin-inline: calc((100% - var(--pf-fig-w)) / 2);
+  }
+  /* The section's `content-visibility: auto` brings paint containment, which clips to its box:
+     the reading column. The clip edge moves out by the breakout (9rem a side) so the figure is
+     drawn whole, and the section keeps the rendering skip that makes this long page cheap. */
+  .flow-section { overflow-clip-margin: 9rem; }
+}
+
+/* ---- type. Newsreader carries the reading (18-19 px on phones, 1.6 leading); Bricolage carries
+   headings, labels and figures. */
+.flow-body .prose :is(p, li):not(.not-prose *) {
+  font-family: var(--pf-serif);
+  font-size: clamp(1.125rem, 1.09rem + 0.18vw, 1.1875rem);
+  line-height: 1.6;
+  color: var(--prose-body);
+}
+.flow-body .prose :is(p, li):not(.not-prose *) strong { color: var(--prose-strong); font-weight: 650; }
+.flow-body .prose :is(h2, h3, h4):not(.not-prose *) {
+  font-family: var(--pf-display);
+  font-stretch: 92%;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.flow-body .prose h2:not(.not-prose *) { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.2rem); font-weight: 750; line-height: 1.08; }
+.flow-body .prose h3:not(.not-prose *) { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem); font-weight: 700; line-height: 1.15; }
+.flow-body .prose h4:not(.not-prose *) { font-size: 1.125rem; font-weight: 700; }
+
+/* ---- chapter markers: the section number in laterite, the title in the display face. */
+.flow-chap__num { font-family: var(--pf-display) !important; color: var(--gold) !important; font-weight: 700; letter-spacing: 0 !important; font-size: 1rem !important; }
+.flow-chap__label {
+  font-family: var(--pf-display) !important;
+  font-weight: 800 !important;
+  font-stretch: 88%;
+  letter-spacing: -0.03em !important;
+  font-size: clamp(2.2rem, 1.4rem + 4vw, 4.2rem) !important;
+  line-height: 0.98 !important;
+}
+.flow-chap__blurb { font-family: var(--pf-serif); font-size: 1.125rem !important; color: var(--muted); max-width: 44ch; }
+.flow-chap__meta, .flow-chap__pos, .flow-chap__time { font-family: var(--pf-display); letter-spacing: 0 !important; text-transform: none !important; }
+.flow-chap__railfill { background: var(--gold) !important; }
+
+/* ---- D-18: the tracked-caps kicker above every block. Kickers keep their words and their
+   position; they lose the shouting. */
+.flow-body :is(.uppercase, .pv__cap-text, .pv-kicker, .pv-head__kicker, .pv-chap__kind, .pv-mx__field dt, .pv-quad__tag),
+.pf-shell .rc-kicker {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.flow-body :is(.tracking-wide, .tracking-wider, .tracking-widest) { letter-spacing: 0.005em !important; }
+.flow-body .pv__cap-text { font-family: var(--pf-display) !important; font-weight: 600; }
+
+/* ---- G-9: three callouts, by meaning (components/MarkdownViewer.tsx). */
+.flow-body .prose blockquote.pf-callout:not(.not-prose *) {
+  margin: 2rem 0;
+  font-style: normal;
+  quotes: none;
+  box-shadow: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.flow-body .prose blockquote.pf-callout::before,
+.flow-body .prose blockquote.pf-callout::after { content: none !important; }
+.flow-body .prose blockquote.pf-callout p { margin: 0.5em 0; }
+/* Finding: large serif, laterite rule. Once per section. */
+.flow-body .prose blockquote.pf-callout--finding {
+  padding: 0.25rem 0 0.25rem 1.25rem !important;
+  border-left: 3px solid var(--gold) !important;
+}
+.flow-body .prose blockquote.pf-callout--finding :is(p, li) {
+  font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.65rem) !important;
+  line-height: 1.38 !important;
+  color: var(--ink) !important;
+}
+/* Rule: the owner split, a two-part badge over a quiet card. */
+.flow-body .prose blockquote.pf-callout--rule {
+  padding: 1rem 1.25rem !important;
+  border-radius: 0.875rem;
+  border: 1px solid var(--line) !important;
+  background: var(--card) !important;
+}
+.flow-body .prose blockquote.pf-callout--rule :is(p, li) { font-size: 1.0625rem !important; }
+.pf-split {
+  display: inline-flex;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+  border-radius: 62.4375rem;
+  border: 1px solid var(--line);
+  font: 700 0.78125rem/1 var(--pf-display);
+}
+.pf-split > span { padding: 0.5rem 0.75rem; }
+.pf-split > span:first-child { background: var(--gold-solid); color: #fff; }
+.pf-split > span:last-child { background: var(--pf-raised-2); color: var(--ink); }
+/* Aside: small, and in the margin on a wide screen. */
+.flow-body .prose blockquote.pf-callout--aside {
+  padding: 0.25rem 0 0.25rem 1rem !important;
+  border-left: 1px solid var(--line) !important;
+}
+.flow-body .prose blockquote.pf-callout--aside :is(p, li) { font-size: 1rem !important; color: var(--muted) !important; }
+
+/* ---- G-6: tables in prose. A table that must scroll keeps its first column pinned, and no cell
+   can be crushed to a character per line (D-03). */
+.flow-body table :is(td, th) { min-width: 7.5rem; }
+.flow-body table tbody tr > :first-child { position: sticky; left: 0; z-index: 1; background: var(--card); }
+.flow-body table { font-variant-numeric: tabular-nums; }
+
+/* ---- the cover's preface: the reading choice, then the cover figures. */
+.pf-preface { display: grid; gap: 1.5rem; padding-top: 2.5rem; padding-bottom: 1rem; }
+.pf-reading { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+.pf-reading__hint { font: 500 0.875rem/1.4 var(--pf-display); color: var(--muted); }
+.pf-byline { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+.pf-byline svg { width: 1.875rem; height: 1.875rem; }
+.pf-byline > span { display: grid; font: 500 0.78125rem/1.3 var(--pf-display); color: var(--muted); }
+.pf-byline strong { color: var(--accent); font-weight: 750; font-size: 0.84375rem; }
+.pf-hero__controls { margin-top: 1rem; }
+@media (max-width: 1023.98px) {
+  .pf-hero[data-late="true"] .pf-hero__copy :is(a, button) { pointer-events: none; }
+}
+
+/* ---- the dock, as the document uses it. */
+.pf-dock__num { color: var(--gold); font-weight: 750; margin-right: 2px; }
+.pf-dock__hold { width: 0.875rem; height: 0.875rem; border-radius: 50%; background: var(--line); }
+
+/* ---- act openers in the document. The numeral runs large, as a background layer behind the
+   title (Phase 0 Q-3). The title is text, not a heading: the chapter below carries the heading. */
+.flow-body > .pf-act { margin-inline: calc(50% - 50vw); width: 100vw; }
+/* Full-bleed openers must never cause sideways scroll. Clipped on the page wrapper, never on html
+   or body: overflow set there propagates to the viewport and stops the page scrolling at all. */
+.pf-page { overflow-x: clip; }
+.pf-act__numeral {
+  position: absolute !important;
+  top: 7vh;
+  left: var(--pf-gutter);
+  font-size: clamp(9rem, 46vw, 24rem) !important;
+  line-height: 0.78 !important;
+  opacity: 0.2;
+  translate: none !important;
+}
+.pf-act__copy { margin-top: clamp(6rem, 30vw, 12rem); }
+@media (min-width: 1024px) {
+  .pf-act__numeral { top: 50%; left: 30%; translate: 0 -50% !important; font-size: clamp(14rem, 26vw, 26rem) !important; opacity: 0.16; }
+  .pf-act__copy { margin-top: 0; padding-left: 4vw; }
+}
+.pf-act__title { font-size: clamp(3rem, 14vw, 7.6rem); }
+
+/* ---- D-16: figure hierarchy. The lead figure of a section runs the full shell with a soft inner
+   glow; text-shaped figures (cards, steps, matrices) open up into a ruled block instead of a
+   card, so no run of identical cards remains. */
+.rf { border-radius: 1.125rem; }
+.rf-title { font-family: var(--pf-serif) !important; font-weight: 600 !important; font-size: 1.25rem !important; letter-spacing: -0.005em; }
+.rf-question { font-family: var(--pf-display); font-size: 0.875rem !important; }
+.rf-takeaway { font-family: var(--pf-serif); font-size: 1.0625rem !important; }
+.rf--hero {
+  max-width: none !important;
+  border-radius: 1.625rem;
+  border-color: color-mix(in oklch, var(--accent) 22%, var(--line));
+  box-shadow: inset 0 40px 120px -60px var(--pf-accent-glow), var(--pf-shadow);
+}
+.rf--hero .rf-head { padding: 1.5rem 1.5rem 0; }
+.rf--hero .rf-title { font-size: clamp(1.45rem, 1.2rem + 1.2vw, 2.2rem) !important; line-height: 1.15; }
+.rf--hero .rf-body { padding: 1.5rem; }
+@media (min-width: 900px) {
+  .rf--hero .rf-head { padding: 2.5rem 2.5rem 0; }
+  .rf--hero .rf-body { padding: 2rem 2.5rem; }
+  .rf--hero :is(.rf-takeaway, .rf-foot) { padding-inline: 2.5rem; }
+}
+.rf--open { border: 0; border-top: 2px solid var(--gold); border-radius: 0; background: transparent; }
+.rf--open .rf-head, .rf--open .rf-body { padding-inline: 0; }
+.rf--open :is(.rf-takeaway, .rf-foot) { padding-inline: 0; background: transparent; }
+
+@media print {
+  .pf-act { min-height: 0; break-before: page; }
+  .pf-act__portrait, .pf-act__county, .pf-act__weave { display: none; }
+  .pf-act__numeral { position: static !important; opacity: 1; font-size: 3rem !important; }
+  .pf-act__copy { margin-top: 0.5rem; }
+  .pf-main, .pf-footer { padding-bottom: 0; }
+}
+
+/* ================================================================== the §3 story (G-4) */
+.pf-story { position: relative; margin: 2rem 0 3rem; }
+.pf-story__stage { position: relative; height: 70svh; min-height: 26.25rem; }
+.pf-story__county { position: absolute; inset: 0; }
+.pf-story__county > svg { position: absolute; inset: 4% 12%; width: 76%; height: 92%; }
+/* The cover county, traced once (visual-first pass, replaces the WebGL scene). Each ward carries
+   pathLength="1", so one dash covers its whole outline. Only `from` is animated: the default style
+   is the finished map, so reduced motion (1ms, globals.css), no script and print all show it. */
+.pf-county--draw .pf-county__ward { stroke: var(--paper); stroke-width: 2; stroke-linejoin: round;
+  animation:
+    pf-ward-trace var(--pf-dur-settle) var(--pf-ease-out) both,
+    pf-ward-fill var(--pf-dur-deliberate) var(--pf-ease-out) calc(var(--pf-dur-settle) * 0.6) both; }
+@keyframes pf-ward-trace { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+@keyframes pf-ward-fill { from { fill-opacity: 0; } }
+@media (prefers-reduced-data: reduce) { .pf-county--draw .pf-county__ward { animation: none; } }
+.pf-story__static .pf-county__ward { transition: opacity var(--pf-dur-fast) var(--pf-ease-out); }
+.pf-story__static .pf-county__ward[data-dim="true"] { opacity: 0.45; }
+/* The pinned layout follows the pre-paint flag on <html> (app/layout.tsx), so it is in place before
+   the story hydrates. */
+:root[data-story-pin] .pf-story__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 35rem;
+  overflow: hidden;
+  background: radial-gradient(60% 50% at 60% 50%, var(--pf-accent-glow), transparent 70%);
+}
+.pf-story__steps { position: relative; display: grid; gap: 1.25rem; padding: 0; margin: 0; list-style: none; }
+:root[data-story-pin] .pf-story__steps { margin-top: -100svh; gap: 0; padding-inline: var(--pf-gutter); pointer-events: none; }
+:root[data-story-pin] .pf-story__step { min-height: 100svh; display: flex; align-items: flex-end; padding-bottom: calc(var(--pf-dock-h) + 2.5rem); }
+:root[data-story-pin] .pf-story__step:last-child { min-height: 140svh; }
+.pf-story__card {
+  pointer-events: auto;
+  max-width: 30rem;
+  padding: 1.25rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-glass);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: var(--pf-shadow);
+}
+.pf-story__n { font: 700 0.8125rem/1.35 var(--pf-display); color: var(--gold); }
+.pf-story__n span { color: var(--muted); font-weight: 500; margin-left: 0.25rem; }
+.pf-story__title { margin-top: 0.5rem; font: 600 1.25rem/1.25 var(--pf-serif); color: var(--ink); text-wrap: balance; }
+.pf-story__take { margin-top: 0.5rem; font: 400 1rem/1.5 var(--pf-serif); color: var(--prose-body); }
+.pf-story__paths { display: grid; gap: 0.25rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.pf-story__paths li { padding: 0.5rem 0.75rem; border-radius: 0.625rem; border: 1px solid var(--pf-line); font: 600 0.84375rem/1.3 var(--pf-display); color: var(--muted); transition: background var(--pf-dur-fast) var(--pf-ease-out), color var(--pf-dur-fast) var(--pf-ease-out); }
+.pf-story__paths li[data-on="true"] { background: var(--pf-raised-2); color: var(--ink); border-color: var(--pf-muted); }
+.pf-story__paths li[data-trap="true"] em { color: var(--gold); font-style: normal; }
+.pf-story__link { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 0.25rem; font: 600 0.875rem/1.2 var(--pf-display); color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 1024px) {
+  :root[data-story-pin] .pf-story__county { left: 38%; }
+  :root[data-story-pin] .pf-story__step { align-items: center; padding-bottom: 0; }
+}
+@media print {
+  .pf-story__stage { position: static !important; height: 60vh !important; }
+  .pf-story .pf-scene { display: none; }
+  .pf-story .pf-story__static { display: block !important; }
+  .pf-story__steps { margin-top: 0 !important; }
+  .pf-story__step { min-height: 0 !important; }
+}
+
+/* The pool's swatch carries the weave, as its tiles do. */
+.tm-swatch--weave { background-image: var(--pf-weave-img) !important; background-size: 7px 7px !important; background-color: var(--gold-solid) !important; }
+
+/* ---- the mockup label (G-10, O-8). */
+.pf-illus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0 0.5rem;
+  padding: 3px 0.75rem 3px 0.5rem;
+  border-radius: 62.4375rem;
+  border: 1px dashed var(--muted);
+  font: 600 0.75rem/1.3 var(--pf-display);
+  color: var(--muted);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.pf-illus__mark { width: 0.5rem; height: 0.5rem; border-radius: 50%; border: 1.5px dashed currentColor; }
+
+/* ---- the index (G-7): a full-screen act index. Seven acts with numeral, portrait, what each
+   answers and its reading time; the argument rail in miniature; then every section and heading. */
+.pf-idx { background: color-mix(in oklch, var(--pf-ground) 94%, transparent); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); }
+.pf-idx__inner { display: flex; flex-direction: column; height: 100dvh; max-width: 82.5rem; margin: 0 auto; }
+.pf-idx__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: max(1rem, env(safe-area-inset-top)) var(--pf-gutter) 0.75rem; border-bottom: 1px solid var(--pf-line); }
+.pf-idx__title { margin: 0; font: 800 clamp(1.9rem, 1.4rem + 2.4vw, 3rem)/1 var(--pf-display); font-stretch: var(--pf-display-stretch); letter-spacing: -0.03em; color: var(--pf-ink); }
+.pf-idx__meta { margin: 0.25rem 0 0; font: 500 0.8125rem/1.4 var(--pf-display); color: var(--pf-muted); }
+.pf-idx__close { display: grid; place-items: center; flex: none; width: 3rem; height: 3rem; border-radius: 62.4375rem; border: 1px solid var(--pf-line); background: var(--pf-raised); color: var(--pf-ink); cursor: pointer; }
+.pf-idx__close:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+/* The theme switch sits beside Close in the index sheet (flow pass, WP7). */
+.pf-idx__tools { display: flex; flex: none; gap: 0.5rem; }
+.pf-idx__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 1rem var(--pf-gutter) calc(1.5rem + env(safe-area-inset-bottom)); display: grid; gap: 1.5rem; align-content: start; }
+@media (min-width: 960px) {
+  .pf-idx__body { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2.5rem; }
+  .pf-idx__col:first-child { position: sticky; top: 0; align-self: start; }
+}
+.pf-idx__col { display: grid; gap: 0.75rem; align-content: start; min-width: 0; }
+.pf-idx__acts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+@media (min-width: 640px) { .pf-idx__acts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pf-idx__act {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--pf-line);
+  border-radius: 1rem;
+  background: var(--pf-raised);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-idx__act::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--pf-weave-img) right / 14px; opacity: var(--pf-weave-op); mask-image: linear-gradient(90deg, transparent 40%, #000); -webkit-mask-image: linear-gradient(90deg, transparent 40%, #000); }
+.pf-idx__act:hover { border-color: color-mix(in oklch, var(--pf-accent) 45%, var(--pf-line)); background: var(--pf-raised-2); }
+.pf-idx__act:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__act[aria-current="true"] { border-color: var(--pf-accent); box-shadow: inset 0 0 0 1px var(--pf-accent), 0 0 28px -12px var(--pf-accent-glow); }
+.pf-idx__img { grid-row: 1; grid-column: 1; width: 4rem; height: 4.5rem; overflow: hidden; border-radius: 0.75rem; background: var(--pf-raised-2); }
+.pf-idx__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.pf-idx__n { position: absolute; left: 3rem; bottom: 0.25rem; z-index: 1; font: 800 2.125rem/1 var(--pf-display); font-stretch: var(--pf-display-stretch); letter-spacing: -0.03em; color: var(--pf-earth); text-shadow: 0 1px 0 var(--pf-raised), 0 0 12px var(--pf-raised); }
+.pf-idx__text { display: grid; gap: 3px; min-width: 0; padding-left: 1rem; }
+.pf-idx__label { font: 700 1.03125rem/1.2 var(--pf-display); color: var(--pf-ink); }
+.pf-idx__blurb { font: 400 0.875rem/1.4 var(--pf-serif); color: var(--pf-muted); }
+.pf-idx__min { font: 600 0.78125rem/1.3 var(--pf-display); color: var(--pf-muted); font-variant-numeric: tabular-nums; }
+.pf-idx__min b { color: var(--pf-accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .pf-idx__acts > li { animation: pf-idx-in 420ms var(--pf-ease) both; animation-delay: calc(var(--i, 0) * 40ms + 60ms); }
+}
+@keyframes pf-idx-in { from { opacity: 0; transform: translate3d(0, 0.625rem, 0); } to { opacity: 1; transform: none; } }
+
+.pf-idx__rail ol { position: relative; list-style: none; margin: 0.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pf-idx__rail ol::before { content: ""; position: absolute; top: 1.3125rem; left: 10%; right: 10%; height: 2px; background: var(--pf-accent-solid); }
+.pf-idx__rail button { position: relative; display: grid; justify-items: center; gap: 0.25rem; width: 100%; min-height: 2.75rem; padding: 0.5rem 2px; border: 0; background: none; color: var(--pf-ink); cursor: pointer; font: 600 0.78125rem/1.2 var(--pf-display); text-align: center; border-radius: 0.625rem; }
+.pf-idx__rail button:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+/* Six parts share one row on a phone. Equal columns are narrower than "Measurement", so each
+   column takes its label's width and the row spreads them edge to edge. */
+.pf-idx__rail ol:is([data-steps="5"], [data-steps="6"]) { grid-template-columns: repeat(var(--rail-steps, 6), auto); justify-content: space-between; column-gap: 2px; }
+.pf-idx__rail ol[data-steps="5"] { --rail-steps: 5; }
+.pf-idx__rail ol:is([data-steps="5"], [data-steps="6"]) button { padding-inline: 0; }
+@media (max-width: 380px) { .pf-idx__rail ol:is([data-steps="5"], [data-steps="6"]) button { font-size: 0.71875rem; } }
+.pf-idx__railnode { display: grid; place-items: center; width: 1.875rem; height: 1.875rem; border-radius: 50%; border: 2px solid var(--pf-accent-solid); background: var(--pf-ground); font: 700 0.75rem/1 var(--pf-display); }
+.pf-idx__rail button[aria-current="step"] .pf-idx__railnode, .pf-idx__rail button:hover .pf-idx__railnode { background: var(--pf-accent-solid); color: var(--pf-on-solid); }
+
+.pf-idx__subhead { display: flex; justify-content: space-between; gap: 0.5rem; margin: 0.25rem 0 0.25rem; font: 600 0.8125rem/1.3 var(--pf-display); color: var(--pf-muted); }
+.pf-idx__flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+/* A stage name over its first chapter in the reading-order list (flow pass). */
+.pf-idx__stage { margin: 0.5rem 2px 0.25rem; font: 700 0.6875rem/1.3 var(--pf-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--pf-muted); }
+.pf-idx__row { display: grid; grid-template-columns: 1.125rem minmax(0, 1fr) auto auto; gap: 0.5rem; align-items: center; width: 100%; min-height: 3rem; padding: 0.5rem 0.75rem; border: 1px solid var(--pf-line); border-radius: 0.75rem; background: var(--pf-raised); color: var(--pf-ink); text-align: left; cursor: pointer; }
+.pf-idx__row:hover { border-color: color-mix(in oklch, var(--pf-accent) 40%, var(--pf-line)); }
+.pf-idx__row:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-idx__row[aria-current="true"] { background: var(--pf-accent-solid); border-color: var(--pf-accent-solid); color: var(--pf-on-solid); }
+.pf-idx__rowicon { color: var(--pf-accent); }
+.pf-idx__row[aria-current="true"] .pf-idx__rowicon { color: inherit; }
+.pf-idx__rownum { font: 700 0.75rem/1 var(--pf-mono); color: inherit; opacity: 0.85; }
+.pf-idx__rowlabel { font: 600 0.90625rem/1.3 var(--pf-display); }
+.pf-idx__rowmin, .pf-idx__rowstate { font: 600 0.75rem/1 var(--pf-display); font-variant-numeric: tabular-nums; opacity: 0.85; white-space: nowrap; }
+
+/* ---- G-11: route changes that are real navigations (a shared deep link opened in the same tab, the
+   /full print route) cross-fade instead of flashing. In-page jumps are scrolls, not navigations. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: var(--pf-ease-out); }
+/* In-page jumps (lib/premium/transition.ts): the pressed title and act numeral travel to the chapter
+   heading they open, while the page crossfades beneath them. */
+::view-transition-group(pf-section-title), ::view-transition-group(pf-section-numeral) { animation-duration: 520ms; animation-timing-function: var(--pf-ease); }
+::view-transition-old(pf-section-title), ::view-transition-new(pf-section-title),
+::view-transition-old(pf-section-numeral), ::view-transition-new(pf-section-numeral) { height: 100%; object-fit: contain; animation-duration: 520ms; }
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+
+/* ---- G-12: print is the light theme, whatever the reader chose on screen. */
+@media print {
+  html.dark {
+    color-scheme: light;
+    --ink: oklch(0.25 0.06 268);
+    --muted: oklch(0.46 0.035 262);
+    --paper: oklch(1 0 0);
+    --card: oklch(1 0 0);
+    --line: oklch(0.86 0.015 85);
+    --accent: oklch(0.43 0.2 265);
+    --accent-solid: oklch(0.47 0.21 265);
+    --gold: oklch(0.5 0.15 40);
+    --gold-solid: oklch(0.53 0.15 40);
+    --rival: oklch(0.49 0.045 205);
+    --prose-body: oklch(0.32 0.05 266);
+    --prose-strong: oklch(0.22 0.06 268);
+    --prose-bg-nested: oklch(1 0 0);
+    --code-bg: oklch(0.94 0.014 85);
+    --th-bg: oklch(0.95 0.014 85);
+    --pf-raised-2: oklch(0.95 0.014 85);
+    --pf-grid: oklch(0.84 0.015 85);
+    --pf-accent-glow: transparent;
+    --pf-earth-glow: transparent;
+    --pf-neutral-tile: oklch(0.62 0.03 85);
+    --pf-on-earth-weave: oklch(0.97 0.03 85);
+    --pf-bar: oklch(0.42 0.04 262);
+    --pf-weave-on-bar: oklch(0.99 0.01 85);
+    --pf-t1: oklch(0.45 0.12 150);
+    --pf-t2: oklch(0.5 0.12 75);
+    --pf-t3: oklch(0.5 0.17 28);
+    --pf-glass: oklch(1 0 0);
+    --pf-shadow: none;
+  }
+  .pf-story__stage { height: auto !important; min-height: 0 !important; background: none !important; }
+  .pf-story__county { position: relative !important; height: 55vh; }
+  .pf-story__card { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; break-inside: avoid; }
+  .pf-story__steps { gap: 0.75rem !important; padding: 0 !important; }
+  .pf-story__step { display: block !important; padding: 0 !important; }
+  .pf-hero__glow, .pf-grain, .skip-link { display: none !important; }
+}
+
+/* ---- light-theme contrast (axe, 2026 pass). Text dimmed by opacity, and Tailwind's 600 steps on
+   pale tinted fills, fell under 4.5:1 on the new warm paper. Dark theme passed unchanged. */
+html:not(.dark) [class*="text-muted/"] { color: var(--muted) !important; }
+html:not(.dark) .text-rose-600 { color: #9f1239 !important; }      /* 7.5:1 on paper */
+html:not(.dark) .text-amber-600 { color: #92400e !important; }     /* 6.1:1 on amber-500/10 */
+html:not(.dark) .text-emerald-600 { color: #065f46 !important; }   /* 6.4:1 on emerald-500/10 */
+
+/* ---------------------------------------------------------------- story pointers (G-4) */
+/* Where §3.1–§3.4 would have drawn a figure the story now carries. */
+.pf-storyptr { margin: 1.25rem 0; }
+.pf-storyptr a {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1rem 1rem 1.25rem;
+  border: 1px solid var(--pf-line);
+  border-left: 3px solid var(--pf-accent-solid);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--pf-ink);
+  transition: background-color var(--pf-dur-fast) var(--pf-ease-out);
+}
+.pf-storyptr a:hover { background: var(--pf-raised-2); }
+.pf-storyptr a:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.pf-storyptr__k { font: 600 0.78125rem/1.3 var(--pf-display); color: var(--pf-muted); }
+.pf-storyptr__t { font: 600 1.03125rem/1.35 var(--pf-serif); }
+.pf-storyptr__h { font: 500 0.84375rem/1.4 var(--pf-display); color: var(--pf-accent); }
+.pf-storyptr__h::before { content: "↑ "; }
+
+/* A step card that holds a whole figure is wider, and the figure sits flush inside it. */
+.pf-story__card { max-width: 36rem; }
+.pf-story__card .rf { margin: 0.75rem 0 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.pf-story__card .rf :is(.rf-head, .rf-body) { padding-inline: 0; }
+.pf-story__card .rf :is(.rf-takeaway, .rf-foot) { padding-inline: 0; background: transparent; }
+.pf-story__card .rf--hero .rf-title { font-size: 1.35rem !important; }
+@media (min-width: 1024px) {
+  :root[data-story-pin] .pf-story__card { max-width: 34rem; }
+}
+
+/* ---------------------------------------------------------------- device stages (G-10) */
+/* A lit stage for a mockup: perspective, the shared pointer/scroll tilt, a sliding sheen. */
+.pf-tilt { position: relative; perspective: 1300px; }
+.pf-tilt__body { position: relative; transform-style: preserve-3d; will-change: transform; }
+.pf-tilt__sheen { position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: screen; }
+.pf-tilt__shadow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -0.875rem;
+  height: 1.625rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, oklch(0.12 0.02 262 / 0.5) 0%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+/* The rugged slab: a lit top edge and a machined rim, depth by tone rather than a heavy shadow. */
+.pf-slab {
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.14),
+    inset 0 -2px 3px oklch(0 0 0 / 0.55),
+    0 30px 60px -30px oklch(0.1 0.02 262 / 0.7);
+  background-image: linear-gradient(160deg, oklch(0.3 0.02 262), oklch(0.2 0.02 262) 45%, oklch(0.16 0.02 262));
+}
+.pf-glass-screen { position: relative; box-shadow: inset 0 2px 8px oklch(0 0 0 / 0.55); }
+
+/* The 2G handset: moulded plastic, a recessed LCD under glass, bevelled keys. */
+.pf-handset {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  padding-bottom: 0.5rem;
+  background: linear-gradient(162deg, #353b45 0%, #1c2027 42%, #111418 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.65),
+    0 22px 36px -18px rgba(3, 8, 18, 0.7);
+}
+.pf-handset__ear { width: 2.375rem; height: 0.25rem; border-radius: 62.4375rem; background: #0c0e11; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08); }
+.pf-handset__screen {
+  position: relative;
+  overflow: hidden;
+  min-height: 8.75rem;
+  margin: 0 0.75rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4375rem;
+  background: linear-gradient(180deg, #cfdcbf, #bccca7);
+  color: #12210b;
+  font-size: 0.53125rem;
+  line-height: 1.35;
+  box-shadow: inset 0 2px 5px rgba(18, 33, 11, 0.45), 0 0 0 3px #0c0e11, 0 0 0 4px rgba(255, 255, 255, 0.07);
+}
+.pf-handset__glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.06) 38%, transparent 40%);
+}
+.pf-handset__key {
+  display: block;
+  padding: 0.25rem 0;
+  border-radius: 0.375rem 0.375rem 0.5rem 0.5rem;
+  text-align: center;
+  font-size: 0.53125rem;
+  color: #a3abb8;
+  background: linear-gradient(180deg, #2f3540, #22272f);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 1.5px 0 #0b0d10;
+}
+.pf-handset__key.is-down { color: #fff; background: linear-gradient(180deg, #4b5568, #3a4252); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+/* A screen that changes arrives with a short crossfade, as a display redraws. */
+@keyframes pf-xfade { from { opacity: 0; } to { opacity: 1; } }
+.pf-xfade { animation: pf-xfade 260ms var(--pf-ease-out) both; }
+@media (prefers-reduced-motion: reduce) { .pf-xfade { animation: none; } .pf-tilt__body { will-change: auto; } }
+@media print { .pf-tilt__sheen, .pf-tilt__shadow { display: none; } .pf-tilt__body { transform: none !important; } }
+
+/* ---------------------------------------------------------------- skeletons (G-11) */
+/* Shaped like what is coming; static and faint. A slow sheen crosses once a second and a half
+   where motion is allowed, which reads as "arriving" without imitating a live system. */
+.pf-skel, .pf-skel-section__fig { display: grid; align-content: start; gap: 0.5rem; margin: 1.5rem 0; padding: 1.25rem 1.25rem 1.5rem; border: 1px solid var(--pf-line); border-radius: 1.125rem; background: color-mix(in oklch, var(--pf-raised) 60%, transparent); }
+.pf-skel__title, .pf-skel__sub, .pf-skel__bar, .pf-skel__row i, .pf-skel-section__h, .pf-skel-section__p span { display: block; border-radius: 0.375rem; background: color-mix(in oklch, var(--pf-line) 65%, transparent); }
+.pf-skel__title { width: 62%; height: 1rem; }
+.pf-skel__sub { width: 38%; height: 0.625rem; margin-bottom: 0.5rem; }
+.pf-skel__plot { display: grid; gap: 0.75rem; }
+.pf-skel__bar { height: 0.875rem; background: none; }
+.pf-skel__bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, color-mix(in oklch, var(--pf-line) 30%, transparent), color-mix(in oklch, var(--pf-line) 90%, transparent)); }
+.pf-skel__svg { width: 100%; height: 10rem; }
+.pf-skel__svg path, .pf-skel__svg line { fill: none; stroke: color-mix(in oklch, var(--pf-line) 90%, transparent); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.pf-skel__svg circle { fill: color-mix(in oklch, var(--pf-line) 80%, transparent); }
+.pf-skel__tiles { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; max-width: 22.5rem; }
+.pf-skel__tiles i { aspect-ratio: 1; border-radius: 0.25rem; background: color-mix(in oklch, var(--pf-line) 60%, transparent); }
+.pf-skel__row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem; }
+.pf-skel__row i { height: 0.75rem; }
+.pf-skel-section { display: grid; gap: 1.25rem; padding-top: 0.5rem; }
+.pf-skel-section__h { width: 48%; height: 1.375rem; }
+.pf-skel-section__p { display: grid; gap: 0.75rem; max-width: var(--measure, 66ch); }
+.pf-skel-section__p span { height: 0.6875rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .pf-skel, .pf-skel-section { position: relative; overflow: hidden; }
+  .pf-skel::after, .pf-skel-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 30%, color-mix(in oklch, var(--pf-ground) 40%, transparent) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: pf-skel-sheen 1.6s var(--pf-ease-out) 1 both;
+  }
+}
+@keyframes pf-skel-sheen { to { transform: translateX(100%); } }
+
+/* ---------------------------------------------------------------- micro-interactions (§7.6) */
+/* Press states: every control gives under the finger. `scale` (not transform) so it composes with
+   whatever positioning transform a control already has. */
+@media (prefers-reduced-motion: no-preference) {
+  .pf-page :is(button, [role="tab"], .pf-toggle label, .rf-csv, .pf-storyptr a, .kx-spine a, summary) {
+    transition: scale 140ms var(--pf-ease-out), translate 260ms var(--pf-ease), color 150ms var(--pf-ease-out), background-color 150ms var(--pf-ease-out), border-color 150ms var(--pf-ease-out), box-shadow 150ms var(--pf-ease-out), opacity 150ms var(--pf-ease-out);
+  }
+  .pf-page :is(button, [role="tab"], .pf-toggle label, .rf-csv, .pf-storyptr a, .kx-spine a, summary):active { scale: 0.97; }
+  .pf-idx :is(.pf-idx__act, .pf-idx__row, .pf-idx__rail button):active { scale: 0.985; }
+  .pf-idx :is(.pf-idx__act, .pf-idx__row) { transition: scale 140ms var(--pf-ease-out), border-color var(--pf-dur-fast) var(--pf-ease-out), background-color var(--pf-dur-fast) var(--pf-ease-out); }
+}
+
+/* The key figure's light: a soft glow that follows a mouse pointer across the card. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .rf--hero { position: relative; }
+  .rf--hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--pf-accent-glow), transparent 70%);
+    opacity: 0;
+    transition: opacity 400ms var(--pf-ease-out);
+  }
+  .rf--hero:hover::before { opacity: 1; }
+  .rf--hero > * { position: relative; z-index: 1; }
+}
+
+/* Tap ripples: a ring that opens at the finger and fades, on one fixed layer. */
+.pf-ripples { position: fixed; inset: 0; z-index: 90; pointer-events: none; overflow: hidden; }
+.pf-ripple {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: -1.5rem 0 0 -1.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--pf-accent);
+  background: var(--pf-accent-glow);
+  animation: pf-ripple 460ms var(--pf-ease-out) both;
+}
+@keyframes pf-ripple { from { opacity: 0.55; transform: scale(0.3); } to { opacity: 0; transform: scale(1.4); } }
+@media print { .pf-ripples { display: none; } }
+
+/* Mobile-first finishing pass. Keep the editorial canvas edge-to-edge, but give reading surfaces
+   safe-area-aware breathing room and let only data-heavy children scroll when necessary. */
+@media (max-width: 639px) {
+  :root {
+    --pf-gutter: max(1rem, env(safe-area-inset-left));
+    --pf-dock-h: 3.25rem;
+  }
+
+  .pf-page { width: 100%; min-width: 0; overflow-x: clip; }
+  .pf-hero__stage { min-height: 100svh; height: 100svh; }
+  .pf-hero__copy { padding: max(1.25rem, env(safe-area-inset-top)) var(--pf-gutter) 0; max-width: 100%; }
+  .pf-hero__title { max-width: 11ch; font-size: clamp(2.25rem, 12vw, 3.35rem); line-height: .94; }
+  .pf-hero__sub { max-width: 32ch; margin-top: 0.75rem; font-size: 1rem; line-height: 1.45; }
+  .pf-seal { margin-bottom: 1rem; font-size: 0.6875rem; }
+  .pf-hero__portrait { right: -12vw; height: 54svh; max-width: 78vw; }
+  /* Below the subtitle and left of the portrait, so no line of copy sits on a ward fill. */
+  .pf-hero__county > svg { inset: 44% 30% 8% 0; width: 70%; height: 48%; }
+  .pf-hero__steps { left: var(--pf-gutter); right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 1rem + env(safe-area-inset-bottom)); }
+  .pf-step { max-width: none; padding: 0.75rem 0.75rem; font-size: 0.875rem; line-height: 1.38; }
+  .pf-hero__pick { top: auto; right: var(--pf-gutter); bottom: calc(var(--pf-dock-h) + 0.875rem + env(safe-area-inset-bottom)); left: auto; max-width: min(17rem, calc(100vw - 2 * var(--pf-gutter))); }
+  .pf-numbers { gap: 0; padding: 2rem var(--pf-gutter) 1rem; }
+  .pf-bn { min-width: 0; padding: 1rem 0 1.25rem; }
+  .pf-bn__value { max-width: 100%; font-size: min(clamp(2.25rem, 15vw, 3.5rem), 100%); line-height: .95; }
+  .pf-bn__label, .pf-bn__note { max-width: 34ch; }
+  .pf-act { min-width: 0; padding: 3.5rem var(--pf-gutter) 2rem; }
+  .pf-act__copy, .pf-act__title, .pf-act__dek { max-width: 100%; }
+  .pf-act__portrait { max-width: 72vw; }
+  .pf-fig--hero { padding: 1.5rem 1rem 1.5rem; }
+  .pf-fig__title { font-size: clamp(1.35rem, 6vw, 1.8rem); line-height: 1.08; }
+  .pf-fig__body, .pf-fig__takeaway { max-width: 100%; }
+  .pf-storyptr, .pf-idx__rail, .rf-csv { max-width: 100%; }
+  .pf-storyptr { overflow-x: auto; overscroll-behavior-x: contain; }
+  .pf-fig :is(table, .rf-table, .rf-chart, svg) { max-width: 100%; }
+  .pf-page :is(.rf-table, .rf-chart) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 380px) {
+  :root { --pf-gutter: 0.875rem; }
+  .pf-hero__title { font-size: clamp(2rem, 11.5vw, 2.8rem); }
+  .pf-hero__sub { font-size: .95rem; }
+  .pf-step { font-size: 0.8125rem; }
+}
+
+@media (min-width: 1600px) {
+  .pf-page { max-width: 112.5rem; margin-inline: auto; }
+  .pf-hero__copy { max-width: 34rem; }
+  .pf-numbers { max-width: 92.5rem; }
+}
+
+/* ---------------------------------------------------------------- toasts and shortcuts (visual-first pass) */
+.pf-toast-region {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: calc(var(--pf-dock-h, 3.5rem) + 1.25rem + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(28rem, calc(100vw - 2 * var(--pf-gutter, 1rem)));
+  pointer-events: none;
+}
+.pf-toast {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.75rem 0.5rem 0.75rem 1rem;
+  border: 1px solid var(--pf-line);
+  border-radius: 0.875rem;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--pf-shadow);
+  font: 500 0.875rem/1.4 var(--pf-display);
+  pointer-events: auto;
+  animation: pf-fade var(--pf-dur-fast) var(--pf-ease-out) both;
+}
+.pf-toast > span { flex: 1; }
+.pf-toast__action {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 0.625rem;
+  background: var(--accent-solid);
+  color: var(--paper);
+  font: 700 0.875rem/1 var(--pf-display);
+}
+.pf-toast__close { min-width: 2.75rem; min-height: 2.75rem; border-radius: 0.625rem; color: var(--muted); font-size: 1.25rem; line-height: 1; }
+.pf-toast__close:hover, .pf-toast__close:focus-visible { color: var(--ink); }
+.pf-keys {
+  position: fixed;
+  z-index: 61;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 18rem;
+  padding: 1rem;
+  border: 1px solid var(--pf-line);
+  border-radius: 0.875rem;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--pf-shadow);
+  font: 400 0.875rem/1.45 var(--pf-display);
+}
+.pf-keys__title { margin: 0 0 0.5rem; font-weight: 700; }
+.pf-keys dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.75rem; margin: 0 0 0.75rem; }
+.pf-keys dt { white-space: nowrap; }
+.pf-keys dd { margin: 0; color: var(--muted); }
+.pf-keys kbd { display: inline-block; min-width: 1.6em; padding: 1px 0.5rem; border: 1px solid var(--pf-line); border-radius: 0.375rem; font: 600 0.75rem/1.5 var(--font-mono), monospace; text-align: center; }
+@media print { .pf-toast-region, .pf-keys { display: none; } }
+
+/* ------------------------------------------------------------------ part dots
+   The single "where am I" signal (components/flow/PartDots.tsx): six dots, one per part. Shape
+   and fill carry the state, not colour alone, so it survives greyscale and print. */
+.part-dots { display: inline-flex; align-items: center; gap: 0.25rem; vertical-align: middle; }
+.part-dots__dot {
+  width: 0.5rem; height: 0.5rem; border-radius: 6.1875rem;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  opacity: 0.55;
+}
+.part-dots__dot[data-state="passed"] { background: var(--gold); opacity: 0.45; }
+.part-dots__dot[data-state="here"] { background: var(--gold); opacity: 1; width: 1.25rem; }
+.flow-chap__num { text-transform: uppercase; letter-spacing: 0.08em !important; font-size: 0.75rem !important; }
+.pf-act__count .part-dots__dot { width: 0.5625rem; height: 0.5625rem; }
+.pf-act__count .part-dots__dot[data-state="here"] { width: 1.5rem; }
+.pf-dock__numeral { padding: 0 0.75rem; }
+.pf-dock__numeral .part-dots { gap: 0.25rem; }
+.pf-dock__numeral .part-dots__dot { width: 0.375rem; height: 0.375rem; border-color: var(--pf-on-solid); }
+.pf-dock__numeral .stage-bar .part-dots__dot[data-state="here"] { width: 0.875rem; }
+.pf-dock__numeral .part-dots__dot[data-state="passed"],
+.pf-dock__numeral .part-dots__dot[data-state="here"] { background: var(--pf-on-solid); }
+.pf-dock__numeral .part-dots__dot[data-state="here"] { width: 0.875rem; }

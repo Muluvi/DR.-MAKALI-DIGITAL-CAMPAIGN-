@@ -172,7 +172,7 @@ export function AudienceSegmentationMatrix() {
  isActive ? "bg-accent-solid text-on-accent" : "text-muted hover:text-ink hover:bg-ink/5"
               }`}
             >
-              <span className="font-mono opacity-70 mr-1.5">{s.index}</span>
+              <span className="font-mono mr-1">{s.index}</span>
               {s.shortName}
             </button>
           );
@@ -205,7 +205,7 @@ export function AudienceSegmentationMatrix() {
               )}
             </div>
             {active.sizing.kind === "gap" && (
-              <p className="t-small text-muted mt-2 flex items-start gap-1.5">
+              <p className="t-small text-muted mt-2 flex items-start gap-1">
                 <AlertTriangle size={11} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
                   <strong>Named data gap.</strong> {active.sizing.note} It is not sized here because no
@@ -216,15 +216,15 @@ export function AudienceSegmentationMatrix() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
+            <div className="p-4 rounded-xl bg-paper/60 border border-line">
+              <div className="t-label font-black text-muted flex items-center gap-1 mb-1">
                 <Radio size={12} className="text-accent" aria-hidden="true" />
                 Connectivity &amp; media
               </div>
               <p className="t-label text-ink leading-relaxed">{active.connectivity}</p>
             </div>
-            <div className="p-3.5 rounded-xl bg-paper/60 border border-line">
-              <div className="t-label font-black text-muted flex items-center gap-1 mb-1.5">
+            <div className="p-4 rounded-xl bg-paper/60 border border-line">
+              <div className="t-label font-black text-muted flex items-center gap-1 mb-1">
                 <Users size={12} className="text-accent" aria-hidden="true" />
                 Geographic base
               </div>
@@ -252,9 +252,9 @@ export function AudienceSegmentationMatrix() {
               <MessageSquare size={12} className="text-accent" aria-hidden="true" />
               Reachable channels
             </div>
-            <ul className="flex flex-wrap gap-1.5">
+            <ul className="flex flex-wrap gap-1">
               {active.channels.map((c) => (
-                <li key={c} className="t-small px-2.5 py-1 rounded-lg bg-card border border-line text-ink">
+                <li key={c} className="t-small px-3 py-1 rounded-lg bg-card border border-line text-ink">
                   {c}
                 </li>
               ))}

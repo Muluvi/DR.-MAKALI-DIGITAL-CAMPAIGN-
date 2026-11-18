@@ -100,7 +100,7 @@ export function DecisionPanel() {
             <span className="t-label text-muted font-mono">§22.2</span>
           </div>
 
-          <ol className="space-y-2.5">
+          <ol className="space-y-2">
             {DEPENDENCIES.map((d, i) => {
               const Icon = d.icon;
               return (
@@ -120,7 +120,7 @@ export function DecisionPanel() {
                   <div className="min-w-0 flex-1">
                     <p className="t-label text-ink leading-relaxed">{d.text}</p>
                     {d.longLead && (
-                      <div className="mt-1.5">
+                      <div className="mt-1">
                         <ClaimBadge status="awaiting" compact />
                       </div>
                     )}

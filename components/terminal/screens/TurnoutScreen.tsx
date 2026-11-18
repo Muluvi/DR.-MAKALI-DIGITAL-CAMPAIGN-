@@ -26,10 +26,10 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
       </div>
 
       {/* Ward Velocity Banner */}
-      <div className="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 mb-3 flex items-center justify-between">
+      <div className="bg-slate-900/90 rounded-lg p-3 border border-slate-800 mb-3 flex items-center justify-between">
         <div>
           <div className="font-mono text-slate-400 uppercase" style={{ fontSize: "0.625em" }}>Polling Day Stream Pacing</div>
-          <div className="font-bold text-white flex items-center gap-1.5" style={{ fontSize: "0.875em" }}>
+          <div className="font-bold text-white flex items-center gap-1" style={{ fontSize: "0.875em" }}>
             <MapPin className="w-3.5 h-3.5 text-cyan-400" />
             {data.ward} Ward ({data.constituency})
           </div>
@@ -42,7 +42,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
 
       {/* Dual Gauge Comparison */}
       <div className="grid grid-cols-2 gap-2 mb-3">
-        <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+        <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
           <div className="font-mono uppercase text-slate-400 mb-1 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
             <Gauge className="w-3 h-3 text-cyan-400" /> Pacing Rate
           </div>
@@ -54,7 +54,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
           </div>
         </div>
 
-        <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+        <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
           <div className="font-mono uppercase text-slate-400 mb-1 flex items-center gap-1" style={{ fontSize: "0.625em" }}>
             <BarChart2 className="w-3 h-3 text-emerald-400" /> Projected Yield
           </div>
@@ -69,7 +69,7 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
 
       {/* Polling Station Agent Verification */}
       <div className="bg-slate-900/60 rounded-lg p-3 border border-slate-800/80 mb-3 flex-1 flex flex-col justify-between">
-        <div className="flex items-center justify-between mb-1.5">
+        <div className="flex items-center justify-between mb-1">
           <span className="font-mono uppercase text-slate-400" style={{ fontSize: "0.625em" }}>
             Station Agent Deployment
           </span>
@@ -83,15 +83,15 @@ export function TurnoutScreen({ data }: { data: WardPulseData }) {
           <div className="h-full bg-cyan-400 rounded-full w-full" />
         </div>
 
-        <div className="space-y-1.5 text-slate-300" style={{ fontSize: "0.75em" }}>
+        <div className="space-y-1 text-slate-300" style={{ fontSize: "0.75em" }}>
           <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Form 37A Digital Photo Verified
             </span>
             <span className="font-mono text-emerald-400 font-bold" style={{ fontSize: "0.625em" }}>100%</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1">
               <CheckCircle className="w-3.5 h-3.5 text-teal-400" /> Tamper-Evident Bag Seal Logged
             </span>
             <span className="font-mono text-teal-400 font-bold" style={{ fontSize: "0.625em" }}>100%</span>

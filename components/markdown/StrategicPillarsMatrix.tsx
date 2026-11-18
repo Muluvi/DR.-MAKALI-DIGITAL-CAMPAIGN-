@@ -114,7 +114,7 @@ export function StrategicPillarsMatrix() {
                 </span>
                 <IconComponent size={14} className={isSelected ? "text-accent" : "text-muted"} />
               </div>
-              <div className="t-label font-bold text-ink mt-1.5 line-clamp-1">
+              <div className="t-label font-bold text-ink mt-1 line-clamp-1">
                 {pillar.title}
               </div>
             </button>
@@ -137,13 +137,13 @@ export function StrategicPillarsMatrix() {
         </div>
 
         {/* Core Premise */}
-        <div className="p-3.5 sm:p-4 rounded-xl bg-paper border border-line t-label sm:t-small text-ink leading-relaxed font-medium">
+        <div className="p-4 sm:p-4 rounded-xl bg-paper border border-line t-label sm:t-small text-ink leading-relaxed font-medium">
           {currentPillar.corePremise}
         </div>
 
         {/* Breakdown Table */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-          <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
+          <div className="p-4 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
               <Sparkles size={12} className="text-accent" />
               Tangible Evidence
@@ -153,7 +153,7 @@ export function StrategicPillarsMatrix() {
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-paper/60 border border-line space-y-1">
+          <div className="p-4 rounded-xl bg-paper/60 border border-line space-y-1">
             <div className="t-label font-black text-muted flex items-center gap-1">
               <Languages size={12} className="text-accent" />
               Operational Delivery
@@ -163,7 +163,7 @@ export function StrategicPillarsMatrix() {
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
+          <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 space-y-1">
             <div className="t-label font-black text-accent flex items-center gap-1">
               <FileCheck2 size={12} />
               M&E Verification Audit
@@ -177,7 +177,7 @@ export function StrategicPillarsMatrix() {
 
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <ArrowRight size={12} className="text-accent" />
           <span>Underlying Campaign Doctrine: &ldquo;Kitui has resources. What it has lacked is leadership that understands how to use them — and the discipline to prove it did.&rdquo;</span>
         </span>

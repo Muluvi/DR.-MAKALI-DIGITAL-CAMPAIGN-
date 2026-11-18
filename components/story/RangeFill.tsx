@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 /**
- * Keeps every range input's filled track (--fill, app/story-live.css) in step with its value, on
+ * Keeps every range input's filled track (--fill, app/story.css) in step with its value, on
  * every page, including sliders that appear later inside a tool that has just been opened.
  */
 export function RangeFill() {

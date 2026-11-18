@@ -134,7 +134,7 @@ export function ReachSplit() {
           </span>
         </motion.div>
       </div>
-      <div className="flex justify-between mt-1.5 t-label font-mono text-muted tabular-nums">
+      <div className="flex justify-between mt-1 t-label font-mono text-muted tabular-nums">
         <span>{CONNECTED}% connected</span>
         <span>CA/KNBS 2023/24</span>
       </div>
@@ -142,7 +142,7 @@ export function ReachSplit() {
       {/* What serves each side. */}
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-3 mt-5">
         <div className="p-4 rounded-2xl border border-accent/30 bg-accent/[0.04]">
-          <div className="t-label font-black text-accent mb-2.5">
+          <div className="t-label font-black text-accent mb-2">
             The connected minority
           </div>
           <ul className="space-y-2">
@@ -155,7 +155,7 @@ export function ReachSplit() {
           </ul>
         </div>
         <div className="p-4 rounded-2xl border border-line bg-card">
-          <div className="t-label font-black text-ink mb-2.5">
+          <div className="t-label font-black text-ink mb-2">
             The offline majority — where the election is
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -166,7 +166,7 @@ export function ReachSplit() {
               </li>
             ))}
           </ul>
-          <p className="t-small text-muted mt-2.5 leading-snug">
+          <p className="t-small text-muted mt-2 leading-snug">
             Most of them still have a handset: {ADULT_PHONE}% of adults own a phone (KDHS 2022, via the County Gender Data
             Sheet, October 2025), so SMS and USSD reach most of this side.
           </p>
@@ -175,21 +175,21 @@ export function ReachSplit() {
 
       {/* The handset. The deliverable, demonstrated. */}
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-[auto_minmax(0,1fr)] gap-5 sm:gap-7 items-start">
-        <div className="mx-auto sm:mx-0 w-[248px] rounded-[1.75rem] border-[6px] border-ink/85 dark:border-line bg-ink dark:bg-black p-3 shadow-lg">
-          <div className="rounded-lg bg-[#0d1a0d] px-3 py-3 min-h-[188px] font-mono t-small leading-[1.55] text-[#7dd87d] whitespace-pre-wrap">
+        <div className="mx-auto sm:mx-0 w-[15.5rem] rounded-[1.75rem] border-[6px] border-ink/85 dark:border-line bg-ink dark:bg-black p-3 shadow-lg">
+          <div className="rounded-lg bg-[#0d1a0d] px-3 py-3 min-h-[11.75rem] font-mono t-small leading-[1.55] text-[#7dd87d] whitespace-pre-wrap">
             {typed}
             {!reduce && typed.length < USSD_MENU.join("\n").length && (
-              <span className="inline-block w-[7px] h-[13px] bg-[#7dd87d] align-middle ml-0.5" />
+              <span className="inline-block w-[0.4375rem] h-[0.8125rem] bg-[#7dd87d] align-middle ml-0.5" />
             )}
           </div>
-          <div className="grid grid-cols-3 gap-1.5 mt-3" role="group" aria-label="Keypad">
+          <div className="grid grid-cols-3 gap-1 mt-3" role="group" aria-label="Keypad">
             {["1", "2", "3", "4", "5", "6", "*", "0", "#"].map((k) => (
               <button
                 key={k}
                 onPointerDown={() => setPressed(k)}
                 onPointerUp={() => setPressed(null)}
                 onPointerLeave={() => setPressed(null)}
-                className={`h-11 min-w-[44px] rounded-md font-mono t-label font-bold transition-transform ${
+                className={`h-11 min-w-[2.75rem] rounded-md font-mono t-label font-bold transition-transform ${
  pressed === k
                     ? "scale-95 bg-accent-solid text-on-accent"
                     : "bg-paper/10 text-paper/80 hover:bg-paper/20"
@@ -219,18 +219,18 @@ export function ReachSplit() {
             election, on the cheapest possible technology.
           </p>
           <dl className="grid grid-cols-2 gap-2 t-small">
-            <div className="p-2.5 rounded-lg bg-paper border border-line">
+            <div className="p-3 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Shared code</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">5–7</dd>
               <dd className="t-label text-muted">working days to live</dd>
             </div>
-            <div className="p-2.5 rounded-lg bg-paper border border-line">
+            <div className="p-3 rounded-lg bg-paper border border-line">
               <dt className="text-muted">Dedicated code</dt>
               <dd className="font-mono font-bold text-ink mt-0.5 tabular-nums">2–4</dd>
               <dd className="t-label text-muted">weeks, operator pending</dd>
             </div>
           </dl>
-          <p className="t-small text-muted mt-2.5">
+          <p className="t-small text-muted mt-2">
             Set-up in 5–7 working days for a shared code; 2–4 weeks for a dedicated code pending
             operator approval.
           </p>

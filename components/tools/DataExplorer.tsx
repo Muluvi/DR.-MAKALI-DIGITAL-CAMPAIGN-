@@ -112,7 +112,7 @@ export function DataExplorer() {
       <div className="space-y-3 border-b border-line p-4 sm:p-5">
         <div className="flex items-baseline justify-between gap-3">
           <h4 className="font-serif t-body font-bold text-ink">Data explorer</h4>
-          <button type="button" onClick={download} className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-line px-3 t-small font-semibold text-accent hover:bg-paper">
+          <button type="button" onClick={download} className="inline-flex min-h-11 items-center gap-1 rounded-lg border border-line px-3 t-small font-semibold text-accent hover:bg-paper">
             <Download size={14} aria-hidden="true" /> Download all ({all.length}) as CSV
           </button>
         </div>

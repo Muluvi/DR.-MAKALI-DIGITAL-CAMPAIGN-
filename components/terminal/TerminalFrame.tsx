@@ -116,7 +116,7 @@ export function TerminalFrame({
 
         {/* Physical Tablet Body */}
         <div
-          className="relative w-full h-full rounded-[28px] overflow-hidden flex flex-col justify-between border-2 border-slate-700/80 shadow-2xl @container"
+          className="relative w-full h-full rounded-[1.75rem] overflow-hidden flex flex-col justify-between border-2 border-slate-700/80 shadow-2xl @container"
           style={{
             background:
               "linear-gradient(145deg, #242b36 0%, #171c24 35%, #0f1319 75%, #0a0d12 100%)",
@@ -150,7 +150,7 @@ export function TerminalFrame({
             </div>
 
             {/* Center: Device Brand / Hardware Badge */}
-            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-700/60">
+            <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-700/60">
               <Shield className="w-3 h-3 text-amber-400" />
               <span className="font-mono text-slate-200 font-bold" style={{ fontSize: "0.625em" }}>
                 KITUI-TAC 40
@@ -173,7 +173,7 @@ export function TerminalFrame({
 
           {/* Screen Recess */}
           <div
-            className="mx-auto relative overflow-hidden bg-black border border-slate-800/90 rounded-[10px] shadow-inner @container"
+            className="mx-auto relative overflow-hidden bg-black border border-slate-800/90 rounded-[0.625rem] shadow-inner @container"
             style={{
               width: SCREEN_W,
               height: SCREEN_H,

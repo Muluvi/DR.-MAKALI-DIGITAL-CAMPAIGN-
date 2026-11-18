@@ -44,7 +44,7 @@ export function ObjectivesIndex() {
         indicator sets sit with the work they measure, rather than being collected here — each one
         is a tap away.
       </p>
-      <ul className="grid gap-1.5 sm:grid-cols-2">
+      <ul className="grid gap-1 sm:grid-cols-2">
         {items.map((item) => (
           <li key={item.id}>
             <a
@@ -55,7 +55,7 @@ export function ObjectivesIndex() {
                   window.__navigateToSection(item.id);
                 }
               }}
-              className="flex min-h-[44px] min-w-[44px] justify-center items-baseline gap-2 rounded-lg px-2 py-2.5 -mx-2 hover:bg-accent/[0.06] transition-colors"
+              className="flex min-h-[2.75rem] min-w-[2.75rem] justify-center items-baseline gap-2 rounded-lg px-2 py-3 -mx-2 hover:bg-accent/[0.06] transition-colors"
             >
               <span className="t-label sm:t-small font-semibold text-ink leading-snug">
                 {item.title}

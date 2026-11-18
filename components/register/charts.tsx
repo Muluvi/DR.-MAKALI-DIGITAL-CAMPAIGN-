@@ -95,7 +95,6 @@ function Part({ c, spec }: { c: ChartSpec; spec: FigureSpec }) {
 type Tone = "accent" | "neutral" | "rival" | "neg";
 const TONES: Tone[] = ["accent", "neutral", "rival", "neg"];
 
-const STATE_WORD: Record<CellState, string> = { sourced: "", modelled: "Modelled", needed: "Data needed", target: "Target" };
 
 /** Once per figure: a gradient per tone that fades toward the baseline, and the modelled weave. */
 function KitDefs({ uid }: { uid: string }) {
@@ -123,10 +122,6 @@ function KitDefs({ uid }: { uid: string }) {
 function valueText(b: Pick<Bar, "value" | "display">, unit?: string) {
   if (b.value === null) return "Data needed";
   return b.display ?? `${group(b.value)}${unit ? ` ${unit}` : ""}`;
-}
-
-function stateChip(state: CellState) {
-  return state !== "sourced" ? <span className={`kx-chip is-${state}`}>{STATE_WORD[state]}</span> : null;
 }
 
 const pct = (k: number) => `${Math.max(0, Math.min(1, k)) * 100}%`;
@@ -222,12 +217,11 @@ function Bars({ uid, bars, max, ref_, unit, refLabel = true }: { uid: string; ba
               key={b.label}
               className={`kx-row is-${b.tone ?? "neutral"}`}
               tabIndex={0}
-              aria-label={`${b.label}: ${v}${b.state !== "sourced" ? ` (${STATE_WORD[b.state].toLowerCase()})` : ""}${b.note ? `. ${b.note}` : ""}`}
+              aria-label={`${b.label}: ${v}${b.note ? `. ${b.note}` : ""}`}
             >
               <div className="kx-label">
                 <span className="kx-name">
                   {b.label}
-                  {stateChip(b.state)}
                 </span>
                 <span className="kx-val pf-num">{b.value === null ? v : <CountUp text={v} />}</span>
               </div>
@@ -283,7 +277,7 @@ function Stack({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
                 style={{ width: pct(x(Math.abs(s.value ?? 0))) }}
                 tabIndex={0}
                 role="img"
-                aria-label={`${s.label}: ${v}${s.state !== "sourced" ? ` (${STATE_WORD[s.state].toLowerCase()})` : ""}`}
+                aria-label={`${s.label}: ${v}`}
               >
                 {(s.state === "modelled" || s.state === "target") && (
                   <svg className="kx-seg__weave" aria-hidden="true" focusable="false">
@@ -292,7 +286,6 @@ function Stack({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
                 )}
                 <span className="kx-tip" aria-hidden="true">
                   <strong>{s.label}</strong> {v}
-                  {s.state !== "sourced" && ` · ${STATE_WORD[s.state].toLowerCase()}`}
                 </span>
               </span>
             );
@@ -316,7 +309,6 @@ function Stack({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
             <span className={`kx-swatch is-${shades[i]} ${s.state === "modelled" || s.state === "target" ? "is-modelled" : ""}`} aria-hidden="true" />
             <span>
               {s.label}: <strong className="pf-num">{valueText(s, chart.unit)}</strong>
-              {s.state !== "sourced" && ` (${STATE_WORD[s.state].toLowerCase()})`}
             </span>
           </li>
         ))}
@@ -362,7 +354,6 @@ function Waterfall({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { ty
                 <span className="kx-name">
                   {sign}
                   {p.label}
-                  {stateChip(p.state)}
                 </span>
                 <span className="kx-val pf-num">{p.value === null ? v : <CountUp text={`${p.kind === "delta" ? sign.trim() : ""}${v}`} />}</span>
               </div>
@@ -863,12 +854,11 @@ function Paths({ uid, chart }: { uid: string; chart: Extract<ChartSpec, { type: 
                           style={{ left: pct(x(from)), width: pct(x(s.value ?? 0)) }}
                           tabIndex={0}
                           role="img"
-                          aria-label={`${g.title}, ${r.label}: ${s.label} ${group(s.value ?? 0)}${s.state !== "sourced" ? ` (${STATE_WORD[s.state].toLowerCase()})` : ""}`}
+                          aria-label={`${g.title}, ${r.label}: ${s.label} ${group(s.value ?? 0)}`}
                         >
                           <BarMark uid={uid} w={1} tone={tone} state={s.state} i={ri * 3 + i} />
                           <span className="kx-tip" aria-hidden="true">
                             <strong>{s.label}</strong> {group(s.value ?? 0)}
-                            {s.state !== "sourced" && ` · ${STATE_WORD[s.state].toLowerCase()}`}
                           </span>
                         </span>
                       );
@@ -972,7 +962,6 @@ function Stats({ chart }: { chart: Extract<ChartSpec, { type: "stats" }> }) {
         <li key={it.label} className={`kx-stat ${it.state === "modelled" || it.state === "target" ? "is-modelled" : ""}`}>
           <p className="kx-stat__v pf-num"><Roll value={it.value} /></p>
           <p className="kx-stat__l">{it.label}</p>
-          {it.state !== "sourced" && <p className="kx-chip is-modelled">{STATE_WORD[it.state]}</p>}
         </li>
       ))}
     </ul>

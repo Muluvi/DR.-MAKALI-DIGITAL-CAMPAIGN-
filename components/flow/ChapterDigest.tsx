@@ -4,10 +4,8 @@ import { ArrowUpRight, ChevronDown, Hand, Sparkles, Table2 } from "lucide-react"
 import { chapterHands } from "../../lib/story/embeds";
 
 import { useInView } from "../../hooks/use-in-view";
-import { tierWord } from "../../data/types";
 import type { DigestStat } from "../../lib/digest";
 import type { TabId } from "../../lib/heading-slug";
-import { LeadMarkdown } from "../MarkdownViewer";
 import { CountUp } from "../premium/CountUp";
 
 /**
@@ -25,7 +23,7 @@ import { CountUp } from "../premium/CountUp";
  *
  * MOTION. The steps draw forward along their line and the numbers count up, once, as the digest
  * arrives; both rest at their true values in the server HTML and under reduced motion
- * (app/streamline.css). Nothing is hidden waiting for a script.
+ * (app/story.css). Nothing is hidden waiting for a script.
  */
 
 /** Steps shown before "and N more": a digest is a summary, and the chapter holds the rest. */
@@ -35,8 +33,6 @@ export interface DigestStep {
   id: string;
   title: string;
 }
-
-const TIER_TONE: Record<string, string> = { "1": "t1", "2": "t2", "3": "t3" };
 
 export function ChapterDigest({
   tabId,
@@ -50,7 +46,8 @@ export function ChapterDigest({
   onStep,
 }: {
   tabId: TabId;
-  lead: string;
+  /** The chapter's lead, rendered on the server (LeadMarkdown in app/[[...slug]]/page.tsx). */
+  lead: React.ReactNode;
   stats: DigestStat[];
   steps: DigestStep[];
   /** How long the opened chapter takes to read, from what it shows on load. */
@@ -70,7 +67,7 @@ export function ChapterDigest({
     <div ref={ref} className="cd not-prose" data-in-view={inView ? "true" : "false"} data-open={open ? "true" : "false"}>
       {lead && (
         <div className="cd__lead">
-          <LeadMarkdown text={lead} tabId={tabId} />
+          {lead}
         </div>
       )}
 
@@ -82,9 +79,6 @@ export function ChapterDigest({
                 <CountUp text={s.value} />
               </span>
               <span className="cd__label">{s.label}</span>
-              {s.tier !== undefined && (
-                <span className={`cd__tier cd__tier--${TIER_TONE[String(s.tier)] ?? "model"}`}>{tierWord(s.tier)}</span>
-              )}
             </li>
           ))}
         </ul>

@@ -109,7 +109,7 @@ function FigureEditor({ figures }: { figures: FigureRow[] }) {
         <ul className="plat-card divide-y divide-line overflow-hidden">
           {matches.map((f) => (
             <li key={f.id}>
-              <button type="button" className="block w-full px-4 py-2.5 text-left hover:bg-paper" onClick={() => { choose(f); setQ(""); }}>
+              <button type="button" className="block w-full px-4 py-3 text-left hover:bg-paper" onClick={() => { choose(f); setQ(""); }}>
                 <span className="block font-mono text-[0.8rem] text-ink">{f.id}</span>
                 <span className="block truncate text-[0.78rem] text-muted">{f.value === null ? "Needed" : f.value.toLocaleString("en-KE")} {f.unit} · {f.source}</span>
               </button>
@@ -314,7 +314,7 @@ export function PackEditor({ data }: { data: PackEditorData }) {
       {data.mode === "off" && <p className="mb-4 rounded-xl border border-line bg-card p-3 text-[0.85rem] text-muted">Data editing is not switched on yet: Firefly has not connected the site to GitHub. Edits will be refused until it is.</p>}
       <div className="mb-4 flex gap-1 overflow-x-auto" role="tablist">
         {TABS.map((t) => (
-          <button key={t} type="button" role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`flex-none rounded-full px-3.5 py-2 text-[0.85rem] ${tab === t ? "bg-accent-solid text-on-accent" : "border border-line bg-card text-ink"}`}>{t}</button>
+          <button key={t} type="button" role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`flex-none rounded-full px-4 py-2 text-[0.85rem] ${tab === t ? "bg-accent-solid text-on-accent" : "border border-line bg-card text-ink"}`}>{t}</button>
         ))}
       </div>
       {tab === "Figures" && <FigureEditor figures={data.figures} />}

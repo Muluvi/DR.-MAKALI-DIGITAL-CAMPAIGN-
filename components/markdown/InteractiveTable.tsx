@@ -353,7 +353,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
           What is left: the row count, because a filtered table must say so; a filter ONLY above
           ten rows, because below that scrolling is faster than typing; and CSV and Chart behind
           one overflow control, because they are occasional and the table is not. */}
-      <div className="print:hidden flex flex-wrap items-center justify-between gap-2 border-b border-line/40 bg-paper/40 px-2.5 py-2 sm:px-3.5">
+      <div className="print:hidden flex flex-wrap items-center justify-between gap-2 border-b border-line/40 bg-paper/40 px-3 py-2 sm:px-4">
         <span
           role="status"
           aria-live="polite"
@@ -375,7 +375,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                 aria-label="Filter table rows"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="min-h-[44px] w-full rounded-xl border border-line bg-paper/80 py-2 pl-8 pr-2.5 t-micro font-normal text-ink placeholder:text-muted focus:border-accent focus:outline-none"
+                className="min-h-[2.75rem] w-full rounded-xl border border-line bg-paper/80 py-2 pl-8 pr-3 t-micro font-normal text-ink placeholder:text-muted focus:border-accent focus:outline-none"
               />
             </div>
           )}
@@ -385,7 +385,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
               hydration. */}
           <details className="relative">
             <summary
-              className="tap-chip flex min-h-[44px] min-w-[44px] cursor-pointer list-none items-center justify-center rounded-xl border border-line bg-paper/80 px-3 text-muted transition-colors hover:border-accent/40 hover:text-ink"
+              className="tap-chip flex min-h-[2.75rem] min-w-[2.75rem] cursor-pointer list-none items-center justify-center rounded-xl border border-line bg-paper/80 px-3 text-muted transition-colors hover:border-accent/40 hover:text-ink"
               aria-label="More actions for this table"
             >
               <MoreHorizontal size={16} aria-hidden="true" />
@@ -396,7 +396,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                   type="button"
                   onClick={() => setShowChart(!showChart)}
                   aria-pressed={showChart}
-                  className="flex w-full min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08]"
+                  className="flex w-full min-h-[2.75rem] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08]"
                 >
                   {showChart ? <Table size={14} aria-hidden="true" /> : <BarChart3 size={14} aria-hidden="true" />}
                   <span>{showChart ? "Show as table" : "Show as chart"}</span>
@@ -406,7 +406,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                 type="button"
                 onClick={downloadCsv}
                 disabled={filteredRows.length === 0}
-                className="flex w-full min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex w-full min-h-[2.75rem] cursor-pointer items-center gap-2 rounded-lg px-3 t-micro font-semibold text-ink hover:bg-accent/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
               >
                 <Download size={14} aria-hidden="true" />
                 <span>Download CSV</span>
@@ -437,7 +437,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
         <div className="w-full">
           {/* If on mobile viewport, render only the card-stacking view to avoid dual DOM bloat */}
           {mounted && isMobile ? (
-            <div className="p-2.5 space-y-2.5">
+            <div className="p-3 space-y-2">
               {visibleRows.map((row, rIdx) => {
                 const primaryCell = row[0];
                 const remainingCells = row.slice(1);
@@ -449,7 +449,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                     className="fx-item-insert bg-card/70 border border-line/60 rounded-xl p-3 shadow-xs space-y-2 hover:border-line transition-colors"
                   >
                     {/* Lead cell rendered as card header */}
-                    <div className="font-bold text-ink t-small pb-1.5 border-b border-line/30 flex items-center justify-between">
+                    <div className="font-bold text-ink t-small pb-2 border-b border-line/30 flex items-center justify-between">
                       <motion.div layoutId={`${matrixId}-label-${rIdx}`} className="min-w-0 break-words">
                         {primaryCell ? primaryCell.props?.children : null}
                       </motion.div>
@@ -461,7 +461,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                     </div>
 
                     {/* Remaining cells rendered as paired key-values */}
-                    <div className="space-y-1.5">
+                    <div className="space-y-1">
                       {remainingCells.map((cell: any, cIdx: number) => {
                         const colIdx = cIdx + 1;
                         const thNode = ths[colIdx];
@@ -469,7 +469,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         return (
                           // Label above value, both left-aligned (brief G-6, D-04). A value set
                           // right-aligned in 70% of a phone's width wrapped into a ragged column.
-                          <div key={colIdx} className="pf-kv py-1.5 border-b border-line/15 last:border-b-0">
+                          <div key={colIdx} className="pf-kv py-2 border-b border-line/15 last:border-b-0">
                             <span className="block t-micro font-semibold text-muted" aria-hidden="true">
                               {colLabel}
                             </span>
@@ -506,7 +506,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         <button
                           type="button"
                           onClick={() => toggleSort(idx)}
-                          className="fx-focus group flex w-full min-h-[44px] items-center gap-1.5 justify-between p-2.5 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
+                          className="fx-focus group flex w-full min-h-[2.75rem] items-center gap-1 justify-between p-3 sm:p-3 text-left cursor-pointer hover:bg-line/20 transition-colors"
                         >
                           {/* The header is a sort button, so a chip in it (a tier mark) is drawn inert: a
                               button inside a button is invalid HTML and fails hydration. */}
@@ -530,7 +530,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
                         return (
                           <td
                             key={cIdx}
-                            className={`p-2.5 sm:p-3 t-small sm:t-body leading-relaxed ${
+                            className={`p-3 sm:p-3 t-small sm:t-body leading-relaxed ${
  isPrimary
                                 ? "font-semibold text-ink whitespace-nowrap"
                                 : "text-ink/90 whitespace-normal"
@@ -552,7 +552,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             <button
               type="button"
               onClick={() => setShowAllRows(true)}
-              className="fx-press fx-focus w-full py-3 t-label font-bold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[44px] flex items-center justify-center"
+              className="fx-press fx-focus w-full py-3 t-label font-bold text-accent border-t border-line/40 hover:bg-accent/[0.06] transition-colors cursor-pointer min-h-[2.75rem] flex items-center justify-center"
             >
               Show all {filteredRows.length} rows
             </button>
@@ -561,7 +561,7 @@ export function InteractiveTable({ children }: { children: React.ReactNode }) {
             <button
               type="button"
               onClick={() => setShowAllRows(false)}
-              className="fx-press fx-focus w-full py-3 t-label font-bold text-muted border-t border-line/40 hover:text-ink transition-colors cursor-pointer min-h-[44px] flex items-center justify-center"
+              className="fx-press fx-focus w-full py-3 t-label font-bold text-muted border-t border-line/40 hover:text-ink transition-colors cursor-pointer min-h-[2.75rem] flex items-center justify-center"
             >
               Show fewer rows
             </button>

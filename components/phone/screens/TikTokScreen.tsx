@@ -165,10 +165,10 @@ export function TikTokScreen() {
           <p className="mt-1" style={{ fontSize: "0.84375em", lineHeight: 1.32, color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
             {TIKTOK.caption.value}
           </p>
-          <p className="mt-1.5">
+          <p className="mt-1">
             <SlotGap label="Hashtags" dark />
           </p>
-          <p className="mt-2 flex items-center gap-1.5">
+          <p className="mt-2 flex items-center gap-1">
             <Music size={13} color="#fff" strokeWidth={2.2} aria-hidden="true" />
             <SlotGap label="Audio track" dark />
           </p>

@@ -50,9 +50,9 @@ export default async function Dashboards() {
             {filled.length > 0 ? "Still waiting for a first entry" : "The team\u2019s numbers start with the first entry"}
           </h2>
           <p className="mt-1 text-[0.85rem] text-muted">Each of these charts draws itself the moment the team saves a record.</p>
-          <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+          <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
             {waiting.map((c) => (
-              <li key={c.title} className="flex gap-2.5 text-[0.85rem]">
+              <li key={c.title} className="flex gap-2 text-[0.85rem]">
                 <span aria-hidden className="mt-[0.45rem] h-2 w-2 flex-none rounded-full border border-line" />
                 <span>
                   <span className="text-ink">{c.title}</span>

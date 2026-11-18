@@ -2,12 +2,16 @@
 
 import { startTransition, useEffect, useRef, useState } from "react";
 
-import { MarkdownViewer } from "../MarkdownViewer";
+import dynamic from "next/dynamic";
 import { SectionSkeleton } from "../SectionSkeleton";
 import { contentUrl } from "../../lib/content-files";
 import { sectionHeight } from "../../lib/section-heights";
 import { markSectionPending } from "../../lib/flow-pending";
 import type { TabId } from "../../lib/heading-slug";
+
+// The markdown renderer is fetched only when a section actually streams in: the sections the
+// server renders arrive as HTML, so the parser never sits in the first-load bundle (polish pass).
+const MarkdownViewer = dynamic(() => import("../MarkdownViewer").then((m) => m.MarkdownViewer), { ssr: false });
 
 /**
  * A section of the flow that fetches its own prose.

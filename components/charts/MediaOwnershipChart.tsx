@@ -59,7 +59,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
     <div ref={ref} className="fx-focus w-full overflow-x-auto" tabIndex={0} role="group" aria-label="Media ownership chart, scrollable">
       <div className="min-w-[26rem]">
         {/* Column heads — the alignment axis. */}
-        <div className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1.5 mb-1.5">
+        <div className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1 mb-1">
           <span aria-hidden="true" />
           {ALIGNMENTS.map((a) => (
             <span
@@ -72,7 +72,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
         </div>
 
         {TIERS.map((row) => (
-          <div key={row.tier} className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1.5 mb-1.5">
+          <div key={row.tier} className="grid grid-cols-[5.5rem_repeat(3,minmax(0,1fr))] gap-1 mb-1">
             <div className="flex flex-col justify-center pr-1">
               <span className="t-label font-bold text-ink leading-tight">{row.label}</span>
               <span className="t-micro text-muted font-mono">{row.note}</span>
@@ -90,7 +90,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
                     return (
                       <motion.span
                         key={s.name}
-                        className="t-label font-bold px-1.5 py-1 rounded border leading-none"
+                        className="t-label font-bold px-2 py-1 rounded border leading-none"
                         style={{
                           color: s.color,
                           borderColor: s.color,
@@ -114,7 +114,7 @@ export default function MediaOwnershipChart({ data }: { data: StationBar[] }) {
       </div>
       {/* Outside the minimum-width grid, so the note wraps to the card rather than being cut at
           its right edge on a phone (D-20). */}
-      <p className="t-label text-muted leading-relaxed mt-2.5">
+      <p className="t-label text-muted leading-relaxed mt-2">
         Position carries the reading — nothing here is drawn to scale, and an empty cell means no station in
         this landscape occupies that combination.
       </p>

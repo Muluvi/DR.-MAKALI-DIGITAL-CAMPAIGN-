@@ -34,7 +34,7 @@ import { STAGGER, fadeUp, staggerContainer, VIEWPORT } from "../../lib/motion";
 function CellValue({ value, emphasised }: { value: Cell; emphasised?: boolean }) {
   if (value === true) {
     return (
-      <span className="inline-flex items-center gap-1.5 text-accent font-semibold">
+      <span className="inline-flex items-center gap-1 text-accent font-semibold">
         <Check size={14} className="stroke-[3] shrink-0" aria-hidden="true" />
         Included
       </span>
@@ -42,7 +42,7 @@ function CellValue({ value, emphasised }: { value: Cell; emphasised?: boolean })
   }
   if (value === false) {
     return (
-      <span className="inline-flex items-center gap-1.5 text-muted">
+      <span className="inline-flex items-center gap-1 text-muted">
         <Minus size={14} className="stroke-[3] shrink-0" aria-hidden="true" />
         Not included
       </span>

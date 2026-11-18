@@ -67,7 +67,7 @@ export function OfflineWaterline() {
           className="absolute inset-x-0 top-0 flex items-center justify-between gap-2 px-3 border-b border-dashed border-accent/50"
           style={{ height: `${ONLINE}%` }}
         >
-          <span className="inline-flex items-center gap-1.5 t-micro font-black text-accent">
+          <span className="inline-flex items-center gap-1 t-micro font-black text-accent">
             <Wifi size={12} aria-hidden="true" />
             {ONLINE}% online
           </span>
@@ -99,7 +99,7 @@ export function OfflineWaterline() {
           transition={{ delay: reduce ? 0 : 0.4 }}
         >
           <div className="pt-3 flex items-start justify-between gap-2">
-            <span className="inline-flex items-center gap-1.5 t-micro font-black text-on-accent">
+            <span className="inline-flex items-center gap-1 t-micro font-black text-on-accent">
               <WifiOff size={12} aria-hidden="true" />
               {OFFLINE}% offline
             </span>

@@ -14,7 +14,9 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     // Widths the layout actually requests: the hero at 1x/2x/3x, and the in-section portraits.
     // Trimming the default ladder stops the optimiser generating renditions nothing asks for.
-    deviceSizes: [390, 640, 828, 1080, 1200, 1920],
+    // 2560 and 3840 serve a large high-DPR screen from the 4K portrait sources (polish pass);
+    // a phone still picks from the bottom of the ladder by `sizes`.
+    deviceSizes: [390, 640, 828, 1080, 1200, 1920, 2560, 3840],
     imageSizes: [128, 140, 150, 168, 196, 210, 260, 384],
     // Cutouts are transparent WebP; a year is safe because the filenames are versioned
     // by content and never change in place.
@@ -38,6 +40,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: '/sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }] },
+      // Portrait sources are named by content (-4k, polish pass) and never change in place.
+      { source: '/portraits/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/data/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
       { source: '/content/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=86400' }] },
     ];

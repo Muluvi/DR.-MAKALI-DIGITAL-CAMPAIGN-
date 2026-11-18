@@ -1,4 +1,3 @@
-import { tierWord } from "../../data/types";
 import type { Cell, CellState, FigureSpec, SourceRef } from "../../lib/register/types";
 import { group } from "../../lib/data/format";
 import { Chart } from "./charts";
@@ -57,7 +56,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
       <div className="rf-body">
         <Chart spec={spec} />
       </div>
-      <FigureDetailsToggle badges={<TierBadges sources={spec.sources} />} />
+      <FigureDetailsToggle />
       <FigDetail notes className="rf-fold">
         <div className="rf-method">
           <p className="rf-question">{spec.question}</p>
@@ -85,10 +84,7 @@ export function RegisterFigure({ spec }: { spec: FigureSpec }) {
         <p className="rf-source">
           <span>Source:</span>
           {spec.sources.map((s) => (
-            <span key={s.name} className="inline-flex items-center gap-1.5">
-              <TierPill source={s} />
-              <span>{s.name}</span>
-            </span>
+            <span key={s.name}>{s.name}</span>
           ))}
         </p>
       </FigDetail>
@@ -104,25 +100,15 @@ const STATE_TEXT: Record<CellState, string> = {
   target: "Target",
 };
 
-/** One badge per distinct tier or state among a figure's sources: what stays in view when it is closed. */
-function TierBadges({ sources }: { sources: SourceRef[] }) {
-  const seen = new Map<string, SourceRef>();
-  for (const s of sources) seen.set(`${s.state ?? ""}|${s.tier ?? ""}`, s);
-  return (
-    <>
-      {[...seen.values()].map((s) => (
-        <TierPill key={`${s.state ?? ""}|${s.tier ?? ""}`} source={s} />
-      ))}
-    </>
-  );
-}
-
-export function TierPill({ source }: { source: Pick<SourceRef, "tier" | "state"> }) {
-  if (source.state === "needed") return <span className="tp tp-needed">Data needed</span>;
-  if (source.state === "modelled") return <span className="tp tp-modelled">Modelled</span>;
-  if (source.state === "target") return <span className="tp tp-target">Target</span>;
-  if (!source.tier) return <span className="tp tp-needed">No tier</span>;
-  return <span className={`tp tp-${source.tier}`}>{tierWord(source.tier)}</span>;
+/**
+ * NOT SHOWN (November 2026, the campaign's direction): figures carry no status tags, no
+ * "Official", "Reported", "Unconfirmed", "Modelled", "Estimate" or "Awaiting" chips. The tier and
+ * state stay in the data and in each figure's source line; only the tag is not drawn. This
+ * component is kept, rendering nothing, so every call site keeps compiling and the tags can be
+ * restored here in one place.
+ */
+export function TierPill(_props: { source: Pick<SourceRef, "tier" | "state"> }) {
+  return null;
 }
 
 export function cellText(v: Cell, closesWith?: string): string {

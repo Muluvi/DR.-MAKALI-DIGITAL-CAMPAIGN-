@@ -104,21 +104,21 @@ export function DataSecurityEthicsCharter() {
         </div>
 
         {/* ODPC Status Pill */}
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
+        <div className="flex items-center gap-2 px-3 py-2 bg-card border border-emerald-500/30 rounded-xl t-label font-semibold text-emerald-700 dark:text-emerald-300">
           <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
           <span>ODPC & IEBC Pre-Audited Standards</span>
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1.5">
+      <div className="p-3 bg-paper/70 border-b border-line flex flex-wrap items-center gap-1">
         {["All", "Consent & Messaging", "Data Storage & Privacy", "AI & Synthetic Media", "Campaign Finance"].map((cat) => (
           <button
             key={cat}
             type="button"
             onClick={() => setSelectedFilter(cat)}
             aria-pressed={selectedFilter === cat}
-            className={`px-3 py-1.5 min-h-[44px] min-w-[44px] justify-center inline-flex items-center rounded-xl t-label font-bold transition-all cursor-pointer ${
+            className={`px-3 py-2 min-h-[2.75rem] min-w-[2.75rem] justify-center inline-flex items-center rounded-xl t-label font-bold transition-all cursor-pointer ${
  selectedFilter === cat
                 ? "bg-accent-solid text-on-accent shadow-sm"
                 : "bg-card border border-line text-muted hover:text-ink"
@@ -174,11 +174,11 @@ export function DataSecurityEthicsCharter() {
                 </div>
               </div>
 
-              <p className="t-label text-ink font-medium mt-2.5 leading-relaxed">
+              <p className="t-label text-ink font-medium mt-2 leading-relaxed">
                 {rule.campaignStandard}
               </p>
 
-              <div className="mt-2.5 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
+              <div className="mt-2 pt-2 border-t border-line/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 t-small">
                 <span className="text-muted">
                   <strong className="text-rose-600 dark:text-rose-400">Statutory Exposure / Penalty:</strong> {rule.penaltyForBreach}
                 </span>
@@ -193,7 +193,7 @@ export function DataSecurityEthicsCharter() {
 
       {/* Footer Rule */}
       <div className="p-3 bg-paper/60 border-t border-line t-small text-muted flex items-center justify-between px-4 font-semibold">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1">
           <Scale size={12} className="text-accent" />
           <span>Legal Doctrine: High ethical standards protect Dr. Mulu&apos;s brand as a disciplined economist while eliminating regulatory liability under the ODPC and IEBC.</span>
         </span>

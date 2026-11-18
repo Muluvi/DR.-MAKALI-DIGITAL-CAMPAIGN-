@@ -192,8 +192,8 @@ export function PhoneFrame({
                 </div>
 
                 {/* 2G Green/Amber Monochromatic Screen */}
-                <div className="mx-4 my-1 rounded-lg p-2.5 flex-1 max-h-[340px] bg-[#b9cf9c] text-[#12210b] font-mono border-2 border-[#12210b]/20 shadow-inner flex flex-col overflow-hidden">
-                  <div className="flex items-center justify-between text-[10px] pb-1 border-b border-[#12210b]/20 font-bold tracking-tight">
+                <div className="mx-4 my-1 rounded-lg p-3 flex-1 max-h-[21.25rem] bg-[#b9cf9c] text-[#12210b] font-mono border-2 border-[#12210b]/20 shadow-inner flex flex-col overflow-hidden">
+                  <div className="flex items-center justify-between text-[0.625rem] pb-1 border-b border-[#12210b]/20 font-bold tracking-tight">
                     <span>SAFARICOM 2G</span>
                     <span className="flex items-center gap-1">
                       <span>98%</span>
@@ -203,7 +203,7 @@ export function PhoneFrame({
                   <div className="flex-1 overflow-y-auto pt-2 text-xs leading-tight">
                     {children}
                   </div>
-                  <div className="flex items-center justify-between text-[10px] pt-1 border-t border-[#12210b]/20 font-bold">
+                  <div className="flex items-center justify-between text-[0.625rem] pt-1 border-t border-[#12210b]/20 font-bold">
                     <span>OPTIONS</span>
                     <span>BACK</span>
                   </div>
@@ -213,16 +213,16 @@ export function PhoneFrame({
                 <div className="p-4 pt-2 pb-6 flex-1 flex flex-col justify-between">
                   {/* Softkeys + D-Pad + Call/End */}
                   <div className="grid grid-cols-3 gap-2 items-center text-center">
-                    <div className="flex flex-col items-center gap-1.5">
-                      <div className="w-14 h-4 rounded bg-[#2b3341] border border-white/10 shadow-xs text-[9px] font-bold text-slate-400 flex items-center justify-center">—</div>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-14 h-4 rounded bg-[#2b3341] border border-white/10 shadow-xs text-[0.5625rem] font-bold text-slate-400 flex items-center justify-center">—</div>
                       <div className="w-14 h-6 rounded-md bg-emerald-700/80 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">CALL</div>
                     </div>
                     {/* D-Pad Ring */}
                     <div className="w-16 h-16 mx-auto rounded-full bg-[#242b37] border-2 border-[#3d485a] flex items-center justify-center shadow-md">
-                      <div className="w-8 h-8 rounded-full bg-[#1b212c] border border-white/10 flex items-center justify-center text-[10px] font-bold text-slate-300">OK</div>
+                      <div className="w-8 h-8 rounded-full bg-[#1b212c] border border-white/10 flex items-center justify-center text-[0.625rem] font-bold text-slate-300">OK</div>
                     </div>
-                    <div className="flex flex-col items-center gap-1.5">
-                      <div className="w-14 h-4 rounded bg-[#2b3341] border border-white/10 shadow-xs text-[9px] font-bold text-slate-400 flex items-center justify-center">—</div>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-14 h-4 rounded bg-[#2b3341] border border-white/10 shadow-xs text-[0.5625rem] font-bold text-slate-400 flex items-center justify-center">—</div>
                       <div className="w-14 h-6 rounded-md bg-rose-700/80 hover:bg-rose-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">END</div>
                     </div>
                   </div>
@@ -245,10 +245,10 @@ export function PhoneFrame({
                     ].map((k) => (
                       <div
                         key={k.num}
-                        className="py-1.5 rounded-md bg-[#252c38] hover:bg-[#2e3746] border border-white/5 shadow-xs flex flex-col items-center justify-center cursor-default transition-colors"
+                        className="py-2 rounded-md bg-[#252c38] hover:bg-[#2e3746] border border-white/5 shadow-xs flex flex-col items-center justify-center cursor-default transition-colors"
                       >
                         <span className="text-xs font-bold leading-none">{k.num}</span>
-                        {k.sub && <span className="text-[7.5px] font-mono text-slate-400 leading-none mt-0.5">{k.sub}</span>}
+                        {k.sub && <span className="text-[0.46875rem] font-mono text-slate-400 leading-none mt-0.5">{k.sub}</span>}
                       </div>
                     ))}
                   </div>
@@ -280,13 +280,13 @@ export function PhoneFrame({
             {lightingMode === "low-bandwidth" && variant !== "feature-phone" && (
               <div
                 aria-hidden="true"
-                className="absolute top-11 inset-x-3 z-35 py-1 px-2.5 rounded-md bg-amber-500/90 text-slate-950 font-mono text-[9.5px] font-bold flex items-center justify-between shadow-md border border-amber-400/40 backdrop-blur-xs"
+                className="absolute top-11 inset-x-3 z-35 py-1 px-3 rounded-md bg-amber-500/90 text-slate-950 font-mono text-[0.59375rem] font-bold flex items-center justify-between shadow-md border border-amber-400/40 backdrop-blur-xs"
               >
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-ping" />
                   <span>2G EDGE • 32 Kbps</span>
                 </span>
-                <span className="bg-slate-950 text-amber-400 px-1.5 py-0.2 rounded text-[8.5px]">
+                <span className="bg-slate-950 text-amber-400 px-2 py-0.2 rounded text-[0.53125rem]">
                   Lite Mode (-74% Data)
                 </span>
               </div>
@@ -302,7 +302,7 @@ export function PhoneFrame({
                     "radial-gradient(ellipse 90% 70% at 75% 15%, rgba(255,255,255,0.32) 0%, rgba(255,248,220,0.18) 35%, transparent 70%), linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)",
                 }}
               >
-                <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-black/70 text-amber-300 font-mono text-[8px] tracking-wider uppercase border border-amber-400/40 shadow-xs">
+                <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-black/70 text-amber-300 font-mono text-[0.5rem] tracking-wider uppercase border border-amber-400/40 shadow-xs">
                   Direct Sun 85k Lux
                 </div>
               </div>

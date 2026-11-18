@@ -30,8 +30,17 @@ export function ActOpener({ act, portrait, id }: { act: FlowAct; index?: number;
     if (!el) return;
     if (reduce) return;
     // Arm the reveal only for an opener still below the fold: the server HTML shows it complete,
-    // and a reader who arrives on it (or has no script) never sees it hidden.
-    if (el.getBoundingClientRect().top > window.innerHeight * 0.6) setArmed(true);
+    // and a reader who arrives on it (or has no script) never sees it hidden. The observer's first
+    // report gives the opener's position from the browser's own layout pass; reading
+    // getBoundingClientRect() at mount forced a synchronous layout of the whole document once per
+    // opener (polish pass, performance).
+    const first = new IntersectionObserver(([e]) => {
+      first.disconnect();
+      const h = e.rootBounds?.height ?? window.innerHeight;
+      if (e.boundingClientRect.top > h * 0.6) setArmed(true);
+      el.style.setProperty("--t", Math.max(-1, Math.min(1, -e.boundingClientRect.top / h)).toFixed(4));
+    });
+    first.observe(el);
     const io = new IntersectionObserver(([e]) => e.isIntersecting && setInView(true), { threshold: 0.35 });
     io.observe(el);
     let frame = 0;
@@ -45,10 +54,18 @@ export function ActOpener({ act, portrait, id }: { act: FlowAct; index?: number;
     const on = () => {
       if (!frame) frame = requestAnimationFrame(read);
     };
-    read();
-    window.addEventListener("scroll", on, { passive: true });
+    // The parallax only listens to scroll while the opener is within a screen of the viewport;
+    // six openers measuring themselves on every scroll of a 30,000px page was work for nothing.
+    let listening = false;
+    const near = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !listening) { window.addEventListener("scroll", on, { passive: true }); listening = true; }
+      else if (!e.isIntersecting && listening) { window.removeEventListener("scroll", on); listening = false; }
+    }, { rootMargin: "100% 0px" });
+    near.observe(el);
     return () => {
+      first.disconnect();
       io.disconnect();
+      near.disconnect();
       window.removeEventListener("scroll", on);
       if (frame) cancelAnimationFrame(frame);
     };

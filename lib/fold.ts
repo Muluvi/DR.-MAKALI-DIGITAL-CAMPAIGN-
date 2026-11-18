@@ -10,7 +10,7 @@
  *   the words inside it, and fires `beforematch` on the body before it reveals the match.
  *   DEEP LINKS. A link to anything inside a closed body opens every fold around it, then scrolls
  *   (revealAround, called by lib/scroll-to-section.ts).
- *   PRINT. The print stylesheet shows every body whatever its state (app/declutter.css).
+ *   PRINT. The print stylesheet shows every body whatever its state (app/globals.css).
  *
  * React 19 renders `hidden` as a boolean and drops the "until-found" value, so the attribute is set
  * on the element after mount (useFoldBody). Before that, the server's markup hides a closed body

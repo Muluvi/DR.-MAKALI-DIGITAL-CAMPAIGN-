@@ -1,11 +1,9 @@
-import { Database, FlaskConical, TriangleAlert } from "lucide-react";
+import { Database, FlaskConical } from "lucide-react";
 
-import type { ExportChart, ExportStatus, ExportValue } from "../../data/analysis-exports";
-import { hasUnverified, isModelled, numericValues } from "../../data/analysis-exports";
-import type { Tier } from "../../data/types";
+import type { ExportChart, ExportValue } from "../../data/analysis-exports";
+import { isModelled, numericValues } from "../../data/analysis-exports";
 import { InlineMarks } from "./InlineMarks";
 import { ReadMore } from "./ReadMore";
-import { TierBadge } from "./TierBadge";
 
 /**
  * Shared rendering for every figure published by the analysis pipeline.
@@ -13,34 +11,24 @@ import { TierBadge } from "./TierBadge";
  * The pipeline's whole point is that a number travels with its provenance. That guarantee is
  * only worth something if the UI honours it, so this component makes it structural rather
  * than a matter of remembering: a value cannot be rendered here without its tier, its source,
- * the date it refers to, how it was produced and how much confidence it carries.
+ * the date it refers to and how it was produced.
  *
- * Three rules it enforces visually, mirroring the ones data/analysis-exports.ts asserts:
- *   - anything "verify" gets a visible unconfirmed marker, never a silent footnote;
- *   - anything "modelled" is labelled as modelled and never styled like a measurement;
+ * Two rules it enforces visually, mirroring the ones data/analysis-exports.ts asserts:
+ *   - anything "modelled" is described as modelled in its method line and never styled like a
+ *     measurement;
  *   - a chart carrying a scenario label displays it, because a simulation shown without one
  *     reads as a forecast.
+ *
+ * Status tags are not drawn (November 2026, the campaign's direction): no tier badge, no
+ * "Unverified" or "Confirmed" chip, and no "contains unconfirmed figures" banner, which promised
+ * marks that are no longer shown. A figure's status stays in the export data.
  */
-
-const STATUS_META: Record<ExportStatus, { label: string; className: string }> = {
-  confirmed: { label: "Confirmed", className: "analysis-chip analysis-chip-confirmed" },
-  verify: { label: "Unverified", className: "analysis-chip analysis-chip-verify" },
-  // "Provisional" describes the STATUS. Whether it got there by modelling or by a stated
-  // ranking rule is the METHOD, which the meta line states separately — a chip reading
-  // "modelled estimate" beside a method of "calculated" contradicts itself.
-  placeholder: { label: "Provisional", className: "analysis-chip analysis-chip-placeholder" },
-};
 
 const METHOD_LABEL: Record<string, string> = {
   official: "Official figure",
   calculated: "Calculated from published figures",
   modelled: "Modelled — not a measurement",
 };
-
-export function StatusChip({ status }: { status: ExportStatus }) {
-  const meta = STATUS_META[status];
-  return <span className={meta.className}>{meta.label}</span>;
-}
 
 function decimalsIn(n: number): number {
   const text = String(n);
@@ -87,13 +75,12 @@ export function FigureRow({
   const numeric = typeof value.value === "number";
   const width = numeric && maxValue ? Math.max((value.value as number) / maxValue, 0) * 100 : 0;
   const modelled = value.method === "modelled";
-  const showStatusChip = !(value.status === "verify" && value.tier === 3);
   const sourceLabel =
     modelled && value.tier
       ? `derived from ${value.source_id} (Tier ${value.tier})`
       : value.source_id;
   return (
-    <li className="py-2.5 border-b border-line/30 last:border-b-0">
+    <li className="py-3 border-b border-line/30 last:border-b-0">
       <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <span className="t-small font-semibold text-ink">{value.label}</span>
         <span className="t-small font-bold text-ink tabular-nums">
@@ -102,26 +89,16 @@ export function FigureRow({
         </span>
       </div>
       {numeric && maxValue ? (
-        <div className="mt-1.5 h-1.5 w-full rounded-full bg-line/40 overflow-hidden" aria-hidden="true">
+        <div className="mt-1 h-1.5 w-full rounded-full bg-line/40 overflow-hidden" aria-hidden="true">
           <div
             className={value.method === "modelled" ? "h-full rounded-full bg-muted/60" : "h-full rounded-full bg-accent"}
             style={{ width: `${width}%` }}
           />
         </div>
       ) : null}
-      <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-        {/*
-          A modelled figure gets no tier badge. The tier belongs to the SOURCE the model drew
-          on, not to the model's output, and a simulated vote count wearing a Tier 1 badge
-          borrows an authority it has not earned — the exact thing this provenance system
-          exists to prevent. The source and its tier still appear, in words, in the meta line.
-        */}
-        {value.tier && !modelled ? <TierBadge tier={value.tier as Tier} compact /> : null}
-        {/*
-          A Tier 3 badge already reads "T3 Unconfirmed", so an "Unverified" chip beside it says
-          the same thing twice. Show the chip where it adds something the badge does not.
-        */}
-        {showStatusChip ? <StatusChip status={value.status} /> : null}
+      <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+        {/* No status chip and no tier badge (November 2026, the campaign's direction): a figure
+            carries its method and source in words, and no tag. */}
         <span className="t-label text-muted font-medium">
           {METHOD_LABEL[value.method]} · <InlineMarks text={sourceLabel} /> · as at {value.as_of}
         </span>
@@ -154,7 +131,6 @@ export function AnalysisFigure({
   const numeric = numericValues(chart);
   const maxValue = plot && numeric.length > 0 ? Math.max(...numeric.map((v) => v.value)) : undefined;
   const decimals = decimalsFor(chart.values);
-  const unverified = hasUnverified(chart);
   const modelled = isModelled(chart);
 
   return (
@@ -163,7 +139,7 @@ export function AnalysisFigure({
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">{heading ?? chart.title}</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5"><InlineMarks text={chart.description} /></p>
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4"><InlineMarks text={chart.description} /></p>
 
       {chart.scenario_label ? (
         <p className="analysis-banner analysis-banner-scenario">
@@ -171,16 +147,6 @@ export function AnalysisFigure({
           <span>
             <strong>{chart.scenario_label}</strong> Every input is a stated assumption, and no other candidate&rsquo;s vote is
             modelled, so nothing here is a win probability.
-          </span>
-        </p>
-      ) : null}
-
-      {unverified ? (
-        <p className="analysis-banner analysis-banner-verify">
-          <TriangleAlert size={12} className="shrink-0 mt-0.5" aria-hidden="true" />
-          <span>
-            This block contains unconfirmed figures. Every one is marked below and should be
-            checked against its Tier 1 original before it is relied on.
           </span>
         </p>
       ) : null}
@@ -211,7 +177,7 @@ export function AnalysisFigure({
         </ul>
       ) : null}
 
-      <div className="flex flex-wrap items-center gap-1.5 px-0 pt-2 t-label font-semibold text-muted">
+      <div className="flex flex-wrap items-center gap-1 px-0 pt-2 t-label font-semibold text-muted">
         <Database size={10} className="shrink-0 opacity-60" aria-hidden="true" />
         <span>
           Firefly analysis pipeline · data as at {chart.data_as_of}

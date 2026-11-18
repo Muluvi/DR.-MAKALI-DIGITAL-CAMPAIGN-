@@ -208,9 +208,9 @@ export function PhaseRail() {
       <div className="relative md:pl-10">
         {/* The vertical rail, desktop only. A static track with a fill that advances on scroll —
             scaleY, not height. */}
-        <div className="hidden md:block absolute left-[15px] top-2 bottom-2 w-0.5 bg-line" aria-hidden="true" />
+        <div className="hidden md:block absolute left-[0.9375rem] top-2 bottom-2 w-0.5 bg-line" aria-hidden="true" />
         <motion.div
-          className="hidden md:block absolute left-[15px] top-2 bottom-2 w-0.5 bg-accent origin-top"
+          className="hidden md:block absolute left-[0.9375rem] top-2 bottom-2 w-0.5 bg-accent origin-top"
           style={{ scaleY: reduce ? 1 : fillScale }}
           aria-hidden="true"
         />
@@ -252,11 +252,11 @@ export function PhaseRail() {
                   </div>
                   <p className="t-label text-ink leading-relaxed font-medium">{detail?.objective}</p>
                   {detail && (
-                    <ul className="mt-3 pt-3 border-t border-line/50 space-y-1.5">
+                    <ul className="mt-3 pt-3 border-t border-line/50 space-y-1">
                       {detail.highlights.map((h) => (
                         <li key={h} className="flex items-start gap-2 t-small text-muted leading-relaxed">
                           <span
-                            className="w-1 h-1 rounded-full shrink-0 mt-1.5"
+                            className="w-1 h-1 rounded-full shrink-0 mt-1"
                             style={{ backgroundColor: `var(${phase.colorVar})` }}
                             aria-hidden="true"
                           />

@@ -41,7 +41,7 @@ function Row({ b, index, shown }: { b: Benchmark; index: number; shown: boolean 
 
   return (
     <li className="py-3 border-b border-line/40 last:border-b-0">
-      <div className="flex items-baseline justify-between gap-2 mb-1.5">
+      <div className="flex items-baseline justify-between gap-2 mb-1">
         <span className="t-small font-bold text-ink leading-snug min-w-0">{b.metric}</span>
         <span
           className={`inline-flex items-center gap-1 t-micro font-black shrink-0 ${
@@ -62,7 +62,7 @@ function Row({ b, index, shown }: { b: Benchmark; index: number; shown: boolean 
       <div className="relative h-6" aria-hidden="true">
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-line/40" />
         <motion.div
-          className="absolute top-1/2 -translate-y-1/2 h-[7px] rounded-full bg-rival-solid/45"
+          className="absolute top-1/2 -translate-y-1/2 h-[0.4375rem] rounded-full bg-rival-solid/45"
           style={{ left: `${b.benchmarkFrom}%`, width: `${width}%`, transformOrigin: "left" }}
           initial={enter({ scaleX: 0 })}
           animate={shown ? { scaleX: 1 } : { scaleX: 0 }}
@@ -104,18 +104,18 @@ export function BenchmarkLadder() {
       <h4 id="benchmark-ladder-title" className="font-serif t-label font-black text-ink">
         Where these targets sit relative to industry benchmarks
       </h4>
-      <p className="t-small text-muted leading-relaxed mt-1.5">
+      <p className="t-small text-muted leading-relaxed mt-1">
         {above} of the {PLOTTED_BENCHMARKS.length} comparable targets are set above the band the
         industry works in; the rest sit at its upper edge. One shared 0–100 axis, so the rows can
         be read against each other.
       </p>
 
       <div className="flex items-center gap-4 mt-3 mb-1">
-        <span className="inline-flex items-center gap-1.5 t-micro text-muted">
-          <span aria-hidden="true" className="w-4 h-[7px] rounded-full bg-rival-solid/45" />
+        <span className="inline-flex items-center gap-1 t-micro text-muted">
+          <span aria-hidden="true" className="w-4 h-[0.4375rem] rounded-full bg-rival-solid/45" />
           Global benchmark
         </span>
-        <span className="inline-flex items-center gap-1.5 t-micro text-muted">
+        <span className="inline-flex items-center gap-1 t-micro text-muted">
           <span aria-hidden="true" className="w-[3px] h-4 rounded-full bg-accent" />
           Campaign target
         </span>

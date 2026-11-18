@@ -10,7 +10,7 @@ export function MuiBasinPanel() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">The Mui Basin Coal Question</h4>
       </div>
-      <p className="t-small text-muted mb-4 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-4 leading-relaxed pl-4">
         Rendered as sourced statements, not invented figures — the research pass did not supply a concession count, a
         petition status, or a displacement headcount.
       </p>
@@ -23,7 +23,7 @@ export function MuiBasinPanel() {
               <TierBadge tier={f.source.tier} compact />
             </div>
             <p className="t-label text-ink/90 leading-relaxed">{f.statement}</p>
-            {f.note && <p className="t-label text-muted italic mt-1.5 leading-relaxed">{f.note}</p>}
+            {f.note && <p className="t-label text-muted italic mt-1 leading-relaxed">{f.note}</p>}
           </div>
         ))}
       </div>

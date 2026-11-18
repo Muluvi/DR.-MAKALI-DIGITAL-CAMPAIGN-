@@ -116,7 +116,7 @@ export function PhoneShowcase() {
         aria-label="Campaign channel"
         aria-orientation="horizontal"
         onKeyDown={onKeyDown}
-        className="flex gap-1.5 overflow-x-auto pb-2 -mx-1 px-1 sm:justify-center sm:overflow-visible"
+        className="flex gap-1 overflow-x-auto pb-2 -mx-1 px-1 sm:justify-center sm:overflow-visible"
         style={{ scrollbarWidth: "none" }}
       >
         {CHANNEL_ORDER.map((id) => {
@@ -133,7 +133,7 @@ export function PhoneShowcase() {
               aria-controls="phone-screen-panel"
               tabIndex={selected ? 0 : -1}
               onClick={() => setChannel(id)}
-              className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+              className={`shrink-0 inline-flex items-center gap-1 rounded-full border px-3 py-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
  selected ? "border-accent-solid bg-accent-solid text-on-accent" : "border-line bg-card text-muted hover:text-ink"
               }`}
             >

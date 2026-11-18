@@ -45,7 +45,8 @@ export function CountUp({ text, ms = 900 }: { text: string; ms?: number }) {
         io.disconnect();
         const t0 = performance.now();
         const tick = (now: number) => {
-          const k = Math.min(1, (now - t0) / ms);
+          // A rAF timestamp can precede t0 by a frame; a negative k put "-0.6%" on screen for a frame.
+          const k = Math.max(0, Math.min(1, (now - t0) / ms));
           const eased = 1 - Math.pow(1 - k, 3);
           if (k < 1) {
             el.textContent = `${pre}${fmt(target * eased)}${post}`;

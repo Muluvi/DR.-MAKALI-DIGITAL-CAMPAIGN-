@@ -39,7 +39,7 @@ export function ResourceEnvelopeBlock() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">FY2026/27 Resource Envelope — KSh{formatFigure(FIGURES["budget.total"], "bn")}bn</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4">
         Split into its three published components, as the Fiscal Strategy Paper states them.
       </p>
       <div className="h-64 w-full t-micro">

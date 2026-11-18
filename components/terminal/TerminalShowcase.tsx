@@ -98,7 +98,7 @@ export function TerminalShowcase() {
               Kitui Field Coordinator Terminal (TAC-40)
             </h3>
           </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent t-label font-mono font-semibold self-start sm:self-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 border border-accent/20 text-accent t-label font-mono font-semibold self-start sm:self-auto">
             <Radio className="w-3.5 h-3.5" />
             <span>40 Wards Connected • Dual 2G/4G GSM</span>
           </div>
@@ -134,13 +134,13 @@ export function TerminalShowcase() {
                 tabIndex={selected ? 0 : -1}
                 type="button"
                 onClick={() => setActiveMode(mode.id)}
-                className={`relative px-3.5 py-2 rounded-xl t-label font-medium whitespace-nowrap transition-all duration-200 shrink-0 border ${
+                className={`relative px-4 py-2 rounded-xl t-label font-medium whitespace-nowrap transition-all duration-200 shrink-0 border ${
  selected
                     ? "bg-ink text-paper border-ink shadow-sm font-semibold"
                     : "bg-surface hover:bg-surface-hover text-muted hover:text-ink border-line"
                 }`}
               >
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1">
                   <span className={`t-micro font-mono px-1 py-0.2 rounded ${
                     selected ? "bg-paper/20 text-paper" : "bg-muted/15 text-muted"
                   }`}>
@@ -162,8 +162,8 @@ export function TerminalShowcase() {
       </div>
 
       {/* Ward Selector Strip */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6">
-        <span className="t-label font-mono text-muted mr-1.5 flex items-center gap-1">
+      <div className="flex flex-wrap items-center justify-center gap-1 mb-6">
+        <span className="t-label font-mono text-muted mr-1 flex items-center gap-1">
           <MapPin className="w-3.5 h-3.5" /> Sample Ward:
         </span>
         {WARDS_LIST.map((w) => (
@@ -171,7 +171,7 @@ export function TerminalShowcase() {
             key={w.id}
             type="button"
             onClick={() => setSelectedWard(w.id)}
-            className={`t-label px-2.5 py-1 rounded-lg border transition ${
+            className={`t-label px-3 py-1 rounded-lg border transition ${
  selectedWard === w.id
                 ? "bg-slate-900 text-white border-slate-900 font-medium shadow-xs"
                 : "bg-card text-muted hover:text-ink border-line hover:border-slate-300"

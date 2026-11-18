@@ -25,7 +25,7 @@ export function ElectoralTimelineBlockContent() {
         <span className="w-1.5 h-6 bg-accent rounded-full shrink-0" />
         <h4 className="font-serif text-sm font-bold text-ink">Governor-Race Winner by Cycle</h4>
       </div>
-      <p className="t-small text-muted mb-3 leading-relaxed pl-3.5">
+      <p className="t-small text-muted mb-3 leading-relaxed pl-4">
         Two different winners across the two cycles with sourced results. 2013 is drawn as an empty gap, not a zero —
         no sourced winner or vote total was supplied for that cycle.
       </p>
@@ -49,9 +49,9 @@ export function ElectoralTimelineBlockContent() {
           <tbody>
             {DATA.map((d) => (
               <tr key={d.year} className="border-t border-line/40">
-                <td className="py-1.5 pr-3 font-bold text-ink">{d.year}</td>
-                <td className="py-1.5 pr-3 text-ink/80">{d.winner ?? <span className="italic text-muted">No sourced result</span>}</td>
-                <td className="py-1.5 text-ink/80">{d.votes !== null ? d.votes.toLocaleString() : "—"}</td>
+                <td className="py-2 pr-3 font-bold text-ink">{d.year}</td>
+                <td className="py-2 pr-3 text-ink/80">{d.winner ?? <span className="italic text-muted">No sourced result</span>}</td>
+                <td className="py-2 text-ink/80">{d.votes !== null ? d.votes.toLocaleString() : "—"}</td>
               </tr>
             ))}
           </tbody>

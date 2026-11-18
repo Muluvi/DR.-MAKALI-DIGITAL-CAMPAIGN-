@@ -54,8 +54,8 @@ import type { Transition, Variants } from "motion/react";
  * down through its dates, a heatmap builds from cool to hot, risk pins land in
  * their cells, contrast sides come from opposite sides. Folds open out of their
  * control, and a workstream tab's panel arrives from the side its tab sits on.
- * All of it is CSS keyed to .is-pending / .is-drawn (app/chart-kit.css,
- * app/motion-draw.css), armed below the fold only by
+ * All of it is CSS keyed to .is-pending / .is-drawn (app/charts.css,
+ * app/charts.css), armed below the fold only by
  * components/register/RegisterMotion.tsx, and checked by
  * scripts/consolidation/motion-check.mjs.
  *

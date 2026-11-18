@@ -1,4 +1,3 @@
-import { tierWord } from "../../data/types";
 import type { Figure, FigureState, Tier } from "../../lib/data/schema";
 
 /**
@@ -18,11 +17,13 @@ export function provenanceOf(f: Pick<Figure, "tier" | "state">): Provenance {
   return { tier: f.tier, state: f.state };
 }
 
-export function ProvPill({ p }: { p: Provenance }) {
-  const state = p.state ?? "sourced";
-  if (state === "needed") return <span className="pf-pp pf-pp--needed">Data needed</span>;
-  if (state === "target") return <span className="pf-pp pf-pp--target">Target</span>;
-  if (state === "modelled") return <span className="pf-pp pf-pp--modelled">Modelled</span>;
-  if (!p.tier) return <span className="pf-pp pf-pp--needed">No tier</span>;
-  return <span className={`pf-pp pf-pp--${p.tier.toLowerCase()}`}>{tierWord(p.tier)}</span>;
+/**
+ * NOT SHOWN (November 2026, the campaign's direction): figures carry no status tags, no
+ * "Official", "Reported", "Unconfirmed", "Modelled", "Estimate" or "Awaiting" chips. The tier and
+ * state stay in the data and in each figure's source line; only the tag is not drawn. This
+ * component is kept, rendering nothing, so every call site keeps compiling and the tags can be
+ * restored here in one place.
+ */
+export function ProvPill(_props: { p: Provenance }) {
+  return null;
 }

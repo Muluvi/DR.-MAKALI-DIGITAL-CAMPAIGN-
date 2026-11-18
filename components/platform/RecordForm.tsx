@@ -70,11 +70,11 @@ export function RecordForm({ collectionId, options, initial, recordId, onDone }:
       case "multiselect": {
         const list = Array.isArray(v) ? (v as string[]) : [];
         return (
-          <div id={id} className="flex max-h-48 flex-wrap gap-1.5 overflow-y-auto rounded-2xl border border-line bg-card p-2" role="group" aria-label={f.label}>
+          <div id={id} className="flex max-h-48 flex-wrap gap-1 overflow-y-auto rounded-2xl border border-line bg-card p-2" role="group" aria-label={f.label}>
             {choices.map((o) => {
               const on = list.includes(o);
               return (
-                <button key={o} type="button" aria-pressed={on} onClick={() => set(f.key, on ? list.filter((x) => x !== o) : [...list, o])} className={`rounded-full border px-2.5 py-1 text-[0.8rem] ${on ? "border-accent bg-accent-solid text-on-accent" : "border-line text-ink"}`}>
+                <button key={o} type="button" aria-pressed={on} onClick={() => set(f.key, on ? list.filter((x) => x !== o) : [...list, o])} className={`rounded-full border px-3 py-1 text-[0.8rem] ${on ? "border-accent bg-accent-solid text-on-accent" : "border-line text-ink"}`}>
                   {o}
                 </button>
               );

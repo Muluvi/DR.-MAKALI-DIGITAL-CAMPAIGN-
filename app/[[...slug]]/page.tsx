@@ -3,7 +3,7 @@ import path from "path";
 import { notFound } from "next/navigation";
 
 import { ClientPage } from "@/components/ClientPage";
-import { MarkdownViewer } from "@/components/MarkdownViewer";
+import { LeadMarkdown, MarkdownViewer } from "@/components/MarkdownViewer";
 import { SECTIONS, type TabId } from "@/lib/heading-slug";
 import { FLOW_ORDER } from "@/lib/flow";
 import { CONTENT_FILES } from "@/lib/content-files";
@@ -176,10 +176,18 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   const digests = streamed
     ? (Object.fromEntries(SECTIONS.map((s) => [s.id, chapterDigest(documents[s.id])])) as Record<TabId, ReturnType<typeof chapterDigest>>)
     : undefined;
+  // Each digest's lead, rendered here on the server, so no markdown parser ships to the browser
+  // for it (polish pass, performance).
+  const leads = digests
+    ? (Object.fromEntries(
+        SECTIONS.map((s) => [s.id, digests[s.id].lead ? <LeadMarkdown text={digests[s.id].lead} tabId={s.id} /> : null])
+      ) as Partial<Record<TabId, React.ReactNode>>)
+    : undefined;
 
   return (
     <ClientPage
       digests={digests}
+      leads={leads}
       cover={cover}
       sections={sections}
       documents={rendered}

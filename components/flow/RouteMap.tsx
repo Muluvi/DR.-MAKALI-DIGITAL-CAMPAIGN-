@@ -17,7 +17,7 @@ import { partOf, type TabId } from "../../lib/heading-slug";
  * written for it, so it cannot fall out of step with the document.
  *
  * MOTION. The line draws down the route and each stop settles as it is reached, once. The server
- * HTML and reduced motion show the route complete (app/streamline.css).
+ * HTML and reduced motion show the route complete (app/story.css).
  */
 const WELCOME_CHAPTERS = FLOW_SECTIONS.filter((s) => partOf(s.id as TabId) === 0);
 

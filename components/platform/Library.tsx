@@ -39,7 +39,7 @@ export function Library({ items }: { items: LibraryItem[] }) {
           <li key={i.id} id={i.id} className="plat-card flex flex-col p-4">
             <p className="flex flex-wrap items-center gap-2 text-[0.72rem] text-muted"><span className="plat-chip">{i.kind}</span>{i.chapter}</p>
             <h2 className="mt-2 font-serif text-[1.15rem] leading-snug text-ink">{i.title}</h2>
-            {i.summary && <p className="mt-1.5 flex-1 text-[0.88rem] leading-snug text-muted">{i.summary}</p>}
+            {i.summary && <p className="mt-1 flex-1 text-[0.88rem] leading-snug text-muted">{i.summary}</p>}
             {i.owner && <p className="mt-2 text-[0.8rem] text-ink"><span className="text-muted">Owner: </span>{i.owner}</p>}
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href={i.href} className="plat-btn plat-btn-sm">In the story <ArrowUpRight size={14} /></a>
@@ -47,7 +47,7 @@ export function Library({ items }: { items: LibraryItem[] }) {
               {i.figures.length > 0 && (
                 <details className="w-full text-[0.8rem]">
                   <summary className="cursor-pointer text-accent">{i.figures.length} {i.figures.length === 1 ? "figure" : "figures"} behind it</summary>
-                  <p className="mt-2 flex flex-wrap gap-1.5">
+                  <p className="mt-2 flex flex-wrap gap-1">
                     {i.figures.map((f) => <a key={f} href={`/explore?ds=figures&q=${encodeURIComponent(f)}`} className="plat-chip hover:border-accent hover:text-accent">{f}</a>)}
                   </p>
                 </details>

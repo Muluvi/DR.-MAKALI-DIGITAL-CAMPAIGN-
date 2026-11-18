@@ -85,6 +85,8 @@ interface ClientPageProps {
   streamed?: boolean;
   /** Each chapter's takeaway and numbers, read from its own markdown (lib/digest.ts). */
   digests?: Partial<Record<TabId, Digest>>;
+  /** Each digest's lead, already rendered on the server (app/[[...slug]]/page.tsx). */
+  leads?: Partial<Record<TabId, React.ReactNode>>;
   /**
    * Who the site is for, who built it, and on what terms: content/cover.md, rendered on the server.
    * It left the flow in the flow pass (docs/flow-2026-11, WP1) and is the footer's front matter.
@@ -129,7 +131,7 @@ const DIGEST_HEIGHT = 620;
 
 const LANDING_TAB: TabId = FLOW_ORDER[0];
 
-export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, cover }: ClientPageProps) {
+export function ClientPage({ sections, documents, wordCounts, visibleWordCounts, activeTab, expanded, streamed = false, digests, leads, cover }: ClientPageProps) {
   const router = useRouter();
   const [isTOCModalOpen, setIsTOCModalOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -198,6 +200,14 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
   const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const openChapter = useCallback((tab: string) => setOpened((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab))), []);
   const toggleChapter = useCallback((tab: string) => {
+    // Opening renders a whole chapter. As a transition, the press paints at once and React builds
+    // the chapter in yielding chunks: opening one from its digest was the slowest interaction on
+    // the page, 208ms on a mid-range phone (polish pass, INP). Closing stays immediate, because it
+    // restores the reader's scroll position first.
+    if (!opened.has(tab)) {
+      React.startTransition(() => setOpened((prev) => (prev.has(tab) ? prev : new Set(prev).add(tab))));
+      return;
+    }
     setOpened((prev) => {
       const next = new Set(prev);
       if (!next.has(tab)) {
@@ -211,7 +221,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
       if (head && head.getBoundingClientRect().top < 0) head.scrollIntoView({ behavior: "instant", block: "start" });
       return next;
     });
-  }, []);
+  }, [opened]);
 
   const forceFor = useCallback((rawId: string) => {
     // A jump to a chapter lands on its digest, so there is nothing to mount. Only a link to a
@@ -568,7 +578,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                     <>
                       <ChapterDigest
                         tabId={item.id}
-                        lead={digest.lead}
+                        lead={leads?.[item.id] ?? null}
                         stats={digest.stats}
                         steps={sections.filter((sec) => sec.tabId === item.id && sec.level === 2).map((sec) => ({ id: sec.id, title: sec.title }))}
                         minutes={readingMinutes(item.visibleWordCount)}
@@ -614,7 +624,7 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
           <div className="mb-5 flex flex-wrap gap-2 print:hidden">
             <button
               onClick={printDocument}
-              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[40px]"
+              className="inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/70 px-4 py-2 t-micro font-bold text-ink hover:border-accent hover:text-accent transition-colors cursor-pointer min-h-[2.5rem]"
             >
               <Printer size={14} />
               <span>Print, or save as PDF</span>

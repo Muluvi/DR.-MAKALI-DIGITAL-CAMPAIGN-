@@ -3,10 +3,11 @@
 import { useCallback, useId, useRef, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
-import { TIER_META, type Tier } from "../../data/types";
 import { numberOf, type Field, type Item, type Side, type VisualSpec } from "../../lib/visual";
 import { FoldBody } from "../markdown/FoldBody";
 import { ConflictMark, InertMarks } from "../markdown/InlineMarks";
+import { isStatusTag } from "../../lib/inline-marks";
+import { CountUp } from "../premium/CountUp";
 
 /**
  * The renderer for a ```visual fence (lib/visual.ts holds the shapes and what each shows on load).
@@ -24,13 +25,6 @@ type Md = (text: string, inline?: boolean) => ReactNode;
 
 const labelOf = (it: Item) => it.title ?? it.label ?? it.day ?? "";
 
-function TierTag({ tier }: { tier: Item["tier"] }) {
-  if (tier === undefined || tier === null || tier === "") return null;
-  if (typeof tier === "number" && TIER_META[tier as Tier]) {
-    return <span className={`vz-tier vz-tier--${tier}`}>{TIER_META[tier as Tier].short}</span>;
-  }
-  return <span className="vz-tier vz-tier--note">{String(tier)}</span>;
-}
 
 /** A labelled disclosure inside a visual: a card's details, a step's body. */
 function More({ label = "Details", children }: { label?: string; children: ReactNode }) {
@@ -174,7 +168,7 @@ function RowFace({ it, md }: { it: Item; md: Md }) {
   return (
     <>
       {it.when ? <span className="vz-seq__when">{it.when}</span> : null}
-      <span className="vz-row__label">{md(labelOf(it), true)}</span> <TierTag tier={it.tier} />
+      <span className="vz-row__label">{md(labelOf(it), true)}</span>
       {it.head ? (
         <span className="vz-row__text">
           <span className="vz-head__label">{it.head.label}</span> {md(it.head.text, true)}
@@ -192,9 +186,14 @@ function Stats({ items, md }: { items: Item[]; md: Md }) {
     <ul className="vz-stats" style={{ "--vz-n": Math.min(items.length, 3) } as React.CSSProperties}>
       {items.map((it, i) => (
         <li key={i} className="vz-stat" style={{ "--i": i } as React.CSSProperties}>
-          <span className="vz-stat__value">{md(it.value ?? "", true)}</span>
+          <span className="vz-stat__value">
+            {/* A key figure counts up once as it enters, and ends on its exact printed string
+                (premium/CountUp: final value on the server, under reduced motion and without
+                script). A value carrying markdown or two numbers is set as written. */}
+            {it.value && /^[^*_`[\]{}<>]*$/.test(it.value) ? <CountUp text={it.value} /> : md(it.value ?? "", true)}
+          </span>
           <span className="vz-stat__label">
-            {md(labelOf(it), true)} <TierTag tier={it.tier} />
+            {md(labelOf(it), true)}
           </span>
           {it.caption ? <span className="vz-stat__cap">{md(it.caption, true)}</span> : null}
           {it.conflict ? <ConflictMark conflict={it.conflict} /> : null}
@@ -212,8 +211,10 @@ function Cards({ items, md, preset }: { items: Item[]; md: Md; preset?: string }
       {items.map((it, i) => (
         <li key={i} className="vz-card" style={{ "--i": i } as React.CSSProperties}>
           <div className="vz-card__top">
-            {it.badge ? <span className="vz-badge">{it.badge}</span> : null}
-            <TierTag tier={it.tier} />
+            {/* A badge that is only a status ("not yet tiered", "sources pending") is a figure's
+                status tag, and figures carry none (November 2026, the campaign's direction). */}
+            {it.badge && !isStatusTag(it.badge) ? <span className="vz-badge">{it.badge}</span> : null}
+           
           </div>
           {labelOf(it) ? <h5 className="vz-card__title">{md(labelOf(it), true)}</h5> : null}
           {it.value ? <p className="vz-card__value">{md(it.value, true)}</p> : null}
@@ -276,7 +277,7 @@ function Tabs({ items, md }: { items: Item[]; md: Md }) {
           onReveal={() => setActive(i)}
           className="vz-tabs__panel"
         >
-          <h5 className="vz-tabs__heading">{md(labelOf(it), true)} <TierTag tier={it.tier} /></h5>
+          <h5 className="vz-tabs__heading">{md(labelOf(it), true)}</h5>
           <ItemFace it={it} md={md} />
           {it.fields?.length ? <Fields fields={it.fields} md={md} /> : null}
           {it.body ? <div className="vz-body prose max-w-none">{md(it.body)}</div> : null}
@@ -438,7 +439,7 @@ function Bars({ items, md }: { items: Item[]; md: Md }) {
         const v = Math.abs(numberOf(it.value));
         return (
           <li key={i} className="vz-bars__row" style={{ "--i": i } as React.CSSProperties}>
-            <span className="vz-bars__label">{md(labelOf(it), true)} <TierTag tier={it.tier} /></span>
+            <span className="vz-bars__label">{md(labelOf(it), true)}</span>
             <span className="vz-bars__track" aria-hidden="true">
               <span className="vz-bars__fill" style={{ width: `${max ? Math.max(2, (v / max) * 100) : 0}%` }} />
             </span>
@@ -487,7 +488,7 @@ function Donut({ items, md }: { items: Item[]; md: Md }) {
         {items.map((it, i) => (
           <li key={i}>
             <span className="vz-donut__swatch" style={{ background: DONUT_TONES[i % DONUT_TONES.length] }} aria-hidden="true" />
-            <span className="vz-donut__value">{md(it.value ?? "", true)}</span> {md(labelOf(it), true)} <TierTag tier={it.tier} />
+            <span className="vz-donut__value">{md(it.value ?? "", true)}</span> {md(labelOf(it), true)}
             {it.conflict ? <> <ConflictMark conflict={it.conflict} /></> : null}
             <FaceConflicts it={it} />
             <ItemDetails it={it} md={md} />
@@ -538,7 +539,10 @@ function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
   }
 }
 
-export function VisualFence({ json, md }: { json: string; md: Md }) {
+export function VisualFence({ json, texts }: { json: string; texts: Record<string, ReactNode> }) {
+  // Every string this visual shows arrives already rendered, block and inline, keyed by its text
+  // (visualTexts in components/MarkdownViewer.tsx): no markdown parser runs in the browser for it.
+  const md: Md = (text, inline = false) => texts[`${inline ? "i" : "b"}\u0000${text}`] ?? text;
   let spec: VisualSpec | null = null;
   try {
     spec = JSON.parse(json) as VisualSpec;

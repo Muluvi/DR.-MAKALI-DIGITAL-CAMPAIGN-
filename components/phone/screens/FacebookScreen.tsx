@@ -95,7 +95,7 @@ export function FacebookScreen() {
       <div className="flex-1 min-h-0 overflow-hidden pt-2">
         <div className="bg-white pb-0.5">
           {/* Post header */}
-          <div className="flex items-start gap-2.5 px-3 pt-3">
+          <div className="flex items-start gap-2 px-3 pt-3">
             <Avatar size={40} />
             <span className="flex-1 min-w-0">
               <span className="block font-semibold truncate" style={{ fontSize: "0.90625em", color: FG }}>
@@ -109,16 +109,16 @@ export function FacebookScreen() {
           </div>
 
           {/* Body, with the fold */}
-          <p className="px-3 pt-2.5" style={{ fontSize: "0.90625em", lineHeight: 1.36, color: FG }}>
+          <p className="px-3 pt-3" style={{ fontSize: "0.90625em", lineHeight: 1.36, color: FG }}>
             {FACEBOOK.body.value}{" "}
             <span style={{ color: MUTED }}>See more</span>
           </p>
 
           {/* Attached card */}
-          <div className="mt-2.5" style={{ background: "#0b1a30" }}>
+          <div className="mt-2" style={{ background: "#0b1a30" }}>
             <div className="px-4 py-5">
               <span
-                className="inline-block rounded px-1.5 py-0.5 font-black uppercase"
+                className="inline-block rounded px-2 py-0.5 font-black uppercase"
                 style={{ fontSize: "0.53125em", letterSpacing: "0.1em", background: "#132644", color: "#8fb4f0" }}
               >
                 {FACEBOOK.card.value.kicker}
@@ -131,7 +131,7 @@ export function FacebookScreen() {
 
           {/* Reaction summary */}
           <div className="flex items-center justify-between px-3 py-2">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1">
               <ReactionPills show={reacted} reduce={reduce} />
               <span className="tabular-nums" style={{ fontSize: "0.8125em", color: MUTED }}>
                 {ILLUSTRATIVE_COUNTS.facebookReactions}
@@ -143,13 +143,13 @@ export function FacebookScreen() {
           </div>
 
           {/* Action bar */}
-          <div className="flex items-center justify-around py-1.5 mx-3" style={{ borderTop: "1px solid #ced0d4" }}>
+          <div className="flex items-center justify-around py-2 mx-3" style={{ borderTop: "1px solid #ced0d4" }}>
             {[
               { icon: ThumbsUp, label: "Like" },
               { icon: MessageCircle, label: "Comment" },
               { icon: Share2, label: "Share" },
             ].map(({ icon: Icon, label }) => (
-              <span key={label} className="flex items-center gap-1.5 py-1.5">
+              <span key={label} className="flex items-center gap-1 py-2">
                 <Icon size={17} color={MUTED} strokeWidth={2} aria-hidden="true" />
                 <span style={{ fontSize: "0.84375em", fontWeight: 600, color: MUTED }}>{label}</span>
               </span>

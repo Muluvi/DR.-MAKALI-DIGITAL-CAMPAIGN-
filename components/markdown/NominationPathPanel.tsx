@@ -18,10 +18,10 @@ export function NominationPathPanel() {
       <p className="t-label text-ink/80 leading-relaxed mb-3">{NOMINATION_METHOD_CLAIM.provenance.note}</p>
 
       <div className="rounded-xl border border-line/60 bg-card p-3">
-        <div className="t-micro font-black text-ink mb-1.5">What would confirm this</div>
-        <ul className="space-y-1.5">
+        <div className="t-micro font-black text-ink mb-1">What would confirm this</div>
+        <ul className="space-y-1">
           {NOMINATION_CONFIRMATION_REQUIREMENTS.map((req, i) => (
-            <li key={i} className="flex items-start gap-1.5 t-label text-ink/80 leading-relaxed">
+            <li key={i} className="flex items-start gap-1 t-label text-ink/80 leading-relaxed">
               <span className="text-accent mt-0.5 shrink-0">›</span>
               <span>{req}</span>
             </li>

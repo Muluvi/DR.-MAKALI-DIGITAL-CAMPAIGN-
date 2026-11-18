@@ -118,7 +118,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
     <div className="space-y-4">
       <Card>
         <label className="plat-label block">Find a figure<input className="plat-input mt-1 block w-full" value={q} onChange={(e) => { setQ(e.target.value); setSel(0); }} placeholder="water, budget, register…" /></label>
-        <ul className="mt-3 max-h-64 space-y-1 overflow-y-auto">{list.map((x, i) => <li key={x.f.id}><button type="button" onClick={() => setSel(i)} className={`w-full rounded-md px-2 py-1.5 text-left text-[0.9rem] ${cur?.f.id === x.f.id ? "bg-accent-solid text-on-accent" : "hover:bg-paper"}`}>{x.label} <span className="opacity-70">· {x.f.display}</span></button></li>)}</ul>
+        <ul className="mt-3 max-h-64 space-y-1 overflow-y-auto">{list.map((x, i) => <li key={x.f.id}><button type="button" onClick={() => setSel(i)} className={`w-full rounded-md px-2 py-2 text-left text-[0.9rem] ${cur?.f.id === x.f.id ? "bg-accent-solid text-on-accent" : "hover:bg-paper"}`}>{x.label} <span className="opacity-70">· {x.f.display}</span></button></li>)}</ul>
       </Card>
       {cur && (
         <Card>
