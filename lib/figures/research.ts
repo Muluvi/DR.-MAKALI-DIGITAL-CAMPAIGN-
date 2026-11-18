@@ -113,7 +113,7 @@ export const TRACKER_DIMENSIONS: string[][] = [
   [
     "4. Secondary & tertiary bursary distribution",
     "NG-CDF bursary disbursements ledger · NG-CDF constituency records — not HELB, which holds national loan data",
-    `Termly disbursement audit · receipt count pending the ledger; the record gives ${regFmt("record.bursary.recipients")} as Tier 1`,
+    `Termly disbursement audit · receipt count pending the ledger; the record gives ${regFmt("record.bursary.recipients")} as official`,
   ],
 ];
 
@@ -125,5 +125,5 @@ export const TRACKER_SERIES: FigureSeries = {
   note:
     "The classroom and TVET counts and the bursary receipt count are stated as pending the project " +
     "ledger, and they are printed that way rather than filled with an estimate. The record's " +
-    `${regFmt("record.bursary.recipients")} bursary recipients is the Tier 1 figure the document does have, and the row says so.`,
+    `${regFmt("record.bursary.recipients")} bursary recipients is the official figure the document does have, and the row says so.`,
 };

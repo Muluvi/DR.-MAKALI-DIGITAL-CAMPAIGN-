@@ -105,7 +105,7 @@ items:
     fields:
       - { label: "Traceability", text: "Avoids the home-belt trap (Path D, [the number it takes](/#winning-sec-2-5)) by holding Dr. Mulu's base in Kitui Central while its own MP succession plays out." }
       - { label: "Finding it answers", text: "Kitui Central will have its own MP succession contest through the same window ([where party loyalty will not carry him](/#known-sec-6-3))." }
-      - { label: "Baseline", text: "{{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes (Tier 1)." }
+      - { label: "Baseline", text: "{{con.kitui-central}} registered voters in Kitui Central. He was re-elected there in 2022 with {{result.2022.mp.mulu}} votes." }
       - { label: "Served by", text: "[Where the effort goes](/#channels-sec-12-1) (the anchor zone's weighting)." }
       - { label: "Measured by", text: "reach by constituency in the monthly performance report ([the deliverables schedule](/#receives-sec-21-2))." }
 ```

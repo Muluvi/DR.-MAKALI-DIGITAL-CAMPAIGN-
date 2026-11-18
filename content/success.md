@@ -118,7 +118,7 @@ Vanity metrics are kept out of every dashboard, reporting meeting and vendor con
 kind: cards
 items:
   - title: "Most voters are offline"
-    text: "{{ict.offline}}% of Kitui's residents are offline (CA/KNBS 2023/24, Tier 1)."
+    text: "{{ict.offline}}% of Kitui's residents are offline (CA/KNBS 2023/24)."
     body: "Chasing likes takes effort away from village barazas and market caravans."
   - title: "Much of the interaction comes from outside Kitui"
     text: "Political content from Eastern Kenya draws a large share of its social media interaction from non-resident users in Nairobi, Mombasa and abroad, who are not registered to vote in Kitui's 40 wards."
@@ -153,7 +153,7 @@ items:
   - label: "Content"
     body: "Every post coded on four axes: pillar, language, format, and whether it carries a commitment, a date, a ward name or a call to action"
     fields:
-      - { label: "Why this one", text: "Turns {{channel.fb.posts}} posts (Tier 3, unconfirmed) from an archive into a distribution. Without coding there is nothing to compare." }
+      - { label: "Why this one", text: "Turns {{channel.fb.posts}} posts (unconfirmed) from an archive into a distribution. Without coding there is nothing to compare." }
   - label: "Video"
     text: "3-second and 30-second views, average watch time, completion rate"
     fields:
@@ -167,7 +167,7 @@ items:
     fields:
       - { label: "Why this one", text: "Public, needs no access from anyone, and is the only paid-advertising signal that exists." }
   - label: "Other platforms"
-    body: "X: **@MakaliMulu**, about {{channel.x.followers}} followers in a September 2026 snapshot (Tier 3, a dated baseline). TikTok, Instagram, YouTube and any WhatsApp Channel or Business number: recorded in the Week 1 audit where they exist."
+    body: "X: **@MakaliMulu**, about {{channel.x.followers}} followers in a September 2026 snapshot (a dated baseline, unconfirmed). TikTok, Instagram, YouTube and any WhatsApp Channel or Business number: recorded in the Week 1 audit where they exist."
     fields:
       - { label: "Why this one", text: "Not estimated, per [Evidence and sources](/#annex-evidence-sec-a-1)." }
 ```

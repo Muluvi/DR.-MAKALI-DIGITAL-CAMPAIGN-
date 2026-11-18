@@ -11,7 +11,7 @@ kind: hypothesis
 hypothesis: "Dr. Mulu's gap is substantially a **geography-of-recognition** problem concentrated outside Kitui Central, not a deficit of leadership credibility, and recognition is the most addressable kind of gap, through targeted digital output and SMS/USSD outreach. Phase −1 is built to close it."
 for: "{{pool.share}}% of the register lives in the four constituencies where he has never held office ([where he is known, and where not](/#known-sec-6-2)). Five of the twelve largest wards are among them ([where he is known, and where not](/#known-sec-6-2)). Two constituencies, Kitui East and Kitui South, will not carry party flow ([where party loyalty will not carry him](/#known-sec-6-3))."
 test: "Week 1 tests the hypothesis against Dr. Mulu's own channel data before anything is committed against it ([what could overturn it](/#diagnosis-sec-7-2))."
-body: "That test is not a formality; it is the first deliverable. A further line of support: NDMA ranks Mwingi North and Kitui South the two most food-insecure sub-counties in July 2025 and Kitui Central the least (Tier 1, [Food, farming and drought](/#needs-sec-3-2)), so the pool is where county service delivery is under the most visible strain, and a candidate who verifies delivery has the most to show there."
+body: "That test is not a formality; it is the first deliverable. A further line of support: NDMA ranks Mwingi North and Kitui South the two most food-insecure sub-counties in July 2025 and Kitui Central the least ([Food, farming and drought](/#needs-sec-3-2)), so the pool is where county service delivery is under the most visible strain, and a candidate who verifies delivery has the most to show there."
 ```
 
 ```figure
@@ -20,7 +20,7 @@ id: fig-3-11-evidence
 
 ## 7.2 What could overturn it
 
-**The case against.** The 2022 Woman Representative race was won with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year (Tier 2, [Results from 2013 to 2022](/#votes-sec-2-2)). Countywide votes above the benchmark have already been won in Kitui. That is not the profile of a race decided by passive name recognition alone.
+**The case against.** The 2022 Woman Representative race was won with **{{result.2022.womanrep.kasalu}} votes**, more than the **{{result.2022.gov.malombe}}** that won the governorship the same year ([Results from 2013 to 2022](/#votes-sec-2-2)). Countywide votes above the benchmark have already been won in Kitui. That is not the profile of a race decided by passive name recognition alone.
 
 **The test.** Week 1 reads ninety days of Dr. Mulu's own channels and measures how much of his reach lands in the pool (method: [How the presence audit works](/#success-sec-18-5)). If his reach is already landing in Mwingi and failing to convert, the problem is the message, not the reach, and the response changes. [When the plan changes](/#week-sec-12-7) sets out in advance what each finding changes, so the audit cannot be read backwards into whatever was already planned.
 
@@ -29,8 +29,8 @@ id: fig-3-11-evidence
 Where data is missing, this plan names the gap rather than filling it:
 
 1.  **Ward-level voter preference:** **not measured, and not sought.** This plan forms strategy from existing records and its own analysis only. The nearest official record is how each ward actually voted: the IEBC's ward and polling-station forms for 2017 and 2022 ([Results from 2013 to 2022](/#votes-sec-2-2)), which the analysis uses as soon as they are in hand. Until then it works from where he has held office.
-2.  **Ward-by-ward results for the 2013 governor's race:** a **named data gap (Tier 1 gap).** The IEBC's certified ward returns for 2013 are not in the campaign's records.
-3.  **Ward-by-ward tallies for the 2017 governor's race:** a **named data gap (Tier 1 gap).** The countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}}, Musila {{result.2017.gov.musila}}, Malombe {{result.2017.gov.malombe}}, Tier 1); the ward breakdown sheets are treated as unverified until they are retrieved from the IEBC.
+2.  **Ward-by-ward results for the 2013 governor's race:** a **named data gap.** The IEBC's certified ward returns for 2013 are not in the campaign's records.
+3.  **Ward-by-ward tallies for the 2017 governor's race:** a **named data gap.** The countywide certified totals are established (Ngilu {{result.2017.gov.ngilu}}, Musila {{result.2017.gov.musila}}, Malombe {{result.2017.gov.malombe}}); the ward breakdown sheets are treated as unverified until they are retrieved from the IEBC.
 4.  **Three segment sizes:** the agro-pastoral, the formal-sector and the diaspora voter counts are not published by any official source. [The voters to win](/#voters-sec-11-1) gives the census context for each; none is estimated, and each stays unsized until an official source publishes it.
 
 ```figure
@@ -56,12 +56,12 @@ preset: assumption
 items:
   - title: "1. The Wiper ticket is decided by a party-run countywide selection, not a delegates' contest."
     head: { label: "If it fails", text: "If it becomes a delegate primary, the targeting model changes from countywide name recognition to delegate arithmetic." }
-    body: "This is reported and not confirmed by the party (Tier 3); the party's own published rules would confirm it."
+    body: "This is reported and not confirmed by the party (unconfirmed); the party's own published rules would confirm it."
   - title: "2. The nomination window falls when it is reported to."
     head: { label: "If it fails", text: "A later date lengthens the sprint; an earlier one compresses it and forces the decision rules in [when the plan changes](/#week-sec-12-7) sooner." }
-    body: "That is the window [the clock that sets the pace](/#ask-sec-23-1) states and the one [the goal and its deadline](/#goal-sec-8-1)'s timeline is built on. It remains a **Tier 3** expectation rather than a date the party has published. Every deadline in [the goal and its deadline](/#goal-sec-8-1) and the Phase −1 sprint in [the first four weeks](/#timeline-sec-14-1) are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
+    body: "That is the window [the clock that sets the pace](/#ask-sec-23-1) states and the one [the goal and its deadline](/#goal-sec-8-1)'s timeline is built on. It remains an **unconfirmed** expectation rather than a date the party has published. Every deadline in [the goal and its deadline](/#goal-sec-8-1) and the Phase −1 sprint in [the first four weeks](/#timeline-sec-14-1) are set by that window. **The campaign should confirm the window against the party's own published timetable before committing effort against it.**"
   - title: "3. The register and connectivity figures hold."
-    body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in [the twelve largest wards](/#votes-sec-2-3) are the most recent published figures. The offline layer in [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) is sized against them. The July 2026 total is Tier 3, reported by an aggregator, until IEBC's own figure is in hand."
+    body: "The {{register.2026}} registered voters (July 2026), the {{ict.offline}}% of residents offline (CA/KNBS 2023/24) and the 2022 ward distribution in [the twelve largest wards](/#votes-sec-2-3) are the most recent published figures. The offline layer in [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) is sized against them. The July 2026 total is unconfirmed, reported by an aggregator, until IEBC's own figure is in hand."
   - title: "4. The campaign appoints the named roles."
     body: "The data-protection and electoral-law reviewer and the sign-language provider are campaign appointments, not Firefly's. [What the campaign provides](/#receives-sec-22-2) lists them. Firefly assembles no team: the one in post stays in post and runs the campaign on the platform ([Assessing and upskilling the team](/#engagement-sec-17-5))."
   - title: "5. The Facebook asset is a Page, not a personal profile in professional mode."

@@ -41,7 +41,7 @@ export const SEGMENTS: Segment[] = withTeamEdits<Segment>("segments", "id", [
     shortName: "Agro-pastoralist",
     size: null,
     notSized: {
-      context: () => `${f("livestock.households")} livestock-farming households (2019 Census, Tier 1): households, not voters`,
+      context: () => `${f("livestock.households")} livestock-farming households (2019 Census): households, not voters`,
       closesWith: "Registered voters by livelihood; not published",
     },
   },
@@ -53,7 +53,7 @@ export const SEGMENTS: Segment[] = withTeamEdits<Segment>("segments", "id", [
     shortName: "Professionals",
     size: null,
     notSized: {
-      context: () => `Health workers: ${f("health.density.core")} core staff per 10,000 people (Countdown 2030, Tier 2); headcounts not published`,
+      context: () => `Health workers: ${f("health.density.core")} core staff per 10,000 people (Countdown 2030); headcounts not published`,
       closesWith: "TSC establishment for Kitui; County Public Service Board staff return",
     },
   },

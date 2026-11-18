@@ -1,0 +1,189 @@
+[
+ {
+  "f": "content/diagnosis.md",
+  "from": "It remains a **Tier 3** expectation",
+  "to": "It remains an **unconfirmed** expectation",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/diagnosis.md",
+  "from": "The July 2026 total is Tier 3, reported by an aggregator,",
+  "to": "The July 2026 total is unconfirmed, reported by an aggregator,",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/kitui.md",
+  "from": ", all Tier 1 (IEBC)",
+  "to": ", all from the IEBC",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry.",
+  "all": true
+ },
+ {
+  "f": "content/known.md",
+  "from": ", all Tier 1 (IEBC)",
+  "to": ", all from the IEBC",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/voters.md",
+  "from": ", all Tier 1 (IEBC)",
+  "to": ", all from the IEBC",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/votes.md",
+  "from": ", all Tier 1 (IEBC)",
+  "to": ", all from the IEBC",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "wider than the Tier 1 claim in",
+  "to": "wider than the confirmed claim in",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "carried as Tier 1 in",
+  "to": "carried as official in",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "measured by a Tier 1 source with a monthly update cycle",
+  "to": "measured by an official source with a monthly update cycle",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "{{water.points.total}} sources, Tier 1.\"",
+  "to": "{{water.points.total}} sources.\"",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "NDMA, long rains 2025, Tier 1.\"",
+  "to": "NDMA, long rains 2025.\"",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "KDHS 2022, household population, Tier 1 (",
+  "to": "KDHS 2022, household population (",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "KDHS 2022, Tier 1: say",
+  "to": "KDHS 2022: say",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "2022, County Gender Data Sheet, Tier 1 (Kenya",
+  "to": "2022, County Gender Data Sheet (Kenya",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "on a Tier 1 source updated every month",
+  "to": "on an official source updated every month",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "the Tier 1 basis for",
+  "to": "the official basis for",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "This is the Tier 1 evidence for",
+  "to": "This is the official evidence for",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/votes.md",
+  "from": "The Tier 1 record is IEBC Forms 34B and 34C",
+  "to": "The official record is IEBC Forms 34B and 34C",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/votes.md",
+  "from": "are the Tier 1 record and are not yet in hand; until they are, both figures stay Tier 2.",
+  "to": "are the official record and are not yet in hand; until they are, both figures stay as reported.",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/workstreams.md",
+  "from": "(CA/KNBS\n2023/24, Tier 1)",
+  "to": "(CA/KNBS\n2023/24)",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "(both Tier 1, KDHS 2022;",
+  "to": "(both KDHS 2022;",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/news.md",
+  "from": "as reported, so Tier 3)",
+  "to": "as reported, so unconfirmed)",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "unqualified opinions is untiered pending that",
+  "to": "unqualified opinions is unsourced pending that",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "value-capture figure are not yet tiered to a specific page",
+  "to": "value-capture figure are not yet sourced to a specific page",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "Its 61% water figure is not yet tiered.",
+  "to": "Its 61% water figure is not yet sourced.",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "the secondary-completion figure is not yet tiered.\"",
+  "to": "the secondary-completion figure is not yet sourced.\"",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/message.md",
+  "from": "badge: \"not yet tiered\"",
+  "to": "badge: \"not yet sourced\"",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "does not confirm the untiered annual output",
+  "to": "does not confirm the unsourced annual output",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/needs.md",
+  "from": "completed secondary school is **not yet tiered**.",
+  "to": "completed secondary school is **not yet sourced**.",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/news.md",
+  "from": "The ambassador network is untiered and needs a source.",
+  "to": "The ambassador network is unsourced and needs a source.",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ },
+ {
+  "f": "content/workstreams.md",
+  "from": "17.4% completed secondary is still not yet tiered.",
+  "to": "17.4% completed secondary is still not yet sourced.",
+  "note": "Pre-launch pass, section 3 (docs/prelaunch-2026-11): a tier word in running prose becomes the plain word for it (official, reported, unconfirmed); the tier stays in Evidence and sources and in the figure registry."
+ }
+]

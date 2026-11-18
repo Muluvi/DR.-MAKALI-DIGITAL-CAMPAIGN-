@@ -44,7 +44,7 @@ export function MediaOwnershipBlockContent() {
       <p className="t-small text-muted mb-3 leading-relaxed pl-4">
         Reach is a qualitative reading of Section 1.2&apos;s own &quot;Campaign posture&quot; column, not a measured
         listenership figure — none was supplied by the research pass (Data Gaps Register). Ownership associations are
-        Tier 2/3 and labelled individually below.
+        reported, not certified, and labelled individually below.
       </p>
 
       <div className="w-full t-micro mb-4">

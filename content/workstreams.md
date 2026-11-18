@@ -147,7 +147,7 @@ layer the campaign is building anyway; nothing comparable exists in this race.**
 
 #### The opening register: the county's own scorecard
 
-The tracker does not start from an empty list. The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) claims {{scorecard.claimed}} projects and itemises {{scorecard.itemised}} of them with value, ward and status, KSh {{scorecard.itemised.ksh|bn}} billion in all (Tier 1 as a record of what the county claims, not evidence that the claims are true). Those rows load as the tracker's opening register ([kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv)): each becomes a public row, *County says: complete. Residents say: ___*, and reports through USSD option 3 fill the second column.
+The tracker does not start from an empty list. The county's *Delivering the Kitui Promise* scorecard (August 2022 – August 2025) claims {{scorecard.claimed}} projects and itemises {{scorecard.itemised}} of them with value, ward and status, KSh {{scorecard.itemised.ksh|bn}} billion in all (a record of what the county claims, not evidence that the claims are true). Those rows load as the tracker's opening register ([kitui-scorecard-projects.csv](/data/kitui-scorecard-projects.csv)): each becomes a public row, *County says: complete. Residents say: ___*, and reports through USSD option 3 fill the second column.
 
 The first verification questions are inconsistencies inside the county's document or against an official statistic. Each is a question to publish and test, not an accusation, and a county correspondent can check the first six independently ([Earned media, journalists and debates](/#workstreams-sec-15-2-2)).
 
@@ -156,19 +156,19 @@ kind: checklist
 title: "The tracker's first questions"
 items:
   - label: "Q1. Livestock vaccinated"
-    text: "{{scorecard.vaccinated}} claimed (Tier 1, county scorecard); the itemised rows total {{scorecard.vaccinated.itemised}} animals (calculated)."
+    text: "{{scorecard.vaccinated}} claimed (county scorecard); the itemised rows total {{scorecard.vaccinated.itemised}} animals (calculated)."
   - label: "Q2. Infant mortality"
     text: "Claimed to fall from {{scorecard.imr.from}} to {{scorecard.imr.to}} per thousand births; KDHS 2022 puts Kitui at {{health.imr}}. Is the scorecard's figure a facility rate or a county rate?"
   - label: "Q3. Roads graded"
-    text: "{{scorecard.roads.graded}} km claimed; the itemised row of {{scorecard.roads.row.km}} km (Tier 1) comes to KSh {{scorecard.roads.row.per-km}} a km (calculated)."
+    text: "{{scorecard.roads.graded}} km claimed; the itemised row of {{scorecard.roads.row.km}} km comes to KSh {{scorecard.roads.row.per-km}} a km (calculated)."
   - label: "Q4. Boreholes"
     text: "{{scorecard.boreholes.drilled}} drilled and {{scorecard.boreholes.equipped}} equipped: are the rest not yet equipped?"
   - label: "Q5. Health beneficiaries"
-    text: "Two health projects list {{scorecard.health.beneficiaries}} beneficiaries (Tier 1, county scorecard), more than the county's 2019 population of {{census.population}}: a catchment, not people served?"
+    text: "Two health projects list {{scorecard.health.beneficiaries}} beneficiaries (county scorecard), more than the county's 2019 population of {{census.population}}: a catchment, not people served?"
   - label: "Q6. The unitemised projects"
     text: "{{scorecard.claimed}} claimed, {{scorecard.itemised}} itemised: where is the list of the other {{scorecard.unitemised}} (calculated)?"
   - label: "Q7. Kangu Kangu"
-    text: "KSh {{scorecard.kangu.ksh|m1}} million for {{scorecard.kangu.households}}+ households (Tier 1, county scorecard), commissioned after the period the scorecard covers: what has been delivered since?"
+    text: "KSh {{scorecard.kangu.ksh|m1}} million for {{scorecard.kangu.households}}+ households (county scorecard), commissioned after the period the scorecard covers: what has been delivered since?"
   - label: "Q8. Boda boda sheds"
     text: "{{scorecard.boda.sheds}} claimed; {{scorecard.boda.sheds.itemised}} itemised."
   - label: "Q9. Ward attributions"
@@ -334,12 +334,12 @@ items:
   - value: "{{edu.none.women}}%"
     label: "of women aged 6+ have no education"
     tier: 1
-    body: "KDHS 2022 via the County Gender Data Sheet (October 2025): {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education. 17.4% completed secondary is still not yet tiered."
+    body: "KDHS 2022 via the County Gender Data Sheet (October 2025): {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education. 17.4% completed secondary is still not yet sourced."
   - value: "{{ict.offline}}%"
     label: "outside the internet-using population"
     tier: 1
     body: "**{{ict.offline}}% are outside the internet-using population** (CA/KNBS 2023/24)"
-body: "Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle. In Kitui, {{disability.men}}% of men and {{disability.women}}% of women aged 15 and over have a disability (2022, Tier 1). Low bandwidth is itself an accessibility constraint"
+body: "Kenyans with disabilities are a substantial constituency systematically under-served by campaign communication in every cycle. In Kitui, {{disability.men}}% of men and {{disability.women}}% of women aged 15 and over have a disability (2022). Low bandwidth is itself an accessibility constraint"
 ```
 
 A campaign built on transparency that publishes only in dense written English
@@ -574,7 +574,7 @@ items:
     badge: "campaign-owned"
     head: { label: "Operational Role", text: "The campaign identifies {{target.stage-champions}} \"Stage Champions\" (30 per ward) across all 40 wards." }
     fields:
-      - { label: "Infrastructure", text: "Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **{{boda.riders}} riders** by a 2026 estimate, of whom {{boda.unlicensed}} were reported riding without a valid licence (Tier 3; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to {{boda.licensed.2026}} operators drawn from all 40 wards (Tier 2)." }
+      - { label: "Infrastructure", text: "Commercial motorcycle operators in Kitui, organized into distinct stage associations (*masese*). About **{{boda.riders}} riders** by a 2026 estimate, of whom {{boda.unlicensed}} were reported riding without a valid licence (unconfirmed; an estimate, not an NTSA register). In August 2026 the county and NTSA issued smart licences to {{boda.licensed.2026}} operators drawn from all 40 wards (reported)." }
       - { label: "Execution", text: "- Champions receive high-visibility reflective campaign vests branded with \"Uchumi na Kazi\" and safety helmets.\n- Equipped with mobile phone charging hubs at stages, playing looped Kikamba campaign audio podcasts and speeches to passengers awaiting transport.\n- Act as rapid physical distributors of print materials to remote interior villages inaccessible by four-wheel vehicles." }
   - title: "Matatu & Sacco Commuter Transit Routes"
     badge: "campaign-owned"
@@ -664,7 +664,7 @@ items:
 ### 15.3.3 Workstream 9 — What your team operates: SMS, USSD and voice
 
 ```lead
-**Owner: your team, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Tier 1, Communications Authority), lodged with the mobile operator at least 48 hours before sending.
+**Owner: your team, end to end.** **Bulk political SMS cannot be sent in Kikamba**: the CA/NCIC guidelines restrict political SMS to **English or Kiswahili** (Communications Authority), lodged with the mobile operator at least 48 hours before sending.
 ```
 
 **Owner: your team, end to end.** Two pieces of infrastructure, held and run by the campaign: the **WhatsApp Business API line** and the **USSD shortcode**. The campaign is the **data controller**; Firefly is a processor only for what the team logs on the platform — see [our standard](/#lawful-sec-19-1), which must be settled in writing before the first dispatch. Every send is planned and logged in the platform's dispatch log, which refuses Kikamba on the bulk SMS rail.
@@ -672,7 +672,7 @@ items:
 #### Why this layer decides the race
 
 **{{ict.internet}}%** of Kitui's residents use the internet and **{{ict.phone}}%** own a mobile phone (CA/KNBS
-2023/24, Tier 1). Nationally, smartphones are {{ict.smartphone-share}}% of active SIMs (CA Q3 FY2025/26, Tier 2),
+2023/24). Nationally, smartphones are {{ict.smartphone-share}}% of active SIMs (CA Q3 FY2025/26),
 meaning feature phones remain a substantial share, and disproportionately so in rural, older and
 lower-income populations.
 
@@ -704,7 +704,7 @@ penalise unsolicited messaging.
 > ### Bulk political SMS cannot be sent in Kikamba
 >
 > The CA/NCIC guidelines on political bulk messaging restrict political SMS to **English or
-> Kiswahili** (Tier 1, Communications Authority). They also require every bulk political message
+> Kiswahili** (Communications Authority). They also require every bulk political message
 > to be **lodged with the mobile operator at least 48 hours before sending**, with the verbatim
 > text and a signed authorisation, and they allow the operator to **refuse** a non-compliant
 > message outright.

@@ -55,7 +55,7 @@ export function OfflineWaterline() {
           <span className="t-label font-bold text-ink align-middle">are offline</span>
         </h4>
         <p className="t-small text-muted leading-relaxed mt-2">
-          {ONLINE}% of residents use the internet (CA/KNBS 2023/24, Tier 1), up from{" "}
+          {ONLINE}% of residents use the internet (CA/KNBS 2023/24), up from{" "}
           {ONLINE_2019}% in the 2019 census.
         </p>
       </div>

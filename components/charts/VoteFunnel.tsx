@@ -50,7 +50,7 @@ const STAGES = [
     key: "registered",
     value: REGISTERED,
     label: "Registered voters",
-    note: "IEBC 2022 register, 40 wards. Tier 1.",
+    note: "IEBC 2022 register, 40 wards.",
     tone: "bg-line",
   },
   {

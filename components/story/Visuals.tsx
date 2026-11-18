@@ -49,8 +49,6 @@ function useToday(): string | null {
 
 const fig = (id: string) => FIGURES[id];
 const figText = (id: string, mod: "" | "bn" | "m" = "") => (fig(id) ? formatFigure(fig(id), mod) : "");
-/** The tier in the site's own words (lib/data/format.ts). */
-const tierOf = (id: string) => (fig(id) ? formatFigure(fig(id), "tier") : "");
 
 function Shell({ kicker, title, icon: Icon, children, tone = "accent", className = "" }: { kicker: string; title: string; icon: typeof Check; children: React.ReactNode; tone?: "accent" | "gold" | "green"; className?: string }) {
   const [ref, inView] = useReveal<HTMLElement>();
@@ -117,7 +115,7 @@ export function Paradox() {
       <p className="sx-vis__lead">Kitui has ample developmental resources; what it lacks is disciplined, accountable deployment.</p>
       <div className="sx-envelope">
         <div className="sx-envelope__bar"><span>Annual envelope, FY2026/27</span><b>KSh {figText("budget.total", "bn")} bn</b></div>
-        <p className="sx-envelope__tier">{tierOf("budget.total")} · County Fiscal Strategy Paper</p>
+        <p className="sx-envelope__tier">County Fiscal Strategy Paper</p>
       </div>
       <p className="sx-chip-hint"><MousePointerClick size={12} aria-hidden="true" /> Tap a line for its source</p>
       <ul className="sx-gaps">
@@ -130,7 +128,7 @@ export function Paradox() {
                 <span className="sx-gaps__track"><span className="sx-gaps__fill" /></span>
                 <span className="sx-gaps__value">KSh {formatFigure(g.f!, g.f!.value! >= 1e9 ? "bn" : "m")}{g.f!.value! >= 1e9 ? " bn" : " m"}</span>
               </button>
-              {tap === g.id && <p className="sx-bar__note">{tierOf(g.id)}{g.f!.asOf ? ` · ${g.f!.asOf}` : ""}{g.f!.note ? ` · ${g.f!.note}` : ""}</p>}
+              {tap === g.id && <p className="sx-bar__note">{[g.f!.source, g.f!.asOf, g.f!.note].filter(Boolean).join(" · ")}</p>}
             </li>
           );
         })}

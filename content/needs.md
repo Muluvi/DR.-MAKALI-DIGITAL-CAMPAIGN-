@@ -1,8 +1,8 @@
 ```lead
-Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022).
+Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (KDHS 2022).
 ```
 
-Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (Tier 1, KDHS 2022). Behind it come food and drought, health, roads, jobs for the young, the cost of living, how county money is spent, and the unresolved Mui Basin coalfield. Each concern below carries its evidence against the national figure where one is published, its source and year, and what it means for the campaign. The themes the campaign argues from this evidence are in [one claim, three pillars, six themes](/#message-sec-10-1).
+Kitui's most urgent need is water: it has the lowest share of any county in Kenya with at least a basic drinking-water service, **{{water.basic.kdhs}}%** (KDHS 2022). Behind it come food and drought, health, roads, jobs for the young, the cost of living, how county money is spent, and the unresolved Mui Basin coalfield. Each concern below carries its evidence against the national figure where one is published, its source and year, and what it means for the campaign. The themes the campaign argues from this evidence are in [one claim, three pillars, six themes](/#message-sec-10-1).
 
 ## 1.3 How households live
 
@@ -14,34 +14,34 @@ items:
   - value: "{{poverty.2021}}%"
     label: "in poverty, 2021"
     tier: 1
-    body: "About **{{poverty.2021.people}}** people (Tier 1, KNBS Kenya Poverty Report, 2021). This is the official rate."
+    body: "About **{{poverty.2021.people}}** people (KNBS Kenya Poverty Report, 2021). This is the official rate."
   - value: "{{water.safe.2019}}%"
     label: "of households with safe drinking water, 2019"
     tier: 2
-    body: "Piped water reaches **{{water.piped.2019}}%** of households (Tier 2, KNBS 2019 via Stats Kenya)."
+    body: "Piped water reaches **{{water.piped.2019}}%** of households (KNBS 2019 via Stats Kenya)."
   - value: "{{electricity.2019}}%"
     label: "of households with electricity, 2019"
     tier: 2
-    body: "Up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya)."
+    body: "Up from **{{electricity.2009}}%** in 2009 (KNBS 2019 via Stats Kenya)."
   - value: "{{ict.offline}}%"
     label: "of residents offline"
     tier: 1
-    body: "**{{ict.internet}}%** use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24)."
+    body: "**{{ict.internet}}%** use the internet and **{{ict.phone}}%** own a mobile phone (CA/KNBS 2023/24)."
 ```
 
-**Poverty.** The KNBS Kenya Poverty Report puts **{{poverty.2021}}%** of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021 (Tier 1). NDMA's 2025 long-rains assessment cites {{poverty.ndma.2019}}% "below the poverty line (KNBS 2019)" and a county poverty rate of {{poverty.ndma.county}}%, on bases it does not reconcile with this one (Tier 2), so neither is used in its place. Stats Kenya reports {{poverty.2022.statskenya}}% for 2022 (Tier 3); it is not used until checked against the KNBS 2022 poverty report.
+**Poverty.** The KNBS Kenya Poverty Report puts **{{poverty.2021}}%** of Kitui residents, about {{poverty.2021.people}} people, in poverty in 2021. NDMA's 2025 long-rains assessment cites {{poverty.ndma.2019}}% "below the poverty line (KNBS 2019)" and a county poverty rate of {{poverty.ndma.county}}%, on bases it does not reconcile with this one (reported), so neither is used in its place. Stats Kenya reports {{poverty.2022.statskenya}}% for 2022 (unconfirmed); it is not used until checked against the KNBS 2022 poverty report.
 
-**Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). This is the census definition of a safe source; [Water](/#needs-sec-3-1) sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source (Tier 1).
+**Water.** **{{water.safe.2019}}%** of households had safe drinking water in 2019, and **{{water.piped.2019}}%** piped water (KNBS 2019 via Stats Kenya). This is the census definition of a safe source; [Water](/#needs-sec-3-1) sets out the other measures, which count different things. About **{{water.surface}}** residents rely on untreated surface water as their main domestic source.
 
-**Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (Tier 2, KNBS 2019 via Stats Kenya). Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (Tier 1, KNBS 2019 Census Volume IV).
+**Electricity.** **{{electricity.2019}}%** of households had electricity in 2019, up from **{{electricity.2009}}%** in 2009 (KNBS 2019 via Stats Kenya). Measured by main lighting source, **{{electricity.mains.2019}}%** of Kitui households were lit by mains electricity against **{{electricity.national}}%** nationally (KNBS 2019 Census Volume IV).
 
-**Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (Tier 1, CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. [How voters get news](/#news-sec-4-1) sets out what each channel can reach.
+**Phones and internet.** **{{ict.internet}}%** of residents use the internet and **{{ict.phone}}%** own a mobile phone (CA/KNBS 2023/24), so **{{ict.offline}}%** are offline. [How voters get news](/#news-sec-4-1) sets out what each channel can reach.
 
 **What it means for the campaign.** Most voters are poor, offline and without piped water, so the campaign is fought on services and reaches most voters off the internet.
 
 ## 3.1 Water
 
-**Kitui is last in Kenya.** **{{water.basic.kdhs}}%** of residents have at least a basic drinking-water service, the lowest share of any county; Nairobi, the highest, is at **{{water.basic.nairobi}}%** (Tier 1, KNBS, Kenya Demographic and Health Survey 2022). On the census measure, **{{water.safe.2019}}%** of households had safe drinking water in 2019 and **{{water.piped.2019}}%** piped water (Tier 2, KNBS 2019 via Stats Kenya). The two measures count different things and are never compared directly.
+**Kitui is last in Kenya.** **{{water.basic.kdhs}}%** of residents have at least a basic drinking-water service, the lowest share of any county; Nairobi, the highest, is at **{{water.basic.nairobi}}%** (KNBS, Kenya Demographic and Health Survey 2022). On the census measure, **{{water.safe.2019}}%** of households had safe drinking water in 2019 and **{{water.piped.2019}}%** piped water (KNBS 2019 via Stats Kenya). The two measures count different things and are never compared directly.
 
 ```visual
 kind: stats
@@ -49,35 +49,35 @@ items:
   - value: "{{water.basic.kdhs}}%"
     label: "with at least a basic water service, 2022"
     tier: 1
-    body: "The lowest of any county. Nairobi: {{water.basic.nairobi}}% (Tier 1, KDHS 2022)."
+    body: "The lowest of any county. Nairobi: {{water.basic.nairobi}}% (KDHS 2022)."
   - value: "{{water.30min}}%"
     label: "reach drinking water in under 30 minutes"
     tier: 1
-    body: "Kenya: {{water.30min.kenya}}%. {{water.over30}}% take longer (Tier 1, County Gender Data Sheet, October 2025)."
+    body: "Kenya: {{water.30min.kenya}}%. {{water.over30}}% take longer (County Gender Data Sheet, October 2025)."
   - value: "{{water.points.down.share}}%"
     label: "of water points not working, July 2025"
     tier: 1
-    body: "{{water.points.working}} of {{water.points.total}} sources working (Tier 1, NDMA, July 2025)."
+    body: "{{water.points.working}} of {{water.points.total}} sources working (NDMA, July 2025)."
   - value: "{{water.trek.2026-02}} km"
     label: "average walk to water, February 2026"
     tier: 1
-    body: "The longest of Kenya's semi-arid counties (Tier 1, NDMA National Drought Early Warning Bulletin)."
+    body: "The longest of Kenya's semi-arid counties (NDMA National Drought Early Warning Bulletin)."
 ```
 
-*   About **{{water.surface}}** people rely on untreated surface water as their main domestic source (Tier 1).
-*   In July 2025, {{water.points.working}} of {{water.points.total}} water sources were working, so **{{water.points.down.share}}% were not**. In Kitui Central only {{water.points.working.kitui-central}}% were working, the lowest of the eight (Tier 1, NDMA). That figure is in Dr. Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
-*   **{{water.schools.unsafe}} school units have no safe water within 100 m** (Tier 1, NDMA). The figure counts units by school level, several of which may share a compound; it is used with that wording or not at all.
-*   NDMA classed the county **Alert** from December 2025 through February 2026, and **Normal but worsening** in August 2026 (Tier 1).
+*   About **{{water.surface}}** people rely on untreated surface water as their main domestic source.
+*   In July 2025, {{water.points.working}} of {{water.points.total}} water sources were working, so **{{water.points.down.share}}% were not**. In Kitui Central only {{water.points.working.kitui-central}}% were working, the lowest of the eight (NDMA). That figure is in Dr. Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
+*   **{{water.schools.unsafe}} school units have no safe water within 100 m** (NDMA). The figure counts units by school level, several of which may share a compound; it is used with that wording or not at all.
+*   NDMA classed the county **Alert** from December 2025 through February 2026, and **Normal but worsening** in August 2026.
 
-**What it means for the campaign.** Water is the one issue on which Kitui is measurably last in the country, on a Tier 1 source updated every month, so a claim about it can be re-checked every month rather than argued.
+**What it means for the campaign.** Water is the one issue on which Kitui is measurably last in the country, on an official source updated every month, so a claim about it can be re-checked every month rather than argued.
 
 ## 3.2 Food, farming and drought
 
 ```lead
-Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1).
+Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025.
 ```
 
-**The drought and the crisis zone.** Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025 (Tier 1). NDMA's July 2025 long-rains assessment found the trend worsening, and projected the marginal mixed-farming zone, {{livelihood.marginal}}% of residents, to fall to IPC 3 ("Crisis") in October–December 2025 (Tier 1). NDMA's January 2026 bulletin put the county at **Alert** (Tier 1), and the **March 2026 national flooding** then disrupted roads and infrastructure across several sub-counties (Tier 2).
+**The drought and the crisis zone.** Kitui's food security remains classified under **IPC Phase 2 ("Stressed")** as of September 2025. NDMA's July 2025 long-rains assessment found the trend worsening, and projected the marginal mixed-farming zone, {{livelihood.marginal}}% of residents, to fall to IPC 3 ("Crisis") in October–December 2025. NDMA's January 2026 bulletin put the county at **Alert**, and the **March 2026 national flooding** then disrupted roads and infrastructure across several sub-counties (reported).
 
 ```visual
 kind: timeline
@@ -95,10 +95,10 @@ items:
   - when: "March 2026"
     label: "National flooding"
     tier: 2
-body: "Drought pressure ran through 2025 (Tier 1). The county was at Alert in NDMA's January 2026 bulletin and at IPC Phase 2 in September 2025 (Tier 1), and the March 2026 national flooding followed (Tier 2)."
+body: "Drought pressure ran through 2025. The county was at Alert in NDMA's January 2026 bulletin and at IPC Phase 2 in September 2025, and the March 2026 national flooding followed (reported)."
 ```
 
-**How Kitui makes a living (NDMA, July 2025, Tier 1).** {{livelihood.mixed}}% of residents live in the mixed farming zone, {{livelihood.marginal}}% in marginal mixed farming and {{livelihood.employment}}% in formal and unskilled employment. NDMA's wealth groups are very poor {{wealth.verypoor}}%, poor {{wealth.poor}}%, middle {{wealth.middle}}% and better-off {{wealth.better}}%: the Tier 1 basis for the rural agrarian and agro-pastoralist segments in [the six voter segments](/#voters-sec-11-2).
+**How Kitui makes a living (NDMA, July 2025).** {{livelihood.mixed}}% of residents live in the mixed farming zone, {{livelihood.marginal}}% in marginal mixed farming and {{livelihood.employment}}% in formal and unskilled employment. NDMA's wealth groups are very poor {{wealth.verypoor}}%, poor {{wealth.poor}}%, middle {{wealth.middle}}% and better-off {{wealth.better}}%: the official basis for the rural agrarian and agro-pastoralist segments in [the six voter segments](/#voters-sec-11-2).
 
 ```visual
 kind: stats
@@ -106,20 +106,20 @@ items:
   - value: "{{livestock.cattle}}"
     label: "cattle"
     tier: 1
-    body: "With about {{livestock.goats}} goats, {{livestock.poultry}} poultry and {{livestock.donkeys}} donkeys (livestock data validation 2023, cited by NDMA in July 2025; Tier 1)."
+    body: "With about {{livestock.goats}} goats, {{livestock.poultry}} poultry and {{livestock.donkeys}} donkeys (livestock data validation 2023, cited by NDMA in July 2025)."
   - value: "over 90%"
     label: "of households keep poultry"
     tier: 1
-    body: "Poultry is kept by more than nine households in ten (Tier 1), and carries no county policy of its own."
+    body: "Poultry is kept by more than nine households in ten, and carries no county policy of its own."
 ```
 
-*   **Green grams.** They give {{greengrams.cash.marginal}}% of cash income in marginal mixed farming and {{greengrams.cash.mixed}}% in mixed farming. The 2025 long rains produced {{greengrams.lr2025}} bags, {{greengrams.lr2025.vs-average}}% above the five-year average, while maize was {{maize.lr2025.vs-average}}% below (Tier 1, NDMA). This does not confirm the untiered annual output in Message Pillar 2 ([one claim, three pillars, six themes](/#message-sec-10-1)): the long rains supply only part of the year's crop.
-*   **Fodder.** The county holds {{fodder.held}} bales against {{fodder.needed}} needed, and has no commercial fodder business (Tier 1, NDMA).
-*   **Aflatoxin.** KEPHIS found {{aflatoxin.maize}}% of maize and {{aflatoxin.groundnut}}% of groundnut samples above the limit in 2024 (Tier 1, via NDMA).
-*   **Livestock disease.** Goats suffered CCPP (morbidity {{goats.ccpp.morbidity}}%, mortality {{goats.ccpp.mortality}}%) and PPR (morbidity {{goats.ppr.morbidity}}%, mortality {{goats.ppr.mortality}}%) (Tier 1, NDMA).
-*   **Food reserves.** The County Executive Committee Member (CECM) for Agriculture has said only **{{food.reserve-households}} households** hold food reserves (Tier 2). That figure sits oddly beside the 2019 census count of {{census.households}} households (Tier 1), and is quoted with that caveat.
+*   **Green grams.** They give {{greengrams.cash.marginal}}% of cash income in marginal mixed farming and {{greengrams.cash.mixed}}% in mixed farming. The 2025 long rains produced {{greengrams.lr2025}} bags, {{greengrams.lr2025.vs-average}}% above the five-year average, while maize was {{maize.lr2025.vs-average}}% below (NDMA). This does not confirm the unsourced annual output in Message Pillar 2 ([one claim, three pillars, six themes](/#message-sec-10-1)): the long rains supply only part of the year's crop.
+*   **Fodder.** The county holds {{fodder.held}} bales against {{fodder.needed}} needed, and has no commercial fodder business (NDMA).
+*   **Aflatoxin.** KEPHIS found {{aflatoxin.maize}}% of maize and {{aflatoxin.groundnut}}% of groundnut samples above the limit in 2024 (via NDMA).
+*   **Livestock disease.** Goats suffered CCPP (morbidity {{goats.ccpp.morbidity}}%, mortality {{goats.ccpp.mortality}}%) and PPR (morbidity {{goats.ppr.morbidity}}%, mortality {{goats.ppr.mortality}}%) (NDMA).
+*   **Food reserves.** The County Executive Committee Member (CECM) for Agriculture has said only **{{food.reserve-households}} households** hold food reserves (reported). That figure sits oddly beside the 2019 census count of {{census.households}} households, and is quoted with that caveat.
 
-**Where the need is worst.** NDMA ranks the eight sub-counties by food-insecurity severity (July 2025, Tier 1):
+**Where the need is worst.** NDMA ranks the eight sub-counties by food-insecurity severity (July 2025):
 
 | Rank | Sub-county | In the pool? | Hotspot wards NDMA names |
 |---|---|---|---|
@@ -134,18 +134,18 @@ items:
 
 NDMA names hotspot wards in every sub-county, the home base included, so the ranking is the evidence, not hotspot status. "The pool" is the four constituencies where Dr. Mulu has never held office ([where he is known, and where not](/#known-sec-6-2)).
 
-**Security and resource conflict.** NDMA reports {{border.killed}} people killed on the Kitui–Tana River border at Endau/Malalani, herders migrating in, clashes between herder communities in Ngomeni and Tseikuru, and wildlife taking stock and crops near Tsavo East (July 2025, Tier 1). The county's scorecard claims {{scorecard.police.stations}} border police stations, {{scorecard.police.complete}} of them complete. This is the Tier 1 evidence for the insecurity the agro-pastoralist segment names as its core anxiety ([the six voter segments](/#voters-sec-11-2)). It is framed as resource and border security, never in community or ethnic terms (Charter clause 6, [the Digital Ethics and Data Charter](/#lawful-sec-19-3)).
+**Security and resource conflict.** NDMA reports {{border.killed}} people killed on the Kitui–Tana River border at Endau/Malalani, herders migrating in, clashes between herder communities in Ngomeni and Tseikuru, and wildlife taking stock and crops near Tsavo East (July 2025). The county's scorecard claims {{scorecard.police.stations}} border police stations, {{scorecard.police.complete}} of them complete. This is the official evidence for the insecurity the agro-pastoralist segment names as its core anxiety ([the six voter segments](/#voters-sec-11-2)). It is framed as resource and border security, never in community or ethnic terms (Charter clause 6, [the Digital Ethics and Data Charter](/#lawful-sec-19-3)).
 
 **What it means for the campaign.** The pool is where food insecurity is worst, so a candidate who verifies delivery has most to show in the wards he most needs to win.
 
 ## 3.3 Health
 
-**Kitui is below Kenya on access and births in a facility, and above it on child survival.** {{health.access.problem}}% of women report a problem getting health care (Kenya {{health.access.problem.kenya}}%), and {{health.facility-births}}% of births are in a facility (Kenya {{health.facility-births.kenya}}%) (Tier 1, KDHS 2022).
+**Kitui is below Kenya on access and births in a facility, and above it on child survival.** {{health.access.problem}}% of women report a problem getting health care (Kenya {{health.access.problem.kenya}}%), and {{health.facility-births}}% of births are in a facility (Kenya {{health.facility-births.kenya}}%) (KDHS 2022).
 
 ```visual
 kind: bars
 title: "Kitui against Kenya: access to care and births in a facility, KDHS 2022"
-source: "KDHS 2022 (Tier 1)"
+source: "KDHS 2022"
 items:
   - label: "Women reporting a problem getting health care, Kitui"
     value: "{{health.access.problem}}%"
@@ -161,17 +161,17 @@ items:
     tier: 1
 ```
 
-*   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both Tier 1, KDHS 2022; [Framing, in worked examples](/#message-sec-10-3) carries the older county baseline).
-*   **Child survival.** Infant mortality is {{health.imr}} per thousand births and under-five mortality {{health.u5mr}}, both better than Kenya's {{health.imr.kenya}} and {{health.u5mr.kenya}} (Tier 1, KDHS 2022).
-*   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak ({{health.measles.ngomeni}} cases), and typhoid cases rose from {{health.typhoid.2024}} to {{health.typhoid.2025}}, which NDMA attributes to contaminated water and poor sanitation (Tier 1).
-*   **Nutrition.** Only {{health.diet.diversity}}% of children aged 6–23 months meet minimum dietary diversity (Tier 1, SMART 2023).
-*   **Stalled projects.** Controller of Budget reports note stalled county health projects; the list of facilities is a **named data gap** (Tier 1 gap).
+*   **Insurance and stunting.** {{health.insurance}}% of residents have any health insurance, and {{health.stunting}}% of children under five are stunted (both KDHS 2022; [Framing, in worked examples](/#message-sec-10-3) carries the older county baseline).
+*   **Child survival.** Infant mortality is {{health.imr}} per thousand births and under-five mortality {{health.u5mr}}, both better than Kenya's {{health.imr.kenya}} and {{health.u5mr.kenya}} (KDHS 2022).
+*   **Outbreaks.** In January–June 2025 Ngomeni had a confirmed measles outbreak ({{health.measles.ngomeni}} cases), and typhoid cases rose from {{health.typhoid.2024}} to {{health.typhoid.2025}}, which NDMA attributes to contaminated water and poor sanitation.
+*   **Nutrition.** Only {{health.diet.diversity}}% of children aged 6–23 months meet minimum dietary diversity (SMART 2023).
+*   **Stalled projects.** Controller of Budget reports note stalled county health projects; the list of facilities is a **named data gap**.
 
 **What it means for the campaign.** Health is a service-delivery story, and water drives part of it: the typhoid rise is the water problem appearing as illness.
 
 ## 3.4 Roads and access
 
-**Distance is the condition of life in most of Kitui.** The county covers {{census.area}} km² at {{census.density}} people per km² (Tier 1), and in Ikutha the density is {{sub.ikutha.density}} (Tier 1). The March 2026 national flooding disrupted rural transport across several sub-counties (Tier 2). The county's scorecard claims {{scorecard.roads.graded}} km of roads graded (Tier 1 as a record of what the county claims, not evidence that the claims are true; [Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1) sets out the question its own itemised row raises).
+**Distance is the condition of life in most of Kitui.** The county covers {{census.area}} km² at {{census.density}} people per km², and in Ikutha the density is {{sub.ikutha.density}}. The March 2026 national flooding disrupted rural transport across several sub-counties (reported). The county's scorecard claims {{scorecard.roads.graded}} km of roads graded (a record of what the county claims, not evidence that the claims are true; [Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1) sets out the question its own itemised row raises).
 
 No verified figure is available yet for the county's road network or its condition against the national average; the record that would settle it is the county roads inventory in the CIDP 2023–2027 and KeRRA and KURA classified-road data.
 
@@ -179,19 +179,19 @@ No verified figure is available yet for the county's road network or its conditi
 
 ## 3.5 Jobs and the young
 
-**Kitui is young, and its young people are short of work and of skills.** The median age is **{{census.median-age}}** (Tier 1, calculated from KNBS 2019 Census Volume III), and about **{{segment.youth.voters}}** registered voters are aged 18 to 35 (modelled: the 2019 census age distribution applied to the 2022 register). {{women.nopaidwork}}% of women aged 15–49 had no paid work in the past year, against {{women.nopaidwork.kenya}}% nationally and {{men.nopaidwork}}% of Kitui's men (Tier 1, County Gender Data Sheet, October 2025).
+**Kitui is young, and its young people are short of work and of skills.** The median age is **{{census.median-age}}** (calculated from KNBS 2019 Census Volume III), and about **{{segment.youth.voters}}** registered voters are aged 18 to 35 (modelled: the 2019 census age distribution applied to the 2022 register). {{women.nopaidwork}}% of women aged 15–49 had no paid work in the past year, against {{women.nopaidwork.kenya}}% nationally and {{men.nopaidwork}}% of Kitui's men (County Gender Data Sheet, October 2025).
 
 *   **No verified youth unemployment figure** is available yet for the county; the record that would settle it is the KNBS Quarterly Labour Force Survey county tables or the 2019 Census Volume IV labour table.
-*   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (Tier 1, KDHS 2022). The share who completed secondary school is **not yet tiered**.
-*   **Attendance.** Girls attend secondary school more than boys: net attendance {{edu.secondary.girls}}% against {{edu.secondary.boys}}% (Tier 1).
-*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another (Tier 1). {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners (Tier 1, NDMA).
-*   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (Tier 2, CA), a national rate that overstates Kitui ([where people get information](/#news-sec-4-1)).
+*   **Education.** {{edu.none.women}}% of females and {{edu.none.men}}% of males aged six and over have no education (KDHS 2022). The share who completed secondary school is **not yet sourced**.
+*   **Attendance.** Girls attend secondary school more than boys: net attendance {{edu.secondary.girls}}% against {{edu.secondary.boys}}%.
+*   **School meals.** They reach a minority of schools, much of the provision is parent-funded, and NDMA links the gap to absenteeism, dropout and transfers out of the county. Its report gives two counts that do not agree: {{schools.meals}} of {{schools.meals.of}} schools with a programme on one page, and a larger count of school units on another. {{schools.damaged}} schools were damaged in March–April 2025, affecting about {{schools.damaged.learners}} learners (NDMA).
+*   **Digital access.** Smartphones are {{ict.smartphone-share}}% of active SIMs nationally (CA), a national rate that overstates Kitui ([where people get information](/#news-sec-4-1)).
 
 **What it means for the campaign.** The young are the largest group arriving at each election, and they are reached on their phones, so jobs and skills are the issue that travels on social media.
 
 ## 3.6 The cost of living
 
-**Food takes most of what a Kitui household spends.** Food is **{{food.share}}%** of household spending, one of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting), and **{{poverty.2021}}%** of residents, about {{poverty.2021.people}} people, lived in poverty in 2021 (Tier 1), placing Kitui among the ten counties with the most poor people.
+**Food takes most of what a Kitui household spends.** Food is **{{food.share}}%** of household spending, one of the highest shares in the country (KNBS Kenya Poverty Report, via national reporting), and **{{poverty.2021}}%** of residents, about {{poverty.2021.people}} people, lived in poverty in 2021, placing Kitui among the ten counties with the most poor people.
 
 ```visual
 kind: stats
@@ -199,24 +199,24 @@ items:
   - value: "{{food.share}}%"
     label: "of household spending goes on food"
     tier: 2
-    body: "One of the highest shares in the country (Tier 2, KNBS Kenya Poverty Report, via national reporting)."
+    body: "One of the highest shares in the country (KNBS Kenya Poverty Report, via national reporting)."
   - value: "{{poverty.2021}}%"
     label: "of residents in poverty, 2021"
     tier: 1
-    body: "About {{poverty.2021.people}} people (Tier 1)."
+    body: "About {{poverty.2021.people}} people."
   - value: "KSh {{price.maize}}"
     label: "a kg of maize, July 2025"
     tier: 1
-    body: "Against a five-year average of {{price.maize.average}} (Tier 1, NDMA)."
+    body: "Against a five-year average of {{price.maize.average}} (NDMA)."
   - value: "{{fuel.clean.2022}}%"
     label: "of households cook with clean fuels"
     tier: 1
-    body: "Kenya {{fuel.clean.2022.kenya}}% (Tier 1, County Gender Data Sheet, 2022)."
+    body: "Kenya {{fuel.clean.2022.kenya}}% (County Gender Data Sheet, 2022)."
 ```
 
-*   **Maize** sold at KSh {{price.maize}} a kg against a five-year average of {{price.maize.average}} (Tier 1, NDMA, July 2025).
-*   **A medium goat** sold at KSh {{price.goat}} against a five-year average of {{price.goat.average}}, and most households were buying food rather than storing it (Tier 1, NDMA).
-*   **Cooking fuel.** Only {{fuel.clean.2022}}% of households cook with clean fuels (Kenya {{fuel.clean.2022.kenya}}%) (Tier 1, County Gender Data Sheet, 2022); the 2019 census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}% (Tier 1).
+*   **Maize** sold at KSh {{price.maize}} a kg against a five-year average of {{price.maize.average}} (NDMA, July 2025).
+*   **A medium goat** sold at KSh {{price.goat}} against a five-year average of {{price.goat.average}}, and most households were buying food rather than storing it (NDMA).
+*   **Cooking fuel.** Only {{fuel.clean.2022}}% of households cook with clean fuels (Kenya {{fuel.clean.2022.kenya}}%) (County Gender Data Sheet, 2022); the 2019 census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%.
 *   No verified county price index is available yet; the record that would settle it is the KNBS county consumer price index series.
 
 **What it means for the campaign.** A household spending seven shillings in ten on food has no margin to invest, which is the whole argument for "From Poverty to Wealth Creation" stated as a number.
@@ -224,14 +224,14 @@ items:
 ## 1.5 The county's budget and plan
 
 ```lead
-The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly.
+The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (unconfirmed) until the Paper is cited directly.
 ```
 
-**The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (Tier 3) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document.
+**The budget envelope.** The county's Fiscal Strategy Paper for FY2026/27 sets a resource envelope of **KSh {{budget.total|bn}} billion**; the total is cited through secondary reporting of the Paper (unconfirmed) until the Paper is cited directly. The figures here are the Fiscal Strategy Paper's (the CFSP), not the Annual Development Plan's (the ADP), which is a different document.
 
-*   **Equitable share:** KSh {{budget.equitable|bn}} billion ({{budget.equitable.share}}% of the envelope) (Tier 1).
-*   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%, Tier 3), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly (Tier 3). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
-*   **Conditional grants:** KSh {{budget.grants|bn}} billion ({{budget.grants.share}}%) (Tier 1).
+*   **Equitable share:** KSh {{budget.equitable|bn}} billion ({{budget.equitable.share}}% of the envelope).
+*   **Own-source revenue:** KSh {{budget.osr|bn}} billion in the Fiscal Strategy Paper ({{budget.osr.share}}%, unconfirmed), raised to **KSh {{budget.osr.revised|bn}} billion** by the County Assembly (unconfirmed). The approved FY2026/27 budget settles which applies; until it is in hand, both are shown, and both are marked verify.
+*   **Conditional grants:** KSh {{budget.grants|bn}} billion ({{budget.grants.share}}%).
 
 ```figure
 id: fig-2-5-budget
@@ -239,7 +239,7 @@ id: fig-2-5-budget
 
 The three parts sum to KSh 13.80 billion (calculated) against a published total of {{budget.total|bn}}. The KSh 0.01 billion difference is rounding in the source, and is shown as its own segment rather than absorbed.
 
-**The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (Tier 2, The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
+**The budget itself was not approved on time.** The FY2026/27 county budget was still unapproved after 30 June 2026 (The Star, 6 July 2026). Once the approved budget is in hand, its figures replace the Fiscal Strategy Paper's here.
 
 **The development plan.** The county's priorities for the term are set in the Kitui County Integrated Development Plan 2023–2027, held in the KIPPRA repository. No verified figure is available yet for its number of priority sectors; the record that would settle it is the plan itself.
 
@@ -250,9 +250,9 @@ The three parts sum to KSh 13.80 billion (calculated) against a published total 
 ## 3.8 Mui Basin coal and displaced communities
 
 ```lead
-The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1).
+The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014**.
 ```
 
-The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014** (Tier 1). The standstill leaves communities across the affected wards uncertain whether they will be displaced (Tier 1). The number of concessions and the number of people who could be displaced are **named data gaps** (Tier 1 gaps).
+The extensive coal deposits in the Mui Basin, straddling Kitui East and Kitui South, have remained undeveloped for over a decade due to unresolved legal challenges under **Petition 12 of 2014**. The standstill leaves communities across the affected wards uncertain whether they will be displaced. The number of concessions and the number of people who could be displaced are **named data gaps**.
 
 **What it means for the campaign.** Mineral wealth managed for local benefit is a promise to make in Kitui East and Kitui South, and only with the court record and the displacement figures in hand.

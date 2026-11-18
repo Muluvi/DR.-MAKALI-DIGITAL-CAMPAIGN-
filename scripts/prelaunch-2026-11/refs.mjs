@@ -88,6 +88,10 @@ export function refRewrites({ index = sectionIndex(), files = contentFiles() } =
       const at = m.index;
       const w = where(text, at);
       if (w.fence && PROTECTED.has(w.fence)) continue;
+      // The generated source table is written by scripts/build-source-table.ts, which names its
+      // references itself (linkRefs below); it is not authored text.
+      const gs = text.lastIndexOf("<!-- source-table:start", at);
+      if (gs !== -1 && gs > text.lastIndexOf("<!-- source-table:end -->", at)) continue;
       const line = text.slice(text.lastIndexOf("\n", at) + 1, text.indexOf("\n", at) === -1 ? undefined : text.indexOf("\n", at));
       if (/^#{1,6}\s/.test(line)) continue; // headings carry their own number; the renderer drops it
       // The citation of the content checks' own working, in backticks, is code.

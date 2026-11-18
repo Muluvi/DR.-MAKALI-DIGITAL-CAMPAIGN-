@@ -8,6 +8,8 @@ import fs from "node:fs";
 
 /** Section 2: generated from the exact source text, and kept as data so no quote is mis-escaped. */
 const S2 = JSON.parse(fs.readFileSync(new URL("./rewrites-s2.json", import.meta.url), "utf8"));
+/** Section 3: the tier words in running prose, reworded one by one (the parenthesised tags are generated, tiers.mjs). */
+const S3 = JSON.parse(fs.readFileSync(new URL("./rewrites-s3.json", import.meta.url), "utf8"));
 
 const REFS_GLOSS = "Pre-launch pass, section 1 (docs/prelaunch-2026-11): the gloss after a numbered reference repeated the heading's own words once the reference became a link carrying them, so it goes.";
 
@@ -24,4 +26,6 @@ export const REWRITES = [
   { f: "content/timeline.md", from: '"text": "8.2.4: {{target.supporters}} target"', to: '"text": "[Give every post a voter, ward and reason](/#goal-sec-8-2-4): {{target.supporters}} target"', note: REFS_NUM },
   // 2. Draft history, moved word for word to Source notes and corrections (Evidence and sources)
   ...S2,
+  // 3. Tier words in running prose
+  ...S3,
 ];

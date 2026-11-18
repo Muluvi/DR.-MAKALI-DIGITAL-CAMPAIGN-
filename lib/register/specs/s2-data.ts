@@ -118,7 +118,7 @@ export const FIG_2_4: FigureSpec = {
           columns: 2,
           cards: [
             { kicker: "NDMA · January 2026 bulletin", title: "Drought status: Alert Phase", body: "The county's early-warning designation after a year of chronic drought pressure." },
-            { kicker: "IPC · September 2025", title: "Food security: Phase 2, Stressed", body: "Followed by the March 2026 national flooding (Tier 2)." },
+            { kicker: "IPC · September 2025", title: "Food security: Phase 2, Stressed", body: "Followed by the March 2026 national flooding (reported)." },
           ],
         },
       },

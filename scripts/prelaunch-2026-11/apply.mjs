@@ -26,6 +26,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ROOT, where, words } from "./lib.mjs";
 import { refRewrites } from "./refs.mjs";
+import { afterTiers, tierRewrites } from "./tiers.mjs";
 import { REWRITES } from "./rewrites.mjs";
 
 const LEDGER = path.join(ROOT, "docs", "prelaunch-2026-11", "ledger.json");
@@ -63,7 +64,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const problems = [];
 
   // ---------------------------------------------------------------- the listed rewrites
-  for (const r of REWRITES) {
+  // What a rewrite's result reads as once the pass's later rewrites have run over it.
+  const settled = (i) => REWRITES.slice(i + 1).reduce((t, q) => (q.from && t.includes(q.from) ? t.split(q.from).join(q.to) : t), afterTiers(REWRITES[i].to));
+  for (const [i, r] of REWRITES.entries()) {
     const file = path.join(ROOT, r.f);
     let text = fs.readFileSync(file, "utf8");
     // Applied already: the result is there (an insertion keeps its anchor, so this is asked first),
@@ -71,7 +74,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (r.to && r.to.includes(r.from) && text.includes(r.to)) { skipped++; continue; }
     const count = text.split(r.from).length - 1;
     if (count === 0) {
-      if (!r.to || text.includes(r.to)) { skipped++; continue; }
+      // A later section of the pass may have rewritten this one's result again (section 3 takes the
+      // tier tags out of text section 2 left): that counts as applied.
+      if (!r.to || text.includes(r.to) || text.includes(settled(i))) { skipped++; continue; }
       problems.push(`${r.f}: not found: ${r.from.slice(0, 90)}`);
       continue;
     }
@@ -99,6 +104,23 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       let text = fs.readFileSync(file, "utf8");
       for (const r of rs) ledger.push(entry(r, text, r.at));
       // From the end, so every earlier offset still holds.
+      for (const r of [...rs].sort((a, b) => b.at - a.at)) text = text.slice(0, r.at) + r.to + text.slice(r.at + r.from.length);
+      fs.writeFileSync(file, text);
+      applied += rs.length;
+    }
+  }
+
+  // ---------------------------------------------------------------- generated: section 3
+  const tiers = tierRewrites();
+  if (CHECK) {
+    for (const r of tiers.rewrites) problems.push(`${r.f}:${r.section}: a tier tag is left in the prose: ${r.from.trim()}`);
+  } else {
+    const byFile = new Map();
+    for (const r of tiers.rewrites) byFile.set(r.f, [...(byFile.get(r.f) ?? []), r]);
+    for (const [f, rs] of byFile) {
+      const file = path.join(ROOT, f);
+      let text = fs.readFileSync(file, "utf8");
+      for (const r of rs) ledger.push(entry(r, text, r.at));
       for (const r of [...rs].sort((a, b) => b.at - a.at)) text = text.slice(0, r.at) + r.to + text.slice(r.at + r.from.length);
       fs.writeFileSync(file, text);
       applied += rs.length;

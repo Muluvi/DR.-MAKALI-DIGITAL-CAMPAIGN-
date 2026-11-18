@@ -44,22 +44,22 @@ items:
     fields:
       - { label: "How it is argued", text: "Dr. Mulu's parliamentary work for fair distribution of resources becomes a clear manifesto for Kitui's 40 wards, showing line by line how the county's KSh {{budget.total|bn}} billion should be allocated and audited. And the pillar that sets him apart: **publishing what was promised, then publishing whether it happened**, through the public service-delivery tracker ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)), the analytics cadence in [Analytics and attribution](/#workstreams-sec-15-4-4), and the disclosure of every paid placement under the Digital Ethics and Data Charter ([the Digital Ethics and Data Charter](/#lawful-sec-19-3)). An M&E specialist who campaigns without a way to verify is wasting his strongest asset." }
       - { label: "Narrative Statement *(held until the Auditor-General's reports below are in hand)*", text: "*\"Kitui's KSh {{budget.total|bn}} billion annual budget has been crippled by pending bills, procurement inflation, and ghost projects. Dr. Makali Mulu has a verified track record of managing public funds with zero financial audit queries.\"*" }
-      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is untiered pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in public debate than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the Tier 1 claim in [the public record](/#record-sec-6-1), best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
-      - { label: "Contrast — awaiting primary documents", text: "Kitui County Government audited accounts under both predecessor administrations are reported to have accumulated over **KSh {{audit.pending.contested|bn}} billion in contested pending bills** (Tier 3; OAG County Executive Audit FY2021/22 and FY2022/23, Tier 3). This is a **different measure** from the KSh {{budget.pending-bills.2021|bn}} billion pending-bill figure at FY2020/21 carried as Tier 1 in [how county money is spent](/#spend-sec-3-7): different years, different scopes. Both are usable; whichever is quoted is named with its year." }
+      - { label: "Proof Point — awaiting primary documents", text: "**Office of the Auditor-General (OAG) NG-CDF audit reports, 2013–2025.** The team has not yet retrieved the underlying reports, so the claim of consistently unqualified opinions is unsourced pending that. It is worth settling early: because the claim is precisely checkable, a single qualified year would carry more weight in public debate than the record deserves. The \"top 5 best-managed constituencies in Kenya\" ranking is also wider than the confirmed claim in [the public record](/#record-sec-6-1), best-evaluated constituency in the Eastern region, FY2014/15. The team would use the narrower, documented version until the wider one is sourced." }
+      - { label: "Contrast — awaiting primary documents", text: "Kitui County Government audited accounts under both predecessor administrations are reported to have accumulated over **KSh {{audit.pending.contested|bn}} billion in contested pending bills** (unconfirmed; OAG County Executive Audit FY2021/22 and FY2022/23). This is a **different measure** from the KSh {{budget.pending-bills.2021|bn}} billion pending-bill figure at FY2020/21 carried as official in [how county money is spent](/#spend-sec-3-7): different years, different scopes. Both are usable; whichever is quoted is named with its year." }
     badge: "sources pending"
   - title: "Pillar 2: Household economic empowerment and agricultural value"
     fields:
       - { label: "How it is argued", text: "Dense policy, such as climate investment in water and the revival of farming, made relatable in the vernacular: a 90-second video, a Kikamba voice note or a shareable card makes each policy tangible and personal." }
-      - { label: "Narrative Statement *(the farming shares are the county government's own figures, Tier 2)*", text: "*\"Agriculture employs {{farm.employs}}% of Kitui's people and sustains {{farm.rural-households}}% of its rural households, by the county's own count, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*" }
-      - { label: "Proof Point — awaiting page references", text: "**KNBS 2019 Census and the Agricultural Sector Transformation and Growth Strategy (ASTGS).** The {{policy.ndengu-output}} tonne output and the sub-32% value-capture figure are not yet tiered to a specific page. Both carry the floor-price commitment, so the team sources them before either appears in published copy." }
+      - { label: "Narrative Statement *(the farming shares are the county government's own figures)*", text: "*\"Agriculture employs {{farm.employs}}% of Kitui's people and sustains {{farm.rural-households}}% of its rural households, by the county's own count, yet our farmers sell raw green grams and charcoal at throwaway prices. Dr. Mulu's economic plan introduces solar-powered cold storage, green gram aggregation centers, and honey processing to double household farm incomes.\"*" }
+      - { label: "Proof Point — awaiting page references", text: "**KNBS 2019 Census and the Agricultural Sector Transformation and Growth Strategy (ASTGS).** The {{policy.ndengu-output}} tonne output and the sub-32% value-capture figure are not yet sourced to a specific page. Both carry the floor-price commitment, so the team sources them before either appears in published copy." }
       - { label: "Policy Intervention — one point to confirm with your office", text: "sessional papers are ordinarily Executive instruments rather than backbench sponsorships, so the precise role is worth stating exactly as the Hansard record has it. The team will describe it accordingly." }
     badge: "sources pending"
   - title: "Pillar 3: Fair devolution, water for all and health care"
     fields:
       - { label: "How it is argued", text: "Dr. Mulu's record, including the NG-CDF-funded projects in Kitui Central, broken down in infographics so voters can see the impact: budget documents turned into simple charts, ward maps and before-and-after comparisons." }
       - { label: "Narrative Statement", text: "*\"Development in Kitui must no longer depend on which ward voted for the Governor. Dr. Mulu will allocate ward development funds by one needs-weighted formula, published before any allocation and audited after, prioritizing solar borehole reticulation and stocked village dispensaries.\"* (policy commitment; see the decision below)" }
-      - { label: "Proof Point — awaiting page reference", text: "**Kitui County Integrated Development Plan (CIDP III).** Its 61% water figure is not yet tiered. The County Gender Data Sheet (October 2025) gives {{water.over30}}% of residents taking more than 30 minutes to reach drinking water (KDHS 2022, Tier 1); it is not substituted until the CIDP's 61% is confirmed to be the same measure. [Water](/#needs-sec-3-1) carries the documented water figures, which measure different things." }
-      - { label: "CDF Proof — a request to your constituency office", text: "{{record.cdf.boreholes}} community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026, Tier 3 until its line items are in hand)." }
+      - { label: "Proof Point — awaiting page reference", text: "**Kitui County Integrated Development Plan (CIDP III).** Its 61% water figure is not yet sourced. The County Gender Data Sheet (October 2025) gives {{water.over30}}% of residents taking more than 30 minutes to reach drinking water (KDHS 2022); it is not substituted until the CIDP's 61% is confirmed to be the same measure. [Water](/#needs-sec-3-1) carries the documented water figures, which measure different things." }
+      - { label: "CDF Proof — a request to your constituency office", text: "{{record.cdf.boreholes}} community solar boreholes and {{record.cdf.school-water}} school water-harvesting projects (Kitui Central Project Inventory 2013–2026, unconfirmed until its line items are in hand)." }
     badge: "sources pending"
 ```
 
@@ -96,9 +96,9 @@ preset: theme
 items:
   - title: "Water security and climate resilience"
     text: "sand dams, boreholes, irrigation, and adaptation to both drought and flood."
-    head: { label: "Evidence", text: "Kitui has the lowest share of any county with at least a basic drinking-water service, {{water.basic.kdhs}}% (Tier 1, [Water](/#needs-sec-3-1))." }
+    head: { label: "Evidence", text: "Kitui has the lowest share of any county with at least a basic drinking-water service, {{water.basic.kdhs}}% ([Water](/#needs-sec-3-1))." }
     fields:
-      - { label: "Why this is the strongest theme", text: "it is the only issue on which Kitui is measurably last in the country, and it is measured by a Tier 1 source with a monthly update cycle — so a claim made about it can be re-verified every month rather than argued." }
+      - { label: "Why this is the strongest theme", text: "it is the only issue on which Kitui is measurably last in the country, and it is measured by an official source with a monthly update cycle — so a claim made about it can be re-verified every month rather than argued." }
   - title: "Economic transformation"
     text: "farm value chains, mango processing, livestock markets, county investment."
     head: { label: "Evidence", text: "{{poverty.2021}}% in poverty in 2021 and food at {{food.share}}% of household spending ([Food, farming and drought](/#needs-sec-3-2) and [the cost of living](/#needs-sec-3-6))." }
@@ -114,11 +114,11 @@ items:
     head: { label: "Evidence", text: "a median age of {{census.median-age}} and youth concentrated in Kitui Central, Mwingi Central and Mutomo ([Jobs and the young](/#needs-sec-3-5))." }
   - title: "Health care"
     text: "hospital upgrades, maternal health, insurance coverage."
-    head: { label: "Evidence", text: "{{health.insurance}}% with any health insurance and {{health.stunting}}% of children under five stunted (Tier 1, [Health](/#needs-sec-3-3))." }
+    head: { label: "Evidence", text: "{{health.insurance}}% with any health insurance and {{health.stunting}}% of children under five stunted ([Health](/#needs-sec-3-3))." }
   - title: "Education"
     text: "ECDE, bursaries, school infrastructure."
-    head: { label: "Evidence", text: "{{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education (Tier 1, [Jobs and the young](/#needs-sec-3-5)); the secondary-completion figure is not yet tiered." }
-    badge: "not yet tiered"
+    head: { label: "Evidence", text: "{{edu.none.women}}% of women and {{edu.none.men}}% of men aged six and over have no education ([Jobs and the young](/#needs-sec-3-5)); the secondary-completion figure is not yet sourced." }
+    badge: "not yet sourced"
 ```
 
 A further theme the evidence supports is security and resource conflict on the Tana River border, framed as resource and border security, never in community or ethnic terms ([Food, farming and drought](/#needs-sec-3-2)).
@@ -228,7 +228,7 @@ items:
     fields:
       - { label: "Loss aversion", text: "\"Approximately {{water.surface}} people in Kitui still depend on surface water for drinking. Every dry season takes more from us than the boreholes would.\"" }
       - { label: "Verification", text: "\"We will publish every borehole location, cost and completion date. Dial `[shortcode]` to check the one nearest you.\"" }
-      - { label: "Loss aversion (July 2025)", text: "\"More than a quarter of Kitui's water points were not working in July 2025 (NDMA). Every broken borehole is a longer walk for a woman in Mutha.\" {{water.points.down.share}}% of {{water.points.total}} sources, Tier 1." }
+      - { label: "Loss aversion (July 2025)", text: "\"More than a quarter of Kitui's water points were not working in July 2025 (NDMA). Every broken borehole is a longer walk for a woman in Mutha.\" {{water.points.down.share}}% of {{water.points.total}} sources." }
       - { label: "Verification (the county's own count)", text: "\"The county says it drilled {{scorecard.boreholes.drilled}} boreholes. Dial `[shortcode]` and check the one nearest you.\" During the nomination window, the verification half only ([Discipline and persuasion principles](/#message-sec-10-2))." }
   - title: "Fiscal accountability"
     fields:
@@ -238,7 +238,7 @@ items:
   - title: "Poverty and household economics"
     fields:
       - { label: "Loss aversion", text: "\"{{poverty.2021}}% of Kitui lived in poverty in 2021 (KNBS). That is a policy choice, not a fact of nature.\"" }
-      - { label: "Social proof", text: "\"Green grams beat the five-year average by {{greengrams.lr2025.vs-average}}% this season. Kitui farmers adapt; the county should help them sell.\" NDMA, long rains 2025, Tier 1." }
+      - { label: "Social proof", text: "\"Green grams beat the five-year average by {{greengrams.lr2025.vs-average}}% this season. Kitui farmers adapt; the county should help them sell.\" NDMA, long rains 2025." }
   - title: "Youth unemployment"
     fields:
       - { label: "Commitment device", text: "\"Pledge to register, and Dr. Mulu pledges a quarterly county jobs audit. Hold him to it.\"" }
@@ -248,15 +248,15 @@ items:
       - { label: "Messenger effect", text: "A table-banking chairlady on poultry income — a sector in over 90% of Kitui households, and one that rarely appears in county policy conversation." }
   - title: "Healthcare and nutrition"
     fields:
-      - { label: "Loss aversion", text: "\"Only {{health.insurance}}% of Kitui residents have any health insurance.\" KDHS 2022, household population, Tier 1 ({{health.insurance.nhif}}% through NHIF). Say \"residents\", never \"voters\"." }
-      - { label: "Social proof", text: "\"One in four children in Kitui is stunted. Join the movement.\" KDHS 2022 puts stunting at {{health.stunting}}% of children under five (Tier 1); the county's older planning baseline gives {{health.stunting.cidp}}% (Tier 2). Quote the KDHS figure." }
-      - { label: "Anchoring", text: "\"Seven in ten Kitui residents report a problem getting health care. Dr. Mulu will publish which clinics have medicines this week.\" {{health.access.problem}}% of women, KDHS 2022, Tier 1: say \"residents report\" only with that base stated." }
+      - { label: "Loss aversion", text: "\"Only {{health.insurance}}% of Kitui residents have any health insurance.\" KDHS 2022, household population ({{health.insurance.nhif}}% through NHIF). Say \"residents\", never \"voters\"." }
+      - { label: "Social proof", text: "\"One in four children in Kitui is stunted. Join the movement.\" KDHS 2022 puts stunting at {{health.stunting}}% of children under five; the county's older planning baseline gives {{health.stunting.cidp}}% (reported). Quote the KDHS figure." }
+      - { label: "Anchoring", text: "\"Seven in ten Kitui residents report a problem getting health care. Dr. Mulu will publish which clinics have medicines this week.\" {{health.access.problem}}% of women, KDHS 2022: say \"residents report\" only with that base stated." }
   - title: "School meals"
     fields:
       - { label: "Messenger effect", text: "A parent from a school running a parent-funded meals programme, on why the county should carry it. NDMA links the gap to absenteeism and dropout ([Jobs and the young](/#needs-sec-3-5))." }
   - title: "Energy poverty"
     fields:
-      - { label: "Anchoring", text: "\"Only {{fuel.clean.2022}}% of Kitui households cook with clean fuels. Energy poverty is economic poverty.\" 2022, County Gender Data Sheet, Tier 1 (Kenya {{fuel.clean.2022.kenya}}%). The 2019 Census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%." }
+      - { label: "Anchoring", text: "\"Only {{fuel.clean.2022}}% of Kitui households cook with clean fuels. Energy poverty is economic poverty.\" 2022, County Gender Data Sheet (Kenya {{fuel.clean.2022.kenya}}%). The 2019 Census put unclean fuels at {{fuel.unclean}}% and firewood at {{fuel.firewood}}%." }
 ```
 
 ## 10.4 Sample messages from the weekly brief
@@ -288,7 +288,7 @@ Messaging is set to the economic realities, geography and priorities of Kitui Co
 | Voter Segment | Demographics & Primary Hubs | Core Priorities | Tailored Messaging & Channels |
 |---|---|---|---|
 | **Youth & Digital Natives** | 18–35; Kitui Town, Mwingi, Kwa Vonza; SEKU and MUT | Youth unemployment; TVET funding & digital skills; boda boda regulation & trade licensing; enterprise loans | **Message:** "Economic Empowerment & Tech Integration." The leader who will digitise county services and allocate bursaries transparently — with a public record of {{record.bursary.recipients}} bursary beneficiaries to prove it.<br>**Channels:** TikTok, Instagram, X, short video, infographics |
-| **Agrarian & Pastoral Communities** | {{census.rural.share}}% of residents are rural (2019 Census, Tier 2); Kitui Rural, Kitui East, Kitui South, Mwingi North | Water scarcity; farm inputs (green grams/ndengu, maize); feeder roads; livestock health; drought and flood resilience | **Message:** "Budget Discipline for Water & Food Security." Public finance experience directed at sand dams, boreholes and subsidised inputs.<br>**Channels:** **SMS/USSD (primary)**, vernacular radio, barazas, WhatsApp, visual policy summaries |
+| **Agrarian & Pastoral Communities** | {{census.rural.share}}% of residents are rural (2019 Census); Kitui Rural, Kitui East, Kitui South, Mwingi North | Water scarcity; farm inputs (green grams/ndengu, maize); feeder roads; livestock health; drought and flood resilience | **Message:** "Budget Discipline for Water & Food Security." Public finance experience directed at sand dams, boreholes and subsidised inputs.<br>**Channels:** **SMS/USSD (primary)**, vernacular radio, barazas, WhatsApp, visual policy summaries |
 | **MSMEs, Traders & Business Owners** | Kitui Town, Mwingi Town, Mutomo, Kabati, Kyuso, Kwa Vonza | County taxes, double licensing, cess; market infrastructure & sanitation; power reliability | **Message:** "An Economist in City Hall." A business-friendly environment that cuts red tape and reorganises county revenue collection — anchored to the KSh {{budget.osr.revised|bn}} billion own-source revenue target.<br>**Channels:** Town halls, business association roundtables, policy briefs, Facebook, X, LinkedIn |
 | **Women's Cooperatives & Table-Banking Groups** | CBOs and merry-go-rounds across all 40 wards; {{census.female}} women in {{census.households}} households | Domestic water proximity; maternal and household healthcare; market linkages for honey, mangoes, legumes; **poultry income (90%+ of households)** | **Message:** "Dignity at the Household Level." Reducing the distance walked for water; dedicated county empowerment revolving funds.<br>**Channels:** Church and cooperative networks, grassroots women leaders, **Kikamba voice notes**, WhatsApp, SMS *(SMS in Kiswahili — [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3))* |
 | **Diaspora Kitui Voters** | Nairobi, Mombasa and abroad; high out-migration from Kitui Central, Mutomo, Mwingi Central | Investment opportunities; transparent county budgeting; remittance links; home-county pride | **Message:** "Your Investment, Your County." **Newly actionable: IEBC is expanding diaspora voter registration from 12 to 26 countries** (not yet sourced; the record is the IEBC's gazette notice).<br>**Channels:** Facebook, X, YouTube, WhatsApp, LinkedIn, diaspora webinars |

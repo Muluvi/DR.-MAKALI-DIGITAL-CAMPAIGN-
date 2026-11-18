@@ -28,8 +28,17 @@ import {
 const errors = [];
 const SHOW = process.argv.includes("--sections");
 
-const before = Object.fromEntries(baseFiles().map((f) => [f, readBase(f)]));
-const after = Object.fromEntries(nowFiles().map((f) => [f, readNow(f)]));
+/*
+ * The source table in Evidence and sources is generated from the figure registry by
+ * scripts/build-source-table.ts, "never typed": its rows follow lib/data/figures.ts, and its own
+ * --check keeps it equal to the registry. Its words are data, not prose, so word conservation leaves
+ * the region out on both sides (pre-launch pass, docs/prelaunch-2026-11). Its markers stay, so the
+ * section it sits in is still weighed.
+ */
+const GENERATED = /(<!-- source-table:start[^\n]*-->)[\s\S]*?(<!-- source-table:end -->)/g;
+const ungenerated = (t) => t.replace(GENERATED, "$1\n$2");
+const before = Object.fromEntries(baseFiles().map((f) => [f, ungenerated(readBase(f))]));
+const after = Object.fromEntries(nowFiles().map((f) => [f, ungenerated(readNow(f))]));
 
 /*
  * Settled disputes (docs/disputes-resolved.json, decided 1 November 2026). Two things follow from a

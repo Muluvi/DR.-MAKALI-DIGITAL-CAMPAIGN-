@@ -41,7 +41,7 @@ export const DISPUTED_FIGURES: DisputedFigureEntry[] = [
     preferredIndex: 1,
     preferenceReason:
       `${fmt("result.2022.gov.musila")} is the IEBC Form 37C total as reported by Nation Africa, and the certified share (35.77%) matches it; Firefly confirmed it on 25 September 2026. The Star's ${fmt("result.2022.gov.musila.media")} was an early media total and is not used.`,
-    resolutionPath: "The IEBC Form 37C for the 2022 Kitui governor result, held directly, would make the figure Tier 1.",
+    resolutionPath: "The IEBC Form 37C for the 2022 Kitui governor result, held directly, would make the figure official.",
     status: "resolved-preferred",
   },
   {

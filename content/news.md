@@ -22,18 +22,18 @@ items:
   - value: "{{ict.agents}}"
     label: "mobile-money agents, nationally"
     tier: 1
-    body: "Up from {{ict.agents.2025}} in late 2025 (Tier 1). In settlements without broadband, the agent kiosk is a trusted local point of contact, and it is commercially motivated."
-body: "The **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** (Tier 1) puts internet use in Kitui at **{{ict.internet}}%** (up from {{ict.internet.2019}}% in the 2019 KNBS Census), leaving **{{ict.offline}}% of residents offline**. Mobile phone ownership is **{{ict.phone}}%** (up from {{ict.phone.2019}}% in 2019)."
+    body: "Up from {{ict.agents.2025}} in late 2025. In settlements without broadband, the agent kiosk is a trusted local point of contact, and it is commercially motivated."
+body: "The **CA/KNBS ICT report on the 2023/24 Kenya Housing Survey** puts internet use in Kitui at **{{ict.internet}}%** (up from {{ict.internet.2019}}% in the 2019 KNBS Census), leaving **{{ict.offline}}% of residents offline**. Mobile phone ownership is **{{ict.phone}}%** (up from {{ict.phone.2019}}% in 2019)."
 ```
 
 | Measure | Kitui, 2023/24 | Kitui, 2019 | National context |
 |---|---|---|---|
-| Mobile phone ownership | **{{ict.phone}}%** of residents (CA/KNBS 2023/24) (Tier 1) | {{ict.phone.2019.people}} people ({{ict.phone.2019}}%) (Tier 1) | {{ict.sims.national|m1}} million active SIM cards; {{ict.sim-penetration}}% penetration (CA, Q3 FY2025/26) |
-| Internet use | **{{ict.internet}}%** ({{ict.offline}}% offline) (Tier 1) | {{ict.internet.2019.people}} people ({{ict.internet.2019}}%) (Tier 1) | {{ict.broadband.national|m1}} million mobile broadband subscriptions (Tier 1) |
-| Devices | Feature-phone and USSD-capable devices dominate | Feature phones dominate (Tier 1) | Smartphones are {{ict.smartphone-share}}% of active SIMs nationally ({{ict.smartphones.national|m1}} million of {{ict.sims.national|m1}} million, CA Q3 FY2025/26, Tier 2); a national rate, which overstates Kitui |
-| Mobile money | Near-universal use of mobile transactions | Mobile money dominant | {{ict.momo.national|m1}} million subscriptions ({{ict.momo-penetration}}%, Tier 1); **{{ict.agents}} registered agents** (March 2026) |
-| Phone ownership, adults (KDHS 2022) | Men 18+ **{{ict.phone.adult.men}}%**, women 18+ **{{ict.phone.adult.women}}%** (Tier 1, County Gender Data Sheet, October 2025) | — | Kenya: men {{ict.kenya.phone.adult.men}}%, women {{ict.kenya.phone.adult.women}}% (Tier 1) |
-| Internet use, ages 15–49 (KDHS 2022) | Men **{{ict.internet.1549.men}}%**, women **{{ict.internet.1549.women}}%** (Tier 1) | — | Kenya: men {{ict.kenya.internet.1549.men}}%, women {{ict.kenya.internet.1549.women}}% (Tier 1) |
+| Mobile phone ownership | **{{ict.phone}}%** of residents (CA/KNBS 2023/24) | {{ict.phone.2019.people}} people ({{ict.phone.2019}}%) | {{ict.sims.national|m1}} million active SIM cards; {{ict.sim-penetration}}% penetration (CA, Q3 FY2025/26) |
+| Internet use | **{{ict.internet}}%** ({{ict.offline}}% offline) | {{ict.internet.2019.people}} people ({{ict.internet.2019}}%) | {{ict.broadband.national|m1}} million mobile broadband subscriptions |
+| Devices | Feature-phone and USSD-capable devices dominate | Feature phones dominate | Smartphones are {{ict.smartphone-share}}% of active SIMs nationally ({{ict.smartphones.national|m1}} million of {{ict.sims.national|m1}} million, CA Q3 FY2025/26); a national rate, which overstates Kitui |
+| Mobile money | Near-universal use of mobile transactions | Mobile money dominant | {{ict.momo.national|m1}} million subscriptions ({{ict.momo-penetration}}%); **{{ict.agents}} registered agents** (March 2026) |
+| Phone ownership, adults (KDHS 2022) | Men 18+ **{{ict.phone.adult.men}}%**, women 18+ **{{ict.phone.adult.women}}%** (County Gender Data Sheet, October 2025) | — | Kenya: men {{ict.kenya.phone.adult.men}}%, women {{ict.kenya.phone.adult.women}}% |
+| Internet use, ages 15–49 (KDHS 2022) | Men **{{ict.internet.1549.men}}%**, women **{{ict.internet.1549.women}}%** | — | Kenya: men {{ict.kenya.internet.1549.men}}%, women {{ict.kenya.internet.1549.women}}% |
 
 **Two bases, never averaged.** {{ict.phone}}% and {{ict.internet}}% are shares of all residents, children included. The register holds adults only, and adults own phones at about three times in four. [What each channel can reach](/#news-sec-4-3) models voter reach on both bases and says which it uses.
 
@@ -82,7 +82,7 @@ items:
 
 **What it means for the campaign:** the radio plan runs through Musyi, County FM and Wikwatyo, treats Athiani as party-sensitive, and treats Mbaitu and Syokimau as monitoring targets rather than placement targets.
 
-> **Listenership.** The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}%, Athiani FM at {{radio.athiani}}%, Mbaitu FM at {{radio.mbaitu}}% and County FM at {{radio.county}}% of listeners (Tier 2, an earlier measurement). It ranks the stations; it does not size Kitui's own audience.
+> **Listenership.** The published audience share is regional: the CA/KARF report for **Lower Eastern** (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}%, Athiani FM at {{radio.athiani}}%, Mbaitu FM at {{radio.mbaitu}}% and County FM at {{radio.county}}% of listeners (an earlier measurement). It ranks the stations; it does not size Kitui's own audience.
 
 Ownership associations are publicly reported rather than certified, and ownership changes. The certifiable records are the Communications Authority's register of broadcast licensees and the Business Registration Service's company records. The map is checked against both before any placement is booked, and updated when either changes.
 
@@ -109,9 +109,9 @@ id: fig-3-8-ceiling
 | Reachable by SMS only | ~{{reach.sms-only}} voters (modelled: {{ict.phone}}% phone ownership less {{ict.internet}}% internet use) |
 | Phone owners: the SMS and USSD layer | ~{{reach.phone.resident}} voters on the resident rate ({{ict.phone}}%); ~{{reach.phone.adult}} on the adult rate (KDHS 2022: {{ict.phone.adult}}%). Both modelled, never averaged ([what each channel can reach](/#news-sec-4-3)) |
 | No phone: radio or in person only | ~{{reach.nophone}} voters on the resident rate; ~{{reach.nophone.adult}} on the adult rate (both modelled) |
-| Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement, Tier 2). |
+| Vernacular radio reach | Lower Eastern shares: Musyi FM {{radio.musyi}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% (CA/KARF, an earlier measurement). |
 
-**The SMS and USSD layer reaches more voters than the resident rate implies.** On the resident basis ({{ict.phone}}% of all residents) about {{reach.phone.resident}} voters own a phone (modelled). On the adult basis ({{ict.phone.adult}}% of adults, KDHS 2022, weighted by the register's {{register.women.share}}% women) about **{{reach.phone.adult}}** do and about {{reach.nophone.adult}} do not (both modelled on the July 2026 register as reported, so Tier 3). That is roughly {{reach.phone.ratio}} times as many voters within reach of SMS and USSD. The digital ceiling does not move: internet use among adults aged 15–49 is {{ict.internet.1549.men}}% for men and {{ict.internet.1549.women}}% for women.
+**The SMS and USSD layer reaches more voters than the resident rate implies.** On the resident basis ({{ict.phone}}% of all residents) about {{reach.phone.resident}} voters own a phone (modelled). On the adult basis ({{ict.phone.adult}}% of adults, KDHS 2022, weighted by the register's {{register.women.share}}% women) about **{{reach.phone.adult}}** do and about {{reach.nophone.adult}} do not (both modelled on the July 2026 register as reported, so unconfirmed). That is roughly {{reach.phone.ratio}} times as many voters within reach of SMS and USSD. The digital ceiling does not move: internet use among adults aged 15–49 is {{ict.internet.1549.men}}% for men and {{ict.internet.1549.women}}% for women.
 
 ```visual
 kind: contrast
@@ -149,23 +149,23 @@ preset: channel
 items:
   - title: "Kikamba radio"
     fields:
-      - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (Tier 2). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience." }
+      - { label: "Reach", text: "the CA/KARF audience report for Lower Eastern (Kitui, Machakos and Makueni together) puts Musyi FM at {{radio.musyi}}% of listeners, Citizen Radio {{radio.citizen}}%, Athiani FM {{radio.athiani}}%, Mbaitu FM {{radio.mbaitu}}%, County FM {{radio.county}}% and Mwatu FM {{radio.mwatu}}% (reported). It is a regional and an earlier measurement, so it ranks the stations rather than sizing Kitui's audience." }
       - { label: "The stations", text: "*   *Musyi FM (Royal Media Services):* the market leader in Ukambani; commercially independent. **Priority placement.**\n    *   *County FM (Kitui-based independent):* local ward news and debates, strong in Kitui Town, Kabati and Kwa Vonza. **Priority placement.**\n    *   *Wikwatyo FM (Seventh-Day Adventist Church, Kitui):* broad rural trust. **Priority for community and service-delivery programming.**\n    *   *Mbaitu FM, Syokimau FM (politically affiliated) and Athiani FM (Wiper leadership):* **monitoring targets, not placement targets** — [who owns the airwaves](/#news-sec-4-2) has the ownership map and the posture for each." }
       - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)):\n*   *Weekly morning interviews:* two-hour studio interviews (06:30–08:30) with Dr. Mulu in the weeks a policy is launched.\n    *   *Kikamba jingles and testimonials:* 45-second stories from farmers in Mwingi North, Kitui South and Kitui Rural on how Dr. Mulu's economic plan protects their harvest prices.\n    *   *Outside broadcasts:* sponsored live broadcast vans at major market rallies in Kalundu, Kabati and Mutomo." }
   - title: "SMS and USSD"
-    head: { label: "Reach", text: "mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24, Tier 1); a feature phone is enough for SMS and USSD." }
+    head: { label: "Reach", text: "mobile phone ownership is {{ict.phone}}% of residents countywide (CA/KNBS 2023/24); a feature phone is enough for SMS and USSD." }
     fields:
       - { label: null, text: "**What your team operates** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)):\n*   *A free USSD menu (`*[shortcode]#`):* any feature phone can dial it to read Dr. Mulu's five-point manifesto in Kikamba, register as a volunteer, or find the nearest Ward Captain.\n    *   *Ward-targeted SMS:* **Kiswahili** messages to consented supporters in specific wards on the eve of market days, and on election morning to get out the vote (GOTV)." }
   - title: "Mobile-money agents"
-    head: { label: "Reach", text: "nationally there are {{ict.agents}} registered agents (March 2026, Tier 1, [where people get information](/#news-sec-4-1))." }
+    head: { label: "Reach", text: "nationally there are {{ict.agents}} registered agents (March 2026, [where people get information](/#news-sec-4-1))." }
     fields:
-      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)):\n*   M-Pesa agents are trusted community hubs where residents deposit money, buy airtime and talk about local news. **Agent networks are regulated financial infrastructure**; [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) requires campaign counsel to review any commercial arrangement with them before recruitment begins. The ambassador network is untiered and needs a source.\n    *   The campaign would recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents (a target) as \"Economic Ambassadors\", with branded ledgers, counter pens, calendar posters and daily economic talking points." }
+      - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)):\n*   M-Pesa agents are trusted community hubs where residents deposit money, buy airtime and talk about local news. **Agent networks are regulated financial infrastructure**; [what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3) requires campaign counsel to review any commercial arrangement with them before recruitment begins. The ambassador network is unsourced and needs a source.\n    *   The campaign would recruit {{target.ambassadors}}+ shopkeepers and M-Pesa agents (a target) as \"Economic Ambassadors\", with branded ledgers, counter pens, calendar posters and daily economic talking points." }
   - title: "Market days and caravans"
-    head: { label: "Reach", text: "for scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (Tier 3), and market days are gazetted by market. Neither is a market-day count." }
+    head: { label: "Reach", text: "for scale only: the 2023 Kitui Agricultural Show drew more than {{show.2023}} people over three days (unconfirmed), and market days are gazetted by market. Neither is a market-day count." }
     fields:
       - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)): two sound trucks (*The Mulu Economic Caravans*) with PA systems, Kikamba music and local young speakers, at market entrances on market days. [Ground-digital integration](/#workstreams-sec-15-3-1) sets out how the ground team runs them." }
   - title: "Churches and clergy"
-    head: { label: "Reach", text: "denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (Tier 3), a floor for one denomination rather than attendance." }
+    head: { label: "Reach", text: "denominations present: Catholic, AIC, Redeemed Gospel, Anglican and Baptist. The Catholic Diocese of Kitui alone counts over {{church.catholic}} baptised members (unconfirmed), a floor for one denomination rather than attendance." }
     fields:
       - { label: null, text: "**What the campaign would run** (campaign-owned, outside this engagement, [what is outside the scope](/#engagement-sec-13-3)): Sunday visits across all eight constituencies, respecting the liturgy, asking for prayers, and meeting parish development committees after the service." }
 ```
