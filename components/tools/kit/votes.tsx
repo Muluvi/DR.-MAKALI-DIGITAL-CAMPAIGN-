@@ -201,6 +201,11 @@ export function RegisterGrowth({ cons, register2022, growth, drive, turnout, win
         <Stat label="Winning number, 2022 basis" value={n0(old)} />
         <Stat label="Winning number, new register" value={n0(now)} tone="warn" note={`+${n0(now - old)} at the winner's share`} />
       </Stats>
+      <p className="text-[0.85rem] text-muted">
+        The July 2026 register is reported at {n0(newRegister)} voters. That figure is unconfirmed: it comes from secondary
+        reporting, not from the IEBC, and it stays unconfirmed until the IEBC publishes its own July 2026 count. The headline
+        figure on the site is the IEBC&rsquo;s 2022 register, {n0(register2022)}.
+      </p>
       <Card>
         <div className="grid gap-4 sm:grid-cols-2">
           <Slider label="Turnout on the new register" value={t} onChange={setT} min={40} max={85} step={0.1} suffix="%" />
