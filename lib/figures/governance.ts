@@ -148,7 +148,7 @@ export const LIABILITY_SERIES: FigureSeries = {
 /* ------------------------------------------------------------------ §4.6 the org chart */
 
 export const ORG_CHAIN = [
-  { role: "Dr. Makali Mulu (candidate) & strategic advisory board" },
+  { role: "Dr. Mulu (candidate) & strategic advisory board" },
   { role: "Campaign Manager & Chief of Operations (lead operator)" },
 ];
 
@@ -226,7 +226,7 @@ export const REPORTING_TEAMS = [
 export const REPORTING_CHAIN = [
   { role: "Campaign counterpart (one named person)", note: "Both teams meet here, through the weekly brief." },
   { role: "Campaign Manager" },
-  { role: "Dr. Makali Mulu" },
+  { role: "Dr. Mulu" },
 ];
 
 export const REPORTING_SERIES: FigureSeries = {

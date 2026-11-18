@@ -31,7 +31,7 @@ More than half of Kitui lives in poverty, fewer than two households in five have
 ```
 
 *   About **400,000** people rely on untreated surface water as their main domestic source.
-*   In July 2025, 450 of 630 water sources were working, so **28.6% were not**. In Kitui Central only 56% were working, the lowest of the eight (NDMA). That figure is in Dr. Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
+*   In July 2025, 450 of 630 water sources were working, so **28.6% were not**. In Kitui Central only 56% were working, the lowest of the eight (NDMA). That figure is in Hon. Dr. Benson Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
 *   **2,244 school units have no safe water within 100 m** (NDMA). The figure counts units by school level, several of which may share a compound; it is used with that wording or not at all.
 *   NDMA classed the county **Alert** from December 2025 through February 2026, and **Normal but worsening** in August 2026.
 

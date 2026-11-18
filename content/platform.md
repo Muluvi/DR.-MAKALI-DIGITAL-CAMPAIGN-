@@ -1,8 +1,8 @@
 ```lead
-**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.**
+**Anyone with the link sees everything. Once the engagement starts, Hon. Dr. Benson Makali Mulu's team signs in to change it. Firefly keeps it running.**
 ```
 
-**Anyone with the link sees everything. Once the engagement starts, Dr. Mulu's team signs in to change it. Firefly keeps it running.** The data behind this story, the analysis, the strategies and the team's own working records live in one place, and the team updates them itself.
+**Anyone with the link sees everything. Once the engagement starts, Hon. Dr. Benson Makali Mulu's team signs in to change it. Firefly keeps it running.** The data behind this story, the analysis, the strategies and the team's own working records live in one place, and the team updates them itself.
 
 ```visual
 kind: contrast

@@ -65,7 +65,7 @@ items:
 ```
 
 *   About **{{water.surface}}** people rely on untreated surface water as their main domestic source.
-*   In July 2025, {{water.points.working}} of {{water.points.total}} water sources were working, so **{{water.points.down.share}}% were not**. In Kitui Central only {{water.points.working.kitui-central}}% were working, the lowest of the eight (NDMA). That figure is in Dr. Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
+*   In July 2025, {{water.points.working}} of {{water.points.total}} water sources were working, so **{{water.points.down.share}}% were not**. In Kitui Central only {{water.points.working.kitui-central}}% were working, the lowest of the eight (NDMA). That figure is in Hon. Dr. Benson Makali Mulu's own constituency: water points are county assets, not NG-CDF ones, but the answer is prepared before the number is used.
 *   **{{water.schools.unsafe}} school units have no safe water within 100 m** (NDMA). The figure counts units by school level, several of which may share a compound; it is used with that wording or not at all.
 *   NDMA classed the county **Alert** from December 2025 through February 2026, and **Normal but worsening** in August 2026.
 

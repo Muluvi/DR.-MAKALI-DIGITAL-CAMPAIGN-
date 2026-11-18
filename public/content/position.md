@@ -1,8 +1,8 @@
 ```lead
-**Dr. Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working.
+**Hon. Dr. Benson Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working.
 ```
 
-**Dr. Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working. Kitui does not lack money; it lacks the discipline to use it well, and that discipline is his profession. This chapter states the claim and the paradox it answers.
+**Hon. Dr. Benson Makali Mulu is the Economist Governor Kitui needs**: not a politician who merely promises, but an expert economist who can show his working. Kitui does not lack money; it lacks the discipline to use it well, and that discipline is his profession. This chapter states the claim and the paradox it answers.
 
 ## 9.1 The central claim
 
@@ -10,7 +10,7 @@
 Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
 ```
 
-**Why this claim.** What distinguishes Dr. Mulu is not a vote tally but his record ([the public record](/#record-sec-6-1)). So the campaign's core narrative is that **Dr. Makali Mulu is the Economist Governor Kitui needs**: an economist who can show his working and hold others to account. It rests on one premise: Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
+**Why this claim.** What distinguishes Dr. Mulu is not a vote tally but his record ([the public record](/#record-sec-6-1)). So the campaign's core narrative is that **Dr. Mulu is the Economist Governor Kitui needs**: an economist who can show his working and hold others to account. It rests on one premise: Kitui voters are ready for a leader who understands economics, respects public money, communicates with clarity and respect — and is willing to be measured.
 
 **What makes it his.** Dr. Mulu is not only an economist. He is a specialist in **verifying whether public expenditure delivers what it promised**, and the county's own audit record documents the gap: unconfirmed balances, pending bills and low development absorption ([how county money is spent](/#spend-sec-3-7)). This plan turns that qualification into a public service-delivery tracker ([Owned platforms and the service-delivery tracker](/#workstreams-sec-15-1-1)): a line on a CV becomes a daily, public demonstration of accountability.
 

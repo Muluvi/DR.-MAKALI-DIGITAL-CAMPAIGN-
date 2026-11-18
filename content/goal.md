@@ -34,7 +34,7 @@ items:
     chips: ["NW-01", "R-02"]
     text: "**Named Owner:** Director of Communications; the delivery ledger is the dispatch log on Firefly's platform."
     fields:
-      - { label: "Traceability", text: "Nomination viability: name recognition and visible activity in northern Mwingi and the southern wards, where Dr. Mulu has been known mainly as the member for Kitui Central." }
+      - { label: "Traceability", text: "Nomination viability: name recognition and visible activity in northern Mwingi and the southern wards, where Hon. Dr. Benson Makali Mulu has been known mainly as the member for Kitui Central." }
       - { label: "Finding it answers", text: "{{pool.share}}% of the register, {{pool}} voters, lives in Mwingi and Kitui South, where he has never held office ([where he is known, and where not](/#known-sec-6-2))." }
       - { label: "Baseline", text: "set in Week 1, from his own Insights export. The hypothesis is that his reach concentrates in Kitui Central ([what the evidence says](/#diagnosis-sec-7-1)); Week 1 tests it." }
       - { label: "Served by", text: "[Where the effort goes](/#channels-sec-12-1) and [A week of publishing, before and after](/#week-sec-12-6) (what gets published)." }

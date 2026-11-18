@@ -52,7 +52,7 @@ id: fig-5-7-approval
 
 **Same week. Same events. Same team. Different structure.**
 
-The current pattern, as observed from the public page, is a daily record of where Dr. Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached and no ask. Week 1 checks it against his actual week before it is put in front of him.
+The current pattern, as observed from the public page, is a daily record of where Hon. Dr. Benson Makali Mulu was, mostly in English, with no ward named outside Kitui Central, no commitment attached and no ask. Week 1 checks it against his actual week before it is put in front of him.
 
 ```figure
 id: fig-4-5-calendar

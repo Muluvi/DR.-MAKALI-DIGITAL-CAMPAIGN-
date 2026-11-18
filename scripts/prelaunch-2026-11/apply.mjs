@@ -27,6 +27,7 @@ import path from "node:path";
 import { ROOT, where, words } from "./lib.mjs";
 import { refRewrites } from "./refs.mjs";
 import { afterTiers, tierRewrites } from "./tiers.mjs";
+import { nameRewrites } from "./names.mjs";
 import { REWRITES } from "./rewrites.mjs";
 
 const LEDGER = path.join(ROOT, "docs", "prelaunch-2026-11", "ledger.json");
@@ -34,6 +35,7 @@ const CHECK = process.argv.includes("--check");
 
 const NOTE = {
   refs: "Pre-launch pass, section 1 (docs/prelaunch-2026-11): a numbered cross-reference becomes a link that carries the heading's own words; no reader meets a document number.",
+  names: "Pre-launch pass, section 9 (docs/prelaunch-2026-11): one style for his name, Hon. Dr. Benson Makali Mulu at the first mention in a chapter and Dr. Mulu after it; quotations and titles are left as written.",
   tiers: "Pre-launch pass, section 3 (docs/prelaunch-2026-11): the inline tier tag leaves the prose; the source it names stays, and the tier stays in Evidence and sources and in the figure registry.",
 };
 
@@ -110,13 +112,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     }
   }
 
-  // ---------------------------------------------------------------- generated: section 3
-  const tiers = tierRewrites();
+  // ---------------------------------------------------------------- generated: sections 3 and 9
+  for (const [what, gen] of [["a tier tag is left in the prose", tierRewrites], ["his name is not in the site's style", nameRewrites]]) {
+  const generated = gen();
   if (CHECK) {
-    for (const r of tiers.rewrites) problems.push(`${r.f}:${r.section}: a tier tag is left in the prose: ${r.from.trim()}`);
+    for (const r of generated.rewrites) problems.push(`${r.f}:${r.section}: ${what}: ${r.from.trim()}`);
   } else {
     const byFile = new Map();
-    for (const r of tiers.rewrites) byFile.set(r.f, [...(byFile.get(r.f) ?? []), r]);
+    for (const r of generated.rewrites) byFile.set(r.f, [...(byFile.get(r.f) ?? []), r]);
     for (const [f, rs] of byFile) {
       const file = path.join(ROOT, f);
       let text = fs.readFileSync(file, "utf8");
@@ -125,6 +128,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       fs.writeFileSync(file, text);
       applied += rs.length;
     }
+  }
   }
 
   if (!CHECK) {

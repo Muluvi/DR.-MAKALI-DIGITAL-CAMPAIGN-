@@ -6,7 +6,7 @@
 id: fig-6-3-decision
 ```
 
-Dr. Makali Mulu has the credentials, the experience and the vision to be an
+Hon. Dr. Benson Makali Mulu has the credentials, the experience and the vision to be an
 outstanding governor of Kitui County. He also has something rare in county politics:
 a professional qualification in verifying whether public money
 delivered what it promised. Unconfirmed balances, pending bills and low development absorption are what the

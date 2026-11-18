@@ -28,7 +28,7 @@ The segments in [the six voter segments](/#voters-sec-11-2) describe **who** the
 **Each segment carries the content type that commissions for it** ([one claim, three pillars, six themes](/#message-sec-10-1)), so the segmentation has an output rather than only a description.
 ```
 
-**Each segment carries the content type that commissions for it** ([one claim, three pillars, six themes](/#message-sec-10-1)), so the segmentation has an output rather than only a description. P4, *He came, and this is what he said he would do*, is not in the table because it is not segment-led: it is ward-led, run in the channels of whichever ward Dr. Makali Mulu visited that day, and it feeds P1 twelve weeks later.
+**Each segment carries the content type that commissions for it** ([one claim, three pillars, six themes](/#message-sec-10-1)), so the segmentation has an output rather than only a description. P4, *He came, and this is what he said he would do*, is not in the table because it is not segment-led: it is ward-led, run in the channels of whichever ward Hon. Dr. Benson Makali Mulu visited that day, and it feeds P1 twelve weeks later.
 
 Where an official indicator bears on a segment — drought and food security ([Food, farming and drought](/#needs-sec-3-2)), poverty and water ([how households live](/#needs-sec-1-3) and [Water](/#needs-sec-3-1)), health ([Health](/#needs-sec-3-3)) — its message cites that indicator. The rest is tested only by how content performs on reach and engagement, and a hypothesis the weekly brief cannot support is dropped rather than asserted.
 

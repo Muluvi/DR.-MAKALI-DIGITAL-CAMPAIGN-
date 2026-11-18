@@ -1,8 +1,8 @@
 ```lead
-Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered once the engagement starts, and the one that matters most is how much of his reach lands where he is least known.
+Success is judged on measures his team can observe on Dr. Mulu's own channels and on the SMS list it operates, entered once the engagement starts, and the one that matters most is how much of his reach lands where he is least known.
 ```
 
-Success is judged on measures his team can observe on Dr. Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform once the engagement starts, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
+Success is judged on measures his team can observe on Hon. Dr. Benson Makali Mulu's own channels and on the SMS list it operates, entered on Firefly's platform once the engagement starts, and the one that matters most is how much of his reach lands where he is least known. This chapter opens Part V. It sets out how success is judged, the scorecards for each stage, the recognition indicators, why vanity metrics are left out, and the method of the presence audit that sets every baseline.
 
 ## 18.1 How success will be judged
 

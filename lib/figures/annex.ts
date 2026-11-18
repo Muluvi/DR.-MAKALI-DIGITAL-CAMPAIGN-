@@ -332,7 +332,7 @@ export const ESCALATION_LADDER = [
     title: "Governance, coalition & red-line escalation — under 4 hours",
     steps: [
       "Issues: Wiper Party leadership alignments, major endorsements or defections, litigation and legal threats, or fundamental policy manifesto revisions.",
-      "Resolution authority: Dr. Makali Mulu & the Strategic Advisory Board.",
+      "Resolution authority: Dr. Mulu & the Strategic Advisory Board.",
       "Rule: the candidate delivers the final executive directive.",
     ],
   },

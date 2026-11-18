@@ -30,7 +30,7 @@ id: fig-4-1-message-house
 
 #### The claim
 
-**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Dr. Makali Mulu's own cover line, and the architecture below argues it. It has carried no content so far; the content types turn it into a weekly production cycle. The claim itself, that he is the Economist Governor Kitui needs, is set out in [the central claim](/#position-sec-9-1).
+**"The mission is for Kitui to prosper. From Poverty to Wealth Creation."** That is Hon. Dr. Benson Makali Mulu's own cover line, and the architecture below argues it. It has carried no content so far; the content types turn it into a weekly production cycle. The claim itself, that he is the Economist Governor Kitui needs, is set out in [the central claim](/#position-sec-9-1).
 
 #### The three pillars
 

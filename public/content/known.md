@@ -4,7 +4,7 @@
 **Five of the twelve largest wards lie where he has never held office.** The pool is 51.7% of the entire Kitui County voter register. The pool is structural: it is derived from where he has held office, not from any measure of opinion.
 ```
 
-**Where he has held office.** Dr. Mulu has been Member of Parliament for Kitui Central since 2013. His base is Kitui Central (77,764 voters) and the wards next to it in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
+**Where he has held office.** Hon. Dr. Benson Makali Mulu has been Member of Parliament for Kitui Central since 2013. His base is Kitui Central (77,764 voters) and the wards next to it in Kitui West (Matinyani, Kauwi) and Kitui Rural (Kisasi, Mbitini).
 
 **Where he has not.**
 

@@ -13,7 +13,7 @@ Voter data is handled in a manner intended to comply with Kenya's Data Protectio
 Voter data is handled in a manner intended to comply with Kenya's Data
 Protection Act 2019, the Communications Authority framework governing political
 messaging, and IEBC regulations. This protects the campaign from legal risk and
-reinforces Dr. Makali Mulu's brand as a trustworthy, accountable leader.
+reinforces Hon. Dr. Benson Makali Mulu's brand as a trustworthy, accountable leader.
 
 <!-- keep -->
 **Important framing: this section describes the campaign's intended standard

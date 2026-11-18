@@ -1,8 +1,8 @@
 ```lead
-The working diagnosis is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. It is a hypothesis, and Week 1 tests it against his own channel data before anything is committed.
+The working diagnosis is that Hon. Dr. Benson Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. It is a hypothesis, and Week 1 tests it against his own channel data before anything is committed.
 ```
 
-The working diagnosis is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. It is a hypothesis, and Week 1 tests it against his own channel data before anything is committed. This chapter states the evidence for it, what could overturn it, what the data cannot yet tell us, and the assumptions the plan rests on.
+The working diagnosis is that Hon. Dr. Benson Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. It is a hypothesis, and Week 1 tests it against his own channel data before anything is committed. This chapter states the evidence for it, what could overturn it, what the data cannot yet tell us, and the assumptions the plan rests on.
 
 ## 7.1 What the evidence says
 

@@ -1,0 +1,15 @@
+[
+ {
+  "f": "content/channels.md",
+  "from": "note: \"These are working drafts, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication.\"",
+  "to": "note: \"Awaiting native-speaker review, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication.\"",
+  "note": "Pre-launch pass, section 8 (docs/prelaunch-2026-11): the Kikamba phrases stay as they are; their label says what they are waiting for, a native speaker's review, rather than 'draft'."
+ },
+ {
+  "f": "content/channels.md",
+  "from": "    badge: \"draft\"\n",
+  "to": "    badge: \"Awaiting native-speaker review\"\n",
+  "all": true,
+  "note": "Pre-launch pass, section 8 (docs/prelaunch-2026-11): the Kikamba phrases stay as they are; their label says what they are waiting for, a native speaker's review, rather than 'draft'."
+ }
+]

@@ -1,16 +1,16 @@
 ```lead
-Dr. Makali Mulu's record is strong and documented, but it is known mainly in Kitui Central. **51.7%** of the register lives in the four constituencies where he has never held office.
+Hon. Dr. Benson Makali Mulu's record is strong and documented, but it is known mainly in Kitui Central. **51.7%** of the register lives in the four constituencies where he has never held office.
 ```
 
-Dr. Makali Mulu's record is strong and documented, but it is known mainly in Kitui Central. **51.7%** of the register lives in the four constituencies where he has never held office. This chapter sets out the record, where he is known and where he is not, where party loyalty will not carry him, and what his channels show today.
+Hon. Dr. Benson Makali Mulu's record is strong and documented, but it is known mainly in Kitui Central. **51.7%** of the register lives in the four constituencies where he has never held office. This chapter sets out the record, where he is known and where he is not, where party loyalty will not carry him, and what his channels show today.
 
 ## 6.1 The public record
 
 ```lead
-Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013. He is a member of the Budget and Appropriations Committee, the committee that scrutinises the national estimates.
+Dr. Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013. He is a member of the Budget and Appropriations Committee, the committee that scrutinises the national estimates.
 ```
 
-Hon. Dr. Benson Makali Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013. He is a member of the Budget and Appropriations Committee, the committee that scrutinises the national estimates. Whether he has held a leadership position on it is confirmed from the National Assembly's committee membership records and Hansard; until it is, this plan describes him as a member.
+Dr. Mulu, PhD (Economics), CBS, has represented Kitui Central in the National Assembly since 2013. He is a member of the Budget and Appropriations Committee, the committee that scrutinises the national estimates. Whether he has held a leadership position on it is confirmed from the National Assembly's committee membership records and Hansard; until it is, this plan describes him as a member.
 
 He is a specialist in project management, strategic planning and **monitoring and evaluation (M&E)**: a certified consultant in project management and M&E, a member of the Evaluation Society of Kenya, and an **M&E Champion designated by the Ministry of Finance**, after service with the United Nations in financial advisory and project management roles. Under his stewardship, Kitui Central was evaluated the **best constituency in the Eastern region for FY2014/15**, first of 71 constituencies in its peer group. This plan has attributed the evaluation to Ministry of Finance performance audits; the evaluation report itself, and the body that issued it, are to be cited before the line is published.
 

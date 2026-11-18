@@ -23,7 +23,7 @@ items:
     body: "**{{effort.sms.pool}}% of the offline SMS and USSD onboarding effort** ([what your team operates: SMS, USSD and voice](/#workstreams-sec-15-3-3)) goes to the 21 wards of the pool: the 15 Mwingi wards and the six of Kitui South. The campaign's own ward-captain network (a target of {{target.captains.pool}} of {{target.captains}} captains, recommended for the same wards) is campaign-owned and outside this engagement ([what is outside the scope](/#engagement-sec-13-3))."
 ```
 
-**What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Dr. Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
+**What the message says there.** In these wards the Economist Governor message stresses fair distribution across the county: how Hon. Dr. Benson Makali Mulu's oversight of public money would direct water and health investment into rural wards such as Kyuso, Tseikuru, Athi and Mutha. Calling any ward neglected needs the county's development expenditure by ward, from the Controller of Budget's implementation reports and the county's own budget documents; until that is in hand, the message names the ward and the need, not the neglect.
 
 **Where the voters are, and where the need is worst.** NDMA ranks Mwingi North first and Kitui South second of the eight sub-counties for food-insecurity severity, and Kitui Central eighth (July 2025, [Food, farming and drought](/#needs-sec-3-2)). Its hotspot wards in the three most severe sub-counties include Kyuso, Tseikuru and Athi, three of the twelve largest wards ([the twelve largest wards](/#votes-sec-2-3)). The county's own scorecard supplies part of the ward-level expenditure data this weighting needs: on its {{scorecard.itemised}} itemised projects the pool's four constituencies receive {{scorecard.pool.share}}% of constituency-attributed expenditure against {{pool.share}}% of the register, so the pool as a whole was not passed over and the plan does not claim it was. The gap is Mwingi West, at KSh {{scorecard.mwingi-west.per-voter}} per registered voter against KSh {{scorecard.kitui-central.per-voter}} in Kitui Central ([how county money is spent](/#spend-sec-3-7)).
 
@@ -128,18 +128,18 @@ items:
 ```visual
 kind: cards
 preset: proverb
-note: "These are working drafts, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication."
+note: "Awaiting native-speaker review, not verified copy: every Kikamba proverb and phrase is reviewed and corrected by a native speaker before publication."
 items:
   - title: "*\"Kĩtui nĩ yethu, tũtethanĩe\"*"
     text: "Kitui is ours, let us help each other"
-    badge: "draft"
+    badge: "Awaiting native-speaker review"
   - title: "The Kamba call-and-response form — opening a video with *\"Mbee! Mbee!\"* (Forward! Forward!)"
-    badge: "draft"
+    badge: "Awaiting native-speaker review"
   - title: "*\"Kĩla kĩndũ kĩ na thayũ, ĩtina nĩ kũmenya\"*"
     text: "everything has a solution, the key is knowledge — framing his expertise"
-    badge: "draft"
+    badge: "Awaiting native-speaker review"
   - title: "Imagery: the baobab as resilience, the calabash as shared resources"
-    badge: "draft"
+    badge: "Awaiting native-speaker review"
 ```
 
 #### Channel-by-language deployment

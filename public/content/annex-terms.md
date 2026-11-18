@@ -3,7 +3,7 @@
 ## G.1 Who it is for, and how it may be used
 
 <!-- keep -->
-This site is for Dr. Makali Mulu. It is not addressed to any party organ, and it should not be
+This site is for Hon. Dr. Benson Makali Mulu. It is not addressed to any party organ, and it should not be
 shared with one. It is submitted to him and to those he authorises to review it. It sets out Firefly Management's analysis, method and proposed scope of
 work for the Kitui gubernatorial campaign, and is provided for the purpose of evaluating this
 engagement.

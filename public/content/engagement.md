@@ -1,8 +1,8 @@
 ```lead
-**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.** Firefly publishes nothing on Dr. Makali Mulu's accounts and runs none of his channels.
+**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.** Firefly publishes nothing on Hon. Dr. Benson Makali Mulu's accounts and runs none of his channels.
 ```
 
-**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.** Firefly publishes nothing on Dr. Makali Mulu's accounts and runs none of his channels. This chapter opens Part IV. It sets out how the operation is built, who owns what, what is outside it, the weekly rhythm and approvals, and the meetings and escalation path.
+**Your team steers and publishes. Firefly runs the platform. One brief a week holds it together.** Firefly publishes nothing on Hon. Dr. Benson Makali Mulu's accounts and runs none of his channels. This chapter opens Part IV. It sets out how the operation is built, who owns what, what is outside it, the weekly rhythm and approvals, and the meetings and escalation path.
 
 ## 13.1 How the work is built
 
@@ -91,7 +91,7 @@ Stated as plainly as what is inside, because a boundary a plan will not draw is 
 One team, one interface. The brief is the interface. **The campaign names three roles. Firefly adds the platform.**
 ```
 
-Dr. Makali Mulu already has a team that publishes every day. One team, one interface. The brief is the interface. **The campaign names three roles. Firefly adds the platform.** This chapter sets out how the teams fit, the strategy core, the surge roles, leadership and reporting lines, how the existing team is assessed and upskilled, and Firefly's part.
+Dr. Mulu already has a team that publishes every day. One team, one interface. The brief is the interface. **The campaign names three roles. Firefly adds the platform.** This chapter sets out how the teams fit, the strategy core, the surge roles, leadership and reporting lines, how the existing team is assessed and upskilled, and Firefly's part.
 
 ## 17.1 Three teams, and how they fit
 

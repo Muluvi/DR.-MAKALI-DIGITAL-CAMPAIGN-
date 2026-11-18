@@ -2,7 +2,7 @@
 **Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument.
 ```
 
-**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument. This chapter sets out what Dr. Makali Mulu receives at each of the three scope levels, and how often, and then the full schedule of deliverables.
+**Firefly recommends Level 2, Standard.** It is the level at which all 40 wards carry both reach reporting and an active SMS and USSD layer, and reaching the arid belt is the whole argument. This chapter sets out what Hon. Dr. Benson Makali Mulu receives at each of the three scope levels, and how often, and then the full schedule of deliverables.
 
 ## 21.1 The three scope levels, compared
 

@@ -1,8 +1,8 @@
 ```lead
-**Firefly Management built this platform for Dr. Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone.
+**Firefly Management built this platform for Hon. Dr. Benson Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone.
 ```
 
-**Firefly Management built this platform for Dr. Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone. Anyone with the link sees everything; once the engagement starts, the team signs in here to edit, and Firefly keeps the platform running.
+**Firefly Management built this platform for Hon. Dr. Benson Makali Mulu and his team.** One place to see Kitui's data, understand the race, test the options, decide the strategy and run the work, from a phone. Anyone with the link sees everything; once the engagement starts, the team signs in here to edit, and Firefly keeps the platform running.
 
 ```visual
 kind: cards

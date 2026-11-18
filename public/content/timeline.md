@@ -15,14 +15,14 @@ id: fig-5-4-phases
 
 **The two deadlines:**
 
-1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Dr. Makali Mulu has never held office. That he is less known there is the working hypothesis [what the evidence says](/#diagnosis-sec-7-1) states and Week 1 tests, not a measured fact.
+1.  **The nomination window, Q4 2026 (reported):** <window-chip></window-chip> Success means showing organised reach in the 275,570-voter pool (Mwingi North, Mwingi West, Mwingi Central and Kitui South), where Hon. Dr. Benson Makali Mulu has never held office. That he is less known there is the working hypothesis [what the evidence says](/#diagnosis-sec-7-1) states and Week 1 tests, not a measured fact.
 2.  **The general election, 10 August 2027:** turning out the 200,000-vote coalition a plurality win needs in a multi-candidate field.
 
 ## 14.1 The first four weeks
 
 **Objective:** close the recognition gap outside Kitui Central ahead of the Wiper Patriotic Front's flagbearer decision.
 
-**What the first weeks test.** The working diagnosis ([what the evidence says](/#diagnosis-sec-7-1)) is that Dr. Makali Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed ([when the plan changes](/#week-sec-12-7)). This is the discipline the rest of the plan claims, applied to its own first assumption.
+**What the first weeks test.** The working diagnosis ([what the evidence says](/#diagnosis-sec-7-1)) is that Dr. Mulu's gap is one of recognition outside Kitui Central, not of credibility. If the Week 1 audit and the ward-level record confirm it, the response is reach into Mwingi and the arid belt. If they refute it — if the gap is about perceived distance from ordinary voters rather than unfamiliarity — the response is different, and the campaign knows **before** significant effort is committed ([when the plan changes](/#week-sec-12-7)). This is the discipline the rest of the plan claims, applied to its own first assumption.
 
 ```figure
 id: fig-5-3-four-weeks
