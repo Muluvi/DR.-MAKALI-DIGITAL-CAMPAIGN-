@@ -69,6 +69,7 @@ id: fig-3-2-register-map
 
 ```visual
 kind: stats
+preset: battery
 title: "Where the votes concentrate"
 items:
   - value: "{{pareto.top12.share}}%"

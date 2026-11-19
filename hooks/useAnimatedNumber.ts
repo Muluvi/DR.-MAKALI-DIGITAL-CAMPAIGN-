@@ -117,12 +117,20 @@ export function useAnimatedNumber(value: number, options: Options = {}) {
     node.textContent = Math.abs(value - v) <= unit / 2 ? fmt(value) : fmt(v);
   });
 
+  // Whether this figure has already made its first count. After that, a new value (a reader
+  // moving a slider or a dial) glides from the figure on screen to the new one: it never drops back
+  // to zero and never jumps (visual upgrade, D2).
+  const counted = useRef(false);
+
   useEffect(() => {
     if (reduce || !inView) return;
-    // Drop to zero and climb, both inside this frame. The zero is never painted on screen:
-    // VIEWPORT_COUNT fires 80px before the element arrives.
-    raw.jump(0);
-    animated.jump(0);
+    if (!counted.current) {
+      // Drop to zero and climb, both inside this frame. The zero is never painted on screen:
+      // VIEWPORT_COUNT fires 80px before the element arrives.
+      counted.current = true;
+      raw.jump(0);
+      animated.jump(0);
+    }
     raw.set(value);
     // The spring settles asymptotically, so pin the exact figure once it is done. Floating-point
     // drift must not leave 532,758 displaying as 532,757.
