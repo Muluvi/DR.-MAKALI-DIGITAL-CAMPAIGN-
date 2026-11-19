@@ -100,21 +100,27 @@ export function asOfText(asOf?: string): string {
  * come from through their own `source` where the registry records one.
  */
 export function sourceLine(figs: ResolvedFigure[]): string {
-  const seen = new Map<string, string>();
+  // Each document once, with EVERY tier its figures carry ("Tier 1 and Tier 3"), so no figure's
+  // tier is ever reported as another's. Dates likewise, every one that applies.
+  const docs = new Map<string, { tiers: Set<string>; dates: Set<string> }>();
   let calculated = false;
   let targets = false;
   for (const f of figs) {
     if (f.state === "target") { targets = true; continue; }
     if (f.state === "modelled") calculated = true;
     if (!f.source || f.source.startsWith("Derived in")) continue;
-    const key = f.source;
-    if (!seen.has(key)) {
-      const tier = f.state === "modelled" ? "" : f.provenance;
-      const when = asOfText(f.asOf);
-      seen.set(key, [f.source, [tier, when].filter(Boolean).join(", ")].filter(Boolean).join(" · "));
-    }
+    const d = docs.get(f.source) ?? { tiers: new Set<string>(), dates: new Set<string>() };
+    if (/^Tier \d$/.test(f.provenance) || f.provenance.startsWith("calculated from")) d.tiers.add(f.provenance);
+    const when = asOfText(f.asOf);
+    if (when) d.dates.add(when);
+    docs.set(f.source, d);
   }
-  const parts = [...seen.values()];
+  const parts = [...docs.entries()].map(([name, d]) => {
+    const tiers = [...d.tiers].sort();
+    const tierText = tiers.length > 1 ? `${tiers.slice(0, -1).join(", ")} and ${tiers[tiers.length - 1]}` : tiers[0] ?? "";
+    const meta = [tierText, [...d.dates].join(", ")].filter(Boolean).join(", ");
+    return meta ? `${name} · ${meta}` : name;
+  });
   if (calculated) parts.push("shares and totals calculated by the site from these sources");
   if (targets) parts.push("targets are the plan's, not results");
   return parts.length ? `Source: ${parts.join("; ")}.` : "";
