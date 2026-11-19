@@ -8,6 +8,9 @@ import { FoldBody } from "../markdown/FoldBody";
 import { ConflictMark, InertMarks } from "../markdown/InlineMarks";
 import { isStatusTag } from "../../lib/inline-marks";
 import { CountUp } from "../premium/CountUp";
+import { SaveImage } from "./SaveImage";
+import type { CardRef } from "../../lib/card/spec";
+import { KituiIcon, PICTOGRAM_PATHS, type KituiIconName, type PictogramName } from "../icons/kitui";
 
 /**
  * The renderer for a ```visual fence (lib/visual.ts holds the shapes and what each shows on load).
@@ -179,6 +182,170 @@ function RowFace({ it, md }: { it: Item; md: Md }) {
   );
 }
 
+/* -------------------------------------------------------------- presets (visual upgrade, Part C) */
+
+/** A percentage value ("21.2%") as a number, or null for anything else ("6.4 km", "KSh 59"). */
+function percentOf(it: Item): number | null {
+  if (!it.value || !/^\s*[\d.,]+\s*%\s*$/.test(it.value)) return null;
+  const n = numberOf(it.value);
+  return Number.isFinite(n) && n >= 0 && n <= 100 ? n : null;
+}
+
+/**
+ * A 10 × 10 icon array (visual upgrade, C9 and C13): one mark per hundred, filled up to the value,
+ * the last mark filled in part, so 21.2% shows twenty-one marks and a fifth of the next. Every mark
+ * is the same shape at the same size: the array counts, it never scales a shape.
+ */
+function IconArray({ value, glyph, label }: { value: number; glyph: PictogramName; label: string }) {
+  const id = useId().replace(/:/g, "");
+  const whole = Math.floor(value);
+  const part = value - whole;
+  return (
+    <svg viewBox="0 0 250 250" className="pg" role="img" aria-label={`${value}% ${label}: ${whole} of 100 marks filled${part ? ` and part of one more` : ""}.`}>
+      <defs>
+        <path id={`${id}-g`} d={PICTOGRAM_PATHS[glyph]} />
+        <clipPath id={`${id}-c`}><rect x="0" y="0" width={24 * part} height="24" /></clipPath>
+      </defs>
+      {Array.from({ length: 100 }, (_, i) => {
+        const x = (i % 10) * 25;
+        const y = Math.floor(i / 10) * 25;
+        const on = i < whole;
+        return (
+          <g key={i} transform={`translate(${x} ${y})`}>
+            <use href={`#${id}-g`} className={on ? "pg__on xv-mark" : "pg__off"} style={on ? ({ "--i": i } as React.CSSProperties) : undefined} />
+            {i === whole && part > 0 ? <use href={`#${id}-g`} className="pg__on" clipPath={`url(#${id}-c)`} /> : null}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function glyphFor(preset: string, it: Item): PictogramName {
+  if (preset === "jerrycan") return "jerrycan";
+  return /household/i.test(labelOf(it)) ? "house" : "person";
+}
+
+/** Stats drawn as icon arrays; any item that is not a percentage stays a plain stat beside them. */
+function PictogramStats({ items, md, preset }: { items: Item[]; md: Md; preset: string }) {
+  const arrays = items.filter((it) => percentOf(it) !== null);
+  const plain = items.filter((it) => percentOf(it) === null);
+  return (
+    <>
+      <ul className="vz-pg" data-count={arrays.length}>
+        {arrays.map((it, i) => (
+          <li key={i} className="vz-pg__item">
+            <IconArray value={percentOf(it)!} glyph={glyphFor(preset, it)} label={labelOf(it)} />
+            <span className="vz-stat__value"><CountUp text={it.value!} /></span>
+            <span className="vz-stat__label">{md(labelOf(it), true)}</span>
+            {it.caption ? <span className="vz-stat__cap">{md(it.caption, true)}</span> : null}
+            {it.conflict ? <ConflictMark conflict={it.conflict} /> : null}
+            <FaceConflicts it={it} />
+            <ItemDetails it={it} md={md} />
+          </li>
+        ))}
+      </ul>
+      <p className="vz-pg__key">
+        Each {preset === "jerrycan" ? "jerrycan" : "mark"} is one in a hundred{arrays.some((it) => /household/i.test(labelOf(it))) ? " (a house: one in a hundred households; a person: one in a hundred residents)" : ""}.
+      </p>
+      {plain.length ? <Stats items={plain} md={md} /> : null}
+    </>
+  );
+}
+
+/**
+ * The register as a battery (visual upgrade, C7): how much of it a few wards hold. Drawn for the
+ * "twelve largest wards" fence, whose three items are, in order, the largest twelve's share, the
+ * largest twenty's share and the smallest ten's share. The first two stack from zero; the third is
+ * marked from the far end, because the smallest wards are the battery's last cells.
+ */
+function Battery({ items, md }: { items: Item[]; md: Md }) {
+  const [a, b, c] = items.map((it) => percentOf(it) ?? 0);
+  return (
+    <>
+      <div className="bt" role="img" aria-label={`${labelOf(items[0])}: ${items[0].value}. ${labelOf(items[1])}: ${items[1]?.value}. ${labelOf(items[2])}: ${items[2]?.value}.`}>
+        <span className="bt__cell bt__cell--a xv-grow-x" style={{ width: `${a}%` }} />
+        <span className="bt__cell bt__cell--b xv-grow-x" style={{ left: `${a}%`, width: `${Math.max(0, b - a)}%`, "--i": 3 } as React.CSSProperties} />
+        <span className="bt__cell bt__cell--c" style={{ left: `${100 - c}%`, width: `${c}%` }} />
+        <span className="bt__tip" aria-hidden="true" />
+        <span className="bt__charge" aria-hidden="true">{items[0].value}</span>
+      </div>
+      <ul className="bt__legend">
+        {items.map((it, i) => (
+          <li key={i} className={`bt__k bt__k--${"abc"[i]}`}>
+            <span className="bt__sw" aria-hidden="true" />
+            <span className="bt__v"><CountUp text={it.value ?? ""} /></span>
+            <span className="bt__l">{md(labelOf(it), true)}</span>
+            <ItemDetails it={it} md={md} />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+/** Percentages as zero-based bars on a 0–100 scale; anything else stays a plain stat. */
+function ShareBars({ items, md }: { items: Item[]; md: Md }) {
+  const bars = items.filter((it) => percentOf(it) !== null);
+  const plain = items.filter((it) => percentOf(it) === null);
+  return (
+    <>
+      <ul className="sb">
+        {bars.map((it, i) => (
+          <li key={i} className="sb__row">
+            <span className="sb__v"><CountUp text={it.value!} /></span>
+            <span className="sb__l">{md(labelOf(it), true)}</span>
+            <span className="sb__track" aria-hidden="true">
+              <span className="sb__fill xv-grow-x" style={{ width: `${percentOf(it)}%`, "--i": i } as React.CSSProperties} />
+            </span>
+            <ItemDetails it={it} md={md} />
+          </li>
+        ))}
+      </ul>
+      {bars.length ? <p className="sb__scale" aria-hidden="true"><span>0</span><span>50%</span><span>100%</span></p> : null}
+      {plain.length ? <Stats items={plain} md={md} /> : null}
+    </>
+  );
+}
+
+/** Kitui icons for card sets whose titles name a channel or a theme (visual upgrade, D1). */
+const CARD_ICONS: [RegExp, KituiIconName][] = [
+  [/radio/i, "radio"], [/sms|ussd/i, "feature-phone"], [/money|agent/i, "coin"], [/market|caravan/i, "market"], [/church|clergy/i, "church"],
+  [/water/i, "jerrycan"], [/economic|agri|farm/i, "maize"], [/fiscal|money|finance/i, "coin"], [/youth|digital/i, "phone"], [/health/i, "clinic"], [/educat|school/i, "school"],
+  [/boda|matatu|transit|route/i, "matatu"], [/baraza|gathering/i, "person"],
+];
+function cardIcon(preset: string | undefined, it: Item): KituiIconName | null {
+  if (!preset || !["channel", "theme", "network"].includes(preset)) return null;
+  const t = labelOf(it);
+  return CARD_ICONS.find(([re]) => re.test(t))?.[1] ?? null;
+}
+
+/**
+ * The strategy core as an org chart (visual upgrade, B14). The roles are the campaign's and sit
+ * side by side under its leadership, as the text says; Firefly runs the platform beside them and
+ * staffs none of them. No role is drawn above another, because the text sets no such line.
+ */
+function OrgChart({ items, md }: { items: Item[]; md: Md }) {
+  return (
+    <div className="oc">
+      <div className="oc__top">
+        <span className="oc__root">The campaign&rsquo;s leadership</span>
+        <span className="oc__side">Firefly runs the platform <span className="oc__side-n">and staffs none of these roles</span></span>
+      </div>
+      <ul className="oc__roles">
+        {items.map((it, i) => (
+          <li key={i} className="oc__role xv-rise" style={{ "--i": i } as React.CSSProperties}>
+            <KituiIcon name="person" size={24} className="oc__icon" />
+            <h5 className="oc__name">{md(labelOf(it), true)}</h5>
+            <ItemFace it={it} md={md} />
+            <ItemDetails it={it} md={md} label="Decision rights" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /* --------------------------------------------------------------------- kinds */
 
 function Stats({ items, md }: { items: Item[]; md: Md }) {
@@ -216,6 +383,10 @@ function Cards({ items, md, preset }: { items: Item[]; md: Md; preset?: string }
             {it.badge && !isStatusTag(it.badge) ? <span className="vz-badge">{it.badge}</span> : null}
            
           </div>
+          {(() => {
+            const icon = cardIcon(preset, it);
+            return icon ? <KituiIcon name={icon} size={32} className="vz-card__icon" /> : null;
+          })()}
           {labelOf(it) ? <h5 className="vz-card__title">{md(labelOf(it), true)}</h5> : null}
           {it.value ? <p className="vz-card__value">{md(it.value, true)}</p> : null}
           <ItemFace it={it} md={md} />
@@ -506,8 +677,14 @@ function sideItems(side?: Side): Item[] {
 function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
   const items = spec.items ?? [];
   switch (spec.kind) {
-    case "stats": return <Stats items={items} md={md} />;
-    case "cards": return <Cards items={items} md={md} preset={spec.preset} />;
+    case "stats":
+      if (spec.preset === "people" || spec.preset === "jerrycan") return <PictogramStats items={items} md={md} preset={spec.preset} />;
+      if (spec.preset === "battery") return <Battery items={items} md={md} />;
+      if (spec.preset === "share") return <ShareBars items={items} md={md} />;
+      return <Stats items={items} md={md} />;
+    case "cards":
+      if (spec.preset === "role") return <OrgChart items={items} md={md} />;
+      return <Cards items={items} md={md} preset={spec.preset} />;
     case "tabs": return <Tabs items={items} md={md} />;
     case "timeline":
     case "stepper":
@@ -539,6 +716,12 @@ function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
   }
 }
 
+/** Fences that export as a share card, by their id (visual upgrade, E4: the story visuals). */
+const FENCE_CARDS: Record<string, CardRef> = {
+  "whats-inside": { type: "stat-grid", params: { set: "welcome" } },
+  "case-summary": { type: "stat-grid", params: { set: "case" } },
+};
+
 export function VisualFence({ json, texts }: { json: string; texts: Record<string, ReactNode> }) {
   // Every string this visual shows arrives already rendered, block and inline, keyed by its text
   // (visualTexts in components/MarkdownViewer.tsx): no markdown parser runs in the browser for it.
@@ -568,6 +751,11 @@ export function VisualFence({ json, texts }: { json: string; texts: Record<strin
         <Body spec={spec} md={md} />
       </div>
       {spec.source ? <p className="vz__source">{md(spec.source, true)}</p> : null}
+      {spec.id && FENCE_CARDS[spec.id] ? (
+        <div className="vz__save">
+          <SaveImage card={FENCE_CARDS[spec.id]} title={spec.title ?? undefined} />
+        </div>
+      ) : null}
       <FaceConflicts it={{ body: spec.body }} />
       {spec.body ? (
         <More label="Read the full text">

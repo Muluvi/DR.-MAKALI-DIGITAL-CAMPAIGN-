@@ -330,6 +330,7 @@ accessibility is reach, not compliance theatre.*
 
 ```visual
 kind: stats
+preset: people
 items:
   - value: "{{edu.none.women}}%"
     label: "of women aged 6+ have no education"

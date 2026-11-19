@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { AnimatedText } from "../../visual/AnimatedText";
 
 /** Shared pieces for the planning tools: inputs, numbers, tables and bars in the platform's style. */
 export const n0 = (v: number) => Math.round(v).toLocaleString("en-KE");
@@ -45,7 +46,7 @@ export function Stat({ label, value, note, tone }: { label: string; value: strin
   return (
     <div className="plat-card p-3">
       <p className="text-[0.75rem] uppercase tracking-[0.08em] text-muted">{label}</p>
-      <p className={`mt-1 font-mono text-[1.45rem] leading-tight tabular-nums ${tone === "good" ? "text-accent" : tone === "warn" ? "text-gold" : "text-ink"}`}>{value}</p>
+      <p className={`mt-1 font-mono text-[1.45rem] leading-tight tabular-nums ${tone === "good" ? "text-accent" : tone === "warn" ? "text-gold" : "text-ink"}`}><AnimatedText text={value} /></p>
       {note && <p className="mt-1 text-[0.78rem] leading-snug text-muted">{note}</p>}
     </div>
   );

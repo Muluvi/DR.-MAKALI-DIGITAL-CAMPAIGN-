@@ -6,6 +6,7 @@
 
 ```visual
 kind: cards
+id: whats-inside
 title: "What's inside"
 items:
   - { title: "The story", text: "The full case, chapter by chapter, from the county's data to the plan that delivers it" }

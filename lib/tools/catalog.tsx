@@ -21,8 +21,10 @@ import { PollingAgentPlanner } from "@/components/tools/public/PollingAgentPlann
 import { NominationPath } from "@/components/tools/public/NominationPath";
 import { WardFinder } from "@/components/tools/public/WardFinder";
 import { ProjectsRegister } from "@/components/tools/ProjectsRegister";
-import { NOMINATION_CONFIRMATION_REQUIREMENTS, NOMINATION_METHOD_CLAIM } from "@/data/nomination-path";
+import { NOMINATION_METHOD_CLAIM } from "@/data/nomination-path";
 import { PUBLIC_CONSTITUENCIES, PUBLIC_RETRIEVED, PUBLIC_WARDS, RACE_CALENDAR } from "@/lib/public-data";
+import { RADIO_SHARE } from "./radio-share";
+import { FACTS, NOMINATION_ITEMS } from "./lists";
 
 export type Src = { label: string; href?: string };
 export type Tool = { title: string; lead: string; render: () => ReactNode; does: string; doesNot: string[]; sources: Src[] };
@@ -38,22 +40,8 @@ const ICT: Src = { label: "Communications Authority / KNBS, ICT Analytical Repor
 const PROPOSAL: Src = { label: "This plan: its benchmark, targets and plans" };
 const total = TOOL_WARDS.reduce((s, w) => s + w.voters, 0);
 const zoneShare = (z: string) => (TOOL_CONSTITUENCIES.filter((c) => c.zone === z).reduce((s, c) => s + c.voters, 0) / total) * 100;
-const RADIO_SHARE: Record<string, string> = { "Musyi FM": "radio.musyi", "Athiani FM": "radio.athiani", "Mbaitu FM": "radio.mbaitu", "County FM": "radio.county", "KBC Mwatu FM": "radio.mwatu" };
 
-const FACTS: [string, string][] = [
-  ["Registered voters in Kitui, 2022", "register.2022"], ["Registered voters, July 2026 (reported)", "register.2026"], ["New voters in the April 2026 registration drive", "register.2026.ecvr-drive"],
-  ["Polling stations, 2022", "register.polling-stations"], ["Turnout in the 2022 governor race", "turnout.2022"], ["Valid votes for governor, 2022", "result.2022.gov.valid"],
-  ["Kitui's population, 2019 census", "census.population"], ["Households, 2019 census", "census.households"], ["Median age in Kitui", "census.median-age"],
-  ["Residents aged 15 to 34", "census.age.15-34.share"], ["Residents in poverty", "poverty.2021"], ["People in poverty", "poverty.2021.people"],
-  ["Residents using the internet", "ict.internet"], ["Residents who own a mobile phone", "ict.phone"],
-  ["People with at least a basic drinking-water service", "water.basic.kdhs"], ["Residents relying on untreated surface water", "water.surface"], ["Water points not working, July 2025", "water.points.down.share"], ["Water points assessed, July 2025", "water.points.total"],
-  ["County resource envelope, FY2026/27", "budget.total"], ["Equitable share from the national government", "budget.equitable"], ["County's own-source revenue, FY2026/27", "budget.osr"],
-  ["Development budget spent, Q1 2025/26", "budget.absorption.q1"], ["Uncollected county rates and rents (Auditor-General)", "audit.uncollected"], ["Unconfirmed cash balances (Auditor-General)", "audit.cash"], ["County pending bills, FY2020/21", "budget.pending-bills.2021"],
-  ["Average goat price, July 2025", "price.goat"], ["Average maize price per kg, July 2025", "price.maize"], ["Goats in Kitui", "livestock.goats"], ["Cattle in Kitui", "livestock.cattle"], ["Livestock-keeping households", "livestock.households"],
-  ["Infant deaths per 1,000 live births", "health.imr"], ["Under-five deaths per 1,000 live births", "health.u5mr"], ["Children stunted", "health.stunting"], ["Births in a health facility", "health.facility-births"],
-  ["Projects itemised in the county scorecard", "scorecard.itemised"], ["Projects the county scorecard claims", "scorecard.claimed"], ["Cost of the itemised projects", "scorecard.itemised.ksh"], ["Boreholes the county says it drilled", "scorecard.boreholes.drilled"],
-  ["Kitui Central NG-CDF bursary recipients", "record.bursary.recipients"], ["Kitui Central NG-CDF bursaries, total", "record.bursary.ksh"],
-];
+
 
 export const TOOLS: Record<string, Tool> = {
   "coalition-path": {
@@ -267,7 +255,6 @@ export const TOOLS: Record<string, Tool> = {
 
 /* ------------------------------------------------------------------ the first seven tools */
 
-const NOMINATION_WANTED = /Governor|financing account|authorised persons for campaign|expenditure report|Public officers/i;
 export const DATA_GAPS: [string, string][] = [
   ["Ward and station-level election results", "Not held. Request from the IEBC Kitui office or use the campaign's 2022 agent copies."],
   ["2013 and 2017 Kitui results by office", "Not collected from a primary source."],
@@ -305,7 +292,7 @@ export const FIRST_TOOLS: Record<string, Tool> = {
     title: "Governor Nomination Path", lead: "What must be confirmed and filed on the road to the nomination.",
     render: () => <>
       <p className="plat-card mb-4 p-4 text-[0.9rem] text-muted"><strong className="text-ink">Unconfirmed:</strong> {NOMINATION_METHOD_CLAIM.value}. {NOMINATION_METHOD_CLAIM.provenance.note}</p>
-      <NominationPath items={[...NOMINATION_CONFIRMATION_REQUIREMENTS.map((r, i) => ({ id: `party-${i}`, label: r, detail: "Needed to confirm the nomination method" })), ...RACE_CALENDAR.filter((e) => NOMINATION_WANTED.test(e.event) && e.date >= "2027-01-01").map((e) => ({ id: e.date + e.event, label: e.event, detail: `${e.date} · ${e.source}` }))]} />
+      <NominationPath items={NOMINATION_ITEMS} />
     </>,
     does: "The list combines the campaign's two open confirmation requirements with the dated Gazette steps. Ticks are saved only on this device.",
     doesNot: ["It is not the full IEBC nomination requirements. Check the current Elections (General) Regulations and IEBC guidance for paperwork and qualifications.", "It does not confirm Wiper's nomination rules.", "It stores no names or documents."],

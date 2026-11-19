@@ -67,7 +67,7 @@ export function ScenarioSimulator({ constituencies, initial }: { constituencies:
           {(["A", "B"] as const).map((s) => <button key={s} type="button" aria-pressed={active === s} onClick={() => setActive(s)} className={`plat-btn plat-btn-sm ${active === s ? "plat-btn-solid" : ""}`}>Edit {s}</button>)}
           <button type="button" className="plat-btn plat-btn-sm" onClick={() => set(start)}>Reset {active}</button>
         </div>
-        <ToolActions filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]} />
+        <ToolActions filename="kitui-scenarios.csv" rows={() => [["constituency", "register_2022", "a_turnout", "a_share", "b_turnout", "b_share"], ...constituencies.map((c) => [c.name, c.voters, a[c.code].turnout, a[c.code].share, b[c.code].turnout, b[c.code].share])]}  card={{ type: "big-number", params: { view: "winning", turnout: (constituencies.reduce((n, c) => n + c.voters * a[c.code].turnout, 0) / Math.max(1, constituencies.reduce((n, c) => n + c.voters, 0))).toFixed(1) } }} cardTitle="Scenario A" />
       </div>
       <div className="mt-4 grid gap-3 lg:grid-cols-2">
         {constituencies.map((c) => {

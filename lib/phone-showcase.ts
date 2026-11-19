@@ -1,4 +1,4 @@
-import { PLAN_ITEMS, USSD_MENU as USSD_SPEC } from "../data/ussd-specimen";
+import { PLAN_ITEMS, SMS_SPECIMENS, USSD_MENU as USSD_SPEC } from "../data/ussd-specimen";
 /**
  * Every word, handle and number that appears on the seven phone screens.
  *
@@ -99,6 +99,11 @@ export const ILLUSTRATIVE_COUNTS = {
   youtubeLikes: "204",
   /** Chrome only — a plausible clock, not a scheduling claim. */
   statusBarTime: "9:41",
+  /** Lock screen, WhatsApp Status and Channel views (visual upgrade, A6 and A8). */
+  lockGroupMessages: "12",
+  statusViews: "318",
+  channelFollowers: "2,140",
+  channelReactions: "96",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -296,6 +301,88 @@ export const USSD = {
   cancelLabel: "Cancel",
   sendLabel: "Send",
   source: "USSD Interactive Menu Tree Structure, verbatim",
+} as const;
+
+// ---------------------------------------------------------------------------
+// WhatsApp, three more views: the lock screen, a Status and a Channel (visual upgrade, A6, A8)
+// ---------------------------------------------------------------------------
+
+/** WhatsApp's own views, shown as a second row of tabs when WhatsApp is the channel. */
+export type WhatsAppView = "lock" | "chat" | "status" | "channel";
+export const WHATSAPP_VIEWS: { id: WhatsAppView; label: string; summary: string }[] = [
+  { id: "lock", label: "Lock screen", summary: "The lock screen of a ward captain's phone: the ward group, the pledge and a registration text waiting." },
+  { id: "chat", label: "Chat", summary: "A WhatsApp thread to the Mbitini ward captains carrying the ward pledge message and a voice note from Dr. Mulu." },
+  { id: "status", label: "Status", summary: "A WhatsApp Status carrying the campaign's slogan, in English and Kikamba." },
+  { id: "channel", label: "Channel", summary: "A WhatsApp Channel post on the Ward Development Equalization Fund, the devolution-equity pillar." },
+];
+
+/**
+ * The lock screen. Every line is copy already on these screens or in the SMS specimens: the
+ * group is the thread's own audience, the preview is the pledge, the text is the registration
+ * drive. Only the message count is illustrative.
+ */
+export const LOCK_SCREEN = {
+  weekday: "Thursday",
+  notifications: [
+    { app: "WhatsApp", title: "Ward captains · Mwingi North", body: `${ILLUSTRATIVE_COUNTS.lockGroupMessages} new messages`, ago: "now" },
+    { app: "WhatsApp", title: IDENTITY.displayName, body: WHATSAPP.thread[0].text, ago: "2m" },
+    { app: "Messages", title: "Campaign shortcode", body: SMS_SPECIMENS[0].english, ago: "1h" },
+  ],
+  source: "WHATSAPP.thread (the pledge, verbatim) and data/ussd-specimen.ts SMS_SPECIMENS[0] (the registration drive, verbatim)",
+} as const;
+
+/** A Status is the slogan, the campaign's only slogan line, in both languages it exists in. */
+export const WHATSAPP_STATUS = {
+  posted: "Today, 07:30",
+  lines: [IDENTITY.slogan, IDENTITY.sloganKikamba],
+  source: "IDENTITY.slogan and IDENTITY.sloganKikamba, verbatim",
+} as const;
+
+/** A Channel post is the Facebook page post's body: the same pillar statement, the same proof card. */
+export const WHATSAPP_CHANNEL = {
+  name: IDENTITY.pageName,
+  posted: "TODAY",
+  time: "08:05",
+  source: "FACEBOOK.body and FACEBOOK.card, verbatim",
+} as const;
+
+// ---------------------------------------------------------------------------
+// Before and after (visual upgrade, A5)
+// ---------------------------------------------------------------------------
+
+/**
+ * Two posts side by side, coded against the four things the objective asks of every briefed post
+ * (goal.md, "Give every post a voter, ward and reason": segment, ward, pillar, and the finding's
+ * missing ask).
+ *
+ * The "after" is the ward pledge, verbatim. The "before" is NOT a real post: it is written for this
+ * comparison to have the shape the finding describes ("a record of where he was, with no ward named
+ * outside Kitui Central and no ask"), and it is labelled so wherever it is shown.
+ */
+export const BEFORE_AFTER = {
+  before: {
+    label: "A typical post",
+    text: "Grateful to everyone who joined us today. Great to see so many friends. God bless Kitui.",
+    note: "Illustrative, written for this comparison: not a real post.",
+    checks: { segment: null, ward: null, pillar: null, ask: null },
+  },
+  after: {
+    label: "Written to the plan",
+    text: WHATSAPP.thread[0].text,
+    note: "The campaign's ward pledge, word for word.",
+    checks: {
+      segment: "Residents who want water",
+      ward: "Mbitini, Kitui Rural",
+      pillar: "Fair devolution, water for all",
+      ask: "Reply 1 to join",
+    },
+  },
+  criteria: [
+    { key: "segment", label: "Voter" },
+    { key: "ward", label: "Ward" },
+    { key: "pillar", label: "Pillar" },
+    { key: "ask", label: "Ask" },
+  ],
 } as const;
 
 /** The one quiet line the module carries. */

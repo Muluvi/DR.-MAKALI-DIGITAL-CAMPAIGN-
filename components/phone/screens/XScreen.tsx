@@ -20,6 +20,7 @@ import { IDENTITY, ILLUSTRATIVE_COUNTS, X_POST } from "../../../lib/phone-showca
 import { DURATION, EASE_ENTRANCE } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell } from "../primitives";
+import { CountUp } from "../../premium/CountUp";
 
 /**
  * X — §2.6's "elite agenda setting and narrative defense" channel, reaching the journalists and
@@ -134,7 +135,7 @@ export function XScreen() {
 
         {/* Timestamp and views */}
         <p className="mt-3" style={{ fontSize: "0.84375em", color: MUTED }}>
-          {X_POST.timestamp} · <span className="font-bold" style={{ color: FG }}>{ILLUSTRATIVE_COUNTS.xViews}</span> Views
+          {X_POST.timestamp} · <span className="font-bold" style={{ color: FG }}><CountUp text={ILLUSTRATIVE_COUNTS.xViews} /></span> Views
         </p>
 
         {/* Action row */}

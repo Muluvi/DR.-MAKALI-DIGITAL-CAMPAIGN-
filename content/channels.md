@@ -14,6 +14,7 @@ Because **{{pool.share}}% of the county register sits where he has never held of
 
 ```visual
 kind: stats
+preset: share
 items:
   - value: "{{effort.digital.pool}}%"
     label: "of Phase −1 digital reach effort, in the pool"

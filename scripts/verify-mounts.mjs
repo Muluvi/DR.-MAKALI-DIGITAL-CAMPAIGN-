@@ -84,8 +84,21 @@ function embedHomes() {
   ];
 }
 
+/** The keys of the visual upgrade's inserts (components/visual/UpgradeInserts.tsx), which only add. */
+function upgradeKeys() {
+  const src = fs.readFileSync(path.join(ROOT, "components", "visual", "UpgradeInserts.tsx"), "utf8");
+  const start = src.indexOf("const UPGRADE_INSERTS");
+  if (start < 0) {
+    console.error("verify-mounts: could not find UPGRADE_INSERTS in components/visual/UpgradeInserts.tsx");
+    process.exit(1);
+  }
+  const end = src.indexOf("\n};", start);
+  return [...src.slice(start, end).matchAll(/^\s*"([a-z][a-z-]*-sec-[\da-z-]+)":/gm)].map((m) => m[1]);
+}
+
 const ids = liveIds();
 const keys = mountKeys();
+const upgrade = upgradeKeys();
 const homes = embedHomes();
 const orphans = keys.filter((k) => !ids.has(k));
 const duplicates = keys.filter((k, i) => keys.indexOf(k) !== i);
@@ -94,6 +107,7 @@ const errors = [];
 for (const k of orphans) errors.push(`HEADING_INSERTS key "${k}" names no heading in public/content.`);
 for (const k of new Set(homes.filter((h) => !ids.has(h)))) errors.push(`Story embed home "${k}" names no heading in public/content.`);
 for (const k of new Set(duplicates)) errors.push(`HEADING_INSERTS key "${k}" is declared more than once.`);
+for (const k of upgrade.filter((k) => !ids.has(k))) errors.push(`UPGRADE_INSERTS key "${k}" names no heading in public/content.`);
 
 if (errors.length) {
   console.error("\nverify-mounts: component mount points do not match the document.\n");

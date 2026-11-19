@@ -10,6 +10,7 @@ More than half of Kitui lives in poverty, fewer than two households in five have
 
 ```visual
 kind: stats
+preset: people
 items:
   - value: "{{poverty.2021}}%"
     label: "in poverty, 2021"
@@ -45,6 +46,7 @@ items:
 
 ```visual
 kind: stats
+preset: jerrycan
 items:
   - value: "{{water.basic.kdhs}}%"
     label: "with at least a basic water service, 2022"
@@ -195,6 +197,7 @@ No verified figure is available yet for the county's road network or its conditi
 
 ```visual
 kind: stats
+preset: share
 items:
   - value: "{{food.share}}%"
     label: "of household spending goes on food"

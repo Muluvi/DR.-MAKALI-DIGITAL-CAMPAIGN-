@@ -5,6 +5,7 @@ import { RangeFill } from '@/components/story/RangeFill';
 import './editorial.css'; // The figure register's visual system, then the 2026 premium layer over it
 import './charts.css'; // Chart kit v2 and how each visual draws in, after the layer they sit in
 import './story.css'; // The route map and digests, the platform's controls, and the working layer in the story
+import { SITE_ORIGIN } from '@/lib/site';
 
 // The variable axis, not a pair of static cuts.
 //
@@ -97,11 +98,7 @@ const OG_IMAGE = {
  * Whatever you set, send the link to yourself on WhatsApp once and look at the card. It is a
  * thirty-second test that catches a class of bug nothing else does.
  */
-const SITE_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_ORIGIN ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'https://dr-makali-digital-campaign.vercel.app');
+// The logic lives in lib/site.ts, shared with the share-card images and printed QR codes.
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),

@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { ToolActions } from "../public/ToolActions";
 import type { FigureView, ToolWard } from "@/lib/tools/dataset";
 import { Badge, Card, n0, Note, NumberField, pct, Select, Slider, Stat, Stats, Table, tierText } from "./ui";
+import { startingSpots } from "../../../lib/tools/radio-share";
+import { SaveImage } from "../../visual/SaveImage";
 
 /* ------------------------------------------------------------------ Weekly Content Calendar */
 
@@ -60,7 +62,7 @@ export function ContentCalendar({ pillars, types, wards }: { pillars: string[]; 
         { key: "l", label: "Language", render: (r) => r.language },
         { key: "w", label: "Originates in", render: (r) => r.ward },
       ]} />
-      <ToolActions filename="weekly-content-calendar.csv" rows={() => [["Day", "Pillar", "Content type", "Language", "Originates in"], ...plan.map((r) => [r.day, r.pillar, `${r.type.code} ${r.type.short}`, r.language, r.ward])]} link={false} />
+      <ToolActions filename="weekly-content-calendar.csv" rows={() => [["Day", "Pillar", "Content type", "Language", "Originates in"], ...plan.map((r) => [r.day, r.pillar, `${r.type.code} ${r.type.short}`, r.language, r.ward])]} link={false}  card={{ type: "week", params: { set: "calendar" } }} cardTitle="Weekly content calendar" />
     </div>
   );
 }
@@ -81,6 +83,7 @@ export function MessageStudio({ smsLimit }: { smsLimit: number }) {
   ];
   return (
     <div className="space-y-4">
+      {text.trim() ? <div className="flex justify-end print:hidden"><SaveImage card={{ type: "phone", params: { text: text.trim(), channels: "sms,ussd,whatsapp,radio" } }} title="Message Studio" /></div> : null}
       <Card>
         <label className="plat-label block">Your message
           <textarea className="plat-input mt-1 block min-h-28 w-full" value={text} onChange={(e) => setText(e.target.value)} placeholder="Write it once; see it on every channel." />
@@ -116,6 +119,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
   const line = cur ? `${cur.label}: ${cur.f.display}${cur.f.unit === "percent" ? "%" : ""}. Source: ${cur.f.source ?? "this plan"}${cur.f.asOf ? `, ${cur.f.asOf}` : ""}.${cur.f.state === "modelled" ? " (Calculated.)" : ""}` : "";
   return (
     <div className="space-y-4">
+      {cur ? <div className="flex justify-end print:hidden"><SaveImage card={{ type: "fact", params: { id: cur.f.id } }} title={cur.label} /></div> : null}
       <Card>
         <label className="plat-label block">Find a figure<input className="plat-input mt-1 block w-full" value={q} onChange={(e) => { setQ(e.target.value); setSel(0); }} placeholder="water, budget, register…" /></label>
         <ul className="mt-3 max-h-64 space-y-1 overflow-y-auto">{list.map((x, i) => <li key={x.f.id}><button type="button" onClick={() => setSel(i)} className={`w-full rounded-md px-2 py-2 text-left text-[0.9rem] ${cur?.f.id === x.f.id ? "bg-accent-solid text-on-accent" : "hover:bg-paper"}`}>{x.label} <span className="opacity-70">· {x.f.display}</span></button></li>)}</ul>
@@ -139,7 +143,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
 
 export function RadioPlanner({ stations }: { stations: { name: string; frequency: string | null; alignment: string; posture: string; reachLabel: string; share: FigureView | null }[] }) {
   const placement = (p: string) => /^Priority|^Secondary/.test(p);
-  const [spots, setSpots] = useState<Record<string, number>>(() => Object.fromEntries(stations.map((s) => [s.name, /^Priority/.test(s.posture) ? 10 : 0])));
+  const [spots, setSpots] = useState<Record<string, number>>(() => Object.fromEntries(stations.map((s) => [s.name, startingSpots(s.posture)])));
   const [len, setLen] = useState(45);
   const rows = stations.map((s) => ({ s, k: spots[s.name] ?? 0, index: (spots[s.name] ?? 0) * (s.share?.value ?? 0) }));
   const tot = rows.reduce((t, r) => ({ k: t.k + r.k, idx: t.idx + r.index }), { k: 0, idx: 0 });
@@ -164,7 +168,7 @@ export function RadioPlanner({ stations }: { stations: { name: string; frequency
           </Card>
         ))}
       </div>
-      <ToolActions filename="radio-plan.csv" rows={() => [["Station", "Frequency", "Posture", "Spots a week", "Seconds a week"], ...rows.map((r) => [r.s.name, r.s.frequency ?? "", r.s.posture, r.k, r.k * len])]} link={false} />
+      <ToolActions filename="radio-plan.csv" rows={() => [["Station", "Frequency", "Posture", "Spots a week", "Seconds a week"], ...rows.map((r) => [r.s.name, r.s.frequency ?? "", r.s.posture, r.k, r.k * len])]} link={false}  card={{ type: "week", params: { set: "radio", spots: stations.map((st) => spots[st.name] ?? 0).join(",") } }} cardTitle="Radio plan" />
     </div>
   );
 }

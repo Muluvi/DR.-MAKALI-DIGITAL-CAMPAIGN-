@@ -42,7 +42,7 @@ export function RaceCalendar({ entries }: { entries: CalendarEntry[] }) {
           <select className="plat-input mt-1 block" value={who} onChange={(e) => setWho(e.target.value)}>{groups.map((g) => <option key={g}>{g}</option>)}</select>
         </label>
         <button type="button" className="plat-btn plat-btn-sm print:hidden" onClick={() => downloadIcs(rows)}>Add to calendar (.ics)</button>
-        <ToolActions filename="kitui-governor-race-calendar-2027.csv" link={false} rows={() => [["date", "event", "applies_to", "source"], ...rows.map((e) => [e.date, e.event, e.appliesTo, e.source])]} />
+        <ToolActions filename="kitui-governor-race-calendar-2027.csv" link={false} rows={() => [["date", "event", "applies_to", "source"], ...rows.map((e) => [e.date, e.event, e.appliesTo, e.source])]}  card={{ type: "countdown" }} cardTitle="Next deadline" />
       </div>
       <ol className="mt-5 space-y-2">
         {rows.map((e) => (

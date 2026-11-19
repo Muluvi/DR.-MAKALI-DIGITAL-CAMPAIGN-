@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { ToolActions } from "../public/ToolActions";
 import type { ToolConstituency, ToolStation, ToolWard } from "@/lib/tools/dataset";
 import { Badge, Bar, Card, ksh, n0, Note, NumberField, pct, Select, Slider, Stat, Stats, Table } from "./ui";
+import { SaveImage } from "../../visual/SaveImage";
 
 /* ------------------------------------------------------------------ Ward Comparison */
 
@@ -38,7 +39,7 @@ export function WardCompare({ wards, total }: { wards: ToolWard[]; total: number
           <tbody>{metrics.map(([label, show, num]) => { const max = Math.max(...pick.map(num)); return <tr key={label} className="border-t border-line"><td className="py-2 pr-3 text-muted">{label}</td>{pick.map((w) => <td key={w.id} className="py-2 pr-3"><span className="font-mono tabular-nums text-ink">{show(w)}</span><span className="mt-1 block w-24"><Bar value={num(w)} max={max} /></span></td>)}</tr>; })}</tbody>
         </table>
       </div>
-      <ToolActions filename="ward-comparison.csv" rows={() => [["Measure", ...pick.map((w) => w.name)], ...metrics.map(([l, show]) => [l, ...pick.map(show)])]} link={false} />
+      <ToolActions filename="ward-comparison.csv" rows={() => [["Measure", ...pick.map((w) => w.name)], ...metrics.map(([l, show]) => [l, ...pick.map(show)])]} link={false} card={pick.length >= 2 ? { type: "compare", params: { wards: pick.map((w) => w.id).join(",") } } : undefined} cardTitle="Ward comparison" />
     </div>
   );
 }
@@ -47,8 +48,19 @@ export function WardCompare({ wards, total }: { wards: ToolWard[]; total: number
 
 export function ConstituencyScorecard({ cons, total }: { cons: ToolConstituency[]; total: number }) {
   const zone = { anchor: "Anchor zone", mwingi: "Mwingi zone", arid: "Arid belt", none: "In no zone" } as const;
+  // The carousel set: one image per constituency, largest first, each numbered on the image only.
+  const order = [...cons].sort((a, b) => b.voters - a.voters);
+  const [slide, setSlide] = useState(1);
   return (
     <div className="space-y-4">
+      <div className="flex flex-wrap items-end justify-end gap-2 print:hidden">
+        <label className="plat-label">Card for
+          <select className="plat-input mt-1 block" value={slide} onChange={(e) => setSlide(Number(e.target.value))}>
+            {order.map((c, i) => <option key={c.id} value={i + 1}>{c.name}</option>)}
+          </select>
+        </label>
+        <SaveImage card={{ type: "carousel", params: { i: slide } }} title={`${order[slide - 1]?.name ?? ""} scorecard`} />
+      </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {[...cons].sort((a, b) => b.voters - a.voters).map((c) => (
           <Card key={c.id}>
@@ -82,6 +94,7 @@ export function ZoneEffort({ shares, phases }: { shares: { anchor: number; mwing
   const zones: { id: "anchor" | "mwingi" | "arid"; label: string }[] = [{ id: "anchor", label: "Anchor: Kitui Central, Kitui West" }, { id: "mwingi", label: "Mwingi: North, West, Central" }, { id: "arid", label: "Arid belt: Kitui South, Kitui East" }];
   return (
     <div className="space-y-4">
+      <div className="flex justify-end print:hidden"><SaveImage card={{ type: "map", params: { layer: "zones" } }} title="The three zones" /></div>
       <Card>
         <Select label="Start from the plan's weighting for" value={phase} onChange={(v) => { setPhase(v); const q = phases.find((x) => x.id === v)!; setE({ anchor: q.anchor, mwingi: q.mwingi, arid: q.arid, rotating: q.rotating }); }} options={phases.map((x) => ({ value: x.id, label: x.label }))} />
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -135,7 +148,7 @@ export function VoterDensity({ wards, stations }: { wards: ToolWard[]; stations:
         { key: "s", label: "Streams", num: true, render: (c) => c.streams },
         { key: "v", label: "Voters", num: true, render: (c) => n0(c.voters) },
       ]} />
-      <ToolActions filename="voter-density.csv" rows={() => [["Polling centre", "Ward", "Constituency", "Streams", "Voters"], ...centres.map((c) => [c.centre, c.ward, c.con, c.streams, c.voters])]} link={false} />
+      <ToolActions filename="voter-density.csv" rows={() => [["Polling centre", "Ward", "Constituency", "Streams", "Voters"], ...centres.map((c) => [c.centre, c.ward, c.con, c.streams, c.voters])]} link={false}  card={{ type: "roster", params: { set: "density", con: scope === "all" ? undefined : scope } }} cardTitle="Busiest polling centres" />
     </div>
   );
 }

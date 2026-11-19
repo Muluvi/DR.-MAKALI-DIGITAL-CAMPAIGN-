@@ -8,6 +8,7 @@
 
 ```visual
 kind: stats
+preset: people
 title: "Phones, internet and money agents (CA/KNBS)"
 items:
   - value: "{{ict.internet}}%"

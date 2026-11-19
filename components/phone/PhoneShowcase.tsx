@@ -9,7 +9,9 @@ import {
   CHANNEL_SUMMARY,
   DEFAULT_CHANNEL,
   DISCLOSURE,
+  WHATSAPP_VIEWS,
   type ChannelId,
+  type WhatsAppView,
 } from "../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE } from "../../lib/motion";
 import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
@@ -24,6 +26,7 @@ import { UssdScreen } from "./screens/UssdScreen";
 import { WhatsAppScreen } from "./screens/WhatsAppScreen";
 import { XScreen } from "./screens/XScreen";
 import { YouTubeScreen } from "./screens/YouTubeScreen";
+import { LockScreen, WhatsAppChannelScreen, WhatsAppStatusScreen } from "./screens/WhatsAppViews";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
 
 /**
@@ -48,12 +51,21 @@ const SCREENS: Record<ChannelId, React.ComponentType> = {
   ussd: UssdScreen,
 };
 
+/** WhatsApp's own views (visual upgrade, A6 and A8). The chat is the default. */
+const WHATSAPP_SCREENS: Record<WhatsAppView, React.ComponentType> = {
+  lock: LockScreen,
+  chat: WhatsAppScreen,
+  status: WhatsAppStatusScreen,
+  channel: WhatsAppChannelScreen,
+};
+
 const SWIPE_THRESHOLD = 56;
 
 export function PhoneShowcase() {
   const reduce = useReducedMotionSafe();
   const { enter } = useMotionPreset();
   const [channel, setChannel] = useState<ChannelId>(DEFAULT_CHANNEL);
+  const [waView, setWaView] = useState<WhatsAppView>("chat");
   const tabRefs = useRef<Partial<Record<ChannelId, HTMLButtonElement | null>>>({});
 
   // The device is drawn once at true phone size and scaled as a single transform, so nothing
@@ -105,7 +117,9 @@ export function PhoneShowcase() {
     [move]
   );
 
-  const Screen = SCREENS[channel];
+  const Screen = channel === "whatsapp" ? WHATSAPP_SCREENS[waView] : SCREENS[channel];
+  const screenKey = channel === "whatsapp" ? `whatsapp-${waView}` : channel;
+  const summary = channel === "whatsapp" ? WHATSAPP_VIEWS.find((v) => v.id === waView)!.summary : CHANNEL_SUMMARY[channel];
 
   return (
     <div className="not-prose my-6 sm:my-8 print-avoid-break">
@@ -144,6 +158,27 @@ export function PhoneShowcase() {
         })}
       </div>
 
+      {/* WhatsApp's own views: the lock screen, the chat, a Status and a Channel. */}
+      {channel === "whatsapp" ? (
+        <div className="mt-1 flex justify-center">
+          <div role="group" aria-label="WhatsApp view" className="inline-flex gap-1 rounded-full border border-line bg-paper p-0.5">
+            {WHATSAPP_VIEWS.map((v) => (
+              <button
+                key={v.id}
+                type="button"
+                aria-pressed={waView === v.id}
+                onClick={() => setWaView(v.id)}
+                className={`min-h-[2.75rem] rounded-full px-3 t-micro font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                  waView === v.id ? "bg-ink text-paper" : "text-muted hover:text-ink"
+                }`}
+              >
+                {v.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
       {/* Stage */}
       <div className="flex justify-center mt-4">
         <div
@@ -163,12 +198,12 @@ export function PhoneShowcase() {
               else if (info.offset.x > SWIPE_THRESHOLD) move(-1);
             }}
           >
-            <PhoneFrame label={CHANNEL_SUMMARY[channel]}>
+            <PhoneFrame label={summary}>
               {/* The screen switch reads like an OS launching an app: the outgoing screen
                   recedes and fades, the incoming one comes up from just under full size. */}
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
-                  key={channel}
+                  key={screenKey}
                   id="phone-screen-panel"
                   role="tabpanel"
                   aria-labelledby={`phone-tab-${channel}`}
@@ -189,9 +224,25 @@ export function PhoneShowcase() {
         </div>
       </div>
 
+      {/* Where in the seven this is (visual upgrade, A2). Swipe the phone, or tap a dot. */}
+      <div className="mt-3 flex items-center justify-center gap-1" role="group" aria-label="Channel position">
+        {CHANNEL_ORDER.map((id, i) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => setChannel(id)}
+            aria-label={`${CHANNEL_LABELS[id]}, ${i + 1} of ${CHANNEL_ORDER.length}`}
+            aria-current={id === channel ? "true" : undefined}
+            className="phone-dot"
+          >
+            <span data-on={id === channel ? "true" : "false"} />
+          </button>
+        ))}
+      </div>
+
       {/* What this screen is — visible caption, and the assistive-tech description of the frame. */}
-      <p className="mt-4 text-center t-label text-muted leading-relaxed max-w-md mx-auto">
-        {CHANNEL_SUMMARY[channel]}
+      <p className="mt-3 text-center t-label text-muted leading-relaxed max-w-md mx-auto">
+        {summary}
       </p>
       <p className="mt-2 text-center t-micro text-muted/75 leading-relaxed max-w-lg mx-auto">
         {DISCLOSURE}

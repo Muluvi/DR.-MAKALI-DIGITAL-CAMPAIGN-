@@ -6,8 +6,8 @@ import { ArrowLeft, Camera, Mic, Paperclip, Plus, Video, Phone as PhoneIcon } fr
 
 import { IDENTITY, WHATSAPP } from "../../../lib/phone-showcase";
 import { DURATION, EASE_ENTRANCE } from "../../../lib/motion";
-import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../../../hooks/useMotionPreset";
+import { usePlayOnce } from "../../../hooks/use-play-once";
 import { ScreenShell } from "../primitives";
 
 /**
@@ -47,12 +47,28 @@ function Tail({ side }: { side: "in" | "out" }) {
   );
 }
 
-function DoubleTick() {
+const TICK_GREY = "#8696a0";
+
+/**
+ * Delivered, then read: the grey pair gives way to the blue one. Two layers crossfading, so only
+ * opacity moves.
+ */
+function DoubleTick({ read = true }: { read?: boolean }) {
+  const pair = (stroke: string) => (
+    <>
+      <path d="M1 6.1 3.6 8.8 9.1 2.2" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.3 6.1 8.9 8.8 14.4 2.2" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  );
   return (
-    <svg width="16" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true">
-      <path d="M1 6.1 3.6 8.8 9.1 2.2" stroke={TICK_BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6.3 6.1 8.9 8.8 14.4 2.2" stroke={TICK_BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="relative inline-block" style={{ width: 16, height: 11 }}>
+      <svg width="16" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true" className="absolute inset-0" style={{ opacity: read ? 0 : 1, transition: `opacity ${DURATION.base}s ease-out` }}>
+        {pair(TICK_GREY)}
+      </svg>
+      <svg width="16" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true" className="absolute inset-0" style={{ opacity: read ? 1 : 0, transition: `opacity ${DURATION.base}s ease-out` }}>
+        {pair(TICK_BLUE)}
+      </svg>
+    </span>
   );
 }
 
@@ -72,19 +88,35 @@ function TypingDots() {
   );
 }
 
+/**
+ * The thread plays once, the first time the phone is in view (visual upgrade, A1): the pledge
+ * arrives, its ticks turn from delivered to read, the resident types and replies "1", and the
+ * voice note follows. Each beat is a step in `stage`; under reduced motion the thread is simply
+ * complete, which is its true final state.
+ */
+const BEATS = [
+  { at: 250, stage: 1 },  // the pledge lands
+  { at: 1300, stage: 2 }, // read: the ticks turn blue
+  { at: 1700, stage: 3 }, // the resident is typing
+  { at: 3300, stage: 4 }, // the reply
+  { at: 4000, stage: 5 }, // the voice note
+] as const;
+
 export function WhatsAppScreen() {
-  const reduce = useReducedMotionSafe();
   const { enter } = useMotionPreset();
-  const [arrived, setArrived] = useState(false);
+  const { ref, armed, playing } = usePlayOnce<HTMLDivElement>();
+  const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    if (reduce) return;
-    const t = window.setTimeout(() => setArrived(true), 2100);
-    return () => window.clearTimeout(t);
-  }, [reduce]);
+    if (!playing) return;
+    const timers = BEATS.map((b) => window.setTimeout(() => setStage(b.stage), b.at));
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, [playing]);
 
-  // Under reduced motion the whole thread is simply there; the typing beat is the animation.
-  const replied = reduce || arrived;
+  // Unless it is waiting below the fold to play, the thread is shown whole: the server HTML, a
+  // printer, reduced motion and a reader already looking at it all get the complete conversation.
+  const s = armed ? stage : 5;
+  const replied = s >= 4;
 
   const [pledge, reply, voice] = WHATSAPP.thread;
 
@@ -114,6 +146,7 @@ export function WhatsAppScreen() {
       {/* Thread. The wallpaper is a faint doodle field, drawn as a repeating radial rather than
           an image so it costs nothing on mobile data. */}
       <div
+        ref={ref}
         className="flex-1 min-h-0 px-3 py-3 flex flex-col justify-end gap-2 overflow-hidden"
         style={{
           backgroundImage:
@@ -129,7 +162,7 @@ export function WhatsAppScreen() {
         </span>
 
         {/* Outgoing pledge */}
-        <div className="relative self-end max-w-[85%]">
+        <motion.div className="relative self-end max-w-[85%]" initial={false} animate={{ opacity: s >= 1 ? 1 : 0, y: s >= 1 ? 0 : 6 }} transition={{ duration: DURATION.base, ease: EASE_ENTRANCE }}>
           <Tail side="out" />
           <div
             className="rounded-lg rounded-tr-none px-3 py-2"
@@ -140,13 +173,13 @@ export function WhatsAppScreen() {
               <span style={{ fontSize: "0.6875em", color: "#54656f" }} className="tabular-nums">
                 {pledge.time}
               </span>
-              <DoubleTick />
+              <DoubleTick read={s >= 2} />
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Incoming reply, or the typing indicator that precedes it */}
-        <div className="relative self-start max-w-[85%]">
+        <motion.div className="relative self-start max-w-[85%]" initial={false} animate={{ opacity: s >= 3 ? 1 : 0 }} transition={{ duration: DURATION.fast }}>
           <Tail side="in" />
           <div
             className="rounded-lg rounded-tl-none px-3 py-2 min-w-[3.375rem]"
@@ -170,10 +203,10 @@ export function WhatsAppScreen() {
               <TypingDots />
             )}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Outgoing voice note — §5.2.3.1's 45-second audio note. No words to invent. */}
-        <div className="relative self-end max-w-[85%] w-[80%]">
+        {/* Outgoing voice note — the plan's 45-second audio note. No words to invent. */}
+        <motion.div className="relative self-end max-w-[85%] w-[80%]" initial={false} animate={{ opacity: s >= 5 ? 1 : 0, y: s >= 5 ? 0 : 6 }} transition={{ duration: DURATION.base, ease: EASE_ENTRANCE }}>
           <Tail side="out" />
           <div
             className="rounded-lg rounded-tr-none px-3 py-2"
@@ -204,11 +237,11 @@ export function WhatsAppScreen() {
                 <span className="tabular-nums" style={{ fontSize: "0.6875em", color: "#54656f" }}>
                   {voice.time}
                 </span>
-                <DoubleTick />
+                <DoubleTick read={s >= 5} />
               </span>
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Composer */}
