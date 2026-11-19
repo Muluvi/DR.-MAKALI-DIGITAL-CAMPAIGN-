@@ -16,8 +16,8 @@ import { useEffect } from "react";
  *
  * No loop, no scroll-jacking; print draws everything at once.
  */
-/** What draws in: register figures and content visuals. */
-const DRAWN = ".rf, .vz";
+/** What draws in: register figures, content visuals, and the exportable visuals (components/visual/ExportableVisual.tsx). */
+const DRAWN = ".rf, .vz, .xv";
 
 export function RegisterMotion() {
   useEffect(() => {

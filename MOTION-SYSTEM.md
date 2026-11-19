@@ -96,6 +96,10 @@ Permitted, each pausing off-screen and stopping under `reduce`:
 2. **Field–digital cycle** (§10) — the source describes a continuous 4-hour loop.
 3. **Language swap** (§18) — the content is three languages.
 
+Event-driven motion is not ambient either, and the visual upgrade relies on that: a tap hint pulses
+three times and stops for good; the command map ripples a ward once when a record for it is saved;
+the figures ticker never scrolls by itself. None of them loops, so none counts against the budget.
+
 Loading states (skeleton, spinner, pre-hydration placeholder) are not ambient: they run only
 while something is pending and stop when it resolves.
 
@@ -106,6 +110,12 @@ while something is pending and stop when it resolves.
 Near-duplicates are collapsed onto one canonical icon per concept, so the same idea always
 looks the same: `CheckCircle → CheckCircle2`, `FileCheck → FileCheck2`, `Clock3 → Clock`,
 `AlertCircle`/`AlertOctagon → AlertTriangle`, `Users2 → Users`, `Grid → Table`.
+
+**One exception: the Kitui set** (`components/icons/kitui.tsx`, visual upgrade 2026-11). Lucide
+draws no goat, jerrycan, matatu, borehole, maize cob or basic keypad phone, and the county's story
+turns on all of them. Those concepts, and only those, come from this small set, drawn on Lucide's
+own grid: 24-unit viewBox, stroke 1.5 (2 at 16px), round caps and joins, `currentColor`. A concept
+Lucide already draws stays Lucide.
 
 Every icon must map to a specific concept in adjacent content. One that could be swapped for
 any other without loss is decoration — delete it.

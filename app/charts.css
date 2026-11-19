@@ -847,3 +847,83 @@
   html.motion-ok .vz.is-pending .vz__body { opacity: 0; }
   html.motion-ok .vz.is-drawn .vz__body { opacity: 1; transition: opacity 400ms ease-out; }
 }
+
+/* ==========================================================================================
+ * Exportable visuals (components/visual/ExportableVisual.tsx, visual upgrade 2026-11)
+ *
+ * The frame every new visual sits in: the same card as a ```visual fence (.vz), so the two read as
+ * one family. Draw-in uses the register's own machinery (components/register/RegisterMotion.tsx):
+ * `.xv.is-pending` holds the start state below the fold, `.xv.is-drawn` releases it. Without the
+ * `motion-ok` class (scripts off, low-end device, Save-Data) nothing moves and the final state is
+ * all there is. Transform and opacity only.
+ * ========================================================================================== */
+.xv {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--pf-line);
+  border-radius: 1.125rem;
+  background: var(--pf-raised);
+  min-width: 0;
+}
+@media (min-width: 640px) { .xv { padding: 1.25rem 1.5rem; } }
+.xv .pf-illus { margin: 0 0 0.5rem; }
+.xv__cap { margin-bottom: 0.875rem; }
+.xv__title { margin: 0; font: 700 clamp(1rem, 2.3vw, 1.15625rem)/1.3 var(--pf-display); color: var(--pf-ink); text-wrap: balance; }
+.xv__note { margin: 0.25rem 0 0; font: 400 0.84375rem/1.45 var(--pf-display); color: var(--pf-muted); }
+.xv__body { min-width: 0; }
+.xv__foot { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-top: 0.875rem; padding-top: 0.75rem; border-top: 1px solid var(--pf-line); }
+.xv__source { flex: 1 1 16rem; margin: 0; font: 400 0.78125rem/1.45 var(--pf-display); color: var(--pf-muted); }
+.xv-save { display: inline-flex; align-items: center; gap: 0.375rem; flex: 0 0 auto; }
+
+/* Draw-in: bars grow from their baseline, marks fade in in reading order. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html.motion-ok .xv.is-pending .xv-grow-x { transform: scaleX(0); }
+  html.motion-ok .xv.is-pending .xv-grow-y { transform: scaleY(0); }
+  html.motion-ok .xv.is-pending .xv-mark { opacity: 0; transform: scale(0.6); }
+  html.motion-ok .xv.is-pending .xv-rise { opacity: 0; transform: translateY(0.5rem); }
+  html.motion-ok .xv.is-drawn :is(.xv-grow-x, .xv-grow-y) { transition: transform var(--pf-dur-settle) var(--pf-ease) calc(var(--i, 0) * 40ms); }
+  html.motion-ok .xv.is-drawn .xv-mark { transition: transform 420ms var(--pf-ease) calc(var(--i, 0) * 8ms), opacity 300ms var(--pf-ease-out) calc(var(--i, 0) * 8ms); }
+  html.motion-ok .xv.is-drawn .xv-rise { transition: transform var(--pf-dur-entrance) var(--pf-ease) calc(var(--i, 0) * 60ms), opacity var(--pf-dur-entrance) var(--pf-ease-out) calc(var(--i, 0) * 60ms); }
+}
+.xv-grow-x { transform-origin: left center; }
+.xv-grow-y { transform-origin: center bottom; }
+.xv-mark { transform-box: fill-box; transform-origin: center; }
+@media screen and (prefers-reduced-motion: reduce) {
+  html.motion-ok .xv.is-pending .xv__body { opacity: 0; }
+  html.motion-ok .xv.is-drawn .xv__body { opacity: 1; transition: opacity 120ms ease-out; }
+}
+@media print { .xv-save { display: none; } }
+
+/* Save as image: a sheet that rises from the bottom on a phone and sits centred on a desktop. */
+.xv-sheet {
+  width: min(100vw, 34rem);
+  max-height: min(92dvh, 52rem);
+  margin: auto auto 0;
+  padding: 0;
+  border: 1px solid var(--pf-line);
+  border-radius: 1.25rem 1.25rem 0 0;
+  background: var(--pf-raised);
+  color: var(--pf-ink);
+  box-shadow: var(--pf-shadow);
+}
+@media (min-width: 640px) { .xv-sheet { margin: auto; border-radius: 1.25rem; } }
+.xv-sheet::backdrop { background: oklch(0.16 0.03 262 / 0.55); }
+.xv-sheet[open] { animation: xv-sheet-in var(--pf-dur-entrance) var(--pf-ease) both; }
+@keyframes xv-sheet-in { from { opacity: 0; transform: translateY(1.5rem); } }
+.xv-sheet__inner { display: grid; gap: 0.875rem; padding: 1rem; }
+.xv-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.xv-sheet__title { margin: 0; font: 700 1.125rem/1.3 var(--pf-display); }
+.xv-sheet__x { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; color: var(--pf-muted); }
+.xv-sheet__x:hover { color: var(--pf-ink); background: var(--pf-raised-2); }
+.xv-sheet__formats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.5rem; margin: 0; padding: 0; border: 0; }
+.xv-sheet__fmt { position: relative; display: grid; gap: 0.125rem; padding: 0.625rem 0.75rem; border: 1px solid var(--pf-line); border-radius: 0.75rem; cursor: pointer; min-height: 2.75rem; }
+.xv-sheet__fmt[data-on="true"] { border-color: var(--pf-accent); box-shadow: inset 0 0 0 1px var(--pf-accent); }
+.xv-sheet__fmt input { position: absolute; opacity: 0; pointer-events: none; }
+.xv-sheet__fmt:has(input:focus-visible) { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.xv-sheet__fmt-name { font: 700 0.875rem/1.3 var(--pf-display); }
+.xv-sheet__fmt-hint { font: 400 0.75rem/1.35 var(--pf-display); color: var(--pf-muted); }
+.xv-sheet__preview { width: min(100%, 18rem); margin: 0 auto; border: 1px solid var(--pf-line); border-radius: 0.75rem; overflow: hidden; background: repeating-linear-gradient(135deg, var(--pf-raised-2) 0 0.5rem, var(--pf-raised) 0.5rem 1rem); }
+.xv-sheet__preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.xv-sheet__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.xv-sheet__actions .plat-btn { display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; }
+.xv-sheet__note { margin: 0; min-height: 1.25rem; text-align: center; font: 400 0.8125rem/1.4 var(--pf-display); color: var(--pf-muted); }
