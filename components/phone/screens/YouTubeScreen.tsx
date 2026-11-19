@@ -18,6 +18,7 @@ import {
 import { IDENTITY, ILLUSTRATIVE_COUNTS, YOUTUBE } from "../../../lib/phone-showcase";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { Avatar, ScreenShell, SlotGap } from "../primitives";
+import { CountUp } from "../../premium/CountUp";
 
 /**
  * YouTube — §2.6's home for "long-form debates, church sermons and rally livestreams", carrying
@@ -113,7 +114,7 @@ export function YouTubeScreen() {
             {YOUTUBE.title.value}
           </p>
           <p className="mt-1 tabular-nums" style={{ fontSize: "0.78125em", color: MUTED }}>
-            {ILLUSTRATIVE_COUNTS.youtubeViews} views · {YOUTUBE.publishedAgo}
+            <CountUp text={ILLUSTRATIVE_COUNTS.youtubeViews} /> views · {YOUTUBE.publishedAgo}
           </p>
         </div>
 
@@ -131,7 +132,7 @@ export function YouTubeScreen() {
           >
             <span className="flex items-center gap-1" style={{ padding: "7px 10px 7px 12px" }}>
               <ThumbsUp size={15} strokeWidth={2} aria-hidden="true" />
-              <span className="tabular-nums">{ILLUSTRATIVE_COUNTS.youtubeLikes}</span>
+              <span className="tabular-nums"><CountUp text={ILLUSTRATIVE_COUNTS.youtubeLikes} /></span>
             </span>
             <span style={{ width: 1, height: 18, background: "#d9d9d9" }} aria-hidden="true" />
             <span style={{ padding: "7px 12px 7px 10px" }}>
@@ -157,7 +158,7 @@ export function YouTubeScreen() {
               {IDENTITY.channelName}
             </span>
             <span className="block tabular-nums" style={{ fontSize: "0.71875em", color: MUTED }}>
-              {ILLUSTRATIVE_COUNTS.youtubeSubscribers} subscribers
+              <CountUp text={ILLUSTRATIVE_COUNTS.youtubeSubscribers} /> subscribers
             </span>
           </span>
           <span

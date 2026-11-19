@@ -927,3 +927,91 @@
 .xv-sheet__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 .xv-sheet__actions .plat-btn { display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; }
 .xv-sheet__note { margin: 0; min-height: 1.25rem; text-align: center; font: 400 0.8125rem/1.4 var(--pf-display); color: var(--pf-muted); }
+
+/* ------------------------------------------------------------------------------------------
+ * The keypad phone (components/phone/FeaturePhoneFrame.tsx) and its USSD session
+ * (components/phone/UssdHandset.tsx). Generic moulded plastic; the panel text is set larger
+ * than a real 2G panel's so it reads on a phone of its own, and every key is a 44px target.
+ * ------------------------------------------------------------------------------------------ */
+.kp {
+  width: min(100%, 17.5rem);
+  margin: 0 auto;
+  padding: 0.75rem 0.875rem 1rem;
+  border-radius: 2rem 2rem 2.25rem 2.25rem;
+  background: linear-gradient(162deg, #39404b 0%, #1d2129 45%, #111418 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -2px 5px rgba(0, 0, 0, 0.6), 0 24px 40px -22px rgba(3, 8, 18, 0.75);
+}
+.kp__ear { display: block; width: 2.5rem; height: 0.25rem; margin: 0 auto 0.625rem; border-radius: 999px; background: #0b0d10; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08); }
+.kp__screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.625rem 0.625rem;
+  background: linear-gradient(180deg, #d3dfc4, #bfcfaa);
+  color: #12210b;
+  box-shadow: inset 0 2px 6px rgba(18, 33, 11, 0.45), 0 0 0 3px #0b0d10, 0 0 0 4px rgba(255, 255, 255, 0.07);
+}
+.kp__status { display: flex; align-items: center; justify-content: space-between; font: 700 0.625rem/1 var(--pf-mono); opacity: 0.75; padding-bottom: 0.25rem; border-bottom: 1px solid rgba(18, 33, 11, 0.2); }
+.kp__bars { display: inline-flex; align-items: flex-end; gap: 1px; height: 0.5rem; }
+.kp__bars i { display: block; width: 2px; background: currentColor; }
+.kp__bars i:nth-child(1) { height: 25%; } .kp__bars i:nth-child(2) { height: 50%; } .kp__bars i:nth-child(3) { height: 75%; } .kp__bars i:nth-child(4) { height: 100%; }
+.kp__batt { display: inline-block; width: 1rem; height: 0.5rem; border: 1px solid currentColor; border-radius: 1px; padding: 1px; }
+.kp__batt i { display: block; width: 70%; height: 100%; background: currentColor; }
+.kp__panel { min-height: 9.5rem; padding-top: 0.375rem; }
+.kp__text { margin: 0; white-space: pre-wrap; word-break: break-word; font: 500 0.8125rem/1.35 var(--pf-mono); color: inherit; }
+.kp__text[data-screen="dialling"] { animation: pf-xfade 220ms ease-out both; }
+.kp__cut { display: inline-block; margin-left: 0.125rem; padding: 0 0.25rem; border-radius: 2px; background: #9c1c24; color: #fff; font-weight: 700; }
+.kp__glass { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(125deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 36%, transparent 38%); }
+.kp__pad { margin-top: 0.875rem; }
+.kp__calls { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem; }
+.kp__keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.375rem; }
+.kp__key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 2.75rem;
+  border-radius: 0.625rem 0.625rem 0.875rem 0.875rem;
+  font: 700 1rem/1 var(--pf-mono);
+  color: #c9d0da;
+  background: linear-gradient(180deg, #313844, #22272f);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 0 #0b0d10;
+  transition: transform 120ms var(--pf-ease-out), background-color 120ms;
+  touch-action: manipulation;
+}
+.kp__key:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+.kp__key.is-down { transform: translateY(1px) scale(0.96); color: #fff; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5); }
+.kp__key--call { color: #e7f8ec; background: linear-gradient(180deg, #2f7d4a, #1f5a34); }
+.kp__key--end { color: #fde8e8; background: linear-gradient(180deg, #9a2f36, #6e1f25); }
+.ussd-hs__count { margin: 0.625rem auto 0; max-width: 17.5rem; text-align: center; font: 400 0.8125rem/1.4 var(--pf-display); color: var(--pf-muted); }
+.ussd-hs__count strong { color: var(--pf-ink); font-variant-numeric: tabular-nums; }
+.ussd-hs__count.is-over strong { color: var(--pf-t3); }
+
+/* The tap hint: three soft rings, then nothing (MOTION-SYSTEM.md: an event, not a loop). */
+.tap-hint { position: absolute; inset: -0.25rem; border-radius: inherit; border: 2px solid var(--pf-accent); pointer-events: none; opacity: 0; animation: tap-hint 1.4s var(--pf-ease-out) 0.6s 3 both; }
+@keyframes tap-hint { 0% { opacity: 0.85; transform: scale(0.94); } 100% { opacity: 0; transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { .tap-hint { display: none; } }
+
+/* Position dots under the swipeable phone. The button is the 44px target; the dot is drawn. */
+.phone-dot { display: grid; place-items: center; width: 1.75rem; height: 2.75rem; }
+.phone-dot span { display: block; width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--pf-line); transition: transform 180ms var(--pf-ease-out), background-color 180ms; }
+.phone-dot span[data-on="true"] { background: var(--pf-accent-solid); transform: scale(1.35); }
+.phone-dot:focus-visible { outline: 2px solid var(--pf-accent); outline-offset: -2px; border-radius: 0.5rem; }
+
+/* Before and after (components/phone/BeforeAfter.tsx). */
+.ba-pair { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 560px) { .ba-pair { grid-template-columns: 1fr 1fr; } }
+.ba__label { margin: 0 0 0.5rem; font: 700 0.75rem/1.2 var(--pf-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--pf-muted); }
+.ba--after .ba__label { color: var(--pf-accent); }
+.ba__phone { border-radius: 1.5rem; padding: 0.5rem; background: #1b1f26; box-shadow: var(--pf-shadow); }
+.ba__bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.625rem; border-radius: 1.125rem 1.125rem 0 0; background: #008069; color: #fff; font: 600 0.875rem/1.2 var(--pf-display); }
+.ba__avatar { display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: linear-gradient(145deg, #00209f, #0b1a30); font-size: 0.6875rem; font-weight: 700; }
+.ba__bubble { margin: 0; min-height: 7.5rem; padding: 0.875rem; border-radius: 0 0 1.125rem 1.125rem; background: #efe7de; color: #111b21; font: 400 0.9375rem/1.45 var(--pf-display); }
+.ba__note { margin: 0.5rem 0 0; font: 400 0.75rem/1.4 var(--pf-display); color: var(--pf-muted); }
+.ba__checks { display: grid; gap: 0.375rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.ba__check { display: grid; grid-template-columns: 1.5rem 3.5rem 1fr; align-items: center; gap: 0.5rem; font: 400 0.875rem/1.35 var(--pf-display); }
+.ba__mark { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 999px; background: var(--pf-raised-2); color: var(--pf-muted); }
+.ba__check[data-on="true"] .ba__mark { background: var(--pf-t1); color: var(--pf-on-solid); }
+.ba__k { font-weight: 700; color: var(--pf-ink); }
+.ba__v { color: var(--pf-muted); }
+.ba__check[data-on="true"] .ba__v { color: var(--pf-ink); }
+.dark .ba__check[data-on="true"] .ba__mark { color: var(--pf-ground); }

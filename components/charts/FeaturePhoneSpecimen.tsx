@@ -1,20 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { MessageSquare, Phone, Signal, BatteryMedium } from "lucide-react";
+import { useId, useState } from "react";
+import { MessageSquare, Phone } from "lucide-react";
 
 import {
   APPROVAL_CHAIN, SMS_LIMIT, SMS_SPECIMENS,
-  SPECIMEN_LANGUAGES, USSD_HEADER, USSD_LATENCY_MS, USSD_MENU, USSD_SHORTCODE_PLACEHOLDER,
+  SPECIMEN_LANGUAGES, USSD_MENU, USSD_SHORTCODE_PLACEHOLDER,
   type SpecimenLanguage,
 } from "../../data/ussd-specimen";
 import { ClaimBadge } from "../markdown/ClaimBadge";
 import { InlineMarks } from "../markdown/InlineMarks";
-import { useMotionPreset } from "../../hooks/useMotionPreset";
 import { IllustrativeTag } from "../premium/IllustrativeTag";
-import { TiltStage } from "../premium/TiltStage";
-import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
+import { UssdHandset } from "../phone/UssdHandset";
 
 /**
  * The channel that reaches the other 73.8%, as an object you can operate.
@@ -50,121 +47,11 @@ import { useReducedMotionSafe } from "../../hooks/use-reduced-motion-safe";
  * is a button, reachable and operable by keyboard.
  */
 
-type Step = "dialling" | "menu" | "submenu";
-
-const STEP_SEQUENCE: { step: Step; hold: number }[] = [
-  { step: "dialling", hold: USSD_LATENCY_MS },
-  { step: "menu", hold: 3200 },
-  { step: "submenu", hold: 4200 },
-];
-
-function Handset({ step, pressed }: { step: Step; pressed: string | null }) {
-  const reduce = useReducedMotionSafe();
-  return (
-    <TiltStage className="mx-auto w-full max-w-[13.25rem]" radius={28} maxX={4} maxY={9}>
-      <div aria-hidden="true" className="pf-handset select-none">
-        {/* Earpiece */}
-        <div className="h-6 flex items-center justify-center">
-          <span className="pf-handset__ear" />
-        </div>
-
-        {/* The screen. A 2G handset panel: small, greenish, system type, no design language. It
-            sits under a glass that catches the light; each step crossfades, as the panel redraws. */}
-        <div className="pf-handset__screen font-mono">
-          <div className="flex items-center justify-between opacity-70" style={{ fontSize: "0.4375rem" }}>
-            <span className="inline-flex items-center gap-0.5"><Signal size={7} /> 2G</span>
-            <span className="inline-flex items-center gap-0.5"><BatteryMedium size={8} /></span>
-          </div>
-
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={step}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: reduce ? 0 : 0.22, ease: "easeOut" }}
-            >
-              {step === "dialling" && (
-                <div className="mt-6 text-center">
-                  <div className="font-bold">{USSD_SHORTCODE_PLACEHOLDER}</div>
-                  <div className="mt-2 opacity-70">Sending…</div>
-                </div>
-              )}
-
-              {step === "menu" && (
-                <div className="mt-1">
-                  <div className="font-bold">{USSD_HEADER}</div>
-                  {USSD_MENU.map((o) => (
-                    <div key={o.key} className="truncate">
-                      {o.key}. {o.kikamba ?? o.english}
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {step === "submenu" && (
-                <div className="mt-1">
-                  <div className="font-bold">{USSD_MENU[0].kikamba}</div>
-                  <div className="mt-1 opacity-80">{USSD_MENU[0].english}</div>
-                  <div className="mt-2 border-t border-black/20 pt-1 opacity-70">
-                    Reply 0 to go back
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
-          <span className="pf-handset__glass" />
-        </div>
-
-        {/* Keypad. The pressed key sinks, which is the only thing that moves. */}
-        <div className="grid grid-cols-3 gap-1 p-3 pt-4">
-          {["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"].map((k) => (
-            <motion.span
-              key={k}
-              className={`pf-handset__key font-mono ${pressed === k ? "is-down" : ""}`}
-              animate={{ scale: pressed === k ? 0.9 : 1 }}
-              transition={{ duration: 0.12 }}
-            >
-              {k}
-            </motion.span>
-          ))}
-        </div>
-      </div>
-    </TiltStage>
-  );
-}
-
 export function FeaturePhoneSpecimen() {
-  const { reduce } = useMotionPreset();
   const [lang, setLang] = useState<SpecimenLanguage>("kikamba");
   const [specimenIndex, setSpecimenIndex] = useState(0);
-  const [step, setStep] = useState<Step>(reduce ? "menu" : "dialling");
-  const [pressed, setPressed] = useState<string | null>(null);
-  const [running, setRunning] = useState(!reduce);
-  const timers = useRef<number[]>([]);
+  const [optionNote, setOptionNote] = useState("");
   const panelId = useId();
-
-  const clearTimers = useCallback(() => {
-    timers.current.forEach((t) => window.clearTimeout(t));
-    timers.current = [];
-  }, []);
-
-  // The session loop. Presses land, the network pauses, the menu answers.
-  useEffect(() => {
-    if (reduce || !running) return;
-    let index = 0;
-    const advance = () => {
-      const { step: s, hold } = STEP_SEQUENCE[index];
-      setStep(s);
-      // The press that caused this screen: * to dial, 1 to choose the first option.
-      if (s === "menu") { setPressed("*"); timers.current.push(window.setTimeout(() => setPressed(null), 260)); }
-      if (s === "submenu") { setPressed("1"); timers.current.push(window.setTimeout(() => setPressed(null), 260)); }
-      index = (index + 1) % STEP_SEQUENCE.length;
-      timers.current.push(window.setTimeout(advance, hold));
-    };
-    advance();
-    return clearTimers;
-  }, [reduce, running, clearTimers]);
 
   const specimen = SMS_SPECIMENS[specimenIndex];
   const body = specimen.english;
@@ -184,8 +71,8 @@ export function FeaturePhoneSpecimen() {
           What a voter without the internet actually sees
         </h4>
         <p className="t-small text-muted leading-relaxed mt-1">
-          USSD works on every phone, needs no internet, and costs the voter almost nothing. This is
-          §15.3.3&rsquo;s menu on a 2G handset, and §15.3.3&rsquo;s message beside it.
+          USSD works on every phone, needs no internet, and costs the voter almost nothing. Try the campaign&rsquo;s own USSD menu on a basic
+          keypad phone, with a text message beside it.
         </p>
 
         {/* Language, scoped to this widget. The rest of the document stays in English. */}
@@ -214,16 +101,8 @@ export function FeaturePhoneSpecimen() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 sm:px-5 pb-5">
         {/* --- The handset ------------------------------------------------------------ */}
         <div>
-          <Handset step={step} pressed={pressed} />
-
-          <div className="mt-3 flex items-center justify-center gap-2">
-            <button
-              onClick={() => { if (running) { clearTimers(); } setRunning((v) => !v); }}
-              className="min-h-[2.75rem] min-w-[2.75rem] justify-center px-3 rounded-xl border border-line bg-paper t-micro font-black text-muted hover:text-ink fx-press fx-focus cursor-pointer"
-            >
-              {running && !reduce ? "Pause session" : "Play session"}
-            </button>
-          </div>
+          <UssdHandset lang={lang} onDescribe={setOptionNote} />
+          {optionNote ? <p className="mt-2 text-center t-micro text-muted leading-snug">What this option does: {optionNote}</p> : null}
 
           {/* The real menu, for everyone. */}
           <div className="mt-4 rounded-xl border border-line/60 bg-paper p-3">
@@ -253,7 +132,7 @@ export function FeaturePhoneSpecimen() {
               ))}
             </ol>
             <p className="t-micro text-muted mt-2 leading-snug">
-              §15.3.3, quoted. The shortcode is a vendor allocation the campaign has not made yet.
+              The campaign&rsquo;s menu, quoted. The shortcode is a vendor allocation the campaign has not made yet.
             </p>
           </div>
         </div>
@@ -316,7 +195,7 @@ export function FeaturePhoneSpecimen() {
                 </div>
                 <p className="t-micro text-muted mt-2 leading-snug">
                   <span className="font-bold text-ink">{specimen.structure}.</span> {specimen.frequency}.
-                  §15.3.3 sets the 160-character limit; it is a billing boundary, not a style rule.
+                  The plan sets the 160-character limit; it is a billing boundary, not a style rule.
                 </p>
               </>
             )}

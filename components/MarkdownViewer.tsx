@@ -91,6 +91,7 @@ import { DisclosureGroup } from "./markdown/DisclosureGroup";
 import { TextVersion } from "./markdown/TextVersion";
 import { ReadMore } from "./markdown/ReadMore";
 import { VisualFence } from "./visual/VisualFence";
+import { UpgradeInsert } from "./visual/UpgradeInserts";
 import { CheckRefMark, ConflictMark, StatusMark, TierMark, WindowChip, XrefMark } from "./markdown/InlineMarks";
 import { COUNSEL_NOTE } from "../lib/inline-marks";
 import { WorkstreamMark, WorkstreamTabBar } from "./markdown/WorkstreamTabs";
@@ -679,6 +680,7 @@ function buildComponents(tabId: TabId): Components {
                       were designed, and the other 222 are covered rather than decorated. */}
                   {insert ? mountInsert(id, insert) : <PartVisual spec={partVisual(id)} />}
                   <StoryEmbeds id={id} />
+                  <UpgradeInsert id={id} />
                 </>
               );
             },
@@ -705,6 +707,7 @@ function buildComponents(tabId: TabId): Components {
                   <SectionHeading id={id} level={3} accentColor={phaseAccentFor(text)}>{withoutNumber(children)}</SectionHeading>
                   {id && HEADING_INSERTS[id] ? mountInsert(id, HEADING_INSERTS[id]) : <PartVisual spec={partVisual(id)} />}
                   <StoryEmbeds id={id} />
+                  <UpgradeInsert id={id} />
                 </>
               );
             }

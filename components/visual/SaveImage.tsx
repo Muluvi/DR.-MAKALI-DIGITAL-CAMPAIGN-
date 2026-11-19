@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { Download, ImageDown, Link2, Share2, X } from "lucide-react";
 
 import { CARD_FORMATS, cardUrl, DEFAULT_FORMAT, type CardFormat, type CardRef } from "../../lib/card/spec";
@@ -23,8 +23,6 @@ export function SaveImage({ card, title, formats }: { card: CardRef; title?: str
   const headingId = useId();
   const src = cardUrl(card, format);
   const fileName = `kitui-2027-${card.type}${card.params?.ward ? `-${card.params.ward}` : ""}-${format}.png`;
-
-  useEffect(() => setNote(""), [format]);
 
   const open = () => {
     const d = dialog.current;
@@ -108,7 +106,7 @@ export function SaveImage({ card, title, formats }: { card: CardRef; title?: str
             <legend className="sr-only">Format</legend>
             {options.map((f) => (
               <label key={f} className="xv-sheet__fmt" data-on={f === format ? "true" : "false"}>
-                <input type="radio" name={`${headingId}-fmt`} value={f} checked={f === format} onChange={() => setFormat(f)} />
+                <input type="radio" name={`${headingId}-fmt`} value={f} checked={f === format} onChange={() => { setFormat(f); setNote(""); }} />
                 <span className="xv-sheet__fmt-name">{CARD_FORMATS[f].label}</span>
                 <span className="xv-sheet__fmt-hint">{CARD_FORMATS[f].hint}</span>
               </label>
@@ -116,6 +114,9 @@ export function SaveImage({ card, title, formats }: { card: CardRef; title?: str
           </fieldset>
           <div className="xv-sheet__preview" style={{ aspectRatio: `${CARD_FORMATS[format].w} / ${CARD_FORMATS[format].h}` }}>
             {/* Requested only while the sheet is open, so a page of visuals costs no image requests. */}
+            {/* A plain <img>: the PNG is already made at its final size by the card route, so
+                next/image would only re-encode it. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             {shown ? <img src={src} alt={`Preview of the ${CARD_FORMATS[format].label.toLowerCase()} image`} decoding="async" /> : null}
           </div>
           <div className="xv-sheet__actions">

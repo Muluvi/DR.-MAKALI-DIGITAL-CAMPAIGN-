@@ -5,6 +5,7 @@ import { Bookmark, Heart, Home, MessageCircle, MoreHorizontal, Search, Send, Squ
 
 import { IDENTITY, ILLUSTRATIVE_COUNTS, INSTAGRAM } from "../../../lib/phone-showcase";
 import { Avatar, ScreenShell } from "../primitives";
+import { CountUp } from "../../premium/CountUp";
 
 /**
  * Instagram — a square feed carousel, which is the only format §C.1 actually specifies for
@@ -103,7 +104,7 @@ export function InstagramScreen() {
         {/* Likes, caption, timestamp */}
         <div className="px-3 pt-2">
           <p className="font-semibold tabular-nums" style={{ fontSize: "0.84375em", color: FG }}>
-            {ILLUSTRATIVE_COUNTS.instagramLikes} likes
+            <CountUp text={ILLUSTRATIVE_COUNTS.instagramLikes} /> likes
           </p>
           <p className="mt-1" style={{ fontSize: "0.84375em", lineHeight: 1.4, color: FG }}>
             <span className="font-semibold">{IDENTITY.handle.replace("@", "")}</span>{" "}

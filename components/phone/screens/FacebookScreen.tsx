@@ -9,6 +9,7 @@ import { DURATION, EASE_ENTRANCE, STAGGER } from "../../../lib/motion";
 import { useReducedMotionSafe } from "../../../hooks/use-reduced-motion-safe";
 import { useMotionPreset } from "../../../hooks/useMotionPreset";
 import { Avatar, ScreenShell, Slot } from "../primitives";
+import { CountUp } from "../../premium/CountUp";
 
 /**
  * Facebook — §2.6's "broadest public social network in Kitui". The post is §7.1.1 Pillar 3's
@@ -134,11 +135,11 @@ export function FacebookScreen() {
             <span className="flex items-center gap-1">
               <ReactionPills show={reacted} reduce={reduce} />
               <span className="tabular-nums" style={{ fontSize: "0.8125em", color: MUTED }}>
-                {ILLUSTRATIVE_COUNTS.facebookReactions}
+                <CountUp text={ILLUSTRATIVE_COUNTS.facebookReactions} />
               </span>
             </span>
             <span className="tabular-nums" style={{ fontSize: "0.8125em", color: MUTED }}>
-              {ILLUSTRATIVE_COUNTS.facebookComments} comments · {ILLUSTRATIVE_COUNTS.facebookShares} shares
+              <CountUp text={ILLUSTRATIVE_COUNTS.facebookComments} /> comments · <CountUp text={ILLUSTRATIVE_COUNTS.facebookShares} /> shares
             </span>
           </div>
 
