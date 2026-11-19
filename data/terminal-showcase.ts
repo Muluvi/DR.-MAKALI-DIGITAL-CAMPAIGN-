@@ -1,5 +1,5 @@
 import { fmt, val } from "../lib/data/read.ts";
-export type TerminalModeId = "dgp" | "mea" | "tpc";
+export type TerminalModeId = "dgp" | "mea" | "tpc" | "drw" | "reg" | "cpf";
 
 export interface TerminalMode {
   id: TerminalModeId;
@@ -34,6 +34,32 @@ export const TERMINAL_MODES: TerminalMode[] = [
     label: "Turnout Pacing (TPC)",
     cadence: "Hourly on Polling Day",
     summary: `Real-time vote velocity pacing across all 40 wards against the ${fmt("benchmark")} benchmark.`,
+  },
+  // Visual upgrade, B9: three county-wide screens drawn from the figure registry, not the
+  // illustrative ward data above. They show what the site holds and nothing more.
+  {
+    id: "drw",
+    code: "DRW",
+    name: "Drought Watch",
+    label: "Drought Watch (DRW)",
+    cadence: "Monthly, with each NDMA bulletin",
+    summary: "The NDMA drought phase month by month, with water points and market prices beside it.",
+  },
+  {
+    id: "reg",
+    code: "REG",
+    name: "Register Growth",
+    label: "Register Growth (REG)",
+    cadence: "With each IEBC release",
+    summary: "The register since 2022: the certified base, the July 2026 total, and the registration drive inside it.",
+  },
+  {
+    id: "cpf",
+    code: "CPF",
+    name: "Content Performance",
+    label: "Content Performance (CPF)",
+    cadence: "Weekly, Monday standup",
+    summary: "The nomination-stage indicators against their targets. Readings arrive with the first analytics export.",
   },
 ];
 

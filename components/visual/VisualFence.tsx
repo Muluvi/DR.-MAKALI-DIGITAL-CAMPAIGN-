@@ -318,6 +318,32 @@ function cardIcon(preset: string | undefined, it: Item): KituiIconName | null {
   return CARD_ICONS.find(([re]) => re.test(t))?.[1] ?? null;
 }
 
+/**
+ * The strategy core as an org chart (visual upgrade, B14). The roles are the campaign's and sit
+ * side by side under its leadership, as the text says; Firefly runs the platform beside them and
+ * staffs none of them. No role is drawn above another, because the text sets no such line.
+ */
+function OrgChart({ items, md }: { items: Item[]; md: Md }) {
+  return (
+    <div className="oc">
+      <div className="oc__top">
+        <span className="oc__root">The campaign&rsquo;s leadership</span>
+        <span className="oc__side">Firefly runs the platform <span className="oc__side-n">and staffs none of these roles</span></span>
+      </div>
+      <ul className="oc__roles">
+        {items.map((it, i) => (
+          <li key={i} className="oc__role xv-rise" style={{ "--i": i } as React.CSSProperties}>
+            <KituiIcon name="person" size={24} className="oc__icon" />
+            <h5 className="oc__name">{md(labelOf(it), true)}</h5>
+            <ItemFace it={it} md={md} />
+            <ItemDetails it={it} md={md} label="Decision rights" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /* --------------------------------------------------------------------- kinds */
 
 function Stats({ items, md }: { items: Item[]; md: Md }) {
@@ -654,7 +680,9 @@ function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
       if (spec.preset === "battery") return <Battery items={items} md={md} />;
       if (spec.preset === "share") return <ShareBars items={items} md={md} />;
       return <Stats items={items} md={md} />;
-    case "cards": return <Cards items={items} md={md} preset={spec.preset} />;
+    case "cards":
+      if (spec.preset === "role") return <OrgChart items={items} md={md} />;
+      return <Cards items={items} md={md} preset={spec.preset} />;
     case "tabs": return <Tabs items={items} md={md} />;
     case "timeline":
     case "stepper":

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { ToolActions } from "../public/ToolActions";
 import type { FigureView, ToolWard } from "@/lib/tools/dataset";
 import { Badge, Card, n0, Note, NumberField, pct, Select, Slider, Stat, Stats, Table, tierText } from "./ui";
+import { startingSpots } from "../../../lib/tools/radio-share";
 
 /* ------------------------------------------------------------------ Weekly Content Calendar */
 
@@ -139,7 +140,7 @@ export function FactCards({ facts }: { facts: { label: string; f: FigureView }[]
 
 export function RadioPlanner({ stations }: { stations: { name: string; frequency: string | null; alignment: string; posture: string; reachLabel: string; share: FigureView | null }[] }) {
   const placement = (p: string) => /^Priority|^Secondary/.test(p);
-  const [spots, setSpots] = useState<Record<string, number>>(() => Object.fromEntries(stations.map((s) => [s.name, /^Priority/.test(s.posture) ? 10 : 0])));
+  const [spots, setSpots] = useState<Record<string, number>>(() => Object.fromEntries(stations.map((s) => [s.name, startingSpots(s.posture)])));
   const [len, setLen] = useState(45);
   const rows = stations.map((s) => ({ s, k: spots[s.name] ?? 0, index: (spots[s.name] ?? 0) * (s.share?.value ?? 0) }));
   const tot = rows.reduce((t, r) => ({ k: t.k + r.k, idx: t.idx + r.index }), { k: 0, idx: 0 });

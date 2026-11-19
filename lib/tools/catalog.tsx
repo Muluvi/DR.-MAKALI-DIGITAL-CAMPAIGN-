@@ -23,6 +23,7 @@ import { WardFinder } from "@/components/tools/public/WardFinder";
 import { ProjectsRegister } from "@/components/tools/ProjectsRegister";
 import { NOMINATION_CONFIRMATION_REQUIREMENTS, NOMINATION_METHOD_CLAIM } from "@/data/nomination-path";
 import { PUBLIC_CONSTITUENCIES, PUBLIC_RETRIEVED, PUBLIC_WARDS, RACE_CALENDAR } from "@/lib/public-data";
+import { RADIO_SHARE } from "./radio-share";
 
 export type Src = { label: string; href?: string };
 export type Tool = { title: string; lead: string; render: () => ReactNode; does: string; doesNot: string[]; sources: Src[] };
@@ -38,7 +39,6 @@ const ICT: Src = { label: "Communications Authority / KNBS, ICT Analytical Repor
 const PROPOSAL: Src = { label: "This plan: its benchmark, targets and plans" };
 const total = TOOL_WARDS.reduce((s, w) => s + w.voters, 0);
 const zoneShare = (z: string) => (TOOL_CONSTITUENCIES.filter((c) => c.zone === z).reduce((s, c) => s + c.voters, 0) / total) * 100;
-const RADIO_SHARE: Record<string, string> = { "Musyi FM": "radio.musyi", "Athiani FM": "radio.athiani", "Mbaitu FM": "radio.mbaitu", "County FM": "radio.county", "KBC Mwatu FM": "radio.mwatu" };
 
 const FACTS: [string, string][] = [
   ["Registered voters in Kitui, 2022", "register.2022"], ["Registered voters, July 2026 (reported)", "register.2026"], ["New voters in the April 2026 registration drive", "register.2026.ecvr-drive"],
