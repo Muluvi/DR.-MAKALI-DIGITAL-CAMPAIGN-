@@ -5,6 +5,7 @@ import QRCode from "qrcode";
 import { ToolActions } from "../public/ToolActions";
 import type { FigureView, ToolStation, ToolWard } from "@/lib/tools/dataset";
 import { Badge, Bar, Card, n0, Note, pct, Select, Slider, Stat, Stats, Table, tierText } from "./ui";
+import { SaveImage } from "../../visual/SaveImage";
 
 /* ------------------------------------------------------------------ USSD Flow Builder */
 
@@ -21,6 +22,7 @@ export function UssdBuilder({ header, menu }: { header: string; menu: Opt[] }) {
   const json = JSON.stringify({ header: head, options: opts }, null, 2);
   return (
     <div className="space-y-4">
+      <div className="flex justify-end print:hidden"><SaveImage card={{ type: "phone", params: { text: screen, channels: "ussd" } }} title="USSD menu" /></div>
       <div className="grid gap-4 lg:grid-cols-[1fr_18rem]">
         <Card>
           <label className="plat-label block">Header<input className="plat-input mt-1 block w-full" value={head} onChange={(e) => setHead(e.target.value)} /></label>
@@ -129,7 +131,7 @@ export function KpiLadder({ kpis }: { kpis: K[] }) {
           </Card>
         ))}
       </div>
-      <ToolActions filename="kpi-ladder.csv" rows={() => [["Code", "Indicator", "Target", "Your value", "Status"], ...rows.map((r) => [r.k.code, r.k.title, r.k.target, r.v ?? "", r.met === null ? "" : r.met ? "met" : "below"])]} link={false} />
+      <ToolActions filename="kpi-ladder.csv" rows={() => [["Code", "Indicator", "Target", "Your value", "Status"], ...rows.map((r) => [r.k.code, r.k.title, r.k.target, r.v ?? "", r.met === null ? "" : r.met ? "met" : "below"])]} link={false}  card={{ type: "progress", params: { set: "kpis" } }} cardTitle="KPI Ladder" />
       <Note>Values typed here stay in this browser and are not saved. To record a reading for the team, enter it in the KPI tracker in the Workspace.</Note>
     </div>
   );
@@ -210,7 +212,7 @@ export function LinkBuilder({ wards, base }: { wards: ToolWard[]; base: string }
           ))}
         </div>
       )}
-      {valid && <ToolActions filename={`ward-links-${channel}.csv`} rows={() => [["Ward", "Constituency", "Link"], ...list.map((w) => [w.name, w.constituencyName, link(w)])]} link={false} />}
+      {valid && <ToolActions filename={`ward-links-${channel}.csv`} rows={() => [["Ward", "Constituency", "Link"], ...list.map((w) => [w.name, w.constituencyName, link(w)])]} link={false}  card={list[0] ? { type: "qr", params: { ward: list[0].id, channel } } : undefined} cardTitle="Ward QR poster" />}
       <Note>Each link carries the channel, the ward and the campaign tag, so a visit can be counted by ward in the site&rsquo;s or a page&rsquo;s analytics. The links record nothing about the person who opens them.</Note>
     </div>
   );

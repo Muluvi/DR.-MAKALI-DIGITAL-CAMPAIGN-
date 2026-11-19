@@ -9,6 +9,7 @@ Kitui does not lack money; it lacks the discipline to use it well, and that disc
 
 ```visual
 kind: stats
+id: case-summary
 items:
   - value: "{{pool}}"
     label: "voters in the pool wards"

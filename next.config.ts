@@ -2,6 +2,11 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  // The share-card images read their fonts from disk (app/api/card/[type]/route.tsx), so the
+  // files must travel with that route into the deployment.
+  outputFileTracingIncludes: {
+    '/api/card/[type]': ['./assets/fonts/**/*'],
+  },
   allowedDevOrigins: ['*.run.app', 'localhost:3000'],
   reactStrictMode: true,
   typescript: {

@@ -1512,3 +1512,5 @@ span.ms-key.ms-z--anchor { background: var(--pf-accent-solid); } span.ms-key.ms-
 .oc__role { display: grid; align-content: start; gap: 0.25rem; padding: 0.875rem; border: 1px solid var(--pf-line); border-radius: 0.875rem; background: var(--pf-raised); }
 .oc__icon { color: var(--pf-accent); }
 .oc__name { margin: 0; font: 700 1rem/1.3 var(--pf-display); color: var(--pf-ink); }
+.vz__save { display: flex; justify-content: flex-end; margin-top: 0.75rem; }
+@media print { .vz__save { display: none; } }

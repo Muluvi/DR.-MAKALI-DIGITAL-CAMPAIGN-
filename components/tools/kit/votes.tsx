@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { ToolActions } from "../public/ToolActions";
 import type { ToolConstituency, ToolWard } from "@/lib/tools/dataset";
 import { Badge, Bar, Card, n0, Note, pct, Select, Slider, Stat, Stats, Table } from "./ui";
+import { SaveImage } from "../../visual/SaveImage";
 
 /* ------------------------------------------------------------------ Coalition Path Builder */
 
@@ -48,7 +49,7 @@ export function CoalitionPath({ cons, benchmark, turnout, register2022, register
           <button type="button" className="plat-btn plat-btn-sm" onClick={() => setShare(Object.fromEntries(cons.map((c) => [c.id, 50])))}>Reset to 50%</button>
         </div>
       </Card>
-      <ToolActions filename="coalition-path.csv" rows={() => [["Constituency", "Ballots", "Share %", "Votes"], ...rows.map((r) => [r.c.name, Math.round(r.ballots), share[r.c.id], Math.round(r.votes)]), ["Total", Math.round(ballots), "", Math.round(votes)]]} link={false} />
+      <ToolActions filename="coalition-path.csv" rows={() => [["Constituency", "Ballots", "Share %", "Votes"], ...rows.map((r) => [r.c.name, Math.round(r.ballots), share[r.c.id], Math.round(r.votes)]), ["Total", Math.round(ballots), "", Math.round(votes)]]} link={false}  card={{ type: "big-number", params: { view: "winning", turnout: t.toFixed(1) } }} cardTitle="What it takes" />
     </div>
   );
 }
@@ -112,6 +113,7 @@ export function MapStudio({ wards }: { wards: ToolWard[] }) {
   const zoneFill = (x: ToolWard) => (x.zone === "anchor" ? "var(--accent-solid)" : x.zone === "mwingi" ? "var(--gold-solid)" : x.zone === "arid" ? "var(--phase-2, #7a5)" : "var(--line)");
   return (
     <div className="space-y-4">
+      <div className="flex justify-end print:hidden"><SaveImage card={{ type: "map", params: { layer: layer === "zone" ? "zones" : layer } }} title="Kitui Map Studio" /></div>
       <Card><Select label="Layer" value={layer} onChange={setLayer} options={(Object.keys(LAYER_LABEL) as Layer[]).map((l) => ({ value: l, label: LAYER_LABEL[l] }))} /></Card>
       <Card>
         <div className="grid gap-1" style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))", gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))` }} role="group" aria-label={`Ward tile map: ${LAYER_LABEL[layer]}`}>
@@ -173,7 +175,7 @@ export function ParetoWards({ wards }: { wards: ToolWard[] }) {
         { key: "v", label: "Voters", num: true, render: (r) => n0(r.w.voters) },
         { key: "c", label: "Running share", num: true, render: (r) => pct(r.share) },
       ]} />
-      <ToolActions filename="pareto-wards.csv" rows={() => [["Rank", "Ward", "Constituency", "Voters", "Running share %", "Chosen"], ...cum.map((r, i) => [i + 1, r.w.name, r.w.constituencyName, r.w.voters, r.share.toFixed(1), i < k ? "yes" : "no"])]} link={false} />
+      <ToolActions filename="pareto-wards.csv" rows={() => [["Rank", "Ward", "Constituency", "Voters", "Running share %", "Chosen"], ...cum.map((r, i) => [i + 1, r.w.name, r.w.constituencyName, r.w.voters, r.share.toFixed(1), i < k ? "yes" : "no"])]} link={false}  card={{ type: "ranked", params: { measure: "voters" } }} cardTitle="Ward league table" />
     </div>
   );
 }

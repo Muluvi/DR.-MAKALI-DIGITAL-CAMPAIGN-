@@ -5,8 +5,17 @@ import { PageHead } from "@/components/platform/PageHead";
 import { StationDownload } from "@/components/tools/public/StationDownload";
 import { ToolLimits } from "@/components/tools/public/ToolLimits";
 import { PUBLIC_SOURCES, PUBLIC_WARDS } from "@/lib/public-data";
+import { SaveImage } from "@/components/visual/SaveImage";
+import { wardOgImage } from "@/lib/card/og";
 
-export const metadata = { title: "Ward dossier | Kitui 2027", robots: { index: false, follow: false } };
+export async function generateMetadata({ params }: { params: Promise<{ code: string }> }) {
+  const { code } = await params;
+  const ward = PUBLIC_WARDS.find((w) => w.code === code);
+  const title = ward ? `${ward.name} ward | Kitui 2027` : "Ward dossier | Kitui 2027";
+  // The pasted link shows the ward's profile card (visual upgrade, E5).
+  const image = { url: wardOgImage(code), width: 1080, height: 1080, alt: title };
+  return { title, robots: { index: false, follow: false }, openGraph: { title, images: [image] }, twitter: { card: "summary_large_image", images: [image.url] } };
+}
 const n = (v: number) => v.toLocaleString("en-KE");
 type Station = { code: string; centre: string; station: string; voters: number };
 
@@ -23,6 +32,7 @@ export default async function Page({ params }: { params: Promise<{ code: string 
   return <>
     <p className="mb-3 text-[0.85rem]"><Link className="underline" href="/tools/ward-dossier">All wards</Link></p>
     <PageHead kicker={`${ward.constituency} constituency`} title={`${ward.name} ward`} />
+    <div className="mb-4 flex justify-end print:hidden"><SaveImage card={{ type: "ward", params: { ward: code } }} title={`${ward.name} ward profile`} /></div>
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">{stats.map(([l, v]) => <div key={l} className="plat-card p-4"><p className="text-[0.8rem] text-muted">{l}</p><p className="mt-1 font-mono text-xl text-ink">{v}</p></div>)}</div>
     <section className="mt-8"><h2 className="font-serif text-2xl text-ink">Compared with {ward.constituency}</h2>
       <ul className="mt-3 space-y-2">{peers.map((w) => <li key={w.code}><Link href={`/tools/ward-dossier/${w.code}`} className={`block text-[0.9rem] ${w.code === code ? "font-semibold text-ink" : "text-muted"}`}><span className="flex justify-between gap-3"><span>{w.name}</span><span className="font-mono">{n(w.voters)}</span></span><span className="mt-1 block h-2 rounded-full bg-accent-solid" style={{ width: `${(w.voters / peers[0].voters) * 100}%`, opacity: w.code === code ? 1 : 0.35 }} /></Link></li>)}</ul>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { FigureView } from "@/lib/tools/dataset";
 import { Badge, Bar, Card, ksh, n0, Note, pct, Select, Stat, Stats, Table, tierText } from "./ui";
+import { SaveImage } from "../../visual/SaveImage";
 
 const prov = (f: FigureView) => `${f.source ?? "this plan"}${f.asOf ? `, ${f.asOf}` : ""} · ${f.state === "target" ? "target" : tierText(f.tier)}${f.state === "modelled" ? ", calculated" : ""}`;
 
@@ -26,6 +27,7 @@ export function CountyMoney({ f, population }: { f: Record<string, FigureView>; 
   const total = v("budget.total");
   return (
     <div className="space-y-4">
+      <div className="flex justify-end print:hidden"><SaveImage card={{ type: "receipt" }} title="County money per resident" /></div>
       <Card><Select label="Show money as" value={per} onChange={setPer} options={[{ value: "total", label: "Totals" }, { value: "resident", label: "Per resident (2019 census population)" }]} /></Card>
       <Stats>
         <Stat label="Resource envelope, FY2026/27" value={show(total)} note={tierText(f["budget.total"].tier)} />
@@ -64,6 +66,7 @@ export function DroughtWatch({ phases, f, sections }: { phases: { label: string;
   const fmtV = (id: string, unit?: string) => `${f[id].display}${f[id].unit === "percent" ? "%" : ""}${unit ? ` ${unit}` : ""}`;
   return (
     <div className="space-y-4">
+      <div className="flex justify-end print:hidden"><SaveImage card={{ type: "forecast" }} title="Drought Watch" /></div>
       <Card>
         <p className="plat-kicker">NDMA drought phase</p>
         <p className="mt-1 font-serif text-[1.8rem] text-ink">{String(latest.value)} <span className="text-[1rem] text-muted">· {latest.as_of}</span></p>

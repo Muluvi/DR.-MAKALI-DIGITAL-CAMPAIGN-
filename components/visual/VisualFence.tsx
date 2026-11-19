@@ -8,6 +8,8 @@ import { FoldBody } from "../markdown/FoldBody";
 import { ConflictMark, InertMarks } from "../markdown/InlineMarks";
 import { isStatusTag } from "../../lib/inline-marks";
 import { CountUp } from "../premium/CountUp";
+import { SaveImage } from "./SaveImage";
+import type { CardRef } from "../../lib/card/spec";
 import { KituiIcon, PICTOGRAM_PATHS, type KituiIconName, type PictogramName } from "../icons/kitui";
 
 /**
@@ -714,6 +716,12 @@ function Body({ spec, md }: { spec: VisualSpec; md: Md }) {
   }
 }
 
+/** Fences that export as a share card, by their id (visual upgrade, E4: the story visuals). */
+const FENCE_CARDS: Record<string, CardRef> = {
+  "whats-inside": { type: "stat-grid", params: { set: "welcome" } },
+  "case-summary": { type: "stat-grid", params: { set: "case" } },
+};
+
 export function VisualFence({ json, texts }: { json: string; texts: Record<string, ReactNode> }) {
   // Every string this visual shows arrives already rendered, block and inline, keyed by its text
   // (visualTexts in components/MarkdownViewer.tsx): no markdown parser runs in the browser for it.
@@ -743,6 +751,11 @@ export function VisualFence({ json, texts }: { json: string; texts: Record<strin
         <Body spec={spec} md={md} />
       </div>
       {spec.source ? <p className="vz__source">{md(spec.source, true)}</p> : null}
+      {spec.id && FENCE_CARDS[spec.id] ? (
+        <div className="vz__save">
+          <SaveImage card={FENCE_CARDS[spec.id]} title={spec.title ?? undefined} />
+        </div>
+      ) : null}
       <FaceConflicts it={{ body: spec.body }} />
       {spec.body ? (
         <More label="Read the full text">

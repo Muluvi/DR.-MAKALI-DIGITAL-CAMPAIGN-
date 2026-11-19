@@ -2,6 +2,8 @@
 
 import { useSyncExternalStore } from "react";
 
+import { SaveImage } from "../../visual/SaveImage";
+
 type Item = { id: string; label: string; detail: string };
 const KEY = "kitui-nomination-path";
 
@@ -29,7 +31,10 @@ export function NominationPath({ items }: { items: Item[] }) {
           </label></li>
         ))}
       </ul>
-      <button type="button" className="plat-btn plat-btn-sm mt-3 print:hidden" onClick={() => window.print()}>Print</button>
+      <div className="mt-3 flex flex-wrap gap-2 print:hidden">
+        <button type="button" className="plat-btn plat-btn-sm" onClick={() => window.print()}>Print</button>
+        <SaveImage card={{ type: "progress", params: { done: items.map((it, k) => (done[it.id] ? String(k) : "")).filter(Boolean).join(",") } }} title="Nomination path" />
+      </div>
     </div>
   );
 }
