@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { PhoneFrame, type PhoneVariant, type PhoneLightingMode } from "./PhoneFrame";
 import { BODY_H, BODY_W } from "./device";
+import { SendHorizontal } from "lucide-react";
+import { KituiIcon } from "../icons/kitui";
 
 type ServiceChannel = "whatsapp" | "ussd" | "sms";
 
@@ -220,7 +222,7 @@ export function ServiceTrackerPhoneMockup() {
                       <div className="max-w-[85%] ml-auto bg-[#005c4b] rounded-xl rounded-tr-xs p-3 shadow-xs text-white">
                         {/* Simulated Photo Thumbnail */}
                         <div className="w-full h-24 rounded-lg bg-slate-800/80 mb-1 flex flex-col items-center justify-center border border-white/10 text-slate-300">
-                          <span className="text-xl">🚰</span>
+                          <KituiIcon name="borehole" size={24} aria-hidden="true" />
                           <span className="text-[0.59375rem] font-mono mt-1 text-slate-300">borehole_pump_mutomo.jpg</span>
                         </div>
                         <p className="text-[0.6875rem] leading-relaxed">
@@ -252,7 +254,7 @@ export function ServiceTrackerPhoneMockup() {
                         Type issue or reply...
                       </div>
                       <div className="w-8 h-8 rounded-full bg-[#00a884] flex items-center justify-center text-white text-xs font-bold shadow-xs">
-                        ➤
+                        <SendHorizontal size={16} aria-hidden="true" />
                       </div>
                     </div>
                   </div>

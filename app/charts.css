@@ -1027,7 +1027,7 @@
   --dv-water: oklch(0.55 0.13 235);
 }
 .dark {
-  --dv-q0: oklch(0.3 0.04 262); --dv-q1: oklch(0.42 0.08 262); --dv-q2: oklch(0.55 0.13 264); --dv-q3: oklch(0.68 0.15 264); --dv-q4: oklch(0.82 0.11 262);
+  --dv-q0: oklch(0.3 0.04 262); --dv-q1: oklch(0.4 0.08 262); --dv-q2: oklch(0.5 0.13 264); --dv-q3: oklch(0.68 0.15 264); --dv-q4: oklch(0.82 0.11 262);
   --dv-ink-on-q: oklch(0.16 0.03 262);
   --dv-water: oklch(0.74 0.11 230);
 }
@@ -1188,12 +1188,13 @@
 .ht__con { display: block; font-size: 0.6875rem; color: var(--pf-muted); }
 .ht tr[data-pool="true"] .ht__name::after { content: ""; display: inline-block; width: 0.4375rem; height: 0.4375rem; margin-left: 0.3125rem; border-radius: 999px; background: var(--pf-earth-solid); }
 .ht__sort { display: inline-flex; align-items: center; justify-content: flex-end; gap: 0.25rem; min-height: 2.75rem; font: 700 0.75rem/1.2 var(--pf-display); color: var(--pf-ink); text-align: right; }
+/* Text colour by shade, every pair measured at 4.5:1 or better in both themes (visual upgrade, D5):
+   the three lighter fifths carry the ink, the two darker ones the on-colour. */
 .ht td[data-q="0"] { background: var(--dv-q0); color: var(--pf-ink); }
 .ht td[data-q="1"] { background: var(--dv-q1); color: var(--pf-ink); }
-.ht td[data-q="2"] { background: var(--dv-q2); color: var(--dv-ink-on-q); }
+.ht td[data-q="2"] { background: var(--dv-q2); color: var(--pf-ink); }
 .ht td[data-q="3"] { background: var(--dv-q3); color: var(--dv-ink-on-q); }
 .ht td[data-q="4"] { background: var(--dv-q4); color: var(--dv-ink-on-q); }
-.dark .ht td[data-q="0"], .dark .ht td[data-q="1"] { color: var(--pf-ink); }
 
 /* Route timeline */
 .rt__tear { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
