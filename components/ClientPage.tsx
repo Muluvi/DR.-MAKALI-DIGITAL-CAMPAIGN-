@@ -34,6 +34,7 @@ import { Dock, Spine } from "./premium/Chrome";
 import { LiveFooterLine, StoryBar } from "./story/StoryBar";
 import { Tour } from "./story/Tour";
 import { ContactCard, PlatformMap, WorkstreamMap } from "./story/Visuals";
+import { FireflyLogo } from "./FireflyLogo";
 
 /** The platform's map, at the foot of its section. The cover's contact card is in the footer. */
 function ChapterExtras({ id }: { id: string }) {
@@ -573,6 +574,8 @@ export function ClientPage({ sections, documents, wordCounts, visibleWordCounts,
                       blurb={item.blurb}
                       asTitle={!expanded}
                     />
+                    {/* The welcome is Firefly's own introduction to the platform, so it carries Firefly's mark. */}
+                    {item.id === "welcome" && <FireflyLogo width={88} className="mt-3 mb-1" />}
                   </div>
                   {digest ? (
                     <>

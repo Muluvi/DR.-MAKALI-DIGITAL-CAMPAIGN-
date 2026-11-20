@@ -884,6 +884,7 @@
 /* the cover: talk to Firefly */
 .sx-contact { margin: 1.25rem 0; padding: 1rem 1.25rem; border-radius: 1.25rem; background: var(--ink); color: var(--paper); opacity: 0; transform: translateY(0.75rem); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.2,.8,.2,1); }
 .sx-contact[data-in="true"] { opacity: 1; transform: none; }
+.sx-contact__head { display: flex; align-items: center; gap: 1rem; }
 .sx-contact .sx-vis__kicker { color: color-mix(in srgb, var(--paper) 70%, transparent); }
 .sx-contact .sx-vis__title { color: var(--paper); }
 .sx-contact .sx-btn { background: transparent; color: var(--paper); border-color: color-mix(in srgb, var(--paper) 35%, transparent); }
