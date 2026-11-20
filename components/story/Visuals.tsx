@@ -8,6 +8,8 @@
  * own sections, not a substitute for them.
  */
 import React, { useEffect, useMemo, useState } from "react";
+import { FireflyLogo } from "../FireflyLogo";
+import { FireflyContact } from "../FireflyContact";
 import Link from "next/link";
 import {
   ArrowRight, BarChart3, BookOpen, Check, ChevronDown, Compass, Gauge, Languages, Layers, Mail,
@@ -476,10 +478,14 @@ export function ContactCard() {
   const [ref, inView] = useReveal<HTMLElement>();
   return (
     <section ref={ref} className="sx-contact print:hidden" data-in={inView ? "true" : "false"} aria-label="Talk to Firefly">
-      <div>
-        <p className="sx-vis__kicker">Prepared by Firefly Management</p>
-        <p className="sx-vis__title">Questions about anything here? Ask the people who built it.</p>
+      <div className="sx-contact__head">
+        <FireflyLogo width={72} surface="inverse" />
+        <div>
+          <p className="sx-vis__kicker">Prepared by Firefly Management</p>
+          <p className="sx-vis__title">Questions about anything here? Ask the people who built it.</p>
+        </div>
       </div>
+      <FireflyContact className="sx-contact__details" />
       <div className="sx-contact__row">
         <a className="sx-btn sx-btn--solid" href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hello Firefly, about the Kitui 2027 platform:")}`} target="_blank" rel="noreferrer"><MessageCircle size={15} aria-hidden="true" /> WhatsApp</a>
         <a className="sx-btn" href={`tel:+${WHATSAPP}`}><Phone size={15} aria-hidden="true" /> Call</a>
