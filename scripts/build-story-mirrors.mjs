@@ -6,7 +6,7 @@
  *   raci          content/engagement.md, 13.2 "Who does what, in one table"
  *   deliverables  content/receives.md, 21.2 "The deliverables schedule"
  *   workstreams   content/workstreams.md, the fourteen workstream headings
- *   contact       content/cover.md, Firefly's phone and email
+ *   contact       content/cover.md, Firefly's phone, email and office address
  *
  * Writes lib/story/mirrors.generated.json. With --check, fails if that file is stale.
  */
@@ -54,8 +54,9 @@ const workstreams = [...ws.matchAll(/^### (15\.\d\.\d) Workstream (\d+) — (.+)
 const cover = read("cover.md");
 const phone = cover.match(/·\s*(0\d{3} \d{3} \d{3})/)?.[1];
 const email = cover.match(/([\w.+-]+@[\w-]+\.[\w.]+)\s*·/)?.[1];
-if (!phone || !email) throw new Error("build-story-mirrors: the cover's contact line was not found");
-const contact = { phone, email, intl: `254${phone.replace(/\s/g, "").slice(1)}` };
+const address = cover.match(/^(.*Next Gen Mall.*)$/m)?.[1]?.trim();
+if (!phone || !email || !address) throw new Error("build-story-mirrors: the cover's contact or address line was not found");
+const contact = { phone, email, intl: `254${phone.replace(/\s/g, "").slice(1)}`, address };
 
 const json = JSON.stringify({ terms, raci, deliverables, groups, workstreams, contact }, null, 2) + "\n";
 if (process.argv.includes("--check")) {

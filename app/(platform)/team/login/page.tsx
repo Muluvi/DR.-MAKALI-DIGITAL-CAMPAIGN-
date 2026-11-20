@@ -3,6 +3,7 @@ import { getSession } from "@/lib/platform/auth";
 import { platformMode, teamLoginEnabled } from "@/lib/platform/config";
 import { PageHead } from "@/components/platform/PageHead";
 import { LoginForm } from "@/components/platform/LoginForm";
+import { FireflyContact } from "@/components/FireflyContact";
 
 export const metadata = { title: "Team sign-in | Kitui 2027", robots: { index: false, follow: false } };
 
@@ -19,6 +20,10 @@ export default async function Login() {
       ) : (
         <LoginForm passwordFirst={mode === "local"} />
       )}
+      <div className="mt-6 text-[0.85rem] text-muted">
+        <p className="mb-1">No account yet, or locked out? Firefly adds team members:</p>
+        <FireflyContact />
+      </div>
     </div>
   );
 }

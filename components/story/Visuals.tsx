@@ -9,6 +9,7 @@
  */
 import React, { useEffect, useMemo, useState } from "react";
 import { FireflyLogo } from "../FireflyLogo";
+import { FireflyContact } from "../FireflyContact";
 import Link from "next/link";
 import {
   ArrowRight, BarChart3, BookOpen, Check, ChevronDown, Compass, Gauge, Languages, Layers, Mail,
@@ -484,6 +485,7 @@ export function ContactCard() {
           <p className="sx-vis__title">Questions about anything here? Ask the people who built it.</p>
         </div>
       </div>
+      <FireflyContact className="sx-contact__details" />
       <div className="sx-contact__row">
         <a className="sx-btn sx-btn--solid" href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hello Firefly, about the Kitui 2027 platform:")}`} target="_blank" rel="noreferrer"><MessageCircle size={15} aria-hidden="true" /> WhatsApp</a>
         <a className="sx-btn" href={`tel:+${WHATSAPP}`}><Phone size={15} aria-hidden="true" /> Call</a>
